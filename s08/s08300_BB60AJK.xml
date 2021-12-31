@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Body Builder Electrical Data Book for Models Built January 2001 to February 28, 2007 - Electrical Features -
+        Special Gauge Cluster Indicators and Alarms - 60AJK - Dump Box Indicator Lights And Alarm
+    </stitle>
+    <svcman/>
+    <svcproc id="BB60AJK" svcproctype="describe" graphiccount="1">
+        <title>60AJK - Dump Box Indicator Lights And Alarm</title>
+        <para>
+            <emph type="boldundersc">FEATURE CODE DESCRIPTION:</emph>
+        </para>
+        <para>060AJK - INDICATOR LIGHTS (2), 1 for Body Up, 1 for Gate Open, Includes Audible Alarm, Programmable Mode
+            for Various Switch Actions (Requires 2 Remote Power Module Inputs).
+        </para>
+        <para>
+            <emph type="boldundersc">FEATURE / BODY FUNCTION:</emph>
+        </para>
+        <para>This feature provides the operator of
+            <emph type="bold">Dump Box</emph>
+            applications with visual and audible warning indications for a raised dump box body and opened dump gate
+            using Body Builder installed switches. This visual indications that are provided for this feature are a
+            <emph type="bold">"BODY UP"</emph>
+            light and a
+            <emph type="bold">"GATE OPEN"</emph>
+            light. These indications are provided within the lower left hand section of the instrument cluster, and are
+            controlled by J1939 datalink messages received from the ESC. Similarly, a J1939 datalink message from the
+            ESC will activate an audible alarm based on the programmable parameter that was set within the ESC for that
+            alarm. The ESC receives a Body Builder J1939 message from a RPM (Remote Power Module) that has two inputs
+            connected to Body Builder installed switches that indicate whe the dump box body has been raised or the box
+            gate has been opened. Programmed parameters within the ESC allow the input active state for the installed
+            switches to be configured for active when the input is either OPEN, GND, or 12V. These visual and audible
+            indications will only function when the ignition key is in the RUN position.
+        </para>
+        <para>For both the
+            <emph type="bold">"BODY UP"</emph>
+            and
+            <emph type="bold">"GATE OPEN"</emph>
+            indications, the associated light will illuminate continuously and the associated audible alarm (default of
+            OFF) will sound when the corresponding input has entered an active state on the condition that the park
+            brake is set and the vehicle speed is less than or equal to 10 MPH.
+        </para>
+        <para>For both the
+            <emph type="bold">"BODY UP"</emph>
+            and
+            <emph type="bold">"GATE OPEN"</emph>
+            indications, the associated light will illuminate in a slow flashing manner and the associated audible alarm
+            (default of 5 fast beeps) will sound when the corresponding input is in an active state and either the park
+            brake has been released or the vehicle speed has exceeded 10 MPH.
+        </para>
+        <para>Both the
+            <emph type="bold">"BODY UP"</emph>
+            and
+            <emph type="bold">"GATE OPEN"</emph>
+            lights will be off when the RPM input is inactive.
+        </para>
+        <para>
+            <emph type="boldundersc">SOFTWARE FEATURE CODES / PROGRAMMABLE PARAMETERS:</emph>
+        </para>
+        <para>Required Software Feature Codes: 595299 and 595301</para>
+        <para>Software Feature Codes that must be removed: NONE</para>
+        <para>The
+            <emph type="bold">TEM_Body_Up_Input_Active_State</emph>
+            parameter indicates the state that the ESC will read as active for the customer installed switch for the
+            dump body up function (As it goes into the RPM input). This active state will be used to tell the ESC when
+            the dump body has been raised up.
+        </para>
+        <para>The
+            <emph type="bold">TEM_Tail_Gate_Input_Active_State</emph>
+            parameter indicates the state that the ESC will read as active for the customer installed switch for the
+            dump gate open function (As it goes into the RPM input). This active state will be used to tell the ESC when
+            the dump body has been raised opened.
+        </para>
+        <para>The
+            <emph type="bold">TEM_Body_Up_Alarm_Beeper</emph>
+            parameter allows the customer to set the alarm type for the condition when the dump body has been raised
+            (active) and either the park brake has been released or the vehicle speed has exceeded 10 MPH. The default
+            alarm type is five fast beeps.
+        </para>
+        <para>The
+            <emph type="bold">TEM_Gate_Alarm_Beeper</emph>
+            parameter allows the customer to set the alarm type for the condition when the dump gate has been opened
+            (active) and either the park brake has been released or the vehicle speed has exceeded 10 MPH. The default
+            alarm type is five fast beeps.
+        </para>
+        <para>The
+            <emph type="bold">TEM_Body_Up_Beeper</emph>
+            parameter allows the customer to set the alarm type for the condition when the dump body has been raised
+            (active) and both the park brake is set and the vehicle speed is equal to or less than 10 MPH. The default
+            alarm type is off.
+        </para>
+        <para>The
+            <emph type="bold">TEM_Gate_Open_Beeper</emph>
+            parameter allows the customer to set the alarm type for the condition when the dump gate has been opened
+            (active) and both the park brake is set and the vehicle speed is equal to or less than 10 MPH. The default
+            alarm type is off.
+        </para>
+        <table id="t73000f1a">
+            <tgroup cols="9">
+                <colspec colname="col1" colwidth="1.45*"/>
+                <colspec colname="col2" colwidth="0.71*"/>
+                <colspec colname="col3" colwidth="1.82*"/>
+                <colspec colname="COLSPEC1" colwidth="0.91*"/>
+                <colspec colname="col4" colwidth="0.75*"/>
+                <colspec colname="col5" colwidth="0.91*"/>
+                <colspec colname="col6" colwidth="0.86*"/>
+                <colspec colname="col7" colwidth="0.77*"/>
+                <colspec colname="col8" colwidth="0.84*"/>
+                <spanspec namest="col4" nameend="col8" spanname="SPAN1"/>
+                <thead>
+                    <row>
+                        <entry morerows="1" align="center">
+                            <para>Parameter</para>
+                        </entry>
+                        <entry morerows="1" align="center">
+                            <para>ID</para>
+                        </entry>
+                        <entry morerows="1" align="center">
+                            <para>Description</para>
+                        </entry>
+                        <entry morerows="1" align="center">
+                            <para>Units</para>
+                        </entry>
+                        <entry colspan="5" spanname="SPAN1">
+                            <para>Settings</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Default</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                        <entry align="center">
+                            <para>2</para>
+                        </entry>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>TEM_Body_ Up_Input_ Active_ State</para>
+                        </entry>
+                        <entry>
+                            <para>PV-275</para>
+                        </entry>
+                        <entry>
+                            <para>Determines the Input Active Status.</para>
+                        </entry>
+                        <entry>
+                            <para>None</para>
+                        </entry>
+                        <entry>
+                            <para>3</para>
+                        </entry>
+                        <entry>
+                            <para>Open</para>
+                        </entry>
+                        <entry>
+                            <para>GND</para>
+                        </entry>
+                        <entry>
+                            <para>NA</para>
+                        </entry>
+                        <entry>
+                            <para>12 Volts</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Tail_ Gate_Input_ Active_State</para>
+                        </entry>
+                        <entry>
+                            <para>PV-226</para>
+                        </entry>
+                        <entry>
+                            <para>Determines the Input Active State</para>
+                        </entry>
+                        <entry>
+                            <para>None</para>
+                        </entry>
+                        <entry>
+                            <para>3</para>
+                        </entry>
+                        <entry>
+                            <para>Open</para>
+                        </entry>
+                        <entry>
+                            <para>GND</para>
+                        </entry>
+                        <entry>
+                            <para>NA</para>
+                        </entry>
+                        <entry>
+                            <para>12 Volts</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Body_ Up_Alarm_ Beeper</para>
+                        </entry>
+                        <entry>
+                            <para>PV-274</para>
+                        </entry>
+                        <entry>
+                            <para>Determines the type of alarm when the Vehicle Speed is greater than 10 mph</para>
+                        </entry>
+                        <entry>
+                            <para>None</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry>
+                            <para>5 fast beeps</para>
+                        </entry>
+                        <entry>
+                            <para>3 slow beeps</para>
+                        </entry>
+                        <entry>
+                            <para>contin- uous beeps</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Gate_ Alarm_ Beeper</para>
+                        </entry>
+                        <entry>
+                            <para>PV-276</para>
+                        </entry>
+                        <entry>
+                            <para>Determines the type of alarm when the Vehicle Speed is less than 10 mph</para>
+                        </entry>
+                        <entry>
+                            <para>None</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry>
+                            <para>5 fast beeps</para>
+                        </entry>
+                        <entry>
+                            <para>3 slow beeps</para>
+                        </entry>
+                        <entry>
+                            <para>contin- uous beeps</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Body_ Up_Beeper</para>
+                        </entry>
+                        <entry>
+                            <para>PV-273</para>
+                        </entry>
+                        <entry>
+                            <para>Determines the type of alarm when the Vehicle Speed is greater than 10 mph</para>
+                        </entry>
+                        <entry>
+                            <para>None</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry>
+                            <para>5 fast beeps</para>
+                        </entry>
+                        <entry>
+                            <para>3 slow beeps</para>
+                        </entry>
+                        <entry>
+                            <para>contin- uous beeps</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Gate_ Open_ Beeper</para>
+                        </entry>
+                        <entry>
+                            <para>PV-277</para>
+                        </entry>
+                        <entry>
+                            <para>Determines the type of alarm when the Vehicle Speed is greater than 10 mph</para>
+                        </entry>
+                        <entry>
+                            <para>None</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry>
+                            <para>5 fast beeps</para>
+                        </entry>
+                        <entry>
+                            <para>3 slow beeps</para>
+                        </entry>
+                        <entry>
+                            <para>contin- uous beeps</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">WIRING INFORMATION:</emph>
+        </para>
+        <figure id="f73000fhi" figsize="pg-wide">
+            <graphic filename="../figg73/g73000fhi.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                     scalefitheight="502px"/>
+            <caption></caption>
+        </figure>
+        <para>Connect gate open switch to RPM conn J3 input. Connector cavity is found in ICP or Diamond Logic&#8482;
+            Builder labeled "TEM_Tail_gate_signal".
+        </para>
+        <para>Connect body up switch to RPM conn J3 input. Connector cavity is found in ICAP or Diamond Logic&#8482;
+            Builder labeled "TEM_Body_up_signal".
+        </para>
+        <para>
+            <emph type="boldundersc">TESTING:</emph>
+        </para>
+        <step1>
+            <para count="1">Raise the dump body, the light should go on.</para>
+        </step1>
+        <step1>
+            <para count="1">Open the dump gate, the dump gate light should go on.</para>
+        </step1>
+        <step1>
+            <para count="1">Release the park brake with raised dump body or open dump gate and the alarm should give off
+                a continuous 5 fast beeps.
+            </para>
+        </step1>
+        <para>
+            <emph type="boldundersc">HOW DO I ADD THIS FEATURE:</emph>
+        </para>
+        <para>&#8226; Software feature codes 595299 and 595301 must be enabled using ICAP or Diamond Logic&#8482;
+            Builder software (See Local Dealer).
+        </para>
+        <para>&#8226; Set programmable parameters for software feature codes using ICAP or the Diamond Logic&#8482;
+            Builder software (See Local Dealer).
+        </para>
+        <para>&#8226; If vehicle does not have Remote Power Module installed, then customer must install RPM using codes
+            60AAA or 60AAB.
+        </para>
+        <para>&#8226; Connect gate open switch to RPM connector J3 input.</para>
+        <para>&#8226; Connect body up switch to RPM connector J3 input.</para>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_BB60AJD.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_92.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,788 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - EOP Sensor (Engine Oil Pressure)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="4">
+        <title>EOP Sensor (Engine Oil Pressure)</title>
+        <svcprocinfo>
+            <figure id="f27007070" figsize="pg-wide">
+                <graphic filename="../figh31/h31040.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for the EOP sensor</caption>
+            </figure>
+            <para>The function diagram for the EOP sensor includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para id="EOP">EOP sensor</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber and red)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The EOP sensor is a variable capacitance sensor installed in the left side of the crankcase below and
+                left of the fuel filter housing. The ECM supplies a 5 V reference signal which the EOP sensor uses to
+                produce a linear analog voltage that indicates oil pressure.
+            </para>
+            <para>An optional feature, the Engine Warning and Protection System (EWPS), can be enabled to warn the
+                engine operator and shut the engine down when a low engine oil pressure condition occurs.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>EOP Circuit Operation</title>
+            <figure id="f27007071" figsize="pg-wide">
+                <graphic filename="../figh31/h31069.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>EOP circuit diagram</caption>
+            </figure>
+            <para>The EOP sensor is supplied with a 5 V reference voltage at Pin 2 from ECM Pin X1-14. The EOP sensor is
+                grounded at Pin 1 from ECM Pin X1-6. The EOP sensor returns a variable voltage signal from Pin 3 to ECM
+                Pin X2-7.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>When the EOP signal voltage is detected out of range high or low, the ECM will cause the engine to
+                ignore the EOP signal and disable the EWPS.
+            </para>
+            <para>
+                <title>EOP Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red ENGINE lamp.</para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 211</emph>
+                </line>
+                <line>
+                    <emph type="bold">EOP signal out-of-range low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 211 is set by the ECM when the EOP signal is less than 0.039 V for more than 0.35
+                        second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 211 can be set due to an open or short to ground on the signal circuit, a failed ICP
+                        sensor or an open V
+                        <subscript>REF</subscript>
+                        circuit or V
+                        <subscript>REF</subscript>
+                        short to ground.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 211 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 212</emph>
+                </line>
+                <line>
+                    <emph type="bold">EOP signal out-of-range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 212 is set by the ECM when the EOP signal is greater than 4.9 V for more than 0.35
+                        second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 212 can be set due to signal circuit short to V
+                        <subscript>REF</subscript>
+                        or B+, or a failed EOP sensor.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 212 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 225</emph>
+                </line>
+                <line>
+                    <emph type="bold">EOP sensor signal in-range fault</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 225 is set by the ECM when the EOP signal voltage is greater than 207 kPa (30 psi) for 8
+                        seconds or more with the ignition key-on engine-off.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 225 can be set due to an open signal ground, V
+                        <supscript>REF</supscript>
+                        shorted to voltage source above 5.5 V, biased circuit, failed EOP sensor.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 225 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>3-Banana Plug Harness</para>
+                </item>
+                <item>
+                    <para>500 Ohm Resistor Harness</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+                <item>
+                    <para>Breakout Harness</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EOP Operational Diagnostics</title>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle - comply
+                        with the following:
+                    </para>
+                    <para>Be careful to avoid rotating parts (belts and fan) and hot engine surfaces.</para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Using EST, open the D_ContinuousMonitor.ssn.</para>
+            </step1>
+            <figure id="f27007072" figsize="col-wide">
+                <graphic filename="../figH31/H31229.webp" type="webp" scalefit="1" scalefitwidth="176px"
+                         scalefitheight="472px" box="no"/>
+                <caption>Continuous Monitor Test</caption>
+            </figure>
+            <step1>
+                <para count="1">To monitor signal voltage, run KOEO Continuous Monitor Test. For help, see
+                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Continuous Monitor Test"</hotlnk>
+                    in Section 3 .
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Monitor EOP signal voltage. Verify an active DTC for the EOP circuit.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is active, do step 6 and 7 to check circuit for the EOP sensor using the
+                    following table.
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Circuit Checks for EOP Sensor</para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">If code is inactive, wiggle connectors and wires at all suspected problem locations. If
+                    circuit continuity is interrupted, the EST will display DTCs related to the condition.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Disconnect engine harness from pressure sensor.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Inspect connectors for damaged pins, corrosion, or loose pins. Repair if necessary.</para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Connect Pressure Sensor Breakout Harness to engine harness only.</para>
+            </step1>
+            <table id="te27007060" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.18in"/>
+                    <colspec colname="col2" colwidth="0.93in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Circuit Checks for EOP Sensor</emph>
+                                    (Use EST, DMM, breakout harness, and 500 Ohm Resistor Harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Condition</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor disconnected using EST</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 0.039 V, check signal circuit for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Voltage from Pin 2 (Blue) to ground using DMM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 5.5 V, check V
+                                    <subscript>REF</subscript>
+                                    for short to B+. If voltage is &#60; 4.5 V, check V
+                                    <subscript>REF</subscript>
+                                    circuit for open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>500 Ohm Resistor Harness connected between Pin 3 (Green) and Pin 2 (Blue) of
+                                    breakout harness
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage &#60; 4.9 V, check signal circuit for open or short to ground.</para>
+                                <randlist type="dash">
+                                    <item>
+                                        <para>Disconnect connector 9260
+                                            <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the
+                                                battery box. Pin A is the chassis ground connection for the ECM and IDM.
+                                                See truck Chassis Electrical Circuit Diagram Manual for complete chassis
+                                                side ECM and IDM ground circuit information.</ftnote>. Measure
+                                            resistance from Pin 3 to Pin A of connector 9260 (spec > 1 k&#x2126;) to
+                                            check for short to ground within wiring harness.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Disconnect negative battery cable. Measure resistance from Pin 3 to ground
+                                            cable to check for short to ground.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Use a breakout box from Pin 3 to Pin X2-7 (spec &#60; 5 &#x2126;) to check
+                                            for open in the harness.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Resistance from Pin 1 (Black) of breakout harness to ECM chassis ground Pin A of
+                                    connector 9260 using DMM
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If resistance is > 5 &#x2126;, check for open or high resistance between ECM and
+                                    sensor connector. Use a breakout box and measure resistance from between Pin 1 and
+                                    Pin X1-6 (spec &#60; 5 &#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Connect engine harness to sensor. Use the EST to clear DTCs. If an active code
+                                    remains after checking test conditions, replace the EOP sensor.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EOP Pin-Point Diagnostics</title>
+            <figure id="f27007073" figsize="pg-wide">
+                <graphic filename="../figh31/h31069.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>EOP circuit diagram</caption>
+            </figure>
+            <table id="te27007061" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.24in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks to Ground</emph>
+                                    (Disconnect harness from sensor. Inspect for bent pins or corrosion. Connect
+                                    breakout harness to engine harness only. Turn the ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Signal ground (no voltage expected). If > 0.25 V, check ground circuit for open or
+                                    high resistance and check signal ground for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is not to spec, V
+                                    <subscript>REF</subscript>
+                                    circuit is shorted to ground, shorted to B+, or open.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 0.25 V, signal circuit is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to ECM Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Connect breakout harness to engine harness only.
+                                    Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the chassis ground connection for the ECM and IDM. See truck
+                                        Chassis Electrical Circuit Diagram Manual for complete chassis side ECM and IDM
+                                        ground circuit information.</ftnote>.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 500 &#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect harness from
+                                    sensor. Use disconnected negative battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126; , check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Connect breakout box [X1 and X2] to engine harness only. Connect breakout harness
+                                    to engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open ground wire.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-14 to 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open V
+                                    <subscript>REF</subscript>
+                                    wire.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-7 to 3</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open signal wire.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007062" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="1.36in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="COLSPEC0" colwidth="1.36in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for EOP Sensor with Breakout Harness
+                                    </emph>
+                                    (Check with breakout harness connected to sensor and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Voltage</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Pressure</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 (Green) to 1 (Black)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.89 V</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>34 kPa (5 psi)</para>
+                            </entry>
+                            <entry>
+                                <para>Pressure will vary with engine speed and temperature.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 (Green) to 1 (Black)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>1.15 V</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>69 kPa (10 psi)</para>
+                            </entry>
+                            <entry>
+                                <para>Pressure will vary with engine speed and temperature.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 (Green) to 1 (Black)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2.40 V</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>241 kPa (35 psi)</para>
+                            </entry>
+                            <entry>
+                                <para>Pressure will vary with engine speed and temperature.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 (Green) to 1 (Black)</para>
+                            </entry>
+                            <entry>
+                                <para>3.61 V</para>
+                            </entry>
+                            <entry>
+                                <para>414 kPa (60 psi)</para>
+                            </entry>
+                            <entry>
+                                <para>Pressure will vary with engine speed and temperature.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for EOP Sensor with Breakout Box</emph>
+                                    (Check with breakout box connected [X1 and X2] to ECM and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-7 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>0.89 V</para>
+                            </entry>
+                            <entry>
+                                <para>34 kPa (5 psi)</para>
+                            </entry>
+                            <entry>
+                                <para>Pressure will vary with engine speed and temperature.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-7 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>1.15 V</para>
+                            </entry>
+                            <entry>
+                                <para>69 kPa (10 psi)</para>
+                            </entry>
+                            <entry>
+                                <para>Pressure will vary with engine speed and temperature.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-7 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>2.40 V</para>
+                            </entry>
+                            <entry>
+                                <para>241 kPa (35 psi)</para>
+                            </entry>
+                            <entry>
+                                <para>Pressure will vary with engine speed and temperature.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-7 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>3.61 V</para>
+                            </entry>
+                            <entry>
+                                <para>414 kPa (60 psi)</para>
+                            </entry>
+                            <entry>
+                                <para>Pressure will vary with engine speed and temperature.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>EOP Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>DTC 211 = Signal voltage was &#60; 0.039 V for more than 0.35 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>DTC 212 = Signal voltage was > 4.9 V for more than 0.35 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>DTC 225 = Engine oil pressure was > 207 kPa (30 psi) for more than 8 seconds with
+                                    key-on engine-off
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>DTC 313 = See
+                                    <hotlnk document="eges270_147.xml" xrefid="s27005020">"Engine Warning and Protection
+                                        System"
+                                    </hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>DTC 314 = See
+                                    <hotlnk document="eges270_147.xml" xrefid="s27005020">"Engine Warning and Protection
+                                        System"
+                                    </hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_144.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_146.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,417 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos para motores VT 365 (2002) - DIAGN&#211;STICOS DEL SISTEMA DE CONTROL
+        ELECTR&#211;NICO - Diagn&#243;sticos de circuitos - Control del ventilador del motor (EFAN)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>Control del ventilador del motor (EFAN)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3369" filename="../figd33/d3369.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama de la funci&#243;n del control del ventilador del motor (EFAN)</caption>
+            </figure>
+            <para>El diagrama de la funci&#243;n del control del ventilador del motor (EFAN) incluye lo siguiente:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>Sensor de la temperatura del refrigerante (ECT)</para>
+                </item>
+                <item>
+                    <para>Sensor de la temperatura del aire de admisi&#243;n (IAT)</para>
+                </item>
+                <item>
+                    <para>Controlador electr&#243;nico de sistemas (ESC)</para>
+                </item>
+                <item>
+                    <para>Rel&#233; del ventilador del motor</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>
+            </para>
+            <para>El control del EFAN permite la activaci&#243;n y desactivaci&#243;n del ventilador de enfriamiento del
+                motor. El ECM se puede programar para establecer y monitorizar l&#237;mites de temperatura del
+                refrigerante y del aire de admisi&#243;n y la selecci&#243;n del modo de operaci&#243;n y diagn&#243;stico
+                del motor.
+            </para>
+            <para>Se obtiene acceso al EFAN con la EST. Las temperaturas de activaci&#243;n y desactivaci&#243;n del
+                ventilador pueden ser programadas por un t&#233;cnico, pero el modo de operaci&#243;n debe ser
+                programado por el departamento de servicio t&#233;cnico.
+            </para>
+            <para>El prop&#243;sito del control del ventilador del motor es determinar cu&#225;ndo debe encenderse o
+                apagarse el ventilador, suministrando o cortando la energ&#237;a al rel&#233; del ventilador. El prop&#243;sito
+                del ventilador del motor es producir un mayor flujo de aire para intercambio de calor entre el radiador
+                y el ambiente, cuando sea necesario.
+            </para>
+            <para>
+                <emph type="bold">Engine Fan Control</emph>
+                (control del ventilador): Este par&#225;metro indica al sistema electr&#243;nico si este cami&#243;n
+                tiene la funci&#243;n de control del ventilador del motor.
+            </para>
+            <para>
+                <emph type="bold">AC Fan Activation</emph>
+                (activaci&#243;n por acondicionador de aire): Esta funci&#243;n permite el encendido del ventilador a
+                trav&#233;s del ECM cuando se solicite a trav&#233;s del ESC durante la operaci&#243;n del
+                acondicionador de aire.
+            </para>
+            <para>
+                <emph type="bold">Disable</emph>
+                (desactivar): La funci&#243;n est&#225; desactivada continuamente.
+            </para>
+            <para>
+                <emph type="bold">Fan On Temperature</emph>
+                (temperatura de encendido): Este par&#225;metro indica la temperatura del refrigerante por encima de la
+                cual el ventilador ser&#225; encendido electr&#243;nicamente.
+            </para>
+            <para>
+                <emph type="bold">Fan Off Temperature</emph>
+                (temperatura de apagado): Este par&#225;metro indica la temperatura del refrigerante por debajo de la
+                cual el ventilador ser&#225; apagado electr&#243;nicamente.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Operaci&#243;n del circuito del EFAN</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3370" filename="../figd33/d3370.webp" type="webp" scalefit="1" scalefitwidth="352px"/>
+                <caption>Diagrama del circuito del EFAN</caption>
+            </figure>
+            <para>Con la llave de encendido en ON, la energ&#237;a se suministra a los terminales 30 y 86 del rel&#233;
+                del ventilador. El terminal X4-14 del ECM se usa para aplicar o retirar el circuito a tierra desde el
+                terminal 85 en el lado de la bobina del rel&#233; del ventilador. Cuando se necesita energizar
+                (encender) el ventilador, el terminal X4-14 es puesto a 12 V y se interrumpe el circuito a tierra del
+                lado de la bobina del rel&#233;, lo que provoca que el rel&#233; se desenganche y env&#237;e energ&#237;a
+                desde el terminal 30 al 87A del rel&#233; hacia el embrague del ventilador. Cuando se necesita
+                desenergizar (apagar) el ventilador, el terminal X4-14 es puesto a tierra internamente en el ECM y se
+                completa el circuito a tierra del lado de la bobina del rel&#233;, lo que provoca que el rel&#233; se
+                enganche e interrumpa la energ&#237;a hacia el embrague del ventilador.
+            </para>
+            <specpara>
+                <note>
+                    <para>El diagrama del circuito aparece con el ventilador encendido y el rel&#233; desenergizado.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>
+            </para>
+            <para>El ECM puede detectar una interrupci&#243;n o corto a tierra en el EFAN, durante una prueba est&#225;ndar
+                de motor a solicitud. El IAT y el ECT son monitorizados constantemente. Si se detecta un DTC en el IAT o
+                el ECT, el control del EFAN se desactiva y el ventilador del motor queda encendido constantemente.
+            </para>
+            <specpara>
+                <note>
+                    <para>Antes de realizar el diagn&#243;stico, verifique que el ECM est&#233; bien programado.
+                        Verifique que el veh&#237;culo tenga un ventilador electr&#243;nico.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>C&#243;digos de falla (DTC) del EFAN</title>
+            </para>
+            <para>Los DTC se leen con la herramienta electr&#243;nica de servicio (EST) o contando los destellos de las
+                luces ENGINE &#225;mbar y roja.
+            </para>
+            <verbatim id="f240dtc246">
+                <line>
+                    <emph type="bold">DTC 246</emph>
+                </line>
+                <line>
+                    <emph type="bold">Falla de la autoprueba de OCC</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 246 s&#243;lo durante la prueba est&#225;ndar con la llave en ON y el
+                        motor apagado. Durante esta prueba, el ECM realiza una comprobaci&#243;n de los circuitos de
+                        salida que moment&#225;neamente activa el solenoide del EFAN y mide la ca&#237;da de voltaje a
+                        trav&#233;s del rel&#233;.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">Herramientas</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Herramienta electr&#243;nica de servicio (EST) con software Master Diagnostics</para>
+                </item>
+                <item>
+                    <para>Cable de interfaz EZ-Tech de International&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Haz de derivaci&#243;n para rel&#233;s</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos del EFAN con los pines</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3370" filename="../figd33/d3370.webp" type="webp" scalefit="1" scalefitwidth="352px"/>
+                <caption>Diagrama del circuito del EFAN</caption>
+            </figure>
+            <para>El circuito del EFAN requiere que se usen los diagramas de circuitos del veh&#237;culo. Refi&#233;rase
+                al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n sobre los n&#250;meros
+                de los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+            </para>
+            <table id="te24007037" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de voltaje y resistencia del embrague del ventilador
+                                    </emph>
+                                    (Desconecte el embrague del ventilador. Con la llave en ON y el motor apagado).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Haga la Output State High Test (prueba del estado de las salidas altas) Si hay B+,
+                                    el circuito del EFAN est&#225; funcionando. Si no hay voltaje, el rel&#233; no est&#225;
+                                    activado. Posible interrupci&#243;n en el circuito hacia el solenoide o ECM mal
+                                    programado.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Haga la Output State Low Test (prueba del estado de las salidas bajas). Si hay
+                                    voltaje, busque un corto a fuente de voltaje o un corto a tierra en el circuito
+                                    activador.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistencia a tierra con la llave en OFF. Si >5 &#x2126;, busque conexi&#243;n a
+                                    tierra interrumpida o floja en el bloque del motor.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de voltaje en el conector del rel&#233; del
+                                        ventilador
+                                    </emph>
+                                    (Con la llave en ON y el rel&#233; desconectado).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3" morerows="1">
+                                <para>V
+                                    <subscript>IGN</subscript>
+                                    hacia el rel&#233;. Si no hay voltaje, refi&#233;rase al manual Diagrama de
+                                    circuitos el&#233;ctricos del chasis.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>86 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>85 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Control del ECM (no deber&#237;a haber voltaje)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>87A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a al EFAN (no deber&#237;a haber voltaje con rel&#233; desconectado).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de voltaje en X4 del ECM</emph>
+                                    (Con la caja de conexiones conectada al ECM y al cableado del chasis, el rel&#233;
+                                    conectado y la llave en ON).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-14 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ventilador apagado, haga la Output State Low Test.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-14 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ventilador encendido, haga la Output State High Test.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el cableado</emph>
+                                    (Con la llave en OFF. Desconecte el ventilador. Con la caja de conexiones s&#243;lo
+                                    en el cableado del chasis).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-14 a 85</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cableado entre el ECM y el terminal
+                                    del rel&#233;.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>87A a A (ventilador)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cableado entre el terminal del rel&#233;
+                                    y A (ventilador).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 al fusible</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cableado entre el fusible y el
+                                    terminal del rel&#233;. Refi&#233;rase al manual Diagrama de circuitos el&#233;ctricos
+                                    del chasis para informaci&#243;n sobre los fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 a 86</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cableado en el terminal del rel&#233;.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_163.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_165.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

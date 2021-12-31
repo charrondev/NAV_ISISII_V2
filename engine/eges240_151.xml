@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Idle Shutdown Timer (IST) System
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="1">
+        <title>Idle Shutdown Timer (IST) System</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3339" filename="../figd33/d3339.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Function Diagram for the Idle Shutdown Timer (IST) System</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>IST Operation</title>
+            <para>The Idle Shutdown Timer (IST) is an optional feature that allows the ECM to shutdown the engine when
+                an extended idle condition occurs. The idle timer can be programmed for the customer to automatically
+                shut the engine down for idle times that range from 2 to 120 minutes.
+            </para>
+            <para>Before engine shutdown, the red ENGINE lamp will illuminate. The lamp will flash for 30 seconds to
+                warn the operator the engine is approaching shutdown. Idle time is measured from last clutch or brake
+                pedal transition. The engine must be out of gear for the IST to work.
+            </para>
+            <para>The IST feature can be programmed to operate at specific ambient air temperatures, allowing engine
+                operation in cold or hot weather. Power Takeoff (PTO) applications can be programmed to disable the IST
+                feature for load levels or when PTO features are active.
+            </para>
+            <para>The resets for the Engine Shutdown Timer include:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>PTO is active</para>
+                </item>
+                <item>
+                    <para>Engine speed is not at idle speed (700 rpm)</para>
+                </item>
+                <item>
+                    <para>Vehicle movement or a Vehicle Speed Sensor (VSS) fault is detected</para>
+                </item>
+                <item>
+                    <para>Engine coolant operating temperature is below 60&#176;C (140&#176;F).</para>
+                </item>
+                <item>
+                    <para>Ambient air temperature is below 16&#176;C (60&#176;F) or above 44&#176;C (110&#176;F).</para>
+                </item>
+                <item>
+                    <para>Brake pedal movement or a brake switch fault is detected.</para>
+                </item>
+                <item>
+                    <para>Clutch pedal is depressed or a fault for the clutch pedal switch is detected (manual
+                        transmissions, if equipped with clutch switch).
+                    </para>
+                </item>
+                <item>
+                    <para>Shift selector is moved from neutral or park (automatic transmissions).</para>
+                </item>
+            </randlist>
+            <para>The IST feature provides several advantages when enabled. Reduced emissions, fuel consumption, and
+                engine wear are all direct results from the IST strategy.
+            </para>
+            <para>There are four states of the IST electronic operation.</para>
+            <randlist type="bullet">
+                <item>
+                    <para>
+                        <emph type="bold">Idle shutdown timer</emph>
+                        - indicates to the on-board electronics that the vehicle has the feature.
+                    </para>
+                    <randlist type="bullet">
+                        <item>
+                            <para>OFF - feature is turned off at all times.</para>
+                        </item>
+                        <item>
+                            <para>PTO available - feature allows prolonged engine idle shutdown when engine is in low
+                                idle and PTO is disabled.
+                            </para>
+                        </item>
+                        <item>
+                            <para>No engine load - feature allows prolonged engine idle shutdown when engine is in low
+                                idle / no load condition.
+                            </para>
+                        </item>
+                        <item>
+                            <para>Tamper proof - feature prohibits operator over-ride.</para>
+                        </item>
+                    </randlist>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Idle shutdown time</emph>
+                        - indicates the programmed value of engine idle time before engine will shutdown.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Maximum ambient intake air temperature</emph>
+                        - indicates maximum value of ambient intake air temperature programmed to shutdown engine. This
+                        feature prevents engine shutdown due to air conditioner usage.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Minimum ambient intake air temperature</emph>
+                        - indicates minimum value of ambient intake air temperature programmed to shutdown engine. This
+                        feature prevents engine shutdown due to cold ambient temperature.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The IST feature is internal to the ECM. The subsystems that contribute to the IST strategy have their
+                own fault codes. The fault code for the IST is not a system diagnostic trouble code. The IST fault code
+                is only set to indicate that the IST has been activated and the engine has shutdown.
+            </para>
+            <para>
+                <title>IST Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim id="f240dtc324">
+                <line>
+                    <emph type="bold">DTC 324</emph>
+                </line>
+                <line>
+                    <emph type="bold">IST enabled engine shutdown</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 324 is set by the ECM when the engine has been shutdown due to exceeding the programmed
+                        idle time criteria. The IST feature must be enabled for DTC 324 to be displayed.
+                    </para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>DTC 324 does not indicate any system or circuit DTCs. Diagnostic checks are not required for
+                        DTC 324.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <emph type="bold">Tools</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_150.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_152.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

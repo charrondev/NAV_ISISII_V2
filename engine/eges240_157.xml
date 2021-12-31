@@ -1,0 +1,514 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Intake Air Temperature (IAT) Sensor
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="4">
+        <title>Intake Air Temperature (IAT) Sensor</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="D3337" filename="../figD33/D3337.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Function Diagram for the Intake Air Temperature (IAT) Sensor</caption>
+            </figure>
+            <para>The Function Diagram for the IAT sensor includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Intake Air Temperature (IAT) sensor</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Fuel injector</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The Intake Air Temperature (IAT) sensor is a thermistor sensor located on the air filter housing. The
+                ECM supplies a 5V reference signal which the IAT uses to produce an analog voltage that indicates the
+                intake air temperature. The IAT changes resistance when exposed to different temperatures. When air
+                temperature decreases, the resistance of the thermistor increases. This causes the signal voltage to
+                increase. When air temperature increases, the resistance of the thermistor decreases. This causes the
+                signal voltage to decrease.
+            </para>
+            <para>The IAT sensor provides a feedback signal to the ECM indicating intake air temperature. The ECM
+                monitors the IAT signal to control the timing and fuel rate for cold starting. The continuous monitoring
+                by the IAT sensor limits smoke emissions.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>IAT Circuit Operation</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3338" filename="../figd33/d3338.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>IAT Circuit Diagram</caption>
+            </figure>
+            <para>The IAT sensor is supplied with a 5V reference signal at terminal 1 from ECM terminal X1-7. A return
+                circuit (ground) is supplied at terminal 2 from ECM terminal X1-6. As the air temperature increases or
+                decreases, the sensor changes resistance and provides the air temperature signal voltage at the ECM. The
+                signal voltage is read by the ECM to determine the intake air temperature.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>When the ECM detects an IAT signal out of range high or low, the ECM will ignore the IAT signal and
+                assume an ambient temperature of 25&#176;C (77&#176;F).
+            </para>
+            <para>
+                <title>IAT Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp on the vehicle dash.
+            </para>
+            <verbatim id="f240dtc154">
+                <line>
+                    <emph type="bold">DTC 154</emph>
+                </line>
+                <line>
+                    <emph type="bold">IAT signal out of range low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 154 is set by the ECM if signal voltage is less than 0.127V for more than 0.35 second.
+                        When DTC 154 is active, the ECM will default to 25&#176;C (77&#176;F) for starting.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 154 can be set due to a short to ground in the signal circuit or a defective IAT sensor.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 154 is active, the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc155">
+                <line>
+                    <emph type="bold">DTC 155</emph>
+                </line>
+                <line>
+                    <emph type="bold">IAT signal out of range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 155 is set by the ECM if signal voltage is more than 4.6V for more than 0.35 second. When
+                        DTC 155 is active, the ECM will default to a value of 25&#176;C (77&#176;F) for starting.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 155 can set due to an open signal or ground circuit, a short to a voltage source, or a
+                        defective sensor.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 155 is active, the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Harness - 3-banana plug and 500 ohm</para>
+                </item>
+                <item>
+                    <para>Breakout harness</para>
+                </item>
+                <item>
+                    <para>Breakout box</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>IAT Operational Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3338" filename="../figd33/d3338.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>IAT Circuit Diagram</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>To prevent serious personal injury, possible death, or damage to the engine or vehicle -
+                        comply with the following:
+                    </para>
+                    <para>Be careful to avoid rotating parts (belts and fan) and hot engine surfaces.</para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Using EST, open the continuous monitor session. To monitor signal voltage, run Key ON
+                    Engine OFF continuous monitor test.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Monitor IAT signal volts. Verify an active DTC for the IAT circuit.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is active, complete step 5 and do circuit check for the IAT sensor in table on
+                    the following page.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If code is inactive, wiggle connectors and wires at all suspected problem locations. If
+                    circuit continuity is interrupted, the EST will beep and display DTCs related to the condition.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Install temperature sensor breakout harness to engine harness only.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>After removing connector, inspect for damaged pins, corrosion, or loose terminals. Repair as
+                        required.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te24007070" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.18in"/>
+                    <colspec colname="col2" colwidth="0.93in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Circuit Checks for IAT Sensor</emph>
+                                    (Use EST, breakout harness, and wire harnesses - 3-Banana plug and 500 ohm.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Condition</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>4.6V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage &#60;4.6V, check signal circuit for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3-Banana plug harness installed between GREEN and BLACK pins of breakout
+                                    harness.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is >0.127V, check ground and signal circuit for open or high
+                                    resistance. Use a breakout box and measure resistance from PIN 2 to PIN X1-6 and
+                                    from PIN 1 to X1-7 (spec &#60;5&#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>500 ohm harness installed between GREEN and BLACK pins of breakout harness.</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;1.0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage >1.0V, check signal circuit for short to V
+                                    <subscript>REF</subscript>, B+, or another sensor's signal voltage.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <step1>
+                <para count="1">Connect engine harness to sensor. Use the EST to clear DTCs. If an active code remains
+                    after checking test conditions, replace the IAT sensor.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>IAT Pin Point Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3338" filename="../figd33/d3338.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>IAT Circuit Diagram</caption>
+            </figure>
+            <table id="te24007071" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>
+                                    (Disconnect sensor from harness and turn ignition key ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0-0.25V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Signal ground (No voltage expected). If >0.25V, signal wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4.6-5.0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Pull up voltage, if no voltage, circuit has open, high resistance, or short to
+                                    ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground</emph>
+                                    (Turn ignition key OFF. Disconnect sensor connector and negative battery cable.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for open ground circuit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, check for signal circuit short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Install breakout box on engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 to 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for open ground wire</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-7 to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If>5&#x2126;, check for open signal wire open</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007072" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="1.70in"/>
+                    <colspec colname="col2" colwidth="1.35in"/>
+                    <colspec colname="COLSPEC0" colwidth="3.02*"/>
+                    <colspec colname="col3" colwidth="2.98*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for IAT Sensor</emph>
+                                    (Check with breakout box installed to the ECM and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Point</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Temp &#176;C (&#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Resistance</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Volts @ Resistance</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 to X1-7</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0&#176;C (32&#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>91.1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>3.846V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 to X1-7</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>20&#176;C (68&#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>35.5k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>3.041V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 to X1-7</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>100&#176;C (212&#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>2.0k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>0.446V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">IAT Diagnostic Trouble Code</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>DTC 154 = Signal voltage was &#60;0.127V for more than 0.2 seconds</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>DTC 155 = Signal voltage was >4.6V for more than 0.2 seconds</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_156.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_158.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

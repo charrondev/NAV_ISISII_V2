@@ -1,0 +1,733 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - EOP
+        (Engine Oil Pressure) Switch
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.18" svcproctype="diagnose" graphiccount="9">
+        <title>EOP (Engine Oil Pressure) Switch</title>
+        <svcprocinfo id="s305010706.18.1">
+            <figure id="f305010780" figsize="pg-wide">
+                <graphic filename="../figj31/j31191.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for the EOP switch</caption>
+            </figure>
+            <para id="s305010706.14.1.1"></para>
+            <table id="t3050107168" type="simple" frame="topbot">
+                <title>The function diagram for the EOP switch includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Engine Oil Pressure (EOP) switch</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Amber Lamp (Warn Engine Lamp (WEL) for CF)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Red Lamp (Oil/Water Lamp (OWL) for CF)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <para>
+                <title>Function</title>The EOP switch is located in the oil filter base assembly. The ECM supplies a 5
+                volt signal to the EOP switch. When engine oil pressure is present the 5 volt signal is switched to
+                ground (the switch is grounded).
+            </para>
+            <para>The Engine Warning and Protection System (EWPS), is enabled to warn the engine operator when a low
+                engine oil pressure condition occurs.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.18.2">
+            <title>EOP Circuit Operation</title>
+            <figure id="f305010781" figsize="pg-wide">
+                <graphic filename="../figj31/j31192.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>EOP circuit diagram</caption>
+            </figure>
+            <para>The EOP switch is supplied with a 5 volt signal at Pin 1 from ECM Pin X1-13. The EOP switch housing is
+                grounded to the engine block. The ECM monitors Pin X1-13.
+            </para>
+            <para>When engine oil pressure is present, the 5 volt signal is switched to ground and Pin X1-13 is 0 volts.
+                When oil pressure is not present, X1-13 is 5 volts.
+            </para>
+            <para>
+                <title>Fault Detection/Management</title>The ECM continuously monitors the signal of the EOP switch to
+                determine if the signal is within an expected range. If there is an open circuit it is interpreted as no
+                oil pressure. If there is a short to ground, it is interpreted as oil pressure with KOEO.
+            </para>
+            <para>
+                <title>EOP DTCs</title>DTCs are read using the EST or by counting the flashes from the amber and red
+                lamps.
+            </para>
+            <table id="t3050107169" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 225</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">EOP sensor signal in range fault</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 225 is set by the ECM when the EOP signal voltage is less than expected with
+                                    ignition switch to ON and the engine off.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 225 can be set due to a short to ground or failed EOP switch.</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>When DTC 225 is active, the amber lamp (WEL for CF) is illuminated.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107170" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 313</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">EWPS - Engine Oil Pressure below warning level</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 313 is set by the ECM, when engine oil pressure is lower than expected while
+                                    the engine is running.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 313 can be set by an open circuit, short to voltage source in the EOP circuit,
+                                    a loose or failed EOP switch, or low oil pressure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>When DTC 313 is active, the red lamp (OWL for CF) is illuminated.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107171" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech&#174; interface cable</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Digital Multimeter (DMM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>500 Ohm resistor harness</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Breakout Box</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Breakout harness</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Terminal Test Adapter Kit</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="s305010706.18.3">
+            <title>EOP Operational Diagnostics - DTC 225</title>
+            <specpara>
+                <warning>
+                    <para>To avoid personal injury, death, including damage to the engine or vehicle, be careful to
+                        avoid rotating parts (belts and fan) and hot engine surfaces.
+                    </para>
+                </warning>
+            </specpara>
+            <figure id="f305010782" figsize="col-wide">
+                <graphic filename="../figj31/j31240.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Continuous Monitor session</caption>
+            </figure>
+            <step1>
+                <para count="1">Using EST, select D_ContinuousMonitor.ssn from the Open Session File window, select Open
+                    to open the session.
+                </para>
+            </step1>
+            <figure id="f305010783" figsize="col-wide">
+                <graphic filename="../figJ31/J31046.webp" type="webp" scalefit="1" scalefitwidth="176px"
+                         scalefitheight="312px"/>
+                <caption>Continuous Monitor Test</caption>
+            </figure>
+            <step1>
+                <para count="1">To monitor signal voltage, run KOEO Continuous Monitor Test. For help, see "
+                    <hotlnk xrefid="s30503003.2.5.1">Continuous Monitor Test</hotlnk>
+                    " in the "
+                    <hotlnk document="eges3052_E3050103.xml" xrefid="e3050103">Diagnostic Software Operation</hotlnk>
+                    " section of this manual.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Monitor EOP signal voltage. Verify an active DTC for the EOP circuit.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is active, do step 6 to check circuit for the EOP switch using the following
+                    table.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If code is inactive, wiggle connectors and wires at all suspected problem locations. If
+                    circuit continuity is interrupted, the EST will display DTCs related to the condition.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Disconnect engine harness from pressure switch.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Inspect connectors for damaged pins, corrosion, or loose pins. Repair if necessary.</para>
+                </note>
+            </specpara>
+            <figure id="f305010784" figsize="col-wide">
+                <graphic filename="../figj31/j31087.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Close session</caption>
+            </figure>
+            <step1>
+                <para count="1">When finished with this test, select Session from menu bar, then Close.</para>
+            </step1>
+            <table id="t3050107172" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Circuit Checks - EOP Switch</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.53in"/>
+                    <colspec colname="col2" colwidth="0.61in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Use EST, DMM, and 500 ohm wire harness</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Switch disconnected</para>
+                            </entry>
+                            <entry>
+                                <para>5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If voltage is less than 5 volts, check signal circuit for open or short to
+                                    ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>500 Ohm resistor harness connected between wire and ground</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If 5 volts, check for open circuit to ECM or possible ECM failure.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Connect engine harness to switch. Use the EST to clear DTCs. If an active code
+                                    remains after checking test conditions, replace the EOP switch.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="s305010706.18.4">
+            <title>EOP Operational Diagnostics - DTC 313</title>
+            <specpara>
+                <warning>
+                    <para>To avoid personal injury, death, including damage to the engine or vehicle, be careful to
+                        avoid rotating parts (belts and fan) and hot engine surfaces.
+                    </para>
+                </warning>
+            </specpara>
+            <figure id="f305010785" figsize="col-wide">
+                <graphic filename="../figj31/j31240.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Continuous Monitor session</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>To avoid personal injury, use care to prevent contact with the door edge when the cab is up
+                        and the door is open.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Using EST, select D_ContinuousMonitor.ssn from the Open Session File window, select Open
+                    to open the session.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Start the Engine.</para>
+            </step1>
+            <figure id="f305010786" figsize="col-wide">
+                <graphic filename="../figj31/j31050.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Continuous Monitor test</caption>
+            </figure>
+            <step1>
+                <para count="1">Select Diagnostics from the menu bar.</para>
+            </step1>
+            <step1>
+                <para count="1">Select Key-On Engine-Running tests from the drop down menu.</para>
+            </step1>
+            <step1>
+                <para count="1">Monitor EOP signal voltage. Verify an active DTC for the EOP circuit.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is active, do step 8 and 9 to check circuit for the EOP sensor using the
+                    following table.
+                </para>
+            </step1>
+            <specpara>
+                <warning>
+                    <para>To avoid personal injury, death, including damage to the engine or vehicle, be careful around
+                        rotating parts (belts and fan) and hot engine surfaces.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">If code is inactive, wiggle connectors and wires at all suspected problem locations. If
+                    circuit continuity is interrupted, the EST will display DTCs related to the condition. Check for
+                    loose switch.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Disconnect engine harness from pressure sensor.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Inspect connectors for damaged pins, corrosion, or loose pins. Repair if necessary.</para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Connect Pressure Sensor Breakout Harness to engine harness only.</para>
+            </step1>
+            <figure id="f305010787" figsize="col-wide">
+                <graphic filename="../figj31/j31087.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Close session</caption>
+            </figure>
+            <step1>
+                <para count="1">When finished with this test, select Session from menu bar, then Close.</para>
+            </step1>
+            <table id="t3050107173" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Circuit Checks - EOP Switch</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.53in"/>
+                    <colspec colname="col2" colwidth="0.61in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Disconnect engine harness from pressure switch. Use EST, DMM, and 500 ohm wire
+                                    harness
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Switch disconnected</para>
+                            </entry>
+                            <entry>
+                                <para>5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If voltage is less than 5 volts, check signal circuit for open or short to
+                                    ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>500 Ohm resistor harness connected between the wire and ground</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If 5 volts, check for open wire to ECM or possible ECM failure.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Connect engine harness to switch. Use the EST to clear DTCs. If an active code
+                                    remains after checking test conditions, replace the EOP switch.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="s305010706.18.5">
+            <title>EOP Pin-Point Diagnostics</title>
+            <figure id="f305010788" figsize="pg-wide">
+                <graphic filename="../figj31/j31192.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>EOP circuit diagram</caption>
+            </figure>
+            <table id="t3050107174" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - Connector</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.02in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Disconnect harness from sensor and turn ignition switch to ON.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is not to spec, EOP circuit is open or shorted to ground.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107175" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Resistance Checks - Connector to Chassis Ground</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.02in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect negative battery cable and switch
+                                    connector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107176" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - ECM to EOP Switch</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.02in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Connect Breakout Box on engine harness only.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-13 to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open signal wire.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107177" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Operational Voltage Checks - EOP Switch (KOEO)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.02in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Use EST to monitor engine oil pressure PID. Turn ignition switch to ON, do not
+                                    crank engine.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EOP connected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 psi</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If 40 psi, check for short to ground.</para>
+                                <para>If 0 psi, do next check "EOP disconnected".</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>EOP disconnected</para>
+                            </entry>
+                            <entry>
+                                <para>0 psi</para>
+                            </entry>
+                            <entry>
+                                <para>If 0 psi, do "
+                                    <hotlnk xrefid="t3050107178">Operational Voltage Checks - EOP Switch (Engine Idle)
+                                    </hotlnk>
+                                    " in the next table.
+                                </para>
+                                <para>If 40 psi, check for short to ground.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107178" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Operational Voltage Checks - EOP Switch (Engine Idle)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.02in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Use EST to monitor engine oil pressure PID. Engine idling.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EOP connected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>40 psi</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If 0 psi and EOP circuit resistance checks are good, check oil pressure with
+                                    gauge, do "
+                                    <hotlnk document="eges3052_87.xml" xrefid="tp305010508">Test 8. Engine Oil</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050105.xml" xrefid="e3050105">Hard Start and No Start
+                                        Diagnostics
+                                    </hotlnk>
+                                    " section of this manual. If oil pressure is within specification, replace EOP
+                                    switch.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1"></entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">EOP Diagnostic Trouble Codes</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 225 = EOP signal was 0 volts with Key-On Engine Off.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 313 = EOP signal was 5 volts with engine running.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_143.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_145.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

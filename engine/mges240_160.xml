@@ -1,0 +1,653 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos para motores VT 365 (2002) - DIAGN&#211;STICOS DEL SISTEMA DE CONTROL
+        ELECTR&#211;NICO - Diagn&#243;sticos de circuitos - Comunicaciones entre el m&#243;dulo de control electr&#243;nico
+        (ECM y el m&#243;dulo impulsor de los inyectores (IDM)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="4">
+        <title>Comunicaciones entre el m&#243;dulo de control electr&#243;nico (ECM y el m&#243;dulo impulsor de los
+            inyectores (IDM)
+        </title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d31108" filename="../figd31/d31108.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama de la funci&#243;n del sistema de comunicaciones ECM / IDM</caption>
+            </figure>
+            <para>El diagrama de la funci&#243;n del sistema de comunicaciones ECM / IDM incluye lo siguiente:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo impulsor de los inyectores (IDM)</para>
+                </item>
+                <item>
+                    <para>Se&#241;al de salida de la posici&#243;n del cig&#252;e&#241;al (CKPO)</para>
+                </item>
+                <item>
+                    <para>Se&#241;al de salida de la posici&#243;n del &#225;rbol de levas (CMPO)</para>
+                </item>
+                <item>
+                    <para>Enlace de red de &#225;rea del controlador (CAN 2)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>
+            </para>
+            <para>El m&#243;dulo de control electr&#243;nico (ECM) proporciona dos canales de salida para asistir al m&#243;dulo
+                impulsor de los inyectores (IDM) con las se&#241;ales de velocidad y posici&#243;n del motor. Los
+                canales de la se&#241;al de salida de la posici&#243;n del cig&#252;e&#241;al (CKPO) y la se&#241;al de
+                salida de la posici&#243;n del &#225;rbol de levas (CMPO) est&#225;n en fase con las se&#241;ales del
+                CKP y CMP recibidas por el ECM.
+            </para>
+            <para>El ECM y el IDM est&#225;n en comunicaci&#243;n constante. La CKPO y la CMPO convierten las se&#241;ales
+                del CKP y del CMP en controles de conmutaci&#243;n que hacen interfaz con el IDM.
+            </para>
+            <para>El enlace de red de &#225;rea del controlador (CAN 2) es una l&#237;nea de comunicaci&#243;n
+                bidireccional entre el ECM y el IDM. Ambos controladores usan el enlace para enviar estrategias de
+                operaci&#243;n, informaci&#243;n sobre sensores, solicitudes de diagn&#243;stico y c&#243;digos de falla
+                (DTC).
+            </para>
+            <specpara>
+                <note>
+                    <para>El motor no funcionar&#225; sin las se&#241;ales CAN 2, CKPO o CMPO.</para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Operaci&#243;n del circuito ECM / IDM</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d31107" filename="../figd31/d31107.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama del circuito ECM / IDM</caption>
+            </figure>
+            <para>El enlace de comunicaciones entre el ECM y el IDM consiste en una serie de se&#241;ales
+                interdependientes que incluyen la se&#241;al de salida de la posici&#243;n del cig&#252;e&#241;al
+                (CKPO), la se&#241;al de salida de la posici&#243;n del &#225;rbol de levas (CMPO) y el enlace de red de
+                &#225;rea del controlador (CAN 2).
+            </para>
+            <para>La CKPO es una se&#241;al de 0 a 12 V que comunica la posici&#243;n del cig&#252;e&#241;al entre el
+                ECM y el IDM. El IDM usa la se&#241;al, que se calcula a partir de la se&#241;al del CKP, para
+                sincronizar la secuencia de disparo de los inyectores. El ECM genera la CKPO poniendo a tierra un
+                circuito de comunicaciones de 12 V en el IDM.
+            </para>
+            <para>La CMPO es una se&#241;al de 0 a 12 V que comunica la posici&#243;n del &#225;rbol de levas entre el
+                ECM y el IDM. El IDM usa la se&#241;al, que se calcula a partir de la se&#241;al del CMP, para
+                sincronizar la secuencia de disparo de los inyectores. El ECM genera la CMPO poniendo a tierra un
+                circuito de comunicaciones de 12 V en el IDM.
+            </para>
+            <para>El CAN 2 es un enlace privado de comunicaciones de alta velocidad J1939 entre el ECM y el IDM. El ECM
+                recibe mensajes desde el IDM que incluyen el estado de las bobinas de los inyectores, el nivel de
+                calibraci&#243;n del IDM, DTC de la CMPO y la CKPO, DTC de los inyectores y el resultado de las pruebas
+                de los inyectores. El IDM recibe desde el ECM instrucciones de diagn&#243;stico para los inyectores,
+                estrategias, modos y condiciones de operaci&#243;n.
+            </para>
+            <specpara>
+                <note>
+                    <para>El CAN 2 s&#243;lo se usa como enlace de comunicaciones entre el ECM y el IDM. No tiene relaci&#243;n
+                        con el enlace CAN 1, que se usa para la comunicaci&#243;n entre los diversos procesadores de un
+                        veh&#237;culo.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>
+            </para>
+            <para>El ECM monitoriza constantemente al IDM. El ECM genera un DTC cuando deja de recibir la comunicaci&#243;n
+                constante requerida desde el IDM.
+            </para>
+            <para>
+                <title>C&#243;digos de falla (DTC) del ECM / IDM</title>
+            </para>
+            <para>Los DTC se leen con la herramienta electr&#243;nica de servicio (EST) o contando los destellos de las
+                luces ENGINE &#225;mbar y roja.
+            </para>
+            <verbatim id="f240dtc543">
+                <line>
+                    <emph type="bold">DTC 543</emph>
+                </line>
+                <line>
+                    <emph type="bold">Falla en las comunicaciones entre ECM e IDM</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 543 cuando no se puede comunicar con el IDM.</para>
+                </item>
+                <item>
+                    <para>El DTC 543 puede aparecer si el enlace CAN 2 J1939 entre el ECM y el IDM est&#225; en corto a
+                        tierra, al V
+                        <subscript>REF</subscript>
+                        o a B+, o si hay una interrupci&#243;n en la corriente. El DTC 543 puede aparecer si la energ&#237;a
+                        del IDM es baja.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 543 est&#225; activo, la luz ENGINE &#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc551">
+                <line>
+                    <emph type="bold">DTC 551</emph>
+                </line>
+                <line>
+                    <emph type="bold">Se&#241;al CMPO del IDM est&#225; inactiva</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 551 cuando no hay se&#241;al CMPO mientras la se&#241;al CKPO est&#225;
+                        activa. Tambi&#233;n puede aparecer el DTC 551 cuando no hay CMPO/CKPO pero el ECM reporta que
+                        est&#225; en modo de marcha.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 551 puede aparecer cuando la CMPO est&#225; interrumpida o en corto a tierra, o hay
+                        corto a una fuente de voltaje. El DTC 551 puede aparecer si la energ&#237;a para la l&#243;gica
+                        es baja.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc552">
+                <line>
+                    <emph type="bold">DTC 552</emph>
+                </line>
+                <line>
+                    <emph type="bold">Firma incorrecta de la CMPO del IDM</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El DTC 552 aparece cuando la transici&#243;n de la CMPO sucede con el diente equivocado de la
+                        CKPO.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 552 puede aparecer si el &#225;rbol de levas est&#225; mal sincronizado con respecto al
+                        cig&#252;e&#241;al o si hay interferencia el&#233;ctrica que produce un conteo incorrecto de la
+                        ubicaci&#243;n del CMP.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc553">
+                <line>
+                    <emph type="bold">DTC 553</emph>
+                </line>
+                <line>
+                    <emph type="bold">Se&#241;al CKPO del IDM est&#225; inactiva</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 553 cuando no hay se&#241;al CKPO mientras la se&#241;al CMPO est&#225;
+                        activa. Tambi&#233;n puede aparecer el DTC 553 cuando no hay CMPO/CKPO pero el ECM reporta que
+                        est&#225; en modo de marcha.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 553 puede aparecer cuando la CKPO est&#225; interrumpida o en corto a tierra, o hay
+                        corto a una fuente de voltaje. El DTC 553 tambi&#233;n puede aparecer si la energ&#237;a para la
+                        l&#243;gica es baja.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc554">
+                <line>
+                    <emph type="bold">DTC 554</emph>
+                </line>
+                <line>
+                    <emph type="bold">Firma incorrecta de la se&#241;al CKPO del IDM</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 554 cuando la se&#241;al CKPO tiene muy pocas o demasiadas transiciones
+                        por cada rotaci&#243;n del motor.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 554 puede aparecer si hay interferencia el&#233;ctrica o si el CKP est&#225;
+                        defectuoso.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Herramientas</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Herramienta electr&#243;nica de servicio (EST) con software Master Diagnostics</para>
+                </item>
+                <item>
+                    <para>Cable de interfaz EZ-Tech de International&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Caja de conexiones</para>
+                </item>
+                <item>
+                    <para>Juego de adaptadores para probar terminales</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos del ECM / IDM con los pines</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d31107" filename="../figd31/d31107.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="592px"/>
+                <caption>Diagrama del circuito ECM / IDM</caption>
+            </figure>
+            <table id="te24007029" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.94in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo de la bater&#237;a
+                                        al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1" align="center">
+                                <caution>
+                                    <para>Para no causar da&#241;os al motor, ponga la llave de encendido en OFF antes
+                                        de desenchufar el conector o el rel&#233; del ECM y del IDM. No poner la llave
+                                        en OFF provocar&#225; un sobrevoltaje y da&#241;ar&#225; componentes el&#233;ctricos.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones del voltaje entre el conector del IDM y la tierra del
+                                        chasis
+                                    </emph>
+                                    (Con la caja de conexiones s&#243;lo en X1 y X2 del conector para el ECM en el
+                                    cablea do del motor. Con la llave en ON y el motor apagado. No conecte la caja de
+                                    conexiones al ECM. Inspeccione en busca de pines doblados y corrosi&#243;n).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-6 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>1-4 V</para>
+                            </entry>
+                            <entry>
+                                <para>Se&#241;al digital. Si no hay voltaje, busque interrupci&#243;n o corto a
+                                    tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-13 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>1-4 V</para>
+                            </entry>
+                            <entry>
+                                <para>Se&#241;al digital. Si no hay voltaje, busque interrupci&#243;n o corto a
+                                    tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-19 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>11-12 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60;11-12 V, busque interrupci&#243;n o corto a tierra. Revise el rel&#233; de
+                                    energ&#237;a del IDM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-24 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>11-12 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60;11-12 V, busque interrupci&#243;n o corto a tierra. Revise el rel&#233; de
+                                    energ&#237;a del IDM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-12 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Circuito a tierra, no deber&#237;a haber voltaje.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia a la tierra del chasis</emph>
+                                    (Con la caja de conexiones s&#243;lo en X1 y X2 del conector para el ECM en el
+                                    cableado del motor. Ponga la llave en OFF. Desconecte el cable negativo de la bater&#237;a).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-19 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3" morerows="3">
+                                <para>Si &#60;1 k&#x2126;, busque un corto a tierra o un problema interno del IDM.
+                                    Pruebe con X3 del conector del IDM desconectado. Si el problema contin&#250;a,
+                                    repare o sustituya el cableado. Si desconectar X3 resuelve el problema, sustituya el
+                                    IDM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-24 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-6 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-13 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-12 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;10 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >10 &#x2126;, busque interrupci&#243;n en el cableado.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el cableado</emph>
+                                    (Con la caja de conexiones s&#243;lo en X1 y X2 del conector del ECM. Mida en el
+                                    terminal X3 del conector del IDM con pines de prueba. Los terminales del conector
+                                    del IDM est&#225;n numerados en el extremo de conexi&#243;n).
+                                </para>
+                                <note>
+                                    <para>Los puntos de prueba son desde el ECM hacia el IDM.</para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ECM X1-19 a IDM X3-5</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cableado.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ECM X1-24 a IDM X3-10</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cableado.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ECM X2-6 a IDM X3-30</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cableado.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ECM X2-13 a IDM X3-31</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cableado.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ECM X2-12 a IDM X3-32</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cableado.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d31107" filename="../figd31/d31107.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama del circuito ECM / IDM</caption>
+            </figure>
+            <table id="te24007030" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="5">
+                    <colspec colname="col1" colwidth="1.56in"/>
+                    <colspec colname="col2" colwidth="1.36in"/>
+                    <colspec colname="COLSPEC0" colwidth="2.99*"/>
+                    <colspec colname="COLSPEC1" colwidth="3.24*"/>
+                    <colspec colname="COLSPEC2" colwidth="3.28*"/>
+                    <spanspec namest="col1" nameend="COLSPEC2" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones operacionales de CMPO y CKPO</emph>
+                                    (Con la caja de conexiones conectada al ECM y al cableado del motor).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Punto de prueba</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Arranque del motor</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Ralent&#237; bajo</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>Ralent&#237; alto</para>
+                            </entry>
+                            <entry colname="COLSPEC2">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-24 a X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>130-225 RPM
+                                    <supscript>2</supscript>
+                                    a 130-225 RPM
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>700 RPM
+                                    <supscript>2</supscript>
+                                    a 700 RPM
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>2950 RPM
+                                    <supscript>2</supscript>
+                                    a 2950 RPM
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC2">
+                                <para>Ponga el DMM en DC-rpm
+                                    <supscript>2</supscript>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-19 a X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>130-225 Hz a 130-225 RPM</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>700 Hz a 700 RPM</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>2,95 Hz a 2950 RPM</para>
+                            </entry>
+                            <entry colname="COLSPEC2">
+                                <para>Ponga el DMM en DC-Hz</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Descripci&#243;n de los c&#243;digos de falla</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 543 = Falla en las comunicaciones entre ECM e IDM</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 551 = Se&#241;al CMPO del IDM est&#225; inactiva.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 552 = Firma incorrecta de la se&#241;al CMPO del IDM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 553 = Se&#241;al CKPO del IDM est&#225; inactiva.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 554 = Firma incorrecta de la se&#241;al CKPO del IDM.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_159.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_161.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

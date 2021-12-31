@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - ENGINE COOLANT TEMPERATURE SENSOR
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450320" svcproctype="proctype" graphiccount="4">
+        <title>ENGINE COOLANT TEMPERATURE SENSOR</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef1450388">Figure 3.64 Engine Coolant Temperature (ECT) Sensor</hotlnk>
+            </para>
+            <figure id="ef1450388" figsize="col-wide">
+                <graphic id="eg6008" filename="../figeg6/eg6008.webp" type="webp"/>
+                <caption>Figure 3.64 Engine Coolant Temperature (ECT) Sensor</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>SIGNAL FUNCTIONS</title>
+            <para>The Engine Coolant Temperature (ECT) sensor is a thermister type sensor that has a variable resistance
+                that changes when exposed to different temperatures. When interfaced with the ECM it produces a 0 to 5
+                volt analog signal that will measure temperature.
+            </para>
+            <para>
+                <emph type="bold">Coolant Temperature Compenstion</emph>
+                -
+                <emph type="bold"></emph>At coolant temperatures greater than 214F (101C) fuel quantity is reduced by 6%
+                for each degree of temperature (C), until engine temperature reaches 218F (103C) . Above 218F (103C)
+                fuel is reduced by 3% for each C increase in temperature.
+            </para>
+            <para>
+                <emph type="bold">Idle Speed</emph>
+                -
+                <emph type="bold"></emph>At temperatures below 158F, (70C) low idle is incremently increased to a
+                maximum of 875 RPM.
+            </para>
+            <para>
+                <emph type="bold">Engine Warning and Protection -</emph>
+                Optional feature when enabled will warn driver of overheat condition and can be programmed to shut the
+                engine down.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault detection/management</title>
+            <para>An ECT signal that is detected out of range high or low by the ECM will cause the ECM to ignore the
+                ECT signal and assume an engine coolant temperature of -29F (-20C) for starting and a temperature of
+                180F (82C) for engine running conditions. The WARN lamp will also be illuminated as long as the fault
+                condition exists.
+            </para>
+            <para>
+                <hotlnk xrefid="ef1450389">Figure 3.65 Engine Coolant Temperature (ECT) Sensor Diagnostics</hotlnk>
+            </para>
+            <figure id="ef1450389" figsize="col-wide">
+                <graphic id="eg6009" filename="../figeg6/eg6009.webp" type="webp"/>
+                <caption>Figure 3.65 Engine Coolant Temperature (ECT) Sensor Diagnostics</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ENGINE COOLANT TEMPERATURE SENSOR EXTENDED SYSTEM DESCRIPTION</title>
+            <para>
+                <title>FUNCTION</title>
+            </para>
+            <para>The Navistar engine control system includes a Engine Coolant Temperature sensor. The ECM measures the
+                Engine Coolant Temperature signal and uses this information for Coolant Temperature Compensation and
+                optional high temperature warning and shut down systems.
+            </para>
+            <para>Coolant temperature Compensation is used to protect the engine if the coolant temperature is too high.
+                The ECM monitors the ECT signal to determine the coolant temperature. If the coolant reaches 214F(101C
+                ), the ECM will reduce the fuel delivery by 6% for each Celsius degree of temperature increase. If the
+                coolant temperature increases to 218F(104C), fuel quantity will be reduced 3% for each Celsius degree of
+                temperature increase. Coolant Temperature Compensation can be programmed to be inoperative in certain
+                applications where full engine performance is required over the protection of the engine.
+            </para>
+            <para>On engines equipped with an engine warning system, the ECM will activate the audible warning alarm and
+                illuminate the yellow Oil/Water warning light when the engine coolant temperature reaches 225F (107C).
+            </para>
+            <para>On engines equipped with an engine shut down system, the ECM will shut the engine off when the coolant
+                temperature reaches 235F (112.5C). The vehicle operator may restart the engine by turning the ignition
+                key "OFF" and then restarting it. Upon restart, the ECM will allow the engine to run for an additional
+                30 seconds, before shutting off the engine again.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>OPERATION</title>
+            <para>The Engine Coolant temperature sensor is a thermistor type sensor which changes resistance when
+                exposed to different temperatures.
+            </para>
+            <para>When the temperature of the coolant is decreased, the resistance of the thermistor increases which
+                causes the signal voltage to increase. As the temperature of the coolant is increased the resistance of
+                the thermistor decreases, which causes the signal voltage to decrease.
+            </para>
+            <para>The ECT sensor is supplied a regulated 5 volt reference voltage from ECM terminal 7. The sensor is
+                grounded at terminal A through the signal return, terminal 46, at the ECM. As the coolant temperature
+                increases or decreases, the sensor changes resistance and provides the ECM with the coolant temperature
+                signal voltage at terminal 7 of the ECM. This signal voltage is then read by the ECM to determine the
+                temperature of the coolant.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM DIAGNOSTICS</title>
+            <para>With the ignition key "ON", the ECM continuously monitors the ECT circuit for expected voltages. If
+                the signal voltage is less than or more than expected the ECM will set a fault code.
+            </para>
+            <para>If the ECM detects a fault in the ECT signal, the ECM will disregard the signal and default to a
+                temperature of 180F (82C) for engine running operation and -29F (-33.9C) for starting the engine. If the
+                fault is no longer present, the ECM will once again return to normal operation using the ECT signal for
+                processing.
+            </para>
+            <para>Faults in the ECT signal can be retrieved using the Self Test Input Switch (STI) or the Electronic
+                Service Tool. If the fault is no longer present, it will be stored as an Inactive Code.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 114</title>
+            <para>
+                <title>ATA CODE PID 110 FMI 4</title>
+            </para>
+            <para>
+                <title>ECT: OUT OF RANGE LOW</title>
+            </para>
+            <para>An out of range low code will be set if the ECM detects a voltage less than .127 volts for more than
+                0.1 seconds. If this fault is Active, the ECM will use the default value of 180F (82C).
+            </para>
+            <para>Code 114 may be caused by a short to ground or a shorted or biased sensor.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 115</title>
+            <para>
+                <title>ATA CODE PID 110 FMI 3</title>
+            </para>
+            <para>
+                <title>ECT: OUT OF RANGE HIGH</title>
+            </para>
+            <para>An out of range high code will be set if the ECM detects a voltage greater than 4.6 volts for more
+                than 0.1 seconds. If this fault is Active, the ECM will use the a default value of 180F (82C).
+            </para>
+            <para>Code 115 may be caused by an open circuit, an open sensor, or a short to another voltage source.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 321</title>
+            <para>
+                <title>ATA CODE PID 110 FMI 0</title>
+            </para>
+            <para>
+                <title>ENGINE COOLANT TEMPERATURE ABOVE WARNING LEVEL</title>
+            </para>
+            <para>Code 321 will be set if the ECM detects engine coolant temperature above 225F (107C). When this
+                occurs, the ECM illuminates the OIL/WATER warning light and sounds the audible alarm (if equipped),
+                alerting the operator that a potential for engine damage exists.
+            </para>
+            <para>If the temperature drops below 225F(107C), the code will become inactive and the ECM will return to
+                normal operation.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 322</title>
+            <para>
+                <title>ATA CODE PID 110 FMI 7</title>
+            </para>
+            <para>
+                <title>ENGINE COOLANT TEMPERATURE ABOVE CRITICAL LEVEL</title>
+            </para>
+            <para>Code 322 will be set if the ECM detects engine coolant temperature above 235F (112.5C). When this
+                occurs, the OIL/WATER warning light illuminates and the audible alarm sounds (if equipped) will alert
+                the operator that the temperature is increasing (having set code 321) indicating a potential for engine
+                damage. With code 322 active, the engine will shut down. At the same time the code and current engine
+                hours will be recorded in the VPM as an Engine Event.
+            </para>
+            <para>If the temperature drops below 235F (112.5C), the code will become inactive and the ECM will return to
+                normal operation. Should the engine shut down, it can be restarted to move the vehicle to a safe place.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 325</title>
+            <para>
+                <title>ATA CODE PID 110 FMI 14</title>
+            </para>
+            <para>
+                <title>POWER REDUCED, MATCHED TO COOLING SYSTEM PERFORMANCE</title>
+            </para>
+            <para>Code 325 will be set if the cooling system temperature exceeds 214F (101C ). At this temperature the
+                ECM will reduce the fuel delivered to the engine at or near the maximum demand level. For each one
+                Celsius degree of temperature the fuel will be reduced 6%. This reduces the heat produced by the engine
+                thereby reducing the burden on the engine cooling system. It will also slow the vehicle speed
+                encouraging the operator to downshift, thus increasing the efficiency of the cooling system.
+            </para>
+            <para>As the temperature is reduced the compensation level is reduced until the temperature drops below 214F
+                (101C ) at which normal operation is resumed.
+            </para>
+            <figure id="ef1450390" figsize="col-wide">
+                <graphic id="eg6010" filename="../figeg6/eg6010.webp" type="webp"/>
+                <caption>Figure 3.66 Sensor Circuit Diagram</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef1450391">Figure 3.67 Engine Coolant Temperature (ECT) Sensor Diagnostics</hotlnk>
+            </para>
+            <figure id="ef1450391" figsize="col-wide">
+                <graphic id="eg6011" filename="../figeg6/eg6011.webp" type="webp"/>
+                <caption>Figure 3.67 Engine Coolant Temperature (ECT) Sensor Diagnostics</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refer to circuit diagram Figure
+                        <hotlnk xrefid="ef1450390">3.66</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450319.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450321.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

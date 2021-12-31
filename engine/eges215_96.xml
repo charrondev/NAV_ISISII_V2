@@ -1,0 +1,597 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 530 Engine Diagnostic Manual for 4000 Series Trucks (2001) - ELECTRONIC CONTROL SYSTEM
+        DIAGNOSTICS - CIRCUIT FUNCTION AND DIAGNOSTICS - Injection Control Pressure Sensor (ICP)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Injection Control Pressure Sensor (ICP)</title>
+        <svcsubproc>
+            <title>Signal Functions</title>
+            <figure id="f17503063" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8844.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Injection Control Pressure Sensor Function Diagram</caption>
+            </figure>
+            <para>The Injection Control Pressure (ICP) sensor is a variable capacitance sensor that when supplied with a
+                5V reference signal from the ECM produces a linear analog voltage signal that indicates pressure.
+            </para>
+            <para>The ICP sensor's primary function is to provide a feedback signal to indicate injection control
+                pressure to enable the ECM to command the correct injector timing and pulse width and the correct
+                injection control pressure for proper fuel delivery at all speed and load conditions.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>If the ECM detects a malfunctioning ICP sensor or a problem in the ICP sensor circuit, the ECM will
+                illuminate the amber ENGINE lamp and the odometer will display the message
+                <emph type="bold">WARN ENG</emph>. The ECM will go to open loop control of injection control pressure
+                (operate from an estimated ICP pressure).
+            </para>
+            <figure id="f17503064" figsize="pg-wide">
+                <graphic filename="../figEG8/EG8812.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Injection Control Pressure Sensor Circuit Diagram Using a Breakout Tee</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>After removing connector always check for damaged pins, corrosion, loose terminals etc.</para>
+                </note>
+            </specpara>
+            <table id="te17503020">
+                <title>ICP Sensor Tests Using Master Diagnostics</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.85*"/>
+                    <colspec colname="col2" colwidth="0.42*"/>
+                    <colspec colname="col3" colwidth="1.74*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Injection Control Pressure (ICP) Sensor Voltage Checks</emph>
+                                    (check with key-ON engine-OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Install the 3 wire breakout tee between the ICP sensor and harness connector. View
+                                    ICP VOLTAGE using the
+                                    <emph type="bold">Continuous Monitor</emph>
+                                    test found under the diagnostics menu in MASTER DIAGNOSTICS. If the circuit has an
+                                    active fault according to the voltage level (Code124 &#60;0.039V, Code 125 >4.9V,
+                                    Code 332 >1.625V), complete the following steps. Tests must be performed in order.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Condition</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Expected Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor Disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage >0.039V, check signal circuit for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Measure voltage from PIN B to gnd using a DMM.</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is >5.5V, check V
+                                    <subscript>REF</subscript>
+                                    for short to B+. If voltage is &#60;4.5V, check V
+                                    <subscript>REF</subscript>
+                                    for open or short to Ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0.5 k&#x2126; jumper installed between the GREEN and BLUE pins of the breakout
+                                    tee.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is &#60;4.9V, check signal circuit for open circuit or short to ground.
+                                    Remove positive battery cable. Measure resistance from PIN C to Ground (spec >500&#x2126;)
+                                    and from PIN C to PIN 16 (spec &#60;5&#x2126;) using a breakout box to determine if
+                                    short to ground or open is in the harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Standard jumper installed between the BLUE, GREEN, and BLACK pins of the breakout
+                                    tee.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is >0.039V, check ground circuit for resistance. Measure resistance
+                                    between PIN A and PIN 19 (spec &#60;5&#x2126;) using a breakout box to determine if
+                                    resistance is in the harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Replace the sensor if the code is active and the expected results
+                                        are obtained with all the sensor tests. The sensor
+                                    </emph>
+                                    <emph type="boldundersc">is not at fault</emph>
+                                    <emph type="bold">if one or more of the sensor tests does not produce the expected
+                                        results. See ICP Sensor Troubleshooting Flowchart</emph>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Continued on Next Page</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">OPERATIONAL VOLTAGE CHECKS</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">MD Voltage: Signal (GREEN tee) to gnd</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Spec.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Check with breakout tee installed, key ON</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">psi</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0.15 to 0.3V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Atmospheric pressure with key-ON engine-OFF</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1.0V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>580</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Minimum at engine cranking speed</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0.74 - 0.81V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>425 - 475</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Normal warm low idle</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3.33V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2550</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Snap accel</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Description</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>124 = Signal voltage was &#60;0.039 volts for more than 1.0 sec.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>125 = Signal voltage was >4.9 volts for more than 1.0 sec.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>332 = Signal voltage was >1.625 volts, ignition key ON, engine OFF (1160 psi).
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te17503020.1">
+                <title>ICP Sensor Circuit Specifications</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.45*"/>
+                    <colspec colname="col2" colwidth="0.47*"/>
+                    <colspec colname="col3" colwidth="2.07*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">CONNECTOR VOLTAGE CHECKS</emph>(check with sensor disconnected
+                                    from harness, key ON)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Points</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Spec.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Signal ground, no voltage expected</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5&#177;0.5V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage not in spec., Vref circuit shorted to gnd or B+</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;0.25V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > spec., wire shorted to Vref or B+</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">CONNECTOR CHECKS TO CHASSIS GROUND</emph>(check with sensor
+                                    connector disconnected, positive battery cable disconnected, and key OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Points</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Spec.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>> 5&#x2126;, indicates circuit is open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 500&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60; 500&#x2126;, indicates short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60; 1k&#x2126;, indicates short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">HARNESS RESISTANCE CHECKS</emph>(check with breakout box installed
+                                    on chassis side only)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Points</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Spec.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>19 to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126; indicates ground wire open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>40 to B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126; indicates V
+                                    <subscript>REF</subscript>
+                                    wire open
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>16 to C</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126; indicates signal wire open</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>
+                <emph type="bold">Function</emph>
+            </para>
+            <para>The International engine control system includes an Injection Control Pressure Sensor. The ECM
+                measures the signal from the ICP sensor to determine the Injection Control Pressure as the engine is
+                running to modulate the Injection Control Pressure Regulator. This is a closed loop function which means
+                the ECM continuously monitors and adjusts for ideal Injection Control Pressure which is determined by
+                operating conditions such as load, speed, and temperature.
+            </para>
+            <para>The ECM monitors the ICP signal to determine if the performance of the hydraulic system is
+                satisfactory. During engine operation, if the ECM recognizes that the pressure reading is lower or
+                higher than the value that was commanded, the ECM will set a Diagnostic Trouble Code. This strategy is
+                also used during the On Demand tests, commanded by the EST and referred to as the Engine Running tests.
+            </para>
+            <para>
+                <emph type="bold">Operation</emph>
+            </para>
+            <para>The Injection Control Pressure Sensor is a variable capacitance sensor that is supplied with a 5V
+                reference voltage at terminal B from ECM terminal 40. The ICP sensor is also supplied with a return
+                circuit (ground) at terminal A from ECM terminal 19. The ICP sensor sends a signal from terminal C of
+                the sensor to ECM terminal 16.
+            </para>
+            <para>The ICP signal voltage changes in direct proportion to the injection control pressure.</para>
+            <para>
+                <emph type="bold">ECM Diagnostics</emph>
+            </para>
+            <para>The ECM continuously monitors the voltage signal of the ICP sensor to determine if the signal is
+                within an expected range. If the signal voltage is higher or lower than expected, the ECM will set a
+                Diagnostic Trouble Code. The ECM will then ignore the ICP sensor signal and will use a preset value
+                determined by engine operating conditions. If the ignition key is shut off, the code will become
+                inactive.
+            </para>
+            <para>ICP Diagnostic Trouble Codes can be retrieved using the Electronic Service Tool (EST) or by reading
+                the Diagnostic Trouble Code flashes from the amber and red ENGINE lamps, see .
+            </para>
+            <para>If the ignition key is shut off, the code will become inactive. ICP codes will cause the ECM to
+                illuminate the amber ENGINE lamp and the odometer to display the message WARN ENG.
+            </para>
+            <para id="f175fc124">
+                <emph type="bold">Diagnostic Trouble Code 124</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, PID 164, FMI 4</emph>
+            </para>
+            <para>
+                <emph type="bold">ICP signal Out of Range LOW</emph>
+            </para>
+            <para>When code 124 is active the amber ENGINE lamp is illuminated and the odometer displays the message
+                WARN ENG.
+            </para>
+            <para>An Out of Range LOW code 124 will be set by the ECM if the signal voltage is less than 0.039V for more
+                than 1.0 seconds.
+            </para>
+            <para>Diagnostic Trouble Code 124 may be set due to an open or short to ground on the signal circuit, a
+                defective sensor or an open V
+                <subscript>REF</subscript>
+                circuit.
+            </para>
+            <para id="f175fc125">
+                <emph type="bold">Diagnostic Trouble Code 125</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, PID 164, FMI 3</emph>
+            </para>
+            <para>
+                <emph type="bold">ICP Signal Out Of Range HIGH</emph>
+            </para>
+            <para>When code 125 is active the amber ENGINE lamp is illuminated and the odometer displays the message
+                WARN ENG.
+            </para>
+            <para>An Out of Range HIGH code 125 will be set by the ECM if the signal voltage is greater than 4.9V for
+                more than 1.0 seconds.
+            </para>
+            <para>Diagnostic Trouble Code 125 may be set by an open return circuit (ground), short to a voltage source
+                on the ICP signal circuit or a defective sensor.
+            </para>
+            <para id="f175fc332">
+                <emph type="bold">Diagnostic Trouble Code 332</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, PID 164, FMI 13</emph>
+            </para>
+            <para>
+                <emph type="bold">Injection Control Pressure above Specification with Engine Off</emph>
+            </para>
+            <para>When code 332 is active the amber ENGINE lamp is illuminated and the odometer displays the message
+                WARN ENG.
+            </para>
+            <para>Diagnostic Trouble Code 332 will be set by the ECM if the signal from the ICP sensor is higher than
+                expected with the engine not running. If the ECM detects this fault, the ECM will ignore the ICP signal
+                and will operate the IPR with fixed values determined from engine operating conditions.
+            </para>
+            <para>Code 332 may be caused by a defective sensor or a biased circuit.</para>
+            <figure id="f17503064.1" figsize="full-pg">
+                <graphic filename="../figeg8/eg8820.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="592px"/>
+                <caption>Injection Control Pressure Sensor Troubleshooting Flowchart</caption>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_95.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_S17503010.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

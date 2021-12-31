@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslfrench.xsl"?>
+<isis lang="fr">
+    <stitle>French - Manuel de diagnostic - - PROC&#201;DURES DE DIAGNOSTIC DU SYST&#200;ME DE COMMANDE &#201;LECTRONIQUE
+        - Utilisation du diagnostic ma&#238;tre pour v&#233;rifier les capteurs de pression &#224; trois fils et les
+        capteurs APS/IVS.
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Utilisation du diagnostic ma&#238;tre pour v&#233;rifier les capteurs de pression &#224; trois fils et
+            les capteurs APS/IVS.
+        </title>
+        <para>
+            <emph type="bold">Affichage des tensions de capteur</emph>
+        </para>
+        <para>On peut afficher les tensions de capteur sur le diagnostic ma&#238;tre (version&#160;2.31 et suivantes) en
+            ouvrant le fichier de session
+            <emph type="bold">SENSOR VOLTAGE</emph>
+            (tension de capteur) et en lan&#231;ant l'essai
+            <emph type="bold">KEY-ON ENGINE-OFF CONTINUOUS MONITOR</emph>
+            (surveillance continue avec contact &#233;tabli, moteur &#224; l'arr&#234;t). On peut afficher les tensions
+            avec le moteur en marche en utilisant l'essai
+            <emph type="bold">KEY-ON ENGINE-RUNNING CONTINUOUS MONITOR</emph>
+            (surveillance continue avec contact &#233;tabli, moteur en marche). La tension affich&#233;e par le
+            diagnostic ma&#238;tre repr&#233;sente la tension lue par l'ECM sur les circuits internes raccord&#233;s
+            &#224; la broche de signal du capteur du connecteur &#224; 60&#160;broches de l'ECM. Les tensions de signal
+            suivantes sont affich&#233;es&#160;: APS, BAP ECT, EOP, EOT, EPS, IAT, ICP, MAP, RPS, IVS&#160;PWR.
+        </para>
+        <para>
+            <emph type="bold">V&#233;rification du circuit de signal, circuit ouvert (trois fils)</emph>
+        </para>
+        <para>Utiliser le diagnostic ma&#238;tre pour afficher la tension du signal de capteur. Installer le&#160;T de d&#233;rivation
+            dans le connecteur de faisceau. Lire la tension affich&#233;e avec le capteur d&#233;branch&#233;. La
+            tension affich&#233;e doit correspondre &#224; la tension pr&#233;vue, indiqu&#233;e dans la section
+            diagnostic pour ce capteur. Le signal de circuit ouvert se situe &#224; pr&#232;s de z&#233;ro, &#224; moins
+            que le circuit ne soit court-circuit&#233; ou incorrectement connect&#233; &#224; la tension de r&#233;f&#233;rence
+            V
+            <subscript>REF</subscript>, vers&#160;B+, ou &#224; d'autres sources de tension,
+            <xref refid="f17503008.1"/>.
+        </para>
+        <figure id="f17503008.1" figsize="col-wide">
+            <graphic filename="../figeg8/eg8832.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+            <caption>Essai de tension de signal de circuit ouvert avec ZTSE4347</caption>
+            <calloutgroup>
+                <callout1 type="arabic">Masse (noir)</callout1>
+                <callout1 type="arabic">Signal (vert)</callout1>
+                <callout1 type="arabic">Tension de r&#233;f&#233;rence (bleu)</callout1>
+            </calloutgroup>
+        </figure>
+        <para>
+            <emph type="bold">V&#233;rification de la tension de r&#233;f&#233;rence, V
+                <subscript>REF</subscript>
+                (trois fils)
+            </emph>
+        </para>
+        <para>Utiliser un cavalier de 0,5&#160;kilohms pour raccorder la broche de tension de r&#233;f&#233;rence V
+            <subscript>REF</subscript> &#224; la broche de signal du&#160;T de d&#233;rivation. Regarder la tension sur
+            l'EST. La tension de r&#233;f&#233;rence doit &#234;tre sup&#233;rieure &#224; 4,9&#160;volts avec le
+            capteur d&#233;branch&#233;. Si la tension indiqu&#233;e est inf&#233;rieure &#224; celle pr&#233;vue, v&#233;rifier
+            la tension de r&#233;f&#233;rence &#224; d'autres capteurs V
+            <subscript>REF</subscript>
+            qui partagent le m&#234;me circuit (V
+            <subscript>REF</subscript>D&#160;: EOP, MAP, CMP, ICP), (V
+            <subscript>REF</subscript>B&#160;: APS/IVS, BAP), (V
+            <subscript>REF</subscript>C&#160;: accessoires de carrosserie). Si les autres capteurs sur le circuit partag&#233;
+            ont une tension de r&#233;f&#233;rence V
+            <subscript>REF</subscript>
+            conforme aux pr&#233;visions, le probl&#232;me r&#233;side dans le fil du faisceau du point d'&#233;pissure
+            du faisceau au connecteur du capteur. Si les autres capteurs ont &#233;galement perdu leur tension de r&#233;f&#233;rence,
+            d&#233;brancher les capteurs, un &#224; la fois, tout en observant la tension. Si la tension de r&#233;f&#233;rence
+            V
+            <subscript>REF</subscript>
+            revient apr&#232;s avoir d&#233;branch&#233; un capteur, ce capteur court-circuite la tension de r&#233;f&#233;rence
+            V
+            <subscript>REF</subscript> &#224; la masse. Si on soup&#231;onne que la tension de r&#233;f&#233;rence V
+            <subscript>REF</subscript>
+            est court-circuit&#233;e de mani&#232;re intermittente pendant que le moteur fonctionne, utiliser un&#160;T
+            de d&#233;rivation sur les capteurs&#160;ICP ou&#160;MAP. La connexion par cavalier de la tension de r&#233;f&#233;rence
+            V
+            <subscript>REF</subscript>
+            au signal permet de faire afficher la tension de r&#233;f&#233;rence V
+            <subscript>REF</subscript>
+            sur le diagnostic ma&#238;tre pendant que le moteur tourne.
+        </para>
+        <specpara>
+            <note>
+                <para>Le fonctionnement du moteur peut &#234;tre l&#233;g&#232;rement inf&#233;rieur &#224; la normale,
+                    car le capteur &#233;tablit un code actif et la gestion des anomalies prend alors le relais.
+                    Consulter Mesure de la tension de r&#233;f&#233;rence &#224; l'aide du diagnostic ma&#238;tre,
+                    <xref refid="f17503008.2"/>. La tension du capteur ne peut &#234;tre mesur&#233;e quand le v&#233;hicule
+                    est en mouvement.
+                </para>
+            </note>
+        </specpara>
+        <figure id="f17503008.2" figsize="col-wide">
+            <graphic filename="../figeg8/eg8833.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+            <caption>Mesure de la tension de r&#233;f&#233;rence &#224; l'aide du diagnostic ma&#238;tre avec ZTSE4347
+            </caption>
+            <calloutgroup>
+                <callout1 type="arabic">Masse (broche noire)</callout1>
+                <callout1 type="arabic">Tension de r&#233;f&#233;rence (broche bleue)</callout1>
+                <callout1 type="arabic">Signal (broche verte)</callout1>
+            </calloutgroup>
+        </figure>
+        <specpara>
+            <note>
+                <para>L'ECM N'AFFICHE PAS UNE TENSION DE SIGNAL DE CAPTEUR SUPRIEURE &#192; 5 VOLTS. Si la tension de r&#233;f&#233;rence
+                    V
+                    <subscript>REF</subscript>
+                    est court-circuit&#233;e haut (tension sup&#233;rieure &#224; 5,5&#160;volts), la tension de signal
+                    sera &#233;galement, et de fa&#231;on erron&#233;e, sup&#233;rieure &#224; sa lecture r&#233;elle.
+                    Le capteur&#160;MAP est le plus sensible &#224; cette tension de r&#233;f&#233;rence V
+                    <subscript>REF</subscript>
+                    plus &#233;lev&#233;e, et &#233;tablit un code d'anomalie dans la plage, avant les capteurs&#160;ICP
+                    et&#160;EOP.
+                </para>
+            </note>
+        </specpara>
+        <para>
+            <emph type="bold">V&#233;rification de la masse du capteur (trois&#160;fils)</emph>
+        </para>
+        <para>Utiliser un cavalier pour raccorder la tension de r&#233;f&#233;rence V
+            <subscript>REF</subscript>, le signal et la masse ensemble, au moyen du&#160;T de d&#233;rivation.
+            Visualiser la tension sur l'EST, avec le capteur d&#233;branch&#233;. La tension affich&#233;e doit
+            correspondre &#224; la tension pr&#233;vue indiqu&#233;e dans la section diagnostic pour ce capteur. La
+            tension affich&#233;e sera pr&#232;s de 0&#160;volt si le circuit de masse a la bonne r&#233;sistance.
+            Consulter V&#233;rification de la masse du capteur,
+            <xref refid="f17503008.3"/>.
+        </para>
+        <figure id="f17503008.3" figsize="col-wide">
+            <graphic filename="../figeg8/eg8834.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+            <caption>V&#233;rification de la masse du capteur avec ZTSE4347</caption>
+            <calloutgroup>
+                <callout1 type="arabic">Masse (broche noire)</callout1>
+                <callout1 type="arabic">Tension de r&#233;f&#233;rence (broche bleue)</callout1>
+                <callout1 type="arabic">Signal (broche verte)</callout1>
+            </calloutgroup>
+        </figure>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215_46.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215_48.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

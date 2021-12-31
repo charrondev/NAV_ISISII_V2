@@ -1,0 +1,672 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - EWPS
+        (Engine Warning and Protection System)
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.20" svcproctype="diagnose" graphiccount="1">
+        <title>EWPS (Engine Warning and Protection System)</title>
+        <svcprocinfo id="s305010706.20.1">
+            <figure id="f305010796" figsize="pg-wide">
+                <graphic filename="../figj31/j31195.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for the EWPS</caption>
+            </figure>
+            <para id="s305010706.18.1.1"></para>
+            <table id="t3050107188" type="simple" frame="topbot">
+                <title>The function diagram for the EWPS includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Crankshaft Position (CKP) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Camshaft Position (CMP) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Engine Oil Pressure (EOP) switch</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Engine Coolant Temperature (ECT)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Engine Coolant Level (ECL) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Red Lamp (Oil/Water Lamp (OWL) for CF)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Amber Lamp (Warn Engine Lamp (WEL) for CF)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Function</title>EWPS safeguards the engine from undesirable operating conditions to prevent
+                engine damage and to prolong engine life. When a warning condition is detected, the on-board electronics
+                will illuminate a red lamp (OWL for CF) and sound an audible alarm.
+            </para>
+            <para>When a critical engine condition is detected, the on-board electronics will shut the engine down if
+                the protection feature has been enabled. The critical engine condition will be recorded by a logging
+                feature that records the event in engine hours and odometer readings. After the engine has shutdown, the
+                engine may be restarted for a thirty second run time.
+            </para>
+            <para>When EWPS is enabled and a critical engine condition occurs, the on-board electronics will send a
+                warning to the instrument panel.
+            </para>
+            <table id="t3050107189" type="simple" frame="topbot">
+                <title>There are five options of EWPS:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Standard warning</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>2-way warning</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>3-way warning</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>3-way protection</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4-way warning</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <specpara>
+                <note>
+                    <para>EWPS modes available will vary, depending on application.</para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.20.2">
+            <title>EWPS Operational Descriptions</title>
+            <specpara>
+                <note>
+                    <para>All EWPS modes will set the amber lamp if engine speed increases over 3900 rpm
+                        (non-programmable).
+                    </para>
+                </note>
+            </specpara>
+            <para>The EWPS includes the following features:</para>
+            <deflist>
+                <term>EWPS mode</term>
+                <def>This parameter indicates to the on-board electronics the desired mode of operation for the engine
+                    warning and protection feature.
+                </def>
+            </deflist>
+            <deflist>
+                <term>Standard warning (rpm, ECT)</term>
+                <def>Engine over speed and overheat are provided as the default operating mode. No engine shutdown is
+                    available.
+                </def>
+            </deflist>
+            <deflist>
+                <term>2-way warning (rpm, ECT, EOP)</term>
+                <def>Engine over speed, overheat, and low oil pressure are monitored in the engine warning operating
+                    mode. No engine shutdown is available.
+                </def>
+            </deflist>
+            <deflist>
+                <term>3-way warning (rpm, ECT, EOP, ECL)</term>
+                <def>Engine over speed, overheat, low oil pressure, and low coolant level are monitored in the engine
+                    warning operating mode. No engine shutdown is available.
+                </def>
+            </deflist>
+            <deflist>
+                <term>3-way Protection (rpm, ECT, EOP, ECL)</term>
+                <def>Engine over speed, overheat, low oil pressure, and low coolant level are monitored in the engine
+                    protection operating mode. Engine shutdown can be made available when a critical engine condition is
+                    detected. Critical engine conditions include overheat, low oil pressure and low coolant level.
+                </def>
+            </deflist>
+            <deflist>
+                <term>4-way warning (rpm, ECT, EOP, ECL, genset fault)</term>
+                <def>Engine over speed, overheat, low oil pressure, low coolant level and genset faults are monitored in
+                    the engine warning operating mode. No engine shutdown is available.
+                </def>
+            </deflist>
+            <deflist>
+                <term>ECT Warning Temperature</term>
+                <def>This parameter indicates when an engine overheat condition warrants, red lamp is illuminated and a
+                    warning buzzer is activated.
+                </def>
+            </deflist>
+            <deflist>
+                <term>ECT Critical Temperature</term>
+                <def>This parameter indicates when an engine overheat condition warrants an engine shutdown. The engine
+                    shutdown can be programmed to operate if desired. The event logging feature will log when this event
+                    has occurred in both engine hours and odometer readings.
+                </def>
+            </deflist>
+            <deflist>
+                <term>EOP RPM Boundary 1</term>
+                <def>This parameter indicates the rpm range that engine oil pressure level 1 is used for the loss of
+                    engine oil pressure detection.
+                </def>
+            </deflist>
+            <deflist>
+                <term>EOP RPM Boundary 2</term>
+                <def>This parameter indicates the rpm range that engine oil pressure level 2 is used for the loss of
+                    engine oil pressure detection.
+                </def>
+            </deflist>
+            <deflist>
+                <term>EOP RPM Boundary 3</term>
+                <def>This parameter indicates the rpm range that engine oil pressure level 3 is used for the loss of
+                    engine oil pressure detection.
+                </def>
+            </deflist>
+            <deflist>
+                <term>EOP Warning Level 1</term>
+                <def>This parameter indicates when a loss of engine oil pressure warrants the red lamp to be illuminated
+                    and the warning buzzer to be activated.
+                </def>
+            </deflist>
+            <deflist>
+                <term>EOP Warning Level 2</term>
+                <def>This parameter indicates when a loss of engine oil pressure condition warrants, red lamp is
+                    illuminated and a warning buzzer is activated.
+                </def>
+            </deflist>
+            <deflist>
+                <term>EOP Warning Level 3</term>
+                <def>This parameter indicates when a loss of engine oil pressure condition warrants, red lamp is
+                    illuminated and a warning buzzer is activated.
+                </def>
+            </deflist>
+            <deflist>
+                <term>EOP Critical Level 1</term>
+                <def>This parameter indicates when a loss of engine oil pressure condition warrants an engine shutdown.
+                    The engine shutdown can be programmed to operate if desired. The event logging feature will log when
+                    this event has occurred in both engine hours and odometer readings.
+                </def>
+            </deflist>
+            <deflist>
+                <term>EOP Critical Level 2</term>
+                <def>This parameter indicates when a loss of engine oil pressure condition warrants an engine shutdown.
+                    The engine shutdown can be programmed to operate if desired. The event logging feature will log when
+                    this event has occurred in both engine hours and odometer readings.
+                </def>
+            </deflist>
+            <deflist>
+                <term>EOP Critical Level 3</term>
+                <def>This parameter indicates when a loss of engine oil pressure condition warrants an engine shutdown.
+                    The engine shutdown can be programmed to operate if desired. The event logging feature will log when
+                    this event has occurred in both engine hours and odometer readings.
+                </def>
+            </deflist>
+        </svcsubproc>
+        <svcsubproc id="s305010706.20.3">
+            <title>EWPS Operational Diagnostics</title>
+            <para>
+                <title>EWPS DTCs</title>DTCs are read using the EST or by counting the flashes from the amber and red
+                lamps.
+            </para>
+            <table id="t3050107190" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 313</title>
+                <tgroup cols="2">
+                    <colspec colname="col1"/>
+                    <colspec colname="COLSPEC0" colwidth="1.00*"/>
+                    <spanspec namest="col1" nameend="COLSPEC0" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>EWPS - Engine Oil Pressure below warning level</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry morerows="2">
+                                <para>DTC 313 is set by the ECM, when engine oil pressure is lower than expected while
+                                    the engine is running. The specifications for the warning are:
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>34 kPa (5 psi) @ 700 rpm</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>69 kPa (10 psi) @ 1400 rpm</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>138 kPa (20 psi) @ 2000 rpm</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>For diagnostics, see "
+                                    <hotlnk document="eges3052_75.xml" xrefid="s305010402.13.2">Low Oil Pressure
+                                        Diagnostics
+                                    </hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050104.xml" xrefid="e3050104">Engine Symptoms
+                                        Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 313 can be set by an open, circuit short to voltage source in the EOP circuit,
+                                    a loose or failed EOP switch, or low oil pressure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>When DTC 313 is active, the red lamp (OWL for CF) is illuminated.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107191" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 314</title>
+                <tgroup cols="2">
+                    <colspec colname="col1"/>
+                    <colspec colname="COLSPEC1" colwidth="1.00*"/>
+                    <spanspec namest="col1" nameend="COLSPEC1" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>EWPS - Engine Oil Pressure below critical level</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry morerows="2">
+                                <para>DTC 314 is set by the ECM, when the engine oil pressure drops below the critical
+                                    level while the engine is running. The specifications are:
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>14 kPa (2 psi) @ 700 rpm</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>83 kPa (12 psi) @ 1400 rpm</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>152 kPa (22 psi) @ 2000 rpm</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>For diagnostics, see "
+                                    <hotlnk document="eges3052_75.xml" xrefid="s305010402.13.2">Low Oil Pressure
+                                        Diagnostics
+                                    </hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050104.xml" xrefid="e3050104">Engine Symptoms
+                                        Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 314 can be set by an open, circuit short to voltage source in the EOP circuit,
+                                    a loose or failed EOP switch, or low oil pressure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>When DTC 314 is active, the red lamp (OWL for CF) flashes and sounds an audible
+                                    signal.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107192" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 315</title>
+                <tgroup cols="2">
+                    <colspec colname="col1"/>
+                    <colspec colname="COLSPEC2" colwidth="1.00*"/>
+                    <spanspec namest="col1" nameend="COLSPEC2" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>Engine speed above warning level</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 315 is set by the ECM when the engine rpm has exceeded 3900 rpm.</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry morerows="2">
+                                <para>DTC 315 can be set due to any of the following conditions:</para>
+                            </entry>
+                            <entry>
+                                <para>Excessive engine speed in an unintended downshift.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Steep acceleration downhill without correct brake application.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>External fuel source being ingested into air intake system.</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>When DTC 315 is active the amber lamp (WEL for CF) is illuminated. The engine
+                                    hours and miles of the last two over speed occurrences will be recorded in the
+                                    engine event log.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107193" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 316</title>
+                <tgroup cols="2">
+                    <colspec colname="col1"/>
+                    <colspec colname="COLSPEC3" colwidth="1.00*"/>
+                    <spanspec namest="col1" nameend="COLSPEC3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>ECT unable to reach commanded set point</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="2" spanname="SPAN1">
+                                <note>
+                                    <para>DTC 316 only indicates the engine has not been able to reach operating
+                                        temperature. It does not indicate an electronic failure.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 316 is set if the engine does not reach operating temperature. DTC 316 will
+                                    only be set with engines that have Cold Ambient Protection (CAP) strategy enabled.
+                                    DTC 316 is set after the engine has run for more than 120 minutes and has not
+                                    exceeded the following specifications for engine coolant temperature. DTC 316 can be
+                                    cleared with the EST.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>Automatic transmission 60 &#176;C (140 &#176;F)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry morerows="4">
+                                <para>DTC 316 can be set due to any of the following conditions:</para>
+                            </entry>
+                            <entry>
+                                <para>Extended idle time</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Cold ambient temperatures (may require use of winter front)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Thermostat stuck in open position</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Incorrectly plumbed cooling system (thermostat bypassed)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Fan clutch locked on</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107194" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 321</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>ECT above warning level</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 321 is set by the ECM when the engine coolant temperature is above 113 &#176;C
+                                    (228 &#176;F). The ECM illuminates the red lamp (OWL for CF). When the temperature
+                                    drops below 113 &#176;C (228 &#176;F) the DTC will become inactive. For diagnostics,
+                                    see "Coolant Over-Temperature" in the "Engine Symptoms Diagnostics" section of this
+                                    manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>For high altitude applications (103 kPa [15 psi] radiator cap), DTC 321 is set by
+                                    the ECM when the engine coolant temperature is above 116 &#176;C (240 &#176;F). When
+                                    the temperature drops below 116 &#176;C (240 &#176;F) the DTC will become inactive.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107195" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 322</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>ECT above critical level</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 322 is set by the ECM when the engine coolant temperature is above 116 &#176;C
+                                    (240 &#176;F). The ECM illuminates the red lamp (OWL for CF). When the temperature
+                                    drops below 116 &#176;C (240 &#176;F) the DTC will become inactive. For diagnostics,
+                                    see "
+                                    <hotlnk document="eges3052_69.xml" xrefid="s305010402.6">Coolant Over-Temperature
+                                    </hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050104.xml" xrefid="e3050104">Engine Symptoms
+                                        Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>For high altitude applications (103 kPa [15 psi] radiator cap), DTC 321 is set by
+                                    the ECM when the engine coolant temperature is above 119 &#176;C (246 &#176;F). When
+                                    the temperature drops below 119 &#176;C (246 &#176;F) the DTC will become inactive.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107196" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 323</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>ECL below warning/critical level</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 323 is set by the ECM when coolant is low. When the EWPS mode is 3-way
+                                    protection and DTC 323 is active, the engine will shutdown. The ECM will log the
+                                    engine hours and odometer reading at the time of occurrence. After the shutdown, the
+                                    engine can be restarted for thirty seconds. When the coolant has returned to correct
+                                    levels, DTC 323 will become inactive.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <note>
+                                    <para>If coolant level is correct, see "
+                                        <hotlnk document="eges3052_137.xml" xrefid="s305010706.11.1.2">ECL Sensor
+                                        </hotlnk>
+                                        " in this section. An ECL signal shorted to ground can cause DTC 323.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107197" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 325</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>Power reduced, matched to cooling system performance</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 325 is set by the ECM when the cooling system temperature exceeds 111 &#176;C
+                                    (232 &#176;F). At this temperature the ECM will reduce the fuel delivered to the
+                                    engine. When the temperature drops below 111 &#176;C (232 &#176;F) the DTC will
+                                    become inactive and the engine will return to normal operation. No lamp will be
+                                    illuminated.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>For each Celsius degree of temperature the fuel will be reduced 6%. This reduces
+                                    the heat produced by the engine and reduces the burden on the cooling system. The
+                                    vehicle speed will also be reduced and allow the operator to downshift and increase
+                                    the efficiency of the cooling system. As the temperature is reduced the compensation
+                                    level is reduced until the temperature drops below 111 &#176;C (232 &#176;F) and
+                                    normal operation is resumed.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_145.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_147.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,520 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - ENGINE CRANK INHIBIT SYSTEM (ECI)
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450314" svcproctype="proctype" graphiccount="16">
+        <title>ENGINE CRANK INHIBIT SYSTEM (ECI)</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef1450350">Figure 3.37 Engine Crank Inhibit (ECI)</hotlnk>
+            </para>
+            <figure id="ef1450350" figsize="col-wide">
+                <graphic id="eg5971" filename="../figeg5/eg5971.webp" type="webp"/>
+                <caption>Figure 3.37 Engine Crank Inhibit (ECI)</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>SIGNAL FUNCTION</title>
+            <para>The ECM uses the enable circuit to control engine cranking. The ECM prevents cranking motor operation:
+                whenever the engine is running or whenever a vehicle with an automatic transmission is not in neutral.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Electronic Control Module (ECM)</title>
+            <para>
+                <emph type="underscr">AUTOMATIC TRANSMISSION</emph>
+            </para>
+            <para>With the key ON, the ECM enables the crank relay if the engine is not running and if 12 volts is
+                present at terminal 10 with an automatic transmission.
+            </para>
+            <para>
+                <emph type="underscr">MANUAL TRANSMISSION</emph>
+            </para>
+            <para>With a manual transmission, the ECM programming doesn't look at terminal 10 in enabling the crank
+                inhibit relay.
+            </para>
+            <para>To enable the crank inhibit relay, the ECM sets terminal 35 LOW (ground state). To disable the crank
+                relay, terminal 35 is HIGH (12 volts).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Crank Inhibit Relay</title>
+            <para>Turning the key to the start position applies power to the crank inhibit relay at pin 2. If the relay
+                is enabled by the ECM, the relay is energized and applies ignition voltage to the cranking motor
+                magnetic switch control coil.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Cranking Motor Magnetic Switch</title>
+            <para>The crank motor magnetic switch is used to switch battery power to the crank motor solenoid when the
+                crank inhibit relay is energized. With thermo overcrank protection installed the magnetic switch is
+                grounded through the overcrank thermo couple.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION MANAGEMENT</title>
+            <para>The ECM does not monitor the cranking system circuits. There are no fault codes for this system.
+            </para>
+            <para>
+                <hotlnk xrefid="ef1450351">Figure 3.38 Engine Crank Inhibit (ECI) Diagnostics</hotlnk>
+            </para>
+            <figure id="ef1450351" figsize="col-wide">
+                <graphic id="eg5972" filename="../figeg5/eg5972.webp" type="webp"/>
+                <caption>Figure 3.38 Engine Crank Inhibit (ECI) Diagnostics</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>* - Refer to Figures
+                        <hotlnk xrefid="ef1450352">3.39</hotlnk>
+                        or
+                        <hotlnk xrefid="ef1450353">3.40</hotlnk>
+                        for complete circuit diagram.
+                    </para>
+                </note>
+            </specpara>
+            <specpara>
+                <note>
+                    <para>To bench test the Start Magnetic Relay, refer to Figure 3.42a.</para>
+                    <para>To bench test the Crank Inhibit Relay, refer to Figure
+                        <hotlnk xrefid="ef1450360">3.44</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EXTENDED DESCRIPTION</title>
+            <para>The engine starting system is controlled by the Electronic Control Module (ECM). While cranking the
+                engine, vehicle battery voltage may momentarily drop below 6 volts, causing the ECM to shut down. When
+                voltage comes back up, the ECM will resume operation. The Crank Inhibit Relay (385) has a 2-second delay
+                feature that allows the engine to continue to crank (for up to 2 seconds) while the ECM is OFF, so the
+                engine starts properly.
+            </para>
+            <para>The ECM disables the cranking system when:</para>
+            <seqlist style="alphauc">
+                <item>
+                    <para>The engine is running.</para>
+                </item>
+                <item>
+                    <para>The automatic transmission is not in neutral.</para>
+                </item>
+            </seqlist>
+            <para>Components include:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Start Switch (key or push button)</para>
+                </item>
+                <item>
+                    <para>Crank Inhibit Relay (385)</para>
+                </item>
+                <item>
+                    <para>Start Relay (387)</para>
+                </item>
+                <item>
+                    <para>Crank Motor and Solenoid</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (379)</para>
+                </item>
+                <item>
+                    <para>Neutral Position Switch with automatic transmission</para>
+                </item>
+                <item>
+                    <para>Clutch Switch (386)</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>SYSTEM OPERATION</title>
+            <para>Refer to the circuit diagram
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450352">3.39</hotlnk>
+                </emph>
+                (manual xmsn)
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450353">3.40</hotlnk>
+                </emph>
+                (automatic xmsn) for the following discussion. Energizing the engine starting system requires a series
+                of events by the cranking system components. The Engine Crank Inhibit Relay (385) receives inputs from
+                several sources and if all conditions are present, the Start Relay (387) is energized.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Crank Inhibit Relay (385)</title>
+            <para>The Crank Inhibit Relay has two major functions.</para>
+            <step1>
+                <para count="1">The ECM signal must "enable" the Crank Inhibit Relay for the cranking system to
+                    operate.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">The relay must keep the engine cranking if vehicle battery voltage drops below 6 volts
+                    during cranking, causing the ECM to go off line momentarily.
+                </para>
+            </step1>
+            <para>The Crank Inhibit Relay has 5 pins. To energize the Start Relay, the Engine Crank Inhibit relay
+                interacts with the other cranking system components.
+            </para>
+            <specpara>
+                <note>
+                    <para>The Crank Inhibit Relay PIN numbers shown in the circuit diagram are different than the relay
+                        harness connector cavity numbers.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Crank Inhibit Relay Pin 5</emph>
+                    is connected by circuit 97DE/97H to ECM terminal 35. For the relay to enable the cranking system,
+                    ECM terminal 35 must be LOW (0 volts). Note that the ECM switches terminal 35 between LOW ( 0v) and
+                    HIGH (12v), to either "enable" or "disable" the Crank Inhibit Relay. The circuit diagrams shows
+                    terminal states (HIGH or LOW) for various conditions.
+                </para>
+            </step1>
+            <para>Example 1: With the engine running, ECM terminal 35 will be HIGH, preventing the crank system from
+                engaging.
+            </para>
+            <para>Example 2: With an automatic transmission, if the shift selector is NOT in neutral when preparing to
+                start the engine, ECM terminal 35, would be HIGH and the crank system would not engage. Placing the
+                transmission in neutral would cause ECM terminal 35 to switch LOW and enable the cranking system.
+            </para>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Crank Inhibit Relay Pin 1</emph>
+                    receives power from 10A fuse F4 (H1 fuse w/FBC) when the key is ON. With an automatic transmission,
+                    the power must first pass through the Neutral Position Switch (closed when in neutral). With a
+                    manual transmission, the power from F4 (or H1 w/FBC) is present whenever the key is ON.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Crank Inhibit Relay Pin 2</emph>
+                    receives ignition voltage when the start switch is engaged (push button or key switch). This
+                    energizes the Crank Inhibit Relay (if steps 1, 2 and 3 occurred) causing voltage from terminal 3 to
+                    energize the Start Relay (387).
+                </para>
+            </step1>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Crank Inhibit Relay Pin 3</emph>
+                    delivers output voltage on circuit 17A to the Start Relay when the Crank Inhibit Relay is energized.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Crank Inhibit Relay Pin 4</emph>
+                    is grounded by circuit 97-GD at the relay bracket.
+                </para>
+                <figure id="ef1450352" figsize="col-wide">
+                    <graphic id="eg5973" filename="../figeg5/eg5973.webp" type="webp"/>
+                    <caption>Figure 3.39 Engine Cranking System with Manual Transmission</caption>
+                </figure>
+                <figure id="ef1450353" figsize="col-wide">
+                    <graphic id="eg5974" filename="../figeg5/eg5974.webp" type="webp"/>
+                    <caption>Figure 3.40 Engine Cranking System with Allison AT/MT Automatic Transmission</caption>
+                </figure>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Start Relay (387)</title>
+            <para>The Start Relay (387) is energized by voltage on circuit 17A from the energized Crank Inhibit Relay
+                (385). When the Start Relay is energized, battery voltage from "B" terminal of cranking motor solenoid
+                is applied through the Start Relay contacts (E to A) to the "S" terminal of crank motor to energize the
+                cranking motor. The Start Relay is a suppressed relay. The Start Relay has an internal diode to prevent
+                voltage spikes from damaging electronic components in the vehicle system.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Thermo Overcrank Protection (OCP)</title>
+            <para>On vehicles equipped with Thermo Overcrank Protection cranking motors, the ground circuit for the
+                Start Relay is through the Thermo Overcrank thermocouple. If the cranking motor temperature reaches a
+                specified limit, the thermocouple opens, preventing further engine cranking until the cranking motor
+                cools.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Neutral Position Switch</title>
+            <para>With an Allison AT/MT automatic transmission, a normally open (NO) Neutral Position Switch is used to
+                turn power ON or OFF in circuit 97AU.
+            </para>
+            <para>With the transmission in neutral, the switch is closed applying power to Crank Inhibit Relay pin 1 and
+                to ECM terminal 10. On the circuit diagrams, ECM terminal 10 is labeled DDS (Driveline Disengagement
+                Status). The 12 volts at ECM terminal 10 tells the ECM that the Neutral Position switch is closed and
+                that the transmission is in neutral.
+            </para>
+            <para>With an Allison WT (electronic transmission controls), the neutral position switch is not used as the
+                Allison WT Electronic Control Module determines shifter position. With the transmission in neutral,
+                ignition power from the transmission Vehicle Interface Module (VIM) Neutral Start Relay is delivered on
+                circuit 97AU to the Crank Inhibit Relay at pin 1. From pin 1, circuit 97L/97A applies the ignition
+                voltage to ECM DDS terminal 10.
+            </para>
+            <para>When the vehicle has an automatic transmission (AT or MT), the clutch switch connector (paragraph 2.4)
+                has a jumper connecting circuits 97L and 97A, completing the circuit between Crank Inhibit Relay (385)
+                pin 1 and ECM terminal 10.
+            </para>
+            <para>With an automatic transmission, ECM terminal 10 is programmed to expect 12 volts on circuit 97A when
+                the shifter is in neutral and 0 volts when the shifter is not in neutral. The circuit diagram shows
+                terminal states for various conditions.
+            </para>
+            <para>The Prolink 9000 can be used to monitor the Neutral Position Switch. When the switch is closed
+                (transmission in neutral), the Prolink (using PTO/Clutch Switch Status) indicates clutch ON, meaning the
+                driveline is disengaged.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Clutch Pedal Switch (386)</title>
+            <para>The clutch pedal switch is used for cruise control, engine brakes etc. The ECM is programmed so that
+                the input from the DDS terminal 10 has no effect on enabling or disabling the cranking system.
+            </para>
+            <para>The Prolink 9000 EST can be used to monitor the Clutch Switch position. When the clutch switch is open
+                (clutch depressed), the Prolink indicates clutch ON, meaning the driveline is disengaged.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Electronic Control Module (ECM)</title>
+            <para>Electronic Control Module terminals 10 (only with automatic xmsn) and 35 are directly involved with
+                enabling the Crank Inhibit Relay. The ECM and VPM (VPM stores information for the ECM) are programmed
+                differently for automatic or manual transmissions.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM Terminal 10 (DDS)</title>
+            <para>ECM terminal 10 receives input (12 volts or 0 volts) from either the clutch switch with a manual
+                transmission or neutral position indication with an automatic transmission.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Automatic Transmission</title>
+            <para>With an automatic transmission, the ECM uses the input to determine the voltage signal on ECM terminal
+                35. If the transmission is in neutral, terminal 10 will be HIGH (12v) and terminal 35 will LOW (0v). If
+                the transmission is not in neutral, terminal 10 will be LOW (0v) and terminal 35 will be HIGH (12v).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Manual Transmission</title>
+            <para>With a manual transmission, the ECM does not use input from terminal 10 to set terminal 35.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM Terminal 35 (ECI)</title>
+            <para>ECM terminal 35 is connected by circuit 97H to Crank Inhibit Relay pin 5. Based on inputs to ECM
+                terminal 10 and engine operating conditions, the ECM either sets terminal 35 LOW (0v) or HIGH (12v).
+                With ECM terminal 35 LOW, the Crank Inhibit Relay is "enabled." If the ECM terminal 35 is HIGH, then the
+                Crank Inhibit Relay is NOT "enabled."
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM Programming</title>
+            <para>The ECM "enables" the Crank Inhibit Relay if:</para>
+            <seqlist style="arabic">
+                <item>
+                    <para>The engine is not running.</para>
+                </item>
+                <item>
+                    <para>The transmission is in neutral (with automatic transmission).</para>
+                </item>
+            </seqlist>
+            <para>If these conditions do not exist, the Crank Inhibit Relay is not enabled and the engine will not
+                crank.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>TROUBLESHOOTING</title>
+            <para>The ECM "enables" or "disables" the engine cranking system with the Engine Crank Inhibit (ECI) relay.
+                <emph type="underscr">There are no ECM diagnostics for this system.</emph>
+                Perform the following tests to find the cause of a No Crank condition.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Before Troubleshooting</title>
+            <step1>
+                <para count="1">Before troubleshooting, make sure that the batteries are fully charged! Check battery
+                    cables and grounds for clean, tight connections free of damage. Voltage tests will give misleading
+                    readings if the batteries are not fully charged.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting a particular circuit, inspect connectors for pushed back, loose
+                    or damaged (spread or bent) terminals, or wires with cut strands etc. The wires and connections must
+                    be free of damage or corrosion. When some connectors corrode, a light white residue will be present
+                    that must be removed.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Engine Start Motor And Start Relay</title>
+            <para>The tests for "Engine Does Not Crank" condition are divided into two parts. With manual or automatic
+                transmission perform this test first.
+            </para>
+            <figure id="ef1450354" figsize="col-wide">
+                <graphic id="eg5975" filename="../figeg5/eg5975.webp" type="webp"/>
+                <caption>Figure 3.41 Start Magnetic Switch Circuit Diagram</caption>
+            </figure>
+            <para>The Part 1 troubleshooting chart is to be used with either a manual transmission (with and without
+                clutch switch) or an Allison automatic transmission (AT or MT). Refer to circuit diagram
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450354">3.41</hotlnk>.
+                </emph>
+            </para>
+            <para>For Part 2, select the appropriate troubleshooting chart for vehicle being tested: Manual Transmission
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450357">3.43</hotlnk>
+                </emph>
+                or Automatic Transmission
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450361">3.45</hotlnk>.
+                </emph>
+            </para>
+            <figure id="ef1450355" figsize="col-wide">
+                <graphic id="eg5976" filename="../figeg5/eg5976.webp" type="webp"/>
+                <caption>Figure 3.42 Engine Start Motor and Start Relay Test</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef1450356">Figure 3.42a Engine Start Motor and Start Relay Test</hotlnk>
+            </para>
+            <figure id="ef1450356" figsize="col-wide">
+                <graphic id="eg5977" filename="../figeg5/eg5977.webp" type="webp"/>
+                <caption>Figure 3.42a Engine Start Motor and Start Relay Test</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>* - Refer to Figure
+                        <hotlnk xrefid="ef1450357">3.43</hotlnk>
+                        diagnostics.
+                    </para>
+                </note>
+            </specpara>
+            <specpara>
+                <note>
+                    <para>** - Refer to Figure
+                        <hotlnk xrefid="ef1450361">3.45</hotlnk>
+                        diagnostics.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <emph type="bold">Perform Engine Start Motor and Start Relay Test Figure
+                    <hotlnk xrefid="ef1450355">3.42</hotlnk>
+                    before performing this test.
+                </emph>
+                Use this test with manual transmission equipped with a clutch switch.
+            </para>
+            <figure id="ef1450357" figsize="col-wide">
+                <graphic id="eg5978" filename="../figeg5/eg5978.webp" type="webp"/>
+                <caption>Figure 3.43 Engine Does Not Crank with Manual Transmission</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>* - Refer to Circuit Diagram Figure
+                        <hotlnk xrefid="ef1450364">3.46</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+            <specpara>
+                <note>
+                    <para>** - Figure
+                        <hotlnk xrefid="ef1450355">3.42</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <hotlnk xrefid="ef1450358">Figure 3.43a Engine Does Not Crank with Manual Transmission</hotlnk>
+            </para>
+            <figure id="ef1450358" figsize="col-wide">
+                <graphic id="eg5979" filename="../figeg5/eg5979.webp" type="webp"/>
+                <caption>Figure 3.43a Engine Does Not Crank with Manual Transmission</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef1450359">Figure 3.43b Engine Does Not Crank with Manual Transmission</hotlnk>
+            </para>
+            <figure id="ef1450359" figsize="col-wide">
+                <graphic id="eg5980" filename="../figeg5/eg5980.webp" type="webp"/>
+                <caption>Figure 3.43b Engine Does Not Crank with Manual Transmission</caption>
+            </figure>
+            <figure id="ef1450360" figsize="col-wide">
+                <graphic id="eg6141" filename="../figeg6/eg6141.webp" type="webp"/>
+                <caption>Figure 3.44 Procedure To Bench Test The Crank Inhibit Relay</caption>
+            </figure>
+            <para>Use this test with automatic transmission.</para>
+            <figure id="ef1450361" figsize="col-wide">
+                <graphic id="eg5981" filename="../figeg5/eg5981.webp" type="webp"/>
+                <caption>Figure 3.45 Engine Does Not Crank with Allison AT Transmission</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>* - Refer to Circuit Diagram Figure
+                        <hotlnk xrefid="ef1450365">3.47</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+            <specpara>
+                <note>
+                    <para>** - Figure
+                        <hotlnk xrefid="ef1450355">3.42</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <hotlnk xrefid="ef1450362">Figure 3.45a Engine Does Not Crank with Allison AT Transmission</hotlnk>
+            </para>
+            <figure id="ef1450362" figsize="col-wide">
+                <graphic id="eg5982" filename="../figeg5/eg5982.webp" type="webp"/>
+                <caption>Figure 3.45a Engine Does Not Crank with Allison AT Transmission</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef1450363">Figure 3.45b Engine Does Not Crank with Allison AT Transmission (Continued)
+                </hotlnk>
+            </para>
+            <figure id="ef1450363" figsize="col-wide">
+                <graphic id="eg5983" filename="../figeg5/eg5983.webp" type="webp"/>
+                <caption>Figure 3.45b Engine Does Not Crank with Allison AT Transmission (Continued)</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>* - See Figure
+                        <hotlnk xrefid="ef1450360">3.44</hotlnk>
+                        for relay test method.
+                    </para>
+                </note>
+            </specpara>
+            <figure id="ef1450364" figsize="col-wide">
+                <graphic id="eg5984" filename="../figeg5/eg5984.webp" type="webp"/>
+                <caption>Figure 3.46 Cranking System with Manual Transmission</caption>
+            </figure>
+            <figure id="ef1450365" figsize="col-wide">
+                <graphic id="eg5985" filename="../figeg5/eg5985.webp" type="webp"/>
+                <caption>Figure 3.47 Cranking System with Allison AT/MT Automatic Transmission</caption>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450313.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450315.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

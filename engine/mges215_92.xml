@@ -1,0 +1,719 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos - - FUNCIONES Y DIAGN&#211;STICOS DE CIRCUITOS - Sensor de presi&#243;n
+        del aceite del motor (EOP)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Sensor de presi&#243;n del aceite del motor (EOP)</title>
+        <svcsubproc>
+            <title>Funciones de las se&#241;ales</title>
+            <figure id="f17503055" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8843.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="200"
+                         box="yes"/>
+                <caption>Diagrama de las funciones del sensor de presi&#243;n del aceite del motor</caption>
+            </figure>
+            <para>El sensor de presi&#243;n del aceite del motor (EOP) es un sensor de capacitancia variable. Al recibir
+                una se&#241;al de referencia de 5 voltios desde el ECM, el EOP produce una se&#241;al lineal anal&#243;gica
+                de voltaje que indica la presi&#243;n del aceite del motor.
+            </para>
+            <para>
+                <emph type="bold">Advertencia y protecci&#243;n del motor</emph>: Una funci&#243;n opcional que, cuando
+                est&#225; activada, advierte al conductor de una condici&#243;n de baja presi&#243;n del aceite del
+                motor, y que puede ser programada para apagar el motor.
+            </para>
+            <para>
+                <emph type="bold">Exhibici&#243;n en el tablero de instrumentos</emph>: El ECM transmite la informaci&#243;n
+                sobre la presi&#243;n del aceite del motor detectada en el enlace de datos del tren propulsor, que es
+                para ser exhibida en el tablero de instrumentos.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Detecci&#243;n y manejo de fallas</title>
+            <para>Si el ECM detecta que la se&#241;al del EOP est&#225; fuera de l&#237;mite - alta o baja, har&#225;
+                que el motor la ignore y desconecte la advertencia y protecci&#243;n del motor.
+            </para>
+            <figure id="f17503056.1" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8811.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="200"
+                         box="yes"/>
+                <caption>Diagrama de circuito del sensor de presi&#243;n del aceite del motor (EOP) con una "T" de
+                    derivaciones
+                </caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Luego de retirar el conector, siempre revise en busca de pines da&#241;ados, corrosi&#243;n y
+                        terminales sueltos.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503016.1">
+                <title>Pruebas del sensor de presi&#243;n del aceite del motor usando Master Diagnostics</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="22.54*"/>
+                    <colspec colname="col2" colwidth="14.58*"/>
+                    <colspec colname="COLSPEC1" colwidth="8.53*"/>
+                    <colspec colname="col3" colwidth="73.92*"/>
+                    <spanspec namest="col1" nameend="col2" spanname="SPAN3"/>
+                    <spanspec namest="COLSPEC1" nameend="col3" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas de voltaje en el sensor de presi&#243;n del aceite del
+                                        motor (EOP)
+                                    </emph>
+                                    (con la llave en ON y el motor apagado)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Instale la "T" de derivaciones de 3 cables entre el EOP y el conector del haz de
+                                    cables. Vea EOP VOLTAGE con la prueba
+                                    <emph type="bold">Continuous Monitor</emph>
+                                    localizada bajo el men&#250; Diagnostics del Master Diagnostics. Si el circuito
+                                    tiene una falla activa, de acuerdo con el nivel de voltaje (C&#243;digo 211 &#60;0,039
+                                    V, C&#243;digo 212 >4,9 V, C&#243;digo 225 >1,49 V), complete los siguientes pasos.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Condici&#243;n de la prueba</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Voltaje esperado</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Comentarios</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor desconectado</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Voltaje >0,039 V, busque posible corto del circuito de la se&#241;al a V
+                                    <subscript>REF</subscript>
+                                    o B+
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Mida el voltaje desde el pin B a tierra con un DMM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si el voltaje es >5,5 V, revise el V
+                                    <subscript>REF</subscript>
+                                    en busca de un corto a B+. Si el voltaje es &#60;4,5 V, revise el V
+                                    <subscript>REF</subscript>
+                                    para ver si est&#225; abierto o en corto a tierra
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0,5 k&#x2126; puente instalado entre los pines VERDE y AZUL de la "T" de
+                                    derivaciones
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si el voltaje es &#60;4,9 V, revise el circuito de la se&#241;al para ver si est&#225;
+                                    abierto o en corto a tierra. Retire el cable positivo de la bater&#237;a. Mida la
+                                    resistencia del pin C a tierra (especificaci&#243;n >1 k&#x2126;) y del pin C al pin
+                                    14 (especificaci&#243;n &#60;5 &#x2126;) con una caja de derivaciones para
+                                    determinar si el corto a tierra o el circuito abierto est&#225;n en el haz de cables
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Puente est&#225;ndar instalado entre los pines AZUL, VERDE Y NEGRO de la "T" de
+                                    derivaciones
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si el voltaje es >0,039 V, revise si hay resistencia en el circuito de tierra.
+                                    Mida la resistencia entre el pin A y el pin 19 (especificaci&#243;n &#60;5 &#x2126;)
+                                    con la caja de derivaciones para determinar si la resistencia est&#225; en el haz de
+                                    cables.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Sustituya el sensor si el c&#243;digo est&#225; activo y todas las
+                                        pruebas del sensor han dado los resultados esperados. El sensor
+                                    </emph>
+                                    <emph type="boldundersc">est&#225; bien</emph>
+                                    <emph type="bold">si una o m&#225;s de las pruebas del sensor no produce los
+                                        resultados esperados. Vea Diagrama de flujo para ubicaci&#243;n de problemas en
+                                        el EOP.
+                                    </emph>
+                                    <xref refid="f17503056.2"/>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Contin&#250;a en la p&#225;gina siguiente</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN3">
+                                <para>
+                                    <emph type="bold">Voltaje MD: (+)14 a (-)19</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Pruebas operacionales de las se&#241;ales</emph>
+                                    (compare la medici&#243;n del voltaje en la "T" de derivaciones con voltaje y
+                                    lb/pulg2 exhibidos en Master Diagnostics)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Voltaje</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>lb/pulg2</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>kPa</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0,89 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>34</para>
+                            </entry>
+                            <entry colname="col3" morerows="3">
+                                <para>La presi&#243;n variar&#225; con la velocidad y la temperatura del motor</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1,15 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>69</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2,40 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>35</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>241</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3,61 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>60</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>414</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Descripci&#243;n de los c&#243;digos de diagn&#243;stico de
+                                        problemas
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>211 = El voltaje de la se&#241;al fue &#60;0,039 V por m&#225;s de 0,1 s.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>212 = El voltaje de la se&#241;al fue >4,9 V por m&#225;s de 0,1 s.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>225 = Presi&#243;n del aceite del motor se midi&#243; a >15 lb/pulg2 con la llave
+                                    en ON y el motor apagado.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>313 = Presi&#243;n del aceite del motor &#60;5 lb/pulg2 (34 kPa) a 700 RPM o 10
+                                    lb/pulg2 (69 kPa) a 1400 RPM o 20 lb/pulg2 (138 kPa) a 2000 RPM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>314 = Presi&#243;n del aceite del motor &#60;2 lb/pulg2 (14 kPa) a 700 RPM o 5
+                                    lb/pulg2 (34 kPa) a 1400 RPM o 12 lb/pulg2 (83 kPa) a 2000 RPM.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te17503016.2">
+                <title>Especificaciones del circuito del EOP
+                    <xref refid="f17503056.1"/>
+                </title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="0.61*"/>
+                    <colspec colname="col2" colwidth="0.38*"/>
+                    <colspec colname="col3" colwidth="1.52*"/>
+                    <colspec colname="col4" colwidth="1.51*"/>
+                    <spanspec namest="col3" nameend="col4" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col4" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas del voltaje en el conector</emph>
+                                    (con el conector del sensor desconectado y la llave en ON)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Puntos de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Tierra de la se&#241;al. No debe haber voltaje</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Revise el V
+                                    <subscript>REF</subscript>
+                                    con la llave en ON, si el voltaje no est&#225; dentro de las especificaciones,
+                                    revise si est&#225; abierto o en corto a tierra
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;0,25 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si >0,25 V, el cable de tierra de la se&#241;al est&#225; en corto al V
+                                    <subscript>REF</subscript>
+                                    o a la bater&#237;a
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas del conector a la tierra del chasis</emph>
+                                    (con el conector del sensor desconectado, el cable positivo de la bater&#237;a
+                                    desconectado y la llave en OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Puntos de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Resistencia a la tierra del chasis, pruebe con la llave en OFF, si >5 &#x2126; el
+                                    circuito est&#225; abierto
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>500 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Resistencia &#60;500 &#x2126; indica un corto a tierra</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Resistencia &#60;1 k&#x2126; indica un corto a tierra</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas de la resistencia en el haz de cables</emph>
+                                    (con la caja de derivaciones instalada s&#243;lo en el haz de cables del motor)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Puntos de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>19 a A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>>5 &#x2126; indica que el cable de tierra est&#225; abierto</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>40 a B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>>5 &#x2126; indica que el cable del V
+                                    <subscript>REF</subscript>
+                                    est&#225; abierto
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>14 a C</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>>5 &#x2126; indica que el cable de se&#241;al est&#225; abierto</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Descripci&#243;n detallada</title>
+            <para>
+                <emph type="bold">Funci&#243;n</emph>
+            </para>
+            <para>El sensor de presi&#243;n del aceite del motor (EOP) es est&#225;ndar en el sistema de control de los
+                motores de International. El Apagado y Protecci&#243;n del Motor es una funci&#243;n que puede ser
+                solicitada con el veh&#237;culo, o activada en el concesionario.
+            </para>
+            <para>El ECM mide la se&#241;al del EOP para monitorizar la presi&#243;n del aceite durante la operaci&#243;n
+                del motor. Si la presi&#243;n del aceite desciende a menos de 5,0 lb/pulg2(34 kPa) a 700 RPM o 10,0
+                lb/pulg2(69 kPa) a 1400 RPM o 20,0 lb/pulg2(138 kPa) a 2000 RPM, el ECM encender&#225; la luz
+                <emph type="bold">ENGINE</emph>
+                roja, activar&#225; una alarma audible y aparecer&#225; en el od&#243;metro el mensaje
+                <emph type="bold">OIL/WATER</emph>. Si el veh&#237;culo tiene el sistema de apagado del motor y la presi&#243;n
+                del aceite desciende a 2,0 lb/pulg2 (14 kPa) a 700 RPM o 5,0 lb/pulg2(34 kPa) a 1400 RPM o 12,0
+                lb/pulg2(83 kPa) a 2000 RPM, el ECM apagar&#225; el motor.
+            </para>
+            <para>
+                <emph type="bold">Operaci&#243;n</emph>
+            </para>
+            <para>El sensor de presi&#243;n del aceite del motor es un sensor de capacitancia variable ubicado en el
+                bloque del motor, que produce una se&#241;al lineal anal&#243;gica de voltaje. El ECM suministra desde
+                el pin 40, 5 V al terminal B del EOP. El ECM suministra desde el pin 19 un circuito de retorno (tierra)
+                al terminal A del sensor. Presi&#243;n aplicada al EOP cambia su capacitancia, lo que cambia a su vez el
+                voltaje de la se&#241;al enviada hacia el pin 14 del ECM. A medida que la presi&#243;n del aceite
+                aumenta, la se&#241;al del voltaje aumenta.
+            </para>
+            <para>
+                <emph type="bold">Diagn&#243;sticos hechos por el ECM</emph>
+            </para>
+            <para>El ECM monitoriza continuamente la se&#241;al desde el EOP para asegurarse de que est&#225; dentro de
+                los l&#237;mites esperados. Si la se&#241;al es menor o mayor que la esperada, el ECM registrar&#225; un
+                c&#243;digo de diagn&#243;stico. Si la llave de arranque es puesta en OFF, el c&#243;digo ser&#225;
+                almacenado como inactivo.
+            </para>
+            <para>Durante la operaci&#243;n del motor, el ECM tambi&#233;n monitoriza la se&#241;al de la velocidad del
+                motor. Compara los valores esperados de presi&#243;n del aceite con la velocidad del motor. Si el ECM
+                detecta que la presi&#243;n del aceite es m&#225;s baja para una velocidad dada del motor, registrar&#225;
+                un c&#243;digo de diagn&#243;stico. Si la presi&#243;n es m&#225;s baja que el nivel cr&#237;tico, el
+                ECM registrar&#225; un c&#243;digo de diagn&#243;stico. El ECM registrar&#225; esto autom&#225;ticamente
+                como un evento de baja presi&#243;n de aceite, el cual es almacenado en la memoria del ECM y no puede
+                ser borrado con la EST. Esto se convierte en un registro de la operaci&#243;n del motor.
+            </para>
+            <para>Los c&#243;digos de diagn&#243;stico de problemas pueden leerse con la herramienta electr&#243;nica de
+                servicio (EST) o interpretando los destellos de las luces
+                <emph type="bold">ENGINE</emph> &#225;mbar y roja, vea
+                <xref refid="P17502001"/>.
+            </para>
+            <para id="f175fc211">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 211</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 100, FMI 4</emph>
+            </para>
+            <para>
+                <emph type="bold">Se&#241;al de presi&#243;n del aceite del motor fuera de l&#237;mite - baja</emph>
+            </para>
+            <para>Cuando el c&#243;digo 211 est&#225; activo, la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar se enciende y el od&#243;metro muestra el mensaje WARN ENG.
+            </para>
+            <para>Un c&#243;digo de se&#241;al fuera de l&#237;mite - baja se establecer&#225; si el ECM detecta un
+                voltaje menor a 0,039 V por m&#225;s de 0,1 segundos. Si este c&#243;digo se establece, el ECM ignorar&#225;
+                la se&#241;al del EOP y continuar&#225; operando normalmente. El c&#243;digo 211 puede deberse a un
+                circuito de alimentaci&#243;n del V
+                <subscript>REF</subscript>
+                abierto o en corto, a un circuito de se&#241;al abierto a tierra o a que el sensor est&#225; defectuoso.
+            </para>
+            <para id="f175fc212">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 212</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 100, FMI 3</emph>
+            </para>
+            <para>
+                <emph type="bold">Se&#241;al de presi&#243;n del aceite del motor fuera de l&#237;mite - alta</emph>
+            </para>
+            <para>Cuando el c&#243;digo 212 est&#225; activo, la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar se enciende y el od&#243;metro mostrar&#225; el mensaje WARN
+                ENG.
+            </para>
+            <para>Un c&#243;digo de se&#241;al fuera de l&#237;mite - alta se establecer&#225; si el ECM detecta un
+                voltaje mayor de 4,9 V por m&#225;s de 0,1 segundos. Si este c&#243;digo se establece, el ECM ignorar&#225;
+                la se&#241;al del EOP y continuar&#225; operando normalmente. El c&#243;digo de 212 puede deberse a que
+                el circuito de se&#241;al de retorno est&#225; abierto, a un corto a una fuente de voltaje o a que el
+                sensor est&#225; defectuoso.
+            </para>
+            <para id="f175fc225">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 225</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 100, FMI 0</emph>
+            </para>
+            <para>
+                <emph type="bold">Se&#241;al de presi&#243;n del aceite del motor dentro de los l&#237;mites</emph>
+            </para>
+            <para>Cuando el c&#243;digo 225 est&#225; activo, la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar se enciende y el od&#243;metro mostrar&#225; el mensaje WARN
+                ENG.
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 225 se establecer&#225; si el ECM detecta que el voltaje de la se&#241;al
+                del EOP es mayor que el esperado con la llave en ON y el motor apagado (una se&#241;al que indica 15
+                lb/pulg2). Si el ECM detecta esta falla, ignorar&#225; la se&#241;al del EOP. Es muy probable que se
+                establezca este c&#243;digo debido a que el EOP est&#225; defectuoso o a un circuito polarizado.
+            </para>
+            <para id="f175fc313">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 313</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 100, FMI 1</emph>
+            </para>
+            <para>
+                <emph type="bold">Presi&#243;n del aceite del motor inferior al nivel de advertencia</emph>
+            </para>
+            <para>El c&#243;digo 313 indica que la presi&#243;n del aceite ha ca&#237;do
+                <emph type="bold">por debajo del nivel de advertencia</emph>. La especificaci&#243;n del nivel de
+                advertencia es 5,0 lb/pulg2(34 kPa) a 700 RPM o 10,0 lb/pulg2(69 kPa) a 1400 RPM o 20,0 lb/pulg2(138
+                kPa) a 2000 RPM.
+            </para>
+            <para>El c&#243;digo 313 puede aparecer si el sensor est&#225; defectuoso y env&#237;a una se&#241;al
+                incorrecta. Para confirmar esto, compare la presi&#243;n real del aceite (medida con un medidor mec&#225;nico)
+                con la lectura en la lista de datos de la EST. Una baja presi&#243;n de aceite debida a componentes mec&#225;nicos
+                defectuosos tambi&#233;n registrar&#225; este c&#243;digo.
+            </para>
+            <specpara>
+                <note>
+                    <para>Es posible que este c&#243;digo quede registrado en el momento del arranque, especialmente si
+                        acaba de cambiar el aceite o despu&#233;s de una reconstrucci&#243;n del motor, hasta que el
+                        sistema de aceite quede cebado.
+                    </para>
+                </note>
+            </specpara>
+            <para id="f175fc314">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 314</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 100, FMI 7</emph>
+            </para>
+            <para>
+                <emph type="bold">Presi&#243;n del aceite del motor por debajo del nivel cr&#237;tico</emph>
+            </para>
+            <para>Si se registra el c&#243;digo 314, indica que la presi&#243;n del aceite ha ca&#237;do
+                <emph type="bold">por debajo del nivel cr&#237;tico</emph>. La especificaci&#243;n para el nivel cr&#237;tico
+                es 2,0 lb/pulg2 (14 kPa) a 700 RPM o 5,0 lb/pulg2 (34 kPa) a 1400 RPM o 12,0 lb/pulg2 (83 kPa) a 2000
+                RPM.
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 314 puede aparecer si el sensor est&#225; defectuoso y env&#237;a
+                una se&#241;al incorrecta. Para confirmar esto, compare la presi&#243;n real del aceite (con un medidor
+                mec&#225;nico) con el valor en la lista de datos de la EST. Una baja presi&#243;n de aceite debida a
+                componentes mec&#225;nicos defectuosos tambi&#233;n registrar&#225; este c&#243;digo.
+            </para>
+            <figure id="f17503056.2" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8821.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         resolution="600"/>
+                <caption>Diagrama de flujo para ubicaci&#243;n de problemas en el EOP</caption>
+            </figure>
+            <verbatim>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line>ESTA P&#193;GINA SE DEJ&#211; EN BLANCO INTENCIONALMENTE</line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+            </verbatim>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_91.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_93.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

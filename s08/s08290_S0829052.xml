@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Electrical System Troubleshooting Guide - BE 200, CE 200, CE 300 Model - MULTIPLEXING (DATA LINKS)</stitle>
+    <svcman/>
+    <svcsection id="s0829052" division="truck" date="12/14/2004">
+        <title>MULTIPLEXING (DATA LINKS)</title>
+        <svcproc svcproctype="describe" graphiccount="1">
+            <title>Description</title>
+            <para>The electrical system on the BE 200, CE 200/300 Bus has been significantly redesigned. Unlike the
+                electrical systems on previous models, which utilized point to point wiring for all input signals and
+                output loads, this system uses multiplexed wiring technologies to provide control and communication
+                between major functional areas of the bus. Multiplexing simply means, communicating information through
+                a small number of wires (called a data link) without requiring a wire for each piece of information.
+                This information could be gauge information such as engine oil pressure, or switch information that
+                controls bus functions such as headlamps. The electrical system relies on a collection of electronic
+                circuit modules and software to perform bus functions instead of implementing similar features using
+                complex wire harness designs with electromechanical relays and switches. These electronic module
+                components are connected together by electronic data links. These data links can be thought of as
+                computer networks that allow the electronic components on the bus to communicate with one another.
+            </para>
+            <para>The concept of multiplexing is not new to IC Corporation. Data links for communicating between engine
+                controllers, the instrument cluster and the diagnostic connector have been used for several years.
+            </para>
+            <para>The goal of multiplexing is to reduce cab harness wiring and to simplify circuits. This is
+                accomplished by using low current data link circuits for communication between cab switches and the
+                electrical system controller and the instrument cluster. Other data links in the bus allow other
+                electrical controllers and the instrument cluster to communicate with each other.
+            </para>
+            <para>IC Corporation multiplexing uses two types of data links; J1708 and J1939. The J1708 data link is
+                often referred to as ATA and J1939 is often referred to as CAN.
+            </para>
+            <para>There are three separate data links used on the BE/CE Bus.</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Drivetrain 1939 data link - This J1939 data link provides a path for communication between the
+                        engine controller, transmission controller, antilock brake system (ABS) controller, pyrometer
+                        ammeter module (PAM), electrical system controller (ESC) and the electronic gauge cluster (EGC)
+                        or instrument cluster.
+                    </para>
+                </item>
+                <item>
+                    <para>Switch data link - This J1708 data link provides a path for communication between the switch
+                        packs and ESC.
+                    </para>
+                </item>
+                <item>
+                    <para>1708 data link - This is the same J1708 data link (sometimes referred to as ATA) that has been
+                        used in the past. This data link will be used almost exclusively for diagnostics and programming
+                        of engines and other controllers.
+                    </para>
+                </item>
+            </randlist>
+            <para>The heart of the multiplexed system is the
+                <hotlnk xrefid="f08290301">Electrical System Controller</hotlnk>
+                (ESC). The ESC communicates with the switches on the switch data link, controllers from other features
+                on the drivetrain 1939 data link and remote power modules on the body builder data link. It also
+                receives input from various sensors and hard wire inputs throughout the bus. The ESC converts these
+                inputs into data to be transmitted on the data links. It is also the power source for circuits that feed
+                the components, controlled by the multiplexed switches, inside and outside of the cab.
+            </para>
+            <figure id="f08290301" figsize="pg-wide">
+                <graphic filename="../figg08/g08290401.webp" type="webp" scalefit="1" scalefitwidth="392px"
+                         scalefitheight="392px"/>
+                <caption>Electrical System Controller (ESC)</caption>
+                <calloutgroup>
+                    <callout1>(1600) 36 WAY SYSTEM CONTROLLER CONNECTOR</callout1>
+                    <callout1>(1601) BROWN 8 WAY SYSTEM CONTROLLER CONNECTOR</callout1>
+                    <callout1>(1602) 36 WAY SYSTEM CONTROLLER CONNECTOR</callout1>
+                    <callout1>(1603) BROWN 8 WAY SYSTEM CONTROLLER CONNECTOR</callout1>
+                    <callout1>(1604) BLUE 8 WAY SYSTEM CONTROLLER CONNECTOR</callout1>
+                </calloutgroup>
+            </figure>
+        </svcproc>
+    </svcsection>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08290_37.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08290_39.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08290.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

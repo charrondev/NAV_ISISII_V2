@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (1997) - SECTION 3.5: CIRCUIT FUNCTION AND DIAGNOSTICS - VEHICLE
+        PERSONALITY MODULE - VPM MEMORY FAULTS
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="proctype" graphiccount="0">
+        <title>VPM MEMORY FAULTS</title>
+        <svcsubproc>
+            <title>FLASH CODE 645 - ATA CODE SID 253 FMI 7 - VPM: RAW EEPROM MEMORY LOCATION - ERROR</title>
+            <para>Code 645 requires no action. Flash code 645 indicates an error was detected during a read or write
+                attempt at one of the EEPROM memory locations in the VPM. The code is informational and will be logged
+                as an inactive code. Code 645 will be logged along with another code which specifies what system or
+                feature is affected.
+            </para>
+            <para>If the error was in the VPM accumulators (total miles, fuel used or engine hour totals) a 634, 635,
+                641, 642, 643 or 645 will be logged.
+                <emph type="bold">Refer to VPM Fuel Meter, Hour Meter and Odometer in this section for a discussion of
+                    these codes.
+                </emph>
+            </para>
+            <para>If the EEPROM memory location failure was storing information from one of the data lists stored in the
+                VPM (Short List, High Priority List or Low Priority List), one of several fault codes (223, 235, 623,
+                624, 633, 651, 652, or 653) discussed in this section would be set because corrupt data would be read by
+                the ECM. If for example, the ECM attempted to read the Short List and the data was bad, Flash Code 653
+                would be set.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 651 - ATA CODE SID 253 FMI 10 - VPM: FEATURE MEMORY LIST CORRUPTED</title>
+            <para>If the VPM detects an error with the Feature List, code 651 will be set.</para>
+            <para>
+                <emph type="bold">SYMPTOMS:</emph>Engine runs on partial defaults, but Engine Warning Light is not
+                turned on. Vehicle features such as cruise control, remote PTO and optional engine protection system are
+                disabled.
+            </para>
+            <para>If code 651 is active:</para>
+            <step1>
+                <para count="1">Recycle the VPM. With the key ON, pull fuse F4 (H1 with FBC) and then reinstall the
+                    fuse.
+                </para>
+                <step2>
+                    <para count="1">If code 651 is inactive, end the test.</para>
+                </step2>
+                <step2>
+                    <para count="1">If code 651 still is active after resetting the VPM, reprogram the VPM.</para>
+                </step2>
+                <step2>
+                    <para count="1">If code 651 still is active after reprogramming the VPM, replace the VPM.</para>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 652 - ATA CODE SID 253 FMI 2 - VPM: ENGINE/FUEL MEMORY LIST CORRUPTED</title>
+            <para>
+                <emph type="bold">SYMPTOMS:</emph>Engine runs on field defaults, setting code 622 and Engine Warning
+                Light is turned ON.
+            </para>
+            <para>This code can be set if the VPM detects an error in the engine-fuel list.</para>
+            <para>If code 652 is active:</para>
+            <step1>
+                <para count="1">Recycle the VPM. With the key ON, pull fuse F4 (H1 with FBC) and then reinstall the
+                    fuse.
+                </para>
+                <step2>
+                    <para count="1">If code 652 is inactive, end test.</para>
+                </step2>
+                <step2>
+                    <para count="1">If code 652 is still active, replace the VPM.</para>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 653 - ATA CODE SID 253 FMI 12 - VPM: ENGINE RATING MEMORY LIST CORRUPTED</title>
+            <para>
+                <emph type="bold">SYMPTOMS:</emph>Engine runs on field defaults, with Engine Warning Light turned ON.
+            </para>
+            <para>This code can be set if the VPM detects an error in the engine rating list.</para>
+            <para>If code 653 is active:</para>
+            <step1>
+                <para count="1">Recycle the VPM. With the key ON pull fuse F4 (H1 with FBC) and then reinstall the
+                    fuse.
+                </para>
+                <step2>
+                    <para count="1">If code 653 is inactive, end test.</para>
+                </step2>
+                <step2>
+                    <para count="1">If code 653 is still active, replace the VPM.</para>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 654 - ATA CODE SID 252 FMI 12 - VPM: WATCHDOG TIME-OUT FAULT</title>
+            <para>If a VPM software fault is detected, code 654 will be set, then the VPM will reset. The driver will
+                likely not notice the reset, but the code will be logged as an inactive code following the reset for
+                informational purposes.
+            </para>
+            <para>If code 621 is active:</para>
+            <para>A. Program the VPM using established programming procedures included in the Prolink Manual.</para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_425.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_HL1251831.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

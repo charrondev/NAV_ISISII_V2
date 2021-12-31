@@ -1,0 +1,494 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 530 Engine Diagnostic Manual for 4000 Series Trucks (2001) - ELECTRONIC CONTROL SYSTEM
+        DIAGNOSTICS - CIRCUIT FUNCTION AND DIAGNOSTICS - Remote Accelerator Pedal Sensor (RPS)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="rps" graphiccount="3">
+        <title>Remote Accelerator Pedal Sensor (RPS)</title>
+        <svcsubproc>
+            <title>Signal Functions</title>
+            <figure id="f17503078" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1247.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>RPS Function Diagram</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>The RPS, the ON/OFF switch, and the circuit are supplied by the body builder.</para>
+                </note>
+            </specpara>
+            <para>The purpose of the remote accelerator pedal sensor (RPS) is to allow an operator to adjust engine
+                speed from a remote location. The RPS functions similar to the accelerator position sensor. The RPS
+                sensor is a potentiometer that sends a variable analog voltage signal to the ECM that indicates a
+                desired speed. In order for the RPS to function, the control module must be programmed for remote RPS
+                enable. To activate the RPS the remote variable terminal of the ECM must receive a 12V signal.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Pedal Operation</title>
+            <para>The pedal receives a 5V reference signal and a signal return from the ECM through the body builder
+                connections. By depressing the pedal the RPS signal voltage increases indicating a request to increase
+                engine speed.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>The ECM monitors the voltage at the RPS terminal for voltage to determine if the signal is in range. A
+                minimum voltage level is established to verify that the circuit is not open and a maximum voltage level
+                is established to verify that the signal is not shorted to a voltage source. When the ECM detects a
+                voltage Out of Range, the pedal will be disabled and Diagnostic Trouble Code 213 for Out of Range LOW or
+                code 214 for Out of Range HIGH will be set.
+            </para>
+            <figure id="f17503079" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8826.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Remote Accelerator Pedal Sensor Circuit Diagram</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>After removing connector always check for damaged pins, corrosion, and loose terminals.</para>
+                </note>
+            </specpara>
+            <table id="te17503029" frame="all">
+                <title>Remote Accelerator Pedal Sensor Circuit Diagnostics</title>
+                <tgroup cols="3" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="52.25*"/>
+                    <colspec colname="COLSPEC2" colwidth="51.15*"/>
+                    <colspec colname="col3" colwidth="292.60*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="1to3"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Remote Pedal Sensor Connector Voltage Checks</emph>(check with
+                                    remote pedal sensor disconnected and ignition key ON)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0V</para>
+                            </entry>
+                            <entry>
+                                <para>A positive voltage reading indicates a short to another circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0V</para>
+                            </entry>
+                            <entry>
+                                <para>A positive voltage reading indicates a short to another circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry>
+                                <para>Voltage out of specification indicates; an open circuit, short to ground, or short
+                                    to B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>(2) to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>12V</para>
+                            </entry>
+                            <entry>
+                                <para>ON/OFF switch voltage when switch is in the ON position.</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Remote Pedal Sensor Connector Resistance Checks</emph>
+                                    (check with remote pedal sensor disconnected, ignition key OFF and all accessories
+                                    off)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 1k&#x2126; indicates a short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>> 5&#x2126; indicates circuit is open.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 1k&#x2126; indicates a short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>(1) to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 1k&#x2126; indicates a short to ground with switch closed and fuse
+                                    removed.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>(check with breakout box installed
+                                    on chassis harness only &#38; sensor connector disconnected)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 to C</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>> 5&#x2126; indicates a high resistance or an open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 to B</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>> 5&#x2126; indicates a high resistance or an open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>30 to A</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>> 5&#x2126; indicates a high resistance or an open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>36 to (1)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>> 5&#x2126; indicates a high resistance or an open circuit with switch closed and
+                                    fuse removed.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Continued on Next Page</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks</emph>(check with breakout box
+                                    installed &#38; RPS sensor connected to connector)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>30 to 6</para>
+                            </entry>
+                            <entry>
+                                <para>0.5 to 4V</para>
+                            </entry>
+                            <entry>
+                                <para>Voltage should be low at idle position and should increase by depressing the
+                                    pedal. Voltage reading should change smoothly and there should be no position that
+                                    causes a sudden increase or decrease in voltage.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>36 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>12V or 0V</para>
+                            </entry>
+                            <entry>
+                                <para>ON/OFF switch voltage: 12V when ON, 0V when OFF.</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Description</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>213 = RPS Signal was &#60;0.49V. Circuit open or shorted to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>214 = RPS Signal was >3.91V. Sensor shorted internally or short to V
+                                    <subscript>BAT</subscript>
+                                    or V
+                                    <subscript>REF</subscript>.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>The RPS is used for engine speed control outside of the vehicle cab. As part of the PTO engine speed
+                control, connections for the RPS are supplied through the body builder's connections.
+            </para>
+            <para>To operate the RPS, a 5V reference voltage is supplied by the ECM from pin 5 through the body
+                builder's connections circuit K97DD. Signal return for the RPS is supplied by a dedicated terminal
+                number 6 through the body builder's connections circuit K97HM. The remote pedal sensor is a
+                potentiometer that uses the 5V reference voltage and signal return to supply an analog voltage to
+                terminal 30 through the body builder's connections circuit K99F. In the idle position, the voltage
+                signal from the RPS is low. As the pedal is depressed, the voltage increases, indicating an increase in
+                demand for speed from the operator.
+            </para>
+            <para>Before the RPS is operational the ECM must first have a 12V signal at pin 36. This is supplied through
+                the body builder's connections circuit K97CC to enable the operation of the RPS.
+            </para>
+            <para>PTO speed control operation interruption will occur:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>If the remote variable circuit is opened. The engine will return to idle.</para>
+                </item>
+                <item>
+                    <para>If the brake or clutch pedal is depressed or with an automatic transmission, the transmission
+                        is placed in gear. The engine will return to idle.
+                    </para>
+                </item>
+                <item>
+                    <para>If the ECM receives a signal from the vehicle speed sensor (VSS) the engine will return to
+                        idle. Remote PTO speed control will not function if the brake or VSS circuits are in fault and
+                        the RPS will not operate if the RPS system has an active Diagnostic Trouble Code present.
+                    </para>
+                </item>
+                <item>
+                    <para>If the option has been programmed in the ECM for PTO Operation. The brake, clutch or
+                        transmission will not interrupt the PTO speed control.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">Programming</emph>
+            </para>
+            <para>The ECM must be programmed to enable the RPS. From the programmable parameters menu under the option
+                PTO controls, select RPS and program for "enable." If it is desired that the cab controls (APS brake and
+                clutch) do not impede the operation of the PTO speed control, select the option PTO Operation. Disable,
+                and select "enable." PTO mode must be programmed to remote. If the RPS is enabled and there is no pedal
+                signal present, the ECM will log a Diagnostic Trouble Code. The PTO maximum engine speed will allow
+                programming for the maximum engine speed allowed when in PTO mode.
+            </para>
+            <para>
+                <emph type="bold">ECM Diagnostics</emph>
+            </para>
+            <para>The ECM monitors the voltage at the RPS terminal to determine if the signal is within range. A minimum
+                voltage level is established to verify that the circuit is not open and a maximum voltage level is
+                established to verify that the signal is not shorted to a voltage source. When the ECM sees the voltage
+                Out of Range the pedal will be disabled and a Diagnostic Trouble Code 213 for Out of Range LOW or 214
+                for Out of Range HIGH will be set. If the ignition is shut off a Diagnostic Trouble Code will be
+                recorded as an inactive code.
+            </para>
+            <para id="f175fc213">
+                <emph type="bold">Diagnostic Trouble Code 213</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, SID 29, FMI 4</emph>
+            </para>
+            <para>
+                <emph type="bold">Remote Throttle Signal Out of Range LOW</emph>
+            </para>
+            <para>Diagnostic Trouble Code 213 indicates that ECM pin 30 voltage was less than 0.25V. This indicates an
+                open or shorted circuit for the V
+                <subscript>REF</subscript>
+                supply from ECM pin 5 or an open or shorted RPS signal circuit to pin 30 from the RPS. It may also
+                result from a defective (open or shorted) remote pedal sensor.
+            </para>
+            <para id="f175fc214">
+                <emph type="bold">Diagnostic Trouble Code 214</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, SID 29, FMI 3</emph>
+            </para>
+            <para>
+                <emph type="bold">Remote Throttle Signal Out of Range HIGH</emph>
+            </para>
+            <para>Diagnostic Trouble Code 214 indicates that ECM pin 30 voltage was greater than 4.5V. This indicates a
+                possible open circuit in RPS return to pin 6 or a short circuit to another voltage supply on the RPS
+                signal circuit. It may also result from a defective (shorted) remote pedal sensor.
+            </para>
+            <para>
+                <emph type="bold">Troubleshooting</emph>
+            </para>
+            <para>The EST can be used to monitor the status of the PTO controls. Comparing the switch reading to actual
+                operation will indicate if the controls are operating properly. Using the menu option of programmable
+                parameters, the programming can verify that the ECM is programmed properly for that specific
+                application. Also the data list can be used to monitor the parameters that cause the interruption of PTO
+                speed control. Use the diagnostic code menu to read the Diagnostic Trouble Codes.
+            </para>
+            <figure id="f17503080.5" figsize="pg-wide">
+                <graphic filename="../figEg8/Eg8806.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>Electronic Engine Controls, Cruise Control Connections with Manual Transmission</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refer to S08285 - Electrical Circuit Diagrams - 4200/4300/4400</para>
+                </note>
+            </specpara>
+            <verbatim>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line>THIS PAGE INTENTIONALLY LEFT BLANK</line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+            </verbatim>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_102.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_104.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

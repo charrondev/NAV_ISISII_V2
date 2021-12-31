@@ -1,0 +1,754 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;stico del motor VT 275 - Diagn&#243;sticos del sistema de control electr&#243;nico
+        - Diagn&#243;sticos de circuitos - Circuitos impulsores de los inyectores (INJ)
+    </stitle>
+    <svcman/>
+    <svcproc id="s306000706.26" svcproctype="diagnose" graphiccount="4">
+        <title>Circuitos impulsores de los inyectores (INJ)</title>
+        <svcprocinfo id="s306000706.26.1">
+            <figure id="f3060007106" figsize="pg-wide">
+                <graphic filename="../figj31/j31208.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="472px"/>
+                <caption>Diagrama de la funci&#243;n del circuito INJ</caption>
+            </figure>
+            <para id="s306000706.26.1.1">El diagrama de la funci&#243;n del INJ incluye lo siguiente:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Inyectores</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo impulsor de los inyectores (IDM)</para>
+                </item>
+                <item>
+                    <para>Enlace de red de &#225;rea del controlador (CAN 2)</para>
+                </item>
+                <item>
+                    <para>Se&#241;al de salida de la posici&#243;n del &#225;rbol de levas (CMPO)</para>
+                </item>
+                <item>
+                    <para>Se&#241;al de salida de la posici&#243;n del cig&#252;e&#241;al (CKPO)</para>
+                </item>
+                <item>
+                    <para>Luz &#225;mbar de advertencia del motor</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>El IDM se usa para controlar los inyectores. El IDM recibe se&#241;ales del
+                CMPO y el CKPO e informaci&#243;n sobre suministro de combustible a trav&#233;s del CAN 2, desde el ECM.
+                El IDM calcula la sincronizaci&#243;n de la inyecci&#243;n y la activaci&#243;n de los inyectores basado
+                en la cantidad solicitada de combustible por cualquier condici&#243;n de operaci&#243;n del motor.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s306000706.26.2">
+            <title>Operaci&#243;n de los circuitos del INJ</title>
+            <para>Cuando es necesario energizar una bobina, el IDM activa tanto el impulsor del lado de energ&#237;a
+                como el del lado de tierra.
+            </para>
+            <para>
+                <title>Se&#241;ales del impulsor del lado de energ&#237;a</title>El IDM regula la corriente a un
+                promedio de 20 A. Cuando la corriente alcanza 24 A, el IDM apaga el impulsor del lado de energ&#237;a.
+                Cuando la corriente desciende a 16 A, el IDM activa el impulsor del lado de energ&#237;a.
+            </para>
+            <para>
+                <title>Se&#241;ales de retorno del impulsor del lado de tierra</title>Los solenoides de los inyectores
+                est&#225;n conectados a tierra a trav&#233;s de los circuitos de retorno del lado de tierra. El ECM
+                monitoriza los circuitos de retorno del lado de tierra. El ECM monitoriza la se&#241;al de retorno del
+                lado de tierra con fines de diagn&#243;stico y usa la corriente de retorno desde los solenoides de los
+                inyectores para ayudar a cargar los capacitores internos del ECM.
+            </para>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>Cuando el motor est&#225; en marcha, el IDM puede
+                detectar en forma individual si la bobina de cada inyector tiene una interrupci&#243;n o corto a tierra
+                o a B+. Una prueba de los inyectores con la llave en ONy el motor apagado KOEO permite que el conductor
+                active las bobinas de todos los inyectores con el motor apagado, para verificar la operaci&#243;n de los
+                circuitos. Cuando el IDM detecta una falla, se transmiten DTC por la l&#237;nea CAN 2 entre el ECM y el
+                IDM.
+            </para>
+            <para>El IDM transmite se&#241;ales impulsoras de energ&#237;a y tierra a los inyectores. La se&#241;al del
+                lado de energ&#237;a suministra a los inyectores 48 V de CC a 20 A. La se&#241;al del lado de tierra
+                suministra un circuito de retorno a la bobina de cada inyector.
+            </para>
+            <para>Los inyectores est&#225;n debajo de las tapas de v&#225;lvula izquierda y derecha. Cada inyector tiene
+                una bobina de apertura y cierre. El IDM monitoriza constantemente la cantidad de tiempo (elevaci&#243;n)
+                que demora cada bobina en extraer 20 A. El tiempo se compara con valores calibrados y el IDM determina
+                si hay alguna falla en un circuito o en un inyector. Cada inyector tiene 6 modos de falla y 3 DTC. Puede
+                ocurrir una falla en el circuito de la bobina de apertura o de la de cierre.
+            </para>
+            <para>Cuando se detecta un corto a tierra en un inyector (en el lado de energ&#237;a o de tierra), el IDM
+                corta el suministro de corriente hacia ese inyector, enciende la luz &#225;mbar de advertencia del motor
+                y hace funcionar el motor con los cilindros restantes.
+            </para>
+            <para>
+                <title>DTC del INJ</title>Los DTC se leen con la EST o contando los destellos de la luz &#225;mbar de
+                advertencia del motor y de la luz roja de aceite/refrigerante. El &#250;ltimo d&#237;gito de los DTC de
+                los inyectores corresponde al cilindro en el que se detect&#243; la falla.
+            </para>
+            <table id="t3060007191" type="simple" frame="topbot">
+                <title>DTC 421 a 426</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>Interrupci&#243;n del lado de energ&#237;a al lado de tierra (n&#250;mero de
+                                        cilindro indicado)
+                                    </title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>El ECM genera los DTC 421 - 426 cuando la demora de elevaci&#243;n de corriente es
+                                    muy larga en la bobina de apertura o cierre. Los DTC 421 - 426 generalmente indican
+                                    que hay una interrupci&#243;n en el cableado o en la bobina.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3060007192" type="simple" frame="topbot">
+                <title>DTC 431 a 436</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>Corto del lado de energ&#237;a al lado de tierra (n&#250;mero de cilindro
+                                        indicado)
+                                    </title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>El ECM genera los DTC 431 - 436 cuando la demora de elevaci&#243;n hasta 20 A es
+                                    corta pero no de cero en la bobina de apertura o cierre. Los DTC 431 - 436
+                                    generalmente indican que una bobina tiene un corto interno.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3060007193" type="simple" frame="topbot">
+                <title>DTC 451 a 456</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>Corto del lado de energ&#237;a a tierra o V
+                                        <subscript>BAT</subscript>
+                                        (n&#250;mero de cilindro indicado)
+                                    </title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>El ECM genera los DTC 451 - 456 cuando la demora de elevaci&#243;n hasta 20 A es
+                                    de cero en la bobina de apertura o cierre. Los DTC 451 - 458 generalmente indican
+                                    que hay una interrupci&#243;n en el cableado o en la bobina.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <randlist type="bullet">
+                <title>Herramientas</title>
+                <item>
+                    <para>EST con software MasterDiagnostics&#174;</para>
+                </item>
+                <item>
+                    <para>Cable de conexi&#243;n EZ-Tech&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Juego de adaptadores para probar terminales</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc id="s306000706.26.3">
+            <title>Diagn&#243;sticos del INJ con los pines</title>
+            <specpara>
+                <warning>
+                    <para>Para evitar lesiones personales graves o accidentes fatales, no haga mediciones de voltaje con
+                        el motor en marcha. Los circuitos de los inyectores tienen voltaje operacional de los solenoides
+                        de 48 V de CC a 20 A.
+                    </para>
+                </warning>
+                <caution>
+                    <para>Para no causar da&#241;os al motor, ponga el interruptor de encendido en OFF antes de
+                        desconectar el conector o el rel&#233; del IDM. No poner el interruptor de encendido en OFF
+                        provocar&#225; un sobrevoltaje y da&#241;ar&#225; componentes el&#233;ctricos.
+                    </para>
+                </caution>
+            </specpara>
+            <para>Antes de realizar pruebas de diagn&#243;stico de los inyectores:</para>
+            <step1>
+                <para count="1">Ponga el interruptor de encendido en OFF.</para>
+            </step1>
+            <step1>
+                <para count="1">Desenchufe los conectores X1 y X2 del IDM.</para>
+            </step1>
+            <para>Todas las pruebas se hacen en el extremo del cableado. Los n&#250;meros de los terminales est&#225;n
+                marcados en el extremo de conexi&#243;n de los conectores. Luego de medir la resistencia a trav&#233;s
+                de las bobinas de los inyectores y a la tierra del chasis, si los resultados cumplen con los valores
+                requeridos y hay un DTC activo, cambie el inyector.
+            </para>
+            <specpara>
+                <note>
+                    <para>Haga el diagn&#243;stico s&#243;lo en los inyectores que tengan DTC activos.</para>
+                </note>
+            </specpara>
+            <figure id="f3060007107" figsize="pg-wide">
+                <graphic filename="../figj31/j31209.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="312px"/>
+                <caption>Diagrama de circuitos de los cilindros 1 y 3</caption>
+            </figure>
+            <table id="t3060007194" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Inyector del cilindro 1</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.26in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-5 a X1-20</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una interrupci&#243;n en la bobina.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-5 a tierra, X1-20 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-2 a X1-19</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una bobina cerrada.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-2 a tierra, X1-19 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3060007195" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Inyector del cilindro 3</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.21in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-1 a X1-23</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una interrupci&#243;n en la bobina.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-1 a tierra, X1-23 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 a X1-24</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una bobina cerrada.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 a tierra, X1-24 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f3060007108" figsize="pg-wide">
+                <graphic filename="../figj31/j31210.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="312px"/>
+                <caption>Diagrama de circuitos de los cilindros 5 y 6</caption>
+            </figure>
+            <table id="t3060007196" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Inyector del cilindro 5</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.24in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-3 a X1-17</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una interrupci&#243;n en la bobina.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-3 a tierra, X1-17 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-5 a X1-18</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una bobina cerrada.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-5 a tierra, X1-17 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3060007197" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Inyector del cilindro 6</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.20in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-4 a X2-19</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una interrupci&#243;n en la bobina.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-4 a tierra, X2-19 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-4 a X2-20</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una bobina cerrada.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-4 a tierra, X2-20 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f3060007109" figsize="pg-wide">
+                <graphic filename="../figj31/j31211.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="312px"/>
+                <caption>Diagrama de circuitos de los cilindros 2 y 4</caption>
+            </figure>
+            <table id="t3060007198" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Inyector del cilindro 2</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.24in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-1 a X2-21</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una interrupci&#243;n en la bobina.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-1 a tierra, X2-21 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-6 a X2-18</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una bobina cerrada.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-6 a tierra, X2-18 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3060007199" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Inyector del cilindro 4</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.26in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-1 a X2-21</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una interrupci&#243;n en la bobina.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-1 a tierra, X2-21 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-5 a X2-22</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,7 - 1,5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 1,5 &#x2126;, busque una interrupci&#243;n o alta resistencia entre el IDM y
+                                    el inyector, o una bobina cerrada.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-5 a tierra, X2-22 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado o en la bobina del
+                                    inyector. Desconecte el inyector y repita la prueba. Si > 1 k&#x2126;, el corto est&#225;
+                                    en el inyector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges305_141.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges305_143.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges305.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

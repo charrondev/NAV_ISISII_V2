@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        American Trucking Association (ATA) Data Link
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>American Trucking Association (ATA) Data Link</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3372" filename="../figd33/d3372.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function Diagram for the American Trucking Association (ATA) Data Link</caption>
+            </figure>
+            <para>The Function Diagram for the ATA data link includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Injection Driver Module (IDM)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The Data Communication Link signal is a 0 to 5V variable width square wave form signal that enables
+                communication between the Master Diagnostic (MD) software and the ECM. The data communication link also
+                allows for programming the IDM.
+            </para>
+            <para></para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>ATA Circuit Operation</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3373" filename="../figd33/d3373.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>ATA Circuit Diagram</caption>
+            </figure>
+            <para>The ECM communicates with the EST and MD software through EST connector. The EST communicates with the
+                ECM using the ATA datalink.
+            </para>
+            <para>The IDM uses ATA only for programming.</para>
+            <para>The ATA circuit uses a twisted wire pair. All repairs must maintain one complete twist per inch along
+                the entire length of the circuit. This circuit is polarized (one positive and one negative) and
+                reversing the polarity of this circuit will disrupt communications.
+            </para>
+            <para>
+                <title>ATA Data Link Connector</title>
+            </para>
+            <para>Vehicles are equipped with the ATA datalink connector for communication between the Electronic Control
+                Module (ECM) and the Electronic Service Tool (EST).
+            </para>
+            <para>The ATA datalink supports the following functions:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Transmission of engine parameter data</para>
+                </item>
+                <item>
+                    <para>Transmission and clearing of DTCs</para>
+                </item>
+                <item>
+                    <para>Diagnostics and trouble shooting</para>
+                </item>
+                <item>
+                    <para>Programming performance parameter values</para>
+                </item>
+                <item>
+                    <para>Programming engine and vehicle features</para>
+                </item>
+                <item>
+                    <para>Programming calibrations and strategies in the ECM and IDM</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM continuously monitors the ATA datalink for an open, short or intermittent connection. If an
+                active DTC occurs on the ATA datalink, the MD diagnostic software will not display correct data.
+            </para>
+            <para>The IDM uses ATA for programming only. DTCs are not transmitted from the IDM through the ATA
+                datatlink.
+            </para>
+            <para>
+                <title>ATA Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim id="f240dtc231">
+                <line>
+                    <emph type="bold">DTC 231</emph>
+                </line>
+                <line>
+                    <emph type="bold">ATA data communication link error</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 231 is set when the ECM can not access the ATA datalink. When this occurs, ATA data can
+                        not be retrieved using the EST. DTCs can only be retrieved using the cruise control feature.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 231 can be set when the any of the following conditions occur:</para>
+                    <randlist type="bullet">
+                        <item>
+                            <para>Defective ATA device (transmission controller or anti-lock brake controller) is
+                                connected to ATA bus and pulls signal to ground.
+                            </para>
+                        </item>
+                        <item>
+                            <para>Number of ATA devices exceeds limit</para>
+                        </item>
+                        <item>
+                            <para>Defective ECM</para>
+                        </item>
+                    </randlist>
+                </item>
+                <item>
+                    <para>When DTC 231 is active the amber ENGINE lamp is not illuminated.</para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>Vehicles equipped with the Allison WTEC transmission may display DTC 231 when attempting to
+                        program the ECM. The WTEC controller must be disconnected when programming the engine ECM.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout box</para>
+                </item>
+                <item>
+                    <para>Breakout harness</para>
+                </item>
+            </randlist>
+            <para>The ATA circuit requires the use of vehicle circuit diagrams. See truck Chassis Electrical Circuit
+                Diagram manual for circuit numbers, connector and fuse locations.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ATA Pin Point Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3373" filename="../figd33/d3373.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="592px"/>
+                <caption>ATA Circuit Diagram</caption>
+            </figure>
+            <table id="te24007016" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="COLSPEC0" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector at EST Voltage Checks</emph>
+                                    (Key ON Engine OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Signal</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Voltage</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Should be voltage at B at all times. If no voltage is present, check ground and
+                                    power circuits.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">EST to Ground Voltage Checks</emph>
+                                    (Turn ignition key OFF and disconnect negative battery cable.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry colname="col3" morerows="1">
+                                <para>If &#60;1k&#x2126;, check for short to ground through harness or internal within
+                                    the ECM and IDM. Disconnect ECM and IDM and measure ground again. If short is still
+                                    present, disconnect other devices connected to data communication link and retest.
+                                    If short is still present, repair harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>G to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Power</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>With fuse removed, if&#60;1k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for an open circuit. The EST tool will not communicate.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">EST and Dash Harness Resistance Checks</emph>
+                                    (Turn ignition key OFF, disconnect negative battery cable, and install breakout
+                                    box.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F to ECM X4-20</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance from ECM chassis connector to EST connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>G to ECM X4-21</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance from ECM chassis connector to EST connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F to IDM X3-28</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance from IDM connector to EST connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>G to IDM X3-29</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance from IDM connector to EST connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to fuse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Power</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance from EST connector to power fuse. See truck Chassis Electrical Circuit
+                                    Diagram manual for circuit numbers, connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for an open circuit. Open circuit will prevent EST power
+                                    up.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Description</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>231 ATA data communication link error - ATA wiring or connector</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_130.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_132.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

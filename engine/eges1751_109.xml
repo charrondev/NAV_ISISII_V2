@@ -1,0 +1,460 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics Model Years 1999-2000 - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS -
+        Circuit Function And Diagnostics - Engine Crank Inhibit System (ECI)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Engine Crank Inhibit System (ECI)</title>
+        <svcsubproc>
+            <title>Signal Function</title>
+            <figure id="f17503036" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1222.webp" type="webp" scalefit="1" scalefitwidth="352px" box="no"/>
+                <caption>Function Diagram for Engine Crank Inhibit</caption>
+            </figure>
+            <para>The Engine Crank Inhibit function of the ECM controls cranking motor operation. The ECM prevents the
+                cranking motor from being engaged when the engine is running. The transmission neutral safety switch or
+                clutch switch will prevent the cranking motor from being engaged when the transmission is in gear or
+                when the clutch pedal is not depressed.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Electronic Control Module (ECM)</title>
+            <para>The ECM prevents the engine from being cranked if the engine is running, by not enabeling the Engine
+                Crank Inhibit relay.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Engine Crank Inhibit Relay</title>
+            <para>The Engine Crank Inhibit relay controls the start relay. The Crank Inhibit relay receives signals from
+                the ignition switch and ECM to close the relay. Current to the relay is supplied from the neutral safety
+                switch on an automatic transmission or clutch pedal switch on a manual transmission.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Start Relay</title>
+            <para>The start relay sends battery voltage to the crank motor solenoid when the crank inhibit relay is
+                energized. The start relay is protected and controlled by an overcrank thermocouple, if equipped.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Clutch Switch</title>
+            <para>For vehicles equipped with manual transmissions, the clutch switch supplies power to the Engine Crank
+                Inhibit (ECI) relay and provides a signal to the ECM that indicates the driveline is disengaged. For
+                vehicles programmed for manual transmissions, a 0V signal on the DDS circuit indicates that the clutch
+                is disengaged (clutch pedal down). A 12V signal indicates that the clutch is engaged (clutch pedal up).
+                When the clutch pedal is up no power is available to the ECI relay.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Neutral Switch</title>
+            <para>For vehicles equipped with mechanical automatic transmissions (Allison AT/MT), the neutral position
+                switch is used to supply power to the ECI relay and provides a signal to the ECM that indicates the
+                driveline is disengaged. For vehicles programmed for Allison AT/MT transmissions, a 12V signal on the
+                DDS circuit indicates that the transmission is out of gear. A 0V signal indicates that the transmission
+                is in gear. When the transmission is in gear no power is available to the ECI relay.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>WTEC VIM Relay</title>
+            <para>For vehicles equipped with the Allison MD World Transmission Electronically Controlled transmission
+                (WTEC), the transmission controller provides a signal to a relay in the VIM module to supply power to
+                the ECI relay and a signal to the ECM to indicate that the driveline is disengaged. For vehicles
+                programmed for Allison MD transmissions, a 12V signal on the DDS circuit indicates that the transmission
+                is out of gear. An 0V signal indicates that the transmission is in gear. When the transmission is in
+                gear no power is available to the ECI relay.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>The ECM does not monitor cranking system circuits. Diagnostic Trouble Codes are not used for this
+                system.
+            </para>
+            <figure id="f17503037" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1223A.webp" type="webp" scalefit="1" scalefitwidth="408px" box="no"/>
+                <caption>Circuit Diagram for Engine Crank Inhibit</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Before testing Engine Crank Inhibit or cranking circuits, check battery for full charge. Check
+                        battery connections at the battery, frame, and starter. See CTS 5000 for battery and starter
+                        test procedures.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503008" tblwidth="pg-wide" frame="all">
+                <title>Engine Crank Inhibit System Diagnostics</title>
+                <tgroup cols="3" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="43.45*"/>
+                    <colspec colname="COLSPEC0" colwidth="36.73*"/>
+                    <colspec colname="col3" colwidth="315.82*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="1to3"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="1to3" align="center">
+                                <para>
+                                    <emph type="bold">Start Relay Voltage and Resistance Checks - With Starter Relay
+                                        Removed
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>86 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>12V &#177; 1.5</para>
+                            </entry>
+                            <entry>
+                                <para>Check with relay unplugged and starter switch (key or button) engaged. If no
+                                    voltage is present, troubleshoot clutch or trans switch. ECI circuit or ignition
+                                    crank circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>85 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>An open to ground will cause the relay not to energize (check thermal overcrank
+                                    switch, if equipped).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Crank Circuit Test</emph>
+                                    - With the trans out of gear and the clutch depressed with wheels safely blocked,
+                                    momentarily insert a jumper wire between socket pins No.30 and No.87 of the Start
+                                    Relay.
+                                    <emph type="bold">NOTE: If the cranking circuit is functional, the starter will
+                                        energize.
+                                    </emph>
+                                    If the engine cranks and voltage is present at 86 and ground at 85 the relay is bad.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3" align="center">
+                                <para>
+                                    <emph type="bold">ECI Relay Voltage and Resistance Checks - With ECI Relay
+                                        Removed.
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>85 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>12V &#177; 1.5</para>
+                            </entry>
+                            <entry>
+                                <para>Check with relay unplugged &#38; starter switch (key or button) engaged. If no
+                                    voltage present, troubleshoot ignition crank circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>30 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>12V &#177; 1.5</para>
+                            </entry>
+                            <entry>
+                                <para>If no voltage is present when clutch is depressed or auto. transmission in
+                                    neutral, troubleshoot clutch switch or neutral safety switch circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>86 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4V to 5V</para>
+                            </entry>
+                            <entry>
+                                <para>ECM will pull circuit up to 4V to 5V with key ON and will go to 0V when the clutch
+                                    is depressed or transmission is in neutral.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">ECI Circuit Test</emph>- With the trans out of gear and the clutch
+                                    depressed with wheels safely blocked, insert a jumper wire between socket pins No.85
+                                    and No.87 of the ECI Relay. If the engine cranks, when the start switch is engaged
+                                    either the ECI relay is bad or there is a problem with the ECM or ECM wiring
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>Contiued on next page</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3" align="center">
+                                <para>
+                                    <emph type="bold">ECM Chassis (Black) Circuit Checks - Check with All Relays
+                                        Installed and Breakout Box Connected.
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>DDS (+26) to (-23)</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0V or 12V</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Manual Trans</emph>
+                                    - 0V with clutch pedal down, 12V clutch pedal up
+                                    <emph type="bold">Automatic Trans</emph>
+                                    - 12V with trans in neutral, 0V trans in gear.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry morerows="2" align="center">
+                                <para>
+                                    <emph type="bold">ECI</emph>
+                                    +46 to -23
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>12V &#177; 1.5</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">At crank w/clutch up or auto trans in gear</emph>, if 12V present
+                                    ckt good cranking inhibited.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0V to 0.6V</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">At crank w/clutch down or auto trans in neutral,</emph>
+                                    if ECM pin No.26 is at 12V and pin No.46 is not at 0V to 0.6V, check ECM
+                                    programming. Cranking allowed.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4V to 5V</para>
+                            </entry>
+                            <entry>
+                                <para>Pull up voltage from ECM with /key ON,
+                                    <emph type="bold">engine OFF or running</emph>: trans in gear or clutch up.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>The engine starting system is controlled by the Electronic Control Module (ECM). The ECM also prevents
+                cranking motor operation, while the engine is running, that could cause damage to the starter pinion and
+                ring gear.
+            </para>
+            <para>A clutch switch or transmission neutral switch is in series with the Engine Crank Inhibit relay. Both
+                switches prevent the cranking motor from being engaged unless the transmission is in neutral or the
+                clutch is disengaged.
+            </para>
+            <para>The Engine Crank Inhibit system includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Ignition switch</para>
+                </item>
+                <item>
+                    <para>Push button start switch (optional)</para>
+                </item>
+                <item>
+                    <para>Engine crank inhibit relay</para>
+                </item>
+                <item>
+                    <para>Start relay</para>
+                </item>
+                <item>
+                    <para>Crank motor and solenoid</para>
+                </item>
+                <item>
+                    <para>Batteries and cables</para>
+                </item>
+                <item>
+                    <para>Neutral safety switch (with AT/MT automatic transmission)</para>
+                </item>
+                <item>
+                    <para>Clutch switch (with manual transmission)</para>
+                </item>
+                <item>
+                    <para>VIM relay module (with MD automatic transmission)</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>System Operation</title>
+            <para>See
+                <hotlnk xrefid="f17503038">Cranking System Circuit Diagram
+                    <xref refid="f17503038"/>
+                </hotlnk>
+                for the following description.
+            </para>
+            <para>When the ignition is turned on and the push button start switch is depressed, current flows to the
+                Engine Crank Inhibit (ECI) relay. The relay is enabled when the ECM supplies the ground circuit.
+            </para>
+            <para>Closing this relay allows current to pass from the ignition switch through fuse F17 through the
+                neutral safety switch (jumped if manual trans), and through the clutch switch normally closed (jumped if
+                auto trans). With the relay closed current then passes through the relay and will energize the start
+                relay. The ground circuit for the start relay is through the overcrank protection fuse in the crank
+                motor or directly to ground if not equipped with overcrank protection. When the relay is closed the
+                current can pass from the crank motor battery terminal through the relay and to the crank motor
+                solenoid, start terminal. This closes the crank solenoid to engage the starter.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Electronic Control Module (ECM)</title>
+            <para>When the ECM recognizes that the engine is not running, the ECM will ground terminal 46 providing DDS
+                status is correct. This provides the current path for the Engine Crank Inhibit Relay to close when the
+                Start switch is engaged or the starter button is depressed. When the ECM recognizes that the engine is
+                running the ECM will open terminal 46. This will prevent the Engine Crank Inhibit relay from closing
+                thus preventing the starter motor from engaging.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Engine Crank Inhibit Relay (ECI)</title>
+            <para>The Engine Crank Inhibit relay controls the current to the start relay. Turning the ignition key to
+                the START, supplies current to the relay at terminal 85. If the engine is not running ECM terminal 46
+                will enable the relay by supplying a ground circuit to terminal 86. Current for the start relay is
+                supplied through the neutral safety switch if the transmission is in neutral with an automatic
+                transmission to terminal 30. Or if the truck is equipped with a manual transmission, current will be
+                supplied to the relay through the clutch switch if the clutch pedal is depressed. With the relay closed
+                current can pass through the relay to terminal 86 to power the start relay.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Start Relay</title>
+            <para>The start relay switches battery power to the crank motor solenoid when the crank inhibit relay is
+                energized. When the engine crank inhibit relay is closed, current is supplied to the start relay
+                terminal to energize the relay. The start relay control is grounded through the starter thermal
+                overcrank protection thermocouple if equipped. Or if not, the relay is grounded directly to the ground
+                stud on the starter. With the start relay energized, battery voltage is supplied to the start relay and
+                then switched to the crank motor solenoid to crank the engine.
+            </para>
+            <para>Before troubleshooting, make certain batteries are fully charged. Voltage readings will not be
+                accurate if the batteries are not fully charged Check battery cables and grounds for clean and tight
+                connections free of damage.
+            </para>
+            <para>Before troubleshooting, inspect circuit connectors for pushed back, loose or damaged (spread or bent)
+                terminals, or wires with cut strands etc. Wires and connections must be free of damage or corrosion.
+                When some connectors corrode, a light white residue will be present that must be removed.
+            </para>
+            <para>Before troubleshooting, inspect the suspect circuit ground for clean, tight connections, free of an
+                damage.
+            </para>
+            <figure id="f17503038" figsize="full-pg">
+                <graphic filename="../figeg7/eg7291.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="592px" box="yes"/>
+                <caption>Cranking System Circuit Diagram</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>*See Publication CTS 5122V Electrical Circuit Diagrams</para>
+                </note>
+            </specpara>
+            <para>
+                <emph type="bold">NOTES</emph>
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_108.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_110.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

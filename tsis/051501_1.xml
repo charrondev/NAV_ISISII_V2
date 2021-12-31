@@ -1,0 +1,433 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>TSI 05-15-01 - Dual Fuel Tank Transfer Pump System With Two Wire Fuel Transfer Pump Troubleshooting</stitle>
+    <tsi id="tsi051501" tsitype="truck">
+        <tsinumber>05-15-01</tsinumber>
+        <tsidate>February, 2005</tsidate>
+        <subjectfile>FUEL TANKS</subjectfile>
+        <subjectgroup>
+            <subject>Dual Fuel Tank Transfer Pump System With Two Wire Fuel Transfer Pump Troubleshooting</subject>
+        </subjectgroup>
+        <distribution dealer="yes" fleet="yes" bodybuilder="no" isis_cd="yes"/>
+        <apply>
+            <configure>
+                <truckmodelgroup/>
+
+                <truckmodel>4200
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>4300
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>4400
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>7300
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>7400
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>7500
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>7600
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>8500
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>8600
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <para>Trucks built after the above referenced date have two wire fuel transfer pumps that rely entirely
+                    on the ESC for their activation. The dual tank with transfer pump feature on HPV vehicles is
+                    designed to transfer fuel from the storage tank to the draw tank under strict guidelines and fuel
+                    level conditions. The ESC reads the fuel levels in both tanks and "filters" these readings to
+                    account for sloshing fuel and to assure that the draw tank is not overfilled and the supply tank is
+                    not emptied. The information provided in this TSI is provided to help the technician understand and
+                    answer two basic questions: Does the transfer pump move fuel from the supply tank into the draw
+                    tank, and if not, what is the proper area to troubleshoot?
+                </para>
+            </geninfo>
+        </description>
+        <svcproc svcproctype="troubleshoot" graphiccount="5">
+            <title>Procedure</title>
+            <svcprocinfo>
+                <para>As previously mentioned the ESC controls the fuel transfer pump and uses very complicated rules
+                    and conditions to determine whether or not to turn on the transfer pump. Some of the more basic
+                    conditions that must be met before the pump is energized are:
+                </para>
+                <seqlist style="arabic">
+                    <item>
+                        <para>No faults (open or shorted) can be active on either of the fuel sensors.</para>
+                    </item>
+                    <item>
+                        <para>ESC must see engine RPM.</para>
+                    </item>
+                    <item>
+                        <para>Supply tank must be at or above the 20% level.</para>
+                    </item>
+                    <item>
+                        <para>Draw tank must be below 80%.</para>
+                    </item>
+                    <item>
+                        <para>Draw tank fuel level must be at 12% (+/- 6%) below the supply tank fuel level.</para>
+                    </item>
+                </seqlist>
+                <para>Because there are various conditions when the tanks are very full or very empty, the above
+                    parameters can vary. This procedure is written to provide the technician with a standard test
+                    procedure to be followed in verifying the capability of the fuel transfer system. Passing these
+                    tests assures that the system performs as designed and will provide the customer with a system that
+                    equalizes the fuel levels of the vehicle's two tanks while providing a system without the
+                    vulnerability of a fuel crossover line.
+                </para>
+                <specpara>
+                    <warning>
+                        <para>Do not perform the following test procedures if the draw tank (fuel sensor 1) has a fuel
+                            level above 80%. Failure to heed this warning could result in overfilling the draw tank,
+                            spilling fuel, and causing a hazardous waste spill or a fire hazard.
+                        </para>
+                    </warning>
+                </specpara>
+                <specpara>
+                    <caution>
+                        <para>Do not perform the following test procedures if the supply tank (fuel sensor 2) has a fuel
+                            level below 10%. Failure to heed this caution could result in running the transfer pump
+                            without fuel and causing damage to the pump.
+                        </para>
+                    </caution>
+                </specpara>
+            </svcprocinfo>
+            <svcsubproc>
+                <title>Verify Fuel Senders and Wiring</title>
+                <para>The following chart shows the draw and storage tank positions on the various truck models. Use the
+                    chart to determine where sensor 1 (draw) should be and where sensor 2 (supply) should be located.
+                </para>
+                <table id="t0515011" frame="all">
+                    <tgroup cols="7">
+                        <colspec colname="col1" colwidth="100.19pt"/>
+                        <colspec colname="col2" colwidth="61.00pt"/>
+                        <colspec colname="col3" colwidth="61.00pt"/>
+                        <colspec colname="col4" colwidth="61.00pt"/>
+                        <colspec colname="col5" colwidth="61.00pt"/>
+                        <colspec colname="col6" colwidth="61.00pt"/>
+                        <colspec colname="col7" colwidth="75.00pt"/>
+                        <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                        <thead>
+                            <row>
+                                <entry colspan="7" spanname="SPAN1" valign="bottom">
+                                    <para>*Trucks built after 3/01/2004 Changes to models are highlighted in
+                                        <emph type="boldital">bold italic</emph>.
+                                    </para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry align="center">
+                                    <para>Models with Dual Tanks and Fuel Transfer Pump</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Pre 03/01/04 Prod Draw Tank</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Post 3/01/04 Draw Tank</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Pre 3/01/04 Storage Tank</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Post 3/01/04 Storage Tank</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Pre 03/01/04 Pump Location</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Post 3/01/04 Pump Location</para>
+                                </entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry align="center">
+                                    <para>42/43/4400</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>RT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>RT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>LT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>LT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Rt rail</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Rt rail</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry align="center">
+                                    <para>73/74/75/8500</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>RT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>
+                                        <emph type="boldital">*LT</emph>
+                                    </para>
+                                </entry>
+                                <entry align="center">
+                                    <para>LT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>
+                                        <emph type="boldital">*RT</emph>
+                                    </para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Rt rail</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>
+                                        <emph type="boldital">*Xmsn Housing</emph>
+                                    </para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry align="center">
+                                    <para>8600</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>LT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>LT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>RT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>RT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Xmsn Housing</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Xmsn Housing</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry align="center">
+                                    <para>7600</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>LT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>LT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>RT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>RT</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Lt rail</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>
+                                        <emph type="boldital">*Xmsn Housing</emph>
+                                    </para>
+                                </entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+                <step1>
+                    <para count="1">Hook up EZ-Tech to the vehicle's 9-way diagnostic connector.</para>
+                </step1>
+                <step1>
+                    <para count="1">Open InTune and open a new "Dual Fuel Tanks.ssn" session to monitor Fuel Sensor 1,
+                        Fuel Sensor 2, and Fuel Transfer Pump Relay Cmd. status.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">When InTune asks if you want to rebuild cross reference table, click "Yes".</para>
+                </step1>
+                <step1>
+                    <para count="1">When session opens, right click on the white background, select Add/Delete/Edit
+                        signals, double click "Fuel Transfer Pump Relay Cmd." on the left side of window. It should
+                        transfer to the right side of window. Since the two wire transfer pump needs this command to
+                        turn on, this parameter must be monitored to verify that the ESC is controlling properly.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Left click on "Fuel Transfer Pump" on the right side of the window, select Delete,
+                        click OK. This command is not used with the two wire transfer pump. Window should now look like
+                        Figure 1.
+                    </para>
+                </step1>
+                <figure id="f0515011" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0515011.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                             scalefitheight="352px"/>
+                    <caption>Figure 1.</caption>
+                </figure>
+                <step1>
+                    <para count="1">Verify that the draw tank is in the position listed in Table 1 above. The draw tank
+                        should have the fuel supply to the engine, the fuel return line, the transfer pump outlet, and
+                        the vent line going into the top of the tank.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Disconnect the fuel sender connector on the draw tank. If the InTune screen
+                        indicates that Fuel Sensor 1 has moved to "0" from its previous position then the wiring to
+                        sensor 1 is correct. Reconnect the fuel sender and verify that the sender output and the actual
+                        fuel level in the tank are approximately the same.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Disconnect the fuel sender connector on the opposite side tank (should be supply)
+                        and verify that InTune shows Fuel Sensor 2 has gone to "0". Reconnect the fuel sender and verify
+                        that the sender output and the actual fuel level in the tank are approximately the same.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">If both fuel senders pass the above test, the wiring is correct. If the draw tank is
+                        not Fuel Sensor 1 and the supply tank is not Fuel Sensor 2, the wiring is reversed and the
+                        transfer pump will not work. See Schematics at end of procedure for proper connections.
+                    </para>
+                </step1>
+            </svcsubproc>
+            <svcsubproc>
+                <title>Verify Transfer Pump Function</title>
+                <step1>
+                    <para count="1">Turn on vehicle ignition but do not start engine.</para>
+                </step1>
+                <step1>
+                    <para count="1">Using InTune right click on the "Fuel Transfer Pump Relay Cmd", select "Edit
+                        Signal", select "ON", and click OK.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Listen for the transfer pump and verify that the pump inlet is coming from the
+                        supply tank and the output is going to the draw tank.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">If the pump does not turn on then check the wiring to the ESC and/or the pump
+                        itself.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Right click in session window and select "Cancel All Overwrites".</para>
+                </step1>
+                <specpara>
+                    <caution>
+                        <para>Do not let the pump run for an extended period. When the function is verified make sure
+                            you turn the transfer pump off by performing step 5. Above!
+                        </para>
+                    </caution>
+                </specpara>
+            </svcsubproc>
+            <svcsubproc>
+                <title>Verify ESC Logic and Function</title>
+                <step1>
+                    <para count="1">With the engine turned off, right click on "Fuel Sensor 1" (draw tank), choose edit
+                        signal, insert 0% and click OK. Right click on "Fuel Sensor 2" (storage tank), choose edit
+                        signal, insert 100% and click OK. Note that the transfer pump command should be off and the
+                        InTune window should look like Figure 2.
+                    </para>
+                </step1>
+                <figure id="f0515012" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0515012.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                             scalefitheight="352px"/>
+                    <caption>Figure 2.</caption>
+                </figure>
+                <step1>
+                    <para count="1">Start the vehicle engine and note that within 2 minutes the fuel transfer pump on
+                        the vehicle and the "Fuel Transfer Pump Relay Cmd." on the InTune session window should turn on.
+                    </para>
+                </step1>
+                <specpara>
+                    <caution>
+                        <para>When the pump function has been verified turn off the engine and reset the sensor 1 and
+                            sensor 2 values to their original readings by right clicking inside the session window and
+                            selecting "Cancel All Overwrites"!
+                        </para>
+                    </caution>
+                </specpara>
+                <step1>
+                    <para count="1">Since the fuel sensors, their wiring, and the transfer pump function have been
+                        verified, if the logic test fails, then either the ESC is not seeing the engine RPM or the ESC
+                        is at fault.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">If the transfer pump fails to energize in 2-3 above, check the cluster to see if the
+                        tach is working. The cluster uses the same tach message that the ESC uses to enable the fuel
+                        transfer pump.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">If the ESC is seeing the engine RPM and still does not activate the transfer pump
+                        under the above conditions, check in ICAP and make sure that the "Dumb Pump" relay drive feature
+                        00595192 is enabled and that 00595054 is disabled.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">If the above procedure is followed and paragraphs 4-5 are verified and the transfer
+                        pump will not activate, the ESC or its software are at fault.
+                    </para>
+                </step1>
+                <para>
+                    <title>Circuit Diagrams</title>
+                </para>
+                <figure id="f0515013" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0515013.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                             scalefitheight="562px"/>
+                    <caption>Figure 3.</caption>
+                </figure>
+                <figure id="f0515014" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0515014.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                             scalefitheight="562px"/>
+                    <caption>Figure 4.</caption>
+                </figure>
+                <figure id="f0515015" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0515015.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                             scalefitheight="562px"/>
+                    <caption>Figure 5.</caption>
+                </figure>
+            </svcsubproc>
+        </svcproc>
+    </tsi>
+</isis>

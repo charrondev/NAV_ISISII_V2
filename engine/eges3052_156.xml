@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - IST (Idle
+        Shutdown Timer) System
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.30" svcproctype="diagnose" graphiccount="1">
+        <title>IST (Idle Shutdown Timer) System</title>
+        <svcprocinfo id="s305010706.30.1">
+            <figure id="f3050107146" figsize="pg-wide">
+                <graphic filename="../figj31/j31205.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Function diagram for IST system</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.30.2">
+            <title>IST Operation</title>
+            <para id="s305010706.27.2.1">The IST is an optional feature that allows the ECM to shutdown the engine when
+                an extended idle condition occurs. The idle timer can be programmed for the customer to automatically
+                shut the engine down for idle times that range from 2 to 120 minutes.
+            </para>
+            <para>Before engine shutdown, the red lamp (OWL for CF) will illuminate. The lamp will flash for 30 seconds
+                to warn the operator the engine is approaching shutdown. Idle time is measured from last brake pedal
+                transition. The engine must be out of gear for the IST to work.
+            </para>
+            <para>The IST feature can be programmed to operate at specific ambient air temperatures, allowing engine
+                operation in cold or hot weather.
+            </para>
+            <table id="t3050107296" type="simple" frame="topbot">
+                <title>The resets for the IST include:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Engine speed is not at idle speed (700 rpm)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Vehicle movement is detected</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Engine coolant operating temperature is below 60 &#176;C (140 &#176;F) or above
+                                    150 &#176;C (302 &#176;F) .
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Ambient air temperature is below 16 &#176;C (60 &#176;F) or above 35 &#176;C (95
+                                    &#176;F).
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Brake pedal movement or a brake switch fault is detected.</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Shift selector is moved from neutral or park.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>The IST feature provides several advantages when enabled. Reduced emissions, fuel consumption, and
+                engine wear are all direct results from the IST strategy.
+            </para>
+            <table id="t3050107297" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Four states of IST electronic operation</title>
+                <tgroup cols="2">
+                    <colspec colname="col1"/>
+                    <colspec colname="col2"/>
+                    <tbody>
+                        <row>
+                            <entry morerows="3">
+                                <para>Idle shutdown timer</para>
+                            </entry>
+                            <entry>
+                                <para>Indicates to the on-board electronics that the vehicle has the following
+                                    features:
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>OFF - turned off at all times.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>No engine load - allows prolonged engine idle shutdown when engine is in low
+                                    idle/no load condition.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Tamper proof - prohibits operator override.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Idle shutdown time</para>
+                            </entry>
+                            <entry>
+                                <para>Indicates the programmed value of engine idle time before engine will shutdown.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Maximum ambient intake air temperature</para>
+                            </entry>
+                            <entry>
+                                <para>Indicates maximum value of ambient intake air temperature programmed to shutdown
+                                    engine. This feature prevents engine shutdown due to air conditioner usage.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Minimum ambient intake air temperature</para>
+                            </entry>
+                            <entry>
+                                <para>Indicates minimum value of ambient intake air temperature programmed to shutdown
+                                    engine. This feature prevents engine shutdown due to cold ambient temperature.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Fault Detection/Management</title>The IST feature is internal to the ECM. The subsystems that
+                contribute to the IST strategy have their own fault codes. The fault code for the IST is not a system
+                diagnostic trouble code. The IST fault code is only set to indicate that the IST has been activated and
+                the engine has shutdown.
+            </para>
+            <para>
+                <title>IST DTCs</title>DTCs are read using the EST or by counting the flashes from the amber and red
+                lamps.
+            </para>
+            <table id="t3050107298" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 324</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>IST enabled engine shutdown</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 324 is set by the ECM when the engine has been shutdown due to exceeding the
+                                    programmed idle time criteria. The IST feature must be enabled for DTC 324 to be
+                                    displayed.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <note>
+                                    <para>DTC 324 does not indicate any system or circuit DTCs. Diagnostic checks are
+                                        not required for DTC 324.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107299" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech&#174; interface cable</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_155.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_157.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

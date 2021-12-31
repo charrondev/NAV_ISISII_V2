@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (NAVPAK) (1997) - SECTION 3.5: ELECTRONIC CONTROL SYSTEM DIAGNOSTICS,
+        ACCELERATOR PEDAL POSITION SENSOR/IVS SWITCH (APS/IVS) - ENGINE OIL PRESSURE (EOP) SENSOR - ECM DIAGNOSTICS
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="PROCTYPE" graphiccount="0">
+        <title>ECM DIAGNOSTICS</title>
+        <para>The ECM continuously monitors the signal from the EOP sensor to ensure the signal is within the correct
+            operating range. If the signal is lower or higher than required, the ECM will set a fault code. This fault
+            code is retrieved using the Electronic Service Tool (EST) or by reading the flash code using the STI
+            diagnostic switch. If the ignition key is shut off, the code will be stored as an inactive code.
+        </para>
+        <para>During engine operation, the ECM also monitors the engine speed signal. It compares the expected oil
+            pressure specification versus engine speed. If the ECM detects that the oil pressure is lower for a given
+            engine speed, the ECM will set a fault code. If the pressure is lower than the "critical" level, the ECM
+            will record a fault code. The ECM will automatically record this as a low oil pressure "Event" which is
+            stored in the ECM memory and cannot be erased using the EST. This becomes a record of operation of the
+            engine.
+        </para>
+        <para>
+            <emph type="BOLD">FLASH CODE</emph>
+            <emph type="BOLD">211</emph>
+        </para>
+        <para>
+            <emph type="BOLD">ATA CODE PID 100 FMI 4</emph>
+        </para>
+        <para>
+            <emph type="BOLD">ENGINE OIL PRESS SIGNAL OUT OF RANGE LOW</emph>
+        </para>
+        <para>An out of range low code will be set if the ECM detects a voltage less than .039 volts for more than 0.1
+            seconds. If this fault code is set the ECM will ignore the EOP signal and continue to operate normally.
+            However, if the fault is Active, the ECM will turn on the Engine Warning light.
+        </para>
+        <para>Code 211 may be caused by an open Vref feed, open signal circuit or a defective sensor.</para>
+        <para>
+            <emph type="BOLD">FLASH CODE</emph>
+            <emph type="BOLD">212</emph>
+        </para>
+        <para>
+            <emph type="BOLD">ATA CODE PID 100 FMI 3</emph>
+        </para>
+        <para>
+            <emph type="BOLD">ENGINE OIL PRESSURE SIGNAL OUT OF RANGE HIGH</emph>
+        </para>
+        <para>An out of range high code will be set if the ECM detects a voltage more than 4.9 volts for more than 0.1
+            seconds. If this fault code is set, the ECM will ignore the EOP signal and continue to operate normally. If
+            this fault is active, the ECM will illuminate the Engine Warning light.
+        </para>
+        <para>Code 212 may be caused by an open signal return circuit, a short to a voltage source or a defective
+            sensor.
+        </para>
+        <para>
+            <emph type="BOLD">FLASH CODE</emph>
+            <emph type="BOLD">225</emph>
+        </para>
+        <para>
+            <emph type="BOLD">ATA CODE PID 100 FMI 0</emph>
+        </para>
+        <para>
+            <emph type="BOLD">ENGINE OIL PRESSURE SENSOR SIGNAL IN RANGE FAULT</emph>
+        </para>
+        <para>Code 225 will be set by the ECM, if the signal from the EOP sensor is higher than expected with the key on
+            and the engine off (a signal that indicates 40 psi). If the ECM detects this fault, it will ignore the EOP
+            signal and illuminate the Engine Warning Lamp. This code most likely will be set, because of a defective EOP
+            sensor or a biased circuit.
+        </para>
+        <para>
+            <emph type="BOLD">FLASH CODE</emph>
+            <emph type="BOLD">313</emph>
+        </para>
+        <para>
+            <emph type="BOLD">ATA CODE PID 100 FMI 1</emph>
+        </para>
+        <para>
+            <emph type="BOLD">ENGINE OIL PRESSURE BELOW WARNING LEVEL</emph>
+        </para>
+        <para>Code 313 indicates that the oil pressure has dropped below the warning level. The specification for the
+            warning level is 5.0 PSI (34kPa) @ 700 RPM or 10.0 PSI (69 kPa) @ 1400 RPM or 20.0 PSI (138 kPa) @ 2000 RPM.
+        </para>
+        <para>Code 313 may be caused by a defective sensor sending an incorrect signal. To confirm this, compare actual
+            oil pressure (with a mechanical gauge) to the reading on the data list of the EST. Low oil pressure due to
+            defective mechanical components will also set this code.
+        </para>
+        <specpara>
+            <note>
+                <para>It may be possible to set this code at start-up, especially if the oil was just changed, or after
+                    a rebuild until the oil system is primed.
+                </para>
+            </note>
+        </specpara>
+        <para>
+            <emph type="BOLD">FLASH CODE</emph>
+            <emph type="BOLD">314</emph>
+        </para>
+        <para>
+            <emph type="BOLD">ATA CODE 100 FMI 7</emph>
+        </para>
+        <para>
+            <emph type="BOLD">ENGINE OIL PRESSURE BELOW CRITICAL LEVEL</emph>
+        </para>
+        <para>If flash code 314 is set, this indicates that the oil pressure has dropped below the critical level. The
+            specification for the critical level is 2.0 PSI (14kPa) @ 700 RPM or 5.0 PSI (34 kPa) @ 1400 RPM or 12.0 PSI
+            (152 kPa) @ 2000 RPM.
+        </para>
+        <para>Code 314 may be caused by a defective sensor sending an incorrect signal. To confirm this, compare actual
+            oil pressure (with a mechanical gauge installed) to the reading on the data list of the EST. Low oil
+            pressure due to defective mechanical components will also set this code.
+        </para>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e190_241.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e190_HL1901716.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e190.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

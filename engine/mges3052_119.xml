@@ -1,0 +1,522 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;stico del motor VT 275 - Diagn&#243;sticos del sistema de control electr&#243;nico
+        - Diagn&#243;sticos de circuitos - Enlace de datos de la American Trucking Association (ATA)
+    </stitle>
+    <svcman/>
+    <svcproc id="s306000706.3" svcproctype="diagnose" graphiccount="4">
+        <title>Enlace de datos de la American Trucking Association (ATA)</title>
+        <svcprocinfo id="s306000706.3.1">
+            <figure id="f306000720" figsize="pg-wide">
+                <graphic filename="../figj31/j31062.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="472px"/>
+                <caption>Diagrama de la funci&#243;n del enlace de datos ATA</caption>
+            </figure>
+            <para id="s306000706.3.1.1">El diagrama de la funci&#243;n del enlace de datos ATA incluye lo siguiente:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>EST con software MasterDiagnostics&#174;</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo impulsor de los inyectores (IDM)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>La se&#241;al del enlace de comunicaci&#243;n de datos es una se&#241;al de
+                onda recta y amplitud variable de 0 a 5 V que hace posible la comunicaci&#243;n entre el software
+                MasterDiagnostics&#174; y el ECM. El enlace de comunicaci&#243;n de datos tambi&#233;n permite la
+                programaci&#243;n del IDM.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s306000706.3.2">
+            <title>Operaci&#243;n de los circuitos del ATA</title>
+            <figure id="f306000721" figsize="pg-wide">
+                <graphic filename="../figj31/j31070.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="472px"/>
+                <caption>Diagrama de circuitos del ATA</caption>
+            </figure>
+            <para id="s306000706.3.2.1">El ECM se comunica con la EST y el software MasterDiagnostics&#174; a trav&#233;s
+                del conector de la EST. La EST se comunica con el ECM usando el enlace de datos ATA, tambi&#233;n
+                llamado Standard Corporate Protocol (SCP).
+            </para>
+            <para>El IDM usa el ATA s&#243;lo para la programaci&#243;n.</para>
+            <para>El circuito del ATA usa un par de alambres trenzados. Siempre que se repare, debe mantenerse un
+                trenzado completo por cada 2,5 cm (1 pulgada) a lo largo de todo el circuito. Este circuito tiene
+                polaridad (un alambre positivo y uno negativo), e invertir su polaridad perturbar&#225; las
+                comunicaciones.
+            </para>
+            <para>
+                <title>Conector del enlace de datos ATA</title>Los veh&#237;culos est&#225;n equipados con un conector
+                de enlace de datos ATA que permite la comunicaci&#243;n entre el m&#243;dulo de control electr&#243;nico
+                (ECM) y la EST.
+            </para>
+            <para>El enlace de datos ATA sirve para las siguientes funciones:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Transmisi&#243;n de par&#225;metros del motor</para>
+                </item>
+                <item>
+                    <para>Transmisi&#243;n y borrado de c&#243;digos de falla (DTC)</para>
+                </item>
+                <item>
+                    <para>Diagn&#243;sticos y ubicaci&#243;n de fallas</para>
+                </item>
+                <item>
+                    <para>Programaci&#243;n de par&#225;metros de rendimiento</para>
+                </item>
+                <item>
+                    <para>Programaci&#243;n de funciones del motor y del veh&#237;culo</para>
+                </item>
+                <item>
+                    <para>Programaci&#243;n de calibraciones y estrategias en el ECM y en el IDM</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>El ECM monitoriza constantemente el enlace de datos ATA
+                en busca de conexiones interrumpidas, en corto o intermitentes. Si aparece un DTC activo en el enlace de
+                datos ATA, el software MasterDiagnostics&#174; no suministrar&#225; informaci&#243;n correcta.
+            </para>
+            <para>El IDM usa el ATA s&#243;lo para la programaci&#243;n. No se transmiten DTC desde el IDM a trav&#233;s
+                del enlace de datos ATA.
+            </para>
+            <para>
+                <title>DTC del ATA</title>Los DTC se leen con la EST o contando los destellos de la luz &#225;mbar de
+                advertencia del motor y de la luz roja de aceite/refrigerante.
+            </para>
+            <figure id="f306000722" figsize="pg-wide">
+                <graphic filename="../figj31/j31070.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="472px"/>
+                <caption>Diagrama de circuitos del ATA</caption>
+            </figure>
+            <table id="t306000715" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 231</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>Error del enlace de comunicaci&#243;n de datos ATA</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>El ECM genera el DTC 231 cuando no logra tener acceso al enlace de datos ATA.
+                                    Cuando esto sucede, los datos del ATA no se pueden pedir ni leer con la EST. Los DTC
+                                    s&#243;lo se pueden pedir usando la funci&#243;n de control de crucero.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>El DTC 231 puede aparecer si ocurre cualquiera de los siguientes problemas:</para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Un dispositivo ATA defectuoso (controlador de la transmisi&#243;n o
+                                            controlador de los frenos antibloqueo) est&#225; conectado al bus del ATA y
+                                            empuja la se&#241;al a tierra.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>ATA+ o ATA- interrumpido o en corto.</para>
+                                    </item>
+                                    <item>
+                                        <para>La cantidad de dispositivos ATA excede el l&#237;mite.</para>
+                                    </item>
+                                    <item>
+                                        <para>El ECM est&#225; defectuoso.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Cuando el DTC 231 est&#225; activo, no se encender&#225; la luz &#225;mbar de
+                                    advertencia del motor.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <randlist type="bullet">
+                <title>Herramientas</title>
+                <item>
+                    <para>EST con software MasterDiagnostics&#174;</para>
+                </item>
+                <item>
+                    <para>Cable de conexi&#243;n EZ-Tech&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Caja de derivaciones</para>
+                </item>
+                <item>
+                    <para>Cableado de derivaci&#243;n</para>
+                </item>
+            </randlist>
+            <para>El circuito del ATA requiere que se usen los diagramas de circuitos del veh&#237;culo. Refi&#233;rase
+                al manual &#171;Diagrama de circuitos el&#233;ctricos&#187; del cami&#243;n para informaci&#243;n sobre
+                los n&#250;meros de los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+            </para>
+        </svcsubproc>
+        <svcsubproc id="s306000706.3.3">
+            <title>Diagn&#243;sticos del ATA con los pines</title>
+            <table id="t306000716" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de voltaje - Del conector en la EST</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="COLSPEC0" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Ponga el interruptor de encendido en ONcon el motor apagado.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>
+                                    <title>Se&#241;al</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Voltaje</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Siempre deber&#237;a haber voltaje en B+. Si no hay voltaje, revise los circuitos
+                                    de tierra y energ&#237;a.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t306000717" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de voltaje - De la EST a tierra</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="COLSPEC0" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Ponga el interruptor de encendido en OFFy desconecte el cable negativo de la bater&#237;a.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>
+                                    <title>Se&#241;al</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry colname="col3" morerows="1">
+                                <para>Si > 1 k&#x2126;, busque un corto a tierra a trav&#233;s del cableado o dentro del
+                                    ECM o del IDM. Desconecte el ECM y el IDM y mida nuevamente el circuito a tierra. Si
+                                    sigue apareciendo un corto, desconecte otros dispositivos conectados al enlace de
+                                    comunicaci&#243;n de datos y repita la prueba. Si sigue apareciendo un corto, repare
+                                    el cableado.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>G a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Energ&#237;a</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Con el fusible desconectado, si &#60; 1 k&#x2126;, busque un corto a tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Tierra</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, busque un circuito interrumpido. La EST no se comunicar&#225;.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f306000723" figsize="pg-wide">
+                <graphic filename="../figj31/j31070.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="592px"/>
+                <caption>Diagrama de circuitos del ATA</caption>
+            </figure>
+            <table id="t306000718" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de resistencia en el cableado - En la EST y en el tablero</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="COLSPEC0" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o aver&#237;as al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo principal de la
+                                        bater&#237;a al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Ponga el interruptor de encendido en OFF, desconecte el cable negativo de la bater&#237;a
+                                    y conecte la caja de derivaciones.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>
+                                    <title>Se&#241;al</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F a X4-20 del ECM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistencia del conector del ECM en el chasis al conector de la EST.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>G a X4-21 del ECM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistencia del conector del ECM en el chasis al conector de la EST.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F a X3-28 del IDM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistencia del conector del IDM al conector de la EST.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>G a X3-29 del IDM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistencia del conector del IDM al conector de la EST.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B al fusible</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Energ&#237;a</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistencia del conector de la EST al fusible de energ&#237;a. Refi&#233;rase al
+                                    manual &#171;Diagrama de circuitos el&#233;ctricos&#187; del cami&#243;n para
+                                    informaci&#243;n sobre los n&#250;meros de los circuitos y la ubicaci&#243;n de los
+                                    conectores y fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Tierra</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, busque un circuito interrumpido. Un circuito interrumpido impedir&#225;
+                                    que la EST encienda.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <title>Descripci&#243;n de los c&#243;digos de falla</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>231 = Error del enlace de comunicaci&#243;n de datos ATA - Conector o cableado del
+                                    ATA.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges3052_118.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges3052_120.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

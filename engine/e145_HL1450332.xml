@@ -1,0 +1,718 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - CRUISE CONTROL, PTO, HAND THROTTLE SYSTEM
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450332" svcproctype="proctype" graphiccount="14">
+        <title>CRUISE CONTROL, PTO, HAND THROTTLE SYSTEM</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef14503e3">Figure 3.118 Cruise Control, PTO, Hand Throttle System</hotlnk>
+            </para>
+            <figure id="ef14503e3" figsize="col-wide">
+                <graphic id="eg6058" filename="../figeg6/eg6058.webp" type="webp"/>
+                <caption>Figure 3.118 Cruise Control, PTO, Hand Throttle System</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Cruise Control</title>
+            <para>ECM terminal 50 outputs a 6.58 volt signal to the resistor block. Activating the cruise command
+                switches causes the signal to pass through different resistance levels in the resistor block, altering
+                the signal which is grounded at ECM terminal 39. There are five expected signals to the ECM: OFF, ON,
+                SET, RESUME and open (no switches have been used). Refer to Extended Description for additional detail.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Remote PTO Controls</title>
+            <para>To use the remote controls, cruise control must be turned on using the cab cruise ON/OFF switch. The
+                remote Set/Resume switch and disable switch are wired parallel to cab switches and operate in the same
+                manner.
+            </para>
+            <para>With cruise control ON:</para>
+            <step1>
+                <para count="1"></para>
+                <step2>
+                    <para count="1">Placing the remote PTO Preset switch in the ON position (closed) causes the PTO to
+                        operate at a preset engine speed (customer selected) programmed into the VPM.
+                    </para>
+                </step2>
+                <step2>
+                    <para count="1">Placing the remote PTO Variable switch in the ON position (closed) causes the PTO to
+                        operate using remote pedal.
+                    </para>
+                    <specpara>
+                        <note>
+                            <para>IF both of the above switches are ON, the remote pedal is deactivated.</para>
+                        </note>
+                    </specpara>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION MANAGEMENT</title>
+            <para>The ECM monitors the
+                <emph type="bold">SCCS signal</emph>for the five expected signals. If an incorrect signal is detected,
+                Flash Code 221 is logged. The ECM also monitors the
+                <emph type="bold">R-APS signal</emph>
+                input at ECM terminal 30 from the remote pedal sensor for out-of-range signals, high or low.
+            </para>
+            <para>
+                <hotlnk xrefid="ef14503e4">Figure 3.119 Cruise Control, PTO, Hand Throttle System Diagnostics</hotlnk>
+            </para>
+            <figure id="ef14503e4" figsize="col-wide">
+                <graphic id="eg6059" filename="../figeg6/eg6059.webp" type="webp"/>
+                <caption>Figure 3.119 Cruise Control, PTO, Hand Throttle System Diagnostics</caption>
+            </figure>
+            <para>Operational Voltage Checks</para>
+            <para>
+                <emph type="bold">Connector (379) with breakout box installed and key ON</emph>
+            </para>
+            <table id="et1450324">
+                <tgroup cols="4">
+                    <colspec colname="1" colwidth="86p"/>
+                    <colspec colname="2" colwidth="72p"/>
+                    <colspec colname="3" colwidth="65p"/>
+                    <colspec colname="4" colwidth="252p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>SCCS Sw. Positions</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Breakout Test Points</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="4">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>All switches in neutral position</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>#50 to #39</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>6.2V-7.1V</para>
+                            </entry>
+                            <entry colname="4">
+                                <para>&#60; than 6.2V check connections, battery condition. Greater than 7.1V check for
+                                    short to VBAT
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>Hold switch in OFF position</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>#50 to #39</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>0V-100mV</para>
+                            </entry>
+                            <entry colname="4">
+                                <para>> than 100mV check connections, switch, resistor block and circuits for correct
+                                    resistance or short to VBAT or grd
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>Hold switch in ON position</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>#50 to #39</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>4.4V-5.0V</para>
+                            </entry>
+                            <entry colname="4">
+                                <para>&#60;> than specified voltage drop, check connections, switch, resistor block and
+                                    related circuits for correct resistance or short to VBAT or grd
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>Hold Set switch in SET position</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>#50 to #39</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>2.2V-3.0V</para>
+                            </entry>
+                            <entry colname="4">
+                                <para>&#60;> than specified voltage drop, check connections, switch, resistor block and
+                                    related circuits for correct resistance or short to VBAT or VREF or grd
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>Hold Res switch in RES position</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>#50 to #39</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>700mV-800mV</para>
+                            </entry>
+                            <entry colname="4">
+                                <para>&#60;> than specified voltage drop, check connections, switch, resistor block and
+                                    related circuits for correct resistance or short to VREF or VBAT or grd
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="et1450325">
+                <tgroup cols="1">
+                    <colspec colname="1" colwidth="432p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Fault Code Descriptions</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>213 = RPS signal was less than 0.146 volts for more than 0.5 seconds</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>214 = RPS signal was greater than 4.56 volts for more than 0.5 seconds</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>221 = SCCS voltage signal does not match expected levels (5 assigned levels for
+                                    different conditions)
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EXTENDED DESCRIPTION</title>
+            <para>Cruise control and PTO operation (including remote PTO) share many circuits and components, so both
+                systems are included in this section.
+            </para>
+            <para>The Cruise/PTO system is controlled by the ECM in response to driver input on the Speed Control
+                Command Switches (SCCS), which are the Cruise ON/OFF and SET/ RESUME switches. With a remote PTO
+                operation, the body builder installed controls include a remote SET/RESUME switch and a PTO DISABLE
+                switch that are also SCCS switches.
+            </para>
+            <para>The body builder also installs a Remote pedal sensor and switches to enable the remote PTO at a preset
+                speed or enable in the variable mode, with engine speed controlled by the remote pedal sensor. These
+                circuits will be discussed in Remote Pedal Sensor Circuits later in this section.
+            </para>
+            <para>The Clutch Pedal Switch supplies the Driveline Disengaged Signal (DDS) to the ECM and the Service
+                Brake Switches supply a Brake Normally Open (BNO) and Brake Normally Closed (BNC) signal to the ECM.
+                These signals indicate pedal positions and are used by the ECM in operating the Cruise/PTO Control
+                System.
+            </para>
+            <para>The Vehicle Speed Signal (VSS) and CMP signal provide vehicle speed and engine rpm information that
+                the ECM uses in controlling the Cruise/PTO system.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM Control</title>
+            <para>Refer to the circuit diagram
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef14503e5">3.120</hotlnk>
+                </emph>
+                for the following discussions on circuit operation.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>SCCS CIRCUITS</title>
+            <para>The ECM sends a 6.58 volt signal from ECM terminal 50 to the SCCS system. The signal goes through the
+                SC Resistor Block Assembly to the SCCS switches (see note 1) and returns to the ECM at terminal 39.
+                Depending on SCCS switch position (ON, OFF, SET, RESUME or when no switch is active), one of five
+                different signals is expected when the signal returns to ECM signal ground terminal 39. These five
+                signals are discussed in the following paragraphs.
+            </para>
+            <para>
+                <emph type="bold">NOTE 1:</emph>The SC Resistor Block is permanently attached to the cab harness and
+                contains a printed circuit board, that includes three resistors. The printed circuit board can be
+                removed by opening the end of the resistor block assembly and pulling the board out.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>No SCCS Switches Active</title>
+            <para>Note in circuit diagram that the ON/OFF, SET/RESUME (including the remote SET/RESUME) and the remote
+                DISABLE PTO switch are normally open, momentary switches. With the key switch ON, voltage is being
+                applied from ECM terminal 50, but the ECM expects to see an open circuit. With no switch depressed,
+                voltage measured between ECM terminals 39 and 50 is expected to be between 6.2 and 7.1 volts.
+                <emph type="bold">An OPEN circuit (6.2 to 7.1 volts between terminals 39 and 50) is the signal that the
+                    ECM expects to see with no switch depressed.
+                </emph>
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Cruise ON/OFF Switch In ON Position</title>
+            <para>Momentarily placing this switch in the ON position causes the signal from ECM terminal 50 to go
+                through the 2.2K ohm resistor located in the Resistor Block (390) through the ON terminal of the ON/OFF
+                switch and returns to ECM terminal 39. With the ON switch depressed, the voltage drop in this circuit
+                (measured between ECM terminals 39 and 50) is expected to be between 4.4 and 5.0 volts.
+                <emph type="bold">A voltage between 4.4 and 5.0 volts is the signal the ECM expects to see with the ON
+                    switch depressed.
+                </emph>
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Cruise ON/OFF Switch In OFF Position</title>
+            <para>Momentarily placing this switch in the OFF position causes the signal from ECM terminal 50 to go
+                through the Resistor Block (390), terminals F to E, where there is no resistor, then through the OFF
+                terminal of the ON/OFF switch returning to ECM terminal 39. With the OFF switch depressed, the expected
+                voltage drop in this circuit (measured between ECM terminals 39 and 50) is expected to be between 0 and
+                100mV.
+                <emph type="bold">A voltage between 0 and 100mV is the signal the ECM expects to see with the OFF switch
+                    depressed.
+                </emph>
+            </para>
+            <para>The Remote DISENGAGE PTO Switch is a normally open (NO) momentary switch that is wired parallel to the
+                OFF side of the ON/ OFF switch. The PTO can only be turned on from the cab switch, but can be turned OFF
+                from the remote location. When this switch is closed, the ECM expects to see the same signal as when the
+                ON/OFF switch is in the OFF position (0 to 100mV voltage drop).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Cruise SET/RESUME in SET Position</title>
+            <para>Momentarily placing this switch in the SET position causes the signal from ECM terminal 50 to go
+                through the 680 ohm resistor located in the Resistor Block (390) through the SET terminal of the
+                SET/RESUME switch returning to ECM terminal 39. With the SET switch depressed, the voltage drop in this
+                circuit (measured between ECM terminals 39 and 50) is expected to be between 2.2 and 3.0 volts.
+                <emph type="bold">A voltage between 2.2 and 3.0 volts is the signal the ECM expects to see with the SET
+                    switch depressed.
+                </emph>
+            </para>
+            <para>The Remote PTO SET/RESUME Switch is a normally open (NO) momentary switch that is wired parallel to
+                the cab SET/RESUME switch. When the remote SET switch is in the SET position, the ECM expects to see the
+                same signal as when the cab SET switch is in the SET position (2.2 to 3.0 volts).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Cruise SET/RESUME in RESUME Position</title>
+            <para>Momentarily placing this switch in the RESUME position causes the signal from ECM terminal 50 to go
+                through the 121 ohm resistor located in the Resistor Block (390) through the RESUME terminal of the
+                SET/RESUME switch returning to ECM terminal 39. With the RESUME switch depressed, the voltage drop in
+                this circuit (measured between ECM terminals 39 and 50) is expected to be between 700 mV and 810 mV.
+                <emph type="bold">A voltage between 700mV and 810mV is the signal the ECM expects to see with the RESUME
+                    switch depressed.
+                </emph>
+            </para>
+            <para>The Remote PTO SET/RESUME Switch is a normally open (NO) momentary switch that is wired parallel to
+                the cab SET/RESUME switch. When the remote SET/RESUME switch is in the RESUME position, the ECM expects
+                to see the same signal as when the cab SET/RESUME switch is in the RESUME position (700mV to 810mV).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>REMOTE PEDAL SENSOR (RPS) SWITCHES</title>
+            <para>To enable the remote PTO, first the cab ON/OFF switch must be set to the ON position. With PTO
+                enabled, the Enable PRESET switch or Enable VARIABLE switch must be turned ON. These are toggle
+                switches, not momentary on switches.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Remote Preset Switch</title>
+            <para>The remote Preset Switch receives ignition voltage from 5A fuse, F6 through the body builder connector
+                429, terminal 8. Closing this switch applies ignition voltage to ECM terminal 2. When ECM terminal 2
+                sees 12 volts, it turns on the PTO to the preset speed. Opening the switch turns off the remote PTO. If
+                both the PRESET switch and the VARIABLE switch are on, the ECM interprets this as an off signal.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Remote Variable Switch</title>
+            <para>The remote Variable Switch receives ignition voltage from 5A fuse, F6 through the body builder
+                connector 429, terminal 7. Closing this switch applies ignition voltage to ECM terminal 12. When ECM
+                terminal 12 sees 12 volts, it turns on the PTO in the variable mode, where engine speed is controlled by
+                the remote pedal. Opening the switch turns off the remote PTO. If both the PRESET switch and the
+                VARIABLE switch are on, the ECM interprets this as an off signal.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Remote Pedal Sensor (RPS)</title>
+            <para>The RPS receives R-VREF (5V) from ECM terminal 44, through body builder connector (429), terminal 12.
+                As the pedal position is changed, the wiper sends the variable RPS signal through body builder connector
+                (429), terminal 11 to ECM terminal 30. The ECM expects to see a signal between 152 mV and 4.55 volts.
+                This signal is interpreted by the ECM as percent of throttle, from 0 to 100 percent. The RPS sensor is
+                grounded through body builder connector (429), terminal 10 to ECM terminal 51 (SIG RTN).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>SCCS Diagnostics</title>
+            <para>The ECM monitors the signal on SCCS circuit 97AC for the expected five signals discussed earlier. If a
+                signal is detected by the ECM that does not match any one of the five expected signals, then Flash Code
+                221 is set and the PTO or Cruise is disabled.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 221</title>
+            <para>
+                <title>ATA CODE SID 244 FMI 2</title>
+            </para>
+            <para>
+                <title>ECM: SCCS Switch or Circuit Fault</title>
+            </para>
+            <para>CAUSES: Open, short (HIGH or LOW), or bias high or low in SCCS circuits or components.</para>
+            <para>The ECM monitors the R-APS signal input at ECM terminal 30 from the remote pedal sensor for
+                out-of-range signals, high or low.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Biased High Or Low - A wiring or component defect that changes the circuit resistance
+                        (corroded switch contacts, poor connections, dirty or corroded terminals etc.) will alter the
+                        signal, causing the code to be set.
+                    </para>
+                </item>
+                <item>
+                    <para>A short to a 12V or 5V circuit will change the expected signal.</para>
+                </item>
+                <item>
+                    <para>A short to ground changes the expected signal.</para>
+                </item>
+            </randlist>
+            <para>CORRECTIVE ACTION: Perform Testing SCCS Circuits
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef14503e8">3.123</hotlnk>
+                </emph>
+                .
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>RPS DIAGNOSTICS</title>
+            <para>The ECM monitors the R-APS signal input at ECM terminal 30 from the remote pedal sensor for
+                out-of-range signals, high or low.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 213</title>
+            <para>
+                <title>ATA CODE SID 29 Fmi 4</title>
+            </para>
+            <para>
+                <title>ECM: RPS ORL</title>
+            </para>
+            <para>If the ECM detects an RPS signal lower than 152 mV, this code is set and the remote pedal is
+                disabled.
+            </para>
+            <para>CORRECTIVE ACTION: Perform Testing RPS Circuits
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef14503f5">3.130</hotlnk>
+                </emph>
+                .
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 214</title>
+            <para>
+                <title>ATA CODE SID 29 FMI 3</title>
+            </para>
+            <para>
+                <title>ECM: RPS ORH</title>
+            </para>
+            <para>If the ECM detects an RPS signal greater than 4.55 volts, this code is set and the remote pedal is
+                disabled.
+            </para>
+            <para>CORRECTIVE ACTION: Perform Testing RPS Circuits
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef14503f5">3.130</hotlnk>.
+                </emph>
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>TROUBLESHOOTING</title>
+            <para>Before troubleshooting the Cruise/PTO control system, use the Prolink EST to:</para>
+            <step1>
+                <para count="1">Review any logged Flash Codes.</para>
+                <step2>
+                    <para count="1">Code 221 relates directly to Cruise or Remote SCCS switches circuits. Codes 213 and
+                        214 relate to operation of the remote PTO pedal.
+                        <emph type="bold">First resolve any other codes that may be present, because they may cause the
+                            ECM to disable the cruise control.
+                        </emph>
+                        Flash code 622 indicates the ECM is using Field Defaults that disable cruise and PTO operation.
+                        The cause for code 622 must be corrected.
+                    </para>
+                </step2>
+            </step1>
+            <step1>
+                <para count="1">Use the Prolink EST to monitor clutch switch operation. There is no diagnostic code for
+                    the DDS, Drive Line Disengagement Switch (clutch switch) operation.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If the clutch switch circuit is open, indicating that the switch is depressed, then
+                    cruise and PTO controls won't operate. If the clutch switch circuit is defective (shorted high),
+                    depressing the clutch pedal may not disengage the cruise or PTO, causing the engine to go to rated
+                    rpm when the clutch pedal is depressed.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Flash code 222 is a Brake Switch fault which will disable cruise and PTO operation. Use
+                    Prolink to check brake switch operation. The BNO and BNC switches must be working properly for
+                    cruise control to operate.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Flash codes 141 and 142 are Vehicle Speed Sensor faults which will disable the cruise
+                    and PTO controls. A speed sensor that is not properly adjusted will affect speedometer and cruise
+                    control operation, and no codes will set. Correct any speedometer problems before troubleshooting
+                    the PTO system.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">A severe INTERMITTENT connection or NOISE in the CMP SIGNAL can cause the engine to
+                    surge and the cruise control cannot properly maintain vehicle speed or PTO engine rpm will
+                    fluctuate.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Before Troubleshooting</title>
+            <step1>
+                <para count="1">Before troubleshooting, make sure that the batteries are fully charged! Check battery
+                    connections and grounds for clean, tight connections free of damage. Voltage tests will give
+                    misleading results if the batteries are not fully charged.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting, inspect circuit connectors for pushed back, loose, or damaged
+                    (spread or bent) terminals, or wires with cut strands, etc. Wires and connections must be free of
+                    damage or corrosion. When some connectors corrode, a light white residue will be present that must
+                    be removed.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting, inspect suspect circuit grounds for clean, tight connections
+                    free of damage.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">The Prolink EST can be used to monitor cruise switches, but if code 221 is active, the
+                    switches do not operate.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If Flash code 221 is active or if no flash code is present, perform Testing SCCS
+                    Circuits
+                    <emph type="bold">Figure
+                        <hotlnk xrefid="ef14503e8">3.123</hotlnk>
+                    </emph>
+                    .
+                </para>
+                <figure id="ef14503e5" figsize="col-wide">
+                    <graphic id="eg6060" filename="../figeg6/eg6060.webp" type="webp"/>
+                    <caption>Figure 3.120 Circuit Diagram Cruise Control and PTO</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>** - Refer to Figure
+                            <hotlnk xrefid="ef14503e6">3.121</hotlnk>
+                            for typical PTO installation.
+                        </para>
+                    </note>
+                </specpara>
+                <figure id="ef14503e6" figsize="col-wide">
+                    <graphic id="eg6119" filename="../figeg6/eg6119.webp" type="webp"/>
+                    <caption>Figure 3.121 Typical Remote PTO Connections</caption>
+                </figure>
+                <para>
+                    <hotlnk xrefid="ef14503e7">Figure 3.122 Cruise Control (Without Remote Controls)</hotlnk>
+                </para>
+                <figure id="ef14503e7" figsize="col-wide">
+                    <graphic id="eg6061" filename="../figeg6/eg6061.webp" type="webp"/>
+                    <caption>Figure 3.122 Cruise Control (Without Remote Controls)</caption>
+                </figure>
+                <figure id="ef14503e8" figsize="col-wide">
+                    <graphic id="eg6062" filename="../figeg6/eg6062.webp" type="webp"/>
+                    <caption>Figure 3.123 Testing Speed Control Command Switch (SCCS) Circuits</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>Refer to circuit diagram Figure
+                            <hotlnk xrefid="ef14503e5">3.120</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <para>
+                    <hotlnk xrefid="ef14503e9">Figure 3.124 Testing Speed Control Command Switch (SCCS) Circuits
+                    </hotlnk>
+                </para>
+                <figure id="ef14503e9" figsize="col-wide">
+                    <graphic id="eg6063" filename="../figeg6/eg6063.webp" type="webp"/>
+                    <caption>Figure 3.124 Testing Speed Control Command Switch (SCCS) Circuits</caption>
+                </figure>
+                <para>
+                    <hotlnk xrefid="ef14503f0">Figure 3.125 Testing (SCCS) Circuits</hotlnk>
+                </para>
+                <figure id="ef14503f0" figsize="col-wide">
+                    <graphic id="eg6064" filename="../figeg6/eg6064.webp" type="webp"/>
+                    <caption>Figure 3.125 Testing (SCCS) Circuits</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>Refer to Figure
+                            <hotlnk xrefid="ef14503f2">3.127</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <para>
+                    <hotlnk xrefid="ef14503f1">Figure 3.126 Testing (SCCS) Circuits</hotlnk>
+                </para>
+                <figure id="ef14503f1" figsize="col-wide">
+                    <graphic id="eg6065" filename="../figeg6/eg6065.webp" type="webp"/>
+                    <caption>Figure 3.126 Testing (SCCS) Circuits</caption>
+                </figure>
+                <figure id="ef14503f2" figsize="col-wide">
+                    <graphic id="eg6066" filename="../figeg6/eg6066.webp" type="webp"/>
+                    <caption>Figure 3.127 Testing SCCS On/Off and Set/Resume Switches</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>Refer to circuit diagram Figure
+                            <hotlnk xrefid="ef14503e5">3.120</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>REMOTE PTO ONLY DOES NOT OPERATE (OR OPERATES INCORRECTLY)</title>
+            <specpara>
+                <note>
+                    <para>Before diagnosing any problem with the remote PTO, be sure that the vehicle cruise control
+                        system operates correctly.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Remote Preset PTO Mode Does Not Operate Properly</title>
+            <para>Turning the cruise control on using the cab Cruise ON/OFF switch, then turning the remote Enable
+                Preset switch ON will cause the PTO to operate at the customer selected preset rpm. The ECM does not
+                diagnose the Enable Preset switch circuit, therefore there are no fault codes to indicate the circuit is
+                defective.
+            </para>
+            <para>If the vehicle cruise control works properly, but the remote Enable Preset switch does not work,
+                perform Testing Remote PTO Preset And Variable Enable Circuits (below).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Remote Variable PTO Mode Does Not Operate Properly</title>
+            <para>Flash codes 213 and 214 indicate the ECM detected an out-of-range signal (high or low) from the remote
+                pedal sensor (RPS). Note that the ECM
+                <emph type="bold">does not</emph>
+                diagnose the
+                <emph type="underscr">Enable Variable switch circuit</emph>, therefore there are no fault codes to
+                indicate a defect in that circuit.
+            </para>
+            <para>If the vehicle cruise control works properly, but the remote PTO does not work in the variable mode,
+                check for flash codes. If Flash Code 213 or 214 is present
+                <emph type="bold">or</emph>
+                if no Flash Codes are present, perform Testing Remote PTO Preset And Variable Enable Circuits (below)
+                and Testing Remote Pedal Sensor (RPS) Circuits on page
+                <hotlnk document="e145_HL1450334.xml" xrefid="ef14503g6">249</hotlnk>.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Testing Remote PTO Preset And Variable Enable Circuits</title>
+            <para>This test checks the Navistar installed circuits, but not the body builder switches and circuits. The
+                circuit diagram in this section shows a typical installation of the body builder switches.
+            </para>
+            <para>
+                <hotlnk xrefid="ef14503f3">Figure 3.128 Testing Remote PTO Preset and Variable Enable Circuits</hotlnk>
+            </para>
+            <figure id="ef14503f3" figsize="col-wide">
+                <graphic id="eg6067" filename="../figeg6/eg6067.webp" type="webp"/>
+                <caption>Figure 3.128 Testing Remote PTO Preset and Variable Enable Circuits</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refer to circuit diagram Figure
+                        <hotlnk xrefid="ef14503e5">3.120</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <hotlnk xrefid="ef14503f4">Figure 3.129 Testing Remote PTO Preset and Variable Enable Circuits
+                    (Continued)
+                </hotlnk>
+            </para>
+            <figure id="ef14503f4" figsize="col-wide">
+                <graphic id="eg6068" filename="../figeg6/eg6068.webp" type="webp"/>
+                <caption>Figure 3.129 Testing Remote PTO Preset and Variable Enable Circuits (Continued)</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Testing Remote Pedal Sensor (RPS) Circuits</title>
+            <para>This test checks the Navistar installed circuits, but not the body builder installed remote pedal
+                sensor (RPS) or connecting circuits. The circuit diagram shows a typical installation of the body
+                builder installed RPS.
+            </para>
+            <figure id="ef14503f5" figsize="col-wide">
+                <graphic id="eg6069" filename="../figeg6/eg6069.webp" type="webp"/>
+                <caption>Figure 3.130 Testing Remote Pedal Sensor (RPS) Circuits</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refer to circuit diagram Figure
+                        <hotlnk xrefid="ef14503e5">3.120</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <hotlnk xrefid="ef14503f6">Figure 3.131 Testing Remote Pedal Sensor (RPS) Circuits</hotlnk>
+            </para>
+            <figure id="ef14503f6" figsize="col-wide">
+                <graphic id="eg6070" filename="../figeg6/eg6070.webp" type="webp"/>
+                <caption>Figure 3.131 Testing Remote Pedal Sensor (RPS) Circuits</caption>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450331.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450333.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

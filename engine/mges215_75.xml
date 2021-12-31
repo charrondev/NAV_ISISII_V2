@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos - - PROCEDIMIENTOS DE DIAGN&#211;STICO DEL SISTEMA DE CONTROL ELECTR&#211;NICO
+        - Procedimiento de diagn&#243;stico para activadores y sensores sin el Master Diagnostics
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="svcproc" graphiccount="2">
+        <title>Procedimiento de diagn&#243;stico para activadores y sensores sin el Master Diagnostics</title>
+        <para>
+            <emph type="bold">Pruebas del voltaje en el conector</emph>
+        </para>
+        <para>Haga girar la llave de arranque a ON. Conecte la "T" de derivaciones en el haz de cables y mida el voltaje
+            en cada pin con un mult&#237;metro digital (DMM). Compare las mediciones obtenidas con los voltajes
+            esperados que aparecen en la secci&#243;n de diagn&#243;sticos. Si no tiene una "T" de derivaciones
+            disponible, use la herramienta apropiada del juego de adaptadores para probar terminales (ZTSE4435). No
+            pruebe los terminales del conector directamente con los probadores del DMM. Esta prueba determinar&#225; si
+            ese circuito est&#225; en corto o incorrectamente cableado al V
+            <subscript>REF</subscript>, a B+ o a otra fuente de voltaje.
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>Los circuitos de la se&#241;al de retorno medir&#225;n de 0 a 0,25 V en un circuito de sensor que
+                    se dirige hacia abajo, cerca a 5 o 12 V para un circuito que se dirige hacia arriba.
+                </para>
+            </item>
+            <item>
+                <para>Los circuitos de activadores pueden ser ON/OFF o modulados por amplitud de pulsaci&#243;n (PWM).
+                    Si el activador tiene un circuito ON/OFF, el ECM controla el voltaje o la tierra. Cuando son
+                    modulados por amplitud de pulsaci&#243;n (PWM), el ECM controla el r&#233;gimen de trabajo o el
+                    tiempo ON de energ&#237;a o tierra.
+                </para>
+            </item>
+            <item>
+                <para>El V
+                    <subscript>REF</subscript>
+                    debe medir 5 &#177;0,5 V (4,5 a 5,5 V) con el sensor desconectado. Si la medici&#243;n de voltaje es
+                    menor que la esperada, desconecte los sensores que operan en ese circuito de V
+                    <subscript>REF</subscript>
+                    (V
+                    <subscript>REF</subscript>
+                    D: EOP, MAP, CMP, ICP; V
+                    <subscript>REF</subscript>
+                    B: APS / IVS, BAP; V
+                    <subscript>REF</subscript>
+                    C accesorios de carrocero) uno por uno, mientras observa el V
+                    <subscript>REF</subscript>. Si el V
+                    <subscript>REF</subscript>
+                    vuelve despu&#233;s de desconectar un sensor, ese sensor est&#225; poniendo en corto el V
+                    <subscript>REF</subscript>
+                    a tierra; refi&#233;rase a Medici&#243;n del voltaje de referencia,
+                    <xref refid="f17503008.6"/>.
+                </para>
+            </item>
+        </randlist>
+        <figure id="f17503008.6" figsize="col-wide">
+            <graphic filename="../figEg8/Eg8836.webp" type="webp" scalefit="1" scalefitwidth="248px" resolution="72"/>
+            <caption>Medici&#243;n del Vref con ZTSE4486</caption>
+            <calloutgroup>
+                <callout1>1. Probador positivo (rojo) del DMM</callout1>
+                <callout1>2. Vref pin B (azul)</callout1>
+                <callout1>3. Probador del DMM (tierra en el motor)</callout1>
+            </calloutgroup>
+        </figure>
+        <para>
+            <emph type="bold">Pruebas del conector a tierra</emph>
+        </para>
+        <para>Ponga la llave de arranque en OFF. Desconecte el cable positivo de la bater&#237;a. Mida la resistencia
+            desde el alambre de la "T" de derivaciones hasta el terminal negativo de la bater&#237;a. Los circuitos de
+            tierra de se&#241;al del sensor deben medir menos de 5 ohmios. El V
+            <subscript>REF</subscript>
+            y los circuitos de se&#241;al deben medir m&#225;s de 1000 ohmios. El lado de control de un activador debe
+            medir m&#225;s de 1000 ohmios, pero la medida esperada en el otro circuito del activador depender&#225; de
+            lo que el lado de control est&#233; conmutando (energ&#237;a o tierra). Si el ECM estaba conmutando la
+            tierra, "impulsor de lado de baja", entonces el otro circuito del activador debe medir m&#225;s de 1000
+            ohmios desde el terminal del conector hasta la tierra de la bater&#237;a. Si el ECM est&#225; conmutando el
+            lado B+, "impulsor del lado de alta", el circuito de tierra medir&#225; menos de 5 ohmios desde el terminal
+            hasta la tierra de la bater&#237;a,
+            <xref refid="f17503008.7"/>.
+        </para>
+        <figure id="f17503008.7" figsize="col-wide">
+            <graphic filename="../figEg8/Eg8838.webp" type="webp" scalefit="1" scalefitwidth="248px" resolution="72"/>
+            <caption>Medici&#243;n de la resistencia a tierra con ZTSE4486</caption>
+            <calloutgroup>
+                <callout1>1. Probador (rojo) del DMM</callout1>
+                <callout1>2. Tierra del CMP, pin A (negro)</callout1>
+                <callout1>3. Probador del DMM a tierra en el motor (negro)</callout1>
+            </calloutgroup>
+        </figure>
+        <para>
+            <emph type="bold">Pruebas de resistencia del haz de cables</emph>
+        </para>
+        <para>La resistencia del haz de cables se prueba cuando se sospecha que un circuito tiene alta resistencia o est&#225;
+            abierto. Haga esta prueba conectando una caja de derivaciones al haz de cables en el extremo que va al ECM,
+            midiendo la resistencia desde el pin de la "T" de derivaciones al pin de la caja de derivaciones. Los
+            alambres del circuito deben tener una resistencia de menos de 5 ohmios.
+        </para>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_74.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_76.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

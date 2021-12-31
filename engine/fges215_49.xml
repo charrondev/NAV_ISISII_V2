@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslfrench.xsl"?>
+<isis lang="fr">
+    <stitle>French - Manuel de diagnostic - - PROC&#201;DURES DE DIAGNOSTIC DU SYST&#200;ME DE COMMANDE &#201;LECTRONIQUE
+        - Proc&#233;dure de diagnostic d'actionneur et de capteur sans diagnostic ma&#238;tre
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="2">
+        <title>Proc&#233;dure de diagnostic d'actionneur et de capteur sans diagnostic ma&#238;tre</title>
+        <para>
+            <emph type="bold">V&#233;rifications de la tension du connecteur</emph>
+        </para>
+        <para>Tourner la cl&#233; de contact &#224; la position &#171;&#160;ON&#160;&#187;. Brancher le&#160;T de d&#233;rivation
+            au faisceau et mesurer la tension &#224; chaque broche avec un DMM. Comparer les lectures du&#160;DMM avec
+            les tensions pr&#233;vues indiqu&#233;es dans la section diagnostic. Si on ne peut se procurer un&#160;T de
+            d&#233;rivation, utiliser l'outil appropri&#233; du jeu d'adaptateurs d'essai de bornes (ZTSE4435). Ne pas
+            sonder les bornes du connecteur directement avec les fils du&#160;DMM. Cet essai permet de d&#233;terminer
+            si ce circuit est court-circuit&#233; ou incorrectement raccord&#233; &#224; la tension de r&#233;f&#233;rence
+            V
+            <subscript>REF</subscript>, vers&#160;B+, ou vers d'autres sources de tension.
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>Les circuits de retour de signal mesurent de&#160;0 &#224; 0,25&#160;V sur un circuit de capteur
+                    descendant ou pr&#232;s de&#160;5 &#224; 12&#160;V sur un circuit ascendant.
+                </para>
+            </item>
+            <item>
+                <para>Les circuits d'actionneurs peuvent &#234;tre de type marche/arr&#234;t ou &#224; modulations
+                    d'impulsions en largeur. Si l'actionneur dispose d'un circuit marche/arr&#234;t, l'ECM commande la
+                    tension ou la masse. Si le circuit est &#224; modulations d'impulsions en largeur, l'ECM commande le
+                    cycle de service ou le moment de la puissance ou de la masse.
+                </para>
+            </item>
+            <item>
+                <para>La tension de r&#233;f&#233;rence V
+                    <subscript>REF</subscript>
+                    doit mesurer 5&#160;&#177; 0,5&#160;V (4,5&#160;&#224; 5,5&#160;V) avec le capteur d&#233;branch&#233;.
+                    Si la tension indiqu&#233;e est inf&#233;rieure &#224; celle pr&#233;vue, d&#233;brancher les
+                    capteurs qui fonctionnent sur ce circuit de tension de r&#233;f&#233;rence V
+                    <subscript>REF</subscript>
+                    (V
+                    <subscript>REF</subscript>&#160;- D&#160;: EOP, MAP, CMP, ICP, V
+                    <subscript>REF</subscript>&#160;- B&#160;: APS/IVS, BAP; V
+                    <subscript>REF</subscript>&#160;- C&#160;: accessoires de carrosserie), un &#224; la fois, tout en
+                    observant la tension de r&#233;f&#233;rence V
+                    <subscript>REF</subscript>. Si la tension de r&#233;f&#233;rence V
+                    <subscript>REF</subscript>
+                    revient apr&#232;s avoir d&#233;branch&#233; un capteur, ce capteur court-circuite la tension de r&#233;f&#233;rence
+                    V
+                    <subscript>REF</subscript> &#224; la masse; consulter Mesure de la tension de r&#233;f&#233;rence,
+                    <xref refid="f17503008.6"/>.
+                </para>
+            </item>
+        </randlist>
+        <figure id="f17503008.6" figsize="col-wide">
+            <graphic filename="../figeg8/eg8836.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+            <caption>Mesure de la tension de r&#233;f&#233;rence avec ZTSE4486</caption>
+            <calloutgroup>
+                <callout1 type="arabic">Sonde du&#160;DMM (rouge)</callout1>
+                <callout1 type="arabic">Broche de tension de r&#233;f&#233;rence&#160;B (bleue)</callout1>
+                <callout1 type="arabic">Sonde du&#160;DMM (&#224; la masse du moteur)</callout1>
+            </calloutgroup>
+        </figure>
+        <para>
+            <emph type="bold">V&#233;rifications du connecteur &#224; la masse</emph>
+        </para>
+        <para>Tourner le contacteur d'allumage &#224; la position &#171;&#160;OFF&#160;&#187;. D&#233;brancher le c&#226;ble
+            positif de la batterie. &#192; l'aide du&#160;T de d&#233;rivation, mesurer la r&#233;sistance du fil du&#160;T
+            de d&#233;rivation &#224; la borne n&#233;gative de la batterie. Les circuits de masse de signal du capteur
+            doivent mesurer moins de 5&#160;ohms. La tension de r&#233;f&#233;rence V
+            <subscript>REF</subscript>
+            et les circuits de signal doivent mesurer plus de 1&#160;000&#160;ohms. Le c&#244;t&#233; commande d'un
+            actionneur mesure plus de 1&#160;000&#160;ohms, mais la lecture pr&#233;vue sur l'autre c&#244;t&#233; de
+            l'actionneur d&#233;pend de ce que le c&#244;t&#233; commande avait commut&#233;&#160;: puissance ou masse.
+            Si l'ECM a commut&#233; la masse (le pilote du c&#244;t&#233; bas), l'autre circuit de l'actionneur doit
+            donc mesurer plus de 1&#160;000&#160;ohms de la borne du connecteur &#224; la masse de la batterie. Si l'ECM
+            commute le c&#244;t&#233;&#160;B+ (le pilote du c&#244;t&#233; haut), le circuit de masse mesure moins de 5&#160;ohms
+            de la borne du connecteur &#224; la masse de la batterie,
+            <xref refid="f17503008.7"/>.
+        </para>
+        <figure id="f17503008.7" figsize="col-wide">
+            <graphic filename="../figeg8/eg8838.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+            <caption>Mesure de la r&#233;sistance &#224; la masse avec ZTSE4486</caption>
+            <calloutgroup>
+                <callout1 type="arabic">Sonde du&#160;DMM (rouge)</callout1>
+                <callout1 type="arabic">Masse de CMP, broche&#160;A (noire)</callout1>
+                <callout1 type="arabic">Sonde du&#160;DMM &#224; la masse du moteur (noire)</callout1>
+            </calloutgroup>
+        </figure>
+        <para>
+            <emph type="bold">Essais de r&#233;sistance du faisceau</emph>
+        </para>
+        <para>La r&#233;sistance du faisceau est v&#233;rifi&#233;e quand on soup&#231;onne qu'un circuit a une r&#233;sistance
+            &#233;lev&#233;e ou qu'il est ouvert. Effectuer cet essai en raccordant une bo&#238;te de d&#233;rivation
+            &#224; l'extr&#233;mit&#233; ECM du faisceau et en mesurant la r&#233;sistance de la broche du&#160;T de d&#233;rivation
+            &#224; la broche de la bo&#238;te de d&#233;rivation. Les fils du circuit doivent avoir une r&#233;sistance
+            inf&#233;rieure &#224; 5&#160;ohms.
+        </para>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215_48.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215_50.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

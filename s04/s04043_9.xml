@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>EC-30 ABS / ATC CONTROLLER - POWER-UP SEQUENCE</stitle>
+    <svcsection/>
+    <svcproc svcproctype="describe" graphiccount="2">
+        <title>POWER-UP SEQUENCE</title>
+        <svcsubproc>
+            <title>ABS Warning Lamp at Power-Up</title>
+            <para>At power-up without detected faults, the ABS warning lamp turns on for 2.5 seconds and then turns off.
+                See
+                <hotlnk xrefid="f0404307">Figure 7</hotlnk>.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ATC Active / Warning Lamp at Power-Up</title>
+            <para>At power-up, the ATC active/warning lamp displays the ATC control configuration and then turns off. A
+                series of blinks indicates if the ATC is configured for engine torque limiting and differential braking,
+                engine torque limiting only, or differential braking only. See
+                <hotlnk xrefid="f0404307">Figure 7</hotlnk>.
+            </para>
+            <figure id="f0404307" figsize="col-wide">
+                <graphic filename="../figg04/g0404307.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="72"/>
+                <caption>Figure 7. EC-30 Power-Up Lamp Sequence</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Trailer ABS Warning Lamp</title>
+            <para>At power-up, the trailer ABS warning lamp turns on for 2.5 seconds and then turns off. This only
+                occurs if a PLC trailer or PLC diagnostic tool is connected to the tractor at the time ignition power is
+                applied. Only an EC-30 with PLC installed on a towing vehicle will support the trailer ABS lamp.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagnostic LEDs at Power-Up</title>
+            <para>At power-up, the diagnostic LEDs all turn on, then display the configuration for sensors and the ATC.
+                After showing the configuration, only the green VLT LED will stay on. However, if a fault is detected,
+                the faulted component will be identified by the red LEDs. See
+                <hotlnk xrefid="t0404304">Table 4</hotlnk>.
+            </para>
+            <table id="t0404304">
+                <title>LED Power-Up Display of EC-30 Configuration</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.04in"/>
+                    <colspec colname="col2" colwidth="2.48in"/>
+                    <colspec colname="col3" colwidth="2.03in"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col2" spanname="SPAN1"/>
+                    <thead>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>LED Power-Up Sequence</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>LEDs</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>1st</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>When power is applied</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>All LEDs illuminate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN2">
+                                <para>Then the LEDs indicate one of the following:</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2nd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4 Sensors</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>SEN-RER-FRT</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>6 Sensors</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>SEN-RER-MID-FRT</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN2">
+                                <para>Then the LEDs indicate one of the following:</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>ATC Engine Limiting</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>TRC</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3rd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>ATC Differential Braking</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>TRC-MOD</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>No ATC</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>n/a</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN2">
+                                <para>The LEDs will then indicate system status:</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>4th</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Normal operation (if no faults)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>VLT</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Retarder Disable Relay at Power-Up</title>
+            <para>At power-up, the EC-30 toggles the retarder disable relay. If the relay is located in the cab it is
+                usually audible to the operator.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Modulator Chuff Test at Power-Up</title>
+            <para>At power-up, the EC-30 activates a patented modulator chuff test. The modulator chuff test is an
+                electrical and pneumatic ABS modulator test, that can assist the technician in verifying proper
+                modulator wiring and installation. With brake pressure applied, a properly installed modulator causes a
+                single sharp audible chuff of air pressure by activating the hold solenoid two times and the exhaust
+                solenoid once. If the modulator is wired incorrectly, the modulator will produce a double chuff, or no
+                chuff at all. The EC-30 activates a chuff at each modulator in the following sequence:
+            </para>
+            <para>Right-Front, Left-Front, Right-Rear, Left-Rear. See
+                <hotlnk xrefid="f0404308">Figure 8</hotlnk>.
+            </para>
+            <para>The chuff sequence is then repeated for a total of 8 chuffs. If an issue is detected during the
+                modulator chuff test, look for faults and compare the modulator wiring and plumbing to the EC-30 system
+                schematic shown in
+                <hotlnk document="s04043_25.xml" xrefid="f0404313">Figure 13</hotlnk>.
+            </para>
+            <figure id="f0404308" figsize="col-wide">
+                <graphic filename="../figg04/g0404308.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="72"/>
+                <caption>Figure 8. Vehicle Orientation</caption>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043_8.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043_10.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,631 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Manifold Absolute Pressure (MAP) Sensor
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="4">
+        <title>Manifold Absolute Pressure (MAP) Sensor</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3354" filename="../figd33/d3354.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Function Diagram for the Manifold Absolute Pressure (MAP) Sensor</caption>
+            </figure>
+            <para>The Function Diagram for the MAP sensor includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Manifold Absolute Pressure (MAP) sensor</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation (EGR) actuator</para>
+                </item>
+                <item>
+                    <para>Variable Geometry Turbocharger (VGT) actuator</para>
+                </item>
+                <item>
+                    <para>Fuel injector</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The MAP sensor is a variable capacitance sensor on the top of the intake manifold at the front of the
+                engine. The ECM supplies a 5V reference signal which the MAP sensor uses to produce a linear analog
+                voltage that indicates pressure. The ECM uses the MAP sensor signal to assist in the calculation of the
+                EGR and VGT duty percentage. The ECM measures the MAP signal to determine intake manifold (boost)
+                pressure. From this information the ECM can optimize control of fuel rate and injection timing for all
+                engine operating conditions.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>MAP Circuit Operation</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3355" filename="../figd33/d3355.webp" type="webp" scalefit="1" scalefitwidth="448px"/>
+                <caption>MAP Circuit Diagram</caption>
+            </figure>
+            <para>The MAP sensor is supplied with a 5V reference voltage at terminal B from ECM terminal X1-14. The MAP
+                sensor is also supplied with a return circuit (ground) at terminal A from ECM terminal X1-6. The MAP
+                sensor sends a signal from terminal C of the sensor to ECM terminal X2-3.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM will ignore the MAP signal when the signal is detected to be out of range or an incorrect
+                value is read. The engine will continue to operate based on estimated values.
+            </para>
+            <para>
+                <title>MAP Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim id="f240dtc121">
+                <line>
+                    <emph type="bold">DTC 121</emph>
+                </line>
+                <line>
+                    <emph type="bold">Out of range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 121 is set by the ECM when the MAP signal is greater than 4.9V for more than 0.4 second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 121 can be set due to a sensor signal wire short to V
+                        <subscript>REF</subscript>
+                        or B+ or a defective MAP sensor
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 121 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc122">
+                <line>
+                    <emph type="bold">DTC 122</emph>
+                </line>
+                <line>
+                    <emph type="bold">Out of range low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 122 is set by ECM when the MAP signal is less than 0.039V for more than 0.4 second.</para>
+                </item>
+                <item>
+                    <para>DTC 122 can be set due to a sensor signal circuit open or shorted to ground or a defective MAP
+                        sensor. DTC 122 can also be set due to an extremely restricted CAC/intake system.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 122 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc123">
+                <line>
+                    <emph type="bold">DTC 123</emph>
+                </line>
+                <line>
+                    <emph type="bold">In range fault</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 123 is set by ECM when the MAP signal is greater than 120 kPa (2 psi) absolute at low
+                        idle.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 123 can be set due to a restricted or plugged sensor inlet, V
+                        <subscript>REF</subscript>
+                        shorted to a voltage source higher than 5.5V, or a defective MAP sensor.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 123 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Harness - 3-Banana plug and 500 ohm</para>
+                </item>
+                <item>
+                    <para>Breakout box</para>
+                </item>
+                <item>
+                    <para>Breakout harness</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>MAP Operational Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3355" filename="../figd33/d3355.webp" type="webp" scalefit="1" scalefitwidth="448px"/>
+                <caption>MAP Circuit Diagram</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>To prevent serious personal injury, possible death, or damage to the engine or vehicle -
+                        comply with the following:
+                    </para>
+                    <para>Be careful to avoid rotating parts (belts and fan) and hot engine surfaces.</para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Using EST, open the continuous monitor session. To monitor signal voltage, run Key ON
+                    Engine OFF continuous monitor test.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Monitor MAP signal volts. Verify an active DTC for the MAP circuit.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is active, complete step 5 and do circuit check for the MAP sensor in table on
+                    the following page
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If code is inactive, wiggle connectors and wires at all suspected problem locations. If
+                    circuit continuity is interrupted, the EST will beep and display DTCs related to the condition.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Install pressure sensor breakout harness to engine harness only.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>After removing connector, inspect for damaged pins, corrosion, or loose terminals. Repair as
+                        required.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te24007073" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.18in"/>
+                    <colspec colname="col2" colwidth="0.93in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Circuit Checks for MAP Sensor</emph>
+                                    (Use EST, DMM, breakout harness, and 500 ohm wire harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Condition</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage >0.039V, check signal circuit for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Voltage from BLUE pin to ground with DMM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5V &#177;0.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage >5.5V, check V
+                                    <subscript>REF</subscript>
+                                    for short to B+. If voltage is &#60;4.5V, check V
+                                    <subscript>REF</subscript>
+                                    for open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>500 ohm harness installed between GREEN and BLUE pins of breakout harness.</para>
+                            </entry>
+                            <entry>
+                                <para>5V</para>
+                            </entry>
+                            <entry>
+                                <para>If voltage &#60;4.9V, check signal circuit for open or short to ground. Remove
+                                    negative battery cable. Measure resistance from PIN C to ground (spec >1k&#x2126;)
+                                    to check for short to ground. Use a breakout box from PIN C to PIN X2-8 (spec &#60;5&#x2126;)
+                                    to check for open in the harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Resistance from BLACK pin of breakout harness to chassis ground using DMM.</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If resistance is >5&#x2126;, check for open or high resistance between ECM and
+                                    sensor connector. Use a breakout box and measure resistance from between PIN A and
+                                    PIN X1-6 (spec &#60;5&#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <step1>
+                <para count="1">Connect engine harness to sensor. Use the EST to clear DTCs. If an active code remains
+                    after checking test conditions, replace the MAP sensor.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>MAP Pin Point Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3355" filename="../figd33/d3355.webp" type="webp" scalefit="1" scalefitwidth="448px"/>
+                <caption>MAP Circuit Diagram</caption>
+            </figure>
+            <table id="te24007074" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>
+                                    (Disconnect sensor from harness and turn ignition key ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0-0.25V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >0.25V, check ground circuit for open or high resistance, check signal ground
+                                    for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is not to spec, V
+                                    <subscript>REF</subscript>
+                                    circuit is shorted to ground or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0-0.25V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >0.25V, signal ground is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground</emph>
+                                    (Turn ignition key OFF. Disconnect negative battery cable and sensor connector.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for open circuit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>500&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;500&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Install breakout box on engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for open ground wire</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-14 to B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for open V
+                                    <subscript>REF</subscript>
+                                    wire
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-3 to C</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for open signal wire</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007075" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="4">
+                    <colspec colname="COLSPEC0" colwidth="1.61in"/>
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="1.35in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="COLSPEC0" nameend="col3" spanname="SPAN2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for MAP Sensor</emph>
+                                    (Check with breakout box installed to the ECM and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>EST voltage readings: Signal to ground</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>X2-3 to X1-6</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>0.039V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>N/A</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Out of range low limit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>X2-3 to X1-6</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>0.92V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 psi</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltage with Key ON Engine OFF. Atmospheric pressure dependent on altitude and BAP
+                                    pressure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>X2-3 to X1-6</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>1.73V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>8 psi</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>X2-3 to X1-6</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>2.72V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>18 psi</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>X2-3 to X1-6</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>See performance specs</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>See performance specs</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Rated speed, full load</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">MAP Diagnostic Trouble Code</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 121 = Signal voltage was >4.9V for more than 0.4 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 122 = Signal voltage was &#60;0.039V for more than 0.4 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 123 = Detected boost signal voltage was >2.0 psi at low idle.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_157.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_159.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

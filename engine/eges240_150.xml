@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Glow Plug Control (GPC) Circuit
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>Glow Plug Control (GPC) Circuit</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3358" filename="../figd33/d3358.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Function Diagram for the Glow Plug Control (GPC) Function</caption>
+            </figure>
+            <para>The Function Diagram for the Glow Plug Control system includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Glow plugs</para>
+                </item>
+                <item>
+                    <para>Glow plug relay</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Engine Coolant Temperature sensor (ECT)</para>
+                </item>
+                <item>
+                    <para>Barometric Absolute Pressure sensor (BAP)</para>
+                </item>
+                <item>
+                    <para>Battery</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The glow plug control system warms the engine cylinders to aid cold engine starting and reduce exhaust
+                emissions during warm-up.
+            </para>
+            <para>The Electronic Control Module (ECM) is programmed to energize the glow plugs (through the glow plug
+                relay) while monitoring certain programmed conditions for engine coolant temperature and atmospheric
+                pressure.
+            </para>
+            <para>The ECM monitors battery voltage and uses information from the Barometric Absolute Pressure (BAP)
+                sensor and Engine Coolant Temperature (ECT) sensor to determine the amount of time that the WAIT TO
+                START lamp is ON and the activation time of the glow plugs. The ECM controls the WAIT TO START lamp and
+                the activation of the glow plugs separately. The glow plug WAIT TO START lamp indicates when the glow
+                plugs have been on long enough to start the engine. The on time normally varies between 2 to 10 seconds.
+                The glow plugs are self limiting and do not require cycling on and off. The glow plug relay will only
+                cycle on and off repeatedly if system voltage is greater than 14.0 volts.
+            </para>
+            <para>Glow plugs are activated for a longer time, if the engine is cold or the barometric pressure is low
+                (high altitude).
+            </para>
+            <para>The engine is ready to start when the WAIT TO START lamp is turned off by the ECM. The glow plugs can
+                remain on up to 120 seconds while the engine is running to reduce exhaust emissions during engine
+                warm-up.
+            </para>
+            <specpara>
+                <note>
+                    <para>The WAIT TO START lamp on time is independent from the glow plug relay on time.</para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>GPC Circuit Operation</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3359" filename="../figd33/d3359.webp" type="webp" scalefit="1" scalefitwidth="352px"/>
+                <caption>Glow Plug Control (GPC) Circuit Diagram</caption>
+            </figure>
+            <para>The glow plug control system operation on time is dependent upon the ECT, BAP, and battery voltage.
+                The glow plug relay is activated by power supplied by the ECM through terminal X1-17 to circuit 97CH.
+                The coil of the glow plug relay is grounded through circuit 97IG8, the 12 pin connector and to the
+                battery negative terminal. Power is supplied to the switch side of the glow plug relay from the starter
+                motor. When the relay coil is energized, power is supplied to the glow plugs which are grounded through
+                the cylinder head.
+            </para>
+            <para>The Wait to Start lamp time is transmitted over the CAN 1 datalink. See truck Chassis Electrical
+                Circuit Diagram manual.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>An open or short to ground in the glow plug relay circuit can be detected by an on demand Output
+                Circuit Check (OCC) performed during the Key ON Engine OFF (KOEO) Standard tests. Glow plug and glow
+                plug harness problems can not be detected by the ECM.
+            </para>
+            <para>
+                <title>Glow Plug Control Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim id="f240dtc251">
+                <line>
+                    <emph type="bold">DTC 251</emph>
+                </line>
+                <line>
+                    <emph type="bold">GPC Output Circuit Check self-test failed.</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 251 is set by the ECM when the OCC test has failed after the KOEO Standard test has been
+                        run.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 251 can be set for an open or shorted GPC signal circuit, an open feed circuit, or an open
+                        glow plug relay coil.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout box</para>
+                </item>
+                <item>
+                    <para>12 pin breakout harness</para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>The GPC circuit requires the use of vehicle circuit diagrams. See truck Chassis Electrical
+                        Circuit Diagram manual for circuit numbers, connector and fuse locations.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>GPC Pin Point Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3359" filename="../figd33/d3359.webp" type="webp" scalefit="1" scalefitwidth="352px"/>
+                <caption>Glow Plug Control (GPC) Circuit Diagram</caption>
+            </figure>
+            <table id="te24007049" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.86in"/>
+                    <colspec colname="col2" colwidth="1.50in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Glow Plug Relay Voltage Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Relay feed to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Relay switch power, B+ should be present at all times (terminal with single 6
+                                    gauge wire). Check connection at starter or fusible links if no voltage is present.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Glow Plug feed to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Glow plug feed voltage should be present 0 to 120 seconds after key is cycled on
+                                    (temperature dependent). (large terminal with 3 wires)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97CH to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+ or 0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Glow Plug Control ECM commands relay ON = B+, OFF=0V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97IG8 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>GPC relay grounded from batteries. If voltage is present, check for open
+                                    circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Check with specific connections disconnected and Key OFF.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97IG8 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for open circuit between relay and gnd.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97IG8 to PIN 1 on 12 pin breakout harness</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If>5&#x2126;, check for open from relay to 12 pin connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97CH to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, check for short to ground from relay to X1-17</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97CH at relay to X1-17</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for open circuit between relay and ECM</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>For glow plug and harness diagnostics, see Section 5 in the manual.</para>
+            <specpara>
+                <note>
+                    <para>Circuit 97FU1 is for future diagnostics and is not used at this time.</para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_149.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_151.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

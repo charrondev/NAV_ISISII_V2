@@ -1,0 +1,743 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - ECT Sensor (Engine Coolant Temperature)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="5">
+        <title>ECT Sensor (Engine Coolant Temperature)</title>
+        <svcprocinfo>
+            <figure id="f27007059" figsize="pg-wide">
+                <graphic filename="../figh31/h31037.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Function diagram for the ECT sensor</caption>
+            </figure>
+            <para id="ECT">The function diagram for the ECT sensor includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>ECT sensor</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation (EGR)</para>
+                </item>
+                <item>
+                    <para>Injector Drive Module (IDM)</para>
+                </item>
+                <item>
+                    <para>Fuel injector</para>
+                </item>
+                <item>
+                    <para>Variable Geometry Turbocharger (VGT)</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber and red)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The ECT sensor is a thermistor sensor installed in the water supply housing (Freon&#174; compressor
+                bracket), right of the flat idler pulley assembly. The ECM supplies a 5 V reference signal which the ECT
+                sensor uses to produce an analog voltage that indicates temperature.
+            </para>
+            <para>The ECT sensor changes resistance when exposed to different temperatures. As the coolant temperature
+                decreases, the resistance of the thermistor increases. This causes the signal voltage to increase. As
+                the coolant temperature increases, the resistance of the thermistor decreases. This causes the signal
+                voltage to decrease.
+            </para>
+            <para>The ECT sensor provides a feedback signal to the ECM indicating engine coolant temperature. The ECM
+                monitors the ECT signal to control the following features:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Engine Warning and Protection System (EWPS)</para>
+                </item>
+                <item>
+                    <para>Cold Ambient Protection (CAP)</para>
+                </item>
+                <item>
+                    <para>Idle Shutdown Timer (IST)</para>
+                </item>
+                <item>
+                    <para>Cold idle advance</para>
+                </item>
+                <item>
+                    <para>Coolant compensation</para>
+                </item>
+            </randlist>
+            <para>During engine operation, if the ECM recognizes that the ECT signal is greater or less than the
+                expected value it will set a Diagnostic Trouble Code (DTC).
+            </para>
+            <para>
+                <title>Coolant Temperature Compensation</title>
+            </para>
+            <para>Coolant temperature compensation reduces fuel delivery if ECT is above cooling system specification.
+            </para>
+            <para>The reduction in fuel delivery begins when ECT reaches approximately 107 &#176;C (225 &#176;F). A
+                relatively rapid reduction of 15% will be achieved as the ECT reaches approximately 110 &#176;C (230
+                &#176;F).
+            </para>
+            <para>Fuel reduction is calibrated to a maximum of 30% before standard engine warning or optional
+                warning/protection is engaged. If warning or shutdown occurs, a DTC is stored in the ECM memory.
+            </para>
+            <specpara>
+                <note>
+                    <para>Coolant temperature compensation may be disabled in emergency vehicles that require 100% power
+                        on demand.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>Engine Warning and Protection (EWPS)</title>
+            </para>
+            <para>The EWPS is an optional feature that can be enabled or disabled. When enabled, the EWPS will warn the
+                operator of an overheat condition and can be programmed to shut down the engine.
+            </para>
+            <para>The red ENGINE lamp will come on when ECT reaches approximately 109 &#176;C (228 &#176;F). A warning
+                buzzer will sound when ECT reaches approximately 112 &#176;C (234 &#176;F). The engine will shut down
+                when the ECT reaches approximately 112 &#176;C (234 &#176;F), if 3-way protection is enabled.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>ECT Circuit Operation</title>
+            <figure id="f27007060" figsize="pg-wide">
+                <graphic filename="../figH31/H31082.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>ECT circuit diagram</caption>
+            </figure>
+            <para>The ECT sensor is supplied with a 5 V reference voltage at Pin 2 from ECM Pin X1-8. The sensor is
+                grounded at Pin 1 through the signal ground at the ECM Pin X1-6. As the coolant temperature increases or
+                decreases, the sensor changes resistance and provides the coolant temperature signal voltage at the ECM.
+                The signal voltage is monitored by the ECM to determine the temperature of the coolant.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM continuously monitors the signal of the ECT sensor to determine if the signal is within an
+                expected range. If the ECM detects an out of range high or low, the ECM will ignore the ECT signal and
+                assume an engine coolant temperature of -20 &#176;C (-4 &#176;F) for starting and 82 &#176;C (180 &#176;F)
+                for engine running conditions. When this occurs, the EWPS, CAP, IST, cold idle advance, and coolant
+                temperature compensation features are disabled.
+            </para>
+            <para>
+                <title>ECT Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red ENGINE lamp.</para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 114</emph>
+                </line>
+                <line>
+                    <emph type="bold">ECT signal out-of-range low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 114 set by the ECM when the ECT signal is less than 0.127 V for more than 0.35 second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 114 can set due to a short to ground in the signal circuit or a failed ECT sensor.</para>
+                </item>
+                <item>
+                    <para>When DTC 114 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 115</emph>
+                </line>
+                <line>
+                    <emph type="bold">ECT signal out-of-range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 115 set by the ECM when the ECT signal is more than 4.6 V for more than 0.35 second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 115 can set due to an open signal or ground circuit, a short to a voltage source, or a
+                        failed ECT sensor.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 115 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>3-Banana Plug Harness</para>
+                </item>
+                <item>
+                    <para>500 Ohm Resistor Harness</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+                <item>
+                    <para>Breakout Harness</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECT Operational Diagnostics</title>
+            <figure id="f27007061" figsize="pg-wide">
+                <graphic filename="../figh31/h31082.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>ECT circuit diagram</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle - comply
+                        with the following:
+                    </para>
+                    <para>Be careful to avoid rotating parts (belts and fan) and hot engine surfaces.</para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Using EST, open the D_ContinuousMonitor.ssn.</para>
+            </step1>
+            <figure id="f27007062" figsize="col-wide">
+                <graphic filename="../figH31/H31229.webp" type="webp" scalefit="1" scalefitwidth="176px"
+                         scalefitheight="472px" box="no"/>
+                <caption>Continuous Monitor Test</caption>
+            </figure>
+            <step1>
+                <para count="1">To monitor signal voltage, run KOEO Continuous Monitor Test. For help, see
+                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Continuous Monitor Test"</hotlnk>
+                    in Section 3 .
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Monitor ECT signal voltage. Verify an active DTC for the ECT circuit.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is active, do step 6 and 7 to check circuit for the ECT sensor using the
+                    following table.
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Circuit Checks for ECT Sensor</para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">If code is inactive, wiggle connectors and wires at all suspected problem locations. If
+                    circuit continuity is interrupted, the EST will display DTCs related to the condition.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Disconnect engine harness from temperature sensor.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Inspect connectors for damaged pins, corrosion, or loose pins. Repair if necessary.</para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Connect Temperature Sensor Breakout Harness to engine harness only.</para>
+            </step1>
+            <table id="te27007047" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.39in"/>
+                    <colspec colname="col2" colwidth="0.77in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Circuit Checks for ECT Sensor</emph>
+                                    (Use EST, breakout harness, 3-Banana Plug Harness, and 500 Ohm Resistor Harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Condition</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 4.6 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage &#60; 4.6 V, check signal circuit for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3-Banana Plug Harness connected between Pin 2 (Green) and Pin 1 (Black) of
+                                    breakout harness
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is > 0.127 V, check ground and signal circuit for open or high
+                                    resistance. Use a breakout box and measure resistance from Pin 1 to Pin X1-6 and
+                                    from Pin 2 to X1-8 (spec &#60; 5 &#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>500 Ohm Resistor Harness connected between Pin 2 (Green) and Pin 1 (Black) of
+                                    breakout harness
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 1.0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 1.0 V, check signal circuit for short to V
+                                    <subscript>REF</subscript>, B+, or another sensor's signal voltage.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Connect engine harness to sensor. Use the EST to clear DTCs. If an active code
+                                    remains after checking test conditions, replace the ECT sensor.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECT Pin-Point Diagnostics</title>
+            <table id="te27007048" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.29in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks to Ground</emph>
+                                    (Disconnect harness from sensor. Inspect for bent pins or corrosion. Connect
+                                    breakout harness to engine harness only. Turn the ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4.6 V to 5.0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Pull up voltage, if no voltage or low, circuit is open, has high resistance, or
+                                    short to ground
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltage > 0.25 V, wire shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to ECM Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness from sensor. Connect breakout
+                                    harness to engine harness only. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the chassis ground connection for the ECM and IDM. See truck
+                                        Chassis Electrical Circuit Diagram Manual for complete chassis side ECM and IDM
+                                        ground circuit information.</ftnote>.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open ground circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for shorted signal to ground within wiring harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect harness from
+                                    sensor. Connect breakout harness to engine harness only. Use disconnected negative
+                                    battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for signal short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Connect breakout box to engine harness only. Disconnect harness from sensor.
+                                    Connect breakout harness to engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open ground wire</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-8 to 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open signal wire</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007063" figsize="pg-wide">
+                <graphic filename="../figh31/h31082.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>ECT circuit diagram</caption>
+            </figure>
+            <table id="te27007049" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="1.73in"/>
+                    <colspec colname="col2" colwidth="1.65in"/>
+                    <colspec colname="COLSPEC0" colwidth="2.57*"/>
+                    <colspec colname="COLSPEC1" colwidth="3.47*"/>
+                    <spanspec namest="col1" nameend="COLSPEC1" spanname="SPAN2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for ECT Sensor with Breakout Harness
+                                    </emph>
+                                    (Check with breakout harness connected to sensor and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Coolant Temp</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Resistance</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>Voltage</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 (Green) to 1 (Black)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>108 &#176;C (228 &#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>1.605 k&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>0.37 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 (Green) to 1 (Black)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>87.7 &#176;C (190 &#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>3 k&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>0.65 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 (Green) to 1 (Black)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 &#176;C (32 &#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>91.1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>3.86 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 (Green) to 1 (Black)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>-17.8 &#176;C (0 &#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>208 k&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>4.25 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for ECT Sensor with Breakout Box</emph>
+                                    (Check with breakout box connected [X-1 only] to ECM and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-8 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>108 &#176;C (228 &#176;F)</para>
+                            </entry>
+                            <entry>
+                                <para>1.605 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>0.37 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-8 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>87.7 &#176;C (190 &#176;F)</para>
+                            </entry>
+                            <entry>
+                                <para>3 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>0.65 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-8 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>0 &#176;C (32 &#176;F)</para>
+                            </entry>
+                            <entry>
+                                <para>91.1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>3.86 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-8 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>-17.8 &#176;C (0 &#176;F)</para>
+                            </entry>
+                            <entry>
+                                <para>208 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>4.25 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>ECT Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 114 = Signal voltage was &#60; 0.127 V for more than 0.35 second.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 115 = Signal voltage was > 4.6 V for more than 0.35 second.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 316 = See
+                                    <hotlnk document="eges270_147.xml" xrefid="s27005020">"Engine Warning and Protection
+                                        System"
+                                    </hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 321 = See
+                                    <hotlnk document="eges270_147.xml" xrefid="s27005020">"Engine Warning and Protection
+                                        System"
+                                    </hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 322 = See
+                                    <hotlnk document="eges270_147.xml" xrefid="s27005020">"Engine Warning and Protection
+                                        System"
+                                    </hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 325 = See
+                                    <hotlnk document="eges270_147.xml" xrefid="s27005020">"Engine Warning and Protection
+                                        System"
+                                    </hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_140.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_142.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

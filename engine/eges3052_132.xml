@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - Brake
+        Switch Circuits
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.6" svcproctype="diagnose" graphiccount="3">
+        <title>Brake Switch Circuits</title>
+        <svcprocinfo id="s305010706.6.1">
+            <figure id="f305010731" figsize="pg-wide">
+                <graphic filename="../figj31/j31073.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for brake switch circuits</caption>
+            </figure>
+            <para id="s305010706.6.1.1"></para>
+            <table id="t305010751" type="simple" frame="topbot">
+                <title>The functional diagram for the brake switch circuits includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Brake Pressure Switch (BPS)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Brake ON/OFF (BOO) switch</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Output - cancels cruise control</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Output - cancels Power Takeoff (PTO) control</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Output - cancels Cold Ambient Protection (CAP)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Output - cancels Idle Shutdown Timer (IST)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Function</title>The brake switch circuit signals the ECM when the brakes are applied. The
+                information is used to disengage the cruise control and PTO functions. The brake signal will interrupt
+                the CAP feature and will reset the time interval for the IST feature.
+            </para>
+            <specpara>
+                <note>
+                    <para>CF chassis has a switching delay between the BOO and BPS signals.</para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.6.2">
+            <title>Brake Switch Circuit Operation</title>
+            <figure id="f305010732" figsize="pg-wide">
+                <graphic filename="../figj31/j31339.webp" type="webp" scalefit="1" scalefitwidth="352px"/>
+                <caption>Brake switch circuit diagram</caption>
+            </figure>
+            <para>
+                <title>Fault Detection/Management</title>The ECM continuously monitors the BOO circuit at Pin X1-15 and
+                BPS at Pin X1-16. If the ECM receives a mismatch signal such as an open BPS and an open BOO a DTC will
+                be set.
+            </para>
+            <para>
+                <title>Brake Switch Circuits DTCs</title>DTCs are read using the EST or by counting the flashes from the
+                amber and red lamps.
+            </para>
+            <table id="t305010752" type="simple" frame="topbot">
+                <title>DTC 222</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>Brake switch circuit Fault</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>DTC 222 is set by the ECM when BPS and BOO are mismatched.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>DTC 222 can be set for an open or shorted BOO switch circuit, an open BPS switch
+                                    circuit, an open VIGNcircuit, or a failed BOO or BPS switch.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+        </svcsubproc>
+        <svcsubproc id="s305010706.6.3">
+            <title>Brake Switch Circuits Pin-Point Diagnostics</title>
+            <figure id="f305010733" figsize="pg-wide">
+                <graphic filename="../figj31/j31339.webp" type="webp" scalefit="1" scalefitwidth="392px"
+                         scalefitheight="532px"/>
+                <caption>Brake switch circuit diagram</caption>
+            </figure>
+            <table id="t305010753" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - Brake Switch Circuits at ECM</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.60*"/>
+                    <colspec colname="col2" colwidth="0.77*"/>
+                    <colspec colname="col3" colwidth="1.65*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Connect Breakout Box X1 and X3 to ECM and harness.
+                                    Turn ignition switch to ON.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-15 to X3-7</para>
+                            </entry>
+                            <entry>
+                                <para>Normal state = 0 V</para>
+                                <para>Pedal depressed = B+</para>
+                            </entry>
+                            <entry>
+                                <para>If not within specification, check for blown fuse, open circuit, short to ground,
+                                    short to power, or failed switch.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-16 to X3-7</para>
+                            </entry>
+                            <entry>
+                                <para>Normal state = B+</para>
+                                <para>Pedal depressed = 0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not within specification, check for blown fuse, open circuit, short to ground,
+                                    short to power, or failed switch.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t305010754" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - Brake Switch Circuits to Chassis Ground</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging relays
+                                        or the ECM module. Failure to turn ignition switch to OFF could cause a voltage
+                                        spike and damage the electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Connect Breakout Box X1 to wiring harness only.
+                                    Disconnect negative battery cable, use negative battery cable as ground test point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-15 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-16 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010755" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - ECM to Switch</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging relays
+                                        or the ECM module. Failure to turn ignition switch to OFF could cause a voltage
+                                        spike and damage the electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Connect Breakout Box X1 to wiring harness only.
+                                    Disconnect negative battery cable, use negative battery cable as ground test point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-15 to switch</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-16 to switch</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_131.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_133.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

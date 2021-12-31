@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (1997) - SECTION 3.5: CIRCUIT FUNCTION AND DIAGNOSTICS - APS/IVS PEDAL
+        POSITION SENSOR/IDLE VALIDATION SWITCH - ECM DIAGNOSTICS
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="proctype" graphiccount="0">
+        <title>ECM DIAGNOSTICS</title>
+        <svcprocinfo>
+            <para>When the key is ON, the ECM continuously monitors the APS/IVS circuits for expected voltages. It also
+                compares the APS and IVS signals for conflict. If the signals are not what the ECM expects to see, Fault
+                codes will be set.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>FLASH CODE 131 - ATA CODE PID 91 FMI 4 - - ECM: APS OUT OF RANGE LOW</title>
+            <para>The ORL (out of range low) code 131 is set if the ECM detects a voltage lower than 0.146 volts at
+                terminal 47. Possible causes include: a short to ground or an open in circuit 99B. This code is
+                displayed by either the Prolink EST or using the Engine Warn Light to flash codes.
+            </para>
+            <para>When code 131 is active, the ECM restricts engine speed to idle and turns the Engine Warning Light ON.
+                If the condition causing code 131 is intermittent and the condition is no longer present, the code will
+                become inactive and normal engine operation will resume. If code 131 is active, perform Testing APS
+                Circuits (
+                <emph type="bold">Figure
+                    <hotlnk document="e125_132.xml" xrefid="ef1251805">3.12</hotlnk>
+                </emph>
+                ).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 132 - ATA CODE PID 91 FMI 3 - - ECM: APS OUT OF RANGE HIGH</title>
+            <para>The ORH (out of range high) code 132 is set if the ECM detects a voltage greater than 4.56 volts at
+                terminal 47. Possible cause: short to VREF or 12 volts in circuit 99B. This code is displayed by either
+                the Prolink EST or using the Engine Warn Light to flash codes.
+            </para>
+            <para>When code 132 is active, the ECM restricts engine speed to idle and turns the Engine Warn Light ON. If
+                the condition causing code 132 is intermittent and the condition is no longer present, the code will
+                become inactive and normal engine operation will resume. If code 132 is active, perform Testing APS
+                Circuits (
+                <emph type="bold">Figure
+                    <hotlnk document="e125_132.xml" xrefid="ef1251805">3.12</hotlnk>
+                </emph>
+                ).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODES 133, 134 AND 135 - APS IN-RANGE FAULTS</title>
+            <para>The ECM checks the voltage output of the APS by comparing the APS signal with the IVS signal. APS and
+                IVS signals can disagree in two cases:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>The APS signal indicates the pedal is pressed down to accelerate, but the IVS signal indicates
+                        idle position.
+                    </para>
+                </item>
+                <item>
+                    <para>The APS signal indicates the pedal has been released to allow the engine to return to idle,
+                        but the IVS signal indicates off-idle position of the pedal.
+                    </para>
+                </item>
+            </randlist>
+            <para>If the ECM detects either of the above conditions, the ECM attempts to isolate the source of conflict.
+                If code(s) 133, 134 and/or 135 are active, perform Testing IVS Circuits (
+                <emph type="bold">Figure
+                    <hotlnk document="e125_131.xml" xrefid="ef1251804">3.11</hotlnk>
+                </emph>
+                ) and Testing APS Circuits (
+                <emph type="bold">Figure
+                    <hotlnk document="e125_132.xml" xrefid="ef1251805">3.12</hotlnk>
+                </emph>
+                ).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 133 - ATA CODE PID 91 FMI 2 - - ECM: APS IN RANGE FAULT</title>
+            <para>If the IVS signal is changing and the APS signal is constant, the ECM assumes APS is the conflict
+                source and sets code 133. Engine rpm is restricted to idle and the Engine Warn Light is turned ON.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 134 - ATA Code PID 91 FMI 7- - ECM: APS/IVS DISAGREE</title>
+            <para>If neither the APS or IVS is changing, or both are changing or the ECM cannot determine the faulty
+                code in specified time, then code 134 is set, engine rpm is restricted to idle and the Engine Warn Light
+                is turned ON.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 135 - ATA CODE SID 230 FMI 11- - ECM: IVS CIRCUIT FAULT</title>
+            <para>If the APS is changing and IVS is constant, the ECM assumes IVS is the conflict source and sets flash
+                code 135. In this case the ECM limits the APS signal to a lower value, which provides less than full
+                rpm, but does not limit engine rpm to idle. The Engine Warn Light is not turned ON.
+            </para>
+            <para>Note that codes 133, 134 and 135 are caused by an intermittent condition, the codes remain ACTIVE
+                until the vehicle has been shutdown and restarted. They do not recover without cycling the key switch.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_125.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_127.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,781 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - ECM PWR (Electronic Control Module Power)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>ECM PWR (Electronic Control Module Power)</title>
+        <svcprocinfo>
+            <figure id="f27007055" figsize="pg-wide">
+                <graphic filename="../figh31/h31035.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for the ECM PWR</caption>
+            </figure>
+            <para id="s27005010">The function diagram for ECM PWR includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para id="ECMPWR">ECM</para>
+                </item>
+                <item>
+                    <para>ECM main power relay</para>
+                </item>
+                <item>
+                    <para>Ignition switch or power relay</para>
+                </item>
+                <item>
+                    <para>Battery</para>
+                </item>
+                <item>
+                    <para>Fuses</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The Electronic Control Module (ECM) requires a 12 V power source to function correctly. The operating
+                power is received from the vehicle batteries through the ECM main power relay contacts each time the
+                ignition switch is turned ON.
+            </para>
+            <para>When the ignition switch is turned ON, the ECM provides an internal ground to the coil side of the ECM
+                main power relay. This closes the relay contacts and provides the ECM with necessary power.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>ECM PWR Circuit Operation</title>
+            <figure id="f27007056" figsize="pg-wide">
+                <graphic filename="../figh31/h31066.webp" type="webp" scalefit="1" scalefitwidth="392px"
+                         scalefitheight="392px"/>
+                <caption>ECM PWR circuit diagram</caption>
+            </figure>
+            <para>The ECM is grounded to the battery negative terminal at ECM Pin X3-6 and X3-7.</para>
+            <para>The ECM receives V
+                <subscript>IGN</subscript>
+                power at Pin X3-3. The power signals the ECM to provide a ground path from Pin X3-5 to 85 to switch the
+                ECM main power relay. Switching the relay provides power from the battery positive terminal through 2
+                fuses and relay contacts 30 and 87 to Pins X4-1 and X4-2. See truck Chassis Electrical Circuit Diagram
+                Manual for circuit numbers, connector and fuse locations.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM internally monitors battery voltage. When the ECM continuously receives less than 7 V or more
+                than 23 V, a Diagnostic Trouble Code (DTC) will be set.
+            </para>
+            <para>
+                <title>ECM PWR Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red ENGINE lamp.</para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 112</emph>
+                </line>
+                <line>
+                    <emph type="bold">Electrical system voltage B+ out of range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 112 is set when the ECM detects an alternator output greater than 23 V at Pin X3-3 for
+                        more than 0.5 second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 112 can be set when jump starting the engine and additional voltage is introduced.
+                        Incorrect external battery connections can cause the voltage increase.
+                    </para>
+                </item>
+                <item>
+                    <para>If the condition causing DTC 112 is intermittent, the code will change from active to inactive
+                        status. DTC 112 will not illuminate the amber ENGINE lamp.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 113</emph>
+                </line>
+                <line>
+                    <emph type="bold">Electrical system voltage B+ out of range low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 113 is set when the ECM detects less than 7.0 V at Pin X3-3 for more than 0.5 second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 113 can be set by a inoperative alternator or ECM power relay, discharged batteries, or
+                        increased resistance in the battery feed circuits.
+                    </para>
+                </item>
+                <item>
+                    <para>If the condition causing DTC 113 is intermittent, the code will change from active to inactive
+                        status. DTC 113 will not illuminate the amber ENGINE lamp.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 626</emph>
+                </line>
+                <line>
+                    <emph type="bold">Unexpected reset fault</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 626 is set when power is interrupted to the ECM. Loose or dirty connections at fuses,
+                        relay connections, and battery or ground cables can cause the ECM to power down.
+                    </para>
+                </item>
+                <item>
+                    <para>After circuit becomes intact, the ECM will reboot. Erratic engine performance can occur.
+                        Turning engine ignition switch OFF and then ON will cause the code to change from active to
+                        inactive status.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 626 is active, monitor the voltage at ECM Pin X4-1 and X4-2. Examine for intermittent
+                        connections in the power feed wiring. The EST can be used to indicate DTCs and display the V
+                        <subscript>IGN</subscript>
+                        voltage measured by the ECM to Pin X3-3.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 626 will not illuminate the amber ENGINE lamp.</para>
+                </item>
+            </randlist>
+            <para>When DTC 112, 113, or 626 is active, see truck Chassis Electrical Circuit Diagram Manual for circuit
+                numbers, connector and fuse locations.
+            </para>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+                <item>
+                    <para>Relay Breakout Harness</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM PWR Pin-Point Diagnostics</title>
+            <figure id="f27007057" figsize="pg-wide">
+                <graphic filename="../figh31/h31066.webp" type="webp" scalefit="1" scalefitwidth="392px"
+                         scalefitheight="392px"/>
+                <caption>ECM PWR circuit diagram</caption>
+            </figure>
+            <table id="te27007043" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.02in"/>
+                    <colspec colname="col2" colwidth="1.13in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>The ECM PWR circuit requires the use of vehicle circuit diagrams. See truck
+                                    Chassis Electrical Circuit Diagram Manualfor circuit numbers, connector and fuse
+                                    locations.
+                                </para>
+                                <caution>
+                                    <para>To avoid engine damage, turn the ignition switch to OFF before removing main
+                                        power relay or any ECM connector supplying power to the ECM. Failure to turn the
+                                        ignition switch to OFF will cause a voltage spike and damage to electrical
+                                        components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Voltage Checks at ECM Power Relay Socket - Key-On Engine-Off
+                                    </emph>
+                                    (Follow tests in order. Check with relay breakout harness connected to relay and
+                                    power distribution center and turn the ignition switch on. Inspect for bent pins or
+                                    corrosion.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>86 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Continuous voltage. If no voltage, check power circuits from batteries through
+                                    fuse. If fuse is blown, check for short to ground. If fuse is good, check for open
+                                    between Pin 30 and B+. See truck Chassis Electrical Circuit Diagram Manual for relay
+                                    and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177; 1.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Continuous voltage. If no voltage, check fuses. If fuse is blown, check for short
+                                    to ground. If fuse is good, check for open between Pin 30 and B+. See truck Chassis
+                                    Electrical Circuit Diagram Manual for fuse and relay locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>85 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.06 V to 2 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 2 V is present, check for open circuit between Pin X3-5 to Pin 85 on relay or
+                                    V
+                                    <subscript>IGN</subscript>
+                                    circuit. See truck Chassis Electrical Circuit Diagram Manual for relay and fuse
+                                    locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>87 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Continuous voltage. If previous test points are in spec and no voltage is present,
+                                    replace relay.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007044" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.03in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn the ignition switch to OFF before removing main
+                                        power relay or any ECM connector supplying power to the ECM. Failure to turn the
+                                        ignition switch to OFF will cause a voltage spike and damage to electrical
+                                        components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Voltage Checks at ECM - Key-On Engine-Off</emph>
+                                    (Follow tests in order. Check with breakout box connected between chassis harness
+                                    and ECM. Inspect for bent pins and corrosion.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-3 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Power from ignition switch to ECM. If no voltage, see truck Chassis Electrical
+                                    Circuit Diagram Manual for relay and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-6 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ground - voltage reading indicates poor ground to battery. If voltage is present
+                                    check for open or high resistance between battery (-) and ECM pins.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-7 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ground - voltage reading indicates poor ground to battery. If voltage is present
+                                    check for open or high resistance between battery (-) and ECM pins.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-5 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.06 V to 2 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ECM grounds relay through internal transistor. If > 2 V is present, replace ECM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Power from relay to ECM. If no voltage, check for open between X4-1 and 87 on ECM
+                                    relay. See truck Chassis Electrical Circuit Diagram Manual for relay and fuse
+                                    locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Power from relay to ECM. If no voltage, check for open between X4-2 and 87 on ECM
+                                    relay. See truck Chassis Electrical Circuit Diagram Manual for relay and fuse
+                                    locations.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007045" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.85in"/>
+                    <colspec colname="col2" colwidth="0.67in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn the ignition switch to OFF before removing main
+                                        power relay or any ECM connector supplying power to the ECM. Failure to turn the
+                                        ignition switch to OFF will cause a voltage spike and damage to electrical
+                                        components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks - ECM to Main Power Relay</emph>
+                                    (Turn the ignition switch to OFF. Inspect for bent pins or corrosion. Connect relay
+                                    breakout harness and breakout box to X3 and X4 chassis harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-5 to 85 (ECM relay)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check connections for open between ECM and relay. See truck
+                                    Chassis Electrical Circuit Diagram Manualfor relay and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-1 to 87 (ECM relay)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check connections for open between ECM and relay. See truck
+                                    Chassis Electrical Circuit Diagram Manualfor relay and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-2 to 87 (ECM relay)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check connections for open between ECM and relay. See truck
+                                    Chassis Electrical Circuit Diagram Manualfor relay and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks - Main Power Relay to Battery</emph>
+                                    (Turn the ignition switch to OFF. Disconnect negative battery cable. Disconnect
+                                    harness from sensor. Inspect for bent pins or corrosion. Connect relay breakout
+                                    harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 (ECM relay) to B+ cable</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check connections for open between relay and positive battery
+                                    cable. Check fuses. See truck Chassis Electrical Circuit Diagram Manual for relay
+                                    and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>86 (ECM relay) to B+ cable</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check connections for open between relay and positive battery
+                                    cable. Check fuse. See truck Chassis Electrical Circuit Diagram Manual for relay and
+                                    fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks - ECM to ECM Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the ground connection for the ECM and IDM. See truck Chassis
+                                        Electrical Circuit Diagram Manual for complete chassis side ECM and IDM ground
+                                        circuit information.</ftnote>. Inspect for bent pins or corrosion. Connect
+                                    breakout box [X3 and X4] to chassis harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-6 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check connections to battery ground. See truck Chassis Electrical
+                                    Circuit Diagram Manual for relay and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-7 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check connections to battery ground. See truck Chassis Electrical
+                                    Circuit Diagram Manual for relay and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-3 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-5 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-1 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-2 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks - ECM to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect harness from
+                                    sensor. Use disconnected negative battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-6 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-7 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-3 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-5 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-1 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-2 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks - ECM to Ignition Power Relay</emph>
+                                    (Turn the ignition switch to OFF. Inspect for bent pins or corrosion. Connect relay
+                                    breakout harness and breakout box [X3 and X4] to chassis harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-3 to 87 (V
+                                    <subscript>IGN</subscript>
+                                    - power relay)
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check connections or open between ECM and V
+                                    <subscript>IGN</subscript>
+                                    power relay. See truck Chassis Electrical Circuit Diagram Manual for relay and fuse
+                                    locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>ECM PWR Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 112 = Internal voltage power out of range high > 23 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 113 = Internal voltage power out of range low &#60; 7 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 626 = Unexpected reset fault</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_138.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_140.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

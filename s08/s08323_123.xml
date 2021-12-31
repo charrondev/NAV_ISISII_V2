@@ -1,0 +1,1427 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Body Builder Electrical Data Book for Models Built Starting March 1, 2007 - Hybrid Electric Vehicle - 13GSC
+        - EATON 6SPD HYBRID WITH ePTO CAPABILITY
+    </stitle>
+    <svcsection/>
+    <svcproc svcproctype="describe" graphiccount="4">
+        <title>13GSC - EATON 6SPD HYBRID WITH ePTO CAPABILITY</title>
+        <svcprocinfo>
+            <para>
+                <emph type="boldundersc">FEATURE CODE DESCRIPTION:</emph>
+            </para>
+            <para>13GSC - EATON 6SPD HYBRID WITH ePTO CAPABILITY for a Hybrid Electric Vehicle, includes warning lights,
+                hood open light and capability to activate up to four demand circuits for PTO operation (Requires six
+                RPM inputs and one output)
+            </para>
+            <para>The Eaton Hybrid system uses electric energy stored in a large high voltage (HV) battery. An electric
+                motor connected to the driveline prior to the transmission gears assists the engine to drive the truck
+                which can improve fuel economy. The diesel engine is connected to the driveline as needed by means of an
+                electric clutch. Energy is re-generated during deceleration (braking) and during efficient diesel engine
+                operating conditions.
+            </para>
+            <para>This feature also adds the functionality for operating a PTO in a diesel engine off mode (called
+                electric PTO, or ePTO). The E-PTO mode consists of electric PTO operation while the diesel engine is off
+                most of the time. It includes vehicle interlocks, engagement, disengagement, and automatic control of
+                diesel engine on/off operation. The system will run the diesel engine automatically as needed to
+                recharge the High Voltage Battery, as well as if the 12 volt batteries are low or the air pressure is
+                low.
+            </para>
+            <para>
+                <emph type="bold">IMPORTANT! Hands on training for the basic hybrid components is required along with
+                    reviewing documentation provided by Eaton Corporation. This includes all cautions and warnings,
+                    before attempting to diagnose, service or relocate any of the Hybrid electric components.
+                </emph>
+            </para>
+            <para>
+                <emph type="boldundersc">FEATURE / BODY FUNCTION:</emph>
+            </para>
+            <para>This feature comprises the following functions: 0595BAL, 0595BAM and 0595BAN broken down into the
+                components of each feature as described below:
+            </para>
+            <para>0595BAL: This feature provides a hood open warning lamp [Red] and a hood open switch to prevent
+                starting the diesel engine when the hood is open.
+            </para>
+            <para>0595BAN: This feature provides two hybrid warning lamps (CHECK HYBRID [Amber] and STOP HYBRID [Red])
+                in a center panel mounted switch pack.
+            </para>
+            <para>0595BAM: This feature provides an air solenoid to control a PTO engagement mechanism. This feature
+                also provides for up to four demand circuits through RPM inputs that cause the hybrid electric motor to
+                run and turn the PTO shaft via the clutch gear and transmission counter shafts. Each of these circuits
+                have separate parameters that can be set to keep the hybrid electric motor running for a period of time
+                after the demand circuit becomes inactive. This feature provides an RPM input to disable the PTO, as
+                required. Programmable parameters allow the system designer to select the active state for this input.
+                This feature will also request the Hybrid Control Module (HCM) to start the diesel engine if the air
+                pressure or 12-volt chassis battery voltage falls below established parameter values.
+            </para>
+            <para>This feature uses an RPM input to monitor the PTO feedback switch on the PTO mechanism.</para>
+            <specpara>
+                <note>
+                    <para>To utilize a PTO hour meter, feature 0595AJU must be added (using Diamond Logic&#174; Builder
+                        software).
+                    </para>
+                </note>
+            </specpara>
+            <para>For convenience a diagram of the RPM pin connections (Figure 193) is included in this document.</para>
+            <para>> Please use the Diamond Logic&#174; Builder software to determine pin locations for RPM inputs (refer
+                to the CONNECTOR screen view) and to set programmable parameters (refer to the FEATURE screen view).
+            </para>
+            <para>
+                <emph type="boldundersc">SOFTWARE FEATURE CODES / PROGRAMMABLE PARAMETERS:</emph>
+            </para>
+            <para>*Software feature codes can be added through the Diamond Logic&#174; Builder software. Programmable
+                Parameters are also programmable through the Diamond Logic&#174; Builder software. Body Builders must
+                set programmable parameters that are appropriate for their PTO application.
+            </para>
+            <para>
+                <emph type="bold">Refer to the Hybrid Electrical Troubleshooting Guide for more information.</emph>
+            </para>
+            <para>Required software feature codes: 595BAL, 595BAM, 595BAN</para>
+            <para>Software feature codes that must be removed: 595AJT</para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>ePTO DEMAND CIRCUITS</title>
+            <para>*These parameters set active states for demand circuits used in ePTO control and the length of time
+                that the hybrid electric motor will be requested on after a demand circuit becomes inactive. These
+                conditions are monitored such that the system will automatically start and stop as needed.
+            </para>
+            <para>The
+                <emph type="bold">HEV_Demand_Cir_1_Enabled</emph>
+                parameter enables this input as hydraulic demand input circuit #1 for use in ePTO control as either
+                active high or active low. Disabling it allows this input to be used in other logic without affecting
+                the ePTO logic.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>0 = disabled</para>
+                </item>
+                <item>
+                    <para>1 = input active when grounded</para>
+                </item>
+                <item>
+                    <para>3 = input active when at 12V</para>
+                </item>
+            </randlist>
+            <para>The
+                <emph type="bold">HEV_Demand_Cir_1_Motor_On_Time</emph>
+                parameter sets the amount of time that the hybrid electric motor will be on after demand circuit #1
+                becomes inactive. After this time, the motor will turn off until demand is requested active again
+            </para>
+            <para>The
+                <emph type="bold">HEV_Demand_Cir_2_Enabled</emph>
+                parameter enables this input as hydraulic demand input circuit #2 for use in ePTO control as either
+                active high or active low. Disabling it allows this input to be used in other logic without affecting
+                the ePTO logic.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>0 = disabled</para>
+                </item>
+                <item>
+                    <para>1 = input active when grounded</para>
+                </item>
+                <item>
+                    <para>3 = input active when at 12V</para>
+                </item>
+            </randlist>
+            <para>The
+                <emph type="bold">HEV_Demand_Cir_2_Motor_On_Time</emph>
+                parameter sets the amount of time that the hybrid electric motor will be on after demand circuit #2
+                becomes inactive. After this time, the motor will turn off until demand is requested active again
+            </para>
+            <para>The
+                <emph type="bold">HEV_Demand_Cir_3_Enabled</emph>
+                parameter enables this input as hydraulic demand input circuit #3 for use in ePTO control as either
+                active high or active low. Disabling it allows this input to be used in other logic without affecting
+                the ePTO logic.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>0 = disabled</para>
+                </item>
+                <item>
+                    <para>1 = input active when grounded</para>
+                </item>
+                <item>
+                    <para>3 = input active when at 12V</para>
+                </item>
+            </randlist>
+            <para>The
+                <emph type="bold">HEV_Demand_Cir_3_Motor_On_Time</emph>
+                parameter sets the amount of time that the hybrid electric motor will be on after demand circuit #1
+                becomes inactive. After this time, the motor will turn off until demand is requested active again
+            </para>
+            <para>The
+                <emph type="bold">HEV_Demand_Cir_4_Enabled</emph>
+                parameter enables this input as hydraulic demand input circuit #4 for use in ePTO control as either
+                active high or active low. Disabling it allows this input to be used in other logic without affecting
+                the ePTO logic.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>0 = disabled</para>
+                </item>
+                <item>
+                    <para>1 = input active when grounded</para>
+                </item>
+                <item>
+                    <para>3 = input active when at 12V</para>
+                </item>
+            </randlist>
+            <para>The
+                <emph type="bold">HEV_Demand_Cir_4_Motor_On_Time</emph>
+                parameter sets the amount of time that the hybrid electric motor will be on after demand circuit #1
+                becomes inactive. After this time, the motor will turn off until demand is requested active again
+            </para>
+            <table id="t08323165" tblwidth="pg-wide">
+                <tgroup cols="7">
+                    <colspec colname="col1" colwidth="1.52*"/>
+                    <colspec colname="col2" colwidth="0.68*"/>
+                    <colspec colname="col4" colwidth="1.68*"/>
+                    <colspec colname="COLSPEC1" colwidth="0.91*"/>
+                    <colspec colname="col5" align="center" colwidth="0.75*"/>
+                    <colspec colname="col6" align="center" colwidth="0.74*"/>
+                    <colspec colname="col7" align="center" colwidth="0.70*"/>
+                    <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                    <thead>
+                        <row>
+                            <entry colspan="7" spanname="SPAN1">
+                                <para>Off - Indicates a 0 is set in for this parameter</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="7" spanname="SPAN1" align="center">
+                                <para>On - Indicates a 1 is set for the parameter</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Parameter</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ID</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Description</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Default</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Min</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Max</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Step</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>HEV_Demand_ Cir_1_Enabled</para>
+                            </entry>
+                            <entry>
+                                <para>2391</para>
+                            </entry>
+                            <entry>
+                                <para>Enables input as hydraulic demand circuit #1 for use in ePTO control as either
+                                    active high or active low. Disabling this input frees it to be used in other logic
+                                    without affecting the ePTO logic.
+                                </para>
+                                <para>0 = Disabled</para>
+                                <para>1 = Enabled active low</para>
+                                <para>3 = Enabled active high</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1 (List)</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#160;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Demand_ Cir_1_Motor_On_ Time</para>
+                            </entry>
+                            <entry>
+                                <para>2495</para>
+                            </entry>
+                            <entry>
+                                <para>Amount of time that the hybrid electric motor will be on after demand circuit #1
+                                    becomes inactive
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>0s</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>600</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Demand_ Cir_2_Enabled</para>
+                            </entry>
+                            <entry>
+                                <para>2396</para>
+                            </entry>
+                            <entry>
+                                <para>Enables input as hydraulic demand circuit #2 for use in ePTO control as either
+                                    active high or active low. Disabling this input frees it to be used in other logic
+                                    without affecting the ePTO logic.
+                                </para>
+                                <para>0 = Disabled</para>
+                                <para>1 = Enabled active low</para>
+                                <para>3 = Enabled active high</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1 (List)</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#160;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Demand_ Cir_2_Motor_On_ Time</para>
+                            </entry>
+                            <entry>
+                                <para>2390</para>
+                            </entry>
+                            <entry>
+                                <para>Amount of time that the hybrid electric motor will be on after demand circuit #1
+                                    becomes inactive
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>0s</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>600</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Demand_ Cir_3_Enabled</para>
+                            </entry>
+                            <entry>
+                                <para>2400</para>
+                            </entry>
+                            <entry>
+                                <para>Enables input as hydraulic demand circuit #3 for use in ePTO control as either
+                                    active high or active low. Disabling this input frees it to be used in other logic
+                                    without affecting the ePTO logic.
+                                </para>
+                                <para>0 = Disabled</para>
+                                <para>1 = Enabled active low</para>
+                                <para>3 = Enabled active high</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1 (List)</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#160;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Demand_ Cir_3_Motor_On_ Time</para>
+                            </entry>
+                            <entry>
+                                <para>2304</para>
+                            </entry>
+                            <entry>
+                                <para>Amount of time that the hybrid electric motor will be on after demand circuit #1
+                                    becomes inactive
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>0s</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>600</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Demand_ Cir_4_Enabled</para>
+                            </entry>
+                            <entry>
+                                <para>2425</para>
+                            </entry>
+                            <entry>
+                                <para>Enables input as hydraulic demand circuit #4 for use in ePTO control as either
+                                    active high or active low. Disabling this input frees it to be used in other logic
+                                    without affecting the ePTO logic.
+                                </para>
+                                <para>0 = Disabled</para>
+                                <para>1 = Enabled active low</para>
+                                <para>3 = Enabled active high</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1 (List)</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#160;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Demand_ Cir_4_Motor_On_ Time</para>
+                            </entry>
+                            <entry>
+                                <para>2270</para>
+                            </entry>
+                            <entry>
+                                <para>Amount of time that the hybrid electric motor will be on after demand circuit #1
+                                    becomes inactive
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>0s</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>600</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>RUN/STOP DIESEL ENGINE</title>
+            <para>* These parameters set the conditions under which the ESC will request to start the diesel engine to
+                recharge the air supply or battery voltage and to stop running the diesel engine when not needed. These
+                conditions are monitored such that the system will automatically start and stop the diesel engine as
+                needed.
+            </para>
+            <para>The
+                <emph type="bold">HEV_Run_Engine_Max_Air_Pressure</emph>
+                parameter is the pressure above which the Hybrid Control Module (HCM) will be requested to quit running
+                the diesel engine to recharge the air supply. This pressure must be greater than
+                HEV_Run_Engine_Min_Air_Pressure.
+            </para>
+            <para>The
+                <emph type="bold">HEV_Run_Engine_Max_Air_Press_Time</emph>
+                parameter sets the amount of time that the diesel engine will run after the air pressure supply reaches
+                the upper air pressure limit set for ePTO (set by HEV_Run_Engine_Max_Air_Pressure). This allows the
+                diesel engine to run for a minimum amount of time.
+            </para>
+            <para>The
+                <emph type="bold">HEV_Run_Engine_Max_Battery_Voltage</emph>
+                parameter sets the battery voltage limit that must be met for the diesel engine to stop running after a
+                set amount of time. This voltage must be greater than HEV_Run_Engine_Min_Battery_Voltage.
+            </para>
+            <para>The
+                <emph type="bold">HEV_Run_Engine_Max_Bat_Volt_Time</emph>
+                parameter sets the amount of time to recharge the batteries before the ESC will request the diesel
+                engine to stop running. This parameter sets the minimum amount of time that the diesel engine will run
+                if the 12-volt batteries are low.
+            </para>
+            <para>The
+                <emph type="bold">HEV_Run_Engine_Min_Air_Pressure</emph>
+                parameter sets the minimum desired ePTO operating air pressure. If in ePTO mode and the system air
+                pressure falls below this value for a set amount of time, the HCM will be requested to start the diesel
+                engine to recharge the air supply.
+            </para>
+            <para>The
+                <emph type="bold">HEV_Run_Engine_Min_Air_Press_Time</emph>
+                parameter sets the amount of time that air pressure is below the minimum before the ESC will request the
+                Hybrid Control Module (HCM) to start the diesel engine to recharge the air supply.
+            </para>
+            <para>The
+                <emph type="bold">HEV_Run_Engine_Min_Battery_Voltage</emph>
+                parameter sets the minimum battery voltage level during ePTO with diesel engine off. If in ePTO mode and
+                the battery voltage falls below this value for a set amount of time, the HCM will be requested to start
+                the diesel engine to recharge the batteries.
+            </para>
+            <para>The
+                <emph type="bold">HEV_Run_Engine_Min_Bat_Volt_Time</emph>
+                parameter sets the amount of time that the voltage is below the minimum
+                (HEV_Run_Engine_Min_Battery_Voltage parameter) before the ESC will request the HCM to start the diesel
+                engine to recharge the 12V batteries.
+            </para>
+            <table id="t08323166" tblwidth="pg-wide">
+                <tgroup cols="7">
+                    <colspec colname="col1" colwidth="1.52*"/>
+                    <colspec colname="col2" colwidth="0.68*"/>
+                    <colspec colname="col4" colwidth="1.68*"/>
+                    <colspec colname="COLSPEC1" colwidth="0.91*"/>
+                    <colspec colname="col5" align="center" colwidth="0.75*"/>
+                    <colspec colname="col6" align="center" colwidth="0.74*"/>
+                    <colspec colname="col7" align="center" colwidth="0.70*"/>
+                    <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                    <thead>
+                        <row>
+                            <entry colspan="7" spanname="SPAN1">
+                                <para>Off - Indicates a 0 is set in for this parameter</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="7" spanname="SPAN1" align="center">
+                                <para>On - Indicates a 1 is set for the parameter</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Parameter</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ID</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Description</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Default</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Min</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Max</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Step</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>HEV_Run_ Engine_Max_ Air_Pressure</para>
+                            </entry>
+                            <entry>
+                                <para>2520</para>
+                            </entry>
+                            <entry>
+                                <para>Pressure above which the Hybrid Control Module (HCM) will be requested to quit
+                                    running the diesel engine to recharge the air supply
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>120 psi</para>
+                            </entry>
+                            <entry align="center">
+                                <para>90</para>
+                            </entry>
+                            <entry align="center">
+                                <para>150</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Run_ Engine_Max_ Air_Press_Time</para>
+                            </entry>
+                            <entry>
+                                <para>2517</para>
+                            </entry>
+                            <entry>
+                                <para>Amount of time that the diesel engine will run after the air pressure supply
+                                    reaches the upper air pressure limit set for ePTO (set by
+                                    <emph type="bold">HEV_Run_Engine_ Max_Air_Pressure</emph>)
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>10s</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>600</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Run_ Engine_Max_ Battery_Voltage</para>
+                            </entry>
+                            <entry>
+                                <para>2513</para>
+                            </entry>
+                            <entry>
+                                <para>Battery voltage limit that must be met for the diesel engine to stop running after
+                                    a set amount of time
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>13.2V</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>20</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0.1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Run_ Engine_Max_ Bat_Volt_Time</para>
+                            </entry>
+                            <entry>
+                                <para>2516</para>
+                            </entry>
+                            <entry>
+                                <para>Amount of time to recharge the batteries before the ESC will request the diesel
+                                    engine to stop running
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>300s</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>600</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Run_ Engine_Min_Air_ Pressure</para>
+                            </entry>
+                            <entry>
+                                <para>2521</para>
+                            </entry>
+                            <entry>
+                                <para>Minimum desired ePTO operating air pressure. If in ePTO mode and the system air
+                                    pressure falls below this value for a set amount of time, the HCM will be requested
+                                    to start the diesel engine to recharge the air supply
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>100 psi</para>
+                            </entry>
+                            <entry align="center">
+                                <para>90</para>
+                            </entry>
+                            <entry align="center">
+                                <para>150</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Run_ Engine_Min_Air_ Press_Time</para>
+                            </entry>
+                            <entry>
+                                <para>2519</para>
+                            </entry>
+                            <entry>
+                                <para>Amount of time that air pressure is below the minimum before the ESC will request
+                                    the Hybrid Control Module (HCM) to start the diesel engine to recharge the air
+                                    supply
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>10s</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>600</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Run_ Engine_Min_ Battery_Voltage</para>
+                            </entry>
+                            <entry>
+                                <para>2513</para>
+                            </entry>
+                            <entry>
+                                <para>Minimum battery voltage level during ePTO with diesel engine off. If in ePTO mode
+                                    and the battery voltage falls below this value for a set amount of time, the HCM
+                                    will be requested to start the diesel engine to recharge the batteries
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>12.1V</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>20</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0.1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_Run_ Engine_Min_ Bat_Volt_Time</para>
+                            </entry>
+                            <entry>
+                                <para>2515</para>
+                            </entry>
+                            <entry>
+                                <para>Amount of time that the voltage is below the minimum (
+                                    <emph type="bold">HEV_Run_Engine_ Min_Battery_Voltage</emph>
+                                    parameter) before the ESC will request the HCM to start the diesel engine to
+                                    recharge the 12V batteries
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>60s</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>600</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ePTO</title>
+            <para>* These parameters set various input/output conditions for operating ePTO.</para>
+            <para>The
+                <emph type="bold">HEV_ePTO_Body_Equip_Pwr_Fuse</emph>
+                parameter sets the fuse value for the HEV ePTO Body Equipment Power output (on the RPM).
+            </para>
+            <para>The
+                <emph type="bold">HEV_ePTO_Disengagement_Cmd_RPM_State</emph>
+                parameter enables the PTO disengagement/disable signal by selecting the input to the RPM as either
+                active high (12V) or active low (ground). When the input goes active, it will immediately disengage the
+                PTO by deactivating the air solenoid. Disabling it (0) allows this input to be used in other logic code
+                without affecting the ePTO logic.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>0 = disabled</para>
+                </item>
+                <item>
+                    <para>1 = input active when grounded</para>
+                </item>
+                <item>
+                    <para>3 = input active when at 12V</para>
+                </item>
+            </randlist>
+            <para>The
+                <emph type="bold">HEV_ePTO_Engaged_Param</emph>
+                parameter indicates the active state of the Hybrid Electric Vehicle (HEV) ePTO clutch engaged feedback
+                signal into the RPM.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>0 = disabled</para>
+                </item>
+                <item>
+                    <para>1 = engaged when pulled low</para>
+                </item>
+                <item>
+                    <para>3 = engaged when pulled high</para>
+                </item>
+            </randlist>
+            <para>The
+                <emph type="bold">HEV_ePTO_Interlock_Enabled</emph>
+                parameter allows the Body Equipment Power output to be interlocked to the ePTO request from the HCM.
+                When this parameter is enabled, power at this RPM output will automatically be turned on when ePTO mode
+                is requested. With this parameter turned off, this power will be on automatically with key on and
+                interlocks met (park brake set, transmission in neutral, etc.).
+            </para>
+            <table id="t08323167" tblwidth="pg-wide">
+                <tgroup cols="7">
+                    <colspec colname="col1" colwidth="1.52*"/>
+                    <colspec colname="col2" colwidth="0.68*"/>
+                    <colspec colname="col4" colwidth="1.68*"/>
+                    <colspec colname="COLSPEC1" colwidth="0.91*"/>
+                    <colspec colname="col5" align="center" colwidth="0.75*"/>
+                    <colspec colname="col6" align="center" colwidth="0.74*"/>
+                    <colspec colname="col7" align="center" colwidth="0.70*"/>
+                    <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                    <thead>
+                        <row>
+                            <entry colspan="7" spanname="SPAN1">
+                                <para>Off - Indicates a 0 is set in for this parameter</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="7" spanname="SPAN1" align="center">
+                                <para>On - Indicates a 1 is set for the parameter</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Parameter</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ID</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Description</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Default</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Min</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Max</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Step</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>HEV_ePTO_ Body_Equip_Pwr_ Fuse</para>
+                            </entry>
+                            <entry>
+                                <para>2522</para>
+                            </entry>
+                            <entry>
+                                <para>Sets the fuse value for the HEV ePTO Body Equipment Power output (on the RPM)
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>20A</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>20</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0.1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_ePTO_ Disengagement_ Cmd_ RPM_State</para>
+                            </entry>
+                            <entry>
+                                <para>2533</para>
+                            </entry>
+                            <entry>
+                                <para>Enables the PTO disengagement/ disable signal by selecting the input to the RPM as
+                                    either active high (12V) or active low (ground)
+                                </para>
+                                <para>0 = Disabled</para>
+                                <para>1 = Enabled active low</para>
+                                <para>3 = Enabled active high</para>
+                            </entry>
+                            <entry align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>List</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_ePTO_ Engaged_Param</para>
+                            </entry>
+                            <entry>
+                                <para>2523</para>
+                            </entry>
+                            <entry>
+                                <para>Indicates the active state of the Hybrid Electric Vehicle (HEV) ePTO clutch
+                                    engaged feedback signal into the RPM
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>0</para>
+                            </entry>
+                            <entry align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>List</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>HEV_ePTO_ Interlock_ Enabled</para>
+                            </entry>
+                            <entry>
+                                <para>2594</para>
+                            </entry>
+                            <entry>
+                                <para>Allows the Body Equipment Power output to be interlocked to the ePTO request from
+                                    the HCM. When this parameter is enabled, power at this RPM output will automatically
+                                    be turned on when ePTO mode is requested.
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>On</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#160;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#160;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#160;</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>HEV SIGNALS AVAILABLE TO ADVANCED LOGIC:</title>
+            <para>The following signals are available for use in Advanced Logic in Diamond Logic&#174; Builder. Some of
+                the signals are used in conjunction with some of the parameters defined above.
+            </para>
+            <para>
+                <emph type="bold">ePTO DEMAND CIRCUITS</emph>
+            </para>
+            <para>The HEV_Demand_Circuit_1 signal is the Hybrid Electric Vehicle Hydraulic Demand Input Circuit 1. It is
+                an input signal connected to RPM1 Input 1. The input must be enabled by setting the
+                HEV_Demand_Cir_1_Enabled parameter. Refer to parameter descriptions above for the proper settings.
+            </para>
+            <para>The HEV_Demand_Circuit_2 signal is the Hybrid Electric Vehicle Hydraulic Demand Input Circuit 2. It is
+                an input signal connected to RPM1 Input 2. The input must be enabled by setting the
+                HEV_Demand_Cir_2_Enabled parameter. Refer to parameter descriptions above for the proper settings.
+            </para>
+            <para>The HEV_Demand_Circuit_3 signal is the Hybrid Electric Vehicle Hydraulic Demand Input Circuit 3. It is
+                an input signal connected to RPM1 Input 3. The input must be enabled by setting the
+                HEV_Demand_Cir_3_Enabled parameter. Refer to parameter descriptions above for the proper settings.
+            </para>
+            <para>The HEV_Demand_Circuit_4 signal is the Hybrid Electric Vehicle Hydraulic Demand Input Circuit 4. It is
+                an input signal connected to RPM1 Input 4. The input must be enabled by setting the
+                HEV_Demand_Cir_4_Enabled parameter. Refer to parameter descriptions above for the proper settings.
+            </para>
+            <para>
+                <emph type="bold">HOOD OPEN</emph>
+            </para>
+            <para>The HEV_Hood_Open_Switch signal is an input reflecting the status of the Hood Open Switch (ON = open,
+                OFF = closed).
+            </para>
+            <para>
+                <emph type="bold">LAMP STATUS</emph>
+            </para>
+            <para>The HEV_Amber_Warning_Lamp signal is an input from the Hybrid Control Module (HCM) to indicate a
+                non-critical fault in the hybrid system.
+            </para>
+            <para>The HEV_Red_Warning_Lamp signal is an input signal from the Hybrid Control Module (HCM) to indicate a
+                critical fault in the hybrid system.
+            </para>
+            <para>
+                <emph type="bold">INTERLOCK CONDITIONS</emph>
+            </para>
+            <para>The HEV_Prohibit_Driving
+                <supscript>2</supscript>
+                signal is a read only data link output from the ESC to the HCM which then passes it to the transmission
+                control module (TCM) on public data link from the Hybrid Control Module (HCM) to prohibit the vehicle
+                from being driven.
+            </para>
+            <para>The HEV_Prohibit_Driving_Req
+                <supscript>2</supscript>
+                is a written to data link semaphore1 output from the ESC to the HCM which then passes it to the
+                transmission control module (TCM) on public data link from the Hybrid Control Module (HCM) to prohibit
+                the vehicle from being driven.
+            </para>
+            <para>The HEV_OK_To_Start_Engine signal is a data link output from the ESC to the HCM to allow the diesel
+                engine to be started.
+            </para>
+            <para>
+                <emph type="bold">DIESEL ENGINE/HYBRID ELECTRIC MOTOR</emph>
+            </para>
+            <para>The HEV_Run_Engine signal is a data link output from the ESC to the HCM.</para>
+            <para>The HEV_Run_Engine_Req
+                <supscript>2</supscript>
+                signal is a written to data link semaphore
+                <supscript>1</supscript>output from the ESC to the HCM requesting the diesel engine to run.
+            </para>
+            <para>The HEV_Run_Traction_Motor signal is a data link output from the ESC to the HCM requesting the hybrid
+                electric motor to run.
+            </para>
+            <para>The HEV_Run_Traction_Motor_Req signal is a written to data link semaphore
+                <supscript>1</supscript>
+                output from the ESC to the HCM requesting the hybrid electric motor to run.
+            </para>
+            <para>
+                <emph type="bold">ePTO</emph>
+            </para>
+            <para>The HEV_Remote_PTO_Disable signal is a body builder provided hardware input
+                <supscript>3</supscript>
+                signal connected to RPM1 input 5, disabling the ePTO air solenoid (ON = disable ePTO, OFF = allow normal
+                ePTO operation).
+            </para>
+            <para>The Hybrid_Remote_PTO_Disable signal is a written to data link semaphore
+                <supscript>1</supscript>output signal disabling the ePTO air solenoid (ON = disable ePTO, OFF = allow
+                normal ePTO operation).
+            </para>
+            <para>The HEV_ePTO_Engaged signal is a data link output from ESC to the HCM indicating that the ePTO is
+                engaged.
+            </para>
+            <para>The HEV_ePTO_Requested signal is a data link input signal HCM to the ESC indicating that the in cab,
+                shift console mounted ePTO button has been depressed and all interlocks are met.
+            </para>
+            <para>
+                <emph type="bold">Notes:</emph>
+            </para>
+            <para>
+                <supscript>1</supscript>
+                <emph type="bold">Semaphores are messages sent to another module to request that the other module take
+                    action.
+                </emph>
+            </para>
+            <para>
+                <supscript>2</supscript>
+                <emph type="bold">These signals may become unavailable in a future release of the software.</emph>
+            </para>
+            <para>
+                <supscript>3</supscript>
+                <emph type="bold">Please use the Diamond Logic&#174; Builder software to determine pin locations for RPM
+                    inputs (refer to the CONNECTOR screen view).
+                </emph>
+            </para>
+            <para>
+                <emph type="bold">WIRING INFORMATION</emph>
+            </para>
+            <para>> Please use the Diamond Logic&#174; Builder software to determine pin locations for RPM inputs (refer
+                to the CONNECTOR screen view) and to set programmable parameters (refer to the FEATURE screen view).
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>All wiring to RPM inputs and outputs is customer supplied.</para>
+                </item>
+                <item>
+                    <para>One wire may be connected to an RPM output (RPM #1, brown connector terminal A labeled
+                        PTO_Output in the DLB connector view) and use as a 12-volt, 20 ampere source power for body
+                        builder installed equipment. (Note: this RPM output can be biased to either the accessory key
+                        position or interlocked to the activation of the ePTO mode of operation [default state] via
+                        feature 595BAM parameter 2494).
+                    </para>
+                </item>
+                <item>
+                    <para>A second wire must be connected from the Body Builder-installed PTO feedback switch (GND
+                        active) to the pin labeled PTO_Feedback_Switch in the black 23-pin RPM input connector. This
+                        feedback switch is used to determine whether or not the PTO is engaged by determining if the
+                        switch is in the active state. If the switch is in its active state, then an indicator light in
+                        the gauge cluster shall be activated. When the switch is not in the active state, the indicator
+                        light will not be on.
+                    </para>
+                </item>
+                <item>
+                    <para>The switch provided is labeled PTO.</para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">RPM CONNECTOR INFORMATION</emph>
+            </para>
+            <para>** HPV Wire Terminal Kits are REQUIRED to allow Body Builders to create wire harnesses for the RPM
+                connectors.
+            </para>
+            <para>HPV terminal kits are pre-made kits that include six power output terminals and seals for the brown
+                8-way connector and six terminals for the black 23-way connector.
+            </para>
+            <table id="t08323168" tblwidth="pg-wide">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.45*"/>
+                    <colspec colname="col3" colwidth="1.82*"/>
+                    <thead>
+                        <row>
+                            <entry>
+                                <para>HPV Terminal Kits</para>
+                            </entry>
+                            <entry>
+                                <para>Part Number</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>RPM Terminal Kit 12 Gauge</para>
+                            </entry>
+                            <entry>
+                                <para>2585651C91</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>RPM Terminal Kit 14 Gauge</para>
+                            </entry>
+                            <entry>
+                                <para>2585423C91</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <specpara>
+                <note>
+                    <para>The following connectors are optional because they are already provided with the RPMs.</para>
+                </note>
+            </specpara>
+            <para>This information is given so that the Body Builder can purchase connectors in the event that the
+                original connectors are damaged or lost, or so that the Body Builder can pre-fabricate a wire harness.
+            </para>
+            <table id="t08323169" tblwidth="pg-wide">
+                <title>8-Way RPM Output Connector (Brown) and 23-Way RPM Input Connector (Black)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.47*"/>
+                    <colspec colname="col3" colwidth="1.85*"/>
+                    <colspec colname="COLSPEC0" colwidth="1.77*"/>
+                    <thead>
+                        <row>
+                            <entry>
+                                <para>Connector Part No.</para>
+                            </entry>
+                            <entry>
+                                <para>3548934C1</para>
+                            </entry>
+                            <entry>
+                                <para>2585981C91</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>Description</para>
+                            </entry>
+                            <entry>
+                                <para>Connector, Body, Brown 8-Way RPM Output</para>
+                            </entry>
+                            <entry>
+                                <para>Connector, Body, Black 23-Way RPM Input Kit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Terminal Part</para>
+                            </entry>
+                            <entry>
+                                <para>3534163C1 - 12 Gauge</para>
+                                <para>3535931C1 - 14 Gauge</para>
+                                <para>3535930C1 - 16 and 18 Gauge</para>
+                            </entry>
+                            <entry>
+                                <para>1698937C1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Cable Seal Part</para>
+                            </entry>
+                            <entry>
+                                <para>3548945C1 - 12 and 14 Gauge</para>
+                                <para>3535937C1 - 16 and 18 Gauge</para>
+                            </entry>
+                            <entry>
+                                <para>N/A</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Connector Lock Part</para>
+                            </entry>
+                            <entry>
+                                <para>3548943C1</para>
+                            </entry>
+                            <entry>
+                                <para>N/A</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>CPA Lock</para>
+                            </entry>
+                            <entry>
+                                <para>3573833C1</para>
+                            </entry>
+                            <entry>
+                                <para>N/A</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Cavity Plug</para>
+                            </entry>
+                            <entry>
+                                <para>3535938C1</para>
+                            </entry>
+                            <entry>
+                                <para>Built into the connector</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f0832398" figsize="pg-wide">
+                <graphic filename="../figg08/g0832398.webp" type="webp" scalefit="1" scalefitwidth="544px"
+                         scalefitheight="592px"/>
+                <caption>Overview of Hybrid with ePTO Capability</caption>
+            </figure>
+            <figure id="f0832399" figsize="pg-wide">
+                <graphic filename="../figg08/g0832399.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="432px"/>
+                <caption>RPM Mounting Location on a DuraStar Model Truck</caption>
+            </figure>
+            <para>
+                <emph type="bold">Body Builder Integration Points:</emph>
+                This is where the connections are made to integrate the hybrid ePTO application with the chassis. The
+                following two figures illustrate the necessary connections.
+            </para>
+            <figure id="f08323100" figsize="pg-wide">
+                <graphic filename="../figg08/g08323100.webp" type="webp" scalefit="1" scalefitwidth="532px"
+                         scalefitheight="592px"/>
+                <caption>RPM Connections for ePTO Hybrid Application</caption>
+            </figure>
+            <figure id="f08323101" figsize="pg-wide">
+                <graphic filename="../figg08/g08323101.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="312px"/>
+                <caption>Air Solenoid Connections for ePTO Hybrid Application</caption>
+            </figure>
+            <para>Mounting positions for air solenoids are different based upon vehicle air accessory content. Locate
+                the air solenoid labeled "Pwr Take Off" for controlling the PTO mechanism.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>NORMAL SYSTEM OPERATION TEST</title>
+            <randlist type="bullet">
+                <item>
+                    <para>Start the diesel engine with transmission in neutral and the park brake set. Make sure the air
+                        pressure is greater than 110 psi and battery voltage is greater than 13.3 volts.
+                    </para>
+                </item>
+                <item>
+                    <para>Depress the ePTO button on the shifter.</para>
+                </item>
+                <item>
+                    <para>Verify that PTO lamp in the gauge cluster is turned on when the ePTO is successfully
+                        engaged.
+                    </para>
+                </item>
+                <item>
+                    <para>Verify that the diesel engine shuts off.</para>
+                </item>
+                <item>
+                    <para>Activate one of the hybrid demand circuit inputs. Verify that the hybric electric motor
+                        activates.
+                    </para>
+                </item>
+                <item>
+                    <para>De-activate the hybrid demand circuit input. Verify that the hybrid electric motor shuts off
+                        after the programmed timeout period has elapsed.
+                    </para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>GENERAL SYSTEM TESTS</title>
+            <randlist type="bullet">
+                <item>
+                    <para>To determine if the HOOD OPEN warning is working, open the hood and check that the HOOD OPEN
+                        light is on and that the diesel engine cannot be started. (This functionality/feature also
+                        includes the park brake and the in-cab key switch in ignition run position. The feature is
+                        designed to prevent the hybrid electric motor from cranking or starting the engine. If the hood
+                        is open and/or the park brake is not set, the engine can still be started from the in-cab-key
+                        switch.)
+                    </para>
+                </item>
+                <item>
+                    <para>Verify that the pin labeled HEV_ePTO_Body_Equip_Pwr_Cmd of the brown 8-way Remote Power Module
+                        output connector has the battery voltage levels present. (If parameter 2494 is enabled [default]
+                        this output will source 12 volts at 20 amperes once the unit is in the ePTO mode of operation.
+                        Otherwise it will source 12 volts at 20 amperes when the in-cab key switch is in the ignition /
+                        run position and the vehicle is stationary).
+                    </para>
+                </item>
+                <item>
+                    <para>Verify that the RPM input labeled HEV_ePTO_Engaged_Feedback, HEV_Remote_PTO_Disable,
+                        HEV_Demand_Circuit_1, HEV_Demand_Circuit_2, HEV_Demand_Circuit_3 and HEV_Demand_Circuit_4 (pin
+                        positions specified by the Diamond Logic&#174; Builder software) is receiving the correct
+                        voltage (12V or GND) as specified by the programmable parameter in the Diamond Logic&#174;
+                        Builder software.
+                    </para>
+                </item>
+                <item>
+                    <para>Verify that the STOP HYBRID and CHECK HYBRID lamps work by cycling the in-cab key switch to
+                        the ignition / run position. This action will initiate a lamp test, illuminating these lamps for
+                        a period of 8 seconds following the key switch initialization.
+                    </para>
+                </item>
+                <item>
+                    <para>If the Service Disconnect switch is pushed in, the Check Hybrid light should be solid ON to
+                        indicate the hybrid system is offline.
+                    </para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>LOW AIR PRESSURE TEST</title>
+            <randlist type="bullet">
+                <item>
+                    <para>Start the diesel engine with transmission in neutral and the park brake set. Make sure the air
+                        pressure is greater than 110 psi and battery voltage is greater than 13.3 volts.
+                    </para>
+                </item>
+                <item>
+                    <para>Depress the ePTO button on the shifter.</para>
+                </item>
+                <item>
+                    <para>Verify that the diesel engine shuts off.</para>
+                </item>
+                <item>
+                    <para>Depress the brake pedal a number of times to allow air pressure to drop below the minimum air
+                        pressure (default = 100 psi).
+                    </para>
+                </item>
+                <item>
+                    <para>Wait for the minimum air pressure time to elapse (default = 10 sec).</para>
+                </item>
+                <item>
+                    <para>Verify that the diesel engine starts to recharge the air supply.</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ePTO DISABLE TEST</title>
+            <randlist type="bullet">
+                <item>
+                    <para>Start the diesel engine with transmission in neutral and the park brake set. Make sure the air
+                        pressure is greater than 110 psi and battery voltage is greater than 13.3 volts.
+                    </para>
+                </item>
+                <item>
+                    <para>Depress the ePTO button on the shifter.</para>
+                </item>
+                <item>
+                    <para>Verify that the diesel engine shuts off.</para>
+                </item>
+                <item>
+                    <para>Disengage the ePTO through the RPM input "HEV_Remote_PTO_Disable".</para>
+                </item>
+                <item>
+                    <para>Verifythat the ePTO is disabled.</para>
+                </item>
+                <item>
+                    <para>Once the HEV_Remote_PTO_Disable switch has been activated, the PTO mechanism cannot be
+                        re-engaged until the HEV_Remote_PTO_Disable switch has been returned to its inactive state and
+                        the ePTO request switch located in the Eaton shift console is recycled.
+                    </para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>HOW TO ADD THIS FEATURE:</title>
+            <para>This feature cannot be added aftermarket at the present time.</para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08323_122.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08323_124.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08323.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

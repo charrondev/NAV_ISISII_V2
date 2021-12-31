@@ -1,0 +1,355 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - CAN
+        (Controller Area Network) Communications
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.7" svcproctype="diagnose" graphiccount="2">
+        <title>CAN (Controller Area Network) Communications</title>
+        <svcprocinfo id="s305010706.7.1">
+            <figure id="f305010734" figsize="pg-wide">
+                <graphic filename="../figj31/j31074.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for CAN</caption>
+            </figure>
+            <para id="s305010706.7.1.1"></para>
+            <table id="t305010756" type="simple" frame="topbot">
+                <title>The function diagram for the CAN includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Drivetrain Datalink (CAN1)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Terminating resistors - 120-ohm</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Instrument Panel (Lamps)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Other nodes</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Function</title>The Drivetrain Datalink is a Society of Automotive Engineers (SAE) term referring
+                to datalinks common to trucks. The Drivetrain Datalink is the communication link for the Electronic
+                Control Module (ECM), cab and chassis, instrument panel, and is also used for power train communication
+                and control.
+            </para>
+            <para>The ECM transmits component information across the Drivetrain Datalink to the instrument panel.</para>
+            <table id="t305010757" type="simple" frame="topbot">
+                <title>The following instrument panel components are in constant communication with the Drivetrain
+                    Datalink:
+                </title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Tachometer</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Speedometer</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Odometer</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Coolant temperature gauge</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Red Lamp (Oil/Water Lamp (OWL) for CF)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Amber Lamp (Warn Engine Lamp (WEL) for CF)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Change oil lamp</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>WAIT TO START lamp</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Water In Fuel (WIF) lamp</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Anti-lock Breaking System (ABS)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Fault Detection/Management</title>There are no engine DTCs for CAN1 communications.
+            </para>
+            <specpara>
+                <note>
+                    <para>See the applicable truck Circuit Diagram Manual and Service Manual.</para>
+                </note>
+            </specpara>
+            <table id="t305010758" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech&#174; interface cable</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DMM</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.7.2">
+            <title>CAN Pin-Point Diagnostics</title>
+            <figure id="f305010735" figsize="pg-wide">
+                <graphic filename="../figj31/j31075.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>CAN communication circuit diagram</caption>
+            </figure>
+            <table id="t305010759" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="1.26in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="COLSPEC0" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Check at EST connector with key-on engine-off.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="COLSPEC0" align="center">
+                                <para>Signal</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Power</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Should be B+ power at B all times. If no power, check ground and power circuits.
+                                    See the applicable truck Circuit Diagram Manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to A</para>
+                            </entry>
+                            <entry>
+                                <para>1 to 4 V</para>
+                            </entry>
+                            <entry>
+                                <para>Digital signal</para>
+                            </entry>
+                            <entry>
+                                <para>The sum of C to A and D to A equals 4 to 5 volts.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>D to A</para>
+                            </entry>
+                            <entry>
+                                <para>1 to 4 V</para>
+                            </entry>
+                            <entry>
+                                <para>Digital signal</para>
+                            </entry>
+                            <entry>
+                                <para>The sum of C to A and D to A equals 4 to 5 volts.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010760" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Resistance Checks</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="1.26in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="COLSPEC0" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Check at EST connector with negative battery cable
+                                    disconnected.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="COLSPEC0" align="center">
+                                <para>Signal</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to A</para>
+                            </entry>
+                            <entry>
+                                <para>>1 M&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>CAN+</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 1 M&#x2126;, a short between CAN+ and ground exists. Disconnect ECM
+                                    X3 and check again. If short is no longer present, replace ECM. If short exists,
+                                    harness or other node component failure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>D to A</para>
+                            </entry>
+                            <entry>
+                                <para>>1 M&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>CAN-</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 1 M&#x2126;, a short between CAN- and ground exists. Disconnect ECM
+                                    X3 and check again. If short is no longer present, replace ECM. If short still
+                                    exists, harness or other node component failure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to D</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>60 &#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>CAN</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>The datalink has two terminating resistors in parallel of 120 &#x2126; each. If
+                                    greater than 70 &#x2126;, check for missing terminating resister or open in the CAN+
+                                    or CAN- wires. If less than 50 &#x2126;, check for extra terminating resistor. If
+                                    less than 5 &#x2126;, check for short between CAN+ and CAN-.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_132.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_134.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

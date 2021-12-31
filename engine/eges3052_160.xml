@@ -1,0 +1,766 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - SCCS
+        (Speed Control Command Switches)
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.34" svcproctype="diagnose" graphiccount="5">
+        <title>SCCS (Speed Control Command Switches)</title>
+        <svcprocinfo id="s305010706.34.1">
+            <figure id="f3050107165" figsize="pg-wide">
+                <graphic filename="../figj31/j31225.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Functional diagram for SCCS</caption>
+            </figure>
+            <para id="s305010706.31.1.1"></para>
+            <table id="t3050107330" type="simple" frame="topbot">
+                <title>The functional diagram for the SCCS includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Cruise control switches</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Cruise Control</title>The ECM will control engine speed to maintain a constant road speed with
+                cruise control. Activating the CRUISE RPM (Cruise ON OFF) switch when the vehicle is at the desired
+                speed activates the cruise control. Speed is increased or decreased by activating the RESUME (R/A) or
+                SET switches. The cruise control is deactivated by pressing or sliding the CRUISE RPM (Cruise ON OFF)
+                switch, applying the brake pedal, or by placing the transmission in neutral.
+            </para>
+            <para>
+                <title>Power Takeoff (PTO) Control</title>Engine speed can be controlled by the SCCS switches if the PTO
+                option has been programmed into the ECM and the vehicle is stationary. Variable as well as preset speeds
+                are available depending on ECM programming. The PTO function is turned on by pressing the CRUISE RPM
+                (Cruise ON OFF) switch. Activating the RESUME (R/A) or SET switches will increase or decrease engine
+                speed depending on PTO programming.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.34.2">
+            <title>SCCS Circuit Operation</title>
+            <para>Cruise control allows the ECM to control the engines power delivery to maintain a constant vehicle
+                speed. The speed set point is determined by the operator and the cruise high and low set points are
+                programmed in the ECM. The minimum engine speed that the cruise control can be engaged is programmed in
+                the ECM.
+            </para>
+            <figure id="f3050107166" figsize="col-wide">
+                <graphic filename="../figj31/j31340.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>SCCS circuit diagram (CF)</caption>
+            </figure>
+            <para>
+                <emph type="bold">SCCS circuit operation (CF)</emph>
+            </para>
+            <para>Voltage is supplied to both switches (CRUISE RPM and RESUME+/SET-) from VIGN. When CRUISE RPM (COO)
+                switch is latched B+ is present at X4-6, and the lamp at the top switch is illuminated. When CRUISE RPM
+                switch is not latched 0 volts is present at X4-6.
+            </para>
+            <para>When RESUME+ (RAS) portion of the RESUME+/SET- switch is depressed, B+ is present at X3-14. When the
+                RESUME+ portion of the RESUME+/SET- switch is not depressed 0 volts is present at X3-14.
+            </para>
+            <para>When the SET- (SCS) portion of the RESUME+/SET- switch is depressed, B+ is present at X3-21. When the
+                SET- portion of the RESUME+/SET- switch is not depressed 0 volts is present at X3-21.
+            </para>
+            <figure id="f3050107168" figsize="col-wide">
+                <graphic filename="../figJ09/J09051.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>SCCS circuit diagram (Stripped Chassis)</caption>
+            </figure>
+            <para>
+                <emph type="bold">SCCS circuit operation (Stripped Chassis)</emph>
+            </para>
+            <para>Voltage is supplied to the Cruise ON OFF switch from VIGN. When the Cruise ON OFF (COO) switch is
+                latched B+ is present at X4-6. When Cruise ON OFF switch is not latched 0 volts is present at X4-6.
+            </para>
+            <para>When R/A (RAS) switch is activated, B+ is present at X3-14 and when the R/A switch is not activated 0
+                volts is present at X3-14.
+            </para>
+            <para>When the SET (SCS) switch is depressed, B+ is present at X3-21 and when the SET switch is not
+                depressed 0 volts is present at X3-21.
+            </para>
+            <table id="t3050107331" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech&#174; interface cable</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>The SCCS circuit requires the use of vehicle circuit diagrams. See the applicable
+                                    truck Circuit Diagram Manualfor circuit numbers, connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Fault Detection/Management</title>The ECM monitors the SCCS system for proper voltages and sets
+                DTC 221. If ignition switch is turned off, the fault will be recorded as an inactive fault.
+            </para>
+            <para>
+                <title>SCCS DTCs</title>DTCs are read using the EST or by counting the flashes from the amber and red
+                lamps.
+            </para>
+            <table id="t3050107332" type="simple" frame="topbot">
+                <title>DTC 221</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>Cruise-PTO control switch circuit fault</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 221 is set by the ECM when the signal voltage is less than 0.098 volts for
+                                    more than 0.35 seconds.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 221 can be set due to a short to ground in the signal circuit or a failed SCCS
+                                    sensor.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>When DTC 221 is active the amber lamp (WEL for CF) is illuminated.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="s305010706.34.3">
+            <title>SCCS Pin-Point Diagnostics</title>
+            <table id="t3050107333" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - Breakout Box at ECM</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.35in"/>
+                    <colspec colname="col2" colwidth="1.45in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging the
+                                        connector or relay for the ECM. Failure to turn ignition switch to OFF will
+                                        cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Connect Breakout Box to X3 and X4 to ECM and harness.
+                                    Turn ignition switch to ON.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-6 to X3-7 (gnd)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Latched = B+</para>
+                                <para>Not latched = 0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Latching switch. If less than B+ when latched, check for open or short to
+                                    ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-14 to X3-7 (gnd)</para>
+                            </entry>
+                            <entry>
+                                <para>Depressed = B+</para>
+                                <para>Not depressed = 0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Momentary switch. If less than B+ when depressed, check for open or short to
+                                    ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-21 to X3-7 (gnd)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Depressed = B+</para>
+                                <para>Not depressed = 0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Momentary switch. If less than B+ when depressed, check for open or short to
+                                    ground.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <figure id="f3050107169" figsize="pg-wide">
+                <graphic filename="../figj31/j31340.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>SCCS circuit diagram (CF)</caption>
+            </figure>
+            <table id="t3050107334" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - CRUISE RPM Switch (CF)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.05in"/>
+                    <colspec colname="col2" colwidth="1.23in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to ON.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>4 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Constant voltage from VIGN. If less than B+, check for open circuits or blown
+                                    fuse.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>Latched = B+</para>
+                                <para>Not latched = 0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Latching switch. If less than B+ when latched and 4 to ground is in specification,
+                                    check for open, short to ground or failed switch.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Constant ground. If less than 0.25 volts, check for open or short to power
+                                    source.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107335" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - RESUME/SET Switch (CF)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.05in"/>
+                    <colspec colname="col2" colwidth="1.51in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to ON.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Constant voltage from VIGN. If less than B+, check for open circuits or blown
+                                    fuse.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>Depressed = B+</para>
+                                <para>Not depressed = 0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Momentary switch. If less than B+ when depressed and D to ground is in
+                                    specification, check for open, short to ground, or failed switch.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>H to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Depressed = B+</para>
+                                <para>Not depressed = 0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Momentary switch. If less than B+ when depressed and D to ground is in
+                                    specification, check for open, short to ground, or failed switch.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f3050107170" figsize="pg-wide">
+                <graphic filename="../figJ09/J09051.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>SCCS circuit diagram (Stripped Chassis)</caption>
+            </figure>
+            <table id="t3050107334.1" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - CRUISE ON OFF Switch (Stripped Chassis)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.05in"/>
+                    <colspec colname="col2" colwidth="1.23in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to ON.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Constant voltage from VIGN. If less than B+, check for open circuits or blown
+                                    fuse.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>Latched = B+</para>
+                                <para>Not latched = 0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Latching switch. If less than B+ when latched and A to ground is in specification,
+                                    check for open, short to ground or failed switch.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107335.1" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - R/A and Set Switches (Stripped Chassis)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.05in"/>
+                    <colspec colname="col2" colwidth="1.51in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to ON. Turn Cruise ON OFF switch ON.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Constant voltage from VIGN. If less than B+, check for high resistance or open
+                                    circuit, open Cruise ON OFF switch, or blown fuse.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>D to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>Depressed = B+</para>
+                                <para>Not depressed = 0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Momentary switch. If less than B+ when depressed and B to ground is in
+                                    specification, check for open, short to ground, or failed switch.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Depressed = B+</para>
+                                <para>Not depressed = 0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Momentary switch. If less than B+ when depressed and B to ground is in
+                                    specification, check for open, short to ground, or failed switch.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t3050107336" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Resistance Checks - Chassis Ground</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.94in"/>
+                    <colspec colname="col2" colwidth="1.02in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging the
+                                        connector or relay for the ECM. Failure to turn ignition switch to OFF will
+                                        cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Connect Breakout Box X3 and X4 to harness only.
+                                    CRUISE RPM (Cruise ON OFF) switch is not latched.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-6 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-14 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-21 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t3050107337" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - ECM to CRUISE RPM (Cruise ON OFF) Switch</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.77in"/>
+                    <colspec colname="col2" colwidth="1.00in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging the
+                                        connector or relay for the ECM. Failure to turn ignition switch to OFF will
+                                        cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Connect breakout box X4 to harness only.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-6 to: 3 (CF) or B (Stripped Chassis)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107338" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - ECM to RESUME/SET Switch or R/A and Set Switches</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="3.16in"/>
+                    <colspec colname="col2" colwidth="0.66in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging the
+                                        connector or relay for the ECM. Failure to turn ignition switch to OFF will
+                                        cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Connect breakout box X4 to harness only.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-14 to: H (CF) or C (Stripped Chassis)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-21 to: B (CF) or D (Stripped Chassis)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t3050107339" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - VIGN to Switches</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.77in"/>
+                    <colspec colname="col2" colwidth="0.60in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Pull fuses.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Fuse to: 4 (CF) or A (Stripped Chassis)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Fuse to D (CF)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_159.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_161.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

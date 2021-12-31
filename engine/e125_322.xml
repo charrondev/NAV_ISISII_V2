@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (1997) - SECTION 3.5: CIRCUIT FUNCTION AND DIAGNOSTICS - INJECTOR DRIVE
+        MODULE (IDM) POWER SUPPLY - ECM DIAGNOSTICS
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="proctype" graphiccount="0">
+        <title>ECM DIAGNOSTICS</title>
+        <svcprocinfo>
+            <para>The ECM uses the Output Circuit Check (OCC) to test the IDM relay control coil circuit for short
+                circuits (high or low) and opens in the circuit. Use the Prolink EST to perform the OCC test. When the
+                test is complete, the Prolink will indicate if there were faults detected and what the Flash Code number
+                is.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>FLASH CODE 243 - SID 37 FMI 11 - ECM: IDM _ENABLE OCC FAULT</title>
+            <para>If the IDM detects a fault in the IDM circuit during the OCC test, Flash Code 243 will be set. This
+                indicates that circuit 97AH is shorted (high or low) open or no power is present in circuit 97CT to
+                energize the IDM relay.
+            </para>
+            <para>When Flash Code 243 occurs, it can also cause Flash Codes 253, 523, 541 or 543 to be set. Flash codes
+                253, 523, 541, and 543 can be caused by several conditions. This section only discusses the IDM POWER
+                RELAY circuits that could cause the codes to set.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 522 - SID 233 FMI 12 - IDM: IDM INTERNAL FAILURE - FLASH CODE 523 - SID 233 FMI 4 - IDM:
+                IDM POWER VOLTAGE LOW
+            </title>
+            <para>Code 523 can be caused by:</para>
+            <seqlist style="alphauc">
+                <item>
+                    <para>Faulty IDM PWR Relay control circuit (will cause code 243 to set when performing an OCC
+                        test).
+                    </para>
+                </item>
+                <item>
+                    <para>Excessive voltage drop in circuit 97AG.</para>
+                </item>
+                <item>
+                    <para>Low voltage in 97CP to the IDM PWR Relay from #2 ECM fuse.</para>
+                </item>
+                <item>
+                    <para>A defective IDM PWR Relay.</para>
+                </item>
+            </seqlist>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_321.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_323.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

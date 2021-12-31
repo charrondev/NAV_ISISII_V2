@@ -1,0 +1,667 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>HEAT VENTILATION AIR CONDITIONING (HVAC), Orifice Tube System, Pre-March 2007 - 3200, 4100, 4200, 4300,
+        4400, 7300, 7400, 7500, 7600, 7700, 8500, 8600 - MODE ACTUATOR MOTOR CIRCUIT - FAULT DETECTION MANAGEMENT
+    </stitle>
+    <svcsection/>
+    <svcproc svcproctype="troubleshoot" graphiccount="13">
+        <title>FAULT DETECTION MANAGEMENT</title>
+        <specpara>
+            <note>
+                <para>The testing method for troubleshooting the electrical systems covered in this manual is a basic
+                    voltage test. An alternate method of checking for voltage drops within a given circuit may be a
+                    quicker method of identifying an exact problem.
+                </para>
+            </note>
+        </specpara>
+        <para>This section describes the symptoms that may result from a failure in the mode actuator motor circuits. A
+            list of the possible causes of the circuit failure is also provided.
+            <hotlnk xrefid="t1602531">Table 30</hotlnk>
+            lists and describes the Diagnostic Trouble Codes associated with the mode door motor circuits.
+            <hotlnk xrefid="t1602532">Table 31</hotlnk>
+            provides the troubleshooting procedures for isolating the cause of the failure.
+        </para>
+        <para>A fault in the mode actuator motor circuits will be apparent when either the mode door diagnostic trouble
+            code is displayed, or the correct air flow is not present at the air outlet vents selected by the mode
+            select control. The following table provides a precise indication of the amount of air flow that should be
+            present at each outlet, based on each setting of the mode select control. Selecting any mode (indicated by
+            an icon) or in-between mode (indicated by a dot) should cause the mode motor to position the two mode doors
+            to provide the air flow indicated in the
+            <hotlnk xrefid="t1602530">AIR DISTRIBUTION CHART</hotlnk>. Problems in the mode actuator motor circuit can
+            be attributed to shorted or open circuits between the control head and the motor, a fault in the control
+            head, a fault in the ESC, or a fault in the motor. Refer to the
+            <hotlnk xrefid="f1602562">MODE ACTUATOR MOTOR POWER CIRCUITS</hotlnk>
+            diagram. A mechanical problem, such as a broken mechanism or physical blockage may also keep the mode doors
+            and actuator motor from operating correctly.
+        </para>
+        <para>Anytime the mode actuator motor is provided power but does not move to its selected position, due to an
+            electrical or mechanical problem, the HVAC control head will sense the fault. The control head will
+            communicate this fault condition to the ESC, and the ESC will then set the corresponding diagnostic trouble
+            code.
+        </para>
+        <table id="t1602530" tblwidth="pg-wide" frame="all">
+            <title>Air Distribution Chart</title>
+            <tgroup cols="7">
+                <colspec colname="COLSPEC0" colwidth="0.96in"/>
+                <colspec colname="COLSPEC1" colwidth="0.95in"/>
+                <colspec colname="COLSPEC2" colwidth="0.96in"/>
+                <colspec colname="COLSPEC3" colwidth="0.96in"/>
+                <colspec colname="col1" colwidth="0.96in"/>
+                <colspec colname="col2" colwidth="0.96in"/>
+                <colspec colname="col3" colwidth="0.96in"/>
+                <spanspec namest="COLSPEC2" nameend="COLSPEC3" spanname="SPAN6"/>
+                <spanspec namest="COLSPEC0" nameend="COLSPEC1" spanname="SPAN4"/>
+                <spanspec namest="COLSPEC0" nameend="COLSPEC3" spanname="SPAN1"/>
+                <spanspec namest="col1" nameend="col3" spanname="SPAN5"/>
+                <spanspec namest="col1" nameend="col2" spanname="SPAN3"/>
+                <spanspec namest="col2" nameend="col3" spanname="SPAN2"/>
+                <thead>
+                    <row>
+                        <entry colspan="4" spanname="SPAN1" valign="bottom">
+                            <para>CONTROL KNOB POSITION</para>
+                        </entry>
+                        <entry colspan="3" spanname="SPAN5" valign="bottom">
+                            <para>AIRFLOW</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="2" spanname="SPAN4" valign="bottom">
+                            <para>Air Conditioner Systems</para>
+                        </entry>
+                        <entry colspan="2" spanname="SPAN6" valign="bottom">
+                            <para>Heater Only Systems</para>
+                        </entry>
+                        <entry colname="col1" valign="bottom" align="center">
+                            <para>Panel</para>
+                        </entry>
+                        <entry colname="col2" valign="bottom" align="center">
+                            <para>Floor</para>
+                        </entry>
+                        <entry colname="col3" valign="bottom" align="center">
+                            <para>Windshield</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>MAX A/C</para>
+                        </entry>
+                        <entry colname="COLSPEC1" align="right">
+                            <graphic filename="../figg16/g1602594.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colname="COLSPEC2">
+                            <para>PANEL</para>
+                        </entry>
+                        <entry colname="COLSPEC3" align="right">
+                            <graphic filename="../figg16/g1602596.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colname="col1" align="center">
+                            <para>100%</para>
+                        </entry>
+                        <entry colspan="2" spanname="SPAN2">
+                            <para></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>NORM A/C</para>
+                        </entry>
+                        <entry colname="COLSPEC1" align="right">
+                            <graphic filename="../figg16/g1602595.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colspan="2" spanname="SPAN6"></entry>
+                        <entry colname="col1" align="center">
+                            <para>100%</para>
+                        </entry>
+                        <entry colspan="2" spanname="SPAN2">
+                            <para></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>DOT 1</para>
+                        </entry>
+                        <entry colname="COLSPEC1">
+                            <para></para>
+                        </entry>
+                        <entry colspan="2" spanname="SPAN6"></entry>
+                        <entry colname="col1" align="center">
+                            <para>50%</para>
+                        </entry>
+                        <entry colname="col2" align="center">
+                            <para>50%</para>
+                        </entry>
+                        <entry colname="col3" align="center">
+                            <para></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>BI-LEVEL</para>
+                        </entry>
+                        <entry colname="COLSPEC1" align="right">
+                            <graphic filename="../figg16/g1602593.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colname="COLSPEC2">
+                            <para>DOT 1</para>
+                        </entry>
+                        <entry colname="COLSPEC3" align="right">
+                            <para></para>
+                        </entry>
+                        <entry colname="col1" align="center">
+                            <para>75%</para>
+                        </entry>
+                        <entry colname="col2" align="center">
+                            <para>25%</para>
+                        </entry>
+                        <entry colname="col3" align="center">
+                            <para></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>DOT 2</para>
+                        </entry>
+                        <entry colname="COLSPEC1" align="right">
+                            <para></para>
+                        </entry>
+                        <entry colname="COLSPEC2">
+                            <para>BI-LEVEL</para>
+                        </entry>
+                        <entry colname="COLSPEC3" align="right">
+                            <graphic filename="../figg16/g16025a0.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colname="col1" align="center">
+                            <para>50%</para>
+                        </entry>
+                        <entry colname="col2" align="center">
+                            <para>50%</para>
+                        </entry>
+                        <entry colname="col3" align="center">
+                            <para></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>PANEL</para>
+                        </entry>
+                        <entry colname="COLSPEC1" align="right">
+                            <graphic filename="../figg16/g1602596.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colspan="2" spanname="SPAN6"></entry>
+                        <entry colname="col1" align="center">
+                            <para>100%</para>
+                        </entry>
+                        <entry colspan="2" spanname="SPAN2">
+                            <para></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>DOT 3</para>
+                        </entry>
+                        <entry colname="COLSPEC1" align="right">
+                            <para></para>
+                        </entry>
+                        <entry colname="COLSPEC2">
+                            <para>DOT 2</para>
+                        </entry>
+                        <entry colname="COLSPEC3" align="right">
+                            <para></para>
+                        </entry>
+                        <entry colname="col1" align="center">
+                            <para>25%</para>
+                        </entry>
+                        <entry colname="col2" align="center">
+                            <para>75%</para>
+                        </entry>
+                        <entry colname="col3" align="center">
+                            <para></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>FLOOR</para>
+                        </entry>
+                        <entry colname="COLSPEC1" align="right">
+                            <graphic filename="../figg16/g1602599.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colname="COLSPEC2">
+                            <para>FLOOR</para>
+                        </entry>
+                        <entry colname="COLSPEC3" align="right">
+                            <graphic filename="../figg16/g1602599.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colname="col1" align="center">
+                            <para></para>
+                        </entry>
+                        <entry colname="col2" align="center">
+                            <para>100%</para>
+                        </entry>
+                        <entry colname="col3" align="center">
+                            <para></para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>DOT 4</para>
+                        </entry>
+                        <entry colname="COLSPEC1" align="right">
+                            <para></para>
+                        </entry>
+                        <entry colname="COLSPEC2">
+                            <para>DOT 3</para>
+                        </entry>
+                        <entry colname="COLSPEC3" align="right">
+                            <para></para>
+                        </entry>
+                        <entry colname="col1" align="center">
+                            <para></para>
+                        </entry>
+                        <entry colname="col2" align="center">
+                            <para>75%</para>
+                        </entry>
+                        <entry colname="col3" align="center">
+                            <para>25%</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>MIX</para>
+                        </entry>
+                        <entry colname="COLSPEC1" align="right">
+                            <graphic filename="../figg16/g1602598.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colname="COLSPEC2">
+                            <para>BLEND</para>
+                        </entry>
+                        <entry colname="COLSPEC3" align="right">
+                            <graphic filename="../figg16/g1602598.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colname="col1" align="center">
+                            <para></para>
+                        </entry>
+                        <entry colname="col2" align="center">
+                            <para>50%</para>
+                        </entry>
+                        <entry colname="col3" align="center">
+                            <para>50%</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>DOT 5</para>
+                        </entry>
+                        <entry colname="COLSPEC1" align="right">
+                            <para></para>
+                        </entry>
+                        <entry colname="COLSPEC2">
+                            <para>DOT 4</para>
+                        </entry>
+                        <entry colname="COLSPEC3" align="right">
+                            <para></para>
+                        </entry>
+                        <entry colname="col1" align="center">
+                            <para></para>
+                        </entry>
+                        <entry colname="col2" align="center">
+                            <para>25%</para>
+                        </entry>
+                        <entry colname="col3" align="center">
+                            <para>75%</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="COLSPEC0">
+                            <para>DEFROST</para>
+                        </entry>
+                        <entry colname="COLSPEC1" align="right">
+                            <graphic filename="../figg16/g1602597.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colname="COLSPEC2">
+                            <para>DEFROST</para>
+                        </entry>
+                        <entry colname="COLSPEC3" align="right">
+                            <graphic filename="../figg16/g1602597.webp" type="webp" scalefit="1" scalefitheight="30px"/>
+                        </entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para></para>
+                        </entry>
+                        <entry colname="col3" align="center">
+                            <para>100%</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <table id="t1602531" tblwidth="pg-wide" numbered="no" view="reveal">
+            <title>HVAC Mode Actuator Motor Circuit Diagnostic Trouble Codes</title>
+            <tgroup cols="6">
+                <colspec colname="1" colwidth="1.86in"/>
+                <colspec colname="2" colwidth="0.92in"/>
+                <colspec colname="3" colwidth="0.98in"/>
+                <colspec colname="4" colwidth="0.89in"/>
+                <colspec colname="5" colwidth="0.87in"/>
+                <colspec colname="6" colwidth="1.15in"/>
+                <spanspec namest="1" nameend="2" spanname="SPAN1"/>
+                <spanspec namest="3" nameend="6" spanname="SPAN2"/>
+                <spanspec namest="4" nameend="6" spanname="S4T6"/>
+                <spanspec namest="1" nameend="6" spanname="S1T6"/>
+                <tbody>
+                    <row>
+                        <entry colspan="6" spanname="S1T6" align="center">
+                            <para>
+                                <emph type="bold">Diagnostic Codes</emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="2" spanname="SPAN1" valign="bottom">
+                            <para>613 14 1 3</para>
+                        </entry>
+                        <entry colspan="4" spanname="SPAN2" valign="bottom">
+                            <para>HVAC Control Head Mode Control Fault</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="6" spanname="S1T6">
+                            <para>This diagnostic code is logged when the mode actuator motor does not respond to
+                                voltage from the HVAC control head. The code could be the result of any of the following
+                                conditions:
+                            </para>
+                            <randlist type="bullet">
+                                <item>
+                                    <para>a short to ground in the circuits between the HVAC control head and the mode
+                                        actuator motor.
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>an open circuit in the circuits between the HVAC control head and the mode
+                                        actuator motor.
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>a defective mode actuator motor</para>
+                                </item>
+                                <item>
+                                    <para>a defective HVAC control head</para>
+                                </item>
+                                <item>
+                                    <para>a defective ESC</para>
+                                </item>
+                                <item>
+                                    <para>a mechanical problem: blocked, binding, or broken mode door or gear drive
+                                        mechanism. Refer to
+                                        <hotlnk document="s16025_HL1602549.xml" xrefid="t1602510">MODE SELECTION
+                                            TROUBLESHOOTING
+                                        </hotlnk>
+                                        table
+                                        <xref refid="t1602510"/>.
+                                    </para>
+                                </item>
+                            </randlist>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <figure id="f1602562" figsize="pg-wide">
+            <graphic filename="../figg16/g1602562.webp" type="webp" scalefit="1" scalefitwidth="496px"/>
+            <caption>Figure 64. Mode Actuator Motor Power Circuits-Always Refer to Circuit Diagram Book for Latest
+                Circuit Information
+            </caption>
+            <calloutgroup>
+                <callout1>(1200) HVAC CONTROL CONNECTOR
+                    <callout2>LOCATED BEHIND CONTROL HEAD</callout2>
+                </callout1>
+                <callout1>(1210) HVAC WIRE HARNESS CONNECTOR
+                    <callout2>LOCATED ON HEATER HOUSING ASSEMBLY</callout2>
+                </callout1>
+                <callout1>MODE ACTUATOR MOTOR CONNECTOR
+                    <callout2>LOCATED AT MODE ACTUATOR MOTOR</callout2>
+                </callout1>
+                <callout1>(1600) ELECTRICAL SYSTEM CONTROLLER CONNECTOR
+                    <callout2>LOCATED ON CAB SIDE OF ESC</callout2>
+                </callout1>
+            </calloutgroup>
+        </figure>
+        <table id="t1602532" tblwidth="pg-wide" numbered="no" view="reveal">
+            <title>HVAC Mode Actuator Motor Circuit Troubleshooting Chart</title>
+            <tgroup cols="6">
+                <colspec colname="1" colwidth="1.86in"/>
+                <colspec colname="2" colwidth="0.92in"/>
+                <colspec colname="3" colwidth="0.98in"/>
+                <colspec colname="4" colwidth="0.89in"/>
+                <colspec colname="5" colwidth="0.87in"/>
+                <colspec colname="6" colwidth="1.15in"/>
+                <spanspec namest="3" nameend="6" spanname="SPAN2"/>
+                <spanspec namest="4" nameend="6" spanname="S4T6"/>
+                <spanspec namest="1" nameend="6" spanname="S1T6"/>
+                <spanspec namest="2" nameend="3" spanname="S2T3"/>
+                <tbody>
+                    <row>
+                        <entry colspan="6" spanname="S1T6">
+                            <para>
+                                <emph type="BOLD">HVAC Mode Actuator Motor Circuit Troubleshooting</emph>
+                            </para>
+                            <para>Turn off ignition and disconnect connector from mode actuator motor. Motor remains
+                                mounted to heater housing.
+                            </para>
+                            <note>
+                                <para>Always check connectors for damage and pushed-out terminals.</para>
+                            </note>
+                            <note>
+                                <para>Whenever the door actuator motor is energized while disconnected (such as during
+                                    testing), it must be recalibrated after it is reconnected. After reassembling the
+                                    door and motor, and reconnecting the motor electrical connector, disconnect and
+                                    reconnect the HVAC control head connector (1200). This will initiate the door
+                                    position calibration procedure.
+                                </para>
+                            </note>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>Test Points</para>
+                        </entry>
+                        <entry colspan="2" spanname="S2T3">
+                            <para>Spec.</para>
+                        </entry>
+                        <entry colspan="3" spanname="S4T6">
+                            <para>Comments</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>While observing the drive collar of the mode actuator motor use a 9 Volt battery and
+                                jumpers to apply 9 Volts dc to terminals A and B of the mode actuator motor. After
+                                noting the results, swap the jumpers to reverse the polarity of the voltage at terminals
+                                A and B.
+                            </para>
+                        </entry>
+                        <entry colspan="2" spanname="S2T3">
+                            <para>The drive collar of the mode actuator motor should rotate to one end of its travel
+                                when voltage is first applied, and to the opposite end of its travel when the voltage
+                                polarity is reversed.
+                            </para>
+                            <note>
+                                <para>If the actuator motor is already at the end of its travel when voltage is first
+                                    applied, it may be necessary to switch polarities twice to see rotation in both
+                                    directions.
+                                </para>
+                            </note>
+                            <note>
+                                <para>During this step, observe the Mode door gear drive to verify that it is intact and
+                                    operating correctly.
+                                </para>
+                            </note>
+                        </entry>
+                        <entry colspan="3" spanname="S4T6">
+                            <para>If motor operates correctly, proceed to the next step.</para>
+                            <para>If motor does not rotate through its entire range:</para>
+                            <seqlist>
+                                <item>
+                                    <para>remove jumpers.</para>
+                                </item>
+                                <item>
+                                    <para>remove motor from heater housing.</para>
+                                </item>
+                                <item>
+                                    <para>reconnect 9 Volts dc to the motor and verify that the motor drive collar will
+                                        rotate in both directions.
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>If motor still does not rotate, replace motor.</para>
+                                </item>
+                                <item>
+                                    <para>If motor does rotate, repair mechanical failure or blockage in mode doors,
+                                        gear drive, or heater housing. Refer to
+                                        <hotlnk document="s16025_HL1602549.xml" xrefid="t1602510">MODE SELECTION
+                                            TROUBLESHOOTING
+                                        </hotlnk>
+                                        table
+                                        <xref refid="t1602510"/>.
+                                    </para>
+                                </item>
+                            </seqlist>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>Isolate circuits between HVAC control head and mode actuator motor.</para>
+                        </entry>
+                        <entry colspan="2" spanname="S2T3">
+                            <para>Check for open circuits or circuits shorted to ground.</para>
+                        </entry>
+                        <entry colspan="3" spanname="S4T6">
+                            <para>If faulty circuits are found, repair the circuits.</para>
+                            <para>If circuits check good, go to next step.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="6" spanname="S1T6">
+                            <para>
+                                <emph type="BOLD">HVAC Mode Actuator Motor Troubleshooting Chart (Continued)</emph>
+                            </para>
+                            <para>Check with HVAC control head connector (1200) reconnected, ESC connector (1600)
+                                reconnected thru breakout box ZTSE4477, and ignition key ON.
+                            </para>
+                            <note>
+                                <para>Always use breakout box to take measurements on ESC connectors.</para>
+                            </note>
+                            <note>
+                                <para>Always check connectors for damage and pushed-out terminals.</para>
+                            </note>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>Test Points</para>
+                        </entry>
+                        <entry colspan="2" spanname="S2T3">
+                            <para>Spec.</para>
+                        </entry>
+                        <entry colspan="3" spanname="S4T6">
+                            <para>Comments</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>connector (1600), cavity 8 to ground.</para>
+                        </entry>
+                        <entry colspan="2" spanname="S2T3">
+                            <para>Alternating voltage, pulse rate should be 2.5 sec high/2.5 sec low.</para>
+                            <para>low &#60; 2 Vdc</para>
+                            <para>high > 7 Vdc</para>
+                        </entry>
+                        <entry colspan="3" spanname="S4T6">
+                            <para>If the alternating voltage, has a 2 second cycle (1 sec high/1 sec low), replace HVAC
+                                control head.
+                            </para>
+                            <para>If alternating voltage, with a 5 second cycle (2.5 sec high/2.5 sec low) is present,
+                                replace ESC.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="6" spanname="S1T6">
+                            <para>
+                                <emph type="BOLD">HVAC Mode Actuator Motor Troubleshooting Chart (Continued)</emph>
+                            </para>
+                            <para>Check with HVAC control head connector (1200) reconnected, ESC connector (1600)
+                                reconnected thru breakout box ZTSE4477, and ignition key ON.
+                            </para>
+                            <note>
+                                <para>Always use breakout box to take measurements on ESC connectors.</para>
+                            </note>
+                            <note>
+                                <para>Always check connectors for damage and pushed-out terminals.</para>
+                            </note>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>Test Points</para>
+                        </entry>
+                        <entry colspan="2" spanname="S2T3">
+                            <para>Spec.</para>
+                        </entry>
+                        <entry colspan="3" spanname="S4T6">
+                            <para>Comments</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>connector (1600), cavity 8 to ground.</para>
+                        </entry>
+                        <entry colspan="2" spanname="S2T3">
+                            <para>Alternating voltage, pulse rate should be 2.5 sec high/2.5 sec low.</para>
+                            <para>low &#60; 2 Vdc</para>
+                            <para>high > 7 Vdc</para>
+                        </entry>
+                        <entry colspan="3" spanname="S4T6">
+                            <para>If the alternating voltage, has a 2 second cycle (1 sec high/1 sec low), replace HVAC
+                                control head.
+                            </para>
+                            <para>If alternating voltage, with a 5 second cycle (2.5 sec high/2.5 sec low) is present,
+                                replace ESC.
+                            </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s16025_HL1602563.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s16025_78.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s16025.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

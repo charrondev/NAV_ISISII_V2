@@ -1,0 +1,445 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Diamond Logic&#174; PowerPack 3 Dynamic Power System Service/ Troubleshooting Guide - General
+        Troubleshooting Procedures
+    </stitle>
+    <svcsection/>
+    <svcproc svcproctype="troubleshoot" graphiccount="0">
+        <title>General Troubleshooting Procedures</title>
+        <specpara>
+            <warning>
+                <para>To avoid property damage, personal injury or death, park the vehicle on a flat level surface, set
+                    the parking brake, turn the engine off, and chock the wheels.
+                </para>
+            </warning>
+        </specpara>
+        <para>To properly check PowerPack 3 system operation, the truck must be stationary with the engine running.
+        </para>
+        <seqlist style="arabic">
+            <item>
+                <para>Place the transmission in neutral.</para>
+            </item>
+            <item>
+                <para>Set the Park Brake.</para>
+            </item>
+            <item>
+                <para>Start the engine.</para>
+            </item>
+            <item>
+                <para>Release the service brake pedal.</para>
+            </item>
+            <item>
+                <para>Make sure any PTO controls that could potentially override the system engine speed control are
+                    turned off.
+                </para>
+            </item>
+            <item>
+                <para>Set the 120 VAC switch to ON.</para>
+            </item>
+        </seqlist>
+        <para>At this point, the engine should automatically ramp to 935 rpm and the 120 VAC switch indicator should be
+            ON solid (no flashing).
+        </para>
+        <para>If the switch indicator is flashing, or the engine does not ramp to and maintain 935 rpm or more, turn the
+            switch off and check that all the interlock conditions (transmission in neutral, park brake set, engine
+            running, PTO control OFF) are met. Turn the switch on again.
+        </para>
+        <para>If the switch indicator light continues to flash, check for fault codes SPN 168, FMI 4 or FMI 8. If one of
+            these fault codes is present, check for proper connection of the 3 phase cables from the alternator to the
+            PowerPack.
+        </para>
+        <para>If a communication fault is present, check for open circuits in the CAN bus and/or Ignition connections to
+            the system.
+        </para>
+        <para>The switch indicator will flash to indicate a problem. It can flash slow (once per second) or fast (twice
+            per second) to indicate the severity as shown in the diagnostic trouble code chart below.
+        </para>
+        <table id="t0830801" frame="all">
+            <title>PowerPack 3 Diagnostic Trouble Codes</title>
+            <tgroup cols="6">
+                <colspec colname="col1" colwidth="0.49*"/>
+                <colspec colname="col2" colwidth="0.46*"/>
+                <colspec colname="col3" colwidth="0.58*"/>
+                <colspec colname="col4" colwidth="0.54*"/>
+                <colspec colname="col5" colwidth="0.78*"/>
+                <colspec colname="col6" colwidth="3.15*"/>
+                <thead>
+                    <row>
+                        <entry align="center">
+                            <para>SPN</para>
+                        </entry>
+                        <entry align="center">
+                            <para>FMI</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Byte 7</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Byte 8</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Switch Indicator Blink Rate</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Condition Description/ Comments/ Probable Cause(s)</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry align="center">
+                            <para>168</para>
+                        </entry>
+                        <entry align="center">
+                            <para>2</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Fast</para>
+                        </entry>
+                        <entry>
+                            <para>Communication fault from ESC to the PowerPack. Check for open circuit or short in
+                                J1939 datalink. If switch is not blinking, verify vehicle is programmed for Powerpack
+                                feature and the switchpack is operating correctly.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>168</para>
+                        </entry>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Fast</para>
+                        </entry>
+                        <entry>
+                            <para>DC module over voltage condition on vehicle DC bus. System detected voltage over 15
+                                volts. Remove any external power supply/charger from vehicle.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>168</para>
+                        </entry>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Slow</para>
+                        </entry>
+                        <entry>
+                            <para>AC module over voltage condition on high voltage DC bus. Likely an internal failure
+                                for AC output. AC has been shut down. DC output remains on.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>168</para>
+                        </entry>
+                        <entry align="center">
+                            <para>4</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Fast</para>
+                        </entry>
+                        <entry>
+                            <para>DC module under voltage condition on vehicle DC Bus. System detected low DC voltage.
+                                This could be due to insufficient input power from the alternator. Check the 3 phase
+                                wires from the alternator to the PowerPack.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>168</para>
+                        </entry>
+                        <entry align="center">
+                            <para>4</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Slow</para>
+                        </entry>
+                        <entry>
+                            <para>AC module under voltage condition on high voltage DC bus. System detected low internal
+                                voltages. This could be due to insufficient input power from the alternator. Check the 3
+                                phase wires from the alternator to the PowerPack.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>168</para>
+                        </entry>
+                        <entry align="center">
+                            <para>6</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Slow</para>
+                        </entry>
+                        <entry>
+                            <para>AC module has shut down due to overload condition. AC overloaded, remove some or all
+                                of AC load.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>168</para>
+                        </entry>
+                        <entry align="center">
+                            <para>8</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Fast</para>
+                        </entry>
+                        <entry>
+                            <para>Phase missing fault/alternator fault. One of the three 3-phase wires has an open
+                                circuit. Check the 3 phase wires from the alternator to the PowerPack.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>168</para>
+                        </entry>
+                        <entry align="center">
+                            <para>16</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Fast</para>
+                        </entry>
+                        <entry>
+                            <para>DC module over temperature condition. PowerPack is experiencing extremely high
+                                internal temperatures. AC and DC has been shut down. Allow the system to cool down.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>168</para>
+                        </entry>
+                        <entry align="center">
+                            <para>16</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Slow</para>
+                        </entry>
+                        <entry>
+                            <para>AC module over temperature condition. PowerPack has detected high internal
+                                temperatures although less severe. AC inverter has shutdown, but DC output remains on.
+                                Shut the system down to allow it to cool down or remove some of the loads.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>168</para>
+                        </entry>
+                        <entry align="center">
+                            <para>17</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Fast</para>
+                        </entry>
+                        <entry>
+                            <para>PowerPack Fuse Open. Check DC battery charging connections from Powerpack. Check 150A
+                                fuse.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>639</para>
+                        </entry>
+                        <entry align="center">
+                            <para>14</para>
+                        </entry>
+                        <entry align="center">
+                            <para>37</para>
+                        </entry>
+                        <entry align="center">
+                            <para>255</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Fast</para>
+                        </entry>
+                        <entry>
+                            <para>Communication fault between PowerPack and the ESC. Check for open circuit or short in
+                                J1939 datalink. Also, check the ignition circuit to the Powerpack module.
+                            </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>The following are the most common symptoms and solutions encountered.</para>
+        <para>Prior to any troubleshooting, always check and verify that all PowerPack 3 and alternator connections are
+            tight and secure.
+        </para>
+        <para>
+            <emph type="bold">SYMPTOM:</emph>
+        </para>
+        <para>PowerPack 3 is turned on but no output power is available.</para>
+        <para>
+            <emph type="bold">SOLUTION:</emph>
+        </para>
+        <seqlist>
+            <item>
+                <para>Verify that the vehicle is running and all interlock conditions are met (see above).</para>
+            </item>
+            <item>
+                <para>Verify that the PowerPack 3 switch is turned on. Switch indicator should be ON solid. If it's
+                    flashing, then the system is indicating a problem and may have a diagnostic code.
+                </para>
+            </item>
+            <item>
+                <para>Verify that the PowerPack 3 is getting 12 Volts on the Ignition wire when the key is on. If not,
+                    check the fuse and interconnects.
+                </para>
+            </item>
+            <item>
+                <para>Verify that the CAN bus cable is connected to both the PowerPack 3 and the vehicle connectors.
+                </para>
+            </item>
+            <item>
+                <para>Verify that the 30-Amp breaker on the side of the PowerPack 3 enclosure is not open.</para>
+            </item>
+            <item>
+                <para>Verify that the GFCI outlet is not open. The GFCI should have a green light on if 120VAC power is
+                    available. A red light on the GFCI indicates a ground fault and needs reset (verify the short
+                    circuit has been removed). Reset button is located on the GFCI.
+                </para>
+            </item>
+        </seqlist>
+        <specpara>
+            <note>
+                <para>If the circuit breaker or GFCI was open, be sure to examine all grounding, and load conditions to
+                    determine the cause.
+                </para>
+            </note>
+        </specpara>
+        <para>
+            <emph type="bold">SYMPTOM:</emph>
+        </para>
+        <para>PowerPack 3 won't support the desired load.</para>
+        <para>
+            <emph type="bold">SOLUTION:</emph>
+        </para>
+        <seqlist>
+            <item>
+                <para>Verify that the engine ramps to the proper RPM (935) when the system is enabled.</para>
+            </item>
+            <item>
+                <para>Verify that the total PowerPack 3 load (AC Watts plus DC Watts) is less than 4100 total Watts. (AC
+                    Volts x AC Amps = AC Watts + DC Volts x DC Amps = DC Watts.)
+                </para>
+            </item>
+            <item>
+                <para>Verify that all 3 AC input cables from alternator are securely connected to PowerPack 3 and
+                    alternator.
+                </para>
+            </item>
+            <item>
+                <para>Verify that the alternator field cable is securely connected to PowerPack 3 and to the alternator.
+                    Also check that the special fuse for the alternator field circuit is not open.
+                </para>
+            </item>
+            <item>
+                <para>Verify alternator is working properly. See Alternator Checkout Procedure below.</para>
+            </item>
+        </seqlist>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08308_3.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08308_5.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08308.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

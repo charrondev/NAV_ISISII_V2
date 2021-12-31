@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>TSI 08-12-01 - Engine Idle Shutdown Timer (IST) Regulations</stitle>
+    <tsi id="tsi081201" year="2007" tsitype="engine">
+        <tsinumber>08-12-01</tsinumber>
+        <tsidate>December 2007</tsidate>
+        <subjectfile>Engine</subjectfile>
+        <subjectgroup>
+            <subject>Engine Idle Shutdown Timer (IST) Regulations</subject>
+        </subjectgroup>
+        <apply>
+            <configure>
+                <engfamgroup/>
+
+                <engfam>MaxxForce DT</engfam>
+                <engfam>MaxxForce 5</engfam>
+                <engfam>MaxxForce 7</engfam>
+                <engfam>MaxxForce 9</engfam>
+                <engfam>MaxxForce 10</engfam>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <para>Beginning in 2008 MY, all International&#174; MaxxForce&#8482; engines certified for sale in the
+                    state of California will conform to mandatory California Air Resources Board (CARB) Engine Shutdown
+                    System (ESS) regulations.
+                </para>
+                <para>The Idle Shutdown Timer (IST) feature allows the Electronic Control Module (ECM) to shut down the
+                    engine during extended engine idle times.
+                </para>
+                <para>The prior function of the IST is available on CA ESS exempt and Federally certified engines
+                    (school buses, emergency and military vehicles).
+                </para>
+                <para>
+                    <title>Idle Shutdown Warning</title>Thirty seconds before IST-defined engine shutdown, a vehicle
+                    instrument panel indicator activates. There are two types of indicators:
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Amber flashing idle shutdown indicator for multiplex electrical systems.</para>
+                    </item>
+                    <item>
+                        <para>Red flashing indicator with audible alarm for non-multiplex electrical systems.</para>
+                    </item>
+                </randlist>
+                <para>This continues until the engine shuts down or the low idle shutdown timer is reset.</para>
+            </geninfo>
+        </description>
+        <svcproc>
+            <title>Engine Idle Shutdown Timer for California ESS Compliant Engines</title>
+            <para>Engine idle duration is limited for ESS compliant engines as follows:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>When vehicle parking brake is set, the idle shutdown time is limited to the CARB requirement
+                        of 5 minutes.
+                    </para>
+                </item>
+                <item>
+                    <para>When vehicle parking brake is released, the idle shutdown time is limited to the CARB
+                        requirement of 15 minutes.
+                    </para>
+                </item>
+            </randlist>
+            <para>The duration of CARB mandated values can be reduced by programming the customer IST programmable
+                parameter to a value lower than 15 minutes. Adjusting this parameter reduces overall system shutdown
+                time as follows:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Adjusting parameter value between 5 and 15 minutes reduces idle shutdown time with the vehicle
+                        parking brake released. The default value of 5 minutes for the vehicle parking brake "set"
+                        condition remains unaffected.
+                    </para>
+                </item>
+                <item>
+                    <para>Adjusting parameter value between 2 and 5 minutes reduces idle time for both the vehicle
+                        parking brake "released" and "set" conditions.
+                    </para>
+                </item>
+            </randlist>
+            <para>While the Electronic Service Tool (EST) is installed, idle shutdown time is factory defaulted to 60
+                minutes and cannot be adjusted. If the IST is enabled, the Cold Ambient Protection (CAP) will not
+                function.
+            </para>
+            <specpara>
+                <note>
+                    <para>The CARB IST feature is factory programmed. Customers can not turn IST off for ESS compliant
+                        engines.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <emph type="bold">CARB IST Conditions</emph>
+            </para>
+            <para>The following conditions must be true for the idle shutdown timer to activate in all modes. Any change
+                of the "true" state of one or more of these conditions will reset or disable the IST.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Manual Diesel Particulate Filter (DPF) regeneration is inactive (not enabled).</para>
+                </item>
+                <item>
+                    <para>Steady driveline state (no transition detected). No change in the state of the clutch switch
+                        (manual transmission) or transmission shifter between the in-gear position and neutral or park
+                        (Automatic transmission).
+                    </para>
+                </item>
+                <item>
+                    <para>Power Take Off (PTO) Remote mode disabled.</para>
+                </item>
+                <item>
+                    <para>Engine coolant temperature greater than 15.6 &#186;C (60 &#186;F).</para>
+                </item>
+                <item>
+                    <para>No active coolant temperature sensor diagnostic faults.</para>
+                </item>
+                <item>
+                    <para>No active intake air temperature sensor diagnostic faults.</para>
+                </item>
+                <item>
+                    <para>Engine is operating in run mode or in active diagnostic tool mode.</para>
+                </item>
+                <item>
+                    <para>Vehicle speed is less than 1.25 miles/hr.</para>
+                </item>
+                <item>
+                    <para>No active vehicle speed diagnostic faults.</para>
+                </item>
+                <item>
+                    <para>PTO Control is in Off or Standby mode.</para>
+                </item>
+                <item>
+                    <para>Engine speed less than 750 RPM for MaxxForce&#8482; 5, 7, DT, 9 and 10.</para>
+                </item>
+                <item>
+                    <para>Engine speed less than 650 RPM for MaxxForce&#8482; 11 and 13.</para>
+                </item>
+                <item>
+                    <para>Steady accelerator pedal position (no transition detected from any pre-set position).</para>
+                </item>
+                <item>
+                    <para>Steady brake pedal state (no transition detected from any pre-set state).</para>
+                </item>
+                <item>
+                    <para>Steady parking brake state (CAN message) (no transition detected from any pre-set state).
+                    </para>
+                </item>
+            </randlist>
+        </svcproc>
+        <svcproc>
+            <title>Engine Idle Shutdown Timer (Federal-Optional)</title>
+            <para>Idle time can be programmed from 5 to 120 minutes. While the EST is installed, the IST function will
+                be active with the programmed shutdown time in effect. Parking brake transitions reset the idle timer in
+                all 2008 engines. If the IST is enabled, the Cold Ambient Protection (CAP) will not function.
+            </para>
+            <para>
+                <emph type="bold">Federal IST Conditions</emph>
+            </para>
+            <para>The following conditions must be true for the idle shutdown timer to activate. Any change to the
+                "true" state of one or more of these conditions will reset or disable the IST.
+            </para>
+        </svcproc>
+        <svcproc>
+            <randlist type="bullet">
+                <title>Common Enable Conditions for All Federal IST Options</title>
+                <item>
+                    <para>Manual Diesel Particulate Filter (DPF) regeneration is inactive (not enabled).</para>
+                </item>
+                <item>
+                    <para>Steady driveline state (no transition detected). No change in the state of the clutch switch
+                        (manual transmission) or transmission shifter between the in-gear position and neutral or park
+                        (Automatic transmission).
+                    </para>
+                </item>
+                <item>
+                    <para>PTO Remote mode disabled.</para>
+                </item>
+                <item>
+                    <para>Intake air temperature greater than 15.6 &#186;C (60 &#186;F) (MFG Default, Customer
+                        adjustable parameter).
+                    </para>
+                </item>
+                <item>
+                    <para>Intake air temperature lower than 44 &#186;C (112 &#186;F) (MFG Default, Customer adjustable
+                        parameter).
+                    </para>
+                </item>
+                <item>
+                    <para>Engine coolant temperature greater than 60 &#186;C (140 &#186;F).</para>
+                </item>
+                <item>
+                    <para>No active coolant temperature sensor diagnostic faults.</para>
+                </item>
+                <item>
+                    <para>No active intake air temperature sensor diagnostic faults.</para>
+                </item>
+                <item>
+                    <para>Engine is operating in run mode or in active diagnostic tool mode.</para>
+                </item>
+                <item>
+                    <para>Vehicle speed is less than 1.25 miles/hr.</para>
+                </item>
+                <item>
+                    <para>No active vehicle speed diagnostic faults.</para>
+                </item>
+                <item>
+                    <para>Steady parking brake state (CAN message). No transition detected from any pre-set state.
+                    </para>
+                </item>
+            </randlist>
+        </svcproc>
+        <svcproc>
+            <para>Additional operation enable conditions depending on selected Federal IST operation mode:</para>
+            <randlist type="bullet">
+                <title>Federal IST Mode 1: PTO Operation Option Enable Conditions</title>
+                <item>
+                    <para>PTO Control is in Off or Standby mode.</para>
+                </item>
+                <item>
+                    <para>Engine speed less than 750 RPM for MaxxForce&#8482; 5, 7, DT, 9 and 10.</para>
+                </item>
+                <item>
+                    <para>Engine speed less than 650 RPM for MaxxForce&#8482; 11 and 13.</para>
+                </item>
+                <item>
+                    <para>Accelerator pedal position is less than 2 %.</para>
+                </item>
+                <item>
+                    <para>No active accelerator pedal diagnostic faults.</para>
+                </item>
+                <item>
+                    <para>Steady brake pedal state (No transition detected).</para>
+                </item>
+                <item>
+                    <para>No active brake system diagnostic faults.</para>
+                </item>
+            </randlist>
+        </svcproc>
+        <svcproc>
+            <randlist type="bullet">
+                <title>Federal IST Mode 2: No Load / Light Load Limit Option Enable Conditions</title>
+                <item>
+                    <para>Accelerator pedal position is less than 2 %.</para>
+                </item>
+                <item>
+                    <para>No active accelerator pedal diagnostic faults.</para>
+                </item>
+                <item>
+                    <para>Steady brake pedal state (No transition detected).</para>
+                </item>
+                <item>
+                    <para>No active brake system diagnostic faults.</para>
+                </item>
+                <item>
+                    <para>Engine reported fuel usage (load) is less than ECM specified limit (factory calibrated, not
+                        customer adjustable).
+                    </para>
+                </item>
+            </randlist>
+        </svcproc>
+        <svcproc>
+            <randlist type="bullet">
+                <title>Federal IST Mode 3: Tamper Proof Option Enable Conditions</title>
+                <item>
+                    <para>Engine reported fuel usage (load) is less than ECM specified limit (factory calibrated, not
+                        customer adjustable).
+                    </para>
+                </item>
+                <item>
+                    <para>Steady accelerator pedal position (no transition detected from any pre-set position).</para>
+                </item>
+                <item>
+                    <para>Steady brake pedal state (no transition detected from any pre-set state).</para>
+                </item>
+            </randlist>
+        </svcproc>
+    </tsi>
+</isis>

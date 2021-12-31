@@ -1,0 +1,500 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslfrench.xsl"?>
+<isis lang="fr">
+    <stitle>French - Manuel de diagnostic - - FONCTION ET DIAGNOSTIC DE CIRCUIT - R&#233;gulateur de pression &#233;lectronique
+        (EPG)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>R&#233;gulateur de pression &#233;lectronique (EPG)</title>
+        <svcsubproc>
+            <title>Fonctions de signal</title>
+            <figure id="f17503059" figsize="pg-wide">
+                <graphic filename="../figeg7/eg7315a.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Sch&#233;ma de fonction du r&#233;gulateur de pression &#233;lectronique</caption>
+            </figure>
+            <para>Le r&#233;gulateur de pression &#233;lectronique (EPG) est une caract&#233;ristique offerte en option
+                utilis&#233;e pour la commande en boucle ferm&#233;e de la pression hydraulique, bas&#233;e sur une entr&#233;e
+                de pression hydraulique externe et une pression hydraulique d&#233;sir&#233;e programmable. Cette caract&#233;ristique
+                est con&#231;ue pour les pompes &#224; fluides, particuli&#232;rement pour les camions de pompiers.
+            </para>
+            <para>La caract&#233;ristique&#160;EPG est active quand il n'y a pas de code d'anomalie&#160;EPG (capteur de
+                pression), quand la bo&#238;te de vitesses est dans son propre &#233;tat (qui d&#233;pend du type de
+                pompe utilis&#233;), quand le v&#233;hicule est immobile et quand son param&#232;tre programmable
+                correspondant est &#233;tabli.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>D&#233;tection et gestion des codes d'anomalie</title>
+            <para>Si l'ECM d&#233;tecte une condition hors de plage (HAUTE ou BASSE), il &#233;tablit un code d'anomalie
+                et invalide le fonctionnement de l'EPG. Le syst&#232;me tombe au r&#233;gime de ralenti avec tous les pr&#233;r&#233;glages
+                de commande r&#233;initialis&#233;s en mode d'attente.
+            </para>
+            <para>L'ECM surveille &#233;galement la pression hydraulique, le r&#233;gime moteur et l'&#233;tat du
+                contacteur de s&#233;lection&#160;EPG. Si une perte de pression est d&#233;tect&#233;e (&#233;galement
+                consid&#233;r&#233;e comme une erreur d'&#233;tat permanent), la caract&#233;ristique&#160;EPG est d&#233;sactiv&#233;e
+                et un code d'anomalie correspondant est &#233;tabli. Le syst&#232;me tombe au r&#233;gime de ralenti
+                avec tous les pr&#233;r&#233;glages de commande r&#233;initialis&#233;s en mode d'attente.
+            </para>
+            <figure id="f17503060" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8759.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Sch&#233;ma de fonction du r&#233;gulateur de pression &#233;lectronique</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Apr&#232;s voir enlev&#233; le connecteur, toujours v&#233;rifier s'il n'y a pas de broches
+                        endommag&#233;es, de corrosion ou des bornes desserr&#233;es.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503018" tblwidth="pg-wide" frame="all">
+                <title>Diagnostic du r&#233;gulateur de pression &#233;lectronique</title>
+                <tgroup cols="3" colsep="1" rowsep="1" align="left">
+                    <colspec colname="col1" colwidth="49.35*"/>
+                    <colspec colname="colspec0" colwidth="51.54*"/>
+                    <colspec colname="col3" colwidth="295.11*"/>
+                    <spanspec namest="colspec0" nameend="col3" spanname="span1"/>
+                    <spanspec namest="col1" nameend="col3" spanname="1to3"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">V&#233;rification de la tension du connecteur du capteur</emph>
+                                    (v&#233;rifier avec le connecteur du capteur d&#233;branch&#233;, contact &#233;tabli)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Points d'essai</para>
+                            </entry>
+                            <entry>
+                                <para>Sp&#233;cification</para>
+                            </entry>
+                            <entry>
+                                <para>Commentaires</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A&#160;&#224; la masse</para>
+                            </entry>
+                            <entry>
+                                <para>0&#160;V</para>
+                            </entry>
+                            <entry>
+                                <para>Signal de masse, aucune tension pr&#233;vue</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B&#160;&#224; la masse</para>
+                            </entry>
+                            <entry>
+                                <para>5&#160;V&#160;&#177; 0,5</para>
+                            </entry>
+                            <entry>
+                                <para>V&#233;rification de la tension de r&#233;f&#233;rence V
+                                    <subscript>REF</subscript>
+                                    avec contact &#233;tabli; si la tension est hors des sp&#233;cifications, voir le
+                                    circuit de tension de r&#233;f&#233;rence V
+                                    <subscript>REF</subscript>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C&#160;&#224; la masse</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 0,25&#160;V</para>
+                            </entry>
+                            <entry>
+                                <para>Si la tension est sup&#233;rieure &#224; 0,25&#160;V, le fil de signal est
+                                    court-circuit&#233; &#224; la tension de r&#233;f&#233;rence V
+                                    <subscript>REF</subscript>
+                                    ou vers la batterie
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">V&#233;rifications du connecteur du capteur &#224; la masse du ch&#226;ssis</emph>
+                                    (v&#233;rifier avec le connecteur du capteur d&#233;branch&#233;, le c&#226;ble
+                                    positif de batterie d&#233;branch&#233; et le contact coup&#233;)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Points d'essai</para>
+                            </entry>
+                            <entry>
+                                <para>Sp&#233;cification</para>
+                            </entry>
+                            <entry>
+                                <para>Commentaires</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A&#160;&#224; la masse</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;&#160;5&#160;ohms</para>
+                            </entry>
+                            <entry>
+                                <para>R&#233;sistance &#224; la masse du ch&#226;ssis; v&#233;rifier avec le contact
+                                    coup&#233;; si la r&#233;sistance est sup&#233;rieure &#224; 5&#160;ohms, le circuit
+                                    est ouvert
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B&#160;&#224; la masse</para>
+                            </entry>
+                            <entry>
+                                <para>>&#160;1&#160;kilohm</para>
+                            </entry>
+                            <entry>
+                                <para>Une r&#233;sistance inf&#233;rieure &#224; 1&#160;kilohm indique un court-circuit
+                                    &#224; la masse
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C&#160;&#224; la masse</para>
+                            </entry>
+                            <entry>
+                                <para>>&#160;1&#160;kilohm</para>
+                            </entry>
+                            <entry>
+                                <para>Une r&#233;sistance inf&#233;rieure &#224; 1&#160;kilohm indique un court-circuit
+                                    &#224; la masse
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">V&#233;rification de la r&#233;sistance du faisceau</emph>
+                                    (v&#233;rifier avec une bo&#238;te de d&#233;rivation install&#233;e sur le faisceau
+                                    du ch&#226;ssis seulement)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Points d'essai</para>
+                            </entry>
+                            <entry>
+                                <para>Sp&#233;cification</para>
+                            </entry>
+                            <entry>
+                                <para>Commentaires</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7&#160;&#224;&#160;A</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;&#160;5&#160;ohms</para>
+                            </entry>
+                            <entry>
+                                <para>>&#160;5&#160;ohms indique un fil de masse ouvert</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5&#160;&#224;&#160;B</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;&#160;5&#160;ohms</para>
+                            </entry>
+                            <entry>
+                                <para>>&#160;5&#160;ohms indique un fil de tension de r&#233;f&#233;rence V
+                                    <subscript>REF</subscript>ouvert
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>13&#160;&#224;&#160;C</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;&#160;5&#160;ohms</para>
+                            </entry>
+                            <entry>
+                                <para>>&#160;5&#160;ohms indique un fil de signal ouvert</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Points d'essai</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="span1">
+                                <para>
+                                    <emph type="bold">&#201;tat du contacteur/lampe</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>4&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colspan="2" spanname="span1">
+                                <para>12&#160;V&#160;= EPG activ&#233;, 0&#160;V&#160;= EPG d&#233;sactiv&#233;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>9&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colspan="2" spanname="span1">
+                                <para>12&#160;V&#160;= auxiliaires sous tension, 0&#160;V&#160;= groupe motopropulseur
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>49&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colspan="2" spanname="span1">
+                                <para>0&#160;V&#160;= auxiliaires sous tension, 12&#160;V&#160;= groupe motopropulseur
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Description des codes d'anomalie</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>216&#160;= La tension du signal &#233;tait inf&#233;rieure &#224; 0,039&#160;V
+                                    pendant plus de 0,1&#160;seconde.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>226&#160;= La tension du signal &#233;tait sup&#233;rieure &#224; 4,9&#160;V
+                                    pendant plus de 0,1&#160;seconde.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>336&#160;= La pression hydraulique est incapable d'atteindre le point de r&#233;glage
+                                    command&#233; (protection contre la cavitation)
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Description d&#233;taill&#233;e</title>
+            <para>Quand la caract&#233;ristique EPG est initialis&#233;e pour la premi&#232;re fois, la pression
+                hydraulique d&#233;sir&#233;e est mont&#233;e &#224; une cadence programmable. La pression d&#233;sir&#233;e
+                limit&#233;e (point de r&#233;glage) est alors utilis&#233;e de concert avec le signal de pression
+                hydraulique r&#233;elle (r&#233;troaction) pour commander le r&#233;gime moteur d&#233;sir&#233; n&#233;cessaire,
+                afin d'atteindre la pression hydraulique d&#233;sir&#233;e.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>
+                        <emph type="bold">Param&#232;tres du r&#233;gulateur &#233;lectronique&#160;-</emph>
+                        ce groupe de param&#232;tres personnalise la caract&#233;ristique du r&#233;gulateur de pression
+                        &#233;lectronique.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">R&#233;gulateur de pression &#233;lectronique&#160;-</emph>
+                        ce param&#232;tre indique &#224; l'&#233;lectronique de bord si le v&#233;hicule est &#233;quip&#233;
+                        de la caract&#233;ristique de r&#233;gulation de pression &#233;lectronique.
+                    </para>
+                    <para>OFF&#160;: cette caract&#233;ristique est d&#233;sactiv&#233;e en tout temps.</para>
+                    <para>ON&#160;: cette caract&#233;ristique est valid&#233;e et peut &#234;tre activ&#233;e par le
+                        conducteur.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">DDS du r&#233;gulateur de pression &#233;lectronique&#160;-</emph>
+                        ce param&#232;tre indique comment le contacteur de d&#233;brayage de la transmission doit &#234;tre
+                        interpr&#233;t&#233; par l'&#233;lectronique de bord.
+                    </para>
+                    <para>FONCTIONNEMENT AU POINT MORT&#160;: la transmission doit toujours &#234;tre d&#233;bray&#233;e
+                        pour que le r&#233;gulateur de pression &#233;lectronique fonctionne.
+                    </para>
+                    <para>DEMI-ARBRE&#160;: si l'&#233;tat du&#160;DDS change, le r&#233;gulateur de pression &#233;lectronique
+                        est d&#233;sactiv&#233;. Lorsque le&#160;DDS est engag&#233;; il doit recevoir le signal &#171;&#160;auxiliaires
+                        en marche&#160;&#187;&#160;XCS pour valider.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Indicateur de mode&#160;EPG&#160;-</emph>
+                        ce param&#232;tre signale si l'indicateur du mode de fonctionnement du r&#233;gulateur de
+                        pression &#233;lectronique est disponible.
+                    </para>
+                    <para>OFF&#160;: l'indicateur n'est pas disponible.</para>
+                    <para>ON&#160;: l'indicateur est disponible.</para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Taux d'augmentation de pression&#160;-</emph>
+                        ce param&#232;tre indique la vitesse &#224; laquelle la pression de l'eau doit &#234;tre augment&#233;e
+                        quand le conducteur appuie sur le bouton &#171;&#160;RESUME/ACCEL&#160;&#187; et le maintient
+                        enfonc&#233;.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">R&#233;glage du gain int&#233;gral&#160;EPG&#160;-</emph>
+                        ce param&#232;tre permet au client de r&#233;gler pr&#233;cis&#233;ment la mani&#232;re dont le
+                        r&#233;gulateur de pression &#233;lectronique commande la pression d'eau.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">R&#233;glage du gain proportionnel&#160;EPG&#160;-</emph>
+                        ce param&#232;tre permet au client de r&#233;gler pr&#233;cis&#233;ment la mani&#232;re dont le
+                        r&#233;gulateur de pression &#233;lectronique commande la pression d'eau.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">Diagnostic de l'ECM</emph>
+            </para>
+            <para>On peut r&#233;cup&#233;rer les codes d'anomalie&#160;EPG &#224; l'aide de l'EST ou en lisant les
+                clignotements des codes d'anomalie des voyants &#171;&#160;ENGINE&#160;&#187; ambr&#233; et rouge; voir
+                <xref refid="p17502001"/>.
+            </para>
+            <para id="f175fc216">
+                <emph type="bold">Code d'anomalie&#160;216</emph>
+            </para>
+            <para>
+                <emph type="bold">Code&#160;ATA, PID&#160;73, FMI&#160;4</emph>
+            </para>
+            <para>
+                <emph type="bold">Signal du r&#233;gulateur de pression &#233;lectronique hors de plage (BAS)</emph>
+            </para>
+            <para>Un code&#160;216 hors de plage (BAS) est &#233;tabli par l'ECM si la tension de signal est inf&#233;rieure
+                &#224; 0,039&#160;V pendant plus de 1&#160;seconde. Quand ce code est &#233;tabli, la fonction&#160;EPG
+                est invalid&#233;e.
+            </para>
+            <para>Le code d'anomalie&#160;216 peut &#234;tre &#233;tabli en raison d'un circuit de signal ouvert ou
+                court-circuit&#233; &#224; la masse, d'un capteur ou d'un connecteur d&#233;fectueux ou d'un circuit de
+                tension de r&#233;f&#233;rence V
+                <subscript>REF</subscript>
+                ouvert.
+            </para>
+            <para id="f175fc226">
+                <emph type="bold">Code d'anomalie&#160;226</emph>
+            </para>
+            <para>
+                <emph type="bold">Code&#160;ATA, PID&#160;73, FMI&#160;3</emph>
+            </para>
+            <para>
+                <emph type="bold">Signal du r&#233;gulateur de pression &#233;lectronique hors de plage (HAUT)</emph>
+            </para>
+            <para>Un code&#160;226 hors de plage (HAUT) est &#233;tabli par l'ECM si la tension du signal est sup&#233;rieure
+                &#224; 4,9&#160;V pendant plus de 1,0&#160;seconde. Quand ce code est &#233;tabli, la fonction&#160;EPG
+                est invalid&#233;e.
+            </para>
+            <para>Le code d'anomalie&#160;226 peut &#234;tre caus&#233; par un court-circuit sur le circuit du signal
+                &#224; une source de tension, ou par un capteur d&#233;fectueux.
+            </para>
+            <para id="f175fc336">
+                <emph type="bold">Code d'anomalie&#160;336</emph>
+            </para>
+            <para>
+                <emph type="bold">Code&#160;ATA, PID&#160;73, FMI&#160;10</emph>
+            </para>
+            <para>
+                <emph type="bold">Pression &#233;lectronique incapable d'atteindre le point de r&#233;glage command&#233;</emph>
+            </para>
+            <para>L'ECM a d&#233;tect&#233; que le syst&#232;me hydraulique a &#233;t&#233; incapable d'atteindre la
+                pression hydraulique exig&#233;e par le syst&#232;me. Quand ce code d'anomalie est &#233;tabli, la
+                fonction&#160;EPG est invalid&#233;e.
+            </para>
+            <figure id="f17503060.1" figsize="pg-wide">
+                <graphic filename="../figEg8/Eg8806.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>Connexions de l'ECM &#224; la carrosserie</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Consulter S08285&#160;- Sch&#233;mas du circuit &#233;lectrique&#160;- 4200/4300/4400.</para>
+                </note>
+            </specpara>
+            <verbatim>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line>CETTE PAGE A &#201;T&#201; LAISS&#201;E VIERGE INTENTIONNELLEMENT</line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+            </verbatim>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215_67.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215_69.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

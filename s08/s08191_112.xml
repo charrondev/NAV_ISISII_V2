@@ -1,0 +1,715 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 5000, 9100, 9200, 9400, AND 9900 MODELS - CATERPILLAR C-10, C-12
+        AND 3406E ENGINES - TESTING ELECTRICAL POWER SUPPLY TO ECM
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="0">
+        <title>TESTING ELECTRICAL POWER SUPPLY TO ECM</title>
+        <svcprocinfo>
+            <para>Procedure in
+                <hotlnk xrefid="t0819701">Testing Switched Power Supply To ECM</hotlnk>
+                tests the switched battery power circuits to the ECM (key on).
+            </para>
+            <para>Procedure in
+                <hotlnk xrefid="t0819704">Testing Unswitched Battery Feed To ECM</hotlnk>
+                tests the unswitched battery power circuits to the ECM.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="x0819701">
+            <title>Testing Switched Power Supply To ECM</title>
+            <specpara>
+                <note>
+                    <para>Disconnecting (400) from the ECM will cause incremental amounts of Trip Data to be lost. An
+                        "Event Recorder Data Lost" code may also be logged. The loss of this data will not affect engine
+                        operation, but will affect the accuracy of the data. Ask the owner/operator if they want data
+                        recorded before disconnecting.
+                    </para>
+                </note>
+            </specpara>
+            <table id="t0819701" tblwidth="full-page" frame="all" numbered="no" view="reveal">
+                <title>Testing Switched Power Supply To ECM</title>
+                <tgroup cols="7" colsep="1" rowsep="1" align="center" charoff="50">
+                    <colspec colname="1" charoff="50" colwidth="0.59in"/>
+                    <colspec colname="2" charoff="50" colwidth="0.50in"/>
+                    <colspec colname="3" charoff="50" colwidth="1.80in"/>
+                    <colspec colname="4" charoff="50" colwidth="0.93in"/>
+                    <colspec colname="5" charoff="50" colwidth="0.83in"/>
+                    <colspec colname="6" charoff="50" colwidth="0.74in"/>
+                    <colspec colname="7" charoff="50" colwidth="1.38in"/>
+                    <tbody valign="top">
+                        <row>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">STEP</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">KEY</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">ACTION</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">TEST POINTS</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">YES-IN SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">NO-OUT OF SPEC.</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Off</para>
+                            </entry>
+                            <entry>
+                                <para>Remove and check fuse F6-D for open condition. Fuses OK?</para>
+                            </entry>
+                            <entry>
+                                <para>F6-D</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;1 ohm.</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate cause of overload condition, then repair. Replace fuse(s).</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>2.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Off/On</para>
+                            </entry>
+                            <entry>
+                                <para>Disconnect connector (400) from ECM. Re-install fuse F6-D. Turn key on and measure
+                                    voltage to gnd. at terminal 70, circuit 97L.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>(400), 97L to gnd.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Perform test in
+                                    <hotlnk xrefid="x0819702">Testing Run Relay (201).</hotlnk>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>3.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>On</para>
+                            </entry>
+                            <entry>
+                                <para>Switched voltage to ECM checks good. At connector (400), measure voltage between
+                                    terminals 5 (circuit 97-G) and 70 (circuit 97L).
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>(400), between 97-G and 97L.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>ECM gnd. circuit 97-GB checks good.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate open or poor connection in ground circuit 97-GB, between connector (400)
+                                    and engine ground stud, then repair.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="x0819702">
+            <title>Testing Run Relay (201)</title>
+            <table id="t0819702" tblwidth="full-page" frame="all" numbered="no" view="reveal">
+                <title>Testing Run Relay (201)</title>
+                <tgroup cols="7" colsep="1" rowsep="1" align="center" charoff="50">
+                    <colspec colname="1" charoff="50" colwidth="0.59in"/>
+                    <colspec colname="2" charoff="50" colwidth="0.50in"/>
+                    <colspec colname="3" charoff="50" colwidth="1.80in"/>
+                    <colspec colname="4" charoff="50" colwidth="0.92in"/>
+                    <colspec colname="5" charoff="50" colwidth="0.82in"/>
+                    <colspec colname="6" charoff="50" colwidth="0.89in"/>
+                    <colspec colname="7" charoff="50" colwidth="1.25in"/>
+                    <tbody valign="top">
+                        <row>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">STEP</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">KEY</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">ACTION</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">TEST POINTS</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">YES-IN SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">NO-OUT OF SPEC.</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Off/On</para>
+                            </entry>
+                            <entry>
+                                <para>Remove run relay from socket (201). Turn key on. At (201) measure voltage to
+                                    ground at circuit 97C.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>(201), 97C to gnd.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate cause of no or low voltage in circuit 97C, then repair.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>2.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>On</para>
+                            </entry>
+                            <entry>
+                                <para>At relay socket (201) measure voltage between circuits 97C and 13-GZ.</para>
+                            </entry>
+                            <entry>
+                                <para>(201) between 97C and 13-GZ.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate open or poor connection in circuit 13-GZ, or 11-GT to panel light ground,
+                                    then repair.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>3.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>On</para>
+                            </entry>
+                            <entry>
+                                <para>At relay socket (201) measure voltage between circuits 13Z and 13-GZ.</para>
+                            </entry>
+                            <entry>
+                                <para>(201) between 13Z and 13-GZ.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Perform test
+                                    <hotlnk xrefid="x0819703">Testing Ignition Relay</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>4.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>On</para>
+                            </entry>
+                            <entry>
+                                <para>At relay socket (201), install jumper wire between 97C and 97L. At connector (400)
+                                    measure voltage between terminal 70 (circuit 97L) and ground.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>(400) between 97L and gnd.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>Replace the run relay in connector (201).</para>
+                            </entry>
+                            <entry>
+                                <para>Locate open or poor connection in circuit 97L between connectors (201) and (400),
+                                    then repair.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="x0819703">
+            <title>Testing Ignition Relay (462-R1)</title>
+            <table id="t0819703" tblwidth="full-page" frame="all" numbered="no" view="reveal">
+                <title>Testing Ignition Relay (462-R1)</title>
+                <tgroup cols="7" colsep="1" rowsep="1" align="center" charoff="50">
+                    <colspec colname="1" charoff="50" colwidth="0.59in"/>
+                    <colspec colname="2" charoff="50" colwidth="0.50in"/>
+                    <colspec colname="3" charoff="50" colwidth="1.80in"/>
+                    <colspec colname="4" charoff="50" colwidth="0.92in"/>
+                    <colspec colname="5" charoff="50" colwidth="0.75in"/>
+                    <colspec colname="6" charoff="50" colwidth="0.94in"/>
+                    <colspec colname="7" charoff="50" colwidth="1.24in"/>
+                    <tbody valign="top">
+                        <row>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">STEP</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">KEY</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">ACTION</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">TEST POINTS</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">YES-IN SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">NO-OUT OF SPEC.</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Off</para>
+                            </entry>
+                            <entry>
+                                <para>Remove and check fuses F2-C and F7-A for open condition. Fuses OK?</para>
+                            </entry>
+                            <entry>
+                                <para>F2-C, F7-A.</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;1 ohm.</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate cause of overload condition, then repair. Replace fuse(s).</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>2.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Off/On</para>
+                            </entry>
+                            <entry>
+                                <para>Re-install fuses F2-C and F7-A. Remove relay from socket (462-R1). Turn key on. At
+                                    socket (462-R1) measure voltage from circuit 14S to gnd.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>(462) /R1, 14S to gnd.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate cause of no or low voltage from B1 to BAT stud, then repair.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>3.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>On</para>
+                            </entry>
+                            <entry>
+                                <para>At connector (462-R1) measure voltage between circuits 14S and 13-GA.</para>
+                            </entry>
+                            <entry>
+                                <para>(462-R1) between 14S and 13-GA.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177;1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate open or poor connection in circuit 13-GA path to ground, then repair.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>4.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>On</para>
+                            </entry>
+                            <entry>
+                                <para>At connector (462-R1) measure voltage between circuits 13A and 13-GA.</para>
+                            </entry>
+                            <entry>
+                                <para>(462-R1) between 13A and 13-GA.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate cause of no or low voltage in circuit 13A from key switch, then repair.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>5.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>On</para>
+                            </entry>
+                            <entry>
+                                <para>At connector (462-R1) install jumper wire between circuits 14S and 13H. At run
+                                    relay connector (201) measure voltage to ground at circuit 13Z.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>(201), 13Z to gnd.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>Replace ignition relay in conn. (462-R1).</para>
+                            </entry>
+                            <entry>
+                                <para>Locate open or poor connection in circuit 13H/13F/13Z between connector (462-R1),
+                                    I1 ignition adapter (494) and connector (201), then repair.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="x0819704">
+            <title>Testing Unswitched Battery Feed To ECM</title>
+            <specpara>
+                <note>
+                    <para>Disconnecting (400) from the ECM will cause incremental amounts of Trip Data to be lost. An
+                        "Event Recorder Data Lost" code may also be logged. The loss of this data will not affect engine
+                        operation, but will affect the accuracy of the data. Ask the owner/operator if they want data
+                        recorded before disconnecting.
+                    </para>
+                </note>
+            </specpara>
+            <table id="t0819704" tblwidth="full-page" frame="all" numbered="no" view="reveal">
+                <title>Testing Unswitched Battery Feed To ECM</title>
+                <tgroup cols="7" colsep="1" rowsep="1" align="center" charoff="50">
+                    <colspec colname="1" charoff="50" colwidth="0.59in"/>
+                    <colspec colname="2" charoff="50" colwidth="0.50in"/>
+                    <colspec colname="3" charoff="50" colwidth="1.80in"/>
+                    <colspec colname="4" charoff="50" colwidth="0.88in"/>
+                    <colspec colname="5" charoff="50" colwidth="0.67in"/>
+                    <colspec colname="6" charoff="50" colwidth="0.82in"/>
+                    <colspec colname="7" charoff="50" colwidth="1.50in"/>
+                    <tbody valign="top">
+                        <row>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">STEP</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">KEY</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">ACTION</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">TEST POINTS</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">YES-IN SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">NO-OUT OF SPEC.</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Off</para>
+                            </entry>
+                            <entry>
+                                <para>Disconnect connector (400) from ECM. Check Inline fuses (217) and (218) for open
+                                    condition.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>Inline fuses (217) and (218).</para>
+                            </entry>
+                            <entry>
+                                <para>Not open.</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate cause of overload condition, then repair. Replace fuses.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>2.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Off</para>
+                            </entry>
+                            <entry>
+                                <para>At terminal 52, circuit 97B, measure voltage to ground.</para>
+                            </entry>
+                            <entry>
+                                <para>(400), 97B to gnd.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate cause of no or low voltage in circuit 97B from cranking motor "B" terminal,
+                                    then repair.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>3.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Off</para>
+                            </entry>
+                            <entry>
+                                <para>At terminal 53, circuit 97C, measure voltage to ground.</para>
+                            </entry>
+                            <entry>
+                                <para>(400), 97C to ground.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate cause of no or low voltage in circuit 97B from cranking motor "B" terminal,
+                                    then repair.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>4.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Off</para>
+                            </entry>
+                            <entry>
+                                <para>At connector (400), measure voltage between terminal 65, circuit 97-GB and
+                                    terminal 52, circuit 97B.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>(400) between 97-GB and 97B.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate open or poor connection in circuit 97-GB between conn. (400) and cylinder
+                                    head ground, then repair.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>5.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Off</para>
+                            </entry>
+                            <entry>
+                                <para>At connector (400), measure voltage between terminal 67, circuit 97-GJ and
+                                    terminal 52, circuit 97B.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>(400) between 97-GJ and 97B.</para>
+                            </entry>
+                            <entry>
+                                <para>12 &#177; 1.5 volts.</para>
+                            </entry>
+                            <entry>
+                                <para>Unswitched battery feed to ECM checks good.</para>
+                            </entry>
+                            <entry>
+                                <para>Locate open or poor connection in circuit 97-GJ between conn. (400) and cylinder
+                                    head ground, then repair.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08191_111.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08191_113.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08191.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

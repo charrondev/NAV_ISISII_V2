@@ -1,0 +1,1872 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>CF 500, CF 600 - Electrical - Module Communications Network - Diagnosis and Testing</stitle>
+    <svcsection/>
+    <svcproc svcproctype="test" graphiccount="21">
+        <title>Diagnosis and Testing</title>
+        <svcprocinfo>
+            <para>Refer to Wiring Diagrams for schematic and connector information.</para>
+            <table id="t1800002">
+                <title>Special Tools</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.16*"/>
+                    <colspec colname="col2" colwidth="0.84*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <graphic filename="../figST1/ST1137A.webp" type="webp" scalefit="1" scalefitwidth="152px"
+                                         scalefitheight="112px"/>
+                            </entry>
+                            <entry>
+                                <para>Automotive Meter</para>
+                                <para>ZTSE4357</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Principles of Operation - Module Communications Network</title>
+            <para>The vehicle has 3 module communications networks:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>controller area network (CAN) J1939.</para>
+                </item>
+                <item>
+                    <para>controller area network (CAN) J2284.</para>
+                </item>
+                <item>
+                    <para>American Trucking Association (ATA) J1587/J1708.</para>
+                </item>
+            </randlist>
+            <para>The diagnostic tool connects to the communications networks through either the data link connector
+                (DLC) or the 9-pin Deutsch connector.
+            </para>
+            <para>The (CAN) J1939 has an unshielded twisted pair cable, data plus circuit 1851 (WH/LG) and data minus
+                circuit 1852 (PK/LG). This communications network is used for the instrument cluster, engine control
+                module (ECM) and the transmission control module (TCM).
+            </para>
+            <para>The (CAN) J2284 has an unshielded twisted pair cable, data plus circuit 1814 (WH/LB) and data minus
+                circuit 1815 (PK/LB). This communications network is used for the anti-lock brake system (ABS) module
+                and the instrument cluster.
+            </para>
+            <para>The CAN networks remain operational, even with the severing of one of the CAN circuits, but operate at
+                a degraded level. Communications also continue at a degraded level if one of the CAN circuits are
+                shorted to ground or voltage, or if some but not all termination resistors are lost.
+            </para>
+            <para>The (ATA) J1587/J1708 has an unshielded twisted pair cable, data plus circuit 914 (TN/OG) and data
+                minus circuit 915 (PK/LB). The ATA communications network is used for the engine control module (ECM)
+                and the injector drive module (IDM).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Inspection and Verification - Module Communications Network</title>
+            <step1>
+                <para count="1">Verify the customer concern.</para>
+            </step1>
+            <step1>
+                <para count="1">Visually inspect the following for obvious signs of mechanical or electrical damage.
+                </para>
+            </step1>
+            <table id="t1800004">
+                <title>Visual Inspection Chart</title>
+                <tgroup cols="2">
+                    <colspec colname="COLSPEC0" colwidth="0.97*"/>
+                    <colspec colname="col2" colwidth="0.95*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Mechanical</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Electrical</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Correct tester program card installed</para>
+                                    </item>
+                                    <item>
+                                        <para>Tester connections to the vehicle</para>
+                                    </item>
+                                    <item>
+                                        <para>Ignition switch position</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Power distribution center fuse(s): 4 (40A), 18 (15A), 20 (60A), 31 (10A),
+                                            35 (15A) or 41 (10A)
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Damaged wiring harness</para>
+                                    </item>
+                                    <item>
+                                        <para>Loose or corroded connector(s)</para>
+                                    </item>
+                                    <item>
+                                        <para>Circuitry open/shorted</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <step1>
+                <para count="1">If no obvious cause of the concern is found during the inspection, connect the
+                    diagnostic tool to the DLC or the Deutsch diagnostic connector. Attempt to communicate with the
+                    module in question. If the diagnostic tool still does not communicate with the module, GO to Symptom
+                    Chart.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If no response from the diagnostic tool, GO to Pinpoint Test C for DLC or GO to Pinpoint
+                    Test D for Deutsch diagnostic connector.
+                </para>
+            </step1>
+            <table id="t1800001" tblwidth="pg-wide">
+                <title>Diagnostic Trouble Code Chart</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="0.59*"/>
+                    <colspec colname="col2" colwidth="1.53*"/>
+                    <colspec colname="col3" colwidth="0.62*"/>
+                    <colspec colname="col4" colwidth="1.24*"/>
+                    <spanspec namest="col1" nameend="col4" spanname="SPAN1"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>DTC</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Description</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Source</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Action</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry align="center">
+                                <para>231</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA Data Communication Link Error</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ECM</para>
+                            </entry>
+                            <entry align="center">
+                                <para>GO to Pinpoint Test B.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>368</para>
+                            </entry>
+                            <entry align="center">
+                                <para>EGR Drive Module/ECM Communication Fault</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ECM</para>
+                            </entry>
+                            <entry align="center">
+                                <para>GO to Pinpoint Test E.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>543</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ECM/IDM Communications Fault</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ECM</para>
+                            </entry>
+                            <entry align="center">
+                                <para>GO to Pinpoint Test E.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1" align="center">
+                                <para>DTCs that start with a "U" are faults which occur during module-to-module
+                                    communication.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Modules should never be replaced based only on a "U" code. These codes do not
+                                    always indicate a problem and can be caused by normal diagnostic functions carried
+                                    out on the vehicle.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>U1900</para>
+                            </entry>
+                            <entry align="center">
+                                <para>CAN Communication Bus Fault - Receive Error</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ABS</para>
+                            </entry>
+                            <entry align="center">
+                                <para>CLEAR the DTCs and REPEAT the self-test. If DTC re-appears, GO to Pinpoint Test
+                                    A.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>U0073</para>
+                            </entry>
+                            <entry align="center">
+                                <para>CAN Bus Off - Transmit Error</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ABS</para>
+                            </entry>
+                            <entry align="center">
+                                <para>CLEAR the DTCs and REPEAT the self-test. If DTC re-appears, GO to Pinpoint Test
+                                    A.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>U0100</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Lost Communication with ECM</para>
+                            </entry>
+                            <entry align="center">
+                                <para>TCM</para>
+                            </entry>
+                            <entry align="center">
+                                <para>CLEAR the DTCs and REPEAT the self-test. If DTC re-appears, GO to Pinpoint Test
+                                    B.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <para></para>
+            <table id="t1800005" tblwidth="pg-wide">
+                <title>Symptom Chart</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.94*"/>
+                    <colspec colname="col2" colwidth="0.90*"/>
+                    <colspec colname="col3" colwidth="1.15*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Condition</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Possible Sources</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Action</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>No module/network communication - ABS</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Fuse(s).</para>
+                                    </item>
+                                    <item>
+                                        <para>Circuit 1814 (WH/LB) or 1815 (PK/LB).</para>
+                                    </item>
+                                    <item>
+                                        <para>ABS internal concern.</para>
+                                    </item>
+                                    <item>
+                                        <para>Worn or damaged DLC.</para>
+                                    </item>
+                                    <item>
+                                        <para>Diagnostic tool internal concern.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>GO to Pinpoint Test A.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>No module/network communication - ECM, TCM, IDM or instrument cluster</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Fuse(s).</para>
+                                    </item>
+                                    <item>
+                                        <para>Circuitry.</para>
+                                    </item>
+                                    <item>
+                                        <para>Worn or damaged Deutsch diagnostic connector.</para>
+                                    </item>
+                                    <item>
+                                        <para>ECM internal concern.</para>
+                                    </item>
+                                    <item>
+                                        <para>TCM internal concern.</para>
+                                    </item>
+                                    <item>
+                                        <para>IDM internal concern.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster internal concern.</para>
+                                    </item>
+                                    <item>
+                                        <para>Diagnostic tool internal concern.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test B.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>No module/network communication - no power to the diagnostic tool at the DLC or
+                                    Deutsch connector
+                                </para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Fuse(s).</para>
+                                    </item>
+                                    <item>
+                                        <para>Circuit 57 (BK) open.</para>
+                                    </item>
+                                    <item>
+                                        <para>Worn or damaged DLC or Deutsch diagnostic connector.</para>
+                                    </item>
+                                    <item>
+                                        <para>Diagnostic tool internal concern.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>For DLC, Go to Pinpoint Test C.</para>
+                                <para>For Deutsch diagnostic connector, Go to Pinpoint Test D.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Pinpoint Tests - Module Communications Network</title>
+            <para>
+                <emph type="italic">Pinpoint Test A: No Module/Network Communication - ABS</emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>The ABS module is powered through power distribution center fuse 20 (60A), circuit 601 (LB/PK) and
+                communicates through the CAN J2284 network circuits 1814 (WH/LB) and 1815 (PK/LB). If one of the bus
+                wires becomes shorted to ground or voltage, or if some but not all termination resistors are lost,
+                communications can continue at a degraded level. The instrument cluster serves as a communications
+                network gateway between the ABS (CAN J2284) and ECM (CAN J1939).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Fuse(s).</para>
+                </item>
+                <item>
+                    <para>Circuits 1814 (WH/LB) or 1815 (PK/LB), shorted to ground or open</para>
+                </item>
+                <item>
+                    <para>DLC C251</para>
+                </item>
+                <item>
+                    <para>ABS C135</para>
+                </item>
+                <item>
+                    <para>ABS internal concern</para>
+                </item>
+            </randlist>
+            <table id="t1800050" tblwidth="pg-wide">
+                <title>PINPOINT TEST A: NO MODULE/NETWORK COMMUNICATION - ABS</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A1 CHECK FOR SHORT TO BATTERY ON DIAGNOSTIC LINK</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage at DLC connector C251-6, circuit 1814 (WH/LB) and
+                                            C251-14, circuit 1815 (PK/LB).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025045.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage at battery voltage present?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>REPAIR the circuit. TEST the system for normal operation.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>GO to A2.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A2 CHECK FOR SHORT TO GROUND ON DIAGNOSTIC LINK</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the resistance to ground at DLC connector C251-6, circuit 1814
+                                            (WH/LB) and C251-14, circuit 1815 (PK/LB).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025046.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance greater than 10,000 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to A3.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR the circuit. TEST the system for normal operation.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A3 TEST CONTINUITY OF THE ABS DIAGNOSTIC LINK</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            ABS C135.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ABS C135-3, circuit 1814 (WH/LB) and DLC
+                                            C251-6, circuit 1814 (WH/LB).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025047.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the resistance between ABS C135-18, circuit 1815 (PK/LB) and DLC
+                                            C251-14, circuit 1815 (PK/LB).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025048.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance more than 5 ohms for either measurement?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>REPAIR circuit. TEST the system for normal operation.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>GO to A4.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A4 CHECK FOR CORRECT MODULE OPERATION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Disconnect all the module connectors.</para>
+                                    </item>
+                                    <item>
+                                        <para>Check for:</para>
+                                        <randlist type="dash">
+                                            <item>
+                                                <para>corrosion.</para>
+                                            </item>
+                                            <item>
+                                                <para>pushed-out pins.</para>
+                                            </item>
+                                        </randlist>
+                                    </item>
+                                    <item>
+                                        <para>Connect all the module connectors and make sure they seat correctly.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Operate the system and verify the concern is still present.</para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is the concern still present?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new ABS module. Refer to
+                                    <exhotlnk document="../S04/S04049.htm" bookname="S04049">Anti-Lock Control in
+                                        S04049</exhotlnk>. TEST the system for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>The system is operating correctly at this time. The concern may have been caused
+                                    by a loose or corroded connector. CLEAR the diagnostic trouble codes (DTCs). REPEAT
+                                    the self-test.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test B: No Module/Network Communication - ECM, TCM, IDM Or Instrument
+                    Cluster
+                </emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>The ECM and IDM modules communicate through the ATA J1708 network through circuits 914 (TN/OG)/832
+                (LB/PK) and 915 (PK/LB)/830 (TN). If one of the ATA bus wires becomes open, shorted to ground or
+                voltage, ATA network communication is no longer possible. The ECM, TCM and instrument cluster modules
+                communicate through the CAN J1939 network through circuits 1851 (WH/LG) and 1852 (PK/LG). If one of the
+                bus wires becomes shorted to ground or voltage, communications can continue at a degraded level.
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Circuits 1814 (WH/LB) or 1815 (PK/LB), shorted to ground or open</para>
+                </item>
+                <item>
+                    <para>Circuits 914 (TN/OG)/832 (LB/PK) or 915 (PK/LB)/830 (TN), shorted to ground or open</para>
+                </item>
+                <item>
+                    <para>Deutsch diagnostic connector C2173</para>
+                </item>
+                <item>
+                    <para>ECM C175a or C175b</para>
+                </item>
+                <item>
+                    <para>TCM C168</para>
+                </item>
+                <item>
+                    <para>IDM C1174c</para>
+                </item>
+                <item>
+                    <para>Instrument cluster C220b</para>
+                </item>
+                <item>
+                    <para>Instrument cluster internal concern</para>
+                </item>
+                <item>
+                    <para>ECM internal concern</para>
+                </item>
+                <item>
+                    <para>TCM internal concern</para>
+                </item>
+                <item>
+                    <para>IDM internal concern</para>
+                </item>
+            </randlist>
+            <table id="t1800051" tblwidth="pg-wide">
+                <title>PINPOINT TEST B: NO MODULE/NETWORK COMMUNICATION - ECM, TCM, IDM OR INSTRUMENT CLUSTER</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">B1 CHECK FOR A SHORT TO BATTERY ON THE DIAGNOSTIC LINK</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage at engine diagnostic connector C2173-F, circuit 914
+                                            (TN/OG) and C2173-G, circuit 915 (PK/LB).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../figa00/a0066565.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the voltage at engine diagnostic connector C2173-C, circuit 1851
+                                            (WH/LG) and C2173-D, circuit 1852 (PK/LG).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025049.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage greater than 10 volts on either measurement?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>REPAIR the short to battery. TEST the system for normal operation.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>GO to B2.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">B2 CHECK FOR A SHORT TO GROUND ON THE DIAGNOSTIC LINK</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance to ground at engine diagnostic connector C2173-F,
+                                            circuit 914 (TN/OG) and C2173-G, circuit 915 (PK/LB).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../figa00/a0066566.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the resistance to ground at engine diagnostic connector C2173-C,
+                                            circuit 1851 (WH/LG) and C2173-D, circuit 1852 (PK/LG).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025066.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>REPAIR the short to ground on the diagnostic link. TEST the system for normal
+                                    operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>For ECM, GO to B3.</para>
+                                <para>For TCM, GO to B4.</para>
+                                <para>For IDM, GO to B5.</para>
+                                <para>For instrument cluster, GO to B6.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">B3 CHECK THE CONTINUITY OF THE ECM DIAGNOSTIC LINK</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>ECM C175a.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>ECM C175b.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ECM C175a-20, circuit 914 (TN/OG) and
+                                            engine diagnostic connector C2173-F, circuit 914 (TN/OG); and measure the
+                                            resistance between ECM C175a-21, circuit 915 (PK/LB) and engine diagnostic
+                                            C2173-G, circuit 915 (PK/LB).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025050.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the resistance between ECM C175b-12, circuit 1851 (WH/LG) and
+                                            engine diagnostic C2173-C, circuit 1851 (WH/LG); and measure the resistance
+                                            between ECM C175b-13, circuit 1852 (PK/LG) and engine diagnostic C2173-D,
+                                            circuit 1852 (PK/LG).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025051.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance more than 5 ohms for any measurement?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>REPAIR the high resistance concern on the affected circuit.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>GO to B7.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">B4 CHECK THE CONTINUITY OF THE TCM DIAGNOSTIC LINK</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            TCM C168.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between TCM C168-9, circuit 1851 (WH/LG) and engine
+                                            diagnostic connector C2173-C, circuit 1851 (WH/LG)
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025052.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the resistance between TCM C168-8, circuit 1852 (PK/LG) and engine
+                                            diagnostic connector C2173-D, circuit 1852 (PK/LG).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025053.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance greater than 5 ohms for either circuit?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>REPAIR the high resistance concern on the affected circuit. TEST the system for
+                                    normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>GO to B7.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">B5 TEST THE CONTINUITY OF THE IDM DIAGNOSTIC LINK</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            IDM C1174c.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between IDM C1174c-28, circuit 832 (LB/PK) and
+                                            engine diagnostic connector C2173-F, circuit 914 (TN/OG).
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between IDM C1174c-29, circuit 830 (TN) and engine
+                                            diagnostic connector C2173-G, circuit 915 (PK/LB).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms for both measurements?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to B7.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR the high resistance in the diagnostic link. TEST the system for normal
+                                    operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">B6 TEST THE CONTINUITY OF THE INSTRUMENT CLUSTER DIAGNOSTIC LINK
+                                    </emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Instrument Cluster C220b.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between instrument cluster C220b-17, circuit 1851
+                                            (WH/LG) and engine diagnostic connector C2173-C, circuit 1851 (WH/LG); and
+                                            measure the resistance between instrument cluster C220b-16, circuit 1852
+                                            (PK/LG) and engine diagnostic C2173-D, circuit 1852 (PK/LG).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025054.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the resistance between instrument cluster C220b-15, circuit 1814
+                                            (WH/LB) and DLC C251-6, circuit 1814 (WH/LB); and measure the resistance
+                                            between instrument cluster C220b-14, circuit 1815 (PK/LB) and DLC C251-14,
+                                            circuit 1815 (PK/LB).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025055.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms for all measurements?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to B7.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR the high resistance in the diagnostic link. TEST the system for normal
+                                    operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">B7 CHECK FOR CORRECT MODULE OPERATION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Disconnect all the module connectors.</para>
+                                    </item>
+                                    <item>
+                                        <para>Check for:</para>
+                                        <randlist type="dash">
+                                            <item>
+                                                <para>corrosion.</para>
+                                            </item>
+                                            <item>
+                                                <para>pushed-out pins.</para>
+                                            </item>
+                                        </randlist>
+                                    </item>
+                                    <item>
+                                        <para>Connect all the module connectors and make sure they seat correctly.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Operate the system and verify the concern is still present.</para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is the concern still present?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new module. Follow the manufacturer's instructions. TEST the system for
+                                    normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>The system is operating correctly at this time. The concern may have been caused
+                                    by a loose or corroded connector. CLEAR the diagnostic trouble codes (DTCs). REPEAT
+                                    the self-test.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test C: No Module/Network Communication - No Power To The Diagnostic Tool
+                    At The DLC
+                </emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, the diagnostic tool is connected to the DLC C251 to communicate with the CAN
+                J2284 network. If communication cannot be established, the diagnostic tool and DLC C251 must be checked
+                for damage. If the diagnostic tool and DLC C251 are OK, power distribution center fuse 31 (10A) and
+                circuit 391 (RD/YE) must be checked for voltage and 57 (BK) must be checked for an open condition.
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Fuse(s).</para>
+                </item>
+                <item>
+                    <para>Circuit 57 (BK) open</para>
+                </item>
+                <item>
+                    <para>Worn or damaged DLC diagnostic connector C251</para>
+                </item>
+                <item>
+                    <para>Diagnostic tool internal concern</para>
+                </item>
+            </randlist>
+            <table id="t1800052" tblwidth="pg-wide">
+                <title>PINPOINT TEST C: NO MODULE/NETWORK COMMUNICATION - NO POWER TO THE DIAGNOSTIC TOOL AT THE DLC
+                </title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">C1 CHECK DLC C251 FOR DAMAGE</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Inspect the DLC C251 pins for damage.</para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../figGK2/GK2633A.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Are the pins OK?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to C2.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR DLC C251. TEST the system for normal operation.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">C2 CHECK THE VOLTAGE TO THE DLC C251 PIN 16, CIRCUIT 391 (RD/YE)
+                                    </emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the voltage to the DLC C251-16, circuit 391 (RD/YE).</para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../figGK2/GK2634A.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage greater than 10 volts?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to C3.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>VERIFY the power distribution center (PDC) fuse 31 (10A) is OK. If OK, REPAIR
+                                    circuit 391 (RD/YE). TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">C3 CHECK THE DLC GROUNDS - CIRCUIT 57 (BK)</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the resistance to ground at DLC C251-4, circuit 57 (BK), and DLC
+                                            C251-5, circuit 57 (BK).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../figGK4/GK4963A.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Are the resistances less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>CHECK the diagnostic tool. TEST the system for normal operation.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 57 (BK). TEST the system for normal operation.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test D: No Module/Network Communication - No Power To The Diagnostic Tool
+                    At The Deutsch Diagnostic Connector
+                </emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, the diagnostic tool is connected to the Deutsch connector to communicate with
+                the CAN J1939 and ATA J1708 networks. If communication cannot be established, the diagnostic tool and
+                Deutsch connector C2173 must be checked for damage. If the diagnostic tool and C2173 are OK, power
+                distribution center fuse 31 (10A) and circuit 391 (RD/YE) must be checked for voltage and 57 (BK) must
+                be checked for an open condition.
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Fuse(s).</para>
+                </item>
+                <item>
+                    <para>Circuit 57 (BK) open</para>
+                </item>
+                <item>
+                    <para>Worn or damaged Deutsch diagnostic connector C2173</para>
+                </item>
+                <item>
+                    <para>Diagnostic tool internal concern</para>
+                </item>
+            </randlist>
+            <table id="t1800053" tblwidth="pg-wide">
+                <title>PINPOINT TEST D: NO MODULE/NETWORK COMMUNICATION - NO POWER TO THE DIAGNOSTIC TOOL AT THE DEUTSCH
+                    DIAGNOSTIC CONNECTOR
+                </title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">D1 CHECK THE DEUTSCH DIAGNOSTIC CONNECTOR C2173 FOR DAMAGE</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Inspect the engine diagnostic connector C2173 pins for damage.</para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../figa00/a0067239.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Are the pins OK?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to D2.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR engine diagnostic connector C2173. TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">D2 CHECK CIRCUIT 391 (RD/YE) FOR VOLTAGE</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the voltage at engine diagnostic connector C2173-B, circuit 391
+                                            (RD/YE).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../figa00/a0067238.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage greater than 10 volts?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to D3.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>VERIFY the power distribution center (PDC) is OK. If OK, REPAIR circuit 391
+                                    (RD/YE). TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">D3 CHECK CIRCUIT 57 (BK) FOR GROUND</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the resistance to ground at engine diagnostic connector C2173-A,
+                                            circuit 57 (BK).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../figa00/a0067237.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>CHECK the diagnostic tool. TEST the system for normal operation.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 57 (BK). TEST the system for normal operation.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test E: No Module/Network Communication - IDM, ECM, EGR Drive Module CAN2
+                    Network Error
+                </emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>The CAN2 link is a private communication link used only between the ECM, IDM and EGR drive module.
+                There is no relation to the CAN J1939 link that is used for communication with various processors on a
+                vehicle. The CAN2 network consists of circuit 69 and circuit 70. If one of these bus wires becomes open,
+                shorted to ground or voltage, CAN2 network communication is no longer possible and may result in a
+                no-start condition for the vehicle.
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Circuit 69 or 70 open, shorted to ground or shorted to power</para>
+                </item>
+                <item>
+                    <para>IDM power feed circuit 1832 (DB/LG) open</para>
+                </item>
+                <item>
+                    <para>ECM internal concern</para>
+                </item>
+                <item>
+                    <para>IDM internal concern</para>
+                </item>
+                <item>
+                    <para>EGR drive module internal concern</para>
+                </item>
+            </randlist>
+            <table id="t1800054" tblwidth="pg-wide">
+                <title>PINPOINT TEST E: NO MODULE/NETWORK COMMUNICATION - IDM, ECM, EGR DRIVE MODULE CAN2 NETWORK
+                    ERROR
+                </title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E1 CHECK FOR A NO-START CONDITION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in START position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Attempt to start the engine.</para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Does the vehicle engine start?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to E2.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>GO to E4.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E2 CHECK FOR AN OPEN IN CIRCUIT 69 OR 70</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            EGR Drive Module C1450
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            ECM C175d
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between EGR drive module C1450-3, circuit 69 and
+                                            ECM C175d-6, circuit 69.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between EGR drive module C1450-4, circuit 70 and
+                                            ECM C175d-13, circuit 70.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Are both resistances less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to E3.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR the circuit. TEST the system for normal operation.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E3 CHECK FOR CORRECT MODULE OPERATION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Inspect the EGR drive module C1450.</para>
+                                    </item>
+                                    <item>
+                                        <para>Check for:</para>
+                                        <randlist type="dash">
+                                            <item>
+                                                <para>corrosion.</para>
+                                            </item>
+                                            <item>
+                                                <para>pushed-out pins.</para>
+                                            </item>
+                                        </randlist>
+                                    </item>
+                                    <item>
+                                        <para>Connect EGR drive module C1450 and make sure it is seated correctly.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Operate the system and verify the concern is still present.</para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is the concern still present?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new EGR drive module. Follow the manufacturer's instructions. TEST the
+                                    system for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>The system is operating correctly at this time. The concern may have been caused
+                                    by a loose or corroded connector. CLEAR the diagnostic trouble codes (DTCs). REPEAT
+                                    the self-test.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E4 CHECK CIRCUIT 69 AND 70 FOR A SHORT TO BATTERY</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            ECM175d.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage at ECM C175d-6, circuit 69 and ECM C175d-13, circuit
+                                            70.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is battery voltage present on either circuit?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to E5.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>GO to E7.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E5 VERIFY THE EGR DRIVE MODULE OPERATION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            EGR Drive Module C1450.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage at ECM C175d-6, circuit 69 and ECM C175d-13, circuit
+                                            70.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is battery voltage present on either circuit?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to E6.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>INSTALL a new EGR drive module. Follow the manufacturer's instructions. TEST the
+                                    system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E6 VERIFY IDM OPERATION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            IDM C1174c.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage at ECM C175d-6, circuit 69 and ECM C175d-13, circuit
+                                            70.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is battery voltage present on either circuit?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>REPAIR the circuit. TEST the system for normal operation.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>INSTALL a new IDM drive module. Follow the manufacturer's instructions. TEST the
+                                    system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E7 CHECK CIRCUIT 69 AND 70 FOR A SHORT TO GROUND</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ECM C175d-6, circuit 69 and ECM C175d-13,
+                                            circuit 70.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is less than 10,000 ohms resistance to ground present on either
+                                        circuit?
+                                    </emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to E8.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>GO to E10.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E8 VERIFY THE EGR DRIVE MODULE OPERATION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            EGR Drive Module C1450.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance to ground at ECM C175d-6, circuit 69 and ECM
+                                            C175d-13, circuit 70.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is less than 10,000 ohms resistance to ground present on either
+                                        circuit?
+                                    </emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to E9.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>INSTALL a new EGR drive module. Follow the manufacturer's instructions. TEST the
+                                    system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E9 VERIFY IDM OPERATION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            IDM C1174c.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance to ground at ECM C175d-6, circuit 69 and ECM
+                                            C175d-13, circuit 70.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is less than 10,000 ohms resistance to ground present on either
+                                        circuit?
+                                    </emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>REPAIR the circuit. TEST the system for normal operation.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>INSTALL a new IDM drive module. Follow the manufacturer's instructions. TEST the
+                                    system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E10 CHECK CIRCUIT 69 AND 70 FOR AN OPEN CIRCUIT</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            IDM C1174c.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ECM C175d-6, circuit 69 and IDM C1174c-30,
+                                            circuit 69.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ECM C175d-13, circuit 70and IDM C1174c-31,
+                                            circuit 70.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is resistance less than 5 ohms on both measurements?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to E11.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR the circuit. TEST the system for normal operation.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E11 CHECK CIRCUIT 1832 (DB/LG) FOR AN OPEN CIRCUIT</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage between IDM C1450-1, circuit 1832 (DB/LG) and
+                                            ground.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is the voltage greater than 10 volts?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to E12.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>VERIFY the power distribution center (PDC) fuse 41 (10A) is OK. If OK, REPAIR the
+                                    circuit. TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E12 CHECK FOR CORRECT MODULE OPERATION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Inspect the IDM C1174c and ECM C175d.</para>
+                                    </item>
+                                    <item>
+                                        <para>Check for:</para>
+                                        <randlist type="dash">
+                                            <item>
+                                                <para>corrosion.</para>
+                                            </item>
+                                            <item>
+                                                <para>pushed-out pins.</para>
+                                            </item>
+                                        </randlist>
+                                    </item>
+                                    <item>
+                                        <para>Connect IDM C1174c and ECM C175d and make sure they are seated
+                                            correctly.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Operate the system and verify the concern is still present.</para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is the concern still present?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new IDM module. Follow the manufacturer's instructions. TEST the system
+                                    for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>The system is operating correctly at this time. The concern may have been caused
+                                    by a loose or corroded connector. CLEAR the diagnostic trouble codes (DTCs). REPEAT
+                                    the self-test.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08307_58.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08307_X4191046.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08307.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

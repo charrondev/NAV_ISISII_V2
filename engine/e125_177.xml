@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (1997) - SECTION 3.5: CIRCUIT FUNCTION AND DIAGNOSTICS - VPM COMMUNICATIONS
+        (DATA COMMUNICATIONS LINK, ATA LINK) - ECM DIAGNOSTICS
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="proctype" graphiccount="0">
+        <title>ECM DIAGNOSTICS</title>
+        <svcprocinfo>
+            <para>Flash codes that can be caused by defects occurring in the ATA or DCL circuits are discussed in this
+                section. There are also Flash Codes related to or caused by faulty communication (corrupt or invalid
+                data transmitted between the ECM and VPM), that are discussed in this section.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>EST CONNECTOR (384)</title>
+            <para>The engine control system
+                <emph type="underscr">does not detect</emph>
+                faults in the power or ground circuits to EST connector (384). If the service tool does not power up
+                when connected, try the service tool on another vehicle if one is available to determine if the service
+                tool is working properly. If the service tool is OK, then perform Testing EST Connector (384) Power and
+                Ground Circuits (
+                <emph type="bold">Figure
+                    <hotlnk document="e125_181.xml" xrefid="ef1251831">3.38</hotlnk>
+                </emph>
+                ).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EST DISPLAYS</title>
+            <para>Should the EST display NO DATA, the ATA data link circuit from the EST connector to the VPM may be
+                disrupted. Verify that the key is ON and then perform Testing The ATA Data Link Circuits (
+                <emph type="bold">Figure
+                    <hotlnk document="e125_182.xml" xrefid="ef1251832">3.39</hotlnk>,
+                    <hotlnk document="e125_182.xml" xrefid="ef1251833">3.40</hotlnk>
+                    and
+                    <hotlnk document="e125_182.xml" xrefid="ef1251834">3.41</hotlnk>
+                </emph>
+                ).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT CODES -
+                <emph type="bold">FLASH CODE</emph>223 -
+                <emph type="bold">ATA CODE SID 252 FMI 7</emph>
+                - VPM NOT COMMUNICATING WITH ECM
+            </title>
+            <para>
+                <emph type="bold">Symptom:</emph>Flash code 223 causes the engine to operate in Field Defaults, which
+                turns the Engine Warning Light ON. When Field Defaults are being used by the ECM, Flash Code 622 also is
+                set. If the condition causing code 223 is intermittent, and the condition is no longer present, the code
+                will change to an inactive code, and the engine will resume normal operation.
+            </para>
+            <para>
+                <emph type="bold">Wiring Causes:</emph>
+                DCL circuits 97AS and/or 97AT between the ECM and VPM: shorted Low or High or Open.
+            </para>
+            <para>If code 223 is active:</para>
+            <step1>
+                <para count="1">Perform TESTING DCL CIRCUITS (
+                    <emph type="bold">Figure
+                        <hotlnk document="e125_183.xml" xrefid="ef1251835">3.42</hotlnk>
+                        and
+                        <hotlnk document="e125_183.xml" xrefid="ef1251836">3.43</hotlnk>
+                    </emph>
+                    ).
+                </para>
+                <step2>
+                    <para count="1">If defect is found in DCL circuit, correct defect.</para>
+                </step2>
+                <step2>
+                    <para count="1">If the DCL circuits (97AT and 97AS) check good, replace the VPM.</para>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>
+                <emph type="bold">FLASH CODE</emph>231 -
+                <emph type="bold">ATA CODE SID 250 FMI 2</emph>
+                -
+                <emph type="bold">VPM:</emph>ATA COMMON FAULT
+            </title>
+            <para>
+                <emph type="bold">SYMPTOM:</emph>Code 231
+                <emph type="bold">does not</emph>
+                turn Engine Warning light ON. This code can occur when the VPM can't access the ATA data link. If this
+                occurs, there will not be any ATA data available at the electronic service tool (EST). The code can be
+                "flashed" using the STI switch located on the instrument panel.
+            </para>
+            <para>
+                <emph type="bold">WIRING CAUSES:</emph>ATA positive or negative circuits between EST and VPM and any
+                other electronic devices (transmissions, brakes etc.) using the ATA bus: Shorted (high or low), open, or
+                busy (too many devices).
+            </para>
+            <para>If code 231 is active:</para>
+            <step1>
+                <para count="1">Perform Testing the ATA Data Link Circuits (
+                    <emph type="bold">Figure
+                        <hotlnk document="e125_182.xml" xrefid="ef1251832">3.39</hotlnk>,
+                        <hotlnk document="e125_182.xml" xrefid="ef1251833">3.40</hotlnk>
+                        and
+                        <hotlnk document="e125_182.xml" xrefid="ef1251834">3.41</hotlnk>
+                    </emph>
+                    ).
+                </para>
+                <step2>
+                    <para count="1">If defect is found in ATA circuits, correct defect.</para>
+                </step2>
+                <step2>
+                    <para count="1">If defect is not found in ATA circuits, investigate SYSTEM CAUSES.</para>
+                    <para>
+                        <emph type="bold">SYSTEM CAUSES:</emph>System causes can include:
+                    </para>
+                    <seqlist style="alphauc">
+                        <item>
+                            <para>A defective ATA device (such as transmission controller or antilock brake controller)
+                                connected to the ATA bus is pulling the signal to ground.
+                            </para>
+                        </item>
+                        <item>
+                            <para>Too many ATA devices, although this would be rare.</para>
+                        </item>
+                        <item>
+                            <para>If no system causes are present, replace the VPM.</para>
+                        </item>
+                    </seqlist>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>
+                <emph type="bold">FLASH CODE</emph>232 -
+                <emph type="bold">ATA CODE SID 250 FMI 9</emph>
+                -
+                <emph type="bold">VPM:</emph>UNABLE TO FORWARD ECM MESSAGE TO ATA DCL
+            </title>
+            <para>
+                <emph type="bold">SYMPTOM:</emph>There are no ECM replies to requests from the EST or VPM. Flash Code
+                232
+                <emph type="bold">does not</emph>
+                turn the Engine Warn Light ON.
+            </para>
+            <para>
+                <emph type="bold">WIRING CAUSES:</emph>The positive and/or negative ATA data link circuits between the
+                EST and VPM (or other devices installed using the ATA link): Shorted High or Low or Open.
+            </para>
+            <para>If code 232 is active:</para>
+            <step1>
+                <para count="1">Perform Testing the ATA Data Link Circuits (
+                    <emph type="bold">Figure
+                        <hotlnk document="e125_182.xml" xrefid="ef1251832">3.39</hotlnk>,
+                        <hotlnk document="e125_182.xml" xrefid="ef1251833">3.40</hotlnk>
+                        and
+                        <hotlnk document="e125_182.xml" xrefid="ef1251834">3.41</hotlnk>
+                    </emph>
+                    ).
+                </para>
+                <step2>
+                    <para count="1">A. If wiring defect is found, correct defect.</para>
+                </step2>
+                <step2>
+                    <para count="1">B. If no wiring defects are found, investigate System Causes.</para>
+                    <para>
+                        <emph type="bold">SYSTEM CAUSES:</emph>Code 232 can occur when the ECM is sending more messages
+                        than the VPM can transmit on the ATA bus. This can be caused by:
+                    </para>
+                    <seqlist style="alphauc">
+                        <item>
+                            <para>A defective ATA device (such as transmission controller or antilock brake controller)
+                                connected to the ATA bus pulling the signal to ground.
+                            </para>
+                        </item>
+                        <item>
+                            <para>Too many ATA devices or an incompatible ATA device has been connected to the ATA
+                                bus.
+                            </para>
+                        </item>
+                        <item>
+                            <para>May be caused by code 231 occurring.</para>
+                        </item>
+                        <item>
+                            <para>If none of the system causes are present, replace the VPM.</para>
+                        </item>
+                    </seqlist>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>
+                <emph type="bold">FLASH CODE</emph>234 -
+                <emph type="bold">ATA CODE SID 248 FMI 9</emph>
+                -
+                <emph type="bold">VPM:</emph>UNABLE TO FORWARD ATA MESSAGE TO ECM.
+            </title>
+            <para>
+                <emph type="bold">SYMPTOM:</emph>There are no ECM replies to requests from the EST or VPM. There is NO
+                Engine Warning Light. Code 223 may also be present.
+            </para>
+            <specpara>
+                <note>
+                    <para>Code 234 can be set by connecting the EST when the key is OFF. If the key was recently turned
+                        off, the VPM may still be powered. The VPM can stay on for up to 30 minutes after turning the
+                        key off. If the prolink is connected (key off), the VPM will unsuccessfully request data from
+                        the ECM, which is not powered with the key off. If this occurs, turn the key on and clear the
+                        codes.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <emph type="bold">WIRING CAUSES:</emph>DCL positive or negative circuits (97AT and/or 97AS): Shorted
+                High or Low or open between ECM and VPM.
+            </para>
+            <para>If code 234 is active:</para>
+            <step1>
+                <para count="1">Verify that ignition key is ON.</para>
+            </step1>
+            <step1>
+                <para count="1">Perform Testing DCL Data Link Circuits (
+                    <emph type="bold">Figure
+                        <hotlnk document="e125_183.xml" xrefid="ef1251835">3.42</hotlnk>
+                        and
+                        <hotlnk document="e125_183.xml" xrefid="ef1251836">3.43</hotlnk>
+                    </emph>
+                    ).
+                </para>
+                <step2>
+                    <para count="1">If defect is found in DCL, correct defect.</para>
+                </step2>
+                <step2>
+                    <para count="1">If no defects are in DCL, replace the ECM.</para>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>
+                <emph type="bold">FLASH CODE</emph>235 -
+                <emph type="bold">ATA CODE SID 248 FMI 2</emph>
+                -
+                <emph type="bold">VPM:</emph>VPM/ECM DCL FAULT
+            </title>
+            <para>
+                <emph type="bold">SYMPTOM:</emph>There are no ECM diagnostic replies to requests from the EST or VPM.
+                Engine Warning Light OFF. If the condition causing code 235 to set is intermittent and the condition is
+                no longer present, the code will go to inactive status.
+            </para>
+            <para>
+                <emph type="bold">WIRING CAUSES:</emph>
+                DCL circuits 97AT and/or 97AS are: shorted High or Low or Open between VPM and ECM.
+            </para>
+            <para>If code 235 is active, Perform Testing DCL Data Link Circuits (
+                <emph type="bold">Figure
+                    <hotlnk document="e125_183.xml" xrefid="ef1251835">3.42</hotlnk>
+                    and
+                    <hotlnk document="e125_183.xml" xrefid="ef1251836">3.43</hotlnk>
+                </emph>
+                ).
+            </para>
+            <step1>
+                <para count="1"></para>
+                <step2>
+                    <para count="1">If wiring defect is found, correct defect.</para>
+                </step2>
+                <step2>
+                    <para count="1">If wiring defect is not found, replace the ECM.</para>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>
+                <emph type="bold">FLASH CODE</emph>633 -
+                <emph type="bold">ATA CODE SID 252 FMI 2</emph>
+                -
+                <emph type="bold">ECM:</emph>ECM/VPM COMMON FAULT
+            </title>
+            <para>
+                <emph type="bold">SYMPTOM:</emph>The engine operates on Field Defaults turning the Engine Warning Light
+                ON and setting code 622.
+            </para>
+            <para>This code indicates that the ECM and VPM are communicating incorrectly. The message from the VPM
+                contains bad data, or the VPM takes too long to respond to ECM requests for data. If this code is caused
+                by an intermittent condition, and the condition is no longer present, the code will become inactive and
+                normal engine operation will resume.
+            </para>
+            <para>
+                <emph type="bold">WIRING CAUSES:</emph>DCL circuits 97AT or 97AS between ECM and VPM are: shorted Low,
+                High or Open.
+            </para>
+            <para>If code 633 is active:</para>
+            <step1>
+                <para count="1">Perform Testing DCL Data Link Circuits (
+                    <emph type="bold">Figure
+                        <hotlnk document="e125_183.xml" xrefid="ef1251835">3.42</hotlnk>
+                        and
+                        <hotlnk document="e125_183.xml" xrefid="ef1251836">3.43</hotlnk>
+                    </emph>
+                    ).
+                </para>
+                <step2>
+                    <para count="1">If defect is found in DCL, correct.</para>
+                </step2>
+                <step2>
+                    <para count="1">If there are no defects in the DCL, refer to codes 613 and 614 and verify that the
+                        ECM and VPM have the correct software versions. If the software versions are correct, replace
+                        the VPM.
+                    </para>
+                </step2>
+            </step1>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_176.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_178.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

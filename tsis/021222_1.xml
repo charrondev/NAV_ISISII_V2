@@ -1,0 +1,975 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>TSI 02-12-22 - Diagnostic Tests for Fuel Injector Scuffing</stitle>
+    <tsi id="fracturedConnectingRod" tsitype="engine">
+        <tsinumber>02-12-22</tsinumber>
+        <tsidate>September 2002</tsidate>
+        <subjectfile>Engine</subjectfile>
+        <subjectgroup>
+            <subject>Diagnostic Tests for Fuel Injector Scuffing</subject>
+        </subjectgroup>
+        <apply>
+            <configure>
+                <engfamgroup/>
+
+                <engfam>T 444E</engfam>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <title>Fuel Injector Scuffing and Master Diagnostics</title>
+                <para>Scuffing on the surface of the fuel injector plunger affects the injector's ability to perform
+                    within an acceptable range of accuracy. Diagnosing scuffed fuel injectors can be very difficult,
+                    especially if the injector is not severely scuffed. Using the EZ-Tech&#8482; service tool and Master
+                    Diagnostics&#8482; software will simplify the diagnostics procedure.
+                </para>
+                <para>
+                    <title>Condition:</title>Internal fuel injector scuffing can occur on electronically controlled fuel
+                    injectors. To be aware of this condition, you need to know the symptoms and diagnostic procedures.
+                </para>
+                <para>Fuel injector scuffing causes the following associated symptoms:</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Slight engine miss at low to mid range operation</para>
+                    </item>
+                    <item>
+                        <para>Low power (severe scuffing)</para>
+                    </item>
+                    <item>
+                        <para>Audible misfire produced at lower engine loads, but usually not detectable during heavy
+                            load operation
+                        </para>
+                    </item>
+                    <item>
+                        <para>Some smoke possible on engines with two or more scuffed injectors</para>
+                    </item>
+                </randlist>
+                <para>Contributing factors for injector scuffing include water or fuel contamination, low fuel
+                    lubricity, and debris in the fuel system.
+                </para>
+                <specpara>
+                    <note>
+                        <para>If a fuel injector with the wrong part number is installed, incorrect diagnostic data will
+                            result. Make sure the correct fuel injectors are installed.
+                        </para>
+                    </note>
+                </specpara>
+                <para>
+                    <title>Current Status:</title>Current production and service part fuel injectors have a tungsten
+                    carbide coating on the barrels and plungers. This coating helps to prevent wear caused by water and
+                    other contaminants in the fuel system.
+                </para>
+            </geninfo>
+        </description>
+        <svcproc>
+            <title>Cylinder Contribution Test</title>
+            <svcprocinfo>
+                <para>The cylinder contribution test (CCT) is designed to detect problems with injection and combustion
+                    events by analyzing the individual contributions of each power cylinder. Its primary function is to
+                    detect a bad fuel injector, but it will also detect other problems (valves, push rods, pistons,
+                    piston rings, etc) that could affect the overall performance of the power cylinders. Further
+                    diagnostic testing outside the scope of this bulletin may be necessary to resolve mechanical issues.
+                </para>
+                <para>There may be two stages of the CCT, depending on the ECM version
+                    <xref refid="svcproc001"/>. Severe cases of fuel injector scuffing will usually set a DTC during the
+                    first stage of the test. The second stage can only be performed on an engine that has an ECM with
+                    the ability to perform both stages. With the second stage, the CCT becomes more sensitive and will
+                    set a DTC for less severe cases of scuffing, but it is still possible that a misfire will not set a
+                    DTC. Under these circumstances, an EZ-Tech&#8482; service tool and Master Diagnostics&#8482;
+                    software will be necessary.
+                </para>
+                <figure id="tsi001" figsize="pg-wide">
+                    <graphic filename="../tsifigures/eg8817.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                             resolution="96" box="no"/>
+                    <caption>Figure 1. Good Cylinder Contribution Test Recording (First Stage)</caption>
+                </figure>
+            </svcprocinfo>
+            <svcsubproc>
+                <title>First Stage</title>
+                <para>Some key areas to examine on the graphical display of the CCT are as follows
+                    <xref refid="tsi001"/>:
+                </para>
+                <step1>
+                    <para count="1">When the test begins, engine speed increases incrementally to 850 rpm.</para>
+                </step1>
+                <step1>
+                    <para count="1">The ECM increases fuel delivery to the No. 1 cylinder (over-fuel). This increases
+                        engine speed.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Fuel delivery to the remaining cylinders is decreased to maintain engine speed at
+                        850 rpm.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">The ECM decreases fuel delivery to No. 1 cylinder (under-fuel). This decreases
+                        engine speed.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Fuel delivery to the remaining cylinders is increased to maintain engine speed at
+                        850 rpm.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">At this point, the ECM compares the overall fuel delivery that is required to
+                        maintain the engine at 850 rpm during over-fuel and under-fuel conditions. If the value is not
+                        what the ECM expects, a DTC is set.
+                    </para>
+                    <para>This test is repeated for each cylinder and performed in the numerical order of the cylinders
+                        (No. 1 through No. 8). When the No. 8 cylinder is finished, the first stage is complete.
+                        Depending on the ECM version, the entire test could be finished. If a DTC is set during the
+                        first stage, the ECM will not continue to the second stage (if available).
+                    </para>
+                </step1>
+                <specpara>
+                    <note>
+                        <para>On engines with less severely scuffed fuel injectors, a misfire may not even set a DTC.
+                            For this reason, it is important to interpret the graph readings.
+                        </para>
+                    </note>
+                </specpara>
+                <figure id="tsi002" figsize="pg-wide">
+                    <graphic filename="../tsifigures/eg9132.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                             resolution="96" box="no"/>
+                    <caption>Figure 2. Good Cylinder Contribution Test Recording (Second Stage)</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>On engines with two or more severely scuffed fuel injectors, engine speed fluctuation may
+                            be enough to stop the test. Low or erratic fuel pressure may also stop the test or possibly
+                            cause erroneous graph readings and DTCs.
+                        </para>
+                    </note>
+                </specpara>
+                <step1>
+                    <para count="1">Engine speed returns to low idle (700 rpm).</para>
+                </step1>
+                <para>You may repair a failure from the first stage, then rerun the test and have a failure in the
+                    second stage. There is no way to foresee this before running the second stage. Such a failure may
+                    occur because the fuel injector was not scuffed severely enough to set a DTC during the first stage,
+                    but because the second stage is more sensitive, it is detected there.
+                </para>
+            </svcsubproc>
+            <svcsubproc>
+                <title>Second Stage</title>
+                <para>If the engine passes the first stage of the test, the ECM will continue to the second stage. Some
+                    key areas to examine on the graphical display of the CCT are as follows
+                    <xref refid="tsi002"/>:
+                </para>
+                <step1>
+                    <para count="1">When the second stage begins, engine speed increases incrementally to 950 rpm.
+                    </para>
+                </step1>
+                <figure id="tsi003" figsize="col-wide">
+                    <graphic filename="../tsifigures/eg8741.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                             resolution="72" box="yes"/>
+                    <caption>Figure 3. Active Cylinders (Second Stage)</caption>
+                </figure>
+                <step1>
+                    <para count="1">The engine is placed in four cylinder mode. No. 1, 4, 6 and 7 cylinders are active
+                        <xref refid="tsi003"/>. The active cylinders are shut off one at a time in numerical order.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">The ECM then monitors the fuel delivery that is required to maintain the engine
+                        speed at 950 rpm as each of the remaining active cylinders is shut off. If the increase in fuel
+                        delivery is not what the ECM expects, a DTC will be set.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">When the No. 7 cylinder is finished, the ECM will momentarily return the engine to
+                        eight cylinder idle mode.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">The engine is then placed back into four cylinder mode with No. 2, 3, 5 and 8
+                        cylinders active. The active cylinders are shut off one at a time in numerical order.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">The ECM then monitors the fuel delivery that is required to maintain the engine
+                        speed at 950 rpm as each of the remaining active cylinders is shut off. If the increase in fuel
+                        delivery is not what the ECM expects, a DTC will be set.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">When the No. 8 cylinder is finished, the ECM will return the engine to eight
+                        cylinder idle mode. The test is complete.
+                    </para>
+                </step1>
+            </svcsubproc>
+        </svcproc>
+        <svcproc>
+            <title>Troubleshooting With EZ-Tech and Master Diagnostics</title>
+            <para>A scuffed fuel injector can be difficult to diagnose. The best way to troubleshoot a scuffed fuel
+                injector is by using the EZ-Tech&#8482; service tool and Master Diagnostics&#8482; software. Using these
+                diagnostic tools allows you to:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>
+                        <emph type="bold">visualize</emph>
+                        by using the real-time graphs to compare one cylinder trace to another. Even the most slightly
+                        scuffed fuel injectors can display a pattern that is significantly different from a good fuel
+                        injector.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">listen</emph>
+                        carefully to the sound characteristics of the engine while watching the real-time graph.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">verify</emph>
+                        that there is a significant change in the tone of the engine and in the graphical displays for
+                        that cylinder when a DTC is set.
+                    </para>
+                </item>
+            </randlist>
+            <specpara>
+                <warning>
+                    <para>To avoid engine damage, personal injury or possible death, make sure the transmission is in
+                        neutral, the parking brake is applied and the drive wheels are blocked before starting the
+                        engine.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Start the engine and allow it to reach normal operating temperature of 70&#176; C (158&#176;
+                    F).
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Start the Master Diagnostics software. Select the appropriate ECM application.</para>
+                <deflist>
+                    <term>3BX</term>
+                    <def>3 box system (ECM, IDM and VPM)</def>
+                    <term>DLC</term>
+                    <def>Single box system (Diamond Logic Controller&#174;)</def>
+                </deflist>
+                <specpara>
+                    <note>
+                        <para>Selecting the wrong ECM application will give erroneous graph readings.</para>
+                    </note>
+                </specpara>
+            </step1>
+            <step1>
+                <para count="1">Connect the EZ-Tech to the International&#174; Truck interface cable, then to the ATA
+                    connector on the vehicle.
+                </para>
+            </step1>
+            <figure id="tsi006" figsize="col-wide">
+                <graphic filename="../tsifigures/eg9103.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="96"/>
+                <caption>Figure 4. Opening a Session File</caption>
+            </figure>
+            <step1>
+                <para count="1">Select the
+                    <emph type="bold">Session</emph>
+                    menu bar, then select
+                    <emph type="bold">Open</emph>
+                    from the drop-down menu to begin a session
+                    <xref refid="tsi006"/>.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Select the file
+                    <emph type="bold">KOER_CCT_V8.SSN</emph>
+                    (Key-On Engine-Running Cylinder Contribution Test) from the
+                    <emph type="bold">Open Session File</emph>
+                    window. The file name should now appear in the
+                    <emph type="bold">File Name</emph>
+                    box
+                    <xref refid="tsi006"/>. Click on
+                    <emph type="bold">Open</emph>.
+                </para>
+                <para>When selecting a session that was previously setup by International, The Master Diagnostics
+                    software automatically selects the correct COM port. See the
+                    <emph type="bold">Master Diagnostics (MD) Software User's Manual</emph>
+                    for additional information.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Verify that the engine coolant temperature is greater than 70&#176; C (158&#176; F).
+                </para>
+            </step1>
+            <figure id="tsi007" figsize="col-wide">
+                <graphic filename="../tsifigures/eg9150.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="96"/>
+                <caption>Figure 5. Running the Diagnostic Tests</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>The Standard Test must be run before the Cylinder Contribution Test.</para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Select the
+                    <emph type="bold">Diagnostics</emph>
+                    menu bar, then select
+                    <emph type="bold">Key-On Engine-Running Tests</emph>
+                    from the drop-down menu. On DLC diagnostics, an additional drop-down menu
+                    <emph type="bold">All other products...</emph>
+                    must also be selected
+                    <xref refid="tsi007"/>.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Select
+                    <emph type="bold">Standard Test</emph>
+                    in the
+                    <emph type="bold">Key-On Engine-Running Diagnostics</emph>
+                    window and click on
+                    <emph type="bold">Run</emph>
+                    <xref refid="tsi007"/>. Note that the status bar at the bottom of the screen displays the message
+                    <emph type="bold">DIAGNOSTICS RUNNING</emph>.
+                </para>
+                <para>If a diagnostic message appears, make note of the message. Then select
+                    <emph type="bold">OK</emph>
+                    and repeat Step 8. If the message reappears, see the
+                    <emph type="bold">Master Diagnostics (MD) Software User's Manual</emph>
+                    for additional information.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">After the standard test is complete, select
+                    <emph type="bold">Cylinder Contribution Test</emph>
+                    in the
+                    <emph type="bold">Key-On Engine-Running Diagnostics</emph>
+                    window and click on
+                    <emph type="bold">Run</emph>
+                    <xref refid="tsi007"/>. Note that the status bar at the bottom of the screen displays the message
+                    <emph type="bold">DIAGNOSTICS RUNNING</emph>.
+                </para>
+                <para>If a diagnostic message appears, make note of the message. Then select
+                    <emph type="bold">OK</emph>
+                    and repeat Step 9. If the message reappears, see the
+                    <emph type="bold">Master Diagnostics (MD) Software User's Manual</emph>
+                    for additional information.
+                </para>
+                <specpara>
+                    <note>
+                        <para>Although not necessary, it is usually beneficial to have the Diagnostic Trouble Codes
+                            window open during this test. If it is not open, select Code from the menu bar, then select
+                            View from the drop-down menu.
+                        </para>
+                    </note>
+                </specpara>
+            </step1>
+            <para>The following parameters can be observed in the typical graphical view:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Engine Speed</para>
+                </item>
+                <item>
+                    <para>Engine Load</para>
+                </item>
+                <item>
+                    <para>Fuel Rate</para>
+                </item>
+            </randlist>
+            <figure id="tsi008" figsize="pg-wide">
+                <graphic filename="../tsifigures/eg9154.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         resolution="96"/>
+                <caption>Figure 6. Interpreting Graphical Readings (Poor Cylinder Contribution) - First Stage</caption>
+            </figure>
+            <figure id="tsi009" figsize="pg-wide">
+                <graphic filename="../tsifigures/eg9102.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         resolution="96"/>
+                <caption>Figure 7. Interpreting Graphical Readings (Poor Cylinder Contribution) - Second Stage</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>The graphs are SnapShot recordings from Stage One and Stage Two that were not severe enough to
+                        set a DTC.
+                    </para>
+                </note>
+            </specpara>
+            <para>When the over-fuel condition is compared to the under-fuel condition, a significant difference can be
+                seen. This indicates that a particular cylinder is a strong contributor or that the fuel injector and
+                cylinder are functioning properly by providing optimum output. No. 1, 2, 4, 5 and 6 cylinders show
+                steady, well-defined traces. No. 3, 7 and 8 cylinders are suspect. A weak contributing cylinder could be
+                the result of a poorly functioning fuel injector or a mechanical problem.
+            </para>
+            <para>The following are two key observations about strong/weak contributing cylinders:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>To maintain a constant engine speed, the ECM makes greater changes to the fuel rate of strong
+                        contributing cylinders than to weak contributing cylinders.
+                    </para>
+                </item>
+                <item>
+                    <para>There is a greater impact on the engine load of strong contributing cylinders than weak
+                        contributing cylinders.
+                    </para>
+                </item>
+            </randlist>
+            <para>The test procedure allows the technician to troubleshoot and repair the engine by replacing the
+                scuffed or damaged fuel injector(s) only. However, in cases where rust or corrosion is present within
+                the fuel injectors, the following precautions are required:
+            </para>
+            <seqlist style="arabic">
+                <item>
+                    <para>Clean the entire fuel system to remove water and contaminants.</para>
+                </item>
+                <item>
+                    <para>Run the engine with the original set of fuel injectors to purge the fuel system of any
+                        possible remaining contamination. After an adequate running time, replacement of the fuel
+                        injectors can be completed.
+                    </para>
+                </item>
+                <item>
+                    <para>Replace any scuffed or damaged fuel injectors.</para>
+                </item>
+            </seqlist>
+            <specpara>
+                <note>
+                    <para>If a fuel injector with the wrong part number is installed, incorrect diagnostic data will
+                        result. Make sure the correct fuel injectors are installed.
+                    </para>
+                </note>
+            </specpara>
+        </svcproc>
+        <svcproc>
+            <title>SnapShot Recording</title>
+            <para>The SnapShot feature can be used to document the engine condition during the CCT.</para>
+            <step1>
+                <para count="1">Select the
+                    <emph type="bold">Diagnostics</emph>
+                    menu bar, then select
+                    <emph type="bold">Key-On Engine-Running Tests</emph>
+                    from the drop-down menu. On DLC diagnostics, an additional drop-down menu
+                    <emph type="bold">All other products...</emph>
+                    must also be selected
+                    <xref refid="tsi007"/>.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Select
+                    <emph type="bold">Standard Test</emph>
+                    in the
+                    <emph type="bold">Key-On Engine-Running Diagnostics</emph>
+                    window and click on
+                    <emph type="bold">Run</emph>
+                    <xref refid="tsi007"/>. Note that the status bar at the bottom of the screen displays the message
+                    <emph type="bold">DIAGNOSTICS RUNNING</emph>.
+                </para>
+                <para>If a diagnostic message appears, make note of the message. Then select
+                    <emph type="bold">OK</emph>
+                    and repeat Step 2. If the message reappears, see the
+                    <emph type="bold">Master Diagnostics (MD) Software User's Manual</emph>
+                    for additional information.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">After the standard test is complete, click on
+                    <emph type="bold">Done</emph>
+                    to close the
+                    <emph type="bold">Key-On Engine-Running Diagnostics</emph>
+                    window.
+                </para>
+            </step1>
+            <figure id="tsi011" figsize="col-wide">
+                <graphic filename="../tsifigures/eg8608.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="246"/>
+                <caption>Figure 8. Arming the Trigger</caption>
+            </figure>
+            <step1>
+                <para count="1">Select
+                    <emph type="bold">SnapShot</emph>
+                    from the menu bar, then select
+                    <emph type="bold">Arm Trigger</emph>
+                    from the drop-down menu
+                    <xref refid="tsi011"/>. Verify that the status bar at the bottom of the screen displays the message
+                    <emph type="bold">TRIGGER ARMED</emph>.
+                </para>
+            </step1>
+            <figure id="tsi015" figsize="pg-wide">
+                <graphic filename="../tsifigures/eg9022.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         resolution="72"/>
+                <caption>Figure 9. Stop Recording Button</caption>
+            </figure>
+            <step1>
+                <para count="1">Select the
+                    <emph type="bold">Diagnostics</emph>
+                    menu bar, then select
+                    <emph type="bold">Key-On Engine-Running Tests</emph>
+                    from the drop-down menu. On DLC diagnostics, an additional drop-down menu
+                    <emph type="bold">All other products...</emph>
+                    must also be selected
+                    <xref refid="tsi007"/>.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Select
+                    <emph type="bold">Cylinder Contribution Test</emph>
+                    in the
+                    <emph type="bold">Key-On Engine-Running Diagnostics</emph>
+                    window and click on
+                    <emph type="bold">Run</emph>
+                    <xref refid="tsi007"/>. Note that the status bar at the bottom of the screen displays the message
+                    <emph type="bold">DIAGNOSTICS RUNNING</emph>.
+                </para>
+                <para>Verify that the
+                    <emph type="bold">TRIGGER ARMED</emph>
+                    message changes to
+                    <emph type="bold">RECORDING</emph>
+                    as soon as the engine speed is increased.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Wait until the second stage of the test is completed and the
+                    <emph type="bold">RECORDING</emph>
+                    message disappears. If only the first stage is performed, click on
+                    <emph type="bold">Done</emph>
+                    to close the
+                    <emph type="bold">Key-On Engine-Running Diagnostics</emph>
+                    window and select
+                    <emph type="bold">Stop</emph>
+                    from the toolbar
+                    <xref refid="tsi015"/>.
+                </para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>To save multiple record files, the file name must be changed for each recording. Otherwise,
+                        the latest saved file will overwrite the earlier one.
+                    </para>
+                </note>
+            </specpara>
+        </svcproc>
+        <svcproc>
+            <title>Replaying a SnapShot</title>
+            <figure id="tsi016" figsize="pg-wide">
+                <graphic filename="../tsifigures/eg9023.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         resolution="96"/>
+                <caption>Figure 10. Graphical Replay Button</caption>
+            </figure>
+            <step1>
+                <para count="1">To replay a SnapShot recording, select the
+                    <emph type="bold">Graphical Replay</emph>
+                    button from the toolbar
+                    <xref refid="tsi016"/>.
+                </para>
+            </step1>
+            <figure id="tsi017" figsize="col-wide">
+                <graphic filename="../tsifigures/eg9104.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="96"/>
+                <caption>Figure 11. Open SnapShot Recording File Window</caption>
+            </figure>
+            <step1>
+                <para count="1">Select the record file from the
+                    <emph type="bold">Open SnapShot Recording File</emph>
+                    window
+                    <xref refid="tsi017"/>.
+                </para>
+            </step1>
+            <figure id="tsi018" figsize="col-wide">
+                <graphic filename="../tsifigures/eg9025.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="96"/>
+                <caption>Figure 12. Graphical Replay Parameter Select Window</caption>
+            </figure>
+            <step1>
+                <para count="1">To modify the default attributes (if necessary), select
+                    <emph type="bold">Engine Speed</emph>
+                    and
+                    <emph type="bold">Fuel Rate</emph>
+                    from the
+                    <emph type="bold">Graphical Replay Parameter Select</emph>
+                    window
+                    <xref refid="tsi018"/>. Then click the
+                    <emph type="bold">Attributes</emph>
+                    button.
+                </para>
+            </step1>
+            <figure id="tsi019" figsize="col-wide">
+                <graphic filename="../tsifigures/eg9030.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="96"/>
+                <caption>Figure 13. Engine Speed Attributes Window</caption>
+            </figure>
+            <step1>
+                <para count="1">Modify the engine speed attributes in the
+                    <emph type="bold">Engine Speed Attributes</emph>
+                    window
+                    <xref refid="tsi019"/>. Enter 500 for the minimum and 1000 for the maximum. Then click
+                    <emph type="bold">OK</emph>.
+                </para>
+            </step1>
+            <figure id="tsi020" figsize="col-wide">
+                <graphic filename="../tsifigures/eg9026.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="96"/>
+                <caption>Figure 14. Fuel Rate Attributes Window</caption>
+            </figure>
+            <step1>
+                <para count="1">Modify the fuel rate attributes in the
+                    <emph type="bold">Fuel Rate Attributes</emph>
+                    window
+                    <xref refid="tsi020"/>. Enter 0 for the minimum and 4 for the maximum. Then click
+                    <emph type="bold">OK</emph>.
+                </para>
+            </step1>
+            <figure id="tsi021" figsize="col-wide">
+                <graphic filename="../tsifigures/eg9027.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="96"/>
+                <caption>Figure 15. Graphical Replay Parameter Select Window (Display All)</caption>
+            </figure>
+            <step1>
+                <para count="1">To display a SnapShot record file, select
+                    <emph type="bold">Display All</emph>
+                    from the
+                    <emph type="bold">Graphical Replay Parameter Select</emph>
+                    window
+                    <xref refid="tsi021"/>. Then click
+                    <emph type="bold">OK</emph>. The recorded session will open.
+                </para>
+            </step1>
+        </svcproc>
+        <svcproc id="svcproc001" graphiccount="0">
+            <stitle>TSI 02-12-22 - Diagnostic Tests for Fuel Injector Scuffing</stitle>
+            <title>Types of ECM</title>
+            <table id="te01">
+                <title>3 Box Systems That Only Perform First Stage of Cylinder Contribution Test</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.88*"/>
+                    <colspec colname="col2" colwidth="0.76*"/>
+                    <colspec colname="col3" colwidth="1.37*"/>
+                    <tbody>
+                        <row>
+                            <entry valign="bottom" align="center">
+                                <para>Part Number</para>
+                            </entry>
+                            <entry valign="bottom" align="center">
+                                <para>ECM Version</para>
+                            </entry>
+                            <entry valign="bottom" align="center">
+                                <para>Approximate Date of Truck Build</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807246C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.00</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1/1/94 to 2/23/94</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807297C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.00</para>
+                            </entry>
+                            <entry align="center">
+                                <para>2/24/94 to 6/30/94</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807290C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.05</para>
+                            </entry>
+                            <entry align="center">
+                                <para>7/18/94 to 9/29/94</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807292C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.07</para>
+                            </entry>
+                            <entry align="center">
+                                <para>9/30/94 to 3/31/95 (California)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807293C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.08</para>
+                            </entry>
+                            <entry align="center">
+                                <para>9/30/94 to 3/31/95 (49 States)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807306C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.11</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4/1/95 to 9/11/95 (California)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807307C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.12</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4/1/95 to 9/11/95 (49 States)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807291C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.20</para>
+                            </entry>
+                            <entry align="center">
+                                <para>9/12/95 to 3/1/96 (49 States)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807334C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.21</para>
+                            </entry>
+                            <entry align="center">
+                                <para>9/12/95 to 3/1/96 (California)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te02">
+                <title>3 Box Systems That Perform Both Stages of Cylinder Contribution Test</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.88*"/>
+                    <colspec colname="col2" colwidth="0.76*"/>
+                    <colspec colname="col3" colwidth="1.37*"/>
+                    <tbody>
+                        <row>
+                            <entry valign="bottom" align="center">
+                                <para>Part Number</para>
+                            </entry>
+                            <entry valign="bottom" align="center">
+                                <para>ECM Version</para>
+                            </entry>
+                            <entry valign="bottom" align="center">
+                                <para>Approximate Date of Truck Build</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807389C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.48</para>
+                            </entry>
+                            <entry align="center">
+                                <para>3/2/96 to 1/2/97 (49 States)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807390C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.49</para>
+                            </entry>
+                            <entry align="center">
+                                <para>3/2/96 to 1/2/97 (California)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807411C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.53</para>
+                            </entry>
+                            <entry align="center">
+                                <para>11/1/96 to 1/2/97 (UPS only)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807422C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4.54</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1/3/97 to 11/3/97</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te03">
+                <title>Single Box DLC Systems That Perform Both Stages of Cylinder Contribution Test</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.87*"/>
+                    <colspec colname="col2" colwidth="0.81*"/>
+                    <colspec colname="col3" colwidth="1.33*"/>
+                    <tbody>
+                        <row>
+                            <entry valign="bottom" align="center">
+                                <para>Part Number</para>
+                            </entry>
+                            <entry valign="bottom" align="center">
+                                <para>Reference Number</para>
+                            </entry>
+                            <entry valign="bottom" align="center">
+                                <para>Approximate Date of Truck Build</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807349C4</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AE00</para>
+                            </entry>
+                            <entry align="center">
+                                <para>11/3/97 to 12/18/97</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807349C4</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AF00</para>
+                            </entry>
+                            <entry align="center">
+                                <para>12/19/97 to 4/28/98</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807349C4</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AF01</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4/29/98 to 8/24/98</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807349C4</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AF03</para>
+                            </entry>
+                            <entry align="center">
+                                <para>8/25/98 to 9/18/98</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807349C4</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AF04</para>
+                            </entry>
+                            <entry align="center">
+                                <para>11/3/97 to 9/18/98 (Service only)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807349C4</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AG00</para>
+                            </entry>
+                            <entry align="center">
+                                <para>9/19/98 to 3/1/99</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807349C4</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AG01</para>
+                            </entry>
+                            <entry align="center">
+                                <para>3/2/99 to 9/27/99</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1807349C4</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AG02</para>
+                            </entry>
+                            <entry align="center">
+                                <para>9/19/98 to 9/27/99 (Service only)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1833558C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AK00</para>
+                            </entry>
+                            <entry align="center">
+                                <para>9/28/99 to 11/8/99</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1833558C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AK01</para>
+                            </entry>
+                            <entry align="center">
+                                <para>11/9/99 to 7/25/00</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1833558C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AK02</para>
+                            </entry>
+                            <entry align="center">
+                                <para>9/28/99 to 7/25/00 (Service only)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1833558C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PRC2AN00</para>
+                            </entry>
+                            <entry align="center">
+                                <para>7/26/00 to present</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcproc>
+    </tsi>
+</isis>

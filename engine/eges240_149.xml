@@ -1,0 +1,642 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Exhaust Gas Recirculation (EGR) Actuator
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="4">
+        <title>Exhaust Gas Recirculation (EGR) Actuator</title>
+        <svcprocinfo>
+            <para>For 2004 Model Year EGR Diagnostics, see
+                <exhotlnk document="../tsis/041210r.htm" bookname="tsi">TSI-04-12-10R</exhotlnk>.
+            </para>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3302" filename="../figd33/d3302.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function Diagram for the Exhaust Gas Recirculation (EGR) Actuator</caption>
+            </figure>
+            <para>The Function Diagram for the EGR actuator includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation (EGR) actuator</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation Position (EGRP) sensor</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The EGR actuator consists of two components, a valve with actuator (solenoid) and a position sensor to
+                monitor valve movement. The EGR is at the front of the engine on top of the intake manifold.
+            </para>
+            <para>The EGR actuator is a variable position valve that controls the amount of exhaust that enters the
+                intake system. The EGR valve is controlled by the ECM using a pulse width modulated signal. The system
+                is closed loop using the EGRP as input. Other inputs that are used to calculate the desired position of
+                the EGR valve include BAP, EBP, MAT, VGT control, MAP, APS, and EOT.
+            </para>
+            <para>The EGRP sensor is a potentiometer sensor. When the EGRP receives a 5V reference signal and a ground
+                from the ECM, a linear analog voltage signal from the sensor will indicate position of the EGR valve.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>EGR Circuit Operation</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3301" filename="../figd33/d3301.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>EGR Circuit Diagram</caption>
+            </figure>
+            <para>The EGR actuator receives 12V to terminal E from ECM power relay. The ECM controls the EGR through
+                terminal A by grounding terminal X2-19 with a pulse width modulated signal. Precise control is gained by
+                varying the percentage of ON/OFF time of the EGR coil. A high duty cycle indicates more force on the
+                valve to open . A low duty cycle indicates less force on the valve to open.
+            </para>
+            <para>The EGRP is supplied a 5 volt reference at terminal D from ECM terminal X1-14. The EGRP sensor is also
+                supplied at terminal B from ECM terminal X1-6. The EGRP sensor sends a signal from terminal C of the
+                sensor to ECM terminal to X2-9.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>An open or short to ground in the EGR control circuit can be detected by an on demand output circuit
+                check during KOEO Standard test. If there is a circuit fault detected a DTC will be set.
+            </para>
+            <para>When the EGRP signal voltage is detected out of range high or low, the ECM will cause the engine to
+                ignore the EGRP signal and the EGR valve will close and the amber ENGINE lamp will be illuminated.
+            </para>
+            <para>The EGRP sensor is calibrated to zero position each time the key is cycled to allow compensation if
+                carbon deposits develop on the valve. If the deposits get so heavy that the position is out of range to
+                zero, a DTC will be set, the valve will close, and the amber ENGINE lamp will be illuminated.
+            </para>
+            <para>The EGR actuator can also be tested for a stuck or sticking valve by performing an Output State Low
+                Test while monitoring EGRP percentage. See Performance Diagnostic Section 6 for additional information.
+            </para>
+            <para>
+                <title>EGR Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim id="f240dtc163">
+                <line>
+                    <emph type="bold">DTC 163</emph>
+                </line>
+                <line>
+                    <emph type="bold">EGRP signal out of range low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 163 is set by the ECM the EGRP voltage is less than 0.3V for more than 0.35 second.</para>
+                </item>
+                <item>
+                    <para>DTC 163 can be set due to an open or short to ground on the signal circuit, a defective sensor
+                        or an open V
+                        <subscript>REF</subscript>
+                        circuit or V
+                        <subscript>REF</subscript>
+                        short to ground.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 163 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc164">
+                <line>
+                    <emph type="bold">DTC 164</emph>
+                </line>
+                <line>
+                    <emph type="bold">EGRP signal out of range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 164 is set by the ECM when the EGRP voltage is greater than 4.5V for more than 0.35
+                        second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 164 can be set due to an open or short to ground on the signal circuit, a defective sensor
+                        or an open V
+                        <subscript>REF</subscript>
+                        circuit or V
+                        <subscript>REF</subscript>
+                        short to ground.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 164 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc264">
+                <line>
+                    <emph type="bold">DTC 264</emph>
+                </line>
+                <line>
+                    <emph type="bold">EGR OCC self test failed</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 264 is set by the ECM when the OCC test fails after the Key ON Engine OFF Standard test
+                        has been run.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 264 can be set due to open or shorts to ground, short to voltage source in the EGR control
+                        circuit, or a defective coil.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Harness - 3-Banana and 500 ohm</para>
+                </item>
+                <item>
+                    <para>Breakout harness</para>
+                </item>
+                <item>
+                    <para>Breakout box</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EGR Operational Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3328" filename="../figd33/d3328.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>EGR Circuit Diagram with Breakout harness</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>To prevent serious personal injury, possible death, or damage to the engine or vehicle -
+                        comply with the following:
+                    </para>
+                    <para>Be careful to avoid rotating parts (belts and fan) and hot engine surfaces.</para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Using EST, open the continuous monitor session. To monitor signal voltage, run Key ON
+                    Engine OFF continuous monitor test.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Monitor EGR signal volts. Verify an active DTC for the EGR circuit.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is active, complete step 5 and do circuit check for the EGR sensor in table on
+                    the following page.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If code is inactive, wiggle connectors and wires at all suspected problem locations. If
+                    circuit continuity is interrupted, the EST will beep and display DTCs related to the condition.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Install EGR breakout harness to engine harness only.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>After removing connector, inspect for damaged pins, corrosion, or loose terminals. Repair as
+                        required.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te24007047" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.18in"/>
+                    <colspec colname="col2" colwidth="0.93in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Circuit Checks for EGR Sensor</emph>
+                                    (Use EST, DMM, breakout harness, and 500 ohm wire harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Condition</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage >0.039V, check signal circuit for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Voltage from PIN D to ground with DMM.</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5V &#177;0.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage >5.5V, check V
+                                    <subscript>REF</subscript>
+                                    for short to B+. If voltage is &#60;4.5V, check V
+                                    <subscript>REF</subscript>
+                                    for open or short to ground. Remove the negative battery cable. Use breakout box and
+                                    measure resistance from PIN D to X1-14 (spec &#60;5&#x2126;) to check for a short to
+                                    ground or open in the harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>500 ohm harness installed between GREEN and BLUE wires of breakout harness.</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage &#60;4.55V, check signal circuit for open or short to ground. Remove
+                                    negative battery cable. Measure resistance from PIN C to ground (spec >1k&#x2126;)
+                                    to check for short to ground. Use a breakout box from PIN C to PIN X2-9 (spec &#60;5&#x2126;)
+                                    to check for open in the harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Resistance from BLACK wire of breakout harness to chassis ground using DMM.</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If resistance is >5&#x2126;, check for open or high resistance between ECM and
+                                    sensor connector. Use a breakout box and measure resistance from between PIN B and
+                                    PIN X1-6 (spec &#60;5&#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <step1>
+                <para count="1">Connect engine harness to sensor. Use the EST to clear DTCs. If an active code remains
+                    after checking test conditions, replace the EGR valve.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EGR Pin Point Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3328" filename="../figd33/d3328.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>EGR Circuit Diagram with Breakout harness</caption>
+            </figure>
+            <table id="te24007048" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.94in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>
+                                    (Install EGR breakout harness between EGR valve and harness. Turn ignition key ON
+                                    and engine OFF.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2.0 to 10V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If not in spec, check for control circuit shorted to B+ or ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Signal ground (no voltage expected). If voltage is present, check for short to B+
+                                    or V
+                                    <subscript>REF</subscript>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;0.25V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >2.5V, signal circuit is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5V &#177;0.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage not to spec, V
+                                    <subscript>REF</subscript>
+                                    circuit is shorted to gnd or B+
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>E to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>EGR power from V
+                                    <subscript>IGN</subscript>. If no voltage, check from EGR to voltage source. See
+                                    truck Chassis Electrical Circuit Diagram manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Resistance Checks to Chassis Ground</emph>
+                                    (Install EGR breakout harness on engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, control circuit short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, signal ground has open or high resistance.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, EGRP signal short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>500&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;500&#x2126;, V
+                                    <subscript>REF</subscript>
+                                    short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>E to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, short to ground exists. See truck Chassis Electrical Circuit
+                                    Diagram manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks at EGR Valve Harness to Breakout Box
+                                        ECM
+                                    </emph>
+                                    (Turn ignition key OFF. Install breakout box and EGR breakout harness on engine
+                                    harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to X2-19</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, ground wire open.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, V
+                                    <subscript>REF</subscript>
+                                    wire open.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to X2-9</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, EGRP signal wire open.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D to X1-14</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, V
+                                    <subscript>REF</subscript>
+                                    wire open.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>E to power relay</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, open circuit to power relay.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">EGR Operational Voltage Checks</emph>
+                                    (Check with breakout box installed to ECM and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-9 to X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.6 - 1.2V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>EGR Diagnostic Trouble Codes (DTCs)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 163 = Signal voltage was &#60;0.3V for more than 0.35 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 164 = Signal voltage was >4.2V for more than 0.35 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 264 = EGR OCC self test failed</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_148.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_150.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

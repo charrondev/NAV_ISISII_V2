@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>3200 Integrated Mobility Option Service Manual - Hadley Smart Air Management System - Description</stitle>
+    <svcsection/>
+    <svcproc svcproctype="describe" graphiccount="1">
+        <title>Description</title>
+        <svcsubproc>
+            <title>System Scope</title>
+            <para>The Hadley system is designed to maintain a predetermined vehicle ride height automatically and
+                provides a means to temporarily lower or raise the ride height, when necessary. The system provides for
+                side to side height control on respective axles containing two height sensors, as well as front to back
+                control. A visual indication is also provided to determine mode selection and system malfunction
+                detection.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>System Definition</title>
+            <para>The Smart Air Management System (SAMS) contains three vehicle height sensors, a pneumatic manifold
+                assembly, an electronic control unit (ECU), the necessary wire harnessing, an LED, two user supplied
+                switches, and the necessary vehicle interface hardware to provide the defined modes of operation. One
+                switch will serve as control power ON/OFF and the second for temporarily raising the vehicle to overcome
+                an obstacle (lift-off). The location and mounting of these switches will be at the discretion of the
+                integrator. The angle sensors will be mounted on the vehicle frame in a 3-point configuration: rear (2);
+                front (1). The wire harnessing will provide the necessary connections for providing DC electrical
+                control power and ground to the SAMS system (from a suitable vehicle power source), provide the
+                necessary height sensor connectors, provide the pneumatic manifold wiring interface, provide the
+                necessary color coded wires for vehicle hardware integration, and provide the electrical connections for
+                the LED (light emitting diode). The LED will serve as a visual indication of the selected mode status
+                and provide error code display. Functionally, the system will provide the following modes of operation;
+                i.e., normal, front kneel, rear kneel, and lift-off. This information is further defined in the
+                following sections.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Normal Mode</title>
+            <para>
+                <emph type="bold">In order to enter this mode of operation, the Power ON/OFF switch needs to be "ON"
+                    while operating the vehicle.
+                </emph>
+                This mode of operation requires no further interaction by the vehicle operator. The ECU monitors the
+                feedback signals from the height sensors during normal vehicle operation. Should any of the three
+                signals dictate that the vehicle is above or below the programmed ride height; the ECU will energize the
+                necessary manifold valve coils to either fill or exhaust the respective air bag(s) to bring the vehicle
+                back to the correct vehicle height. The system will stay in this mode of operation unless conditions are
+                satisfied to enter the other modes of operation, as defined in the following three sections.
+            </para>
+            <specpara>
+                <warning>
+                    <para>When towing, jacking, or raising the vehicle for service, the Power ON/OFF switch must be
+                        turned to the "OFF" position. This will prevent the SAMS system from operating and eliminating
+                        the potential for unexpected suspension movement.
+                    </para>
+                </warning>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Front Kneel Mode</title>
+            <para>This mode of operation is automatically performed by the system ECU when the proper conditions have
+                been satisfied. The ECU will automatically lower the front of the vehicle when the "passenger loading
+                door" is opened, the power ON/OFF switch is turned "ON", and the engine running. The ECU will lower the
+                front of the vehicle in order to reduce the passenger step height for entering the vehicle and the LED
+                will blink slowly as a visual indication the front kneel mode is active.
+            </para>
+            <para>The front of the vehicle will lower until a preset pressure is reached. This pressure does not
+                completely exhaust the air in the front airbags, which allows the system to more quickly raise the front
+                of the vehicle, when returning to the normal mode of operation. The system automatically returns to the
+                normal vehicle ride height when the "passenger loading door" is closed.
+            </para>
+            <para>This mode of operation is automatically enabled by an active low signal (ground) being detected by the
+                SAMS ECU on the system's control wiring harness green wire (door open) and does not require any further
+                interaction from the vehicle operator. This mode is automatically cancelled by the ECU and returns the
+                system to normal ride height when an active low signal is detected on the system's control wiring
+                harness violet wire (door close) and does not require any further interaction from the vehicle operator.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Rear Kneel Mode</title>
+            <para>This mode of operation is automatically performed by the system ECU when the proper conditions have
+                been satisfied. The ECU will automatically lower the rear of the vehicle when the "passenger loading
+                door" is open (front kneel mode is active), the power ON/OFF switch is turned "ON", the "ramp extend"
+                switch is activated, and the engine running. The ECU will then lower the rear of the vehicle to allow
+                wheel chair access to the vehicle and the LED will blink slowly as a visual indication the rear kneel
+                mode is active.
+            </para>
+            <para>This mode of operation will lower the rear of the vehicle to a pre-determined position. This position
+                does not completely exhaust the air in the rear airbags, which allows the system to more quickly raise
+                the rear of the vehicle, when the "ramp retract" switch is activated. The system ECU automatically
+                returns the rear of the vehicle to the normal vehicle ride height as the operator is retracting the
+                vehicle ramp.
+            </para>
+            <para>This mode of operation is automatically enabled by an active low (ground) signal being detected by the
+                SAMS ECU on the system's control wiring harness
+                <emph type="bold">green wire</emph>
+                (door open) and
+                <emph type="bold">yellow wire</emph>
+                (ramp extend) and does not require any further interaction from the vehicle operator. This mode is
+                automatically cancelled by the ECU and returns the rear of the vehicle to the normal ride height when an
+                active low signal is detected on the system's control wiring harness
+                <emph type="bold">blue wire</emph>
+                (ramp retract) and does not require any further interaction from the vehicle operator.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Lift-Off Mode</title>
+            <para>This mode of operation is used for "temporarily" increasing the normal vehicle ride height. The mode
+                of operation is not automatic and must be selected by the operator of the vehicle. This mode of
+                operation is manually activated by actuating the user supplied "lift-off" switch, with the power ON/OFF
+                switch turned "ON," and the engine running. Once activated, the LED will blink slowly as a visual
+                indication the lift-off mode is active.
+            </para>
+            <para>The vehicle by design has a low profile for easier accessibility. By activating this mode of
+                operation, the vehicle ride height will be increased "temporarily" to provide additional ground
+                clearance. This will increase the normal ride height by approximately 1.5 to 2 inches and the system
+                will stay at this position for approximately 30 seconds. This time should allow the vehicle operator
+                sufficient time to clear the desired obstacle. After this time period has elapsed, the system ECU will
+                automatically return the vehicle to the normal ride height. If additional time is required, the operator
+                will need to re-initiate the mode. Additionally, the vehicle operator could hold the "lift-off" mode
+                switch in the activated position. This would extend the temporary raised position time, thereby keeping
+                the vehicle raised to the preset ground clearance height for additional time intervals.
+            </para>
+            <para>Activating the "lift-off" switch applies an active low (ground) signal to the gray wire of the system
+                control wiring harness. This active low signal will cause the ECU to override the normal ride height and
+                <emph type="bold">temporarily</emph>
+                raises the vehicle the predefined distance. The system will remain in this mode of operation for the
+                preset time interval and then will automatically return the vehicle to the normal ride height and does
+                not require any further interaction from the vehicle operator.
+            </para>
+            <specpara>
+                <note>
+                    <para>In order to assist with loading the vehicle for transport shipping, the "lift-off" mode may be
+                        utilized. After activating the mode and loading the vehicle onto the transport, immediately turn
+                        the ON/OFF switch to the "OFF" position. This will allow the system to remain in this mode while
+                        transporting the vehicle to provide additional clearance beneath the vehicle.
+                    </para>
+                </note>
+            </specpara>
+            <specpara>
+                <note>
+                    <para>The below schematic illustrates the control harness wiring as defined in the previous
+                        associated sections for mode operation. This harness is necessary to integrate the vehicle
+                        hardware signals with the SAMS ECU.
+                    </para>
+                </note>
+            </specpara>
+            <figure id="f1001825" figsize="pg-wide">
+                <graphic filename="../figG10/G1001825.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="432px"/>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Visual Indicator (LED)</title>
+            <para>As explained in earlier sections of this document, if either the front kneel mode, rear kneel mode, or
+                lift-off mode of operation is selected, the system supplied LED will flash. This section further
+                clarifies the visual rate of the blink and the associated system mode of operation or interpreted
+                function.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Short blink - long pause: either the front kneel mode, lower kneel mode, or lift-off mode has
+                        been selected
+                    </para>
+                </item>
+                <item>
+                    <para>No blink (LED off): the vehicle is operating at the normal mode and is at normal ride height
+                    </para>
+                </item>
+                <item>
+                    <para>Blinking not defined above: the ECU has detected a problem and is blinking an error code
+                    </para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>The following section provides more information regarding the error codes.</para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Error Codes</title>
+            <para>The ECU has the ability to monitor the SAMS system and detect electrical problems. Should the ECU
+                detect a problem, a visual indication will be given by flashing the system supplied LED in such a manner
+                as to represent a two-digit code. The first number of the two-digit code can be identified by counting
+                the first series of flashes. It will be followed by a short pause, and then provide a second series of
+                flashes to represent the second number of the two-digit code. For example one flash, followed by a short
+                pause, and then three additional flashes would illustrate a code 13.
+            </para>
+            <para>In the event of more than one detected problem, the ECU will cycle through this process and flash an
+                individual error code for each identified problem. The ECU will continue to flash the error code(s)
+                until the problem(s) have been corrected. Once the problem(s) are corrected, the ECU will proceed to
+                turn off the LED. A list of potential error codes and their probable cause are as follows:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>11 (eleven) - Rear Driver Height Sensor</para>
+                </item>
+                <item>
+                    <para>12 (twelve) - Rear Curb Height Sensor</para>
+                </item>
+                <item>
+                    <para>13 (thirteen) - Front Axle Height Sensor</para>
+                </item>
+                <item>
+                    <para>14 (fourteen) - System Pressure Error</para>
+                </item>
+                <item>
+                    <para>21 (twenty-one) - Door Open Switch and Door Close Switch are Both Activated</para>
+                </item>
+                <item>
+                    <para>22 (twenty-two) - Ramp Extend Switch and Ramp Retract Switch are Both Activated</para>
+                </item>
+                <item>
+                    <para>23 (twenty-three) - Lift Mode Switch and Ramp Extend Switch are Both Activated</para>
+                </item>
+                <item>
+                    <para>24 (twenty-four) - Lift Mode Switch and Door Open Switch are Both Activated</para>
+                </item>
+                <item>
+                    <para>31 (thirty-one) - Door Closed Switch and Ramp Extend Switch are Both Activated</para>
+                </item>
+                <item>
+                    <para>32 (thirty-two) - Door Open Switch and Ramp Retract Switch are Both Activated</para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>Each time the engine is started, the LED will be illuminated for approximately 15 seconds.
+                        During this time interval, the ECU will gather information from the system sensors. After the
+                        time interval has elapsed the ECU will turn off the LED. This is a normal "power-up" function
+                        and should not be confused with a system problem.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s10018_9.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s10018_11.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s10018.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

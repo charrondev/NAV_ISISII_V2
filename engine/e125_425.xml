@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (1997) - SECTION 3.5: CIRCUIT FUNCTION AND DIAGNOSTICS - VEHICLE
+        PERSONALITY MODULE - VPM FUEL/HOURMETER AND ODOMETER FAULTS
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="proctype" graphiccount="1">
+        <title>VPM FUEL/HOURMETER AND ODOMETER FAULTS</title>
+        <svcprocinfo>
+            <para>Refer to
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef12518171">3.178</hotlnk>
+                </emph>
+                for the following discussion.
+            </para>
+            <figure id="ef12518171" figsize="col-wide">
+                <graphic id="eg6091" filename="../figeg6/eg6091.webp" type="webp"/>
+                <caption>Figure 3.178 - VPM Fuel/Hourmeter and Odometer</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>DESCRIPTION</title>
+            <para>The VPM (Vehicle Personality Module) records total engine hours (to 999,999 hours), total vehicle
+                miles (to 9,999,999 miles) and total fuel used (to 9,999,999 gallons). While the vehicle is operating,
+                the information is temporarily stored and every 30 minutes the information (new total hours, miles and
+                gallons) is written to EEPROM memory locations in the VPM as new totals.
+            </para>
+            <para>The accumulator totals (engine hours, vehicle miles and total fuel used) can be read using the Prolink
+                EST. Accumulator information may be useful for maintenance purposes.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VPM DIAGNOSTICS</title>
+            <para>If the VPM attempts to write the latest total (for any of the three totals) to one of eight EEPROM
+                locations in the VPM and the memory location is defective, then the VPM sets Flash Code (634, 635 or
+                641) and selects another memory location to store the information. Flash Code 645 may also be set.
+            </para>
+            <para>If the VPM can't find a serviceable memory location to write the data, then Flash Code 642, 643 or 644
+                will be set.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 634 - ATA CODE PID 250 FMI 2 - VPM: FUEL METER MEMORY - LOCATION ERROR</title>
+            <para>Flash code 634 indicates the first attempt to write the fuel totals encountered a defective memory
+                location. The fuel totals logged may be inaccurate although the error will not be more than 1/2 hour use
+                of fuel.
+            </para>
+            <para>If the fuel meter totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+                <emph type="bold">The next read/write error will result in all of the fuel meter data being lost</emph>.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 635 - ATA CODE PID 247 FMI 2 - VPM: HOUR METER MEMORY LOCATION - ERROR</title>
+            <para>Flash code 635 indicates the first attempt to write the engine hour totals encountered a defective
+                memory location. The engine totals logged may be inaccurate although the error will not be more than one
+                half an hour.
+            </para>
+            <para>If the hour meter totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+                <emph type="bold">The next read/write error will result in the hour meter data being lost</emph>.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 641 - ATA CODE PID 245 FMI 2 - VPM: ODOMETER MEMORY LOCATION - ERROR</title>
+            <para>Flash code 641 indicates the first attempt to write the vehicle total miles encountered a defective
+                memory location. The total vehicle miles logged may be inaccurate, although the error will not be more
+                than 30 miles.
+            </para>
+            <para>If the odometer totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+                <emph type="bold">The next read/write error will result in the odometer data being lost</emph>.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 642 - ATA CODE PID 250 FMI 12 - VPM: FAULTY FUEL METER</title>
+            <para>Flash code 642 indicates the write cycle of the EEPROM memory locations in the VPM have been exceeded.
+                The fuel meter totals have been lost.
+            </para>
+            <para>If the fuel meter totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 643 - ATA CODE PID 247 FMI 12 - VPM: FAULTY HOUR METER</title>
+            <para>Flash code 643 indicates the write cycle of the EEPROM memory locations in the VPM have been exceeded.
+                The hour meter totals have been lost.
+            </para>
+            <para>If the hour meter totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 644 - ATA CODE PID 245 FMI 12 - VPM: FAULTY ODOMETER</title>
+            <para>Flash code 644 indicates the write cycle of the EEPROM memory locations in the VPM have been exceeded.
+                The Odometer totals have been lost.
+            </para>
+            <para>If the odometer totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_424.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_426.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

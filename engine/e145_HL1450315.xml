@@ -1,0 +1,626 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - ENGINE COOLANT LEVEL SYSTEM (ENGINE PROTECTION)
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450315" svcproctype="proctype" graphiccount="10">
+        <title>ENGINE COOLANT LEVEL SYSTEM (ENGINE PROTECTION)</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef1450366">Figure 3.48 Engine Coolant Level System (Engine Protection)</hotlnk>
+            </para>
+            <figure id="ef1450366" figsize="col-wide">
+                <graphic id="eg5986" filename="../figeg5/eg5986.webp" type="webp"/>
+                <caption>Figure 3.48 Engine Coolant Level System (Engine Protection)</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>SIGNAL FUNCTION</title>
+            <para>With the optional engine protection system, the ECM monitors inputs from the Engine Oil Pressure
+                sensor, Engine Coolant Temperature sensor and Low Coolant switch (or module). If any of these sensors
+                detect out of range conditions beyond the warning level, ECM OWL terminal 59 goes LOW (grd) causing the
+                alarm to sound and the oil/water warning light to turn ON. If the engine shutdown feature has been
+                selected, and the out of range conditions go beyond the critical level, the engine will initate the
+                shutdown process.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Low Coolant Level System</title>
+            <para>The 2500, 2600, 8100 models have a metal surge tank and use low coolant module and low coolant probe.
+                All other models with a plastic composite surge tank utilize a magnetic low coolant switch in the surge
+                tank instead of the module and probe.
+            </para>
+            <para>
+                <emph type="bold">2500, 2600, 8100 Models -</emph>
+                The low coolant module outputs a 12V signal to ECM terminal when coolant levels are at specified levels
+                and 0V when coolant is below the probe.
+            </para>
+            <para>
+                <emph type="bold">Models With Plastic Surge Tank -</emph>The low coolant switch is open when coolant is
+                OK and closed when coolant is LOW. When this switch OPEN, 12V is present at ECM terminal 18. When the
+                switch is closed, voltage is pulled to zero at ECM terminal 18.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Engine Oil Pressure Sensor</title>
+            <para>The Engine Oil Pressure (EOP) sensor sends a linear analog signal to ECM terminal 42. If the ECM
+                detects oil pressure below the warning level the OWL is turned on. If oil pressure goes below the
+                critical level, engine shutdown is initiated. Refer to Engine Oil Pressure (EOP) Sensor diagnostics for
+                additional information and sensor circuit troubleshooting.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Engine Coolant Temperature Sensor</title>
+            <para>The Engine Coolant Temperature (ECT) sensor sends a 0-5 volt analog signal to ECM terminal 7. If the
+                ECM detects coolant temperature above the warning level the OWL is turned on. If coolant temperature
+                goes above the critical level, engine shutdown is initiated. Refer to Engine Coolant Temperature (ECT)
+                Sensor diagnostics for additional information and sensor circuit troubleshooting.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION MANANGEMENT</title>
+            <para>There are no ECM diagnostics for the Engine Coolant Level system. Flash Code 323 will be active when a
+                low coolant situation is present and the Prolink will indicate COOLANT LOW. After the coolant has been
+                restored to proper levels, Flash code 323 will remain as an inactive code and the ECM will log the
+                engine hours of the occurrence.
+            </para>
+            <para>
+                <hotlnk xrefid="ef1450367">Figure 3.49 ECL System Diagnostics Models With Metal Surge Tank</hotlnk>
+            </para>
+            <figure id="ef1450367" figsize="col-wide">
+                <graphic id="eg5987" filename="../figeg5/eg5987.webp" type="webp"/>
+                <caption>Figure 3.49 ECL System Diagnostics Models With Metal Surge Tank</caption>
+            </figure>
+            <para>Connector Voltage Checks</para>
+            <para>Connector (414) with key ON, probe submerged in coolant and coolant module disconnected</para>
+            <table id="et1450305">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>A to grd</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, if 0 volts check for open/short to ground or
+                                    blown fuse.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>C to grd</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, if 0 volts check for open/short to ground or
+                                    blown fuse.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>C to D</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>5 to 10 volts min.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>0 volts check for open in probe circuit &#60; less than 5V check connections and
+                                    check probe for clean condition.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>C to B</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 volts check connections. 0 volts check for open circuit 34B.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>Operational Check</para>
+            <para>ECM Connector (379) with breakout box installed, probe submerged in coolant and key ON</para>
+            <table id="et1450306">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>#18 to grd</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, if 0 volts check for open/short to grd in
+                                    circuit 34B.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="et1450307">
+                <tgroup cols="1">
+                    <colspec colname="1" colwidth="432p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Fault Code Descriptions</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>323 = Indicates low coolant level. If coolant level full with code present,
+                                    troubleshoot circuit.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>MODELS WITH PLASTIC SURGE TANK</title>
+            <para>
+                <hotlnk xrefid="ef1450368">Figure 3.50 ECL System Diagnostics on Models With Plastic Surge Tank</hotlnk>
+            </para>
+            <figure id="ef1450368" figsize="col-wide">
+                <graphic id="eg5988" filename="../figeg5/eg5988.webp" type="webp"/>
+                <caption>Figure 3.50 ECL System Diagnostics on Models With Plastic Surge Tank</caption>
+            </figure>
+            <para>Harness side of connector (437) - disconnected with key ON</para>
+            <table id="et1450308">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>A to grd.</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, if 0 volts check for open/short to ground or
+                                    blown fuse
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>A to B</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, if 0 volts check for open in ground path.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>Switch side of connector (437) - disconnected with key OFF and coolant at proper level</para>
+            <table id="et1450309">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>A to B</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>>1000 ohms</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 1000 ohms replace the switch (s/b less than 5 ohms with low coolant
+                                    level)
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>Connector (379) with breakout box installed and key ON and coolant at proper level with (437)</para>
+            <para>connected to ECL switch.</para>
+            <table id="et1450310">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>#18 to grd.</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5v check connections, if 0 volts check for open/short to ground or
+                                    blown fuse or defective resistor.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="et1450311">
+                <tgroup cols="1">
+                    <colspec colname="1" colwidth="432p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Fault Code Descriptions</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>323 = Indicates low coolant level. If coolant level full with code present,
+                                    troubleshoot circuit.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EXTENDED DESCRIPTION MODELS WITH METAL SURGE TANK</title>
+            <specpara>
+                <note>
+                    <para>Refer to Extended Description for models with plastic surge tanks.</para>
+                </note>
+            </specpara>
+            <para>With the optional engine protection system, the ECM monitors inputs from the Engine Oil Pressure
+                sensor, Engine Coolant Temperature sensor and Low Coolant switch (or module). If any of these sensors
+                detect out of range conditions beyond the warning level, ECM OWL terminal 59 goes LOW (grd) causing the
+                alarm to sound and the oil/water warning light to turn ON. If the engine shutdown feature has been
+                selected, and the out of range conditions go beyond the critical level, the engine will initate the
+                shutdown process.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Engine COOLANT LEVEL (ECL) MODULE AND PROBE</title>
+            <para>Refer to the circuit diagram
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450369">3.51</hotlnk>
+                </emph>
+                or the following discussion.
+            </para>
+            <para>The ECL module (414) receives 12V ignition power from 15A fuse F2 (G1 fuse w/FBC) at terminals A and
+                C. ECL Module, Terminal B is connected (circuit 34B) through connector (379) to ECM terminal 18 (CLS).
+            </para>
+            <para>ECL module (414) is grounded from terminal D through the Coolant Level Probe located in the surge
+                tank. The ground path (very low current flow in the circuit) from ECL module terminal D goes through the
+                probe and the coolant (using coolant as a conductor) on circuit 34-G to the starter ground. When the
+                coolant level is above the probe, ECL module terminal B will be HIGH (12V) causing ECM connector (379)
+                CLS terminal 18 to be HIGH. This in turn causes ECM connector (379) OWL terminal 59 to be HIGH and
+                Oil/Water Warning Light is OFF.
+            </para>
+            <para>With coolant level below the probe for more than 7 consecutive seconds (7 second delay prevents
+                intermittent splashing signals), the ground path through the probe from ECL Module terminal D will be
+                open. This causes the ECL module terminal B to go LOW (0 volts). With ECL terminal B at 0 volts, ECM
+                terminal 18 is at 0 volts causing the ECM to turn on the Engine Warning Light and Alarm.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>DIAGNOSTIC CODES</title>
+            <para>The ECM does not check the ECL circuits. Flash Code 323 is set indicating that a "low coolant"
+                condition was detected.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 323</title>
+            <para>
+                <title>ATA CODE PID 111 FMI 1</title>
+            </para>
+            <para>
+                <title>ECM: Engine Coolant Below Warning/Critical Level</title>
+            </para>
+            <para>Flash Code 323 will be active when a low coolant situation is present and the Prolink will indicate
+                COOLANT LOW. After the coolant has been restored to proper levels, Flash code 323 will remain as an
+                inactive code and the ECM will log the engine hours of the occurrence.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>TROUBLESHOOTING</title>
+            <para>Use the Prolink 9000 to monitor the ECL system operation. Prolink will indicate that the coolant level
+                is FULL or LOW.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Before Troubleshooting</title>
+            <step1>
+                <para count="1">Before troubleshooting, make sure that the batteries are fully charged! Check battery
+                    connections and grounds for clean, tight connections free of damage. Voltage tests will give
+                    mis-leading readings if batteries are not fully charged.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting a particular circuit, inspect connectors for pushed back, loose
+                    or damaged (spread or bent) terminals, or wires with cut strands, etc. The wires and connections
+                    must be free of damage or corrosion. When some connectors corrode, a light white residue will be
+                    present that must be removed.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting, inspect suspect circuit grounds for clean, tight connections
+                    free of damage.
+                </para>
+                <figure id="ef1450369" figsize="col-wide">
+                    <graphic id="eg5989" filename="../figeg5/eg5989.webp" type="webp"/>
+                    <caption>Figure 3.51 Circuit Diagram with 2500, 2600, or 8100 Models with Metal Surge Tank</caption>
+                </figure>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ENGINE COOLANT LEVEL MODULE AND PROBE TEST (MODELS WITH METAL SURGE TANK.)</title>
+            <para>Perform Testing For False Low Coolant Signal if Prolink indicates COOLANT LOW when coolant level is
+                above the probe.
+            </para>
+            <para>
+                <hotlnk xrefid="ef1450370">Figure 3.52 Testing for False Low Coolant Signal</hotlnk>
+            </para>
+            <figure id="ef1450370" figsize="col-wide">
+                <graphic id="eg5990" filename="../figeg5/eg5990.webp" type="webp"/>
+                <caption>Figure 3.52 Testing for False Low Coolant Signal</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refer to circuit diagram Figure
+                        <hotlnk xrefid="ef1450369">3.51</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+            <specpara>
+                <note>
+                    <para>** - Continue with Figure 3.52a.</para>
+                </note>
+            </specpara>
+            <para>
+                <hotlnk xrefid="ef1450371">Figure 3.52a Testing for False Low Coolant Signal (Models with Metal Surge
+                    Tank)
+                </hotlnk>
+            </para>
+            <figure id="ef1450371" figsize="col-wide">
+                <graphic id="eg5991" filename="../figeg5/eg5991.webp" type="webp"/>
+                <caption>Figure 3.52a Testing for False Low Coolant Signal (Models with Metal Surge Tank)</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef1450372">Figure 3.52b Testing for False Low Coolant Signal (Models with Metal Surge
+                    Tank)
+                </hotlnk>
+            </para>
+            <figure id="ef1450372" figsize="col-wide">
+                <graphic id="eg5992" filename="../figeg5/eg5992.webp" type="webp"/>
+                <caption>Figure 3.52b Testing for False Low Coolant Signal (Models with Metal Surge Tank)</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EXTENDED DESCRIPTION MODELS WITH PLASTIC SURGE TANKS</title>
+            <para>Refer to circuit diagram
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450373">3.53</hotlnk>
+                </emph>
+                for the following discussion.
+            </para>
+            <para>With the optional engine protection system, the ECM monitors inputs from the Engine Oil Pressure
+                sensor, Engine Coolant Temperature sensor and Low Coolant switch (or module). If any of these sensors
+                detect out of range conditions beyond the warning level, ECM OWL terminal 59 goes LOW (grd) causing the
+                alarm to sound and the oil/water warning light to turn ON. If the engine shutdown feature has been
+                selected, and the out of range conditions go beyond the critical level, the engine will initate the
+                shutdown process.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ENGINE COOLANT LEVEL SWITCH</title>
+            <para>Ignition voltage is applied through a 1000 ohm resistor to the Engine Low Coolant (ECL) switch (437)
+                and to ECM connector (379) at terminal 18. ECL switch (437) is open with coolant at proper levels and
+                closed when the coolant level is below required levels.
+            </para>
+            <para>With the ECL switch open voltage at ECM terminal 18 is HIGH and with coolant low (switch closed)
+                voltage at ECM terminal 18 is LOW.
+            </para>
+            <para>With ECM terminal 18 HIGH, ECM terminal 59 is also high and the Oil/Water Warning system is not
+                activated. With ECM terminal 18 LOW, terminal 59 is LOW and the warning system is activated turning on
+                the Oil/Water Warning light and initiating the engine shutdown process (if shutdown is enabled).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>DIAGNOSTIC CODES</title>
+            <para>The ECM does not check the ECL circuits. Flash Code 323 is set indicating that a "low coolant"
+                condition was detected.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 323</title>
+            <para>
+                <title>ATA CODE PID 111 FMI 1</title>
+            </para>
+            <para>
+                <title>ECM: Engine Coolant Below Warning/Critical Level</title>
+            </para>
+            <para>Flash Code 323 will be active when a low coolant situation is present and the Prolink will indicate
+                COOLANT LOW. After the coolant has been restored to proper levels, Flash code 323 will remain as an
+                inactive code and the ECM will log the engine hours of the occurrence.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>TROUBLESHOOTING</title>
+            <para>Use the Prolink 9000 to monitor the ECL system operation. Prolink will indicate that the coolant level
+                is FULL or LOW.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Before Troubleshooting</title>
+            <step1>
+                <para count="1">Before troubleshooting, make sure that the batteries are fully charged! Check battery
+                    connections and grounds for clean, tight connections free of damage. Voltage tests will give
+                    mis-leading readings if batteries are not fully charged.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting a particular circuit, inspect connectors for pushed back, loose
+                    or damaged (spread or bent) terminals, or wires with cut strands, etc. The wires and connections
+                    must be free of damage or corrosion. When some connectors corrode, a light white residue will be
+                    present that must be removed.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting, inspect suspect circuit grounds for clean, tight connections
+                    free of damage.
+                </para>
+                <figure id="ef1450373" figsize="col-wide">
+                    <graphic id="eg5993" filename="../figeg5/eg5993.webp" type="webp"/>
+                    <caption>Figure 3.53 Circuit Diagram Models with Plastic Surge Tank</caption>
+                </figure>
+                <para>
+                    <hotlnk xrefid="ef1450374">Figure 3.54 Testing Engine Coolant Level Switch Circuits (Models with
+                        Plastic Surge Tanks)
+                    </hotlnk>
+                </para>
+                <figure id="ef1450374" figsize="col-wide">
+                    <graphic id="eg5994" filename="../figeg5/eg5994.webp" type="webp"/>
+                    <caption>Figure 3.54 Testing Engine Coolant Level Switch Circuits (Models with Plastic Surge
+                        Tanks)
+                    </caption>
+                </figure>
+                <para>
+                    <hotlnk xrefid="ef1450375">Figure 3.54a Testing Engine Coolant Level Switch Circuits (Models with
+                        Plastic Surge Tanks)
+                    </hotlnk>
+                </para>
+                <figure id="ef1450375" figsize="col-wide">
+                    <graphic id="eg5995" filename="../figeg5/eg5995.webp" type="webp"/>
+                    <caption>Figure 3.54a Testing Engine Coolant Level Switch Circuits (Models with Plastic Surge
+                        Tanks)
+                    </caption>
+                </figure>
+            </step1>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450314.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450316.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

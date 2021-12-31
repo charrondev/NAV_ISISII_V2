@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>EC-30 ABS / ATC CONTROLLER - EC-30 OUTPUTS</stitle>
+    <svcsection/>
+    <svcproc svcproctype="describe" graphiccount="1">
+        <title>EC-30 OUTPUTS</title>
+        <svcsubproc>
+            <title>ABS Modulators</title>
+            <para>Bendix ABS modulators (M-21, M-22 or M-30) are controlled by the EC-30 to modify driver applied air
+                pressure to the service brakes during ABS or ATC activation. See
+                <hotlnk xrefid="f0404306">Figure 6</hotlnk>
+                for illustration. The ABS modulator, an electro-pneumatic control valve, is the last valve that air
+                passes through on its way to the brake chamber. The modulator hold and exhaust solenoids are activated
+                to precisely modify the brake pressure during ABS. The hold solenoid is normally open and the exhaust
+                solenoid is normally closed. The EC-30 is able to control four individual modulator assemblies. For ABS
+                modulator connector pin locations see the EC-30 system schematic,
+                <hotlnk document="s04043_25.xml" xrefid="f0404313">Figure 13</hotlnk>.
+            </para>
+            <figure id="f0404306" figsize="col-wide">
+                <graphic filename="../figg04/g0404306.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="72"/>
+                <caption>Figure 6. M-30 Modulator</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ATC Modulator</title>
+            <para>Premium EC-30 models configured for differential braking ATC will activate the ATC modulator during
+                ATC situations. The ATC modulator is an electrically controlled air valve integral to the ATR valve.
+                Pins D2 and D3, of the 18-pin connector, control the ATC modulator. A connection to the ATC modulator is
+                provided via a two-pin Deutsch connector from the ATR valve. See
+                <hotlnk document="s04043_4.xml" xrefid="f0404302">Figure 2</hotlnk>.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ABS Warning Lamp</title>
+            <para>The EC-30 controls an ABS warning lamp to indicate the ABS unit status. The EC-30 provides a ground
+                signal to activate an ABS warning lamp relay and turn the ABS lamp off. The actual ABS warning lamp is
+                connected to the normally-closed contacts of the relay in order to illuminate in a fail-safe manner
+                during an ABS ECU failure. Pin E3, of the 30-pin connector, is the ABS warning lamp output.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>J1939 ABS Warning Lamp</title>
+            <para>The EC-30 can be configured to broadcast the ABS status over the SAE J1939 serial communications link.
+                A vehicle dash controller directly controls the ABS warning lamp. When configured in this manner, there
+                is no wire installed in pin E3 of the 30-pin connector. If J1939 communications is lost between the
+                EC-30 and the vehicle dash controller, the dash controller will activate the ABS warning lamp.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Retarder Disable Relay</title>
+            <para>The EC-30 controls an engine or transmission retarder disable relay. The retarder activation wire is
+                routed through the normally-closed contacts of the relay. The EC-30 provides a ground path to activate
+                the relay and interrupt power to the retarder during ABS operation. This output may also connect
+                directly to a transmission ECU. Pin K1, of the 30-pin connector, is the retarder disable relay output.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>J1939/J1922 Retarder Disable</title>
+            <para>The EC-30 can be configured to interrupt the engine or transmission retarder over the SAE J1939 serial
+                communications link (J1922 for some service replacement models). The retarder will be disabled during
+                ABS via the serial communications. When configured in this manner, there is no wire installed in pin K1
+                of the 30-pin connector. Use of the retarder disable function via the serial link may be essential to
+                ABS performance and is highly recommended for vehicles equipped with a capable retarder.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>J1939/J1922 Torque Converter Lock Disable</title>
+            <para>The EC-30 can be configured to interrupt the automatic transmission torque converter lock function,
+                over the SAE J1939 serial communications link (J1922 for some service replacement models). The converter
+                lock will be disabled during ABS via the serial communications. Use of the torque converter lock disable
+                function may be essential to ABS performance and is highly recommended for vehicles equipped with a
+                capable transmission.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Trailer ABS Warning Lamp</title>
+            <para>EC-30 models with PLC can be configured to control a trailer ABS warning lamp (located in the dash)
+                that indicates the status of the trailer ABS unit of one or more trailers or dollies. The EC-30 directly
+                controls the trailer ABS warning lamp by providing a ground path when the lamp is to be activated. Pin
+                E2, of the 30-pin connector, is the trailer ABS warning lamp output.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>J1939/J1587 Trailer ABS Warning Lamp</title>
+            <para>The EC-30 can be configured to broadcast the trailer ABS status over the SAE J1939 or the SAE J1587
+                serial communications links. In this case, a vehicle controller will directly operate the trailer ABS
+                warning lamp. When configured in this manner, there is no wire installed in pin E2 of the 30-pin
+                connector. In the event that communications is lost between the EC-30 and the vehicle controller, the
+                dash controller will activate the trailer ABS warning lamp.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>J1939/J1587 Diagnostic Link (J1939)</title>
+            <para>The EC-30 provides a J1708/J1587 diagnostic link to communicate with the vehicle and various
+                diagnostic tools. Diagnostics, system configuration, data uploading and downloading and other functions
+                can be performed using this link. The EC-30 is supported by tools such as Bendix ACom for Windows*
+                (*Windows is a registered trademark of Microsoft Corporation), the Bendix DCI hand held tool and the
+                MPSI ProLink. The EC-30 may also provide diagnostics using the SAE J1939 serial communications link.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>J1939/1922 Engine Torque Reduction - ATC</title>
+            <para>The EC-30 can be configured to reduce engine torque over the SAE J1939 (J1922 for some service
+                replacement models) serial communications link. The EC-30 will send a J1939 message to reduce engine
+                torque during ATC operation.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ATC Active/Warning Lamp</title>
+            <para>Premium EC-30 models configured for ATC can control an ATC active/warning lamp to indicate the status
+                of the ATC system. The ATC active/warning lamp flashes when ATC is active and stays on if an ATC system
+                fault is detected or ATC is disabled by the ATC enable/disable switch. The EC-30 directly controls the
+                ATC active/warning lamp by providing a ground path when the lamp is to be activated. Pin C2, of the
+                30-pin connector, is the ATC active/warning lamp output.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>J1939 ATC Active/Warning Lamp</title>
+            <para>Premium EC-30 models configured for ATC can be configured to broadcast the status of the ATC
+                active/warning lamp over the SAE J1939 serial communications link. In this case a vehicle dash
+                controller directly operates the ATC active/ warning lamp. When configured in this manner, there is no
+                wire installed in pin C2 of the 30-pin connector. In the event that J1939 communications are lost
+                between the EC-30 and the vehicle dash controller, the dash controller will activate the ATC
+                active/warning lamp.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043_7.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043_9.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

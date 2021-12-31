@@ -1,0 +1,1164 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+
+    <svcsubproc>
+        <title>Output State Control (OSC) Mode</title>
+        <para>
+            <emph type="bold">Description</emph>
+        </para>
+        <para>Output state control (OSC) on a service diagnostic tool allows the technician to control the main
+            functions of the transmission such as gear shifts, torque converter clutch or the shift solenoids quickly
+            and easily. For example, the OSC allows the technician to command the torque converter clutch to engage
+            while monitoring the actual converter slip, or disengage the torque converter clutch while testing the
+            transmission upshifts or downshifts. The technician may command a shift solenoid to turn ON or OFF while
+            carrying out the electrical tests, while measuring voltage or current with an inductive pickup.
+        </para>
+        <para>
+            <emph type="bold">Procedure to access and use the OSC</emph>
+        </para>
+        <seqlist style="arabic">
+            <item>
+                <para>Using the service diagnostic tool:</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>select Tool Box.</para>
+                    </item>
+                    <item>
+                        <para>select Data Logger.</para>
+                    </item>
+                    <item>
+                        <para>select Modules.</para>
+                    </item>
+                    <item>
+                        <para>select TCM.</para>
+                    </item>
+                </randlist>
+            </item>
+            <item>
+                <para>Using the OSC:</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>highlight a signal with a pound (#) sign so a black bar appears around the selected
+                            signal.
+                        </para>
+                    </item>
+                    <item>
+                        <para>select the (#) icon of the right side of the screen where 3 new icons will appear below
+                            it.
+                        </para>
+                    </item>
+                    <item>
+                        <para>select the activate icon (finger on button icon). The (#) symbol by the signal will change
+                            to an (=) sign indicating control of the item.
+                        </para>
+                    </item>
+                    <item>
+                        <para>use the (+) or (-) buttons to increase or decrease the values to control icon. The
+                            increments will be 10% of the scaled value. Example of TCC case shown will be in changes of
+                            10%.
+                        </para>
+                    </item>
+                </randlist>
+            </item>
+            <item>
+                <para>To stop OSC, select the activate icon which will change the (=) sign back to (#) sign next to the
+                    signal name.
+                </para>
+            </item>
+        </seqlist>
+        <para>If an (!) symbol is shown instead of an (=) sign then an OSC error has occurred. This could be because of
+            a condition not correct.
+        </para>
+        <para>The OSC has 2 modes of operation for the transmission:</para>
+        <randlist type="bullet">
+            <item>
+                <para>Service bay mode</para>
+            </item>
+            <item>
+                <para>Drive mode</para>
+            </item>
+        </randlist>
+        <para>In order to operate the OSC in the DRIVE mode, no diagnostic trouble codes (DTCs) related to the
+            transmission range (TR) sensor, turbine shaft speed (TSS) sensor, output shaft speed (OSS) sensor or the
+            SSPC-A (coast clutch), SSPC-B (overdrive clutch), SSPC-C (intermediate clutch), SSPC-D (direct clutch),
+            SSPC-E (low/reverse) and PC-A (line pressure) solenoids may be present. Carry out the KOEO on-demand self
+            test and retrieve continuous codes to identify any codes that are present.
+        </para>
+        <para>
+            <emph type="bold">OSC For Transmission - Service Bay Mode</emph>
+        </para>
+        <para>The SERVICE BAY mode is used to test various transmission components and functions when the vehicle is in
+            the service bay. The service bay mode is used when carrying out electrical pinpoint tests and hydraulic
+            pressure tests. Each OSC function has a unique set of vehicle operating requirements or vehicle states that
+            the technician is required to meet before the transmission control module (TCM) will allow the OSC to
+            operate. The SERVICE BAY mode is used in the following 3 vehicle states:
+        </para>
+        <para>
+            <emph type="bold">Vehicle State No. 1</emph>
+        </para>
+        <para>The Vehicle State No.1 requirements for sending an OSC value are as follows:</para>
+        <randlist type="bullet">
+            <item>
+                <para>Key on</para>
+            </item>
+            <item>
+                <para>Engine not running</para>
+            </item>
+            <item>
+                <para>Gear selector in PARK or NEUTRAL</para>
+            </item>
+        </randlist>
+        <para>Vehicle State No. 1 is used when carrying out electrical pinpoint tests. The following transmission
+            components may be controlled using the OSC in Vehicle State No. 1:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>SSE_AMP - Controls the current to the SSPC-E (low/reverse clutch) solenoid.</para>
+            </item>
+            <item>
+                <para>SSD_AMP - Controls the current to the SSPC-D (direct clutch) solenoid.</para>
+            </item>
+            <item>
+                <para>SSC_AMP - Controls the current to the SSPC-C (intermediate clutch) solenoid.</para>
+            </item>
+            <item>
+                <para>SSB_AMP - Controls the current to the SSPC-B (overdrive clutch) solenoid.</para>
+            </item>
+            <item>
+                <para>SSA_AMP - Controls the current to the SSPD-A (coast clutch) solenoid.</para>
+            </item>
+            <item>
+                <para>TCC_AMP - Controls the current to the torque converter (TCC) clutch solenoid.</para>
+            </item>
+            <item>
+                <para>LINEDSD - Controls the commanded pressure, which in turn controls the current to the PC-A (line
+                    pressure control) solenoid.
+                </para>
+            </item>
+        </randlist>
+        <para>The vehicle requirements must be met when sending the OSC value for SSPC-E, SSPC-D, SSPC-C, SSPC-B,
+            SSPC-A, TCC and PC-A solenoids. If the vehicle requirements are not met when sending the OSC value, an (!)
+            symbol may appear. When the (!) symbol is received, the OSC is aborted and must be restarted. After sending
+            the OSC value, if the vehicle requirements are no longer met, the (!) symbol will not appear but the OSC
+            value will be canceled by the TCM (monitor corresponding PID). The control item activate icon may be pressed
+            anytime to cancel the OSC.
+        </para>
+        <para>
+            <emph type="bold">Vehicle State No. 2</emph>
+        </para>
+        <para>The Vehicle State No. 2 requirements for sending an OSC value are as follows:</para>
+        <randlist type="bullet">
+            <item>
+                <para>Engine running</para>
+            </item>
+            <item>
+                <para>Exception: Engine running greater than 1,000 rpm to control LINEDSD</para>
+            </item>
+            <item>
+                <para>Gear selector in PARK or NEUTRAL</para>
+            </item>
+        </randlist>
+        <para>Vehicle State No. 2 is used when carrying out electrical pinpoint tests. The following transmission
+            components may be controlled using the OSC in Vehicle State No. 2:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>SSE_AMP - Controls the current to the SSPC-E (low/reverse clutch) VFS solenoid.</para>
+            </item>
+            <item>
+                <para>SSB_AMP - Controls the current to the SSPC-B (overdrive clutch) solenoid.</para>
+            </item>
+            <item>
+                <para>SSA_AMP - Controls the current to the SSPC-A (coast clutch) solenoid.</para>
+            </item>
+            <item>
+                <para>TCC_AMP - Controls the current to the torque converter (TCC) clutch solenoid.</para>
+            </item>
+            <item>
+                <para>LINEDSD - Controls the commanded pressure, which in turn controls the current to the PC-A (line
+                    pressure control) solenoid.
+                </para>
+            </item>
+        </randlist>
+        <para>The vehicle requirements must be met when sending the OSC value for SSPC-E, SSPC-B, SSPC-A, TCC and PC-A
+            solenoids. If the vehicle requirements are not met when sending the OSC value, an (!) symbol may appear.
+            When the (!) symbol is received, the OSC is aborted and must be restarted. After sending the OSC value, if
+            the vehicle requirements are no longer met, the (!) symbol will not appear but the OSC value will be
+            canceled by the TCM (monitor corresponding PID). The control item activate icon may be pressed anytime to
+            cancel OSC.
+        </para>
+        <para>
+            <emph type="bold">Vehicle State No. 3</emph>
+        </para>
+        <para>The Vehicle State No. 3 requirements for sending an OSC value are as follows:</para>
+        <randlist type="bullet">
+            <item>
+                <para>Engine running</para>
+            </item>
+            <item>
+                <para>Gear selector in overdrive</para>
+            </item>
+            <item>
+                <para>Vehicle not moving</para>
+            </item>
+        </randlist>
+        <para>Vehicle State No. 3 is used when carrying out electronic pressure control tests and electrical pinpoint
+            tests. The following transmission components may be controlled using the OSC in Vehicle State No. 3:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>SSD_AMP - Controls the current to the SSPC-D (direct clutch) solenoid.</para>
+            </item>
+            <item>
+                <para>SSC_AMP - Controls the current to the SSPC-C (intermediate clutch) solenoid.</para>
+            </item>
+        </randlist>
+        <para>The vehicle requirements must be met when sending the OSC value for SSPC-D and SSPC-C solenoids. If the
+            vehicle requirements are not met when sending the OSC value, an (!) symbol may appear. When the (!) symbol
+            is received, the OSC is aborted and must be restarted. After sending the OSC value, if the vehicle
+            requirements are no longer met, the (!) symbol will appear, but the OSC value will be canceled by the TCM
+            (monitor corresponding PID). The control item activate icon may be pressed anytime to cancel OSC.
+        </para>
+        <para>The OSC options to control SSA_AMP, SSB_AMP, SSC_AMP, SSD_AMP, SSE_AMP, TCC_AMP for solenoids in SERVICE
+            BAY mode are as follows:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>(+) icon - Commands the TCM to increase the control current.</para>
+            </item>
+            <item>
+                <para>(-) icon - Commands the TCM to decrease the control current.</para>
+            </item>
+            <item>
+                <para>Activate icon - Cancels OSC and allows the TCM normal control of the VFS solenoids.</para>
+            </item>
+        </randlist>
+        <para>Controlling the solenoids allows the technicians to measure the circuit current using an inductive pickup
+            or to measure the circuit voltage when carrying out electrical tests.
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>(+) icon - Commands the TCM to increase the control current.</para>
+            </item>
+            <item>
+                <para>(-) icon - Commands the TCM to decrease the control current.</para>
+            </item>
+            <item>
+                <para>Activate icon - Cancels OSC and allows the TCM normal control of the line pressure.</para>
+            </item>
+        </randlist>
+        <para>The OSC allows the technician to control the commanded line pressure instead of the PC-A current. The TCM
+            will command a specific current to the PC-A solenoid when requesting a particular OSC line pressure. Using
+            OSC to control the line pressure allows the technician to accurately test the electronic pressure control
+            system by comparing the OSC command line pressure to the actual line pressure indicated on the gauge. This
+            will aid in testing for pump capacity and the ability of the TCM to electronically control the pressure. The
+            technician may also measure the circuit current using an inductive pickup or to measure the circuit voltage
+            when carrying out an electrical test on the line pressure (PC-A) solenoid.
+        </para>
+        <para>
+            <emph type="bold">OSC For Transmission - Drive Mode</emph>
+        </para>
+        <para>The DRIVE MODE allows control of 3 transmission functions. Each function has a unique set of vehicle
+            operating requirements that the technician is required to meet before the TCM will allow OSC to operate. The
+            drive mode allows the technician to carry out the following functions:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>TCC# - Commands the TCM to engage or disengage the torque converter clutch.</para>
+            </item>
+            <item>
+                <para>GEAR_OSC - Commands the TCM to upshift or downshift.</para>
+            </item>
+            <item>
+                <para>HRSH_SFT - Commands a higher pressure value during an upshift.</para>
+            </item>
+        </randlist>
+        <para>The OSC options to control TCC# to engage or disengage the torque converter clutch in drive mode are as
+            follows:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>(+) icon - Commands the TCM to engage the torque converter clutch.</para>
+            </item>
+            <item>
+                <para>(-) icon - Commands the TCM to keep the torque converter clutch from engaging.</para>
+            </item>
+            <item>
+                <para>Activate icon - Cancels OSC and allows the TCM normal control of the torque converter clutch.
+                </para>
+            </item>
+        </randlist>
+        <para>Controlling the torque converter clutch will assist the technician in testing the torque converter for
+            engagements and disengagements. Also, the technician is better able to evaluate upshifts and downshifts by
+            using the OSC to keep the torque converter clutch from engaging.
+        </para>
+        <para>The vehicle requirements must be met when sending the OSC value for TCC#. If the vehicle requirements are
+            not met when sending the OSC value, an (!) symbol may appear. When the (!) symbol is received, the OSC is
+            aborted and must be restarted. After the OSC value for TCC# is sent, if the vehicle requirements are no
+            longer met, the (!) symbol will not appear but the OSC value will be canceled by the TCM (monitor
+            corresponding PID). The control item activate icon may be pressed anytime to cancel OSC.
+        </para>
+        <para>The vehicle requirements for sending the TCC# value OFF are as follows:</para>
+        <randlist type="bullet">
+            <item>
+                <para>Engine running</para>
+            </item>
+            <item>
+                <para>Gear selector in overdrive</para>
+            </item>
+            <item>
+                <para>Vehicle speed greater than 5 km/h (3 mph)</para>
+            </item>
+        </randlist>
+        <para>The vehicle requirements for sending the TCC# value ON are as follows:</para>
+        <randlist type="bullet">
+            <item>
+                <para>Engine running</para>
+            </item>
+            <item>
+                <para>Gear selector in overdrive</para>
+            </item>
+            <item>
+                <para>Vehicle speed greater than 5 km/h (3 mph)</para>
+            </item>
+            <item>
+                <para>Transmission fluid temperature (TFT) between 17&#176;C and 135&#176;C (60&#176;F and 275&#176;F)
+                </para>
+            </item>
+            <item>
+                <para>Brake is off when vehicle speed is below 32 km/h (20 mph)</para>
+            </item>
+            <item>
+                <para>Not an excessive load on the engine</para>
+            </item>
+            <item>
+                <para>Engine speed greater than 1,300 rpm</para>
+            </item>
+        </randlist>
+        <para>The OSC options to control GEAR_OSC to shift the transmission in DRIVE MODE are as follows:</para>
+        <randlist type="bullet">
+            <item>
+                <para>(+) icon - Commands the TCM to shift to the next higher gear automatically.</para>
+            </item>
+            <item>
+                <para>(-) icon - Commands the TCM to shift to the next lower gear automatically.</para>
+            </item>
+            <item>
+                <para>Activate icon - Cancels OSC and allows the TCM normal control of upshifts and downshifts.</para>
+            </item>
+        </randlist>
+        <para>Controlling the gear changes will assist the technician in testing the various clutches and bands and
+            determine whether the transmission is slipping in any particular gear. The OSC will command the TCM to
+            upshift or downshift depending on the gear the technician selects. The transmission will remain in the OSC
+            gear selected until another OSC gear is selected or until OSC is cancelled.
+        </para>
+        <specpara>
+            <note>
+                <para>Fourth gear is not allowed to be commanded when using OSC.</para>
+            </note>
+        </specpara>
+        <para>The vehicle requirements must be met when sending the OSC value for GEAR_OSC. If the vehicle requirements
+            are not met when sending the OSC value, an (!) symbol may appear. When the (!) symbol is received, the OSC
+            is aborted and must be restarted. After the OSC value for GEAR_OSC is sent, if the vehicle requirements are
+            no longer met, the (!) symbol will not appear but the OSC value will be canceled by the TCM (monitor
+            corresponding PID). The control item activate icon may be pressed anytime to cancel OSC.
+        </para>
+        <para>It is recommended to use TCC# to first turn off the torque converter clutch before testing the
+            transmission gear changes. This will allow the technician to evaluate only the gear changes. If the torque
+            converter clutch is NOT turned OFF, the TCM will command the torque converter clutch to engage. This could
+            make it difficult for the technician to determine whether an abnormal shift is the result of the torque
+            converter clutch or the actual gear change.
+        </para>
+        <para>The vehicle requirements for sending a GEAR_OSC value are as follows:</para>
+        <randlist type="bullet">
+            <item>
+                <para>Engine running</para>
+            </item>
+            <item>
+                <para>Gear selector in overdrive</para>
+            </item>
+            <item>
+                <para>Vehicle speed greater than 5 km/h (3 mph)</para>
+            </item>
+        </randlist>
+        <para>The OSC options to control HRSH_SFT to moderately increase line pressure to test for firmer engagements
+            and shifts in drive mode are as follows:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>(+) icon - Commands the TCM to moderately increase hydraulic pressure.</para>
+            </item>
+            <item>
+                <para>(-) icon - Commands the TCM to use normal pressure and not to increase hydraulic pressure.</para>
+            </item>
+            <item>
+                <para>Activate icon - Cancels OSC.</para>
+            </item>
+        </randlist>
+        <para>Setting HRSH_SFT allows the technician to moderately increase the pressure when carrying out engagements
+            such as PARK-to-REVERSE, NEUTRAL-to-REVERSE and when carrying out automatic upshifts. This will provide
+            additional diagnostic information to help the technician determine whether the electronic pressure control
+            system is providing at least limited control (a normal shift would become firmer) and/or whether a hydraulic
+            circuit that may have abnormally low pressure (due to such things as low fluid level or leaky clutch)
+            resulting in a soft shift, becomes normal when increasing the pressure.
+        </para>
+        <para>The vehicle requirements must be met when sending the OSC value for HRSH_SFT. If the vehicle requirements
+            are not met when sending the OSC value, an (!) symbol may appear. When the (!) symbol is received, the OSC
+            is aborted and must be restarted. After the OSC value for HRSH_SFT is sent, if the vehicle requirements are
+            no longer met, the (!) symbol will not appear but the OSC value will be canceled by the TCM (monitor
+            corresponding PID). The control item activate icon may be pressed anytime to cancel OSC.
+        </para>
+        <para>
+            <emph type="bold">Using Output State Control (OSC) and Monitoring PIDs</emph>
+        </para>
+        <para>Additional PIDs should be monitored to help the technician accurately diagnose the transmission. The
+            following is a list of PIDs to monitor while using OSC.
+        </para>
+        <table id="t0701031" tblwidth="pg-wide">
+            <title>PID Chart</title>
+            <tgroup cols="4">
+                <colspec colname="col1" colwidth="0.63*"/>
+                <colspec colname="col2" colwidth="1.53*"/>
+                <colspec colname="col3" colwidth="0.59*"/>
+                <colspec colname="col4" colwidth="1.26*"/>
+                <thead>
+                    <row>
+                        <entry align="center">
+                            <para>PID Name</para>
+                        </entry>
+                        <entry align="center">
+                            <para>PID Description</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Value</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Range</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>TCCPC</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded pressure for the TCC solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>PSI</para>
+                        </entry>
+                        <entry>
+                            <para>0-2,069 kPa (0-300 psi).</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TCC AMP#</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded current for the TCC solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>Amps</para>
+                        </entry>
+                        <entry>
+                            <para>0-1.0 Amp.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TCCPC_F</para>
+                        </entry>
+                        <entry>
+                            <para>Fault status for the TCC solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry>
+                            <para>Open or short to power or ground.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>GEAR #</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded transmission gear</para>
+                        </entry>
+                        <entry>
+                            <para>Gear</para>
+                        </entry>
+                        <entry>
+                            <para>1-6.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>LINEDSD</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded line pressure</para>
+                        </entry>
+                        <entry>
+                            <para>PSI</para>
+                        </entry>
+                        <entry>
+                            <para>0-2,069 kPa (0-300 psi).</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>PCA</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded pressure for the PC-A solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>PSI</para>
+                        </entry>
+                        <entry>
+                            <para>0-2,069 kPa (0-300 psi).</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>PCA AMP</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded current for the PC-A solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>Amps</para>
+                        </entry>
+                        <entry>
+                            <para>0-1.0 Amp.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>PCA_F</para>
+                        </entry>
+                        <entry>
+                            <para>Fault status for the PC-A solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry>
+                            <para>Open or short to power or ground.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSPCA</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded pressure for the SSPC-A solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>PSI</para>
+                        </entry>
+                        <entry>
+                            <para>0-2,069 kPa (0-300 psi).</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSA AMP#</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded current for the SSPC-A solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>Amps</para>
+                        </entry>
+                        <entry>
+                            <para>0-1.0 Amp.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSPCA_F</para>
+                        </entry>
+                        <entry>
+                            <para>Fault status for the SSPC-A solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry>
+                            <para>Open or short to power or ground.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSPCB</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded pressure for the SSPC-B solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>PSI</para>
+                        </entry>
+                        <entry>
+                            <para>0-2,069 kPa (0-300 psi).</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSB_AMP#</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded current for the SSPC-B solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>Amps</para>
+                        </entry>
+                        <entry>
+                            <para>0-1.0 Amp.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSPCB_F</para>
+                        </entry>
+                        <entry>
+                            <para>Fault status for the SSPC-B solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry>
+                            <para>Open or short to power or ground.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSPCC</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded pressure for the SSPC-C solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>PSI</para>
+                        </entry>
+                        <entry>
+                            <para>0-2,069 kPa (0-300 psi).</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSC_AMP#</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded current for the SSPC-C solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>Amps</para>
+                        </entry>
+                        <entry>
+                            <para>0-1.0 Amp.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSPCC_F</para>
+                        </entry>
+                        <entry>
+                            <para>Fault status for the SSPC-C solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry>
+                            <para>Open or short to power or ground.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSPCD</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded pressure for the SSPC-D solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>PSI</para>
+                        </entry>
+                        <entry>
+                            <para>0-2,069 kPa (0-300 psi).</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSD_AMP#</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded current for the SSPC-D solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>Amps</para>
+                        </entry>
+                        <entry>
+                            <para>0-1.0 Amp.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSPCD_F</para>
+                        </entry>
+                        <entry>
+                            <para>Fault status for the SSPC-D solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry>
+                            <para>Open or short to power or ground.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSPCE</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded pressure for the SSPC-E solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>PSI</para>
+                        </entry>
+                        <entry>
+                            <para>0-2,069 kPa (0-300 psi).</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSE_AMP#</para>
+                        </entry>
+                        <entry>
+                            <para>Commanded current for the SSPC-E solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>Amps</para>
+                        </entry>
+                        <entry>
+                            <para>0-1.0 Amp.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SSPCE_F</para>
+                        </entry>
+                        <entry>
+                            <para>Fault status for the SSPC-E solenoid</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry>
+                            <para>Open or short to power or ground.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TCC_RAT</para>
+                        </entry>
+                        <entry>
+                            <para>Actual speed ratio of torque converter (1.0 = fully engaged)</para>
+                        </entry>
+                        <entry>
+                            <para>Ratio</para>
+                        </entry>
+                        <entry>
+                            <para>Ratio.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TC_SLIPACT</para>
+                        </entry>
+                        <entry>
+                            <para>Actual difference between engine speed and turbine speed</para>
+                        </entry>
+                        <entry>
+                            <para>RPM</para>
+                        </entry>
+                        <entry>
+                            <para>RPM</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TRAN_RAT</para>
+                        </entry>
+                        <entry>
+                            <para>Actual transmission gear ratio</para>
+                        </entry>
+                        <entry>
+                            <para>Ratio</para>
+                        </entry>
+                        <entry>
+                            <para>Ratio.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>ISS_SRC</para>
+                        </entry>
+                        <entry>
+                            <para>Actual speed of the intermediate shaft speed sensor</para>
+                        </entry>
+                        <entry>
+                            <para>RPM</para>
+                        </entry>
+                        <entry>
+                            <para>RPM.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TSS_SRC</para>
+                        </entry>
+                        <entry>
+                            <para>Actual speed of the turbine shaft speed sensor</para>
+                        </entry>
+                        <entry>
+                            <para>RPM</para>
+                        </entry>
+                        <entry>
+                            <para>RPM.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>OSS_SRC</para>
+                        </entry>
+                        <entry>
+                            <para>Actual speed of the output shaft speed sensor</para>
+                        </entry>
+                        <entry>
+                            <para>RPM</para>
+                        </entry>
+                        <entry>
+                            <para>RPM.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TR</para>
+                        </entry>
+                        <entry>
+                            <para>Transmission range (TR) sensor position</para>
+                        </entry>
+                        <entry>
+                            <para>Detents</para>
+                        </entry>
+                        <entry>
+                            <para>P, R, N, D, 3, 2, 1.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TR_FREQ</para>
+                        </entry>
+                        <entry>
+                            <para>TR sensor carrier frequency</para>
+                        </entry>
+                        <entry>
+                            <para>Frequency (Hz)</para>
+                        </entry>
+                        <entry>
+                            <para>Frequency (Hz).</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TR_DC</para>
+                        </entry>
+                        <entry>
+                            <para>TR sensor duty cycle</para>
+                        </entry>
+                        <entry>
+                            <para>Frequency (Hz)</para>
+                        </entry>
+                        <entry>
+                            <para>Frequency (Hz).</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TFT</para>
+                        </entry>
+                        <entry>
+                            <para>Transmission fluid temperature sensor</para>
+                        </entry>
+                        <entry>
+                            <para>&#176;F</para>
+                        </entry>
+                        <entry>
+                            <para>&#176;F.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TCS</para>
+                        </entry>
+                        <entry>
+                            <para>Transmission control switch</para>
+                        </entry>
+                        <entry>
+                            <para>Not Depressed, Depressed</para>
+                        </entry>
+                        <entry>
+                            <para>Not Depressed, Depressed.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Tow _Haul</para>
+                        </entry>
+                        <entry>
+                            <para>Tow haul state: Off = normal; On = tow haul activated</para>
+                        </entry>
+                        <entry>
+                            <para>Off/On</para>
+                        </entry>
+                        <entry>
+                            <para>Off/On.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>RLC_F</para>
+                        </entry>
+                        <entry>
+                            <para>Reverse lamp control fault</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                        <entry>
+                            <para>Open or short to power or ground.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>SHFT_TYP</para>
+                        </entry>
+                        <entry>
+                            <para>Type of shift</para>
+                        </entry>
+                        <entry>
+                            <para>Auto/ Manual</para>
+                        </entry>
+                        <entry>
+                            <para>Auto/ Manual.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>HRSH_SFT</para>
+                        </entry>
+                        <entry>
+                            <para>HRSH_SFT Output state control for firm shifts</para>
+                        </entry>
+                        <entry>
+                            <para>See OSC</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TSPC</para>
+                        </entry>
+                        <entry>
+                            <para>TSPC_Flag = Fault Flag</para>
+                        </entry>
+                        <entry>
+                            <para>1 = On 0 = Off</para>
+                        </entry>
+                        <entry>
+                            <para>1 or 0.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TCC#</para>
+                        </entry>
+                        <entry>
+                            <para>Output state control for torque converter</para>
+                        </entry>
+                        <entry>
+                            <para>See OSC</para>
+                        </entry>
+                        <entry>
+                            <para>-</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>GEAR_OSC</para>
+                        </entry>
+                        <entry>
+                            <para>Output state control for upshift/downshifts</para>
+                        </entry>
+                        <entry>
+                            <para>1, 2, 3, 4, 5, 6</para>
+                        </entry>
+                        <entry>
+                            <para>1, 2, 3, 4, 5, 6.</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <table id="t0701032">
+            <title>P0730_Status</title>
+            <tgroup cols="2">
+                <colspec colname="col1" colwidth="0.62*"/>
+                <colspec colname="col2" colwidth="1.38*"/>
+                <thead>
+                    <row>
+                        <entry align="center">
+                            <para>PID Acronym</para>
+                        </entry>
+                        <entry align="center">
+                            <para>PID Description</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>P730_00</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Overdrive one-way clutch system failed OFF</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>P730_01</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Coast clutch system failed OFF</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>P730_02</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Coast clutch failed ON</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>P730_03</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Overdrive clutch system failed OFF</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>P730_04</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Overdrive clutch system failed ON</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>P730_09</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Low/reverse one-way clutch system failed OFF</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>P730_10</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Low/reverse clutch system failed OFF</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>P730_11</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Low/reverse clutch system failed ON</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>P730_12</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Intermediate clutch system failed OFF</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>P730_13</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Intermediate clutch system failed ON</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>P730_14</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Direct clutch system failed OFF</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>P730_15</para>
+                        </entry>
+                        <entry>
+                            <para>P0730 Direct clutch system failed ON</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </svcsubproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s13036_12.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s13036_14.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s13036.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

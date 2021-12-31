@@ -1,0 +1,982 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE / 9200 9300 9400 MODELS BUILT AFTER JANUARY 1, 1995 -
+        SPEEDOMETER/TACHOMETER DIAGNOSTICS AND SERVICE - PROGRAMMING - 1000, 2000, 3000, 4000, 8000 MODELS
+    </stitle>
+    <svcsection/>
+    <svcproc svcproctype="program" graphiccount="5">
+        <title>1000, 2000, 3000, 4000, 8000 MODELS</title>
+        <svcsubproc id="x0815402">
+            <title>January 1989 to March 1992 - All Engines</title>
+            <para>The speedo/tach cluster has two sets of DIP switches with eight switches in each bank. The DIP
+                switches are located at the top, rear of the cluster and are used to manually program the speedo/tach
+                microprocessor with vehicle component information by physically setting the DIP switches (
+                <hotlnk xrefid="f0815415">Figure 15</hotlnk>).
+            </para>
+            <figure id="f0815415" figsize="col-wide">
+                <graphic id="g0815415" filename="../figg08/g0815415.webp" type="webp" resolution="72"/>
+                <caption>1000, 2000, 3000, 4000, 8000 Models DIP Switches, January 1989 to March 1992</caption>
+                <calloutgroup>
+                    <callout1>A. LEFT SIDE DIP SWITCH</callout1>
+                    <callout1>B. RIGHT SIDE DIP SWITCH</callout1>
+                    <callout1>1. INSTRUMENT CLUSTER BEZEL</callout1>
+                    <callout1>2. CLUSTER</callout1>
+                    <callout1>3. WIRING HARNESS CONNECTOR</callout1>
+                    <callout1>4. INSTRUMENT PANEL</callout1>
+                    <callout1>5. DIP SWITCH COVER</callout1>
+                    <callout1>6. TEN SPEEDOMETER SETTING SWITCHES (1-8 ON LEFT, 1, 2 ON RIGHT)</callout1>
+                    <callout1>7. ONE AXLE RATED SETTING SWITCH (3 ON RIGHT)</callout1>
+                    <callout1>8. THREE TACHOMETER SETTING SWITCHES (4, 5, 6 ON RIGHT)</callout1>
+                    <callout1>9. ONE ENGLISH/METRIC CONVERSION SWITCH (8 ON RIGHT)</callout1>
+                </calloutgroup>
+            </figure>
+            <para>The original speedometer DIP switch settings are shown on the vehicle linesetting ticket in the 010000
+                code, Speedo - last ten (10) digits (
+                <hotlnk xrefid="f0815416">Figure 16</hotlnk>). The DIP switch settings can also be determined by
+                following the DIP Switch Configuration section below.
+            </para>
+            <figure id="f0815416" figsize="col-wide">
+                <graphic id="g0815416" filename="../figg08/g0815416.webp" type="webp" resolution="72"/>
+                <caption>Vehicle Lineset Ticket</caption>
+            </figure>
+            <para>
+                <title>Component Changes</title>
+            </para>
+            <para>Any changes in vehicle components like tire size or axle ratio requires recalibration of the ten (10)
+                speedometer switches. The prop shaft revolutions per mile must be calculated and the DIP switches
+                physically set to the positions shown on the Switch Setting Chart. Refer to
+                <hotlnk document="s08154x_22.xml" xrefid="x0815430">PROGRAMMING, CALCULATION AND SWITCH SETTING
+                    <xref refid="x0815430"/>
+                </hotlnk>
+                .
+            </para>
+            <para>
+                <title>Cluster Replacement</title>
+            </para>
+            <para>Replacing the speedo/tach cluster requires that
+                <emph type="bold">all</emph>
+                DIP switches be physically set to match the settings of the cluster being removed.
+            </para>
+            <para>The original speedometer DIP switch settings can be found on the vehicle linesetting ticket. All DIP
+                switch settings can be determined by following the DIP Switch Configuration section below.
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Speedometer</title>
+            </para>
+            <para>Programming the speedometer DIP switches involves setting the first ten (10) switches (Number 1 thru 8
+                on the left, plus 1 and 2 on the right bank) to positions based on the revolutions per mile of the
+                propeller shaft. Refer to
+                <hotlnk document="s08154x_22.xml" xrefid="x0815430">PROGRAMMING, CALCULATION AND SWITCH SETTING
+                    <xref refid="x0815430"/>
+                </hotlnk>
+                .
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Two Speed Axle Ratio</title>
+            </para>
+            <para>The number 3 switch position on the right bank is for calibration of the two available two-speed axle
+                ratios. This switch position is "0" for a 1.36:1, or "1" for a 1.39:1 axle ratio.
+            </para>
+            <para>To calculate two-speed axle ratio, divide the high speed gear ratio by the low speed gear ratio. These
+                ratios are stamped into a tag located on the differential carrier. This switch is not active if not
+                equipped with a two-speed axle and the lineset ticket or cluster label will be marked with an "*".
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Tachometer</title>
+            </para>
+            <para>The number 4, 5, and 6 switch positions on the right bank are for programming the tachometer RPM
+                settings. The DIP switch settings are based on engine model and flywheel gear teeth per revolution and
+                are shown in the Tachometer DIP Switch Settings Chart.
+            </para>
+            <table id="t0815401">
+                <title>Tachometer DIP Switch Settings Chart</title>
+                <tgroup cols="5" colsep="1" rowsep="1">
+                    <colspec colname="SQCOLUMN1" colwidth="0.50in"/>
+                    <colspec colname="SQCOLUMN2" colwidth="0.50in"/>
+                    <colspec colname="SQCOLUMN3" colwidth="0.50in"/>
+                    <colspec colname="SQCOLUMN4" colwidth="1.50in"/>
+                    <colspec colname="SQCOLUMN5" colwidth="2.00in"/>
+                    <spanspec namest="SQCOLUMN1" nameend="SQCOLUMN3" spanname="1to3"/>
+                    <thead valign="top">
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>Switch Position</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>Teeth Per Revolution</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>Engine or Output</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4</para>
+                            </entry>
+                            <entry>
+                                <para>5</para>
+                            </entry>
+                            <entry>
+                                <para>6</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody valign="top">
+                        <row>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>103</para>
+                            </entry>
+                            <entry>
+                                <para>Cummins</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>113</para>
+                            </entry>
+                            <entry>
+                                <para>Caterpillar</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>118</para>
+                            </entry>
+                            <entry>
+                                <para>Detroit Diesel</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>126</para>
+                            </entry>
+                            <entry>
+                                <para>Perkins, T6-354; Cummins, VT-155; Export</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>133</para>
+                            </entry>
+                            <entry>
+                                <para>Mercedes (Export)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>138</para>
+                            </entry>
+                            <entry>
+                                <para>International</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>DIP Switch Configuration - Switch Number 7 on Right Bank</title>
+                - This switch is not used and the switch position is not a factor in the speedo/tach operation.
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Odometer</title>
+                - The number 8 switch on the right bank is for setting the odometer to show either miles or kilometers.
+                This switch must be set to "0" for miles, or "1" for kilometers.
+            </para>
+        </svcsubproc>
+        <svcsubproc id="x0815404">
+            <title>March 1992 to February 1994 - All Engines</title>
+            <para>The speedo/tach cluster has two sets of DIP switches with eight switches in each bank. The DIP
+                switches are located at the top, rear of the cluster and can be used to manually program speedo/tach
+                module information. (
+                <hotlnk xrefid="f0815417">Figure 17</hotlnk>).
+            </para>
+            <figure id="f0815417" figsize="col-wide">
+                <graphic id="g0815417" filename="../figg08/g0815417.webp" type="webp" resolution="72"/>
+                <caption>1000, 2000, 3000, 4000, 8000 Models Speedometer/Tachometer Cluster DIP Switches, March 1992 to
+                    February 1994
+                </caption>
+                <calloutgroup>
+                    <callout1>SWITCH 1. LEFT SIDE DIP SWITCH BANK</callout1>
+                    <callout1>SWITCH 2. RIGHT SIDE DIP SWITCH BANK</callout1>
+                    <callout1>1. CLUSTER</callout1>
+                    <callout1>2. WIRING HARNESS CONNECTORS</callout1>
+                    <callout1>3. DIP SWITCHES</callout1>
+                    <callout1>4. TEN SPEEDOMETER SETTING SWITCHES (1-8 ON LEFT, 1-2 ON RIGHT)</callout1>
+                    <callout1>5. ONE AXLE RATIO SETTING SWITCH (3 ON RIGHT)</callout1>
+                    <callout1>6. THREE TACHOMETER SETTING SWITCHES (4-5-6 ON RIGHT)</callout1>
+                    <callout1>7. ONE TACHOMETER RANGE SWITCH (7 ON RIGHT)</callout1>
+                    <callout1>8. ONE ENGLISH-METRIC ODOMETER SWITCH (8 ON RIGHT)</callout1>
+                </calloutgroup>
+            </figure>
+            <specpara>
+                <important>
+                    <para>The original speedo/tach cluster microprocessor is electronically programmed, when the vehicle
+                        is built, to match the component configuration of the vehicle. However, the physical positions
+                        of all the DIP switches remain in the "0" position.
+                    </para>
+                </important>
+            </specpara>
+            <para>The original electronically programmed settings are shown on the vehicle linesetting ticket in the
+                010000 code, Speedo &#38; Misc - last sixteen (16) digits (
+                <hotlnk xrefid="f0815418">Figure 18</hotlnk>), and on a label attached to the top of the original
+                cluster (
+                <hotlnk xrefid="f0815419">Figure 19</hotlnk>).
+            </para>
+            <figure id="f0815418" figsize="col-wide">
+                <graphic id="g0815418" filename="../figg08/g0815418.webp" type="webp" resolution="72"/>
+                <caption>Vehicle Lineset Ticket</caption>
+            </figure>
+            <figure id="f0815419" figsize="col-wide">
+                <graphic id="g0815419" filename="../figg08/g0815419.webp" type="webp" resolution="72"/>
+                <caption>DIP Switch Setting Label</caption>
+            </figure>
+            <para>DIP switch settings can also be determined by following the
+                <hotlnk xrefid="x0815431">DIP Switch Configuration
+                    <xref refid="x0815431"/>
+                </hotlnk>
+                section.
+            </para>
+            <specpara>
+                <important>
+                    <para>Physically moving any of the DIP switches from the "0" position disables all of the
+                        electronically programmed settings of the cluster. If any DIP switch is moved for any reason,
+                        then ALL of the DIP switches must be physically moved to the appropriate positions shown on the
+                        vehicle linesetting ticket, or the label attached to the top of the cluster. Physically moving
+                        all the DIP switches back to the "0" position of an electronically programmed cluster will
+                        enable the original programmed settings.
+                    </para>
+                </important>
+            </specpara>
+            <para>
+                <title>Component Changes</title>
+            </para>
+            <para>Any changes in vehicle components like tire size or axle ratio requires recalibration of the
+                speedometer. The prop shaft revolutions per mile must be calculated and the DIP switches physically set.
+                Refer to
+                <hotlnk document="s08154x_22.xml" xrefid="x0815430">PROGRAMMING, CALCULATION AND SWITCH SETTING
+                    <xref refid="x0815430"/>
+                </hotlnk>
+                .
+            </para>
+            <specpara>
+                <note>
+                    <para>Physically setting the new DIP switch settings for the speedometer disables all of the
+                        electronically programmed settings. This requires that the rest of the switches also be
+                        physically set to the positions shown on the vehicle linesetting ticket, the cluster label, or
+                        can be determined by following the DIP Switch Configuration section below.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>Cluster Replacement</title>
+            </para>
+            <para>Replacing the speedo/tach cluster requires that the new module be manually programmed by physically
+                setting all DIP switches to match the vehicle component configuration.
+            </para>
+            <para>The original DIP switch settings are found on the vehicle linesetting ticket, on the label attached to
+                the top of the original cluster, or can be determined by following the DIP Switch Configuration section
+                below.
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Speedometer</title>
+            </para>
+            <para id="x0815431">DIP Switch Configuration - Speedometer - Programming the speedometer DIP switches
+                involves setting the first ten (10) switches (Number 1 thru 8 on left, plus 1 and 2 on right bank) to
+                positions based on the revolutions per mile of the propeller shaft. Refer to
+                <hotlnk document="s08154x_22.xml" xrefid="x0815430">PROGRAMMING, CALCULATION AND SWITCH SETTING
+                    <xref refid="x0815430"/>
+                </hotlnk>
+                .
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Two Speed Axle Ratio</title>
+                - The number three switch position on the right bank is for calibration of the two available two-speed
+                axle ratios. This switch position is "0" for a 1.36:1, or "1" for a 1.39:1 axle ratio.
+            </para>
+            <para>To calculate two-speed axle ratio, divide the high speed gear ratio by the low speed gear ratio. These
+                ratios are stamped into a tag located on the differential carrier. This switch is not active if not
+                equipped with a two-speed axle and the lineset ticket or cluster label will be marked with an "*".
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Tachometer</title>
+                - The number 4, 5, and 6 switch positions on the right bank are for programming the tachometer RPM
+                settings. These settings are based on engine model and flywheel gear teeth per revolution and are shown
+                in the Tachometer DIP Switch Settings Chart.
+            </para>
+            <table id="t0815402">
+                <title>Tachometer DIP Switch Settings Chart</title>
+                <tgroup cols="5" colsep="1" rowsep="1">
+                    <colspec colname="SQCOLUMN1" colwidth="0.50in"/>
+                    <colspec colname="SQCOLUMN2" colwidth="0.50in"/>
+                    <colspec colname="SQCOLUMN3" colwidth="0.50in"/>
+                    <colspec colname="SQCOLUMN4" colwidth="1.50in"/>
+                    <colspec colname="SQCOLUMN5" colwidth="2.00in"/>
+                    <spanspec namest="SQCOLUMN1" nameend="SQCOLUMN3" spanname="1to3"/>
+                    <thead valign="top">
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>Switch Position</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>Teeth Per Revolution</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>Engine or Output</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4</para>
+                            </entry>
+                            <entry>
+                                <para>5</para>
+                            </entry>
+                            <entry>
+                                <para>6</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody valign="top">
+                        <row>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>103</para>
+                            </entry>
+                            <entry>
+                                <para>Cummins</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>113</para>
+                            </entry>
+                            <entry>
+                                <para>Caterpillar</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>118</para>
+                            </entry>
+                            <entry>
+                                <para>Detroit Diesel</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>138</para>
+                            </entry>
+                            <entry>
+                                <para>International</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>173</para>
+                            </entry>
+                            <entry>
+                                <para>Cummins B (Export) (C92 Rev.)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>DIP Switch Configuration - Tachometer Range</title>
+                - The number 7 switch is to set the tachometer range scale. This switch is always set to the "0"
+                position for 0-3500 RPM readings.
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Odometer</title>
+                - The number 8 switch on the right bank is for setting the odometer to show either miles or kilometers.
+                This switch must be set to "0" for miles, or "1" for kilometers.
+            </para>
+        </svcsubproc>
+        <svcsubproc id="x0815406">
+            <title>February 1994 and Later - Mechanical Engines</title>
+            <para>The speedo/tach cluster has two sets of DIP switches with eight switches in each bank. The DIP
+                switches are located at the top, rear of the cluster and can be used to manually program speedo/tach
+                module information (
+                <hotlnk xrefid="f0815417">Figure 17</hotlnk>).
+            </para>
+            <specpara>
+                <important>
+                    <para>The original speedo/tach cluster microprocessor is electronically programmed, when the vehicle
+                        is built, to match the component configuration of the vehicle. However, the physical positions
+                        of all the DIP switches remain in the "0" position.
+                    </para>
+                </important>
+            </specpara>
+            <para>The original electronically programmed settings are shown on the vehicle linesetting ticket in the
+                010000 code, Speedo &#38; Misc - last sixteen (16) digits (
+                <hotlnk xrefid="f0815418">Figure 18</hotlnk>), and on a label attached to the top of the original
+                cluster (
+                <hotlnk xrefid="f0815419">Figure 19</hotlnk>).
+            </para>
+            <para>DIP switch settings can also be determined by following the
+                <hotlnk xrefid="x0815432">DIP Switch Configuration
+                    <xref refid="x0815432"/>
+                </hotlnk>
+                section.
+            </para>
+            <specpara>
+                <important>
+                    <para>Physically moving any of the DIP switches from the "0" position disables all of the
+                        electronically programmed settings of the cluster. If any DIP switch is moved for any reason,
+                        then ALL of the DIP switches must be physically moved to the appropriate positions shown on the
+                        vehicle linesetting ticket, or the label attached to the top of the cluster. Physically moving
+                        all the DIP switches back to the "0" position of an electronically programmed cluster will
+                        enable the original programmed settings.
+                    </para>
+                </important>
+            </specpara>
+            <para>
+                <title>Component Changes</title>
+            </para>
+            <para>Any changes in vehicle components like tire size or axle ratio requires recalibration of the
+                speedometer. The prop shaft revolutions per mile must be calculated and the DIP switches physically set.
+                Refer to
+                <hotlnk document="s08154x_22.xml" xrefid="x0815430">PROGRAMMING, CALCULATION AND SWITCH SETTING.
+                    <xref refid="x0815430"/>
+                </hotlnk>
+            </para>
+            <specpara>
+                <note>
+                    <para>Physically setting the new DIP switch settings for the speedometer disables all of the
+                        electronically programmed settings. This requires that the rest of the switches also be
+                        physically set to the positions shown on the vehicle linesetting ticket, the cluster label, or
+                        can be determined by following the
+                        <hotlnk xrefid="x0815432">DIP Switch Configuration
+                            <xref refid="x0815432"/>
+                        </hotlnk>
+                        section.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>Cluster Replacement</title>
+            </para>
+            <para>Replacing the speedo/tach cluster requires that the new module be manually programmed by physically
+                setting all DIP switches to match the vehicle component configuration.
+            </para>
+            <para>The original DIP switch settings are found on the vehicle linesetting ticket, on the label attached to
+                the top of the original cluster, or can be determined by following the DIP Switch Configuration section
+                below.
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Speedometer</title>
+            </para>
+            <para id="x0815432">DIP Switch Configuration - Speedometer - Programming the speedometer DIP switches
+                involves setting the first ten (10) switches (Number 1 thru 8 on left plus 1 and 2 on right bank) to
+                positions based on the revolutions per mile of the propeller shaft. Refer to
+                <hotlnk document="s08154x_22.xml" xrefid="x0815430">PROGRAMMING, CALCULATION AND SWITCH SETTING
+                    <xref refid="x0815430"/>
+                </hotlnk>
+                .
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Two Speed Axle Ratio</title>
+                - The number three switch position on the right bank is for calibration of the two available two-speed
+                axle ratios. This switch position is "0" for a 1.36:1, or "1" for a 1.39:1 axle ratio.
+            </para>
+            <para>To calculate two-speed axle ratio, divide the high speed gear ratio by the low speed gear ratio. These
+                ratios are stamped into a tag located on the differential carrier. This switch is not active if not
+                equipped with a two-speed axle and the lineset ticket or cluster label will be marked with an "*".
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Tachometer</title>
+                - The number 4, 5, and 6 switch positions on the right bank are for programming the tachometer RPM
+                settings. These settings are based on engine model and flywheel gear teeth per revolution and are shown
+                in the Tachometer DIP Switch Settings Chart.
+            </para>
+            <table id="t0815403">
+                <title>Tachometer DIP Switch Settings Chart</title>
+                <tgroup cols="5" colsep="1" rowsep="1">
+                    <colspec colname="SQCOLUMN1" colwidth="0.50in"/>
+                    <colspec colname="SQCOLUMN2" colwidth="0.50in"/>
+                    <colspec colname="SQCOLUMN3" colwidth="0.50in"/>
+                    <colspec colname="SQCOLUMN4" colwidth="1.50in"/>
+                    <colspec colname="SQCOLUMN5" colwidth="2.00in"/>
+                    <spanspec namest="SQCOLUMN1" nameend="SQCOLUMN3" spanname="1to3"/>
+                    <thead valign="top">
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>Switch Position</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>Teeth Per Revolution</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>Engine or Output</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4</para>
+                            </entry>
+                            <entry>
+                                <para>5</para>
+                            </entry>
+                            <entry>
+                                <para>6</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody valign="top">
+                        <row>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>103</para>
+                            </entry>
+                            <entry>
+                                <para>Cummins</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>113</para>
+                            </entry>
+                            <entry>
+                                <para>Caterpillar</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>118</para>
+                            </entry>
+                            <entry>
+                                <para>Detroit Diesel</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>138</para>
+                            </entry>
+                            <entry>
+                                <para>International</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>173</para>
+                            </entry>
+                            <entry>
+                                <para>Cummins B (Export) (C92 Rev.)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>DIP Switch Configuration - Tachometer Range</title>
+                - The number seven switch is to set the tachometer range scale. This switch is always set to the "0"
+                position for 0-3500 RPM readings.
+            </para>
+            <para>
+                <title>DIP Switch Configuration - Odometer</title>
+                - The number 8 switch on the right bank is for setting the odometer to show either miles or kilometers.
+                This switch must be set to "0" for miles, or "1" for kilometers.
+            </para>
+        </svcsubproc>
+        <svcsubproc id="x0815407">
+            <title>January 1994 to November 1997 - Electronic Engines: Caterpillar, Cummins, and Detroit Diesel</title>
+            <para>The speedo/tach cluster has two sets of DIP switches with eight switches in each bank. The DIP
+                switches are located at the top, rear of the cluster and can be used to manually program the speedo/tach
+                microprocessor to receive data link signals generated by the engine Electronic Control Module (ECM) (
+                <hotlnk xrefid="f0815417">Figure 17</hotlnk>).
+            </para>
+            <para>Information on engine, axle ratio, tire revolutions per mile, number of teeth on the transmission
+                speedometer gear, etc. are programmed into the engine ECM and not the speedo/tach module.
+            </para>
+            <specpara>
+                <important>
+                    <para>The original speedo/tach cluster microprocessor is electronically programmed, when the vehicle
+                        is built, to receive data link signals generated by the engine ECM. However, the physical
+                        positions of all the DIP switches remain in the "0" position.
+                    </para>
+                </important>
+            </specpara>
+            <para>The original electronically programmed settings are shown on the vehicle linesetting ticket in the
+                010000 code, Speedo &#38; Misc - last sixteen (16) digits (
+                <hotlnk xrefid="f0815418">Figure 18</hotlnk>), and on a label attached to the top of the original
+                cluster (
+                <hotlnk xrefid="f0815419">Figure 19</hotlnk>).
+            </para>
+            <para>DIP switch settings can also be determined by following the
+                <hotlnk xrefid="x0815433">DIP Switch Configuration
+                    <xref refid="x0815433"/>
+                </hotlnk>
+                section.
+            </para>
+            <specpara>
+                <important>
+                    <para>Physically moving any of the DIP switches from the "0" position disables all of the
+                        electronically programmed settings of the cluster. If any DIP switch is moved for any reason,
+                        then ALL of the DIP switches must be physically moved to the appropriate positions shown on the
+                        vehicle linesetting ticket, or the label attached to the top of the cluster. Physically moving
+                        all the DIP switches back to the "0" position of an electronically programmed cluster will
+                        enable the original programmed settings.
+                    </para>
+                </important>
+            </specpara>
+            <para>
+                <title>Component Changes</title>
+            </para>
+            <para>If there are any changes in vehicle components, such as tire size or axle ratio, etc.,
+                <emph type="bold">the engine ECM must be reprogrammed</emph>
+                with the correct data.
+            </para>
+            <specpara>
+                <note>
+                    <para>The speedo/tach module microprocessor or DIP switches do not get reprogrammed.</para>
+                </note>
+            </specpara>
+            <para>The Pro-Link 9000 Electronic Service Tool (EST), or the EZ-Tech with the authorized engine
+                manufacturer's software must be used for reprogramming the engine ECM. Refer to the Pro-Link&#174; 9000
+                manual or the engine manufacturer's service literature for instructions.
+            </para>
+            <para>
+                <title>Cluster Replacement</title>
+            </para>
+            <para>If a cluster is to be replaced, the service cluster must be programmed either electronically or
+                manually.
+            </para>
+            <para>
+                <title>Electronic Programming</title>
+            </para>
+            <specpara>
+                <note>
+                    <para>An electronic service tool (EST) such as the Pro-Link 9000 with the Instrument Panel Cartridge
+                        Kit, or the EZ-Tech with the instrument cluster software, are used to program the
+                        speedometer/tachometer module microprocessor, through the J1708 data link . Refer to the
+                        Pro-Link or EZ-Tech instrument cluster software manual for instructions. This method requires
+                        that all of the DIP switches be physically set in the "
+                        <emph type="bold">0</emph>" position.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>Manual Programming</title>
+            </para>
+            <para>If manually programming the cluster, the DIP switches must be physically set to the positions shown on
+                the vehicle linesetting ticket, or on the label attached to the top of the original cluster. DIP switch
+                settings can also be determined by following the DIP Switch Configuration section below.
+            </para>
+            <para id="x0815433">
+                <title>DIP Switch Configuration</title>
+            </para>
+            <para>The physical settings of the DIP switch positions for these engines is as follows:</para>
+            <para>
+                <emph type="bold">Ten Speedometer Switches</emph>
+                - 1111111111 (Number 1 thru 8 on left bank, plus 1 and 2 on right bank).
+            </para>
+            <para>
+                <emph type="bold">One, Two-Speed Axle Ratio Switch</emph>
+                - 0 or 1 (number 3 on right bank) "0" for 1.36:1 - "1" for 1.39:1 ratios.
+            </para>
+            <para>To calculate two-speed axle ratio, divide the high speed gear ratio by the low speed gear ratio. These
+                ratios are stamped into a tag located on the differential carrier. This switch is not active if not
+                equipped with a two-speed axle and the lineset ticket or cluster label will be marked with an "*".
+            </para>
+            <para>
+                <emph type="bold">Three Tachometer Switches</emph>
+                - 111 (Number 4, 5, and 6 on right bank).
+            </para>
+            <para>
+                <emph type="bold">One Tachometer Scale Switch</emph>
+                - 0 (Number 7 on right bank).
+            </para>
+            <para>
+                <emph type="bold">One Odometer Switch</emph>
+                - 0 or 1 (Number 8 on right bank) "0" for miles or "1" for kilometers.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>January 1994 to November 1997 - Electronic Engines: International</title>
+            <para>The speedo/tach cluster has two sets of DIP switches with eight switches in each bank. The DIP
+                switches are located at the top, rear of the cluster and can be used to manually program the speedo/tach
+                microprocessor to receive signals from the engine Vehicle Personality Module (VPM) (
+                <hotlnk xrefid="f0815417">Figure 17</hotlnk>).
+            </para>
+            <para>Information on engine, axle ratio, tire revolutions per mile, number of teeth on the transmission
+                speedometer gear, etc. are programmed into the engine VPM and not the speedo/tach module.
+            </para>
+            <specpara>
+                <important>
+                    <para>The original speedo/tach cluster microprocessor is electronically programmed, when the vehicle
+                        is built, to receive signals generated by the engine VPM. However, the physical positions of all
+                        the DIP switches remain in the "0" position.
+                    </para>
+                </important>
+            </specpara>
+            <para>The original electronically programmed settings are shown on the vehicle linesetting ticket in the
+                010000 code, Speedo &#38; Misc - last sixteen (16) digits (
+                <hotlnk xrefid="f0815418">Figure 18</hotlnk>), and on a label attached to the top of the original
+                cluster (
+                <hotlnk xrefid="f0815419">Figure 19</hotlnk>).
+            </para>
+            <para>DIP switch settings can also be determined by following the
+                <hotlnk xrefid="x0815434">DIP Switch Configuration
+                    <xref refid="x0815434"/>
+                </hotlnk>
+                section.
+            </para>
+            <specpara>
+                <important>
+                    <para>Physically moving any of the DIP switches from the "0" position disables all of the
+                        electronically programmed settings of the cluster. If any DIP switch is moved for any reason,
+                        then ALL of the DIP switches must be physically moved to the appropriate positions shown on the
+                        vehicle linesetting ticket, or the label attached to the top of the cluster. Physically moving
+                        all the DIP switches back to the "0" position of an electronically programmed cluster will
+                        enable the original programmed settings.
+                    </para>
+                </important>
+            </specpara>
+            <para>
+                <title>Component Changes</title>
+            </para>
+            <para>If there are any changes in vehicle components, such as tire size or axle ratio etc., the
+                <emph type="bold">engine VPM must be reprogrammed</emph>
+                with the correct data.
+            </para>
+            <specpara>
+                <note>
+                    <para>The speedo/tach module microprocessor or DIP switches cannot be electronically reprogrammed.
+                    </para>
+                </note>
+            </specpara>
+            <para>The Pro-Link 9000 or the EZ-Tech Electronic Service Tool (EST) can be used for reprogramming the
+                engine VPM. Refer to the Pro-Link manual or EZ-Tech documentation for programming instructions.
+            </para>
+            <para>
+                <title>Cluster Replacement</title>
+            </para>
+            <para>Replacing the speedo/tach cluster requires the module to be manually programmed by physically setting
+                <emph type="bold">all</emph>
+                DIP switches. This enables the microprocessor to accept signals from the engine VPM.
+            </para>
+            <para>The original DIP switch settings are found on the vehicle linesetting ticket, on the label attached to
+                the top of the original cluster, or can be determined by following the DIP Switch Configuration section
+                below.
+            </para>
+            <para id="x0815434">
+                <title>DIP Switch Configuration</title>
+            </para>
+            <para>The physical settings of the DIP switch positions for these engines is as follows:</para>
+            <para>
+                <emph type="bold">Ten Speedometer Switches</emph>
+                - 0101111100 (Number 1 thru 8 on left bank, plus 1 and 2 on right bank).
+            </para>
+            <para>
+                <emph type="bold">One, Two-Speed Axle Ratio Switch</emph>
+                - 0 or 1 (Number 3 on right bank) "0" for 1.36:1 - "1" for 1.39:1 ratios.
+            </para>
+            <para>To calculate two-speed axle ratio, divide the high speed gear ratio by the low speed gear ratio. These
+                ratios are stamped into a tag located on the differential carrier. This switch is not active if not
+                equipped with a two-speed axle and the lineset ticket or cluster label will be marked with an "*".
+            </para>
+            <para>
+                <emph type="bold">Three Tachometer Switches</emph>
+                - 000 (Number 4, 5, and 6 on right bank).
+            </para>
+            <para>
+                <emph type="bold">One Tachometer Scale Switch</emph>
+                - 0 (Number 7 on right bank).
+            </para>
+            <para>
+                <emph type="bold">One Odometer Switch</emph>
+                - 0 or 1 (Number 8 on right bank) "0" for miles or "1" for kilometers.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08154x_17.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08154x_19.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08154x.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,1260 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - BCP Sensor (Brake Control Pressure)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="10">
+        <title>BCP Sensor (Brake Control Pressure)</title>
+        <svcprocinfo>
+            <figure id="f27007016" figsize="pg-wide">
+                <graphic filename="../figh31/h31263.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Function diagram for the BCP sensor</caption>
+            </figure>
+            <para id="s27005008">The function diagram for the BCP sensor includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para id="BCP">BCP sensor</para>
+                </item>
+                <item>
+                    <para>Injection Control Pressure (ICP) sensor</para>
+                </item>
+                <item>
+                    <para>Camshaft Position (CMP) sensor</para>
+                </item>
+                <item>
+                    <para>Crankshaft Position (CKP) sensor</para>
+                </item>
+                <item>
+                    <para>Injection Pressure Regulator (IPR)</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Engine Oil Temperature (EOT) sensor</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The BCP sensor is a Micro Strain Gauge (MSG) sensor. The BCP sensor is under the valve cover, forward
+                of the No. 2 fuel injector in the high-pressure oil rail. The engine harness connection on the valve
+                cover gasket for the BCP sensor is left of the No. 2 injector connector. The ECM supplies a 5 V
+                reference signal which the BCP sensor uses to produce a linear analog voltage that indicates pressure.
+            </para>
+            <para>The ECM monitors the BCP signal to determine the oil pressure in the brake gallery of the
+                high-pressure oil rail. During engine brake operation, if the ECM recognizes that the BCP signal is
+                greater than desired brake control pressure or less than the ICP signal, the ECM will set a DTC and
+                illuminate the amber ENGINE lamp.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>BCP Circuit Operation</title>
+            <figure id="f27007017" figsize="pg-wide">
+                <graphic filename="../figh31/h31264.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>BCP circuit diagram</caption>
+            </figure>
+            <para>The BCP sensor is supplied with a 5 V reference signal at Pin 2 through the valve cover gasket Pin B
+                from ECM Pin X1-14. The BCP sensor is supplied a signal ground at Pin 1 through the valve cover gasket
+                Pin C from ECM Pin X1-6. The BCP sensor sends a signal from sensor Pin 3 through valve cover gasket Pin
+                A to ECM Pin X2-11.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM continuously monitors the signal of the BCP sensor to determine if the signal is within an
+                expected range. If the ECM detects a voltage greater or less than expected, the ECM will set a DTC and
+                illuminate the amber ENGINE lamp.
+            </para>
+            <para>
+                <title>BCP Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red ENGINE lamps.</para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 126</emph>
+                </line>
+                <line>
+                    <emph type="bold">BCP signal out-of-range low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 126 is set by the ECM if signal voltage is less than 0.039 V for more than 0.35 second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 126 can be set due to an open or short to ground on the signal circuit, a failed BCP
+                        sensor, an open V
+                        <subscript>REF</subscript>
+                        circuit or V
+                        <subscript>REF</subscript>
+                        short to ground.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 126 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 127</emph>
+                </line>
+                <line>
+                    <emph type="bold">BCP signal out-of-range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 127 is set by the ECM if the signal voltage is greater than 4.9 V for more than 0.35
+                        second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 127 can be set due to a signal circuit shorted to V
+                        <subscript>REF</subscript>
+                        or B+, or a failed BCP sensor.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 127 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 546</emph>
+                </line>
+                <line>
+                    <emph type="bold">Engine brake control pressure below expected range</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 546 is set by the ECM when the brake control pressure is less than injection control
+                        pressure by 4 MPa (580 psi) for more than 3.0 seconds.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 546 can be set due to a bias low BCP sensor or a failed BCP sensor.</para>
+                </item>
+                <item>
+                    <para>DTC 546 can be set due to an open control circuit (power or ground), a failed brake shut-off
+                        valve, or a failed brake shut-off valve solenoid. See "Brake Shut-off Valve - Section 7.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 546 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 547</emph>
+                </line>
+                <line>
+                    <emph type="bold">Engine brake control pressure above expected range</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 547 is set by the ECM when the brake control pressure is greater than desired brake
+                        control pressure of 4.5 MPa (653 psi) for more than three seconds.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 547 can be set due to an open signal ground, V
+                        <subscript>REF</subscript>
+                        shorted to a voltage source higher than 5.5 V, or a faulty BCP sensor.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 547 can be set due to a control circuit short to B+ or a brake shut-off valve stuck open.
+                        See "Brake Shut-off Valve - Section 7.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 547 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>3-Banana Plug Harness</para>
+                </item>
+                <item>
+                    <para>500 Ohm Resistor Harness</para>
+                </item>
+                <item>
+                    <para>VC Gasket Breakout Harness</para>
+                </item>
+                <item>
+                    <para>UVC Pressure Breakout Harness</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>BCP Operational Diagnostics</title>
+            <figure id="f27007018" figsize="pg-wide">
+                <graphic filename="../figH31/H31297.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>BCP circuit diagram</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle - comply
+                        with the following:
+                    </para>
+                    <para>Be careful to avoid rotating parts (belts and fan) and hot engine surfaces.</para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Using EST, open the D_ContinuousMonitor.ssn.</para>
+            </step1>
+            <figure id="f27007019" figsize="col-wide">
+                <graphic filename="../figH31/H31229.webp" type="webp" scalefit="1" scalefitwidth="176px"
+                         scalefitheight="472px" box="no"/>
+                <caption>Continuous Monitor Test</caption>
+            </figure>
+            <step1>
+                <para count="1">To monitor signal voltage, run KOEO Continuous Monitor Test.</para>
+            </step1>
+            <step1>
+                <para count="1">Monitor BCP signal voltage. Verify an active DTC for the BCP circuit.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is active, do step 6 and 7 to check circuit for the BCP sensor using the
+                    following tables:
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Circuit Checks for BCP Sensor - ECM to Valve Cover Gasket Connector</para>
+                    </item>
+                    <item>
+                        <para>Circuit Checks for BCP Sensor - ECM to BCP Sensor</para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">If code is inactive, wiggle connectors and wires at all suspected problem locations. If
+                    circuit continuity is interrupted, the EST will display DTCs related to the condition.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Disconnect engine harness from valve cover gasket connector.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Inspect connectors for damaged pins, corrosion, or loose pins. Repair if necessary.</para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Connect VC Gasket Breakout Harness to engine harness only.</para>
+            </step1>
+            <figure id="f27007020" figsize="pg-wide">
+                <graphic filename="../figH31/H31297.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>BCP circuit diagram with breakout harness</caption>
+            </figure>
+            <table id="te27007019" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.18in"/>
+                    <colspec colname="col2" colwidth="0.93in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Circuit Checks for BCP Sensor - ECM to Valve Cover Gasket
+                                        Connector
+                                    </emph>
+                                    (Use EST, DMM, 500 Ohm Resistor Harness, and VC Gasket Breakout Harness to engine
+                                    harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Condition</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Harness disconnected from valve cover gasket connector using EST</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 0.039 V, check BCP signal for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Voltage from Pin B (Blue) of VC Gasket Breakout Harness to ground using DMM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 5.5 V, check V
+                                    <subscript>REF</subscript>
+                                    for short to B+. If voltage is &#60; 4.5 V, check V
+                                    <subscript>REF</subscript>
+                                    for open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>500 Ohm Resistor Harness connected between Pin A (Green) and Pin B (Blue) of VC
+                                    Gasket Breakout Harness using EST.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage &#60; 4.9 V, check BCP signal for open or short to ground.</para>
+                                <randlist type="dash">
+                                    <item>
+                                        <para>Disconnect connector 9260
+                                            <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the
+                                                battery box. Pin A is the chassis ground connection for the ECM and IDM.
+                                                See truck Chassis Electrical Circuit Diagram Manual for complete chassis
+                                                side ECM and IDM ground circuit information.</ftnote>. Measure
+                                            resistance from Pin A to Pin A of connector 9260 (spec > 1 k&#x2126;) to
+                                            check for short to ground within wiring harness.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Disconnect negative battery cable. Measure resistance from Pin A to ground
+                                            cable to check for short to ground.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Use a breakout box to measure from Pin A to Pin X2-11 (spec &#60; 5
+                                            &#x2126;) to check for open in the harness.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Resistance from Pin C (Black) of VC Gasket Breakout Harness to ECM chassis ground
+                                    (Pin A of connector 9260) using DMM.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If resistance is > 5 &#x2126;, check for open or high resistance between ECM and
+                                    UVC. Use a breakout box to measure resistance from X1-6 to Pin C (spec &#60; 5
+                                    &#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Connect engine harness to UVC connector. Use the EST to clear DTCs. If test
+                                    results are to spec for all test conditions, but an active code remains, remove
+                                    valve cover and check between UVC gasket connection and BCP sensor. (See Circuit
+                                    Checks for BCP - ECM to BCP Sensor.)
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007021" figsize="pg-wide">
+                <graphic filename="../figH31/H31264.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>BCP circuit diagram with UVC Pressure Sensor Breakout Harness</caption>
+            </figure>
+            <table id="te27007020" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.18in"/>
+                    <colspec colname="col2" colwidth="0.93in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Circuit Checks for BCP Sensor - ECM to BCP Sensor</emph>
+                                    (If Circuit Checks for BCP Sensor - ECM to Valve Cover Gasket Connector are complete
+                                    and test results are to specification for all test conditions, but an active code
+                                    remains, remove valve cover following procedure in the Engine Service Manual. Use
+                                    EST, DMM, 500 Ohm Resistor Harness, and UVC Pressure Sensor Breakout Harness
+                                    connected to UVC connector only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Condition</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>BCP sensor connector removed from UVC connector using EST</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 0.039 V, check BCP signal for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Voltage from Pin 2 (Blue) of UVC Pressure Sensor Breakout Harness to ground using
+                                    DMM.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 5.5 V, check V
+                                    <subscript>REF</subscript>
+                                    for short to B+. If voltage is &#60; 4.5 V, check V
+                                    <subscript>REF</subscript>
+                                    for open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>500 Ohm Resistor Harness connected between Pin 3 (Green) and Pin 2 (Blue) of VC
+                                    Gasket Breakout Harness using EST
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage &#60; 4.9 V, check BCP signal for open or short to ground.</para>
+                                <randlist type="dash">
+                                    <item>
+                                        <para>Disconnect connector 9260
+                                            <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the
+                                                battery box. Pin A is the chassis ground connection for the ECM and IDM.
+                                                See truck Chassis Electrical Circuit Diagram Manual for complete chassis
+                                                side ECM and IDM ground circuit information.</ftnote>. Measure
+                                            resistance from Pin 3 to Pin A of connector 9260 (spec > 1 k&#x2126;) to
+                                            check for short to ground within wiring harness.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Disconnect negative battery cable. Measure resistance from Pin 3 to ground
+                                            cable to check for short to ground.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Use a breakout box to measure from Pin 3 to Pin X2-11 (spec &#60; 5
+                                            &#x2126;) to check for open in the harness.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Resistance from Pin 1 (Black) of UVC Pressure Sensor Breakout Harness to ECM
+                                    chassis ground (Pin A of connector 9260) using DMM.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If resistance is > 5 &#x2126;, check for open or high resistance between ECM and
+                                    UVC connector. Use a breakout box to measure resistance from X1-6 to Pin 1 (spec
+                                    &#60; 5 &#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Connect BCP sensor to UVC connection. Use the EST to clear DTCs. If test results
+                                    are to spec for all test conditions, but an active code remains, replace sensor.
+                                </para>
+                                <note>
+                                    <para>If all tests are to specification, but DTCs return when the valve cover is
+                                        torqued down, replace the valve cover gasket.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>BCP Pin-Point Diagnostics (ECM to Valve Cover Gasket Connector)</title>
+            <figure id="f27007022" figsize="pg-wide">
+                <graphic filename="../figH31/H31297.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>BCP circuit diagram with VC Gasket Breakout Harness</caption>
+            </figure>
+            <table id="te27007021" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.27in"/>
+                    <colspec colname="col2" colwidth="1.06in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>
+                                    (Disconnect engine harness from valve cover gasket connector and connect VC Gasket
+                                    Breakout Harness to engine harness only. Turn the ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, signal circuit is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>5 V &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If voltage is not to spec, V
+                                    <subscript>REF</subscript>
+                                    shorted to ground, shorted to B+, or open.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V to 0. 25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Signal ground (no voltage expected). If > 0.25 V, check ground circuit for open or
+                                    high resistance and check signal ground for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to ECM Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness from valve cover gasket
+                                    connector. Connect VC Gasket Breakout Harness to engine harness only.
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually in the battery box. Pin
+                                        A is the chassis ground connection for the ECM and IDM. See truck Chassis
+                                        Electrical Circuit Diagram Manual for complete chassis side ECM and IDM ground
+                                        circuit information.</ftnote>)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 500 &#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 k&#x2126;, check for open circuit .</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect harness from
+                                    sensor. Use disconnected negative battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If&#60; 500 &#x2126; , check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If&#60; 500 &#x2126; , check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Connect breakout box [X1] to engine harness only. Connect VC Gasket Breakout
+                                    Harness to engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-20 to A</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open BCP signal.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-14 to B</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open V
+                                    <subscript>REF</subscript>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-11 to C</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open ground.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007023" figsize="pg-wide">
+                <graphic filename="../figH31/H31297.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>BCP circuit diagram with VC Gasket Breakout Harness</caption>
+            </figure>
+            <table id="te27007022" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="4">
+                    <colspec colname="COLSPEC1" colwidth="1.02in"/>
+                    <colspec colname="col1" colwidth="2.01in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="COLSPEC1" nameend="col3" spanname="SPAN2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for BCP Sensor with VC Gasket Breakout
+                                        Harness
+                                    </emph>
+                                    (These checks are done if an EST is not available and the valve cover is not
+                                    removed. Check with VC Gasket Breakout Harness connected to valve cover gasket
+                                    connector and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>EST voltage readings: Signal to ground</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC1">
+                                <para>A to C</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>0.15 V to 0.3 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 psi (0 kPa)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Atmospheric pressure with key-on engine-off</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to C</para>
+                            </entry>
+                            <entry>
+                                <para>0.15 V to 0.3 V</para>
+                            </entry>
+                            <entry>
+                                <para>0 psi (0 kPa)</para>
+                            </entry>
+                            <entry>
+                                <para>Maximum at engine cranking speed</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for BCP Sensor with breakout box</emph>
+                                    (Check with breakout box connected to ECM and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-11 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>0.15 V to 0.3 V</para>
+                            </entry>
+                            <entry>
+                                <para>0 psi (0 kPa)</para>
+                            </entry>
+                            <entry>
+                                <para>Atmospheric pressure with key-on engine-off</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-11 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>0.15 V to 0.3 V</para>
+                            </entry>
+                            <entry>
+                                <para>0 psi (0 kPa)</para>
+                            </entry>
+                            <entry>
+                                <para>Maximum at engine cranking speed</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>BCP Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 126 = Signal voltage was &#60; 0.039 V for more than 0.1 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 127 = Signal voltage was > 4.9 V for more than 0.1 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 546 = Brake control pressure was &#60; 4 MPa (580 psi) for more than 3.0
+                                    seconds
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 547 = Brake control pressure was > 4.5 MPa (653 psi) for more than 3.0
+                                    seconds
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007024" figsize="pg-wide">
+                <graphic filename="../figH31/H31264.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>BCP circuit diagram with UVC Pressure sensor Breakout Harness</caption>
+            </figure>
+            <table id="te27007023" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.27in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks to Ground with Valve Cover Removed</emph>
+                                    (Disconnect sensor from UVC connector and connect UVC Pressure Sensor Breakout
+                                    Harness to UVC connector only. Turn the ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Signal ground (no voltage expected). If > 0.25 V, check ground circuit for open or
+                                    high resistance and check for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is not to spec, V
+                                    <subscript>REF</subscript>
+                                    is shorted to ground, shorted to B+, or open.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 0.25 V, signal circuit is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to ECM Chassis Ground with Valve Cover
+                                        Removed
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect sensor from UVC connector. Disconnect
+                                    chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the chassis ground connection for the ECM and IDM. See truck
+                                        Chassis Electrical Circuit Diagram Manual for complete chassis side ECM and IDM
+                                        ground circuit information.</ftnote>. Connect UVC Pressure Sensor Breakout
+                                    Harness to UVC connector only.)
+                                </para>
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 500 &#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground with Valve Cover
+                                        Removed
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect harness from
+                                    sensor. Use disconnected negative battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks with valve cover removed</emph>
+                                    (Connect breakout box [X1 and X2] to engine harness only. Connect UVC Pressure
+                                    Sensor Breakout Harness to UVC connector only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-14 to 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open V
+                                    <subscript>REF</subscript>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-11 to 3</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open BCP signal.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>BCP Pin-Point Diagnostics (ECM to BCP Sensor- valve cover removed)</title>
+            <figure id="f27007025" figsize="pg-wide">
+                <graphic filename="../figH31/H31264.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>BCP circuit diagram with UVC Pressure Sensor Breakout Harness</caption>
+            </figure>
+            <table id="te27007024" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="4">
+                    <colspec colname="COLSPEC1" colwidth="1.02in"/>
+                    <colspec colname="col1" colwidth="2.01in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="COLSPEC1" nameend="col3" spanname="SPAN2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for BCP Sensor with UVC Pressure Sensor
+                                        Breakout Harness
+                                    </emph>
+                                    (Check with UVC Pressure Sensor Breakout Harness connected to UVC connector and
+                                    sensor.)
+                                </para>
+                                <note>
+                                    <para>These checks are done only if an EST is not available. Do not use this method
+                                        to measure BCP when engine is running.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>EST voltage readings: Signal to ground</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC1">
+                                <para>3 to 1</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>0.15 V to 0.3 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 kPa (0 psi)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Atmospheric pressure with key-on engine-off</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to 1</para>
+                            </entry>
+                            <entry>
+                                <para>0.15 V to 0.3 V</para>
+                            </entry>
+                            <entry>
+                                <para>0 kPa (0 psi)</para>
+                            </entry>
+                            <entry>
+                                <para>Maximum at engine cranking speed</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>BCP Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 126 = Signal voltage was &#60; 0.039 V for more than 0.1 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 127 = Signal voltage was > 4.9 V for more than 0.1 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 546 = Brake control pressure was &#60; 4 MPa (580 psi) for more than 3.0
+                                    seconds
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 547 = Brake control pressure was > 4.5 MPa (653 psi) for more than 3.0
+                                    seconds
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_128.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_130.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

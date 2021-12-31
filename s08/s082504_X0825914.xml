@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 3200, 4100, 4200, 4300, 4400, 7300, 7400, 7500, 7600, 8500, 8600
+        Models Built After 05/19/2003 - CHASSIS FEATURES - REMOTE POWER MODULE
+    </stitle>
+    <svcman/>
+    <svcsubsec id="x0825914">
+        <title>REMOTE POWER MODULE</title>
+        <svcproc svcproctype="describe" graphiccount="2">
+            <title>CIRCUIT FUNCTIONS</title>
+            <figure id="f08259e1" figsize="pg-wide">
+                <graphic filename="../figg08/g08259e1.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>Remote Power Module Function Diagram</caption>
+                <calloutgroup>
+                    <callout1>1. REMOTE POWER MODULE</callout1>
+                    <callout1>2. BODY BUILDER DATA LINK</callout1>
+                    <callout1>3. ELECTRICAL SYSTEM CONTROLLER</callout1>
+                    <callout1>4. SWITCH DATA LINK</callout1>
+                    <callout1>5. SWITCH PACK</callout1>
+                </calloutgroup>
+            </figure>
+            <para>The Remote Power Module (RPM) is used to provide power to electrical features, outside the cab,
+                without running individual wires from each switch to the feature. This module is used to distribute and
+                control power to various devices on the vehicle from switches inside the cab. The RPM communicates with
+                the electronic system controller over the Body Builder J1939 data link.
+            </para>
+            <para>RPM outputs are protected by field effect transistors (FET). If an overload occurs on the circuit the
+                FET will act like a type 3 circuit breaker. To reset the FET the feature must be commanded off then back
+                on again.
+            </para>
+            <specpara>
+                <note>
+                    <para>The virtual fuse (FET) in the RPM will trip during a short on the output circuits. Cycling the
+                        assigned control switch will reset the fuse.
+                    </para>
+                </note>
+            </specpara>
+            <figure id="f0825946" figsize="pg-wide">
+                <graphic filename="../figg08/g0825946.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Connectors</caption>
+                <calloutgroup>
+                    <callout1>1. 23-WAY SIGNAL CONNECTOR</callout1>
+                    <callout1>2. 8-WAY DEVICE POWER CONNECTOR</callout1>
+                    <callout1>3. MODULE POWER FEED (DIRECT FROM BATTERY OR STARTER STUD)</callout1>
+                    <callout1>4. INPUT DATA LINK AND POWER CONNECTOR</callout1>
+                    <callout1>5. OUTPUT DATA LINK AND POWER CONNECTOR</callout1>
+                </calloutgroup>
+            </figure>
+            <para>Each module receives power from a 4 gauge cable, protected by a fusible link, connected to the battery
+                stud of the starter motor. Each RPM has the ability to operate up to 6 devices of 20 amps or less not to
+                exceed 80 amps for the entire module.
+            </para>
+            <para>A maximum of 3 RPM's may be connected to the vehicle, which allows a total of 18 devices to be
+                controlled as long as the 80 amps per module is not exceeded.
+            </para>
+            <para>Each RPM comes with a six pack of switches that is inserted into the center section of the instrument
+                panel. Each switch controls 1 output of the RPM. The switch mapping is one to one with the RPM; i.e.,
+                switch one controls output channel one on the RPM. The switch pack is connected to the switch data link
+                that communicates switch operation to the Electronic System Controller. The ESC communicates that
+                operation to the RPM.
+            </para>
+            <para>Each switch pack has six or twelve rocker switches. Each momentary rocker switch is stable in the
+                center position. The upper section of each switch has an indicator light to provide the status of each
+                power output channel. Pressing the upper section of the switch will latch the respective power output
+                channel on and illuminate the indicator. Pressing the lower section of the switch will latch the power
+                output channel off and turn the indicator off.
+            </para>
+            <para>The RPM also has inputs on the module itself that can be wired to control the outputs. The output
+                channels may be controlled remotely by using a three position momentary single pole, double throw switch
+                on each remote switch input. In this case, battery volts should be connected to one pole of the switch
+                and ground should be connected to the other. Applying battery volts to the remote switch input shall
+                turn the output channel "ON". Applying ground to the remote switch input shall turn the output channel
+                off.
+            </para>
+            <para>The lamp indicator on the instrument panel switch will always display the current status of the output
+                channel as long as the ignition key is in the "RUN" or "ACCESSORY" position.
+            </para>
+            <para>The Remote Power Module is an optional feature that provides switched electrical loads on the chassis,
+                up to 20 amps per load and 80 amps, maximum, per module (Several Remote Power Modules, as well as 7-pack
+                air solenoids and a remote engine speed controller pack may be chained together). These loads can be
+                switched using a switch pack in the cab or by using tri-state switches connected directly to the Remote
+                Power Module. Virtual fuses protect the circuits of the Remote Power Module from current overload. These
+                virtual fuses may be rated up to 20 amps.
+            </para>
+            <specpara>
+                <note>
+                    <para>The virtual fuse in the RPM will trip during a short. To reset the fuse, the switch
+                        controlling the feature must be cycled off then back on.
+                    </para>
+                </note>
+            </specpara>
+            <para>The Remote Power Module communicates with the Electrical System Controller (ESC) via the body builder
+                data link. The Remote Power Module switches provided in the cab are 3-position, center stable. These
+                switches are windowed to allow user to assign switch names as desired. Pressing a switch up will result
+                in the corresponding Remote Power Module output to be switched on. Pressing a switch down will result in
+                the corresponding Remote Power Module output to be switched off. When the switch is in the stable state
+                (center), the present state of the output will be maintained. The tri-state inputs at the Remote Power
+                Module may be optionally used to control the outputs of the Remote Power Module. If a conflict exists
+                between the cab control and the Remote Power Module tri-state inputs, where neither switch is in the
+                center stable position, the Remote Power Module output will be switched off. The indicator in the
+                switch-pack will illuminate when the corresponding Remote Power Module output is switched on and no
+                errors are detected. If the Remote Power Module detects an over current situation, then the switch
+                indicator will flash quickly
+            </para>
+            <para>The normal operation of this feature is defined as follows:</para>
+            <step1>
+                <para count="1">When the ignition is turned on, all outputs will be turned off unless a programmable
+                    parameter specifies that a particular output be turned on with the ignition. These outputs will be
+                    on during engine-crank.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">The switch status from the panel-mounted switches and Remote Power Module tri-state
+                    inputs will be polled to determine if an output should be turned on or off.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">The status of errors will then be considered. If a panel-mounted switch error is
+                    present, the given output will be turned off. If an over current situation is detected, the output
+                    request will remain on, but the indicator on the panel-mounted switches will flash quickly.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">The resulting command will be sent to the Remote Power Module via the body builder data
+                    link.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">The remote power module software feature will send an "off command" to any output of the
+                    physical Remote Power Module when there is a conflict between the respective tri-state input
+                    switches from the Remote Power Module and the respective panel-mounted switches of the ESC.
+                </para>
+            </step1>
+            <para>Likewise, the outputs of the Remote Power Module will be commanded to the off position, when a Switch
+                Data Link error and body builder data link error is detected. If a Switch Data Link error occurs, the
+                switches will be ignored. If a body builder data link error occurs, the tri-state inputs will be
+                ignored. The outputs will also be turned off when the ignition has been turned off. If an output is
+                latched on by the either switch being in the ON position, the output will immediately be turned back on.
+            </para>
+            <para>The remote power module software feature will attempt to turn off the outputs of the Remote Power
+                Module by commanding them off if an error is detected on the Switch Data Link or body builder data link.
+            </para>
+            <para>In an over current state, the indicator on the panel-mounted switches will flash while the condition
+                exists. A diagnostic trouble code will also be set while the over current condition exists.
+            </para>
+        </svcproc>
+    </svcsubsec>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504_X08259F.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504_419.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

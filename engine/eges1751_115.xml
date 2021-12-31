@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics Model Years 1999-2000 - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS -
+        Circuit Function And Diagnostics - Idle Shutdown Timer (IST)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="1">
+        <title>Idle Shutdown Timer (IST)</title>
+        <svcsubproc>
+            <title>System Function</title>
+            <para>See
+                <hotlnk xrefid="f17503070">Idle Shutdown Timer Function Diagram
+                    <xref refid="f17503070"/>
+                </hotlnk>
+                .
+            </para>
+            <figure id="f17503070" figsize="pg-wide">
+                <graphic filename="../figEG1/EG1295A.webp" type="webp" scalefit="1" scalefitwidth="352px" box="no"/>
+                <caption>Function Diagram for Idle Shutdown Timer</caption>
+            </figure>
+            <para>The Idle Shutdown feature is a customer optional feature that allows the ECM to shut off the engine if
+                an idle condition has been detected for more than the customer specified programmed period (2 to 120
+                minutes). Before engine shutdown the Oil / Water Lamp (red) will flash for 30 seconds to warn the driver
+                of the pending shutdown. The idle time is measured from the last clutch or break pedal transition. The
+                engine must be out of gear for the idle shutdown timer to be initiated. This feature can be programmed
+                to operate at specific ambient air temperatures to allow prolonged engine operation in cold or hot
+                weather operation. For PTO applications this feature can also be programmed not to be turned on under
+                specific load levels or when the PTO switches are on.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>The Idle Shutdown feature is internal to the ECM. All subsystems that are inputs for the idle shutdown
+                strategy have their own Diagnostic Trouble Code detection and management strategy (e.g. IAT temperature
+                sensor circuit). A Diagnostic Trouble Code will be set if the idle shutdown timer has been activated.
+                This is not a system Diagnostic Trouble Code. It only indicates that the idle shutdown timer has been
+                activated and that the engine has been shut down.
+            </para>
+            <table id="te17503026" tblwidth="col-wide" frame="all">
+                <title>Diagnostic Trouble Code 324</title>
+                <tgroup cols="1" colsep="1" rowsep="1">
+                    <colspec colname="COLSPEC0" colwidth="100.00*"/>
+                    <tbody>
+                        <row>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Reference</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>324 = Idle shutdown time has been exceeded and the engine has been shut down.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <specpara>
+                <note>
+                    <para>This Diagnostic Trouble Code does not indicate any system or circuit faults; no diagnostics
+                        are necessary. If the (IST) programming parameters need to be changed, see the following
+                        Extended Description.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>The following list of parameters are essential to setting the IST function to meet the customer's
+                needs and expectations. They are accessible by using the EST.
+            </para>
+            <para>
+                <emph type="bold">Engine Idle Shutdown Control Parameters</emph>
+            </para>
+            <para>This group of parameters customizes the prolonged engine idle automatic shutdown feature. The purpose
+                of this feature is to shut the engine down after a programmable period of idle time has been exceeded.
+                This allows fuel conservation, a reduction of engine wear and emissions. Thirty (30.0) seconds before an
+                automatic engine shutdown, the operator will be warned via the red Oil / Water Lamp. This lamp will
+                begin flashing until the engine is shut down. The operator may over ride the electronics at any time.
+                After an engine shutdown occurs, the Oil / Water Lamp will stop flashing and a diagnostic code (324)
+                will be recorded. The diagnostic code is recorded to assist in diagnosing possible service complaints of
+                the engine shutting down.
+            </para>
+            <para>Currently, there are four states of electronic operation.
+                <emph type="bold">1. Off 2. PTO available 3. No engine load 4. Tamper proof.</emph>
+            </para>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Idle Shutdown Timer</emph>
+                </para>
+            </step1>
+            <para>This parameter indicates to the on-board electronics if this vehicle has the Idle Shutdown timer
+                feature.
+            </para>
+            <para>
+                <emph type="bold">OFF:</emph>
+                Feature is turned off at all times.
+            </para>
+            <para>
+                <emph type="bold">PTO Available</emph>: Feature allows prolonged engine idle shutdown only when the
+                engine is in the low idle no load condition and PTO operation is off.
+            </para>
+            <para>
+                <emph type="bold">No Engine Load</emph>: Feature allows prolonged engine idle shutdown when the engine
+                is in the low idle no load condition.
+            </para>
+            <para>
+                <emph type="bold">Tamper Proof</emph>: Feature is tamper proof from operator over ride.
+            </para>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Idle Shutdown Time</emph>
+                </para>
+            </step1>
+            <para>This parameter indicates the length of engine idle time before the engine may be shut down.</para>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Maximum Intake Ambient Air Temperature (IAT) for Idle Shutdown</emph>
+                </para>
+            </step1>
+            <para>This parameter indicates the maximum ambient intake air temperature that the on-board electronics may
+                shut down during prolonged engine idling. This temperature is used to circumvent the shutting down of an
+                engine when it is running because the air conditioning may be turned on.
+            </para>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Minimum Intake Ambient Air Temperature</emph>(
+                    <emph type="bold">IAT</emph>)
+                    <emph type="bold">for Idle Shutdown</emph>
+                </para>
+            </step1>
+            <para>This parameter indicates the minimum ambient intake air temperature that the on-board electronics may
+                shut down during prolonged engine idling. This temperature is used to circumvent the shutting down of an
+                engine when it is running because of cold ambient temperature.
+            </para>
+            <para id="f175fc324">
+                <emph type="bold">Diagnostic Trouble Code 324</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 71 FMI 14</emph>
+            </para>
+            <para>
+                <emph type="bold">Idle Shutdown Timer Enabled Engine shutdown</emph>
+            </para>
+            <para>This Diagnostic Trouble Code is set when the engine has been shut off by the ECM because the idle time
+                criteria has been exceeded. The idle shutdown feature should be turned on for this Diagnostic Trouble
+                Code to be displayed. Diagnostic Trouble Code 324 can be cleared using the EST.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_114.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_116.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

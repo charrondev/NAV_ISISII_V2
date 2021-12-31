@@ -1,0 +1,345 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - INJECTOR DRIVE CIRCUIT OPERATION
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450328" svcproctype="proctype" graphiccount="5">
+        <title>INJECTOR DRIVE CIRCUIT OPERATION</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef14503c3">Figure 3.98 Injector Drive Circuit Operation</hotlnk>
+            </para>
+            <figure id="ef14503c3" figsize="col-wide">
+                <graphic id="eg6040" filename="../figeg6/eg6040.webp" type="webp"/>
+                <caption>Figure 3.98 Injector Drive Circuit Operation</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>SIGNAL FUNCTIONS</title>
+            <para>
+                <emph type="bold">High Side Drive Outputs -</emph>The high side drive output function is to supply to
+                the injectors a power supply of 115 volt DC at a maximum of 10 amps. There are two separate high side
+                drivers. One for the front three injectors (cylinders 1,2 and 3) and one for the rear three injectors
+                (cylinders 4,5 and 6).
+            </para>
+            <para>
+                <emph type="bold">Low Side Drive Outputs -</emph>The low side drive outputs control the injector on time
+                (fuel quantity), timing (in relation to TDC) and sequencing (firing order). The IDM controls (fires)
+                each individual injector by completing the ground circuit to each injector solenoid. A valid Cylinder
+                Identification (CI) and Fuel Demand Command Signal (FDCS) must be sent from the ECM to the IDM before an
+                injector will be allowed to fire.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION/MANAGEMENT</title>
+            <para>The Injector Driver Module (IDM) is capable of detecting, while the engine is running individual
+                injector open and shorts to either ground or battery. It is also capable of detecting high side opens or
+                shorts to ground. A special On-Demand Buzz test will also allow the operator to enable all injector
+                solenoids while the engine is off to verify circuit operation.
+                <emph type="bold">IDM detected diagnostic fault codes will not be transmitted if the EF line is not
+                    functioning, however, the engine will function normally.
+                </emph>
+            </para>
+            <para>If a short to ground condition is detected on an individual injector, (low side), the IDM will
+                discontinue the power to the bank with the shorted injector, enable the WARN engine lamp and operate the
+                engine on three cylinders.
+            </para>
+            <para>
+                <hotlnk xrefid="ef14503c4">Figure 3.99 Injector Drive Circuit Diagnostics</hotlnk>
+            </para>
+            <figure id="ef14503c4" figsize="col-wide">
+                <graphic id="eg6041" filename="../figeg6/eg6041.webp" type="webp"/>
+                <caption>Figure 3.99 Injector Drive Circuit Diagnostics</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>SYSTEM DESCRIPTION</title>
+            <para>The Navistar engine control system includes an ECM (Electronic Control Module) and an IDM (Injector
+                Drive Module). The ECM provides the IDM with two important output signals which control fuel injector
+                operation. The ECM uses the fuel quantity control strategy and input from the engine sensors to
+                determine how long each fuel injector is actuated in order to provide the proper fuel quantity at any
+                given engine operating condition. The ECM determines and provides a fuel output signal, FDCS (Fuel
+                Demand Command Signal), by combining the desired length of each injection with the result of the
+                injection timing control strategy which determines when each injection will occur. The second output
+                signal, (CI) Cylinder Identification, enables the IDM to determine the correct injector firing order.
+            </para>
+            <para>The IDM processes the FDCS and CI signals sent by the ECM to control injector operation. It amplifies
+                the FDCS signal to make it powerful enough to operate the injectors and distributes it to each injector
+                according to the CI signal.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>OPERATION</title>
+            <para>The IDM contains two solid state high side drivers. Each driver supplies a continuous 115 volts DC.
+                Bank 1 driver supplies cylinders 1 through 3 with 115 volts at terminal 24 of the IDM to terminal A of
+                the valve cover connector. Bank 2 driver supplies cylinders 4 through 6 at terminal 23 of the IDM to
+                terminal L of the valve cover connector. The IDM turns each injector on by switching on a solid state
+                device (Low Side Driver) to ground the injector solenoid return circuit. The IDM contains a low side
+                driver for each of the injectors.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>IDM DIAGNOSTICS</title>
+            <para>The IDM monitors the voltage on the driver circuits and is capable of detecting an open or shorted
+                circuit. If the IDM detects a short to ground or a multiple fault in a driver, the IDM will discontinue
+                operation of that driver which would cause the engine to operate on the remaining bank of 3 cylinders.
+                The IDM will transmit a message to the ECM that a fault has been detected. The ECM will respond by
+                illuminating the Engine Warning Light and compensating for inoperative cylinders to keep the engine
+                running if mechanically possible.
+            </para>
+            <para>Faults detected by the IDM will be stored in the IDM and transmitted to the ECM during an "Engine Off
+                Standard Test". These faults will be transmitted as Inactive faults. Faults can be retrieved using the
+                Electronic Service Tool or the STI Self Test Input Diagnostic Switch located on the vehicle dash.
+            </para>
+            <specpara>
+                <note>
+                    <para>the last digit of the flash code indicates the affected cylinder number. For example, code 421
+                        indicates cylinder no. 1 has an open circuit between the IDM high side driver and the low side
+                        (signal return) to the idm. The SID no.s 1-6, indicate cylinder no.s in a similar manner.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>Flash Code 421 THROUGH 426</title>
+            </para>
+            <para>
+                <title>ATA CODE SID 1 THROUGH 6 FMI 5</title>
+            </para>
+            <para>
+                <title>LOW SIDE TO HIGH SIDE OPEN</title>
+            </para>
+            <para>Flash Codes for Low Side to High Side Open indicate an open circuit between the IDM high side driver
+                and the low side (Signal return) to the IDM.
+            </para>
+            <para>The ECM will compensate for engine misfire to keep the engine operating. The ECM will not illuminate
+                the Engine Warning light when this situation occurs.
+            </para>
+            <para>Possible causes: Open wire in injector harness, open injector return circuit or injector solenoid.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 431 THROUGH 436</title>
+            <para>
+                <title>ATA CODE SID 1 THROUGH 6 FMI 4</title>
+            </para>
+            <para>
+                <title>LOW SIDE SHORTED TO HIGH SIDE</title>
+            </para>
+            <para>Flash codes for Low Side Shorted to High Side indicate the return voltage is too high due to a short
+                circuit between the high side driver and return circuit.
+            </para>
+            <para>The ECM will compensate for engine misfire to keep the engine operating. The ECM will not illuminate
+                the Engine Warning light when this situation occurs.
+            </para>
+            <para>Possible causes: Shorted injector solenoid or wiring harness.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 441 THROUGH 446</title>
+            <para>
+                <title>ATA CODE SID 1 THROUGH 6 FMI 3</title>
+            </para>
+            <para>
+                <title>LOW SIDE SHORTED TO B+</title>
+            </para>
+            <para>Low Side Shorted to B+ indicates the IDM has detected continuous battery voltage on the signal return
+                circuit.
+            </para>
+            <para>The ECM will compensate for engine misfire to keep the engine operating. The ECM will not illuminate
+                the Engine Warning light when this situation occurs.
+            </para>
+            <para>A short circuit in the injector wiring harness will set these codes.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 451 THROUGH 456</title>
+            <para>
+                <title>ATA CODE SID 1 THROUGH 6 FMI 6</title>
+            </para>
+            <para>
+                <title>LOW SIDE SHORTED TO GROUND</title>
+            </para>
+            <para>Flash codes for Low Side Shorted to Ground indicate the return circuit shorted to ground.</para>
+            <para>If the IDM detects this fault, it will disable the entire bank of cylinders associated with the
+                cylinder indicated.
+            </para>
+            <para>Possible causes: Shorted injector solenoid or wiring harness to ground.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 511</title>
+            <para>
+                <title>ATA CODE SID 151 FMI 11</title>
+            </para>
+            <para>
+                <title>BANK 1 HAS MULTIPLE FAULTS</title>
+            </para>
+            <para>Multiple Faults indicates more than one fault was detected by the IDM, such as an open and a short
+                circuit in cylinders 1 through 3.
+            </para>
+            <para>With flash code 511 active, the IDM will disable the drivers for cylinders 1 through 3. The ECM will
+                compensate for misfire to keep the engine operatiing and will illuminate the Engine Warning Light.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 512</title>
+            <para>
+                <title>ATA CODE SID 152 FMI 11</title>
+            </para>
+            <para>
+                <title>BANK 2 HAS MULTIPLE FAULTS</title>
+            </para>
+            <para>Multiple Faults indicates more than one fault was detected by the IDM, such as an open and a short
+                circuit in cylinders 4 through 6.
+            </para>
+            <para>With flash code 512 active, the IDM will disable the drivers for cylinders 4 through 6. The ECM will
+                compensate for misfire to keep the engine operating and will illuminate the Engine Warning Light.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 513</title>
+            <para>
+                <title>ATA CODE SID 151 FMI 5</title>
+            </para>
+            <para>
+                <title>HIGH SIDE TO BANK 1 OPEN</title>
+            </para>
+            <para>With the High Side to Bank 1 Open, the IDM has detected an open circuit to the injectors on cylinders
+                1 through 3.
+            </para>
+            <para>With flash code 513 active, the drivers for cylinders 1 through 3 are inoperative . The ECM will
+                compensate for misfire to keep the engine operating and will illuminate the Engine Warning light.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 514</title>
+            <para>
+                <title>ATA CODE SID 152 FMI 5</title>
+            </para>
+            <para>
+                <title>HIGH SIDE TO BANK 2 OPEN</title>
+            </para>
+            <para>With the High Side to Bank 2 Open, the IDM has detected an open circuit to the injectors on cylinders
+                4 through 6.
+            </para>
+            <para>With flash code 513 active, the drivers for cylinders 4 through 6 are inoperative . The ECM will
+                compensate for misfire to keep the engine operating and will illuminate the Engine Warning light.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 515</title>
+            <para>
+                <title>ATA CODE SID 151 FMI 6</title>
+            </para>
+            <para>
+                <title>BANK 1 HIGH SIDE SHORT TO GROUND OR B+</title>
+            </para>
+            <para>Flash code 515 indicates the IDM has detected the high side driver for cylinders 1 through 3 has
+                excessive current draw.
+            </para>
+            <para>With flash code 515 active, the driver for cylinders 1 through 3 will be disabled. The ECM will
+                compensate for engine misfire to keep the engine running. This code will cause the Engine Warning light
+                to be illuminated.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 521</title>
+            <para>
+                <title>ATA CODE SID 152 FMI 6</title>
+            </para>
+            <para>
+                <title>BANK 2 HIGH SIDE SHORT TO GROUND OR B+</title>
+            </para>
+            <para>Flash code 521 indicates the IDM has detected excessive current draw on high side driver for cylinders
+                4 through 6.
+            </para>
+            <para>With flash code 521 active, the driver for cylinders 4 through 6 will be disabled. The ECM will
+                compensate for engine misfire to keep the engine operating and will illuminate the Engine Warning light.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 524</title>
+            <para>
+                <title>ATA CODE SID 151 FMI 3</title>
+            </para>
+            <para>
+                <title>BOTH HIGH SIDE SWITCHES SHORTED TOGETHER</title>
+            </para>
+            <para>Flash code 524 indicates a short circuit between the two high side drivers.</para>
+            <para>With this code active, the Engine Warning light will be illuminated.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 544</title>
+            <para>
+                <title>ATA CODE SID 152 FMI 14</title>
+            </para>
+            <para>
+                <title>INJECTOR FAULT BANK #2</title>
+            </para>
+            <para>Flash code 544 indicates ECM has detected more than one injector in Bank #2 with low voltage.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 545</title>
+            <para>
+                <title>ATA CODE SID 151 FMI 14</title>
+            </para>
+            <para>
+                <title>INJECTOR FAULT BANK #1</title>
+            </para>
+            <para>Flash code 545 indicates ECM has detected more than one injector in Bank #1 with low voltage.</para>
+            <figure id="ef14503c5" figsize="col-wide">
+                <graphic id="eg6042" filename="../figeg6/eg6042.webp" type="webp"/>
+                <caption>Figure 3.100 Injector Drive Circuit</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef14503c6">Figure 3.101 Injector Drive Circuits</hotlnk>
+            </para>
+            <figure id="ef14503c6" figsize="col-wide">
+                <graphic id="eg6043" filename="../figeg6/eg6043.webp" type="webp"/>
+                <caption>Figure 3.101 Injector Drive Circuits</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refer to circuit diagram Figure
+                        <hotlnk xrefid="ef14503c5">3.100</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <hotlnk xrefid="ef14503c7">Figure 3.102 Injector Drive Circuits</hotlnk>
+            </para>
+            <figure id="ef14503c7" figsize="col-wide">
+                <graphic id="eg6044" filename="../figeg6/eg6044.webp" type="webp"/>
+                <caption>Figure 3.102 Injector Drive Circuits</caption>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450327.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450329.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

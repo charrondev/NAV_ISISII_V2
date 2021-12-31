@@ -1,0 +1,1990 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - EGR Actuator (Exhaust Gas Recirculation)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="5">
+        <title>EGR Actuator (Exhaust Gas Recirculation)</title>
+        <svcprocinfo>
+            <figure id="f04121002" figsize="pg-wide">
+                <graphic filename="../figH31/H31304.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="562px"/>
+                <caption>Function diagram for the EGR actuator</caption>
+            </figure>
+            <para id="s27005009">The function diagram for the EGR actuator includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para id="EGR">Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Variable Geometry Turbocharger (VGT) actuator</para>
+                </item>
+                <item>
+                    <para>Accelerator Position Sensor (APS)</para>
+                </item>
+                <item>
+                    <para>EGR actuator with position sensors</para>
+                </item>
+                <item>
+                    <para>EGR drive module</para>
+                </item>
+                <item>
+                    <para>Exhaust Back Pressure (EBP) sensor</para>
+                </item>
+                <item>
+                    <para>Manifold Absolute Temperature (MAT) sensor</para>
+                </item>
+                <item>
+                    <para>Barometric Absolute Pressure (BAP) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Coolant Temperature (ECT) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Oil Temperature (EOT) sensor</para>
+                </item>
+                <item>
+                    <para>Manifold Absolute Pressure (MAP) sensor</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The EGR actuator consists of three major components, a valve, an actuator motor, and Integrated
+                Circuit (IC). The IC has three Hall effect position sensors to monitor valve movement. The EGR actuator
+                is located at the front of the engine on the mixer duct.
+            </para>
+            <para>The EGR drive module controls the EGR actuator and is located on the left side of the engine on the
+                ECM and Injector Driver Module (IDM).
+            </para>
+            <para>The EGR actuator is a variable position valve that controls the amount of exhaust entering the intake
+                system. The ECM uses sensor input from the BAP, EBP, MAT, MAP, APS, EOT, ECT, and VGT control to
+                calculate the desired position of the EGR actuator. The EGR drive module receives the desired EGR
+                actuator position from the ECM across the CAN 2 datalink to activate the valve for exhaust gas
+                recirculation. The EGR drive module provides feedback to the ECM on the valve position. The EGR drive
+                module interprets the ECM command and sends the command using three pulse width modulated signals to the
+                valve actuator.
+            </para>
+            <para>The system is closed loop control using the EGR position signals. The EGR drive module provides a 9 V
+                supply and ground to the IC in the motor of the valve. When the EGR drive module directs the valve to
+                move, the IC with three Hall effect sensors provides the EGR drive module with the valve position
+                signals. The EGR drive module interprets the three signals to determine valve position and sends the
+                information back to the ECM.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>EGR Circuit Operation</title>
+            <figure id="f04121003" figsize="pg-wide">
+                <graphic filename="../figh31/h31341.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>EGR circuit diagram</caption>
+            </figure>
+            <para>The EGR drive module is supplied 12 V to Pin 1 from the ECM main power relay through Pin 10 of the
+                12-pin connector. Ground is supplied to Pin 2 from battery ground through Pin 4 of the 12-pin connector.
+            </para>
+            <para>The ECM sends the desired position to the EGR drive module across the CAN 2 datalink. CAN 2 positive
+                is ECM Pin X2-6 to EGR drive module Pin 3. CAN 2 negative is ECM Pin X2-13 to EGR drive module Pin 4.
+            </para>
+            <para>The EGR drive module provides a 9 V supply to the IC from Pin 12 to Pin 1 of the EGR actuator. The EGR
+                drive module provides ground to the IC from Pin 16 to Pin 5 of the EGR actuator. The IC in the EGR
+                actuator produces the following valve position signals:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Position U - EGR actuator Pin 4 to EGR drive module Pin 13</para>
+                </item>
+                <item>
+                    <para>Position V - EGR actuator Pin 3 to EGR drive module Pin 14</para>
+                </item>
+                <item>
+                    <para>Position W - EGR actuator Pin 2 to EGR drive module Pin 15</para>
+                </item>
+            </randlist>
+            <para>Depending on desired valve position from the ECM signal and position feedback signal from the IC, the
+                EGR drive module drives the 3 phase DC motor to move the valve to the proper position using the
+                following pulse width modulated signals:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Motor U - EGR drive module Pin 6 to EGR actuator Pin 8</para>
+                </item>
+                <item>
+                    <para>Motor V - EGR drive module Pin 7 to EGR actuator Pin 7</para>
+                </item>
+                <item>
+                    <para>Motor W - EGR drive module Pin 8 to EGR actuator Pin 6</para>
+                </item>
+            </randlist>
+            <para>The EGR drive module provides two shields to suppress electrical noise. One shield is for the CAN 2
+                datalink (EGR drive module Pin 5). The other shield is for the valve position sensor signals used by the
+                EGR drive module to monitor position (EGR drive module Pin 9).
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The EGR drive module constantly monitors the EGR actuator. When an EGR control error is detected, the
+                EGR drive module sends a message to the ECM, a DTC is set, and the amber ENGINE lamp is illuminated.
+            </para>
+            <para>
+                <title>EGR Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 163</emph>
+                </line>
+                <line>
+                    <emph type="bold">EGRP signal fault</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 163 is set by the ECM when the EGR drive module detects a position signal failure.</para>
+                </item>
+                <item>
+                    <para>DTC 163 can be set due to an open or short to ground on the position sensor signal power
+                        supply circuit, an open ground circuit, an open or short to ground on any of the position signal
+                        circuits, or a failed IC.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 163 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 365</emph>
+                </line>
+                <line>
+                    <emph type="bold">EGR actuator fault detected</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 365 is set by the ECM when the EGR drive module detects an EGR actuator fault.</para>
+                </item>
+                <item>
+                    <para>DTC 365 can be set due to an open, short to ground, short to a power source on any of the
+                        motor signal circuits, failure of EGR actuator motor, or a stuck valve assembly.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 365 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 368</emph>
+                </line>
+                <line>
+                    <emph type="bold">EGR drive module/ECM communication fault</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 368 is set by the ECM when CAN 2 datalink communications are not received from EGR drive
+                        module.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 368 can be set for the EGR drive module due to the following conditions:</para>
+                    <para>If engine starts and runs, the DTC is specific to the EGR drive module and ECM communications.
+                        The following are possible causes:
+                    </para>
+                    <para>- An open or short to ground on the power circuit exists.</para>
+                    <para>- An open or short to power on the ground circuit exists.</para>
+                    <para>- CAN 2 positive and CAN 2 negative are both open or high resistance exists.</para>
+                    <para>When CAN communication is not present from the EGR drive module, the ECM sends 100 percent EGR
+                        position to the EST.
+                    </para>
+                    <para>If a no start condition exists with DTC 368 and 543 active, check the CAN 2 wiring (EGR to ECM
+                        and IDM to ECM). See
+                        <hotlnk document="eges270_138.xml" xrefid="s27005029">"ECM / IDM Communications"</hotlnk>
+                        . One of the CAN 2 datalink wires (CAN 2 positive or negative) is open, short to ground, or
+                        short to power exists.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 368 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>EGR Valve Breakout Harness</para>
+                </item>
+                <item>
+                    <para>12-pin Breakout Harness</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EGR Pin-Point Diagnostics</title>
+            <figure id="f04121004" figsize="pg-wide">
+                <graphic filename="../figh31/h31341.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>EGR circuit diagram</caption>
+            </figure>
+            <table id="te27007056" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="8">
+                    <colspec colname="col1" colwidth="20.00px"/>
+                    <colspec colname="col2" colwidth="80.00px"/>
+                    <colspec colname="col3" colwidth="20.00px"/>
+                    <colspec colname="col4" colwidth="4.51*"/>
+                    <colspec colname="col6" colwidth="20.00px"/>
+                    <colspec colname="col7" colwidth="55.00px"/>
+                    <colspec colname="col8" colwidth="20.00px"/>
+                    <colspec colname="col9" colwidth="4.52*"/>
+                    <spanspec namest="col8" nameend="col9" spanname="SPAN5"/>
+                    <spanspec namest="col6" nameend="col7" spanname="SPAN4"/>
+                    <spanspec namest="col2" nameend="col4" spanname="SPAN3"/>
+                    <spanspec namest="col6" nameend="col9" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col4" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <title>EGR Actuator Connector Pins</title>
+                                </para>
+                            </entry>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <title>EGR Drive Module Connector Pins</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <graphic filename="../figh31/h31342.webp" type="webp" scalefit="1" scalefitwidth="128px"
+                                         scalefitheight="472px"/>
+                                <note>
+                                    <para>Harness connectors shown with mating end view.</para>
+                                </note>
+                            </entry>
+                            <entry colspan="4" spanname="SPAN2">
+                                <graphic filename="../figh31/h31343.webp" type="webp" scalefit="1" scalefitwidth="112px"
+                                         scalefitheight="312px"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Pin</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN4">
+                                <para>Pin</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN5">
+                                <para>Pin</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Position sensor power</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>Power</para>
+                            </entry>
+                            <entry>
+                                <para>9</para>
+                            </entry>
+                            <entry>
+                                <para>Ground shield</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Position sensor W</para>
+                            </entry>
+                            <entry>
+                                <para>2</para>
+                            </entry>
+                            <entry>
+                                <para>Ground</para>
+                            </entry>
+                            <entry>
+                                <para>10</para>
+                            </entry>
+                            <entry>
+                                <para>Not used</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Position sensor V</para>
+                            </entry>
+                            <entry>
+                                <para>3</para>
+                            </entry>
+                            <entry>
+                                <para>CAN high</para>
+                            </entry>
+                            <entry>
+                                <para>11</para>
+                            </entry>
+                            <entry>
+                                <para>Not used</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Position sensor U</para>
+                            </entry>
+                            <entry>
+                                <para>4</para>
+                            </entry>
+                            <entry>
+                                <para>CAN low</para>
+                            </entry>
+                            <entry>
+                                <para>12</para>
+                            </entry>
+                            <entry>
+                                <para>Position sensor power</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Position sensor ground</para>
+                            </entry>
+                            <entry>
+                                <para>5</para>
+                            </entry>
+                            <entry>
+                                <para>CAN shield</para>
+                            </entry>
+                            <entry>
+                                <para>13</para>
+                            </entry>
+                            <entry>
+                                <para>Position sensor U</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Motor W</para>
+                            </entry>
+                            <entry>
+                                <para>6</para>
+                            </entry>
+                            <entry>
+                                <para>Motor U</para>
+                            </entry>
+                            <entry>
+                                <para>14</para>
+                            </entry>
+                            <entry>
+                                <para>Position sensor V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Motor V</para>
+                            </entry>
+                            <entry>
+                                <para>7</para>
+                            </entry>
+                            <entry>
+                                <para>Motor V</para>
+                            </entry>
+                            <entry>
+                                <para>15</para>
+                            </entry>
+                            <entry>
+                                <para>Position sensor W</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Motor U</para>
+                            </entry>
+                            <entry>
+                                <para>8</para>
+                            </entry>
+                            <entry>
+                                <para>Motor W</para>
+                            </entry>
+                            <entry>
+                                <para>16</para>
+                            </entry>
+                            <entry>
+                                <para>Position sensor ground</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007057" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.17in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, make sure the transmission is in neutral, parking brake is set, and
+                                        wheels are blocked before doing service bay diagnostics on engine or vehicle.
+                                    </para>
+                                </warning>
+                                <caution>
+                                    <para>To avoid engine damage, use utmost care when:</para>
+                                    <seqlist style="arabic">
+                                        <item>
+                                            <para>Disconnecting harness from EGR actuator or EGR drive module.</para>
+                                        </item>
+                                        <item>
+                                            <para>Inserting Terminal Test Adapter probe into connector to test for
+                                                specifications.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Connecting harness to EGR actuator or EGR drive module.</para>
+                                        </item>
+                                    </seqlist>
+                                    <para>Failure to use care when disconnecting, testing, or connecting components may
+                                        result in damaged or bent connector pins.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">EGR Actuator Harness Connector Voltage Checks</emph>
+                                    (Disconnect harness from actuator. Connect breakout harness. Turn the ignition
+                                    switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>8 V to 11 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If not in spec, check for an open, short to ground or short to voltage source.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If not in spec, check for an open, short to ground or short to voltage source.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If not in spec, check for an open, short to ground or short to voltage source.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>4 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If not in spec, check for an open, short to ground or short to voltage source.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>8 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">EGR Actuator Resistance Checks Only</emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness from actuator. Connect breakout
+                                    harness to actuator only.
+                                    <emph type="bold">Note:</emph>
+                                    Ensure DMM and leads are zeroed.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to 2</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to sensor power exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to 3</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to sensor power exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to 4</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to sensor power exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to 5</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to sensor power exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 to 2</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to sensor power exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 to 3</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to sensor power exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 to 4</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to sensor power exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 to 7</para>
+                            </entry>
+                            <entry>
+                                <para>2.1 &#x2126; &#177;0.5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, replace actuator.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 to 8</para>
+                            </entry>
+                            <entry>
+                                <para>2.1 &#x2126; &#177;0.5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, replace actuator.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 to 8</para>
+                            </entry>
+                            <entry>
+                                <para>2.1 &#x2126; &#177;0.5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, replace actuator.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">EGR Actuator Harness Connector Resistance Checks to ECM Chassis
+                                        Ground
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness from actuator. Connect breakout
+                                    harness to engine harness only. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the ground connection for the ECM and IDM. See truck Chassis
+                                        Electrical Circuit Diagram Manual for complete chassis side ECM and IDM ground
+                                        circuit information.</ftnote>.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, an open circuit exists or high resistance. Specification is based
+                                    on 4300 chassis. For other applications, see Chassis Electrical Circuit Diagram
+                                    Manual for complete chassis ground circuit information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">EGR Actuator Harness Connector Resistance Checks to Chassis
+                                        Ground
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect harness from actuator. Disconnect negative battery
+                                    cable. Connect breakout harness to engine harness only. Use disconnected negative
+                                    battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists. Specification is based on 4300
+                                    chassis. For other applications, see Chassis Electrical Circuit Diagram Manual for
+                                    complete chassis ground circuit information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007058" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.17in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, make sure the transmission is in neutral, parking brake is set, and
+                                        wheels are blocked before doing service bay diagnostics on engine or vehicle.
+                                    </para>
+                                </warning>
+                                <caution>
+                                    <para>To avoid engine damage, use utmost care when:</para>
+                                    <seqlist style="arabic">
+                                        <item>
+                                            <para>Disconnecting harness from EGR actuator or EGR drive module.</para>
+                                        </item>
+                                        <item>
+                                            <para>Inserting Terminal Test Adapter probe into connector to test for
+                                                specifications.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Connecting harness to EGR actuator or EGR drive module.</para>
+                                        </item>
+                                    </seqlist>
+                                    <para>Failure to use care when disconnecting, testing, or connecting components may
+                                        result in damaged or bent connector pins.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">EGR Drive Module Connector Voltage Checks</emph>
+                                    (Disconnect harness from the EGR drive module. Turn the ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>9 V to 16 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for an open, short to ground, or short to voltage source.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>1 V to 4 V</para>
+                            </entry>
+                            <entry>
+                                <para>Digital signal. See
+                                    <hotlnk document="eges270_138.xml" xrefid="s27005029">"ECM / IDM Communications"
+                                    </hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>1 V to 4 V</para>
+                            </entry>
+                            <entry>
+                                <para>Digital signal. See
+                                    <hotlnk document="eges270_138.xml" xrefid="s27005029">"ECM / IDM Communications"
+                                    </hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>9 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>12 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>13 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>14 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>15 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>16 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If not in spec, check for a short to voltage source.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Resistance Checks - EGR Drive Module Only</emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness from EGR drive module. Measure
+                                    at EGR drive module pins.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to 2</para>
+                            </entry>
+                            <entry>
+                                <para>> 50 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 50 &#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 3</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 4</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 5</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 6</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 7</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 8</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 9</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, an open circuit or high resistance exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 12</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 13</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 14</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 15</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 16</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, an open circuit or high resistance exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>9 to 16</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, an open circuit or high resistance exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>12 to 16</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>13 to 16</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>14 to 16</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>15 to 16</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">EGR Drive Module Connector Resistance Checks to ECM Chassis
+                                        Ground
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness from EGR drive module and
+                                    disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the ground connection for the ECM and IDM. See truck Chassis
+                                        Electrical Circuit Diagram Manual for complete chassis side ECM and IDM ground
+                                        circuit information.</ftnote>.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, an open circuit or high resistance exists. Specification is based
+                                    on 4300 chassis. For other applications, see Chassis Electrical Circuit Diagram
+                                    Manual for complete chassis ground circuit information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, an open circuit or high resistance exists. Specification is based
+                                    on 4300 chassis. For other applications, see Chassis Electrical Circuit Diagram
+                                    Manual for complete chassis ground circuit information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>9 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>12 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>13 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>14 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>15 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>16 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">EGR Drive Module Connector Resistance Checks to Chassis Ground
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable and harness from EGR drive
+                                    module. Use disconnected negative battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists. Specification is based on 4300
+                                    chassis. For other applications, see Chassis Electrical Circuit Diagram Manual for
+                                    complete chassis ground circuit information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists. Specification is based on 4300
+                                    chassis. For other applications, see Chassis Electrical Circuit Diagram Manual for
+                                    complete chassis ground circuit information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>9 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>12 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>13 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>14 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>15 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>16 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, short to ground exists.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks from EGR Drive Module to EGR Actuator
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness from EGR drive module and EGR
+                                    actuator.
+                                    <emph type="bold">NOTE:</emph>
+                                    Test points are EGR drive module to EGR actuator.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 6 to Pin 8</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, open circuit or high resistance to MTR U.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 7 to Pin 7</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, open circuit or high resistance to MTR V.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Pin 8 to Pin 6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, open circuit or high resistance to MTR W.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Pin 12 to Pin 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, open circuit or high resistance to position sensor power.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 13 to Pin 4</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, open circuit or high resistance to position sensor U.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 14 to Pin 3</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, open circuit or high resistance to position sensor V.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 15 to Pin 2</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, open circuit or high resistance to position sensor W.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Pin 16 to Pin 5</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, open circuit or high resistance to position sensor ground.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007059" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.26in"/>
+                    <colspec colname="col2" colwidth="0.82in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, make sure the transmission is in neutral, parking brake is set, and
+                                        wheels are blocked before doing service bay diagnostics on engine or vehicle.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks from EGR Drive Module to 12-pin
+                                        Connector
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness at EGR drive module and 12-pin
+                                    connector.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 1 to Pin 10</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, open circuit or high resistance to actuator power.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 2 to Pin 4</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, open circuit or high resistance to actuator ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks from EGR Drive Module to ECM</emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness at EGR drive module and ECM
+                                    connector X2. Connect breakout box X2 to engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 3 to Pin X2-6</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, open circuit or high resistance to CAN 2 positive.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 4 to Pin X2-13</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, open circuit or high resistance to CAN 2 negative.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>EGR Actuator Diagnostic Trouble Codes (DTCs)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 163 = EGR drive module detects position signal fault.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 365 = EGR drive module detects actuator fault.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 368 = ECM did not receive EGR drive module communication for more than one
+                                    second.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_143.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_145.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

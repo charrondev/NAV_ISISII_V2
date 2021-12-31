@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos para motores VT 365 (2002) - DIAGN&#211;STICOS DEL SISTEMA DE CONTROL
+        ELECTR&#211;NICO - Diagn&#243;sticos de circuitos - Sensor de la velocidad del veh&#237;culo (VSS)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="2">
+        <title>Sensor de la velocidad del veh&#237;culo (VSS)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3356" filename="../figd33/d3356.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama de la funci&#243;n del sensor de la velocidad del veh&#237;culo (VSS)</caption>
+            </figure>
+            <para>El diagrama de la funci&#243;n del VSS incluye lo siguiente:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Sensor de la velocidad del veh&#237;culo (VSS)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>Transmisi&#243;n autom&#225;tica controlada electr&#243;nicamente WTEC</para>
+                </item>
+                <item>
+                    <para>Control de crucero, toma de fuerza, limitaci&#243;n de la velocidad en carretera</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>
+            </para>
+            <para>El sensor de la velocidad del veh&#237;culo (VSS) es un sensor de captaci&#243;n magn&#233;tica
+                ubicado en la transmisi&#243;n. El VSS detecta la rotaci&#243;n de un engranaje de 16 dientes y produce
+                una se&#241;al sinusoidal. El ECM procesa la se&#241;al sinusoidal para calcular la velocidad del veh&#237;culo.
+                El enlace de datos del tren propulsor (CAN 1) transmite la velocidad calculada al veloc&#237;metro. La
+                velocidad calculada tambi&#233;n ayuda con estrategias de control que incluyen el control de crucero, la
+                toma de fuerza y la limitaci&#243;n de la velocidad en carretera.
+            </para>
+            <para>Los veh&#237;culos con transmisiones Allison WTEC MD y Serie 2000 utilizan un VSS interno que env&#237;a
+                una se&#241;al al m&#243;dulo de la transmisi&#243;n. El m&#243;dulo de la transmisi&#243;n procesa la
+                se&#241;al y env&#237;a una se&#241;al de onda recta al ECM del motor.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Operaci&#243;n del circuito del VSS</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3357" filename="../figd33/d3357.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Diagrama del circuito del VSS</caption>
+            </figure>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>
+            </para>
+            <para>El ECM realiza mediciones de diagn&#243;stico en el circuito del VSS cuando el motor est&#225;
+                funcionando a 0 km/h (0 mph). El ECM transmite una se&#241;al de voltaje por el circuito del VSS y
+                determina si el voltaje devuelto excede el l&#237;mite inferior o superior. Cuando detecta una falla, el
+                ECM desactiva las funciones de control de crucero y toma de fuerza. Si la limitaci&#243;n de la
+                velocidad en carretera est&#225; activada, el ECM limitar&#225; las RPM del motor en todas las marchas.
+            </para>
+            <para>El ECM no genera DTC cuando hay fallas en el circuito del VSS en veh&#237;culos con transmisiones
+                Allison WTEC MD y Serie 2000. Los veh&#237;culos con transmisiones MD s&#243;lo diagnostican el circuito
+                de comunicaciones (CAN 1) entre el motor y el m&#243;dulo de la transmisi&#243;n.
+            </para>
+            <specpara>
+                <note>
+                    <para>Refi&#233;rase al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n
+                        sobre los n&#250;meros de los circuitos y la ubicaci&#243;n de los conectores y fusibles. Para
+                        diagnosticar problemas en el VSS en veh&#237;culos con transmisiones MD, refi&#233;rase a la Gu&#237;a
+                        de ubicaci&#243;n de fallas del sistema el&#233;ctrico y al manual de diagn&#243;sticos y
+                        mantenimiento para transmisiones WTEC de Allison.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>C&#243;digos de falla (DTC) del VSS</title>
+            </para>
+            <para>Los DTC se leen con la herramienta electr&#243;nica de servicio (EST) o contando los destellos de las
+                luces ENGINE &#225;mbar y roja.
+            </para>
+            <verbatim id="f240dtc141">
+                <line>
+                    <emph type="bold">DTC 141</emph>
+                </line>
+                <line>
+                    <emph type="bold">Excede el l&#237;mite inferior</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 141 cuando detecta una se&#241;al que excede el l&#237;mite inferior en
+                        el circuito del VSS.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 141 est&#225; activo, la luz ENGINE &#225;mbar no se enciende.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc142">
+                <line>
+                    <emph type="bold">DTC 142</emph>
+                </line>
+                <line>
+                    <emph type="bold">Excede el l&#237;mite superior</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 142 cuando detecta una se&#241;al que excede el l&#237;mite superior en
+                        el circuito del VSS.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 142 est&#225; activo, la luz ENGINE &#225;mbar no se enciende.</para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>El ECM monitoriza la se&#241;al del V
+                        <subscript>REF</subscript>
+                        A y la ajustar&#225; para los sensores que la usan para su funcionamiento. Si un sensor o un
+                        circuito hacen descender el V
+                        <subscript>REF</subscript>
+                        a menos de 5 V, el ECM podr&#237;a generar DTC por se&#241;ales que exceden el l&#237;mite
+                        superior para aquellos sensores que funcionan con el V
+                        <subscript>REF</subscript>
+                        B (APS, BAP, B+ y VSS).
+                    </para>
+                </note>
+            </specpara>
+            <verbatim id="f240dtc215">
+                <line>
+                    <emph type="bold">DTC 215</emph>
+                </line>
+                <line>
+                    <emph type="bold">Frecuencia de la se&#241;al excede el l&#237;mite superior</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 215 cuando detecta una se&#241;al del VSS superior a 4365 Hz.</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Herramientas</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Herramienta electr&#243;nica de servicio (EST) con software INTUNE y Master Diagnostics</para>
+                </item>
+                <item>
+                    <para>Cable de interfaz EZ-Tech de International&#174;</para>
+                </item>
+                <item>
+                    <para>Cable de interfaz J1939 de International&#174;</para>
+                </item>
+                <item>
+                    <para>Gu&#237;a de ubicaci&#243;n de fallas del sistema el&#233;ctrico (camiones)</para>
+                </item>
+                <item>
+                    <para>Diagramas de circuitos el&#233;ctricos (camiones)</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos del VSS con los pines</title>
+            <para>El circuito del VSS requiere que se usen los diagramas de circuitos del veh&#237;culo. Refi&#233;rase
+                al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n sobre los n&#250;meros
+                de los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+            </para>
+            <table id="te24007084" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo de la bater&#237;a
+                                        al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de voltaje en el conector</emph>
+                                    (Con la llave en ON y el sensor desconectado del cableado).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2-3 V</para>
+                            </entry>
+                            <entry colname="col3" morerows="1">
+                                <para>Voltaje de activaci&#243;n del ECM cuando el sensor est&#225; desconectado. Si no
+                                    hay voltaje, busque interrupci&#243;n o corto a tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2-3 V</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de continuidad en el sensor</emph>
+                                    (Con la llave en OFF y el sensor desconectado).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>600-800 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Transmisi&#243;n mec&#225;nica (mida resistencia a trav&#233;s del sensor)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Ver manual Allison</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Transmisi&#243;n autom&#225;tica MD (controlada electr&#243;nicamente).</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el cableado</emph>
+                                    (Con la llave en OFF. Desconecte el cable negativo de la bater&#237;a y el sensor.
+                                    Instale la caja de conexiones s&#243;lo en el cableado del chasis).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-9 a B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el circuito.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-10 a A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el circuito.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-9 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-10 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-10 a X4-9</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>2 V de CA</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;2 V de CA, revise el ajuste del sensor o sustit&#250;yalo si est&#225;
+                                    defectuoso.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">C&#243;digos de falla del VSS</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 141 = El ECM detect&#243; bajo voltaje a trav&#233;s del circuito del VSS
+                                    durante >0,5 segundos.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 142 = El ECM detect&#243; alto voltaje a trav&#233;s del circuito del VSS
+                                    durante >0,5 segundos.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 215 = El ECM detect&#243; una se&#241;al de frecuencia del VSS >4,365 kHz.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <specpara>
+                <note>
+                    <para>Si las mediciones del circuito est&#225;n dentro de los valores especificados y el problema
+                        contin&#250;a, inspeccione y ajuste el sensor de acuerdo al manual de la transmisi&#243;n.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_183.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_EGES2411-SEC8.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

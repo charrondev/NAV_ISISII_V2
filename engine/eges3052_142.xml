@@ -1,0 +1,699 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - EFAN
+        Control (Engine Fan Control)
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.16" svcproctype="describe" graphiccount="4">
+        <title>EFAN Control (Engine Fan Control)</title>
+        <svcprocinfo id="s305010706.16.1">
+            <figure id="f305010767" figsize="pg-wide">
+                <graphic filename="../figJ09/J09049.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Function diagram for EFAN</caption>
+            </figure>
+            <table id="t3050107136" type="simple" frame="topbot">
+                <title>The function diagram for EFAN includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Engine Coolant Temperature (ECT) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Intake Air Temperature (IAT) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic System Controller (ESC)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Engine fan relay</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para id="s305010731">
+                <title>Function</title>
+            </para>
+            <para>The EFAN control provides ON/OFF control of the engine cooling system fan. The ECM can be programmed
+                to set and monitor limits for engine coolant temperature, intake air temperature, engine mode selection
+                (operating or diagnostic).
+            </para>
+            <para>EFAN is accessible with the EST. Fan on and off temperature can be programmed by technician, but the
+                mode of operation must be done by Technical Services.
+            </para>
+            <para>The purpose of the engine fan control is to provide the correct logic to determine when the fan should
+                be turned on or off by energizing/de-energizing the fan drive relay. The purpose of the engine fan is to
+                allow a higher air flow for heat exchange between the radiator and the ambient air when needed.
+            </para>
+            <deflist>
+                <term>Engine Fan Control</term>
+                <def>This parameter indicates to the on-board electronics whether or not the truck has the electronic
+                    engine fan control feature.
+                </def>
+                <term>AC Fan Activation</term>
+                <def>This feature will allow fan activation through the ECM when requested from the ESC during AC
+                    operation.
+                </def>
+                <term>Disable</term>
+                <def>Feature is turned off at all times.</def>
+                <term>Fan On Temperature</term>
+                <def>This parameter indicates the coolant temperature that the fan will be electronically activated.
+                </def>
+                <term>Fan Off Temperature</term>
+                <def>This parameter indicates the coolant temperature that the fan will be electronically deactivated.
+                </def>
+            </deflist>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.16.2">
+            <title>Fan Clutch Circuit Operation</title>
+            <figure id="f305010768" figsize="full-pg">
+                <graphic filename="../figJ09/J09050.webp" type="webp" scalefit="1" scalefitwidth="312px"
+                         scalefitheight="532px"/>
+                <caption>Fan clutch circuit diagram</caption>
+            </figure>
+            <para>Electric current locks the fan clutch and allows fan activation and cooling.</para>
+            <para>When the fan needs to be activated, the ground is removed from ECM Pin X4-14. The coil side of the fan
+                relay is de-energized causing the switch side to close, this sends 12 volts from Pin 87A to the fan
+                clutch. The fan clutch locks the fan in place when power is present at Pin 87A.
+            </para>
+            <para>When the fan needs to be deactivated, Pin X4-14 is grounded through the ECM. The coil side of the fan
+                relay is energized, causing the switch side to open, and removes power from Pin 87A to the fan clutch.
+                The fan clutch unlocks the fan when the power is removed from Pin 87A.
+            </para>
+            <specpara>
+                <note>
+                    <para>With Stripped Chassis, a 15 second delay in fan engagement will occur after the fan clutch
+                        receives power from the fan relay. A 75 second fan disengagement delay will occur when power
+                        from the fan relay is turned off. Verify fan engagement and disengagement at 2000 rpm.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>Fault Detection/Management</title>
+            </para>
+            <para>An open or short to ground in the EFAN can be detected by the ECM during an on-demand engine standard
+                test. The IAT and ECT are monitored continuously. If a DTC is detected in the IAT or ECT, the EFAN
+                control is disabled and the engine fan is on all the time.
+            </para>
+            <specpara>
+                <note>
+                    <para>Before diagnosing, check that the ECM is programmed correctly. Verify vehicle/application has
+                        an electronic fan.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>EFAN Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red lamps.</para>
+            <table id="t3050107137" type="simple" frame="topbot">
+                <title>DTC 246</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>Engine Fan - OCC self-test fault</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>DTC 246 is set by the ECM only during KOEO Standard Test. During this test the ECM
+                                    performs an output circuit test that momentarily enables the EFAN solenoid and
+                                    measures the voltage drop across the relay
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107138" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech&#174; interface cable</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Digital Multimeter (DMM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Relay Breakout Harness</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="s305010706.16.3">
+            <title>Fan Clutch Pin-Point Diagnostics</title>
+            <figure id="f305010769" figsize="pg-wide">
+                <graphic filename="../figJ09/J09050.webp" type="webp" scalefit="1" scalefitwidth="312px"
+                         scalefitheight="532px"/>
+                <caption>Fan clutch circuit diagram</caption>
+            </figure>
+            <table id="t3050107139" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - Fan Connector</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.69*"/>
+                    <colspec colname="col2" colwidth="0.72*"/>
+                    <colspec colname="col3" colwidth="1.57*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Disconnect fan connector. Turn ignition switch to ON. Test done during KOEO
+                                    Standard Test.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If less than B+, check relay. Also check for an open circuit, short to ground, or
+                                    short to voltage source. Do Output State Test - Voltage Check at Fan Connector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 0.25 volts, check for an open ground circuit or a short to voltage
+                                    source. Do Harness Resistance Checks.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107140" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Output State Test - Voltage Checks - Fan Connector</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.69*"/>
+                    <colspec colname="col2" colwidth="0.72*"/>
+                    <colspec colname="col3" colwidth="1.57*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Disconnect fan connector. Turn ignition switch to ON. Run Output State Tests. For
+                                    help, see "
+                                    <hotlnk document="eges3052_54.xml" xrefid="s305010303.2.1.1">Diagnostic Tests
+                                    </hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050103.xml" xrefid="e3050103">Diagnostic Software
+                                        Operation
+                                    </hotlnk>
+                                    " section in this manual for the procedure to run Low and High Output State Tests.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test State/Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Output State Test - Low</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 0.25 volts, check relay. Also check for short to voltage source.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Output State Test - High</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If less than B+, check relay. Also check for an open circuit, short to ground, or
+                                    a short to voltage source. Do "
+                                    <hotlnk xrefid="t3050107141">Output State Test - Voltage Checks at Fan Relay
+                                    </hotlnk>
+                                    ."
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107141" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Output State Test - Voltage Checks - Fan Relay</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.69*"/>
+                    <colspec colname="col2" colwidth="0.72*"/>
+                    <colspec colname="col3" colwidth="1.57*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging the
+                                        connector or relay for the ECM. Failure to turn ignition switch to OFF will
+                                        cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Check with relay breakout harness connected with relay. Turn ignition switch to
+                                    ON. Run the Output State Tests. For help, see "
+                                    <hotlnk document="eges3052_54.xml" xrefid="s305010303.2.1.1">Diagnostic Tests
+                                    </hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050103.xml" xrefid="e3050103">Diagnostic Software
+                                        Operation
+                                    </hotlnk>
+                                    " section of this manual for the procedure to run Low and High Output State Tests.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test State/Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Output State Test - Low</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>30 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If less than B+, do Harness Resistance Checks.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>85 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If less than B+, do Harness Resistance Checks.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>86 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 0.25 volts, check for open circuit, short to voltage source, ECM
+                                    programming, or failed ECM. Do Harness Resistance Checks.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>87 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If less than B+, and previous checks (30, 86, 85 to gnd) are within specification,
+                                    replace relay.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>87A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 0.25 volts, and previous checks (30, 86, 85 to gnd) are within
+                                    specification, but 87 to gnd is not within specification, replace relay.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Output State Test - High</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>30 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If less than B+, do Harness Resistance Checks.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>85 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If less than B+, do Harness Resistance Checks.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>86 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If less than B+, check for open circuit, ECM programming, or failed ECM. Do
+                                    Harness Resistance Checks.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>87 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 0.25 volts, and previous checks (30, 86, 85 to gnd) are within
+                                    specification, replace relay.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>87A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If less than B+, and previous checks (30, 86, 85 to gnd) are within specification,
+                                    but 87 to gnd is not within specification, replace relay.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <figure id="f305010768" figsize="pg-wide">
+                <graphic filename="../figJ09/J09050.webp" type="webp" scalefit="1" scalefitwidth="312px"
+                         scalefitheight="532px"/>
+                <caption>Fan clutch circuit diagram</caption>
+            </figure>
+            <table id="t3050107142" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Output State Test - Voltage Checks - ECM</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.69*"/>
+                    <colspec colname="col2" colwidth="0.72*"/>
+                    <colspec colname="col3" colwidth="1.57*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging the
+                                        connector or relay for the ECM. Failure to turn ignition switch to OFF will
+                                        cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Disconnect X3 and X4 from ECM. Connect breakout box X3 and X4 to ECM and wiring
+                                    harness. Disconnect relay. Turn ignition switch to ON. Run the Output State Tests.
+                                    For help, see "
+                                    <hotlnk document="eges3052_54.xml" xrefid="s305010303.2.1.1">Diagnostic Tests
+                                    </hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050103.xml" xrefid="e3050103">Diagnostic Software
+                                        Operation
+                                    </hotlnk>
+                                    " section of this manual for the procedure to run the Low and High Output State
+                                    Tests.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test State/Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Output State Test - Low</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-3 to X4-14</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If less than B+, verify that ECM is programmed correctly. If ECM is programmed
+                                    correctly, replace ECM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Output State Test - High</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-3 to X4-14</para>
+                            </entry>
+                            <entry>
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 0.25 volts, verify that ECM is programmed correctly. If ECM is
+                                    programmed correctly, replace ECM.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107143" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.69*"/>
+                    <colspec colname="col2" colwidth="0.72*"/>
+                    <colspec colname="col3" colwidth="1.57*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging the
+                                        connector or relay for the ECM. Failure to turn ignition switch to OFF will
+                                        cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect fan. Remove relay and connect relay
+                                    breakout harness. Connect breakout box X4 to chassis wiring harness only.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test State/Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-14 to 86</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for harness open between ECM and relay
+                                    terminal.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>87A to A (fan)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for harness open between relay terminal and A
+                                    (fan).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>30 to Fuse</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for harness open between fuse and relay
+                                    terminal. See the applicable truck Circuit Diagram Manual for fuse information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>85 to Fuse</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for harness open between fuse and relay
+                                    terminal. See the applicable truck Circuit Diagram Manual for fuse information.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_141.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_143.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

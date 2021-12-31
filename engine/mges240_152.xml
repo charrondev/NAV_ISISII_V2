@@ -1,0 +1,457 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos para motores VT 365 (2002) - DIAGN&#211;STICOS DEL SISTEMA DE CONTROL
+        ELECTR&#211;NICO - Diagn&#243;sticos de circuitos - Sensor de la presi&#243;n barom&#233;trica absoluta (BAP)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>Sensor de la presi&#243;n barom&#233;trica absoluta (BAP)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3347" filename="../figd33/d3347.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama de la funci&#243;n del sensor de la presi&#243;n barom&#233;trica absoluta (BAP)
+                </caption>
+            </figure>
+            <para>El diagrama de la funci&#243;n del BAP incluye lo siguiente:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Sensor de la presi&#243;n barom&#233;trica absoluta (BAP)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo impulsor de los inyectores (IDM)</para>
+                </item>
+                <item>
+                    <para>Inyector de combustible</para>
+                </item>
+                <item>
+                    <para>Luz ENGINE &#225;mbar</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>
+            </para>
+            <para>El BAP es un sensor de capacitancia variable instalado en la cabina. El ECM suministra una se&#241;al
+                de referencia de 5 V que el BAP usa para producir un voltaje lineal anal&#243;gico que indica presi&#243;n.
+            </para>
+            <para>La funci&#243;n primaria del BAP es proporcionar una se&#241;al de respuesta al ECM para ajustar la
+                sincronizaci&#243;n y la cantidad de combustible. El ECM tambi&#233;n usa la se&#241;al del BAP para
+                determinar la altitud para ajustar el tiempo que las buj&#237;as incandescentes permanecen encendidas y
+                para controlar el EGR y el VGT.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Operaci&#243;n del circuito del BAP</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3348" filename="../figd33/d3348.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama del circuito del BAP</caption>
+            </figure>
+            <para>El ECM suministra una se&#241;al de voltaje regulado de 5 V desde el terminal X4-4 del conector del
+                chasis hacia el terminal 2 del conector del BAP. El BAP devuelve una se&#241;al de voltaje variable (que
+                representa presi&#243;n atmosf&#233;rica) desde el terminal 3 hacia el terminal X3-24 del ECM. El BAP
+                est&#225; conectado a tierra desde el terminal 1 hacia el terminal X4-24 del ECM.
+            </para>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>
+            </para>
+            <para>Cuando el ECM detecta que el voltaje de la se&#241;al del BAP excede el l&#237;mite superior o
+                inferior, la ignorar&#225; y usar&#225; la se&#241;al del sensor de la presi&#243;n absoluta del m&#250;ltiple
+                de admisi&#243;n (MAP) generada en ralent&#237; bajo como indicaci&#243;n de la presi&#243;n barom&#233;trica.
+                Si tambi&#233;n se detecta una falla en el MAP, la se&#241;al del BAP quedar&#225; fijada al valor de la
+                presi&#243;n barom&#233;trica a nivel del mar, 100,24 kPa (29,6 pulgadas de Hg).
+            </para>
+            <para>
+                <title>C&#243;digos de falla (DTC) del BAP</title>
+            </para>
+            <para>Los DTC se leen con la herramienta electr&#243;nica de servicio (EST) o contando los destellos de las
+                luces ENGINE &#225;mbar y roja.
+            </para>
+            <verbatim id="f240dtc151">
+                <line>
+                    <emph type="bold">DTC 151</emph>
+                </line>
+                <line>
+                    <emph type="bold">Excede el l&#237;mite superior</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El DTC 151 aparece si la se&#241;al del BAP es mayor de 4,95 V por m&#225;s de 0,5 segundos.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 151 puede aparecer cuando el circuito de la se&#241;al est&#225; en corto al V
+                        <subscript>REF</subscript>
+                        o a B+. El DTC 151 puede aparecer si el BAP est&#225; defectuoso.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 151 est&#225; activo, la luz ENGINE &#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>El ECM monitoriza la se&#241;al del V
+                        <subscript>REF</subscript>
+                        A y la ajustar&#225; para los sensores que la usan para su funcionamiento. Si un sensor o un
+                        circuito hacen descender el V
+                        <subscript>REF</subscript>
+                        a menos de 5 V, el ECM podr&#237;a generar DTC por se&#241;ales que exceden el l&#237;mite
+                        superior para aquellos sensores que funcionan con el V
+                        <subscript>REF</subscript>
+                        B (APS, BAP, B+ y VSS).
+                    </para>
+                </note>
+            </specpara>
+            <verbatim id="f240dtc152">
+                <line>
+                    <emph type="bold">DTC 152</emph>
+                </line>
+                <line>
+                    <emph type="bold">Excede el l&#237;mite inferior</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El DTC 152 aparece si la se&#241;al del BAP es menor de 1 V por m&#225;s de 0,5 segundos.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 152 puede aparecer cuando el circuito de la se&#241;al est&#225; interrumpido o en
+                        corto a tierra. Puede aparecer el DTC 152 si el V
+                        <subscript>REF</subscript>
+                        est&#225; en corto a tierra. El DTC 152 puede aparecer si el BAP est&#225; defectuoso.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 152 est&#225; activo, la luz ENGINE &#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Herramientas</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Herramienta electr&#243;nica de servicio (EST) con software Master Diagnostics</para>
+                </item>
+                <item>
+                    <para>Cable de interfaz EZ-Tech de International&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Caja de conexiones</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos del BAP con los pines</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3348" filename="../figd33/d3348.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama del circuito del BAP</caption>
+            </figure>
+            <para>Refi&#233;rase al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n sobre
+                los n&#250;meros de los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+            </para>
+            <table id="te24007017" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo de la bater&#237;a
+                                        al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de voltaje en el conector</emph>
+                                    (Desconecte el sensor del cableado. Inspeccione en busca de pines doblados y corrosi&#243;n.
+                                    Con la llave en ON).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;0,25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >0,25 V, busque alta resistencia o interrupci&#243;n en el circuito a tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si no, el circuito del V
+                                    <subscript>REF</subscript>
+                                    tiene un corto a tierra o interrupci&#243;n.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;0,25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >0,25 V, el alambre est&#225; en corto al V
+                                    <subscript>REF</subscript>
+                                    o B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia del conector a la tierra del chasis
+                                    </emph>
+                                    (Con la llave en OFF. Desconecte el conector del sensor y el cable negativo de la
+                                    bater&#237;a).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en la tierra de la se&#241;al.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque un corto del V
+                                    <subscript>REF</subscript>
+                                    a tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque un corto de la se&#241;al a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el cableado</emph>
+                                    (Con la caja de conexiones s&#243;lo en el cableado del chasis).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-24 a 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en la tierra de la se&#241;al.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-4 a 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el V
+                                    <subscript>REF</subscript>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-24 a 3</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el circuito de la se&#241;al.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007018" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="1.05in"/>
+                    <colspec colname="col3" colwidth="2.43*"/>
+                    <colspec colname="COLSPEC1" colwidth="3.57*"/>
+                    <spanspec namest="col1" nameend="COLSPEC1" spanname="SPAN2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Mediciones operacionales de voltaje del BAP</emph>
+                                    (Con la caja de conexiones conectada al ECM y al cableado del chasis).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Punto de prueba</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Voltaje</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>kPa (pulg Hg)</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-24 a X4-24</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4,89 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>105 kPa (31,0905" Hg)</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>Presi&#243;n atmosf&#233;rica alta.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-24 a X4-24</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4,60 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>100 kPa (29,61" Hg)</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>Presi&#243;n atmosf&#233;rica normal a nivel del mar.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-24 a X4-24</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2,60 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>60 kPa (17,766" Hg)</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>Presi&#243;n atmosf&#233;rica normal a 3000 m (10.000 pies).</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">C&#243;digos de falla del BAP</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 151 = El voltaje de la se&#241;al fue >4,95 V por m&#225;s de 0,5 segundos.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 152 = El voltaje de la se&#241;al fue &#60;1 V por m&#225;s de 0,5 segundos.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_151.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_153.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

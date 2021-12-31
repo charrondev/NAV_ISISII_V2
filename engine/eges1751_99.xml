@@ -1,0 +1,979 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics Model Years 1999-2000 - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS -
+        Circuit Function And Diagnostics - ATA Communications (Data Communications Link, ATA Link)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="5">
+        <title>ATA Communications (Data Communications Link, ATA Link)</title>
+        <svcsubproc>
+            <title>Signal Functions</title>
+            <figure id="f17503017" figsize="pg-wide">
+                <graphic filename="../figEG6/EG6160A.webp" type="webp" scalefit="1" scalefitwidth="352px" box="no"/>
+                <caption>Function Diagram for ATA Communications</caption>
+            </figure>
+            <para>
+                <emph type="bold">Data Communication Link</emph>
+            </para>
+            <para>The Data Communication Link (DLC) used for programming and diagnostics is the American Trucking
+                Association (ATA) connector. The ATA connector sends a 0 to 5V variable width signal (square wave) that
+                allows communication between the Electronic Control Module (ECM) and the Electronic Service Tool (EST).
+                Communication includes calibration, programming, and diagnostic functions.
+            </para>
+            <para>
+                <emph type="bold">Dash Board Information</emph>
+            </para>
+            <para>Data from the ECM is sent to the instrument cluster on the dash board for the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Oil pressure</para>
+                </item>
+                <item>
+                    <para>Engine speed (Tachometer)</para>
+                </item>
+                <item>
+                    <para>Vehicle speed (Speedometer)</para>
+                </item>
+                <item>
+                    <para>Coolant temperature</para>
+                </item>
+                <item>
+                    <para>Battery voltage</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection and Management</title>
+            <para>The ECM continuously monitors the ATA lines for open, short, or intermittent connections. If an active
+                Diagnostic Trouble Code occurs, the instrument cluster or the Electronic Diagnostic Tool will not
+                display data.
+            </para>
+            <figure id="f17503018" figsize="pg-wide">
+                <graphic filename="../figEG1/EG1215A.webp" type="webp" scalefit="1" scalefitwidth="392px" box="no"/>
+                <caption>Circuit Diagram for ATA Communications (6 Pin EST connector)</caption>
+            </figure>
+            <table id="te17503003" tblwidth="pg-wide" frame="all">
+                <title>ATA Communications Circuit Diagnostics Circuit Diagram for ATA Communications (6 Pin EST
+                    connector)
+                </title>
+                <tgroup cols="4" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="35.87*"/>
+                    <colspec colname="col2" colwidth="28.32*"/>
+                    <colspec colname="col3" colwidth="33.52*"/>
+                    <colspec colname="col4" colwidth="298.31*"/>
+                    <spanspec namest="col1" nameend="col4" spanname="1to4"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Key On Engine OFF - Voltage Checks at 6 Pin EST Connector (Check
+                                        with breakout tee in place, ignition key ON, and engine OFF.)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>+ Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Signal</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>C to E</para>
+                            </entry>
+                            <entry align="center">
+                                <para>B+</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Power</para>
+                            </entry>
+                            <entry>
+                                <para>Should be power at C at all times. If no power, check ground and power circuits.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">EST and Dash Connector Checks to Ground (Check with dash connector
+                                        unplugged, positive battery cable disconnected, and ignition key OFF.)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Signal</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">EST</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>Less than 1000 &#x2126; indicates a short to ground, either through the harness or
+                                    within the ECM. Disconnect ECM and measure to ground again. If short remains, repair
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PWR</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>With Fuse F11 removed, a reading less than 1000 &#x2126; indicates a short to
+                                    ground. More than 5 &#x2126; indicates an open circuit and the EST tool will not
+                                    power up.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>E to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>gnd</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Instrument Cluster Connector</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>7 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>Less than 1000 &#x2126; indicates a short to ground either through the harness or
+                                    in the ECM. Disconnect ECM and measure to ground again. If short remains, repair
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>9 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>Continued on next page</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">EST and Dash Harness Resistance Checks (Check with breakout box
+                                        installed and ignition key OFF.)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Signal</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">EST Connector</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>A to No.16</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from ECM chassis connector (black) to EST connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>B to No.17</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from ECM chassis connector (black) to EST connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>C to F11</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PWR</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from EST connector to power fuse.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>E to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> than 5 &#x2126; indicates an open circuit and will cause the EST tool not to
+                                    power up.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Instrument Cluster Connector</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>7 to No.16</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from ECM chassis connector (black) to dash (green) connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>9 to No.17</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from ECM chassis connector (black) to dash (green) connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Reference</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="4" spanname="1to4">
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>231 = ATA Common Diagnostic Trouble Code - ATA wiring or connector
+                                            diagnostic trouble code, interference on data bus (e.g. dash or WTEC
+                                            controller), faulty ECM.
+                                        </para>
+                                        <para>- No Data Stream or DTCs displayed on or EST will not power up.</para>
+                                        <para>- Dash display for speedometer, tachometer, oil pressure, coolant
+                                            temperature, and battery voltage does not function.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f175325" figsize="pg-wide">
+                <graphic filename="../figEG1/EG1215B.webp" type="webp" scalefit="1" scalefitwidth="392px" box="no"/>
+                <caption>Circuit Diagram for ATA Communications (9 Pin EST connector)</caption>
+            </figure>
+            <table id="te17503003.5" tblwidth="pg-wide" frame="all">
+                <title>ATA Communications Circuit Diagnostics Circuit Diagram for ATA Communications (9 Pin EST
+                    connector)
+                </title>
+                <tgroup cols="4" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="35.87*"/>
+                    <colspec colname="col2" colwidth="28.32*"/>
+                    <colspec colname="col3" colwidth="33.52*"/>
+                    <colspec colname="col4" colwidth="298.31*"/>
+                    <spanspec namest="col1" nameend="col4" spanname="1to4"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Key On Engine OFF - Voltage Checks at 9 Pin EST Connector (Check
+                                        with ignition key ON, and engine OFF.)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>+ Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Signal</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>B to A</para>
+                            </entry>
+                            <entry align="center">
+                                <para>B+</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Power</para>
+                            </entry>
+                            <entry>
+                                <para>Should be power at B at all times. If no power, check ground and power circuits.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">EST and Dash Connector Checks to Ground (Check with dash connector
+                                        unplugged, positive battery cable disconnected, and ignition key OFF.)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Signal</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">EST</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>F to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>Less than 1000 &#x2126; indicates a short to ground, either through the harness or
+                                    within the ECM. Disconnect ECM and measure to ground again. If short remains, repair
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>G to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PWR</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>With Fuse F11 removed, a reading less than 1000 &#x2126; indicates a short to
+                                    ground. More than 5 &#x2126; indicates an open circuit and the EST tool will not
+                                    power up.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>gnd</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Instrument Cluster Connector</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>7 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>Less than 1000 &#x2126; indicates a short to ground either through the harness or
+                                    in the ECM. Disconnect ECM and measure to ground again. If short remains, repair
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>9 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>Continued on next page</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">EST and Dash Harness Resistance Checks (Check with breakout box
+                                        installed and ignition key OFF.)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Signal</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">EST Connector</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>F to No.16</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from ECM chassis connector (black) to EST connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>G to No.17</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from ECM chassis connector (black) to EST connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>B to F3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>PWR</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from EST connector to power fuse.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> than 5 &#x2126; indicates an open circuit and will cause the EST tool not to
+                                    power up.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Instrument Cluster Connector</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>7 to No.16</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA +</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from ECM chassis connector (black) to dash (green) connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>9 to No.17</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry align="center">
+                                <para>ATA -</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from ECM chassis connector (black) to dash (green) connector.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Reference</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="4" spanname="1to4">
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>231 = ATA Common Diagnostic Trouble Code - ATA wiring or connector
+                                            diagnostic trouble code, interference on data bus (e.g. dash or WTEC
+                                            controller), faulty ECM.
+                                        </para>
+                                        <para>- No Data Stream or DTCs displayed on or the EST will not power up.</para>
+                                        <para>- Dash display for speedometer, tachometer, oil pressure, coolant
+                                            temperature, and battery voltage does not function.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>
+                <emph type="bold">ATA Communication</emph>
+            </para>
+            <para>See the appropriate circuit diagram:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>
+                        <hotlnk xrefid="f17503020">Diagnostic / Programmable Connection Electrical Circuit Diagram
+                            <xref refid="f17503020"/>
+                        </hotlnk>
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <hotlnk xrefid="f17503021">Diagnostic / Programming Connector, Self Test Switch, &#38; Warning
+                            Light System Diagram For 3000RE Chassis Built January 11, 1999 and After
+                            <xref refid="f17503021"/>
+                        </hotlnk>
+                    </para>
+                </item>
+            </randlist>
+            <para>The Electronic Control Module (ECM) communicates with the Electronic Service Tool (EST) through
+                connectors (384 and 1650).
+            </para>
+            <para>The EST communicates with the ECM using the American Trucking Association (ATA) data link lines. The
+                ATA data link is defined by SAE recommended practices J1708 and J1587. This link and connectors (384 and
+                1650) were adopted by Recommended Practices 1201 and 1202.
+            </para>
+            <para>The ATA circuit uses a twisted wire pair. All repairs to this pair must maintain one complete twist
+                per inch along the entire length of the circuit. This circuit is polarized (one positive and one
+                negative). Reversing the polarity of this circuit will disrupt communications.
+            </para>
+            <para>
+                <emph type="bold">ATA Data Link Connector 384 and 1650</emph>
+            </para>
+            <para>All communication between the EST and ECM is done through the ATA connector 384 and 1650 . This
+                communications link supports the following functions:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Displaying Diagnostic Trouble Codes and operating conditions on the EST.</para>
+                </item>
+                <item>
+                    <para>Performing proprietary diagnostic tests programmed into the ECM.</para>
+                </item>
+                <item>
+                    <para>Clearing Diagnostic Trouble Codes.</para>
+                </item>
+                <item>
+                    <para>Programming performance parameter values.</para>
+                </item>
+                <item>
+                    <para>Programming calibrations and strategies.</para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">ATA Connector 384</emph>
+            </para>
+            <para>ATA connector 384 has six pins, labeled A through F that provide the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Fused BATTERY power to Pin C for electronic service tools. Pin E provides a battery ground for
+                        the EST
+                    </para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <item>
+                    <para>Terminal A is connected by circuit 98B (+) to the positive RED ATA 373 bus and B is connected
+                        by circuit 98D (-) to the negative BLUE ATA (428) bus. These two connections allow communication
+                        with all components connected to the data link at these same two busses.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">ATA Connector 1650</emph>
+            </para>
+            <para>ATA connector 1650 has nine pins, labeled A through I that provide the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Fused BATTERY power to Pin B for electronic service tools. Pin A provides a battery ground for
+                        the EST
+                    </para>
+                </item>
+                <item>
+                    <para>Terminal F is connected by circuit 98B (+) to the positive RED ATA 373 bus and terminal G is
+                        connected by circuit 98D (-) to the negative BLUE ATA (428) bus. These two connections allow
+                        communication with all components connected to the data link at these same two busses.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">POSITIVE AND NEGATIVE ATA DATA LINKS</emph>
+            </para>
+            <para>The
+                <emph type="bold">red</emph>positive and
+                <emph type="bold">blue</emph>
+                negative busses for the ATA Data Link connect EST connector (384) to the ECM. The
+                <emph type="bold">red</emph>
+                and
+                <emph type="bold">blue</emph>
+                busses are also connection points for other electronic components that require access to the engine
+                control system through the ATA communications link.
+            </para>
+            <para>The engine control system does not communicate engine information in the power or ground circuits to
+                EST connectors 384 and 1650. If the service tool is OK, check power and ground circuits at the ATA
+                connection. If the EST does not power up when connected, replace the EST.
+            </para>
+            <para>
+                <emph type="bold">EST Displays</emph>
+            </para>
+            <para>If the EST displays NO DATA, the ATA data link circuit from the EST connector to the ECM may be
+                disrupted. Make sure the key is ON and do diagnostic steps in ATA Communications Circuit Diagnostics.
+            </para>
+            <para id="f175fc231">
+                <emph type="bold">Diagnostic Trouble Code 231</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA CODE SID 250 FMI 2</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Common Fault</emph>
+            </para>
+            <para>
+                <emph type="bold">Symptom:</emph>
+                Diagnostic Trouble Code 231
+                <emph type="bold">does not</emph>
+                turn the Engine Warning light ON. Diagnostic Trouble Code 231 can occur when the ECM can not access the
+                ATA data link. If this occurs, ATA data will not be available from EST. The Diagnostic Trouble Code will
+                be
+                <emph type="bold">flashed</emph>
+                by using the STI switch.
+            </para>
+            <para>
+                <emph type="bold">Wiring Causes:</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>ATA positive or negative circuits between the EST and ECM and other electronic devices
+                        (transmissions, brakes)
+                    </para>
+                </item>
+                <item>
+                    <para>Circuits shorted (high or low), open, or busy (too many devices)</para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>For vehicles equipped with the WTEC transmission, Diagnostic Trouble Code 231 may be present
+                        when programming the ECM. Disconnect the WTEC controller when programming the ECM.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <emph type="bold">System Causes:</emph>
+            </para>
+            <seqlist style="alphauc">
+                <item>
+                    <para>A defective ATA device ( transmission controller or antilock brake controller) connected to
+                        the ATA bus is pulling the signal to ground.
+                    </para>
+                </item>
+                <item>
+                    <para>Too many ATA devices, although this would be rare.</para>
+                </item>
+                <item>
+                    <para>If no system causes are present, replace the ECM with a known good ECM.</para>
+                </item>
+            </seqlist>
+            <para>
+                <emph type="bold">Instrument Cluster Display</emph>
+            </para>
+            <para>The instrument cluster uses the ATA line data to display the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Oil Pressure</para>
+                </item>
+                <item>
+                    <para>Engine rpm (tachometer)</para>
+                </item>
+                <item>
+                    <para>Vehicle speed (speedometer)</para>
+                </item>
+                <item>
+                    <para>Coolant temperature</para>
+                </item>
+                <item>
+                    <para>Battery voltage</para>
+                </item>
+            </randlist>
+            <para>The data is transmitted on the same ATA link that supplies information to the EST and the WTEC
+                transmission controller. A microprocessor in the instrument cluster converts the ATA data into signals
+                to drive the various dashboard gauges.
+            </para>
+            <figure id="f17503020" figsize="full-pg">
+                <graphic filename="../figeg7/eg7281.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="592px" box="yes"/>
+                <caption>Circuit Diagram for Diagnostic/Programmable Connections</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>See publication CTS 5122V Electrical Circuit Diagrams</para>
+                </note>
+            </specpara>
+            <figure id="f17503021" figsize="full-pg">
+                <graphic filename="../figeg8/eg8507.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="592px" box="yes"/>
+                <caption>Circuit Diagram for Diagnostic / Programming Connector, Self Test Switch, and Warning Light
+                    System (3000RE Built January 11, 1999 and After)
+                </caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>See publication CTS 5216W Electrical Circuit Diagrams for adjacent views</para>
+                </note>
+            </specpara>
+            <para>
+                <emph type="bold">NOTES</emph>
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_98.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_100.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

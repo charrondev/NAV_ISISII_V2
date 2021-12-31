@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 9800 MODEL - DETROIT DIESEL SERIES 60 ENGINE - OPERATION -
+        OPTIMIZED IDLE&#8482; (OPTIONAL)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="operate" graphiccount="0">
+        <title>OPTIMIZED IDLE&#8482; (OPTIONAL)</title>
+        <svcprocinfo>
+            <para>Refer to Detroit Diesel manual furnished with the vehicle for additional feature information.</para>
+            <para>The Detroit Optimized Idle is a system that automatically starts and stops the engine to maintain oil
+                temperature and battery voltage. The system will disable all heater blowers to conserve battery voltage
+                as required.
+            </para>
+            <para>The Optimized Idle system can also be used to automatically start and stop the engine to maintain
+                sleeper temperature. A thermostat in the sleeper compartment is utilized to maintain cab temperature.
+                The inside thermostat is set for a desired temperature and a range is selected. The engine is then
+                started and stopped as required to maintain inside temperature. The system is controlled by the ECM.
+            </para>
+            <para>The system is initiated when the ignition is on, the engine is idling, the transmission is in neutral,
+                the cab is lowered, the idle shutdown timer in the ECM must be enabled, and the cruise control must be
+                cycled from off to on. An indicator lamp on the dash will be illuminated when the Optimized Idle is
+                active. An alarm in the engine compartment will sound for 5 seconds with an additional 2 second delay
+                prior to engine startup.
+            </para>
+            <para>The Optimized Idle system utilizes three switches to prevent unwanted starts. A transmission neutral
+                safety switch, park brake switch and cab tilt switch are wired in series and help prevent a driverless
+                launch of the vehicle. If any of the switches are open the system will not function. If any of the
+                switches are shorted to ground during normal operation a fault will be logged and the system will be
+                disabled until the problem is corrected. If the switches go to ground during engine operation the speed
+                and toque drop to normal idle operation.
+            </para>
+            <para>The ECM also senses the vehicle speed and engine speed. If the engine speed fails to reach 200 RPM
+                within 2 seconds during cranking the start is aborted. If the vehicle speed sensors record two counts
+                during cranking the start will be aborted. If two starts are aborted the system is disabled. While
+                running in the Optimized Idle mode, if the vehicle speed sensor detects two counts or the required
+                torque exceeds 25% of the available torque, the engine is shut down. This provides additional protection
+                against driverless launches.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Engine Start Circuits</title>
+            <para>The Idle Timer Switch supplies a ground on circuit 97AV, to connector (262), terminal R. The ground
+                continues on circuit 97BD through the Neutral Position Switch (918) to circuit 97BB and connector
+                (102/338). Circuit 97BB goes to connector (920) and the Hood Closure Switch. Circuit 97BH comes from
+                (920) and is split into circuit 97BF, to Idle Relay (482) and into circuit 97BA, through (102/308) to
+                circuit 97AV, to ECM connector (341) terminal H2.
+            </para>
+            <para>The ground on circuit 97BH at Idle Relay (482) will energize the relay. 12 Volts to the relay coil
+                comes from I2 Ignition adapter (607-C) on circuit 13BA, through fuse F10-A, to circuits 17C, 17E, 17F.
+                12 Volts on circuit 17T will be applied through the relay contacts to circuits 17P. Circuit 17P supplies
+                12 volts to the coil of Ignition Relay (483).
+            </para>
+            <para>Ignition Relay (483) will be energized by a ground from the ECM connector (913), terminal B through
+                connector (262) on circuit 17H. The energized relay applies 12 volts to Start Feed Adapter (509-B) from
+                circuit 17E. This will engage the engine starter.
+            </para>
+            <para>The 10K resistor (782) provides a current path to the Ignition Relay (483) to allow the ECM to monitor
+                the coil for an open condition.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Blower Disable Circuits</title>
+            <para>12 volts is supplied to Heater Relay (463-R5) from Ignition Relay (462-R1) on circuits 13H and 13T
+                through Heater Control Diode (783) to circuit 13TA. The relay is energized when a ground is supplied
+                from ECM connector (341) terminal F3, circuit 75BB. This ground also controls Sleeper Medium Speed Relay
+                (480), Sleeper High Speed Relay (481) and Bunk blower Relay (441).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Thermostat Circuits</title>
+            <para>12 volts is supplied to Thermostat (910), terminal 5 from I3 Ignition Adapter (496-G) on circuit 13BN
+                through fuse F10-B to circuit 75BD, connector (911) and (909). Ground on (910) terminal 6 comes from G2
+                Gnd. Adapter (455-C) on circuit 75-GE through connector (911) and (909). Thermostat (910) terminal 4 is
+                the input to the ECM (913) on circuit 75BC. Thermostat (910) terminals 1 and 3 are connector to a
+                thermistor which senses the sleeper temperature.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Alarm and Indicator Light Circuits</title>
+            <para>12 volts from I2 Ignition Adapter (607-C) on circuit 13BA through fuse F10-A to circuit 17C. 17C is
+                split into circuit 17K, which connects to Indicator Light (912), and circuit 17M, which connects to
+                Alarm (916).
+            </para>
+            <para>The Indicator Light is turned on by a ground supplied from ECM connector (914) terminal B on circuits
+                17LA and 17L through connector (262) to the Indicator Light (912).
+            </para>
+            <para>The Alarm is turned on by a ground supplied from ECM connector (913) terminal A on circuit 17N through
+                connector (915) to Alarm connector (916).
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08270_162.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08270_164.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

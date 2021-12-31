@@ -1,0 +1,904 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - ECM / IDM Communications (Electronic Control Module / Injector
+        Driver Module)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>ECM / IDM Communications (Electronic Control Module / Injector Driver Module)</title>
+        <svcprocinfo>
+            <figure id="f27007052" figsize="pg-wide">
+                <graphic filename="../figh31/h31034.webp" type="webp" scalefit="1" scalefitwidth="352px"
+                         scalefitheight="532px"/>
+                <caption>Function diagram for the ECM / IDM communication system</caption>
+            </figure>
+            <para id="s27005029">The function diagram for the ECM / IDM communication system includes the following:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para id="ECMIDM">ECM</para>
+                </item>
+                <item>
+                    <para>IDM</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation (EGR) drive module</para>
+                </item>
+                <item>
+                    <para>Crankshaft Position Output (CKPO) signal</para>
+                </item>
+                <item>
+                    <para>Camshaft Position Output (CMPO) signal</para>
+                </item>
+                <item>
+                    <para>Controller Area Network (CAN 2) datalink</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The ECM provides two output channels to aid the IDM with engine speed and position signals. The CKPO
+                and CMPO channels are in phase with the CKP and CMP signals received by the ECM.
+            </para>
+            <para>The ECM and IDM are in continuous communication. The CKPO and CMPO signals are generated when the ECM
+                switches these circuits to ground. The IDM uses these signals for engine speed and timing.
+            </para>
+            <para>The CAN 2 datalink is a bidirectional communication line between the ECM, IDM, and EGR drive module.
+                The ECM, IDM, and EGR drive module use the datalink to send operating strategies, sensor information,
+                diagnostic demands, and Diagnostic Trouble Codes (DTCs).
+            </para>
+            <specpara>
+                <note>
+                    <para>The engine will not operate without the CAN 2 datalink, CKPO, or CMPO signal.</para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>ECM / IDM Circuit Operation</title>
+            <figure id="f27007053" figsize="pg-wide">
+                <graphic filename="../figh31/h31065.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>ECM / IDM circuit diagram</caption>
+            </figure>
+            <para>The ECM / IDM communication link consists of a series of interdependent signals that include the CKPO,
+                CMPO, and the CAN 2 datalink.
+            </para>
+            <para>The CKPO signal is a 0 V to 12 V signal that communicates (from ECM to IDM) the position of the
+                crankshaft. The signal is used by the IDM to synchronize the injector firing sequence and is calculated
+                from the signal generated from the CKP sensor. The ECM generates the CKPO signal by pulling down
+                (switching to ground) a 12 V communication circuit in the IDM.
+            </para>
+            <para>The CMPO signal is a 0 V to 12 V signal that communicates (from ECM to IDM) the position of the
+                camshaft. The signal is used by the IDM to synchronize the injector firing sequence and is calculated
+                from the signal generated from the CMP sensor. The ECM generates the CMPO signal by pulling down
+                (switching to ground) a 12 V communication circuit in the IDM.
+            </para>
+            <para>CAN 2 datalink is a J1939 high speed private communication datalink between the ECM, IDM, and EGR
+                drive module. The ECM receives messages that include injector coil status, IDM calibration level, CMPO
+                and CKPO DTCs, injector DTCs, IDM DTCs, and injector test results from the IDM. The IDM receives
+                injector diagnostic commands, operation strategies, modes and conditions from the ECM.
+            </para>
+            <specpara>
+                <note>
+                    <para>CAN 2 datalink is used only as communication between the ECM, IDM, and EGR drive module. There
+                        is no relation to the CAN 1 datalink that is used for communication with various processors on a
+                        vehicle.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM continuously monitors the IDM. When the ECM fails to receive required continuous communication
+                from the IDM, the ECM will set a DTC.
+            </para>
+            <para>
+                <title>ECM / IDM Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 543</emph>
+                </line>
+                <line>
+                    <emph type="bold">ECM / IDM communications fault</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 543 is set by the ECM when the ECM is not communicating with the IDM.</para>
+                </item>
+                <item>
+                    <para>DTC 543 can be set when CAN 2 datalink J1939 between ECM and IDM is shorted to ground, V
+                        <subscript>REF</subscript>, or battery or the circuit is open. If IDM power is low, DTC 543 can
+                        be set.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 543 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>If a no start condition exists with DTC 543 and 368 active, check the CAN 2 datalink wiring
+                        (EGR to ECM and IDM to ECM). See
+                        <hotlnk xrefid="egr">"EGR Actuator"</hotlnk>
+                        in this section. One of the CAN 2 datalink wires (CAN 2 positive or negative) is open, short to
+                        ground, or a short to power exists.
+                    </para>
+                </note>
+            </specpara>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 551</emph>
+                </line>
+                <line>
+                    <emph type="bold">IDM / CMPO signal inactive</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 551 is set by the ECM when no CMPO signal is present while the CKPO is active. DTC 551 can
+                        also be set when no CMPO/CKPO is present while the ECM reports it is in the run mode.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 551 can be set when the CMPO is open, shorted to ground, or shorted to a voltage source.
+                        DTC 551 can also be set if logic power is low.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 552</emph>
+                </line>
+                <line>
+                    <emph type="bold">IDM incorrect CMPO signal signature</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 552 is set when the CMPO transition occurs at the wrong CKPO tooth.</para>
+                </item>
+                <item>
+                    <para>DTC 552 can be set due to electrical noise creating a miscount on CMP location.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 553</emph>
+                </line>
+                <line>
+                    <emph type="bold">IDM / CKPO signal inactive</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 553 is set by the ECM when no CKPO signal is present while the CMPO is active. DTC 552 can
+                        also be set when no CMPO/CKPO is present while the ECM reports it is in the run mode.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 553 can be set when CKPO is open, shorted to ground, or shorted to a voltage source. DTC
+                        553 can also be set if logic power is low.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 554</emph>
+                </line>
+                <line>
+                    <emph type="bold">IDM incorrect CKPO signal signature</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 554 is set by the ECM when CKPO signal has too few or too many transitions per engine
+                        rotation.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 554 can be set due to electrical noise creating a miscount on CKP location.</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM / IDM Pin-Point Diagnostics</title>
+            <figure id="f27007054" figsize="pg-wide">
+                <graphic filename="../figh31/h31065.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="592px"/>
+                <caption>ECM / IDM circuit diagram</caption>
+            </figure>
+            <table id="te27007041" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.94in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1" align="center">
+                                <caution>
+                                    <para>To avoid engine damage, turn the ignition switch to OFF before disconnecting
+                                        the connector or relay for the ECM and IDM. Failure to turn the switch to OFF
+                                        will cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">ECM Connector Voltage Checks to Chassis Ground</emph>
+                                    (Check with breakout box connected [X1 and X2] to engine harness only. Inspect for
+                                    bent pins or corrosion. Turn the ignition switch to ON.
+                                    <emph type="bold">Note:</emph>
+                                    ECM is not connected. IDM output is checked through the wiring harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-6 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>1 V to 4 V</para>
+                            </entry>
+                            <entry>
+                                <para>Digital signal. If no voltage check for open or short to ground and do resistance
+                                    checks to chassis ground, harness resistance checks, and resistance checks - IDM
+                                    CAN2 checks.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-13 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>1 V to 4 V</para>
+                            </entry>
+                            <entry>
+                                <para>Digital signal. If no voltage check for open or short to ground and do resistance
+                                    checks to chassis ground, harness resistance checks, and resistance checks - IDM
+                                    CAN2 checks.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-19 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>11 V to 12 V</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 11 V to 12 V, check for open or short to ground. Check IDM power relay.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-24 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>11 V to 12 V</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 11 V to 12 V, check for open or short to ground. Check IDM power relay.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-12 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ground, no voltage expected</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Resistance Checks to ECM Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Check with breakout box connected [X1 and X2] to
+                                    engine harness only. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the chassis ground connection for the ECM and IDM. Refer to truck
+                                        Chassis Electrical Circuit Diagram Manual for complete chassis side ECM and IDM
+                                        ground circuit information.</ftnote>. Inspect for bent pins or corrosion.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-19 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground or internal IDM problem. Test with
+                                    IDM connector X3 disconnected. If problem remains, repair or replace harness. If
+                                    disconnect of X3 corrected problem, replace IDM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-24 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground or internal IDM problem. Test with
+                                    IDM connector X3 disconnected. If problem remains, repair or replace harness. If
+                                    disconnect of X3 corrected problem, replace IDM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-6 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground or internal IDM problem. Test with
+                                    IDM connector X3 disconnected. If problem remains, repair or replace harness. If
+                                    disconnect of X3 corrected problem, replace IDM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-13 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground or internal IDM problem. Test with
+                                    IDM connector X3 disconnected. If problem remains, repair or replace harness. If
+                                    disconnect of X3 corrected problem, replace IDM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-12 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 10 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 10 &#x2126;, check for open in harness. CAN 2 shield is grounded through IDM.
+                                    If X3 is not connected to IDM, spec will be > 500 &#x2126;.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Resistance Checks to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Check with breakout box connected [X1 and X2] to
+                                    engine harness only. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Use disconnected negative
+                                    battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-19 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground or internal IDM problem. Test with
+                                    IDM connector X3 disconnected. If problem remains, repair or replace harness. If
+                                    disconnect of X3 corrected problem, replace IDM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-24 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground or internal IDM problem. Test with
+                                    IDM connector X3 disconnected. If problem remains, repair or replace harness. If
+                                    disconnect of X3 corrected problem, replace IDM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-6 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground or internal IDM problem. Test with
+                                    IDM connector X3 disconnected. If problem remains, repair or replace harness. If
+                                    disconnect of X3 corrected problem, replace IDM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-13 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground or internal IDM problem. Test with
+                                    IDM connector X3 disconnected. If problem remains, repair or replace harness. If
+                                    disconnect of X3 corrected problem, replace IDM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-12 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 10 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 10 &#x2126;, check for open in harness. CAN 2 shield is grounded through IDM.
+                                    If X3 is not connected to IDM, spec will be > 500 &#x2126;.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Turn the ignition switch to OFF. Check with breakout box connected [X1 and X2] to
+                                    engine harness only. IDM checked at harness connector X3 using terminal test pins.
+                                    IDM pins are numbered on the mating end of the connector.)
+                                </para>
+                                <note>
+                                    <para>Test points are from ECM to IDM.</para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ECM X1-19 to IDM X3-5</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open in harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ECM X1-24 to IDM X3-10</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open in harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ECM X2-6 to IDM X3-30</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open in harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ECM X2-13 to IDM X3-31</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open in harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ECM X2-12 to IDM X3-32</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open in harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Resistance Checks - CAN 2 Datalink</emph>
+                                    (Turn the ignition switch to OFF. Connect breakout box to ECM and chassis harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>ECM X2-6 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>3 M&#x2126; &#177;0.1 M&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > spec, check for short to ground or another circuit. Check ECM and IDM
+                                    separately.
+                                </para>
+                                <para>If &#60; spec, check for open circuit on CAN 2+. Check ECM and IDM separately.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>ECM X2-13 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>3 M&#x2126; &#177;0.1 M&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > spec, check for short to ground or another circuit. Check ECM and IDM
+                                    separately.
+                                </para>
+                                <para>If &#60; spec, check for open circuit on CAN 2+. Check ECM and IDM separately.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>ECM X2-6 to X2-13</para>
+                            </entry>
+                            <entry>
+                                <para>60 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 60 &#x2126;, check for open circuit on CAN 2+ and CAN 2-. Check ECM and IDM
+                                    separately. Do Resistance Checks - ECM CAN 2 Circuit and Resistance Checks - IDM CAN
+                                    2.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>ECM X2-12 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5, check for open on CAN 2 shield (IDM Pin X3-32). Check ECM and IDM
+                                    separately. Do Resistance Checks - ECM CAN 2 Circuit and Resistance Checks - IDM CAN
+                                    2.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Resistance Checks - ECM CAN 2 Circuit</emph>
+                                    (Remove ECM following procedure in the Engine Service Manual. Measure directly to
+                                    ECM pins only.)
+                                </para>
+                                <note>
+                                    <para>Use ECM ground pins (X3-7 or X3-6) only for this test.</para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>ECM X2-6 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>3.9 M&#x2126; &#177;0.2 M&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > spec, replace the ECM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>ECM X2-13 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>3.9 M&#x2126; &#177;0.2 M&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > spec, replace the ECM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>ECM X2-6 to X2-13</para>
+                            </entry>
+                            <entry>
+                                <para>120 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > spec, replace the ECM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">IDM CAN 2 Checks</emph>
+                                    (Remove ECM following procedure in the Engine Service Manual. Measure directly to
+                                    ECM pins only.)
+                                </para>
+                                <note>
+                                    <para>Use IDM ground pins (X3-1, X3-2, X3-3, X3-22, or X3-26) only for this test.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>IDM X3-30 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>1.85 M&#x2126; &#177;0.20 M&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > spec, replace the IDM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>IDM X3-31 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>1.85 M&#x2126; &#177;0.20 M&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > spec, replace the IDM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>IDM X3-30 to X3-31</para>
+                            </entry>
+                            <entry>
+                                <para>120 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 120 &#x2126;, replace the IDM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>IDM X3-32 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, replace the IDM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>IDM housing to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, replace the IDM.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007042" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="5">
+                    <colspec colname="col1" colwidth="1.56in"/>
+                    <colspec colname="col2" colwidth="1.36in"/>
+                    <colspec colname="COLSPEC0" colwidth="2.99*"/>
+                    <colspec colname="COLSPEC1" colwidth="3.24*"/>
+                    <colspec colname="COLSPEC2" colwidth="3.28*"/>
+                    <spanspec namest="col1" nameend="COLSPEC2" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Operational Checks for CMPO and CKPO</emph>
+                                    (Check with breakout box connected to ECM and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Engine Cranking</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Low Idle</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>High Idle</para>
+                            </entry>
+                            <entry colname="COLSPEC2">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-24 to X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>130-225 rpm
+                                    <supscript>2</supscript>
+                                    @ 130-225 rpm
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>700 rpm
+                                    <supscript>2</supscript>
+                                    @ 700 rpm
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>2750 rpm
+                                    <supscript>2</supscript>
+                                    @ 2750 rpm
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC2">
+                                <para>Set DMM to DC-rpm
+                                    <supscript>2</supscript>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-19 to X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>130-225 Hz @ 130-225 rpm</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>700 Hz @ 700 rpm</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>2.75 kHZ to 3.00 kHz</para>
+                            </entry>
+                            <entry colname="COLSPEC2">
+                                <para>Set DMM to DC-Hz</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 543 = ECM / IDM communication fault</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 551 = IDM CMPO signal inactive</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 552 = IDM incorrect CMPO signal signature</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 553 = IDM CKPO signal inactive</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 554 = IDM incorrect CKPO signal signature</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_137.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_139.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

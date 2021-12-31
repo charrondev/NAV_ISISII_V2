@@ -1,0 +1,1120 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - ICP
+        (Injection Control Pressure) System
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.26" svcproctype="describe" graphiccount="1">
+        <title>ICP (Injection Control Pressure) System</title>
+        <svcprocinfo id="s305010706.26.1">
+            <figure id="f3050107129" figsize="pg-wide">
+                <graphic filename="../figJ11/J11053.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for ICP system</caption>
+                <calloutgroup>
+                    <callout1 type="arabic">Injection Control Pressure (ICP) sensor</callout1>
+                    <callout1 type="arabic">High-pressure oil rail assembly</callout1>
+                    <callout1 type="arabic">Case-to-head tube plug (2)</callout1>
+                    <callout1 type="arabic">Case-to-head tube (2)</callout1>
+                    <callout1 type="arabic">High-pressure oil inlet (injector)</callout1>
+                    <callout1 type="arabic">Oil exhaust port (2)</callout1>
+                    <callout1 type="arabic">Fuel inlet (4)</callout1>
+                    <callout1 type="arabic">Branch tube assembly</callout1>
+                    <callout1 type="arabic">Injection Pressure Regulator (IPR) valve</callout1>
+                    <callout1 type="arabic">Crankcase</callout1>
+                    <callout1 type="arabic">High-pressure pump assembly</callout1>
+                    <callout1 type="arabic">Fuel injector (6)</callout1>
+                </calloutgroup>
+            </figure>
+            <para id="s305010706.22.1.2"></para>
+            <table id="t3050107253" type="simple" frame="topbot">
+                <title>The ICP system consists of the following subsystems and components:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Injectors</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Injection Pressure Regulator (IPR)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Injection Control Pressure (ICP) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Engine lubrication system</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>High-pressure pump reservoir</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Reservoir screen</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Crankcase passage</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>High-pressure pump assembly</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Case-to-head tube assembly</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Branch tube assembly</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>High-pressure oil rail assemblies</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Associated wiring</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Function</title>The function of the ICP system is to develop, maintain, and control the
+                high-pressure injection control pressure to provide the force to actuate the injectors and provide fuel
+                to the engine.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.26.1a">
+            <title>ICP System Operation</title>
+            <para>
+                <title>Fault Detection/Management</title>Diagnostic Trouble Codes (DTCs) associated with this system may
+                indicate an electrical or electronic control system failure, but will most likely indicate a mechanical
+                or hydraulic problem with the ICP system.
+            </para>
+            <para>The ECM continuously monitors the ICP in the system to assure the control system is providing the
+                proper control pressure at all times. If the oil pressure feedback provided by the ICP sensor does not
+                meet the ECM desired values, the ECM will set a DTC, illuminate the amber lamp (WEL for CF) and control
+                the operation of the ICP system by calculating the correct oil pressure for all engine operating
+                conditions until the system is diagnosed and repaired.
+            </para>
+            <para>The ECM monitors the ICP developed while the engine is cranking. When pressure does not develop in an
+                expected time frame, the ECM will set a DTC. The DTC will aid in identifying and diagnosing the hard
+                start and no start condition.
+            </para>
+            <para>The EST can be used to command the ECM to perform an engine running test on the ICP system. The ECM
+                controls the IPR in a programmed sequence and evaluates system performance. When the test concludes, if
+                a performance issue has been detected, the ECM will set a DTC for that system condition.
+            </para>
+            <para>When an ICP fault is detected, the ECM will default to open loop of IPR control and the EST will
+                display N/A for ICP data. ICP desired will indicate default pressure.
+            </para>
+            <para>
+                <title>ICP System DTCs</title>DTCs are read using the EST or by counting the flashes from the amber and
+                red lamps.
+            </para>
+            <specpara>
+                <note>
+                    <para>Repair all injector, sensor, and actuator DTCs before doing ICP diagnostic checks and tests.
+                    </para>
+                </note>
+            </specpara>
+            <table id="t3050107257" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech&#174; interface cable</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Digital Multimeter (DMM)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107255" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" align="left" charoff="50" char="" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        when performing ICP system checks and tests, comply with the following:
+                                    </para>
+                                    <randlist type="bullet">
+                                        <item>
+                                            <para>Read all safety instructions in the foreword of this manual. Follow
+                                                all warnings, cautions, and notes.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Before running the engine for diagnostic or service procedures, shift
+                                                transmission to park or neutral, set parking brake, and block wheels.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Be careful to avoid rotating parts (belts and fan) and hot engine
+                                                surfaces.
+                                            </para>
+                                        </item>
+                                    </randlist>
+                                </warning>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107256" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>DTC 331</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>ICP above system working range</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 331 is set by the ECM when the injection control pressure is above 24.0 MPa
+                                    (3554 psi) up to 27.5 MPa (3989 psi) depending on temperature for 1.5 seconds. DTC
+                                    331 can be an indicator of a problem in the mechanical injection control pressure
+                                    system, wiring, or ICP sensor.
+                                </para>
+                                <para>When DTC 331 is active, the ECM will ignore feedback from the ICP sensor and
+                                    control the IPR valve from programmed default values. The amber lamp (WEL for CF)
+                                    will be illuminated when DTC 331 is active.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry morerows="4">
+                                <para>Possible causes for DTC 331 include:</para>
+                            </entry>
+                            <entry>
+                                <para>Debris in engine</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Incorrect grade of oil</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Failed, stuck or plugged inlet on the IPR valve</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>IPR control wire shorted to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>ICP sensor or circuit causing signal to be biased high</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107257.1" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="0.69*"/>
+                    <colspec colname="col2" colwidth="1.31*"/>
+                    <tbody>
+                        <row>
+                            <entry align="center">
+                                <para>Checks and Tests</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Check oil level and quality.</para>
+                            </entry>
+                            <entry>
+                                <para>Check oil level and for contamination, debris, and correct API classification.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Check active and inactive DTCs.</para>
+                            </entry>
+                            <entry>
+                                <para>Repair any ICP sensor codes. See "
+                                    <hotlnk document="eges3052_151.xml" xrefid="s305010706.22.1.1">ICP (Injection
+                                        Control Pressure) Sensor
+                                    </hotlnk>
+                                    " in this section.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do ICP Operational Voltage Checks.</para>
+                            </entry>
+                            <entry>
+                                <para>Check KOEO pressure sensor value and voltage. See "
+                                    <hotlnk document="eges3052_151.xml" xrefid="s305010706.22.2.1">ICP Operational
+                                        Diagnostics
+                                    </hotlnk>
+                                    " in this section.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do IPR Pin-Point Diagnostics.</para>
+                            </entry>
+                            <entry>
+                                <para>See "
+                                    <hotlnk xrefid="s30507006.26.3.1">IPR Pin-Point Diagnostics</hotlnk>
+                                    " in this section.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do the KOEO Standard Test.</para>
+                            </entry>
+                            <entry>
+                                <para>Test will verify IPR valve circuit continuity. See "
+                                    <hotlnk xrefid="tp3050602">KOEO Standard Test</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050106.xml" xrefid="e3050106">Performance Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do KOER Standard Test and Injection Control Pressure Test.</para>
+                            </entry>
+                            <entry>
+                                <para>See "
+                                    <hotlnk xrefid="tp3050607">KOER Standard Test</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050106.xml" xrefid="e3050106">Performance Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107258" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>DTC 333</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>ICP above/below desired level</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 333 indicates an injection control system response time fault and may be set
+                                    during normal engine operation through the continuous monitor function or during the
+                                    KOER Standard Test.
+                                </para>
+                                <para>DTC 333 is set by the ECM when the measured pressure does not match the pressure
+                                    expected by the ECM. DTC 333 will be set if the measured value is less than or
+                                    greater than 2.5 MPa (362 psi) of desired injection control pressure for a period
+                                    greater than 7 seconds.
+                                </para>
+                                <para>When DTC 333 is active, the ECM will ignore feedback from the ICP sensor and
+                                    control the IPR valve from programmed default values. The amber lamp (WEL for CF)
+                                    will be illuminated when DTC 333 is active.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry morerows="8">
+                                <para>Possible causes for DTC 333 include:</para>
+                            </entry>
+                            <entry>
+                                <para>Low or high oil level in crankcase</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Contaminated or aerated engine oil</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Debris in engine oil</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Trapped air in the ICP system (particularly after an injector or high-pressure
+                                    pump replacement)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Intermittent IPR valve wiring connection. Inspect engine wiring harness connector
+                                    and IPR valve terminal for corrosion. Inspect terminal for bent or pushed back pins.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Failed or stuck injection pressure regulator</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Leaks in ICP system</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Problem with ICP sensor or sensor circuit, incorrect sensor, system biased high or
+                                    low
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Failed high-pressure hydraulic pump</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t3050107259" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Checks and Tests</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Check repair history - Determine if trapped air caused by ICP system
+                                    disassembly.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>If ICP system was serviced, vehicle should be operated 32 km (20 mi) to validate
+                                    system performance.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Check oil level and quality.</para>
+                            </entry>
+                            <entry>
+                                <para>Check oil level, API classification. Inspect for debris. If contamination is
+                                    suspected, check oil filter element.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Check active and inactive DTCs.</para>
+                            </entry>
+                            <entry>
+                                <para>Repair any ICP sensor codes. See "
+                                    <hotlnk xrefid="s30507006.22.2.1">ICP (Injection Control Pressure) Sensor</hotlnk>
+                                    " in this section.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do ICP Operational Voltage Checks.</para>
+                            </entry>
+                            <entry>
+                                <para>Check KOEO pressure sensor value and voltage. See "
+                                    <hotlnk xrefid="s30507006.22.1.1">ICP Operational Diagnostics</hotlnk>
+                                    " in this section.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do IPR Pin-Point Diagnostics.</para>
+                            </entry>
+                            <entry>
+                                <para>See "
+                                    <hotlnk xrefid="s30507006.26.3.1">IPR Pin-Point Diagnostics</hotlnk>
+                                    " in this section.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do KOEO Standard Test.</para>
+                            </entry>
+                            <entry>
+                                <para>Test will verify IPR valve circuit continuity. See "
+                                    <hotlnk xrefid="tp3050602.1">KOEO Standard Test</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050106.xml" xrefid="e3050106">Performance Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do KOER Standard Test.</para>
+                            </entry>
+                            <entry>
+                                <para>Test will verify major ICP system failure. See "
+                                    <hotlnk xrefid="tp3050602.1">KOER Standard Test</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050106.xml" xrefid="e3050106">Performance Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do KOER Continuous Monitor Test (intermittent DTC detected).</para>
+                            </entry>
+                            <entry>
+                                <para>When running test, wiggle wires on ICP sensor and IPR valve connectors while
+                                    engine is running.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do Injection Control Pressure Test.</para>
+                            </entry>
+                            <entry>
+                                <para>Verify if oil is aerated at high idle. See "
+                                    <hotlnk xrefid="tp3050608.1">Injection Control Pressure</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050106.xml" xrefid="e3050106">Performance Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test ICP system for leaks.</para>
+                            </entry>
+                            <entry>
+                                <para>See "
+                                    <hotlnk xrefid="tp3050513.1">Low ICP System Pressure</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050105.xml" xrefid="e3050105">Hard Start and No Start
+                                        Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t3050107260" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>DTC 334</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>ICP unable to achieve set point in time (poor performance)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 334 indicates an injection control system response time fault and may be set
+                                    during normal engine operation through the continuous monitor function or during the
+                                    KOER Standard test.
+                                </para>
+                                <para>DTC 334 compares measured ICP to desired ICP and looks for a large pressure
+                                    difference of 9 MPa (1300 psi) for a period of 3 seconds.
+                                </para>
+                                <para>When DTC 334 is active, the ECM ignores the ICP sensor and controls the IPR valve
+                                    operation from programmed default values.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry morerows="8">
+                                <para>Possible causes for DTC 334 include:</para>
+                            </entry>
+                            <entry>
+                                <para>Low or high oil level in crankcase</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Contaminated or aerated engine oil</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Debris in engine oil</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Trapped air in the ICP system (particularly after an injector or high-pressure
+                                    pump replacement)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Intermittent IPR valve wiring connection. Inspect engine wiring harness connector
+                                    and IPR valve terminal for corrosion. Inspect terminal for bent or pushed back pins.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Failed or stuck injection pressure regulator</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Leaks in ICP system</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Problem with ICP sensor or sensor circuit, incorrect sensor, system biased high or
+                                    low
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Failed high-pressure hydraulic pump</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t3050107261" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Checks and Tests</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Check repair history - Determine if trapped air caused by ICP system
+                                    disassembly.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>If ICP system was serviced, vehicle should be operated 32 km (20 mi) to validate
+                                    system performance
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Check oil level and quality.</para>
+                            </entry>
+                            <entry>
+                                <para>Check oil level, API classification. Inspect for debris. If contamination is
+                                    suspected, check oil filter element.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Check active and inactive DTCs.</para>
+                            </entry>
+                            <entry>
+                                <para>Repair any ICP sensor codes. See "
+                                    <hotlnk xrefid="s30507006.22.2.1">ICP (Injection Control Pressure) Sensor</hotlnk>
+                                    " in this section.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do ICP Operational Voltage Checks.</para>
+                            </entry>
+                            <entry>
+                                <para>Check KOEO pressure sensor value and voltage. See "
+                                    <hotlnk xrefid="s30507006.22.1.1">ICP Operational Diagnostics</hotlnk>
+                                    " in this section.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do IPR Pin-Point Diagnostics.</para>
+                            </entry>
+                            <entry>
+                                <para>See "
+                                    <hotlnk xrefid="s30507006.26.3.1">IPR Pin-Point Diagnostics</hotlnk>
+                                    " in this section.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do KOEO Standard Test.</para>
+                            </entry>
+                            <entry>
+                                <para>Test will verify IPR valve circuit continuity. See "
+                                    <hotlnk xrefid="tp3050602.1">KOEO Standard Test</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050106.xml" xrefid="e3050106">Performance Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do KOER Standard Test.</para>
+                            </entry>
+                            <entry>
+                                <para>Test will verify major ICP system failure. See "
+                                    <hotlnk xrefid="tp3050602.1">KOER Standard Test</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050106.xml" xrefid="e3050106">Performance Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do KOER Continuous Monitor Test (intermittent DTC detected).</para>
+                            </entry>
+                            <entry>
+                                <para>When running test, wiggle wires on ICP sensor and IPR valve connectors while
+                                    engine is running.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do Injection Pressure Control Test.</para>
+                            </entry>
+                            <entry>
+                                <para>Verify if oil is aerated at high idle. See "
+                                    <hotlnk xrefid="tp3050608.1">Injection Control Pressure</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050106.xml" xrefid="e3050106">Performance Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test ICP system for leaks.</para>
+                            </entry>
+                            <entry>
+                                <para>See "
+                                    <hotlnk xrefid="tp3050513.1">Low ICP System Pressure</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050105.xml" xrefid="e3050105">Hard Start and No Start
+                                        Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t3050107262" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>DTC 335</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>ICP unable to build pressure during cranking</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 335 is set when the ECM detects less than 4 MPa (580 psi) of ICP after
+                                    cranking the engine for 9 to 15 seconds depending on temperature . Engine cranking
+                                    speed must be greater than 130 rpm before diagnostic trouble code detection can
+                                    begin.
+                                </para>
+                                <para>Engine cranking time varies with engine temperature.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <note>
+                                    <para>If DTC becomes active during Relative Compression Test, ignore and close
+                                        DTC.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry morerows="7">
+                                <para>Possible causes for DTC 335 include:</para>
+                            </entry>
+                            <entry>
+                                <para>Low oil level in crankcase</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>No lube oil pressure or lube oil delivery (reservoir empty or not filling)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Trapped air in the ICP system (particularly after an injector or high-pressure
+                                    pump replacement)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Leaks in ICP system</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Inoperative or stuck injection pressure regulator</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Intermittent IPR valve wiring connection. Inspect engine wiring harness connector
+                                    and IPR valve terminal for corrosion. Inspect terminal for bent or pushed back pins.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Loose high-pressure hydraulic pump gear</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Inoperative high-pressure hydraulic pump</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t3050107263" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Checks and Tests</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Visual inspection</para>
+                            </entry>
+                            <entry>
+                                <para>Verify ICP sensor and IPR wiring is connected. Check for oil leaks. Verify if
+                                    system has been recently serviced (air entrapment). If ICP system was serviced,
+                                    vehicle should be operated 32 km (20 mi) to validate system performance.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Check oil level and pressure.</para>
+                            </entry>
+                            <entry>
+                                <para>Inspect engine oil for debris. Verify lube oil pressure and delivery during engine
+                                    cranking. Verify delivery by collecting oil from lube oil pressure tap. See "
+                                    <hotlnk xrefid="tp3050508.1">Engine Oil</hotlnk>
+                                    " and "
+                                    <hotlnk xrefid="tp3050506.1">Electronic Service Tool (EST) Data List</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050105.xml" xrefid="e3050105">Hard Start and No Start
+                                        Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Check active and inactive DTCs.</para>
+                            </entry>
+                            <entry>
+                                <para>Repair any ICP, CKP, or CMP sensor codes first. See"
+                                    <hotlnk xrefid="s30507006.22.2.1">ICP (Injection Control Pressure) Sensor</hotlnk>
+                                    ," "
+                                    <hotlnk xrefid="s30507006.8.2.1">CKP (Crankshaft Position) Sensor</hotlnk>
+                                    ," and "
+                                    <hotlnk xrefid="s30507006.9.2.1">CMP (Camshaft Position) Sensor</hotlnk>
+                                    " in this section.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do KOEO Standard Test.</para>
+                            </entry>
+                            <entry>
+                                <para>Test will verify IPR valve circuit continuity. See "
+                                    <hotlnk xrefid="tp3050504.1">KOEO Standard Test</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050105.xml" xrefid="e3050105">Hard Start and No Start
+                                        Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do KOER Continuous Monitor Test.</para>
+                            </entry>
+                            <entry>
+                                <para>When engine is running, enable test, wiggle wires on ICP sensor, IPR valve, and
+                                    all pass through connectors. If DTC is set, or engine dies, check codes and inspect
+                                    wires at connection point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do ICP pressure test.</para>
+                            </entry>
+                            <entry>
+                                <para>Verify if oil is aerated at high idle. See "
+                                    <hotlnk xrefid="tp3050608.1">Injection Control Pressure</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050106.xml" xrefid="e3050106">Performance Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test ICP system for leaks.</para>
+                            </entry>
+                            <entry>
+                                <para>See "
+                                    <hotlnk xrefid="tp3050513.1">Low ICP System Pressure</hotlnk>
+                                    " in the "
+                                    <hotlnk document="eges3052_E3050105.xml" xrefid="e3050105">Hard Start and No Start
+                                        Diagnostics
+                                    </hotlnk>
+                                    " section of this manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Do IPR Pin-Point Diagnostics.</para>
+                            </entry>
+                            <entry>
+                                <para>See "
+                                    <hotlnk xrefid="s30507006.26.3.1">IPR Pin-Point Diagnostics</hotlnk>
+                                    " in this section.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_151.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_153.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

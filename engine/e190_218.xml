@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (NAVPAK) (1997) - SECTION 3.5: ELECTRONIC CONTROL SYSTEM DIAGNOSTICS,
+        ACCELERATOR PEDAL POSITION SENSOR/IVS SWITCH (APS/IVS) - ENGINE COOLANT TEMPERATURE (ECT) SENSOR - ECM
+        DIAGNOSTICS
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="PROCTYPE" graphiccount="0">
+        <title>ECM DIAGNOSTICS</title>
+        <svcprocinfo>
+            <para>With the ignition key "ON", the ECM continuously monitors the ECT circuit for expected voltages. If
+                the signal voltage is less than or more than expected the ECM will set a fault code.
+            </para>
+            <para>If the ECM detects a fault in the ECT signal, the ECM will disregard the signal and default to a
+                temperature of 180&#176;F (82&#176;C) for engine running operation and -29&#176;F (-33.9&#176;C) for
+                starting the engine. If the fault is no longer present, the ECM will once again return to normal
+                operation using the ECT signal for processing.
+            </para>
+            <para>Faults in the ECT signal can be retrieved using the Self Test Input Switch (STI) or the Electronic
+                Service Tool. If the fault is no longer present, it will be stored as an Inactive Code.
+            </para>
+            <para>
+                <emph type="BOLD">FLASH CODE</emph>
+                <emph type="BOLD">114</emph>
+            </para>
+            <para>
+                <emph type="BOLD">ATA CODE PID 110 FMI 4</emph>
+            </para>
+            <para>
+                <emph type="BOLD">ECT:</emph>
+                <emph type="BOLD">OUT OF RANGE LOW</emph>
+            </para>
+            <para>An out of range low code will be set if the ECM detects a voltage less than .127 volts for more than
+                0.1 seconds. If this fault is Active, the ECM will use the default value of 180&#176;F (82&#176;C).
+            </para>
+            <para>Code 114 may be caused by a short to ground or a shorted or biased sensor.</para>
+            <para>
+                <emph type="BOLD">FLASH CODE</emph>
+                <emph type="BOLD">115</emph>
+            </para>
+            <para>
+                <emph type="BOLD">ATA CODE PID 110 FMI 3</emph>
+            </para>
+            <para>
+                <emph type="BOLD">ECT:</emph>
+                <emph type="BOLD">OUT OF RANGE HIGH</emph>
+            </para>
+            <para>An out of range high code will be set if the ECM detects a voltage greater than 4.6 volts for more
+                than 0.1 seconds. If this fault is Active, the ECM will use the a default value of 180&#176;F (82&#176;C).
+            </para>
+            <para>Code 115 may be caused by an open circuit, an open sensor, or a short to another voltage source.
+            </para>
+            <para>
+                <emph type="BOLD">FLASH CODE</emph>
+                <emph type="BOLD">321</emph>
+            </para>
+            <para>
+                <emph type="BOLD">ATA CODE PID 110 FMI 0</emph>
+            </para>
+            <para>
+                <emph type="BOLD">ENGINE COOLANT TEMPERATURE</emph>
+            </para>
+            <para>
+                <emph type="BOLD">ABOVE WARNING LEVEL</emph>
+            </para>
+            <para>Code 321 will be set if the ECM detects engine coolant temperature above 225&#176;F (107&#176;C). When
+                this occurs, the ECM illuminates the OIL/WATER warning light and sounds the audible alarm (if equipped),
+                alerting the operator that a potential for engine damage exists.
+            </para>
+            <para>If the temperature drops below 225&#176;F(107&#176;C), the code will become inactive and the ECM will
+                return to normal operation.
+            </para>
+            <para>
+                <emph type="BOLD">FLASH CODE</emph>
+                <emph type="BOLD">322</emph>
+            </para>
+            <para>
+                <emph type="BOLD">ATA CODE PID 110 FMI 7</emph>
+            </para>
+            <para>
+                <emph type="BOLD">ENGINE COOLANT TEMPERATURE ABOVE CRITICAL LEVEL</emph>
+            </para>
+            <para>Code 322 will be set if the ECM detects engine coolant temperature above 235&#176;F (112.5&#176;C).
+                When this occurs, the OIL/WATER warning light illuminates and the audible alarm sounds (if equipped)
+                alerting the operator that the temperature is increasing (having set code 321) indicating a potential
+                for engine damage. With code 322 active, the engine will shut down. At the same time a fault code,
+                current engine hours and odometer reading will be recorded in the ECM as an Engine Event.
+            </para>
+            <para>If the temperature drops below 235&#176;F (112.5&#176;C), the code will become inactive and the ECM
+                will return to normal operation. Should the engine shut down, it can be restarted to move the vehicle to
+                a safe place.
+            </para>
+            <para>
+                <emph type="BOLD">FLASH CODE</emph>
+                <emph type="BOLD">325</emph>
+            </para>
+            <para>
+                <emph type="BOLD">ATA CODE PID 110 FMI 14</emph>
+            </para>
+            <para>
+                <emph type="BOLD">POWER REDUCED, MATCHED TO COOLING SYSTEM PERFORMANCE</emph>
+            </para>
+            <para>Code 325 will be set if the cooling system temperature exceeds 214&#176;F (101&#176;C ). At this
+                temperature the ECM will reduce the fuel delivered to the engine. For each one Celsius degree of
+                temperature the fuel will be reduced 6%. This reduces the heat produced by the engine thereby reducing
+                the burden on the engine cooling system. It will also slow the vehicle speed encouraging the operator to
+                downshift, thus increasing the efficiency of the cooling system.
+            </para>
+            <para>As the temperature is reduced the compensation level is reduced until the temperature drops below 214&#176;F
+                (101&#176;C ) at which normal operation is resumed.
+            </para>
+            <para>
+                <emph type="BOLD">FLASH CODE</emph>
+                <emph type="BOLD">316</emph>
+            </para>
+            <para>
+                <emph type="BOLD">ATA CODE PID 110 FMI 1</emph>
+            </para>
+            <para>
+                <emph type="BOLD">CAP FAULT CODE - UNABLE TO WARM ENGINE</emph>
+            </para>
+            <para>Code 316 will only be set with engines that have CAP (Cold Ambient Protection) strategy enabled. This
+                code is set after the engine has run for greater than 120 minutes and has not exceeded the following
+                specifications for engine coolant temperature. This code can be cleared with the Electronic Service
+                Tool.
+            </para>
+            <para>T 444E</para>
+            <para>Manual Transmission 149&#176; F / 65&#176; C</para>
+            <para>Automatic Transmission 140&#176; F / 60&#176; C</para>
+            <specpara>
+                <note>
+                    <para>NOTE : This code only indicates that the engine has not been able to reach operating
+                        temperature. It does not indicate an electronic fault.
+                    </para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Possible System Faults</title>
+            <randlist type="bullet">
+                <item>
+                    <para>Extended idle time.</para>
+                </item>
+                <item>
+                    <para>Cold ambient temperatures (may require use of winter front)</para>
+                </item>
+                <item>
+                    <para>Thermostat stuck in open position.</para>
+                </item>
+                <item>
+                    <para>Mis-plumbed cooling system (thermostat bypassed)</para>
+                </item>
+                <item>
+                    <para>Auxiliary heater cores cooling off engine (school bus application)</para>
+                </item>
+                <item>
+                    <para>Fan clutch locked on.</para>
+                </item>
+            </randlist>
+            <table id="t1901790">
+                <tgroup cols="2">
+                    <colspec colname="1" colwidth="180p"/>
+                    <colspec colname="2" colwidth="180p"/>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>.
+                                    <emph type="BOLD">Recommended Actions:</emph>
+                                </para>
+                            </entry>
+                            <entry colname="2">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>
+                                    <emph type="BOLD">Condition</emph>
+                                </para>
+                            </entry>
+                            <entry colname="2">
+                                <para>
+                                    <emph type="BOLD">Action</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>Extended idle time</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Recommend to customer to reduce idle time or increase idle speed.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>Cold ambient temperatures (may require use of winter front)</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Recommend use of winter front</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>Thermostat stuck in open position</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Perform thermostat tests per service manual</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>Mis-plumbed cooling system</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Verify correct cooling system routing</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>Auxiliary heater cores cooling off engine</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Reduce flow to heater cores or slow down fan speed of heater</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>Fan clutch locked on</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Verify proper fan clutch operation</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e190_217.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e190_HL1901713.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e190.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

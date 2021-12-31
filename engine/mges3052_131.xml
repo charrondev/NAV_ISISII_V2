@@ -1,0 +1,2263 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;stico del motor VT 275 - Diagn&#243;sticos del sistema de control electr&#243;nico
+        - Diagn&#243;sticos de circuitos - Control de recirculaci&#243;n de gases de escape (EGR)
+    </stitle>
+    <svcman/>
+    <svcproc id="s306000706.15" svcproctype="diagnose" graphiccount="5">
+        <title>Control de recirculaci&#243;n de gases de escape (EGR)</title>
+        <svcprocinfo id="s306000706.15.1">
+            <figure id="f306000759" figsize="pg-wide">
+                <graphic filename="../figj31/j31196.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="472px"/>
+                <caption>Diagrama de la funci&#243;n del control de EGR</caption>
+            </figure>
+            <para id="s306000706.15.1.1">El diagrama de la funci&#243;n del control de EGR incluye lo siguiente:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>V&#225;lvula de EGR</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo impulsor de EGR</para>
+                </item>
+                <item>
+                    <para>Sensor de temperatura del aire en el m&#250;ltiple (MAT)</para>
+                </item>
+                <item>
+                    <para>Sensor de presi&#243;n barom&#233;trica absoluta (BAP)</para>
+                </item>
+                <item>
+                    <para>Sensor de temperatura del refrigerante (ECT)</para>
+                </item>
+                <item>
+                    <para>Sensor de temperatura del aceite del motor (EOT)</para>
+                </item>
+                <item>
+                    <para>Sensor de presi&#243;n absoluta del m&#250;ltiple (MAP)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>La v&#225;lvula de EGR consiste en tres componentes principales, que son una
+                v&#225;lvula, un motor activador y un circuito integrado. El circuito integrado tiene tres sensores de
+                efecto Hall de posici&#243;n para monitorizar el movimiento de la v&#225;lvula. La v&#225;lvula de EGR
+                est&#225; en el m&#250;ltiple de admisi&#243;n al frente del motor.
+            </para>
+            <para>Se usa un m&#243;dulo impulsor para controlar la v&#225;lvula de EGR. Est&#225; debajo del dep&#243;sito
+                de desaireaci&#243;n del refrigerante, a la izquierda del soporte de montaje.
+            </para>
+            <para>La v&#225;lvula de EGR es una v&#225;lvula de posici&#243;n variable que controla la cantidad de gases
+                de escape que ingresa al sistema de admisi&#243;n. El ECM usa se&#241;ales recibidas del BAP, MAT, MAP,
+                APS, EOT, ECT y BCS para calcular la posici&#243;n deseada de la v&#225;lvula de EGR. El m&#243;dulo
+                impulsor recibe del ECM, a trav&#233;s del enlace de datos CAN 2, datos sobre la posici&#243;n deseada
+                de la v&#225;lvula de EGR, para activarla e iniciar la recirculaci&#243;n de los gases de escape. El m&#243;dulo
+                impulsor de EGR devuelve una se&#241;al informativa al ECM con datos sobre la posici&#243;n de la v&#225;lvula.
+                El m&#243;dulo impulsor de EGR interpreta la instrucci&#243;n del ECM y la env&#237;a mediante tres se&#241;ales
+                moduladas por amplitud de impulsos hacia el impulsor de la v&#225;lvula.
+            </para>
+            <para>El sistema es por control en circuito cerrado y usa las se&#241;ales de posici&#243;n del m&#243;dulo
+                impulsor del EGR. El m&#243;dulo impulsor de EGR suministra 9 V y conexi&#243;n a tierra al circuito
+                integrado en el motor de la v&#225;lvula. Cuando el m&#243;dulo impulsor de EGR le ordena a la v&#225;lvula
+                que se mueva usando las tres se&#241;ales moduladas por amplitud de impulsos, el circuito integrado con
+                tres sensores de efecto Hall env&#237;a al m&#243;dulo impulsor se&#241;ales con la posici&#243;n de la
+                v&#225;lvula. El m&#243;dulo impulsor de EGR interpreta las tres se&#241;ales para determinar la posici&#243;n
+                de la v&#225;lvula y env&#237;a la informaci&#243;n al ECM.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s306000706.15.2">
+            <title>Operaci&#243;n de los circuitos del EGR</title>
+            <figure id="f306000760" figsize="pg-wide">
+                <graphic filename="../figj31/j31197.webp" type="webp" scalefit="1" scalefitwidth="532px"
+                         scalefitheight="592px"/>
+                <caption>Diagrama de circuitos del EGR</caption>
+            </figure>
+            <para id="s306000706.15.2.1">El m&#243;dulo impulsor de EGR recibe 12 V por el pin1 desde el rel&#233; de
+                energ&#237;a principal del ECM, a trav&#233;s del pin 10 del conector de 12 pines. La conexi&#243;n a
+                tierra llega por el pin 2 desde la tierra de la bater&#237;a, a trav&#233;s del pin 4 del conector de 12
+                pines.
+            </para>
+            <para>El ECM env&#237;a la posici&#243;n deseada al m&#243;dulo impulsor de EGR a trav&#233;s del enlace de
+                datos CAN 2. CAN 2 positivo es el pin X2-6 del ECM al pin 3 del m&#243;dulo impulsor de EGR. CAN 2
+                negativo es el pin X2-13 del ECM al pin 4 del m&#243;dulo impulsor de EGR.
+            </para>
+            <para>El m&#243;dulo impulsor de EGR suministra 9 V al circuito integrado desde el pin 12 al pin 1 de la v&#225;lvula
+                de EGR. El m&#243;dulo impulsor de EGR suministra conexi&#243;n a tierra al circuito integrado desde el
+                pin 16 al pin 5 de la v&#225;lvula de EGR. El circuito integrado y la v&#225;lvula de EGR producen las
+                siguientes se&#241;ales de posici&#243;n:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Posici&#243;n U - Pin 4 de la v&#225;lvula de EGR al pin 13 del m&#243;dulo impulsor de EGR.
+                    </para>
+                </item>
+                <item>
+                    <para>Posici&#243;n V - Pin 3 de la v&#225;lvula de EGR al pin 14 del m&#243;dulo impulsor de EGR.
+                    </para>
+                </item>
+                <item>
+                    <para>Posici&#243;n W - Pin 2 de la v&#225;lvula de EGR al pin 15 del m&#243;dulo impulsor de EGR.
+                    </para>
+                </item>
+            </randlist>
+            <para>Dependiendo de la posici&#243;n deseada de la v&#225;lvula proveniente de la se&#241;al del ECM, y de
+                la respuesta informativa del circuito integrado sobre la posici&#243;n, el m&#243;dulo impulsor de EGR
+                impulsa el motor de CC de tres fases para mover la v&#225;lvula a la posici&#243;n adecuada usando las
+                siguientes se&#241;ales moduladas por amplitud de impulsos:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Motor U - Pin 6 del m&#243;dulo impulsor de EGR al pin 8 de la v&#225;lvula de EGR.</para>
+                </item>
+                <item>
+                    <para>Motor V - Pin 7 del m&#243;dulo impulsor de EGR al pin 7 de la v&#225;lvula de EGR.</para>
+                </item>
+                <item>
+                    <para>Motor W - Pin 8 del m&#243;dulo impulsor de EGR al pin 6 de la v&#225;lvula de EGR.</para>
+                </item>
+            </randlist>
+            <para>El m&#243;dulo impulsor de EGR proporciona dos blindajes para suprimir la interferencia. Un blindaje
+                es para el enlace de datos CAN 2 (pin 5 del m&#243;dulo impulsor de EGR). El otro blindaje es para las
+                se&#241;ales del sensor de posici&#243;n de la v&#225;lvula, usadas por el m&#243;dulo impulsor de EGR
+                para monitorizar la posici&#243;n (pin 9 del m&#243;dulo impulsor de EGR).
+            </para>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>El m&#243;dulo impulsor monitoriza constantemente la v&#225;lvula
+                de EGR. Cuando se detecta un error en el control de recirculaci&#243;n, el m&#243;dulo impulsor env&#237;a
+                un mensaje al ECM, que genera un c&#243;digo de falla y enciende la luz &#225;mbar de advertencia del
+                motor.
+            </para>
+            <para>
+                <title>DTC de EGR</title>Los DTC se leen con la EST o contando los destellos de la luz &#225;mbar de
+                advertencia del motor y de la luz roja de aceite/refrigerante.
+            </para>
+            <table id="t306000793" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 163</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>La se&#241;al de posici&#243;n de la v&#225;lvula de EGR excedi&#243; el l&#237;mite
+                                        inferior
+                                    </title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>El ECM genera el DTC 163 cuando el m&#243;dulo impulsor de EGR detecta una falla
+                                    en una se&#241;al de posici&#243;n.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>El DTC 163 puede aparecer si hay una interrupci&#243;n o un corto a tierra en el
+                                    suministro de energ&#237;a de la se&#241;al del sensor de posici&#243;n, una
+                                    interrupci&#243;n a tierra, una interrupci&#243;n o un corto a tierra en cualquiera
+                                    de los circuitos de la se&#241;al de posici&#243;n o si el circuito integrado est&#225;
+                                    defectuoso.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Cuando el DTC 163 est&#225; activo, se encender&#225; la luz &#225;mbar de
+                                    advertencia del motor.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t306000794" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>DTC 365</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="0.78*"/>
+                    <colspec colname="col2" colwidth="1.22*"/>
+                    <spanspec namest="col1" nameend="col2" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>
+                                    <title>La posici&#243;n de la v&#225;lvula de EGR fue superior/inferior al nivel
+                                        deseado
+                                    </title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>El ECM establece el DTC 365 cuando la posici&#243;n de la v&#225;lvula de EGR no
+                                    coincide con la posici&#243;n deseada.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>Causas posibles</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>V&#225;lvula de EGR trabada o trab&#225;ndose</para>
+                            </entry>
+                            <entry>
+                                <para>Haga los
+                                    <hotlnk document="mges3052_E3060006.xml" xrefid="s3060006.1">&#171;Diagn&#243;sticos
+                                        de rendimiento&#187;
+                                    </hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Polarizaci&#243;n del EGRP</para>
+                            </entry>
+                            <entry>
+                                <para>Mida el voltaje de la se&#241;al del sensor. Refi&#233;rase al diagn&#243;stico de
+                                    los circuitos de EGR.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Circuito de control de EGR</para>
+                            </entry>
+                            <entry>
+                                <para>Haga una prueba est&#225;ndar con la llave en ONy el motor apagado y el diagn&#243;stico
+                                    de los circuitos del EGR.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t306000795" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>DTC 368</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="0.78*"/>
+                    <colspec colname="col2" colwidth="1.22*"/>
+                    <spanspec namest="col1" nameend="col2" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>
+                                    <title>Falla en las comunicaciones entre el m&#243;dulo impulsor de la v&#225;lvula
+                                        de EGR y el ECM2
+                                    </title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>El ECM genera el DTC 368 cuando no recibe comunicaciones a trav&#233;s del enlace
+                                    de datos CAN 2 desde el m&#243;dulo impulsor de EGR.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>El DTC 368 puede aparecer si ocurre cualquiera de las siguientes condiciones:
+                                </para>
+                                <para>Si el motor enciende y funciona, el DTC se debe espec&#237;ficamente a un problema
+                                    de comunicaci&#243;n entre el m&#243;dulo impulsor de EGR y el ECM. Las siguientes
+                                    son causas posibles:
+                                </para>
+                                <para>- Hay una interrupci&#243;n o un corto a tierra en el circuito de energ&#237;a.
+                                </para>
+                                <para>- Hay una interrupci&#243;n o un corto a voltaje en el circuito de tierra.</para>
+                                <para>- Hay una interrupci&#243;n en CAN 2 positivo y CAN 2 negativo o hay alta
+                                    resistencia.
+                                </para>
+                                <para>Cuando no hay comunicaci&#243;n por el enlace CAN desde el m&#243;dulo impulsor de
+                                    EGR, el ECM env&#237;a una se&#241;al de posici&#243;n de EGR del 100% a la EST.
+                                </para>
+                                <para>Si el motor no arranca y los DTC 368 y 543 est&#225;n activos, revise el cableado
+                                    del CAN 2 (EGR a ECM e IDM a ECM). Refi&#233;rase a
+                                    <hotlnk document="mges3052_128.xml" xrefid="s306000706.12.1.1">&#171;Comunicaciones
+                                        entre el m&#243;dulo de control electr&#243;nico (ECM) y el m&#243;dulo impulsor
+                                        de los inyectores (IDM)&#187;
+                                    </hotlnk>
+                                    . Hay una interrupci&#243;n, un corto a tierra o un corto a energ&#237;a en uno de
+                                    los cables (positivo o negativo) del enlace de datos CAN 2, o un corto a voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>Cuando el DTC 368 est&#225; activo, se encender&#225; la luz &#225;mbar de
+                                    advertencia del motor.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <randlist type="bullet">
+                <title>Herramientas</title>
+                <item>
+                    <para>EST con software MasterDiagnostics&#174;</para>
+                </item>
+                <item>
+                    <para>Cable de conexi&#243;n EZ-Tech&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Cableado de derivaci&#243;n de 12 pines</para>
+                </item>
+                <item>
+                    <para>Cableado de derivaci&#243;n para la v&#225;lvula de EGR</para>
+                </item>
+                <item>
+                    <para>Caja de derivaciones</para>
+                </item>
+                <item>
+                    <para>Juego de adaptadores para probar terminales</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc id="s306000706.15.3">
+            <title>Diagn&#243;sticos del EGR con los pines</title>
+            <figure id="f306000761" figsize="pg-wide">
+                <graphic filename="../figj31/j31197.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="472px"/>
+                <caption>Diagrama de circuitos del EGR</caption>
+            </figure>
+            <table id="t306000796" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Diagrama de los pines de EGR</title>
+                <tgroup cols="8">
+                    <colspec colname="col1" colwidth="20.00px"/>
+                    <colspec colname="col2" colwidth="80.00px"/>
+                    <colspec colname="col3" colwidth="20.00px"/>
+                    <colspec colname="col4" colwidth="4.62*"/>
+                    <colspec colname="col6" colwidth="20.00px"/>
+                    <colspec colname="col7" colwidth="71.00px"/>
+                    <colspec colname="col8" colwidth="32.00px"/>
+                    <colspec colname="col9" colwidth="4.41*"/>
+                    <spanspec namest="col8" nameend="col9" spanname="SPAN5"/>
+                    <spanspec namest="col6" nameend="col7" spanname="SPAN4"/>
+                    <spanspec namest="col2" nameend="col4" spanname="SPAN3"/>
+                    <spanspec namest="col6" nameend="col9" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col4" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <title>Pines del conector de la v&#225;lvula de EGR</title>
+                                </para>
+                            </entry>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <title>Pines del conector del m&#243;dulo impulsor de EGR</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <graphic filename="../figj31/j31284.webp" type="webp" scalefit="1" scalefitwidth="128px"
+                                         scalefitheight="472px"/>
+                                <note>
+                                    <para>Los conectores del cableado aparecen desde el extremo de conexi&#243;n.</para>
+                                </note>
+                            </entry>
+                            <entry colspan="4" spanname="SPAN2">
+                                <graphic filename="../figj31/j31285.webp" type="webp" scalefit="1" scalefitwidth="112px"
+                                         scalefitheight="312px"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Pin</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN4">
+                                <para>Pin</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN5">
+                                <para>Pin</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Energ&#237;a del sensor de posici&#243;n</para>
+                            </entry>
+                            <entry>
+                                <para>1</para>
+                            </entry>
+                            <entry>
+                                <para>Energ&#237;a</para>
+                            </entry>
+                            <entry>
+                                <para>9</para>
+                            </entry>
+                            <entry>
+                                <para>Blindaje de tierra</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Posici&#243;n W</para>
+                            </entry>
+                            <entry>
+                                <para>2</para>
+                            </entry>
+                            <entry>
+                                <para>Tierra</para>
+                            </entry>
+                            <entry>
+                                <para>10</para>
+                            </entry>
+                            <entry>
+                                <para>No se usa</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Posici&#243;n V</para>
+                            </entry>
+                            <entry>
+                                <para>3</para>
+                            </entry>
+                            <entry>
+                                <para>CAN alto</para>
+                            </entry>
+                            <entry>
+                                <para>11</para>
+                            </entry>
+                            <entry>
+                                <para>No se usa</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Posici&#243;n U</para>
+                            </entry>
+                            <entry>
+                                <para>4</para>
+                            </entry>
+                            <entry>
+                                <para>CAN bajo</para>
+                            </entry>
+                            <entry>
+                                <para>12</para>
+                            </entry>
+                            <entry>
+                                <para>Energ&#237;a del sensor de posici&#243;n</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Tierra del sensor de posici&#243;n</para>
+                            </entry>
+                            <entry>
+                                <para>5</para>
+                            </entry>
+                            <entry>
+                                <para>No se usa</para>
+                            </entry>
+                            <entry>
+                                <para>13</para>
+                            </entry>
+                            <entry>
+                                <para>Posici&#243;n U</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Motor W</para>
+                            </entry>
+                            <entry>
+                                <para>6</para>
+                            </entry>
+                            <entry>
+                                <para>Motor U</para>
+                            </entry>
+                            <entry>
+                                <para>14</para>
+                            </entry>
+                            <entry>
+                                <para>Posici&#243;n V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Motor V</para>
+                            </entry>
+                            <entry>
+                                <para>7</para>
+                            </entry>
+                            <entry>
+                                <para>Motor V</para>
+                            </entry>
+                            <entry>
+                                <para>15</para>
+                            </entry>
+                            <entry>
+                                <para>Posici&#243;n W</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8</para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN3">
+                                <para>Motor U</para>
+                            </entry>
+                            <entry>
+                                <para>8</para>
+                            </entry>
+                            <entry>
+                                <para>Motor W</para>
+                            </entry>
+                            <entry>
+                                <para>16</para>
+                            </entry>
+                            <entry>
+                                <para>Tierra del sensor de posici&#243;n</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t306000797" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de voltaje - En el conector del cableado de la v&#225;lvula de EGR</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.17in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese de que la transmisi&#243;n est&#233; en
+                                        neutro, que el freno de estacionamiento est&#233; puesto y que las ruedas est&#233;n
+                                        bloqueadas, antes de realizar cualquier tarea de diagn&#243;stico o mec&#225;nica
+                                        en el motor o en el veh&#237;culo.
+                                    </para>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o aver&#237;as al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo principal de la
+                                        bater&#237;a al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>Para evitar da&#241;os al motor, tenga extremo cuidado al:</para>
+                                    <seqlist style="arabic">
+                                        <item>
+                                            <para>Desconectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Insertar el probador de terminales en los conectores para hacer
+                                                mediciones.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Conectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                    </seqlist>
+                                    <para>No tener cuidado al desconectar, medir o conectar los componentes puede
+                                        resultar en pines da&#241;ados o doblados.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Desenchufe el cableado de la v&#225;lvula. Conecte el cableado de derivaci&#243;n
+                                    de la v&#225;lvula de EGR. Ponga el interruptor de encendido en ON.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>8 - 11 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si no cumple con el valor requerido, busque una interrupci&#243;n, un corto a
+                                    tierra o un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 &#177; 0,5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si no cumple con el valor requerido, busque una interrupci&#243;n, un corto a
+                                    tierra o un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 &#177; 0,5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si no cumple con el valor requerido, busque una interrupci&#243;n, un corto a
+                                    tierra o un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>4 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 &#177; 0,5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si no cumple con el valor requerido, busque una interrupci&#243;n, un corto a
+                                    tierra o un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>8 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t306000798" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de resistencia - S&#243;lo en la v&#225;lvula de EGR</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.17in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese de que la transmisi&#243;n est&#233; en
+                                        neutro, que el freno de estacionamiento est&#233; puesto y que las ruedas est&#233;n
+                                        bloqueadas, antes de realizar cualquier tarea de diagn&#243;stico o mec&#225;nica
+                                        en el motor o en el veh&#237;culo.
+                                    </para>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o aver&#237;as al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo principal de la
+                                        bater&#237;a al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>Para evitar da&#241;os al motor, tenga extremo cuidado al:</para>
+                                    <seqlist style="arabic">
+                                        <item>
+                                            <para>Desconectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Insertar el probador de terminales en los conectores para hacer
+                                                mediciones.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Conectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                    </seqlist>
+                                    <para>No tener cuidado al desconectar, medir o conectar los componentes puede
+                                        resultar en pines da&#241;ados o doblados.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Ponga el interruptor de encendido en OFF. Desenchufe el cableado de la v&#225;lvula.
+                                    Conecte el cableado de derivaci&#243;n de la v&#225;lvula de EGR s&#243;lo a la v&#225;lvula.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>Aseg&#250;rese de que el DMM y los probadores est&#233;n en cero.</para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 a 2</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a la energ&#237;a del sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 a 3</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a la energ&#237;a del sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 a 4</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a la energ&#237;a del sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 a 5</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a la energ&#237;a del sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 a 2</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a la energ&#237;a del sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 a 3</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a la energ&#237;a del sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 a 4</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a la energ&#237;a del sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 a 7</para>
+                            </entry>
+                            <entry>
+                                <para>2,1 &#177; 0,5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, cambie el activador.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 a 8</para>
+                            </entry>
+                            <entry>
+                                <para>2,1 &#177; 0,5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, cambie el activador.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 a 8</para>
+                            </entry>
+                            <entry>
+                                <para>2,1 &#177; 0,5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, cambie el activador.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t306000799" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de resistencia en el cableado - Del conector de la v&#225;lvula de EGR a la tierra del
+                    chasis
+                </title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.17in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese de que la transmisi&#243;n est&#233; en
+                                        neutro, que el freno de estacionamiento est&#233; puesto y que las ruedas est&#233;n
+                                        bloqueadas, antes de realizar cualquier tarea de diagn&#243;stico o mec&#225;nica
+                                        en el motor o en el veh&#237;culo.
+                                    </para>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o aver&#237;as al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo principal de la
+                                        bater&#237;a al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>Para evitar da&#241;os al motor, tenga extremo cuidado al:</para>
+                                    <seqlist style="arabic">
+                                        <item>
+                                            <para>Desconectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Insertar el probador de terminales en los conectores para hacer
+                                                mediciones.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Conectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                    </seqlist>
+                                    <para>No tener cuidado al desconectar, medir o conectar los componentes puede
+                                        resultar en pines da&#241;ados o doblados.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Ponga el interruptor de encendido en OFF. Desenchufe el cableado de la v&#225;lvula.
+                                    Conecte el cableado de derivaci&#243;n de la v&#225;lvula de EGR s&#243;lo al
+                                    cableado del motor. Desconecte el cable negativo de la bater&#237;a y el cableado
+                                    del sensor. Use el cable negativo desconectado de la bater&#237;a como punto de
+                                    tierra para la prueba.
+                                </para>
+                                <para>Para mayor informaci&#243;n sobre el circuito de tierra del ECM y del IDM del lado
+                                    del chasis, refi&#233;rase al &#171;Manual de diagramas de circuitos&#187;.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3060007100" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de voltaje - En el conector del m&#243;dulo impulsor de EGR</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.17in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese de que la transmisi&#243;n est&#233; en
+                                        neutro, que el freno de estacionamiento est&#233; puesto y que las ruedas est&#233;n
+                                        bloqueadas, antes de realizar cualquier tarea de diagn&#243;stico o mec&#225;nica
+                                        en el motor o en el veh&#237;culo.
+                                    </para>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o aver&#237;as al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo principal de la
+                                        bater&#237;a al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>Para evitar da&#241;os al motor, tenga extremo cuidado al:</para>
+                                    <seqlist style="arabic">
+                                        <item>
+                                            <para>Desconectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Insertar el probador de terminales en los conectores para hacer
+                                                mediciones.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Conectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                    </seqlist>
+                                    <para>No tener cuidado al desconectar, medir o conectar los componentes puede
+                                        resultar en pines da&#241;ados o doblados.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Desconecte el cableado del m&#243;dulo impulsor de EGR. Ponga el interruptor de
+                                    encendido en ON.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>9 - 16 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque una interrupci&#243;n, un corto a
+                                    tierra o un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>1 - 4 V</para>
+                            </entry>
+                            <entry>
+                                <para>Se&#241;al digital. Refi&#233;rase a
+                                    <hotlnk document="mges3052_127.xml" xrefid="s306000706.11.1">&#171;Comunicaciones
+                                        entre el ECM y el IDM&#187;
+                                    </hotlnk>
+                                    en esta secci&#243;n.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>1 - 4 V</para>
+                            </entry>
+                            <entry>
+                                <para>Se&#241;al digital. Refi&#233;rase a
+                                    <hotlnk document="mges3052_127.xml" xrefid="s306000706.11.1">&#171;Comunicaciones
+                                        entre el ECM y el IDM&#187;
+                                    </hotlnk>
+                                    en esta secci&#243;n.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>9 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>12 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>13 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>14 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>15 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>16 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si no cumple con el valor requerido, busque un corto a la fuente de voltaje.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3060007101" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de voltaje - S&#243;lo en el m&#243;dulo impulsor de EGR</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.17in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese de que la transmisi&#243;n est&#233; en
+                                        neutro, que el freno de estacionamiento est&#233; puesto y que las ruedas est&#233;n
+                                        bloqueadas, antes de realizar cualquier tarea de diagn&#243;stico o mec&#225;nica
+                                        en el motor o en el veh&#237;culo.
+                                    </para>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o aver&#237;as al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo principal de la
+                                        bater&#237;a al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>Para evitar da&#241;os al motor, tenga extremo cuidado al:</para>
+                                    <seqlist style="arabic">
+                                        <item>
+                                            <para>Desconectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Insertar el probador de terminales en los conectores para hacer
+                                                mediciones.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Conectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                    </seqlist>
+                                    <para>No tener cuidado al desconectar, medir o conectar los componentes puede
+                                        resultar en pines da&#241;ados o doblados.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Ponga el interruptor de encendido en OFF. Desconecte el cableado del m&#243;dulo
+                                    impulsor de EGR. Mida en los pines del m&#243;dulo impulsor de EGR.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 a 2</para>
+                            </entry>
+                            <entry>
+                                <para>> 50 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 50 &#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 3</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 4</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 5</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 6</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 7</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 8</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 9</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 12</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 13</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 14</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 15</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a 16</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>9 a 16</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>12 a 16</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>13 a 16</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>14 a 16</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>15 a 16</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3060007102" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de resistencia en el cableado - Del conector del m&#243;dulo impulsor de EGR a la tierra
+                    del chasis
+                </title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.17in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese de que la transmisi&#243;n est&#233; en
+                                        neutro, que el freno de estacionamiento est&#233; puesto y que las ruedas est&#233;n
+                                        bloqueadas, antes de realizar cualquier tarea de diagn&#243;stico o mec&#225;nica
+                                        en el motor o en el veh&#237;culo.
+                                    </para>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o aver&#237;as al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo principal de la
+                                        bater&#237;a al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>Para evitar da&#241;os al motor, tenga extremo cuidado al:</para>
+                                    <seqlist style="arabic">
+                                        <item>
+                                            <para>Desconectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Insertar el probador de terminales en los conectores para hacer
+                                                mediciones.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Conectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                    </seqlist>
+                                    <para>No tener cuidado al desconectar, medir o conectar los componentes puede
+                                        resultar en pines da&#241;ados o doblados.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Ponga el interruptor de encendido en OFF. Desconecte el cableado del m&#243;dulo
+                                    impulsor de EGR. Desconecte el cable negativo de la bater&#237;a y el cableado del
+                                    sensor. Use el cable negativo desconectado de la bater&#237;a como punto de tierra
+                                    para la prueba.
+                                </para>
+                                <para>Para mayor informaci&#243;n sobre el circuito de tierra del ECM y del IDM del lado
+                                    del chasis, refi&#233;rase al &#171;Manual de diagramas de circuitos&#187;.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>6 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>9 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>12 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>13 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>14 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>15 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>16 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, hay un corto a tierra.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3060007103" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de resistencia en el cableado - Del m&#243;dulo impulsor de EGR al activador de EGR
+                </title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.17in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese de que la transmisi&#243;n est&#233; en
+                                        neutro, que el freno de estacionamiento est&#233; puesto y que las ruedas est&#233;n
+                                        bloqueadas, antes de realizar cualquier tarea de diagn&#243;stico o mec&#225;nica
+                                        en el motor o en el veh&#237;culo.
+                                    </para>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o aver&#237;as al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo principal de la
+                                        bater&#237;a al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>Para evitar da&#241;os al motor, tenga extremo cuidado al:</para>
+                                    <seqlist style="arabic">
+                                        <item>
+                                            <para>Desconectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Insertar el probador de terminales en los conectores para hacer
+                                                mediciones.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>Conectar el cableado de la v&#225;lvula de EGR o del m&#243;dulo
+                                                impulsor de EGR.
+                                            </para>
+                                        </item>
+                                    </seqlist>
+                                    <para>No tener cuidado al desconectar, medir o conectar los componentes puede
+                                        resultar en pines da&#241;ados o doblados.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Ponga el interruptor de encendido en OFF. Desconecte el cableado del m&#243;dulo
+                                    impulsor de EGR y del activador de EGR.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>Los puntos de prueba son desde el m&#243;dulo impulsor de EGR al activador del
+                                        EGR.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 6 a pin 8</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia a MTR U.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 7 a pin 7</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia a MTR V.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Pin 8 a pin 6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia a MTR W.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Pin 12 a pin 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia a la energ&#237;a
+                                    del sensor de posici&#243;n.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 13 a pin 4</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia al sensor de posici&#243;n
+                                    U.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 14 a pin 3</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia al sensor de posici&#243;n
+                                    V.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 15 a pin 2</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia al sensor de posici&#243;n
+                                    W.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Pin 16 a pin 5</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia a la tierra del
+                                    sensor de posici&#243;n.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3060007104" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de resistencia en el cableado - Del m&#243;dulo impulsor de EGR al conector de 12 pines
+                </title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.26in"/>
+                    <colspec colname="col2" colwidth="0.82in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese de que la transmisi&#243;n est&#233; en
+                                        neutro, que el freno de estacionamiento est&#233; puesto y que las ruedas est&#233;n
+                                        bloqueadas, antes de realizar cualquier tarea de diagn&#243;stico o mec&#225;nica
+                                        en el motor o en el veh&#237;culo.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Ponga el interruptor de encendido en OFF. Desconecte el cableado en el m&#243;dulo
+                                    impulsor de EGR y el conector de 12 pines.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 1 a pin 10</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia a la energ&#237;a
+                                    del activador.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 2 a pin 4</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia a la tierra del
+                                    activador.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3060007105" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Pruebas de resistencia en el cableado - Del m&#243;dulo impulsor de EGR al ECM</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.26in"/>
+                    <colspec colname="col2" colwidth="0.82in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese de que la transmisi&#243;n est&#233; en
+                                        neutro, que el freno de estacionamiento est&#233; puesto y que las ruedas est&#233;n
+                                        bloqueadas, antes de realizar cualquier tarea de diagn&#243;stico o mec&#225;nica
+                                        en el motor o en el veh&#237;culo.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Ponga el interruptor de encendido en OFF. Desconecte el cableado en el m&#243;dulo
+                                    impulsor de EGR y el conector X2 del ECM. Conecte X2 de la caja de derivaciones s&#243;lo
+                                    al cableado del motor.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>Punto de prueba</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Requisito</title>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <title>Comentarios</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 3 a Pin X2-6</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia al cable positivo
+                                    del CAN 2.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Pin 4 a Pin X2-13</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si > 5 &#x2126;, hay una interrupci&#243;n o alta resistencia al cable negativo
+                                    del CAN 2.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <title>DTC del activador de EGR</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 163 = El m&#243;dulo impulsor de EGR detecta una falla en la se&#241;al de
+                                    posici&#243;n.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 365 = La posici&#243;n de la v&#225;lvula de EGR est&#225; por encima o por
+                                    debajo del nivel deseado.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 368 = Falla en las comunicaciones entre el m&#243;dulo impulsor de EGR y el
+                                    ECM2.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges3052_130.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges3052_132.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

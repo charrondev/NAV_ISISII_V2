@@ -1,0 +1,507 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 530 Engine Diagnostic Manual for 4000 Series Trucks (2001) - ELECTRONIC CONTROL SYSTEM
+        DIAGNOSTICS - CIRCUIT FUNCTION AND DIAGNOSTICS - Engine Oil Temperature Sensor (EOT)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Engine Oil Temperature Sensor (EOT)</title>
+        <svcsubproc>
+            <title>Signal Functions</title>
+            <figure id="f17503057" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8842.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Engine Oil Temperature Sensor Function Diagram</caption>
+            </figure>
+            <para>The Engine Oil Temperature (EOT) sensor is a thermistor type sensor that has a variable resistance
+                which changes when exposed to different temperatures. When interfaced with the ECM, it produces a 0 to
+                5V analog signal that indicates temperature.
+            </para>
+            <para>
+                <emph type="bold">Cranking Fuel Quantity/Timing Control -</emph>The EOT signal is used to determine the
+                timing and quantity of fuel required to optimize starting over all temperature conditions.
+            </para>
+            <para>
+                <emph type="bold">Temperature Compensation -</emph>Fuel quantity and timing is controlled throughout the
+                total operating range to compensate for oil viscosity changes due to temperature variations and insure
+                that adequate torque and power is available.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>When EOT signal voltage is detected Out of Range HIGH or Out of Range LOW the ECM will ignore the EOT
+                signal and default to the engine coolant temperature (ECT) sensor. The amber ENGINE lamp will be
+                illuminated as long as the fault condition exists with the odometer displaying WARN ENG. If both the EOT
+                and ECT sensors are not functioning, the ECM will assume a 212&#176;F (100&#176;C) value for engine oil
+                temperature.
+            </para>
+            <figure id="f17503058" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8809.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Engine Oil Temperature Sensor Circuit Diagram using a Breakout Tee</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>After removing connector always check for damaged pins, corrosion, and loose terminals.</para>
+                </note>
+            </specpara>
+            <table id="te17503017">
+                <title>EOT Sensor Voltage Checks Using Master Diagnostics</title>
+                <tgroup cols="6">
+                    <colspec colname="col1" colwidth="0.86*"/>
+                    <colspec colname="col2" colwidth="0.58*"/>
+                    <colspec colname="COLSPEC2" colwidth="0.48*"/>
+                    <colspec colname="COLSPEC4" colwidth="0.89*"/>
+                    <colspec colname="COLSPEC3" colwidth="0.77*"/>
+                    <colspec colname="col3" colwidth="0.95*"/>
+                    <spanspec namest="COLSPEC3" nameend="col3" spanname="SPAN5"/>
+                    <spanspec namest="COLSPEC2" nameend="COLSPEC4" spanname="SPAN4"/>
+                    <spanspec namest="col1" nameend="col2" spanname="SPAN3"/>
+                    <spanspec namest="COLSPEC2" nameend="col3" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Engine Oil Temperature (EOT) Sensor Voltage Checks</emph>(check
+                                    with key-ON engine-OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1">
+                                <para>Install the 2 wire breakout tee between the EOT sensor and harness connector. View
+                                    EOT VOLTAGE using the
+                                    <emph type="bold">Continuous Monitor</emph>
+                                    test found under the diagnostics menu in MASTER DIAGNOSTICS. If the circuit has an
+                                    active fault according to the voltage level (Code 311= &#60; 0.2V, Code 312
+                                    =>4.78V), complete the following steps.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Condition</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Expected Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor Disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="underscr">></emph>4.78V
+                                </para>
+                            </entry>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>Voltage &#60;4.78V, inspect the signal circuit for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Standard jumper installed between the GREEN and BLACK pins of the breakout tee
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>If voltage is >0.2, check ground and signal circuits for an open or high
+                                    resistance. Measure resistance from PIN A to PIN 19, and from PIN B to PIN 12 (spec.
+                                    =&#60;5&#x2126;) using a breakout box to determine if the resistance is in the
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0.5 k&#x2126; jumper installed between the GREEN and BLACK pins of the breakout
+                                    tee
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 1.0 V</para>
+                            </entry>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>If voltage is > 1.0V, check signal circuit for a short to V
+                                    <subscript>REF</subscript>, B+, or another sensor's signal voltage.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Replace the sensor if the code is active and the expected results
+                                        are obtained with all the sensor tests. The sensor is not at fault if one or
+                                        more of the sensor tests does not produce the expected results. See EOT Sensor
+                                        Troubleshooting Flowchart .
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Continued on Next Page</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN3">
+                                <para>
+                                    <emph type="bold">MD Voltage: (+) #12 to (-) #19</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Operational Signal Checks</emph>(check with breakout tee installed
+                                    in-line with the sensor)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Oil Temp &#176;F</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Temp &#176;C</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN4">
+                                <para>Resistance</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN5">
+                                <para>Volts @ Resistance</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>32</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN4">
+                                <para>91.1k&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN5">
+                                <para>4.348V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>68</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>20</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN4">
+                                <para>35.5 k&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN5">
+                                <para>3.782V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>212</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>100</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN4">
+                                <para>2.0 k&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN5">
+                                <para>0.819V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Description</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1">
+                                <para>311 = Signal voltage was &#60;0.2 volts for more than 0.1 sec.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1">
+                                <para>312 = Signal voltage was >4.78 volts for more than 0.1 sec.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te17503017.1">
+                <title>EOT Circuit Specifications</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.38*"/>
+                    <colspec colname="col2" colwidth="0.38*"/>
+                    <colspec colname="col3" colwidth="2.24*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>
+                                    (check with sensor connector disconnected and ignition key ON)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4.8V to 5.0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Pull up voltage, if low or no voltage, circuit has open or high resistance or
+                                    short to ground
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V to 0.25V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 0.25V, signal ground wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or battery
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Checks to Chassis Ground</emph>
+                                    (check with sensor connector disconnected, ignition key OFF &#38; positive battery
+                                    cable disconnected)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance to chassis ground, check with key OFF, if > 5&#x2126; check for open
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance &#60; 1k&#x2126; indicates a short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>(check with breakout box installed
+                                    on engine harness only)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>19 to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>>5&#x2126; indicates ground wire is open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>12 to B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>>5&#x2126; indicates signal wire is open</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>
+                <emph type="bold">Function</emph>
+            </para>
+            <para>The International engine control system includes an Engine Oil Temperature (EOT) sensor. The ECM
+                monitors engine oil temperature via the EOT sensor signal to control fuel quantity and timing throughout
+                the operating range of the engine. The EOT signal allows the ECM to compensate for oil viscosity
+                variations due to temperature changes in the operating environment. This insures that adequate power and
+                torque are available under all operating conditions.
+            </para>
+            <para>
+                <emph type="bold">Operation</emph>
+            </para>
+            <para>The Engine Oil Temperature Sensor is a thermistor type sensor that changes resistance when exposed to
+                the oil operating temperatures.
+            </para>
+            <para>When the temperature of the oil is decreased the resistance of the thermistor increases which causes
+                the signal voltage to increase. As the temperature of the oil is increased, the resistance of the
+                thermistor decreases, causing the signal voltage to decrease.
+            </para>
+            <para>The EOT sensor is supplied a regulated 5V reference signal at terminal B from the ECM. A return
+                circuit (ground) is supplied at terminal A from the ECM. As the oil temperature increases or decreases,
+                the sensor changes resistance and provides the ECM with the oil temperature signal voltage. This signal
+                voltage is then read by the ECM to determine the temperature of the oil.
+            </para>
+            <para>
+                <emph type="bold">ECM Diagnostics</emph>
+            </para>
+            <para>With the ignition key ON, the ECM continuously monitors the EOT signal to determine if it is within
+                expected values. If the signal voltage is above or below the expected levels, the ECM will set a
+                Diagnostic Trouble Code.
+            </para>
+            <para>If the ECM detects a fault, it will use the value of the Engine Coolant Temperature signal, in place
+                of the EOT signal. If the ECT sensor has a fault, the ECM will default to 29&#176;F (-1.7&#176;C) for
+                starting, or 212&#176;F (100&#176;C) for engine running operation. If the ignition key is shut off, the
+                code will become inactive. EOT codes will cause the ECM to illuminate the amber ENGINE lamp and cause
+                the odometer to display the message WARN ENG.
+            </para>
+            <para>EOT Diagnostic Trouble Codes can be retrieved using the Electronic Service Tool (EST) or by reading
+                the Diagnostic Trouble Code flashes from the amber and red ENGINE lamps, see .
+            </para>
+            <para id="f175fc311">
+                <emph type="bold">Diagnostic Trouble Code 311</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, PID 175, FMI 4</emph>
+            </para>
+            <para>
+                <emph type="bold">Engine Oil Temperature signal Out of Range LOW</emph>
+            </para>
+            <para>When code 311 is active the amber ENGINE lamp is illuminated and the odometer displays the message
+                WARN ENG.
+            </para>
+            <para>Diagnostic Trouble Code 311 Out of Range LOW, will be set if the signal voltage was less than 0.2V for
+                more than 0.1 seconds. If this code is set, the ECM will default to ECT temperature or a default value
+                of -4&#176;F (-20&#176;C) for starting or 212&#176;F (100&#176;C) for engine running operation.
+            </para>
+            <para>Diagnostic Trouble Code 311 may be set due to a short to ground in the signal circuit or a defective
+                sensor.
+            </para>
+            <para id="f175fc312">
+                <emph type="bold">Diagnostic Trouble Code 312</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, PID 175, FMI 3</emph>
+            </para>
+            <para>
+                <emph type="bold">Engine Oil Temperature signal Out of Range HIGH</emph>
+            </para>
+            <para>When code 312 is active the amber ENGINE lamp is illuminated and the odometer displays the message
+                WARN ENG.
+            </para>
+            <para>Diagnostic Trouble Code 312 Out of Range HIGH, will be set if the signal voltage is more than 4.8V for
+                more than 0.1 seconds. If this code is set, the ECM will default to an EOT value of -4&#176;F (-20&#176;C)
+                for starting or 212&#176;F (100&#176;C) for engine running operation.
+            </para>
+            <para>Diagnostic Trouble Code 312 may be set due to an open signal circuit between the ECM and the sensor or
+                a short to a voltage source. A defective sensor may also cause code 312 to be set.
+            </para>
+            <figure id="f17503058.1" figsize="full-pg">
+                <graphic filename="../figEg8/Eg8824.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="592px"/>
+                <caption>Engine Oil Temperature Sensor Troubleshooting Flowchart</caption>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_92.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_94.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

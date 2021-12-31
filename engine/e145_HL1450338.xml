@@ -1,0 +1,510 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - SPEEDOMETER SIGNAL
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450338" svcproctype="proctype" graphiccount="9">
+        <title>SPEEDOMETER SIGNAL</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef14503i0">Figure 3.155 Speedometer Signal</hotlnk>
+            </para>
+            <figure id="ef14503i0" figsize="col-wide">
+                <graphic id="eg6092" filename="../figeg6/eg6092.webp" type="webp"/>
+                <caption>Figure 3.155 Speedometer Signal</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>SIGNAL FUNCTION</title>
+            <para>The vehicle speed signal from the speed sensor is input to the VPM. VPM programming includes number of
+                teeth on the sensor wheel, tire size and axle ratios. Using this information, the VPM creates a signal
+                which is sent to the speedometer/tachometer cluster as input for the speedometer function.
+            </para>
+            <para>The VPM also outputs a DCL formatted vehicle speed signal over the DCL data link circuit to the ECM.
+                The ECM uses the input for controlling vehicle functions including cruise control, engine brake, etc.
+            </para>
+            <para>Additionally the VPM outputs an ATA formatted signal over the ATA data link to the diagnostic
+                connector where vehicle speed can be read using the Prolink EST.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION MANAGEMENT</title>
+            <para>The vehicle speed sensor signal is monitored continuously by the VPM to see that the signal is within
+                certain range. If the VSS signal is out-of-range, the VPM sends an out-of-range high signal to the ECM,
+                telling the ECM that the VPM detected a fault in the VSS.
+            </para>
+            <para>When the ECM sees the out-of-range high signal, VPM Flash code 141 or 142 is set, but the Engine
+                Warning light is NOT turned on. The ECM disables operation of the Cruise Control or PTO. If Road Speed
+                Limiting is enabled, the ECM will limit engine speed in all gears. Torque level tailoring will use a
+                prescribed torque curve.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Codes</title>
+            <specpara>
+                <note>
+                    <para>If the vehicle speedometer does not operate properly, but no fault codes are present, use the
+                        Prolink to attempt to read vehicle speed from the ATA data link connector. If vehicle speed can
+                        be read using the Prolink, troubleshoot circuit 47B and the instrument cluster.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <hotlnk xrefid="ef14503i1">Figure 3.156 Speedometer Signal Diagnostics</hotlnk>
+            </para>
+            <figure id="ef14503i1" figsize="col-wide">
+                <graphic id="eg6093" filename="../figeg6/eg6093.webp" type="webp"/>
+                <caption>Figure 3.156 Speedometer Signal Diagnostics</caption>
+            </figure>
+            <para>
+                <emph type="bold">VPM Harness Connector Checks to Chassis Ground</emph>
+            </para>
+            <para>
+                <emph type="bold">Connector (381) with VPM disconnected and connector (27) disconnected and key OFF
+                </emph>
+            </para>
+            <table id="et1450326">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>cir 47 to grd</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>>100K ohms</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; less than 100K ohms check for short to grd or defective sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>cir 47A to grd</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>> 100K ohms</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60;less than 100K ohms check for short to grd or defective sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>cir 47 to 47A</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>600 - 800 ohms</para>
+                                <para>(manual xmsn)</para>
+                                <para>1200-1450 ohms</para>
+                                <para>(auto xmsn)</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>> than specified ohms, check for open circuit or sensor</para>
+                                <para>&#60; than specified ohms, check for short between circuits or defective sensor.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>47B to grd</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>>100 K ohms</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; less than 100K ohms check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>47B to (27) 47B</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>&#60; 5 ohms</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>> than 5 ohms check for open in circuit</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>VPM Harness Voltage Checks</para>
+            <para>Voltage check at Connector (381) with VPM disconnected and connector (27) disconnected and key ON
+            </para>
+            <table id="et1450327">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>47 to grd</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>&#60; 1.0 volt</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>> than 1.0 volt check for short to VREF or Batt circuit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>47A to grd</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>&#60; 1.0 volt</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>> than 1.0 volt check for short to VREF or Batt circuit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>47B to grd</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>&#60; 1.0 volt</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>> than 1.0 volt check for short to VREF or Batt circuit</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>Operational Voltage Checks</para>
+            <para>Connect (381) to VPM and (27) to cluster. Disconnect sensor pigtail at (303). Place rear axles on
+                stands (front wheels blocked) and with engine at idle and transmission in high gear, measure AC voltage
+                from sensor.
+            </para>
+            <table id="et1450328">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>white to black</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>> 2.0 A.C. volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; less than 2.0 volts check sensor adjustment or defective sensor.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>extended description</title>
+            <para>The Vehicle Speed Signal (VSS) from the VPM is sent over the DCL data link to the ECM. The VSS
+                information is used by the ECM to control features such as: Cruise Control, PTO, Torque Level Tailoring
+                and Road Speed Limiting.
+            </para>
+            <para>The VPM also provides VSS input to the vehicle speedometer, tachometer and odometer unit located in
+                the instrument panel.
+            </para>
+            <para>Refer to circuit diagram
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef14503i2">3.157</hotlnk>
+                </emph>
+                for the following discussion.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Vehicle Speed Sensor (303)</title>
+            <para>The Vehicle Speed Sensor (VSS) is located on the transmission and sends an AC signal to the VPM. The
+                VSS sensor contains a permanent magnet which creates a magnetic field. The AC signal is created when the
+                16-tooth transmission speedometer gear rotates breaking the magnetic field created by the sensor. The
+                VSS signal is sent through the engine and cab harness to the VPM.
+            </para>
+            <para>With a manual transmission, Navistar installs the speed sensor at the rear of the transmission. With
+                an Allison AT/MT transmission, Allison installs the sensor at the lower right side of the transmission.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VPM (Vehicle Personality Module)</title>
+            <para>The VPM (381) receives the AC signal from the vehicle speed sensor. The VPM programming includes the
+                rear axle ratio and tire size. It uses this programmed information and the speed sensor input to create
+                the vehicle speed signal sent to the Speedometer Unit.
+            </para>
+            <para>From VPM connector (381), terminal 18, an analog AC signal is input on circuit 47B to the vehicle
+                speedometer unit through connector (27). Speedometer ground circuit 47-G from connector (27) is grounded
+                at the cab ground stud.
+            </para>
+            <para>The VSS signal is also formatted so that it can be sent over the Digital Communications Link (DCL) to
+                the ECM (379).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM Diagnostics</title>
+            <para>
+                <title>Flash Codes</title>
+            </para>
+            <para>During vehicle operation, the vehicle speed signal (VSS) is monitored continuously by the VPM to see
+                that the signal is within certain range. If the VSS signal is out-of-range, the VPM sends an
+                out-of-range high signal to the ECM, telling the ECM that the VPM detected a fault in the VSS.
+            </para>
+            <para>When the ECM sees the out-of-range high signal, VPM Flash code 141 or 142 is set, but the Engine
+                Warning light is NOT turned on. The ECM disables operation of the Cruise Control or PTO. If Road Speed
+                Limiting is enabled, the ECM will limit engine speed in all gears. Torque level tailoring will use a
+                prescribed torque curve.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 141</title>
+            <para>
+                <title>ATA CODE PID 84 FMI 4</title>
+            </para>
+            <para>
+                <title>VPM: VSS ORL</title>
+            </para>
+            <para>This code is set when the VPM detects an out-of-range low (ORL) signal from the vehicle speed
+                sensor.
+            </para>
+            <para>WIRING CAUSE: VSS Sensor circuit between the VPM and Sensor, shorted to ground or open.</para>
+            <para>If this code is active, perform Testing VPM to Sensor Circuits
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef14503i3">3.158</hotlnk>.
+                </emph>
+                .
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 142</title>
+            <para>
+                <title>ATA CODE PID 84 FMI 3</title>
+            </para>
+            <para>
+                <title>VPM: VSS ORH</title>
+            </para>
+            <para>This code is set when the VPM detects an out-of-range high (ORH) signal from the vehicle speed
+                sensor.
+            </para>
+            <para>WIRING CAUSE: VSS Sensor circuit shorted to VREF or VBAT circuit.</para>
+            <para>If this code is active, perform Testing VPM to Sensor Circuits
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef14503i3">3.158</hotlnk>.
+                </emph>
+                .
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Speedometer Does Not Function Properly</title>
+            <para>The ECM/VPM diagnostics DO NOT check for VSS sensor adjustment, so it is possible with a mis-adjusted
+                vehicle speed sensor to get a faulty vehicle speed signal
+                <emph type="bold">without fault code 141 or 142</emph>. The speedometer and/or odometer will operate
+                erratically or not at all. The odometer may not function correctly.
+            </para>
+            <para>If Flash code 141 or 142 IS NOT PRESENT, but the speedometer and/or odometer does not function
+                properly, perform Testing Speedometer
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef14503i7">3.162</hotlnk>.
+                </emph>
+            </para>
+            <para>If Flash code 141 or 142 is present and the speedometer does not function properly, correct the cause
+                of the Flash Codes before troubleshooting the speedometer.
+            </para>
+            <para>If the speedometer/odometer does not function properly when the Two-Speed Axle is shifted (HIGH or
+                LOW), refer to Two Speed Axle in this section.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Before Troubleshooting</title>
+            <step1>
+                <para count="1"></para>
+                <step2>
+                    <para count="1">Before troubleshooting, make sure that the batteries are fully charged! Check
+                        battery connections and grounds for clean, tight connections free of damage. Voltage tests will
+                        give misleading results if the batteries are not fully charged.
+                    </para>
+                </step2>
+                <step2>
+                    <para count="1">Before troubleshooting, inspect circuit connectors for pushed back, loose, or
+                        damaged (spread or bent) terminals, or wires with cut strands, etc. Wires and connections must
+                        be free of damage or corrosion. When some connectors corrode, a light white residue will be
+                        present that must be removed.
+                    </para>
+                </step2>
+                <step2>
+                    <para count="1">Before troubleshooting, inspect suspect circuit grounds for clean, tight connections
+                        free of damage.
+                    </para>
+                    <figure id="ef14503i2" figsize="col-wide">
+                        <graphic id="eg6094" filename="../figeg6/eg6094.webp" type="webp"/>
+                        <caption>Figure 3.157 Circuit Diagram</caption>
+                    </figure>
+                    <figure id="ef14503i3" figsize="col-wide">
+                        <graphic id="eg6095" filename="../figeg6/eg6095.webp" type="webp"/>
+                        <caption>Figure 3.158 Testing VPM To Sensor Circuits</caption>
+                    </figure>
+                </step2>
+                <specpara>
+                    <note>
+                        <para>* - Refer to circuit diagram Figure
+                            <hotlnk xrefid="ef14503i2">3.157</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <specpara>
+                    <note>
+                        <para>** - Refer to Figure
+                            <hotlnk xrefid="ef14503i5">3.160</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <specpara>
+                    <note>
+                        <para>*** - Refer to Figure
+                            <hotlnk xrefid="ef14503i6">3.161</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <para>
+                    <hotlnk xrefid="ef14503i4">Figure 3.159 Testing VPM To Sensor Circuits</hotlnk>
+                </para>
+                <figure id="ef14503i4" figsize="col-wide">
+                    <graphic id="eg6096" filename="../figeg6/eg6096.webp" type="webp"/>
+                    <caption>Figure 3.159 Testing VPM To Sensor Circuits</caption>
+                </figure>
+                <figure id="ef14503i5" figsize="col-wide">
+                    <graphic id="eg6097" filename="../figeg6/eg6097.webp" type="webp"/>
+                    <caption>Figure 3.160 Vehicle Speed Sensor Test With Manual Transmission</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>* - Refer to circuit diagram Figure
+                            <hotlnk xrefid="ef14503i2">3.157</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <specpara>
+                    <note>
+                        <para>** - Refer to Figure
+                            <hotlnk xrefid="ef14503i3">3.158</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <figure id="ef14503i6" figsize="col-wide">
+                    <graphic id="eg6098" filename="../figeg6/eg6098.webp" type="webp"/>
+                    <caption>Figure 3.161 Vehicle Speed Sensor Test With Allison AT or MT Transmission</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>* - Refer to circuit diagram Figure
+                            <hotlnk xrefid="ef14503i2">3.157</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <specpara>
+                    <note>
+                        <para>** - Refer to Figure
+                            <hotlnk xrefid="ef14503i3">3.158</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+            </step1>
+            <step1>
+                <para count="1">If Flash Codes are not present indicating that a VSS signal problem has been detected by
+                    the VPM or ECM, but the speedometer and/or odometer are not functioning properly, perform this test.
+                </para>
+                <figure id="ef14503i7" figsize="col-wide">
+                    <graphic id="eg6099" filename="../figeg6/eg6099.webp" type="webp"/>
+                    <caption>Figure 3.162 Testing Speedometer</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>* - Refer to circuit diagram Figure
+                            <hotlnk xrefid="ef14503i2">3.157</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <para>
+                    <hotlnk xrefid="ef14503i8">Figure 3.163 Testing Speedometer</hotlnk>
+                </para>
+                <figure id="ef14503i8" figsize="col-wide">
+                    <graphic id="eg6100" filename="../figeg6/eg6100.webp" type="webp"/>
+                    <caption>Figure 3.163 Testing Speedometer</caption>
+                </figure>
+            </step1>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450337.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_129.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

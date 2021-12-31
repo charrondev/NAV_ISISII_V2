@@ -1,0 +1,785 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Hard Start and No Start
+        Diagnostics - Test Procedures - 6. EST Data List
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="10">
+        <title>6. EST Data List</title>
+        <svcprocinfo>
+            <figure id="f2700517" figsize="col-wide">
+                <graphic filename="../figh31/h31138.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption></caption>
+            </figure>
+            <para>
+                <title>Purpose</title>
+            </para>
+            <para>To determine if engine systems meet operating specifications to start engine</para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Monitoring Engine Systems using an EST</title>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Procedure</title>
+            </para>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle, read all
+                        safety instructions in the "Safety Information" section of this manual.
+                    </para>
+                </warning>
+                <note>
+                    <para>If an EST is not available, see alternate test procedures following this test.</para>
+                    <para>Batteries must be fully charged before doing the following steps.</para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">See
+                    <hotlnk document="eges270_211.xml" xrefid="s27005003">"DT 466 Performance Specifications"</hotlnk>
+                    - Appendix A or
+                    <hotlnk document="eges270_223.xml" xrefid="s27005004">"DT 570 and HT 570 Performance
+                        Specifications"
+                    </hotlnk>
+                    - Appendix B for specifications, and record on Diagnostic Form.
+                </para>
+            </step1>
+            <figure id="f2700518" figsize="col-wide">
+                <graphic filename="../figh31/h31087.webp" type="webp" scalefit="1" scalefitwidth="248px" box="no"/>
+                <caption>D_HardStart_ NoStart.ssn</caption>
+            </figure>
+            <step1>
+                <para count="1">Open D_HardStart_NoStart.ssn to monitor engine operation.</para>
+            </step1>
+            <step1>
+                <para count="1">Turn the ignition switch to ON.</para>
+            </step1>
+            <step1>
+                <para count="1">Record KOEO readings on Diagnostic Form.</para>
+            </step1>
+            <step1>
+                <para count="1">Crank engine for 20 seconds and read EST to measure VBAT, RPM, ICP, EOP, EGRP, and
+                    BCP.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Record readings on Diagnostic Form.</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Battery voltage must be 7 V or more. If voltage to the ECM drops below 7 V, the ECM will
+                            not remain powered up.
+                        </para>
+                        <para>
+                            <emph type="bold">Note:</emph>
+                            If the battery volt (VBAT) PID is less than actual battery voltage or the EST is not
+                            communicating with the ECM, see
+                            <hotlnk document="eges270_139.xml" xrefid="s27005010">Electronic Control Module Power (ECM
+                                PWR)
+                            </hotlnk>
+                            in Section 7 .
+                        </para>
+                    </item>
+                    <item>
+                        <para>Engine cranking speed must generate the required injection control pressure to operate the
+                            fuel injectors and create required compression to ignite the fuel.
+                        </para>
+                    </item>
+                    <item>
+                        <para>If the EST shows 0 rpm during engine cranking, the ECM may not be receiving a signal from
+                            the Crankshaft Position (CKP) sensor or Camshaft Position (CMP) sensor. The ECM will not
+                            send the fueling command to the IDM without a correct CKP or CMP signal. See
+                            <hotlnk document="eges270_133.xml" xrefid="s27005006">CKP sensor</hotlnk>
+                            and
+                            <hotlnk document="eges270_134.xml" xrefid="s27005007">CMP sensor</hotlnk>
+                            in Section 7.
+                        </para>
+                    </item>
+                    <item>
+                        <para>If the EST indicates low or no injection control pressure, do Test 14 -
+                            <hotlnk document="eges270_93.xml" xrefid="s27005013">"Low ICP System Pressure"</hotlnk>.
+                        </para>
+                        <para>If the ICP sensor is biased high, see
+                            <hotlnk document="eges270_129.xml" xrefid="s27005008">"ICP Sensor"</hotlnk>
+                            in Section 7 .
+                        </para>
+                    </item>
+                    <item>
+                        <para>If oil pressure is low, the ICP system may not be receiving enough oil.</para>
+                    </item>
+                    <item>
+                        <para>If EGR valve is open at start-up it can disrupt the air fuel mixture enough to inhibit
+                            engine operation.
+                        </para>
+                    </item>
+                    <item>
+                        <para>BCP values may fluctuate as much as 345 kPa (50 psi). Electromagnetic interference (EMI)
+                            or ground shift can cause an insignificant voltage shift that does not indicate a problem.
+                            If above 7 MPa (1000 psi), brake actuation may occur. If over 345 kPa (50 psi), ICP
+                            operation may be inhibited for fuel injectors.
+                        </para>
+                    </item>
+                </randlist>
+            </step1>
+            <para>
+                <title>Possible Causes</title>
+            </para>
+            <randlist type="bullet">
+                <title>Low battery voltage</title>
+                <item>
+                    <para>Failed batteries</para>
+                </item>
+                <item>
+                    <para>High-resistance at battery cable connections or in wiring to the ECM</para>
+                </item>
+                <item>
+                    <para>Failed ECM main power relay</para>
+                </item>
+                <item>
+                    <para>Blown inline fuse (in battery box) that supplies voltage to the ECM</para>
+                </item>
+                <item>
+                    <para>Blown fuse in power distribution box</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Low cranking rpm</title>
+                <item>
+                    <para>Electrical system malfunctions, incorrect oil, or long oil change intervals in cold ambient
+                        temperatures
+                    </para>
+                </item>
+                <item>
+                    <para>No rpm indication on the EST while cranking the engine: Failed CKP sensor, CMP sensor, or
+                        circuit to the ECM. Check DTCs after cranking engine for 20 seconds.
+                    </para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Low Injection Control Pressure</title>
+                <item>
+                    <para>A leak in the high-pressure oil system</para>
+                </item>
+                <item>
+                    <para>Failed ICP sensor</para>
+                </item>
+                <item>
+                    <para>Low oil level in the high-pressure oil reservoir</para>
+                </item>
+                <item>
+                    <para>Failed IPR valve or electronic controls for the regulator</para>
+                </item>
+                <item>
+                    <para>Failed high-pressure oil pump or pump drive</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Low oil pressure</title>
+                <item>
+                    <para>Failed oil pressure regulator relief valve</para>
+                </item>
+                <item>
+                    <para>Failed gerotor oil pump or front cover</para>
+                </item>
+                <item>
+                    <para>Failed pickup tube or gasket</para>
+                </item>
+                <item>
+                    <para>Internal lube oil pressure leak</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>EGR valve</title>
+                <item>
+                    <para>Stuck or inoperative valve</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>BCP</title>
+                <item>
+                    <para>Inoperative brake shut-off valve</para>
+                </item>
+                <item>
+                    <para>Failed BCP sensor</para>
+                </item>
+                <item>
+                    <para>Failed BCP sensor wiring</para>
+                </item>
+                <item>
+                    <para>Porosity or sand hole in high-pressure oil rail (injector oil gallery to brake oil gallery)
+                    </para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Monitoring ICP using VC Gasket Breakout Harness</title>
+            <specpara>
+                <note>
+                    <para>Do this procedure, if an EST is not available. This is an alternate method.</para>
+                </note>
+            </specpara>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>VC Gasket Breakout Harness</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Procedure</title>
+            </para>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle, read all
+                        safety instructions in the "Safety Information" section of this manual.
+                    </para>
+                </warning>
+            </specpara>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death or damage to the engine or vehicle - comply
+                        with the following:
+                    </para>
+                    <para>When running the engine in the service bay, make sure the parking brake is set, the
+                        transmission is in neutral, and the wheels are blocked.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">See
+                    <hotlnk document="eges270_211.xml" xrefid="s27005003">"DT 466 Performance Specifications"</hotlnk>
+                    - Appendix A or
+                    <hotlnk document="eges270_223.xml" xrefid="s27005004">"DT 570 and HT 570 Performance
+                        Specifications"
+                    </hotlnk>
+                    - Appendix B and Section 7 for specifications, operational voltages, and values. Record on
+                    Diagnostic Form.
+                </para>
+            </step1>
+            <figure id="f2700519" figsize="col-wide">
+                <graphic filename="../figH31/H31224.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>Valve cover gasket</caption>
+                <calloutgroup>
+                    <callout1 type="arabic">Front of engine</callout1>
+                    <callout1 type="arabic">Pass-through connector for BCP sensor</callout1>
+                    <callout1 type="arabic">Pass-through connector for brake shut-off valve</callout1>
+                    <callout1 type="arabic">Pass-through connector for ICP sensor</callout1>
+                </calloutgroup>
+            </figure>
+            <step1>
+                <para count="1">Disconnect engine harness connector from pass-through connector for ICP sensor.</para>
+            </step1>
+            <figure id="f2700520" figsize="col-wide">
+                <graphic filename="../figh31/h31258.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="248px"/>
+                <caption>VC Gasket Breakout Harness connector to pass-through connector for ICP sensor</caption>
+            </figure>
+            <step1>
+                <para count="1">Connect VC Gasket Breakout Harness to pass-through connector and engine harness.</para>
+                <specpara>
+                    <warning>
+                        <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle -
+                            comply with the following:
+                        </para>
+                        <para>When routing DMM leads, do not crimp the leads, run the leads too close to moving parts,
+                            or let the leads touch hot engine surfaces.
+                        </para>
+                    </warning>
+                </specpara>
+            </step1>
+            <step1>
+                <para count="1">Use DMM to measure injection control pressure (ICP signal voltage) KOEO.</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Connect POS to green (signal circuit) and NEG to black (signal ground).</para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">Record KOEO reading on Diagnostic Form.</para>
+            </step1>
+            <step1>
+                <para count="1">Take another measurement while cranking the engine for 20 seconds.</para>
+            </step1>
+            <step1>
+                <para count="1">Record reading on Diagnostic Form.</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>If ICP voltage is out of specification at KOEO only, see
+                            <hotlnk document="eges270_129.xml" xrefid="s27005008">"ICP Sensor"</hotlnk>
+                            in Section 7 .
+                        </para>
+                    </item>
+                    <item>
+                        <para>If ICP voltage is out of specification at engine crank only, do Test 14 -
+                            <hotlnk document="eges270_93.xml" xrefid="s27005013">"Low ICP System Pressure"</hotlnk>.
+                        </para>
+                    </item>
+                    <item>
+                        <para>If ICP voltage is in specification at KOEO and builds to cranking voltage during engine
+                            crank, continue to "Monitoring BCP using VC Gasket Breakout Harness" test
+                        </para>
+                    </item>
+                </randlist>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Monitoring BCP using VC Gasket Breakout Harness</title>
+            <specpara>
+                <note>
+                    <para>Do this procedure, if an EST is not available. This is an alternate method.</para>
+                </note>
+            </specpara>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>VC Gasket Breakout Harness</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Procedure</title>
+            </para>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle, read all
+                        safety instructions in the "Safety Information" section of this manual.
+                    </para>
+                </warning>
+            </specpara>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death or damage to the engine or vehicle - comply
+                        with the following:
+                    </para>
+                    <para>When running the engine in the service bay, make sure the parking brake is set, the
+                        transmission is in neutral, and the wheels are blocked.
+                    </para>
+                </warning>
+            </specpara>
+            <specpara>
+                <note>
+                    <para>BCP should be zero, when engine brake is inactive. BCP values may fluctuate as much as 50 psi.
+                        Electromagnetic Interference (EMI) or ground shift can cause an insignificant voltage shift that
+                        does not indicate a problem. This should be equal to KOEO BCP signal voltage.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">See
+                    <hotlnk document="eges270_211.xml" xrefid="s27005003">"DT 466 Performance Specifications"</hotlnk>
+                    - Appendix A or
+                    <hotlnk document="eges270_223.xml" xrefid="s27005004">"DT 570 and HT 570 Performance
+                        Specifications"
+                    </hotlnk>
+                    - Appendix B and Section 7 for specifications, operational voltages, and values. Record on
+                    Diagnostic Form.
+                </para>
+            </step1>
+            <figure id="f2700521" figsize="col-wide">
+                <graphic filename="../figH31/H31224.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>Valve cover gasket</caption>
+                <calloutgroup>
+                    <callout1 type="arabic">Front of engine</callout1>
+                    <callout1 type="arabic">Pass-through connector for BCP sensor</callout1>
+                    <callout1 type="arabic">Pass-through connector for brake shut-off valve</callout1>
+                    <callout1 type="arabic">Pass-through connector for ICP sensor</callout1>
+                </calloutgroup>
+            </figure>
+            <step1>
+                <para count="1">Disconnect engine harness connector from the pass-through connector for the BCP
+                    sensor.
+                </para>
+            </step1>
+            <figure id="f2700522" figsize="col-wide">
+                <graphic filename="../figH31/H31253.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>VC Gasket Breakout Harness to pass-through connector for BCP sensor</caption>
+            </figure>
+            <step1>
+                <para count="1">Connect VC Gasket Breakout Harness to pass-through connector and engine harness.</para>
+                <specpara>
+                    <warning>
+                        <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle -
+                            comply with the following:
+                        </para>
+                        <para>When routing DMM leads, do not crimp the leads, run the leads too close to moving parts,
+                            or let the leads touch hot engine surfaces.
+                        </para>
+                    </warning>
+                </specpara>
+            </step1>
+            <step1>
+                <para count="1">Use DMM to measure brake control pressure (BCP signal voltage) KOEO.</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Connect POS to green (signal circuit) and NEG to black (signal ground).</para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">Record KOEO reading on Diagnostic Form.</para>
+            </step1>
+            <step1>
+                <para count="1">Take another measurement while cranking engine for 20 seconds.</para>
+            </step1>
+            <step1>
+                <para count="1">Record reading on Diagnostic Form and compare KOEO reading.</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>If BCP cranking signal voltage is significantly more than KOEO BCP signal voltage, when
+                            engine brake is inactive, diagnose BCP sensor, circuit, and engine brake components.
+                        </para>
+                    </item>
+                    <item>
+                        <para>If BCP cranking signal voltage is equal to KOEO BCP, signal voltage BCP is not a
+                            problem.
+                        </para>
+                    </item>
+                </randlist>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Monitoring EOP at EOT Sensor Port</title>
+            <specpara>
+                <note>
+                    <para>Do this procedure, if an EST is not available. This is an alternate method.</para>
+                </note>
+            </specpara>
+            <randlist type="bullet">
+                <title>Tool</title>
+                <item>
+                    <para>Gauge bar (0 - 160 psi gauge)</para>
+                </item>
+                <item>
+                    <para>ICP system test adapter (VT 365)</para>
+                </item>
+                <item>
+                    <para>Test hose assembly</para>
+                </item>
+                <item>
+                    <para>Socket or wrench (EOT sensor removal and installation)</para>
+                </item>
+            </randlist>
+            <figure id="f2700523" figsize="col-wide">
+                <graphic filename="../figH31/H31294.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>ICP test adapter and test hose assembly</caption>
+                <calloutgroup>
+                    <callout1 type="arabic">ICP system test adapter</callout1>
+                    <callout1 type="arabic">Test hose assembly</callout1>
+                </calloutgroup>
+            </figure>
+            <figure id="f2700524" figsize="col-wide">
+                <graphic filename="../figH31/H31250.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>Test hose connection to 0 - 160 psi gauge</caption>
+                <calloutgroup>
+                    <callout1 type="arabic">0 - 160 psi gauge</callout1>
+                    <callout1 type="arabic">Test hose connection</callout1>
+                </calloutgroup>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle, read all
+                        safety instructions in the "Safety Information" section of this manual.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">See
+                    <hotlnk document="eges270_211.xml" xrefid="s27005003">"DT 466 Performance Specifications"</hotlnk>
+                    - Appendix A or
+                    <hotlnk document="eges270_223.xml" xrefid="s27005004">"DT 570 and HT 570 Performance
+                        Specifications"
+                    </hotlnk>
+                    - Appendix B and Section 7 for specifications, operational voltages, and values. Record on
+                    Diagnostic Form.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Make a test hose that will connect the ICP system test adapter to the gauge bar or
+                    equivalent gauge.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Connect test hose to ICP adapter.</para>
+            </step1>
+            <step1>
+                <para count="1">Remove the EOT sensor from the front cover.
+                    <emph type="bold">Oil will spill out. Catch oil in container. Quickly install ICP system adapter and
+                        test hose assembly. Position hose so oil will not drain out.
+                    </emph>
+                    If oil does not spill out of the EOT port, oil supply is the problem.
+                </para>
+            </step1>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle - comply
+                        with the following:
+                    </para>
+                    <para>When routing test line, do not crimp the line, run the line too close to moving parts, or let
+                        the line touch hot engine surfaces.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Connect test hose to gauge bar (0-160 psi gauge) or equivalent gauge.</para>
+            </step1>
+            <step1>
+                <para count="1">Crank engine for 20 seconds and monitor EOP.</para>
+            </step1>
+            <step1>
+                <para count="1">Record pressure on Diagnostic Form.</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>If oil pressure is below specification, diagnose lube oil pressure system, see Section 4 -
+                            <hotlnk document="eges270_63.xml" xrefid="s27005024">"Engine Symptoms Diagnostics"</hotlnk>
+                            .
+                        </para>
+                    </item>
+                    <item>
+                        <para>If oil pressure is at specification, remove test hose and gauge bar. Quickly remove ICP
+                            system adapter and test hose assembly.
+                            <emph type="bold">Oil will spill out. Catch oil in container</emph>
+                            and install EOT sensor. Follow the procedure in Engine Service Manual.
+                        </para>
+                    </item>
+                </randlist>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Monitoring Engine Systems using Breakout Box</title>
+            <specpara>
+                <note>
+                    <para>Do this procedure, if an EST is not available. This is an alternate method.</para>
+                </note>
+            </specpara>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Procedure</title>
+            </para>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle, read all
+                        safety instructions in the "Safety Information" section of this manual.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">See
+                    <hotlnk document="eges270_211.xml" xrefid="s27005003">"DT 466 Performance Specifications"</hotlnk>
+                    - Appendix A or
+                    <hotlnk document="eges270_223.xml" xrefid="s27005004">"DT 570 and HT 570 Performance
+                        Specifications"
+                    </hotlnk>
+                    - Appendix B and Section 7 for specifications, operational voltages, and values. Record on
+                    Diagnostic Form.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Turn the ignition switch to OFF and ensure all accessories are turned off.</para>
+            </step1>
+            <step1>
+                <para count="1">Remove X1, X2 and X3, X4 connectors from ECM.</para>
+            </step1>
+            <figure id="f2700525" figsize="col-wide">
+                <graphic filename="../figH31/H31280.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>Engine and chassis breakout box connections</caption>
+                <calloutgroup>
+                    <callout1 type="arabic">Breakout box connector X4 to ECM</callout1>
+                    <callout1 type="arabic">Breakout box connector X3 to ECM</callout1>
+                    <callout1 type="arabic">Breakout box connector X2 to ECM</callout1>
+                    <callout1 type="arabic">Breakout box connector X1 to ECM</callout1>
+                    <callout1 type="arabic">Engine wiring harness ECM connector X2 to breakout box header</callout1>
+                    <callout1 type="arabic">Engine wiring harness ECM connector X1 to breakout box header</callout1>
+                    <callout1 type="arabic">Breakout box header X1 and X2 engine to breakout box</callout1>
+                    <callout1 type="arabic">Chassis wiring harness connector to breakout box header</callout1>
+                    <callout1 type="arabic">Chassis wiring harness connector to breakout box header</callout1>
+                    <callout1 type="arabic">Breakout box header X3 and X4 breakout box to chassis</callout1>
+                </calloutgroup>
+            </figure>
+            <step1>
+                <para count="1">Connect breakout box connectors X1, X2 and X3, X4 to ECM.</para>
+            </step1>
+            <step1>
+                <para count="1">Connect wiring harness connectors to breakout box headers X1, X2 and X3, X4.</para>
+            </step1>
+            <figure id="f2700526" figsize="col-wide">
+                <graphic filename="../figH31/H31274.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>Breakout box</caption>
+            </figure>
+            <step1>
+                <para count="1">Connect DMM leads to breakout box.</para>
+                <specpara>
+                    <warning>
+                        <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle -
+                            comply with the following:
+                        </para>
+                        <para>When routing DMM leads, do not crimp the leads, run the leads too close to moving parts,
+                            or let the leads touch hot engine surfaces.
+                        </para>
+                    </warning>
+                </specpara>
+            </step1>
+            <step1>
+                <para count="1">Use DMM to measure KOEO values for the following:</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>V
+                            <subscript>BAT</subscript>
+                            (DMM set to DC V)
+                        </para>
+                        <randlist type="dash">
+                            <item>
+                                <para>POS X3-3 to NEG X3-7 (V
+                                    <subscript>IGN</subscript>
+                                    Pwr)
+                                </para>
+                            </item>
+                            <item>
+                                <para>POS X4-1 to NEG X3-6 (ECM PWR)</para>
+                            </item>
+                            <item>
+                                <para>POS X4-2 to NEG X3-7 (ECM PWR)</para>
+                            </item>
+                        </randlist>
+                    </item>
+                    <item>
+                        <para>rpm (DMM set to DC mV Hz)</para>
+                        <randlist type="dash">
+                            <item>
+                                <para>POS X1-1 to NEG X3-7 (CKP)</para>
+                            </item>
+                        </randlist>
+                    </item>
+                    <item>
+                        <para>rpm (DMM set to DC mV rpm
+                            <supscript>2</supscript>)
+                        </para>
+                        <randlist type="dash">
+                            <item>
+                                <para>POS X1-9 to NEG X3-7 (CMP)</para>
+                            </item>
+                        </randlist>
+                    </item>
+                    <item>
+                        <para>ICP (DMM set to DC V)</para>
+                        <randlist type="dash">
+                            <item>
+                                <para>POS X1-20 to NEG X1-6</para>
+                            </item>
+                        </randlist>
+                    </item>
+                    <item>
+                        <para>EOP (DMM set to DC V)</para>
+                        <randlist type="dash">
+                            <item>
+                                <para>POS X2-7 to NEG X1-6</para>
+                            </item>
+                        </randlist>
+                    </item>
+                    <item>
+                        <para>BCP (DMM set to DC V)</para>
+                        <randlist type="dash">
+                            <item>
+                                <para>POS X2 -11 to NEG X1- 6</para>
+                            </item>
+                        </randlist>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">Record KOEO reading on Diagnostic Form.</para>
+            </step1>
+            <step1>
+                <para count="1">Take another measurement while cranking engine for 20 seconds.</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>If ECM voltage is below specification, see
+                            <hotlnk document="eges270_139.xml" xrefid="s27005010">"Electronic Control Module Power (ECM
+                                PWR)"
+                            </hotlnk>
+                            in Section 7 .
+                        </para>
+                    </item>
+                    <item>
+                        <para>If CKP DCmV Hz is not in specification during crank, see
+                            <hotlnk document="eges270_133.xml" xrefid="s27005006">"CKP Sensor"</hotlnk>
+                            in Section 7 .
+                        </para>
+                    </item>
+                    <item>
+                        <para>If CMP DCmV RPM2 is not in specification during crank, see
+                            <hotlnk document="eges270_134.xml" xrefid="s27005007">"CMP Sensor"</hotlnk>
+                            in Section 7 .
+                        </para>
+                    </item>
+                    <item>
+                        <para>If EOP is not in specification during crank, see
+                            <hotlnk document="eges270_73.xml" xrefid="s27005017">"Low Oil Pressure"</hotlnk>
+                            in Section 4 .
+                        </para>
+                    </item>
+                    <item>
+                        <para>If BCP is not in specification during crank, see
+                            <hotlnk document="eges270_129.xml" xrefid="s27005008">"BCP" Sensor"</hotlnk>
+                            in Section 7 .
+                        </para>
+                    </item>
+                    <item>
+                        <para>If all measurements are in specification, continue with the next diagnostic test.</para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">Record readings on Diagnostic Form.</para>
+            </step1>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_84.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_86.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

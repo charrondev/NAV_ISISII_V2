@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 3200, 4200, 4300, 4400, 7300, 7400, 7500, 8500, 8600 - ELECTRICAL
+        SYSTEM TROUBLESHOOTING GUIDE - 3600, 3800, 4000FBC - ELECTRONIC ENGINES, DT 466E, International&#174; 530E AND T
+        444E - OPERATION
+    </stitle>
+    <svcsection/>
+    <svcproc svcproctype="operate" graphiccount="0">
+        <title>OPERATION</title>
+        <svcsubproc>
+            <title>ECM Power and Ground</title>
+            <para>Power is supplied from the batteries to circuit 14A, a 40A power relay fuse, circuit 14B, positive
+                battery connector (412), circuit 14B, battery harness connector (426), and circuit 14B to the Electronic
+                Control Module (ECM) power relay (396) contacts.
+            </para>
+            <para>Power is also supplied from the (J1) battery feed stud to circuit 14B, fuse C2, circuit 97CT, the
+                22-pin bulkhead connector (3), and circuit 97CT to the ECM power relay coil. From the relay, power is
+                applied to circuit 97AH and pin 25 of the ECM (379).
+            </para>
+            <para>When key switch (63) is moved to the ignition position, power is supplied to circuit 13, fuse C1,
+                circuit 97CR, the 22-pin bulkhead connector (3), and circuit 97CR to pin 24 of the ECM (379). This
+                signals the ECM that the ignition switch is on and causes the ECM to internally switch pin 25 to ground.
+                This completes the circuit for the ECM power relay (396) and energizes the relay. With the relay
+                energized, power is applied through the relay contacts to circuit 97CM and a splice. From the splice
+                power is applied to the ECM pins 21, 22, and 41 on circuits 97CL, 97CK, and 97AL respectively.
+            </para>
+            <para>Grounds for the ECM pins 1, 2, 23, and 42 are through circuits 11-GW, 11-GX, 11-GY and 11-GZ
+                respectively, to a splice. From the splice, ground is through circuit 11-G, the battery harness
+                connector (426), circuit 11-G, negative battery connector (665) and circuit 11-G to the negative battery
+                terminal.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Accelerator Position Sensor (APS) and Idle Validation Switch (IVS)</title>
+            <para>The engine Electronic Control Module (ECM) determines the position of the accelerator pedal by
+                processing the input signals from the Accelerator Position Sensor (APS) and Idle Validation Switch
+                (IVS).
+            </para>
+            <para>The ECM sends a regulated 5 volt signal through the black ECM connector (379), circuit 97U, bulkhead
+                connector (3), circuit 97U to a splice, and circuit 97C to the APS/IVS (382). The APS then returns a
+                variable voltage signal (depending on pedal position) from connector (382), circuit 99B, connector (3),
+                and circuit 99B to ECM connector (379). The APS is grounded through circuit 99A/97W, connector (3), and
+                circuit 97WB/97W to ECM (379).
+            </para>
+            <para>The ECM learns the lowest and highest pedal positions by reading and storing the minimum and the
+                maximum voltage levels from the APS. In this manner the ECM "auto-calibrates" the system to allow
+                maximum pedal sensitivity. The ECM auto-calibrates as the key is on, but when the key is turned off,
+                these values are lost. When the key is turned on again, this process starts over. When the pedal is
+                disconnected (or a new one is installed), the pedal does not need to be calibrated, as the calibration
+                happens when the key is turned on.
+            </para>
+            <para>The Idle Validation Switch (IVS) (382) receives 12 volt ignition voltage from key switch (63), circuit
+                13F, fuse H1, and circuit 99E. When the pedal is not in the idle position (throttle applied), the IVS
+                sends this 12 volt signal to the ECM over circuit 99D, connector (3), and circuit 99D to the ECM (379).
+            </para>
+            <para>The ECM (379) compares the inputs it receives on circuit 99B and circuit 99D from the APS/IVS to
+                verify when the pedal is in the idle position. If the APS signal from circuit 99B indicates throttle is
+                being applied, then the ECM expects to see 12 volts at IVS circuit 99D. If the APS signal, circuit 99B,
+                indicates throttle is not applied, then the ECM expects to see 0 volts at the IVS circuit 99D. The
+                timing process is critical between the APS and the IVS sensors. For this reason, it is very difficult to
+                determine if the APS/IVS assembly is working properly using a volt-ohmmeter.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Barometric Air Pressure (BAP) Sensor</title>
+            <para>The ECM (379) sends a regulated 5 volt signal from ECM (379) by circuit 97U, bulkhead connector (3),
+                circuit 97U to a splice, and circuit 97BL to BAP sensor (406). The BAP sensor returns a variable voltage
+                signal (represents atmospheric pressure) on circuit 97CD, connector (3) and circuit 97CD to the ECM
+                (379). The BAP sensor is grounded by circuit 97Z/97W, connector (3), circuit 97W/97WB to the ECM (379)
+                signal ground.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Air Temperature Sensor (ATS)</title>
+            <para>The ECM (379) sends a regulated 5 volt reference signal through circuit 97AX to the Air Temperature
+                Sensor (463). As the temperature changes, the sensor changes resistance and provides the ECM with an air
+                temperature signal voltage. The sensor is grounded through circuit 97BU/97WB to the ECM signal ground.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Cruise Control/PTO System</title>
+            <para>Power is supplied to the cruise control On/Off switch (391) through key switch (63), fuse A2 and
+                circuit 28/97B. When the On/Off switch is in the On position, power is supplied through circuit 97CF,
+                dash connector (3) and circuit 97CF to ECM (379). This enables the cruise control.
+            </para>
+            <para>With the cruise control On/Off switch in the On position, power is also applied from the switch to the
+                cruise Set/Resume switch (392) through circuit 97CA. Momentarily depressing the Set portion of this
+                switch supplies a 12 volt signal to the ECM through circuit 97DH, dash connector (3), and circuit
+                97DH/97DJ. This engages the cruise control and causes the ECM to maintain the current engine RPM. If the
+                cruise control speed is already set, depressing the switch in the Set position causes the engine RPM to
+                decrease until the switch is released.
+            </para>
+            <para>With the cruise control On/Off switch (391) in the ON position, depressing the Resume/Accel portion of
+                the Set/Resume switch (392) supplies a 12 volt signal to the ECM through circuit 97DE, dash connector
+                (3) and circuit 97DE/97DK. If the cruise control speed has not been engaged, momentarily depressing the
+                switch causes the ECM to resume the last engine RPM setting. If the cruise control is already engaged,
+                momentarily depressing the Resume/Accel portion of the switch will cause the engine RPM and speed to
+                increase in small incremental amounts until the desired speed is reached.
+            </para>
+            <para>The cruise control switches and circuitry are also used for in-cab control of preset, variable, and
+                mobile PTO operation applications and require programming of the engine ECM.
+            </para>
+            <para>For information on remote PTO control for body builder applications, refer to Miscellaneous
+                Information in CT-471 Body Builder Book.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Radiator Shutters</title>
+            <para>When the key switch (63) is turned on, power is applied to circuit 13, fuse B1, circuit 97K, dash
+                connector (3), and circuit 97K/23 to the shutter connector (337). From engine harness connector (337),
+                power is supplied through circuit 23/23B, shutter solenoid connector (340), and the pigtail to the
+                solenoid. [With hydraulic operated shutters, power is supplied from connector (340) to the solenoid
+                through circuit 23A utilizing a jumper harness.]
+            </para>
+            <para>Based on limits and settings programmed into the engine ECM, the ECM determines shutter opening and
+                closing requirements.
+            </para>
+            <para>To close the shutters, the ECM applies a ground at pin 9 of the gray ECM connector (1205). This
+                completes the ground to the solenoid through the solenoid pigtail (circuit 23-GG with hydraulic
+                shutters), connector (340), circuit 97ESS, engine connector (336), and circuit 97ESS to the ECM. This
+                energizes the solenoid which causes the shutters to close.
+            </para>
+            <para>When the ECM determines additional engine cooling is required, ground is removed from pin 9 which
+                de-energizes the solenoid and causes the shutters to open.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08267_27.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08267_29.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08267.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

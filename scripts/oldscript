@@ -1,0 +1,708 @@
+<script language="VBScript">
+<!--
+' Option Explicit
+' I was able to test with option explicit to check for non defined variables
+' I will comment it out now
+
+dim submit1
+dim submit2
+dim submit3
+dim selected_vendor
+dim selected_ucode
+dim selected_tm
+dim selected_engfam
+dim selected_grp
+dim selected_language
+dim selected_cts5000
+dim selected_circuit
+dim selected_trouble
+dim selected_tsis
+dim selected_afcs
+dim selected_recalls
+dim selected_sfns
+dim selected_bcms
+
+sub SubmitButton1_Onclick()
+On Error resume next
+submit1 = "yes"
+submit2 = "no"
+submit3 = "no"
+
+selected_vendor = vendor.value
+selected_ucode = ""
+selected_tm = tm.value
+selected_engfam = ""
+selected_grp = grp.value
+
+keepgoing()
+end sub
+
+sub SubmitButton2_Onclick()
+On Error resume next
+submit1 = "no"
+submit2 = "yes"
+submit3 = "no"
+
+selected_vendor = ""
+selected_ucode = ""
+selected_tm = ""
+selected_engfam = engfam.value
+selected_grp = ""
+
+keepgoing()
+end sub
+
+sub SubmitButton3_Onclick()
+On Error resume next
+submit1 = "no"
+submit2 = "no"
+submit3 = "yes"
+
+selected_vendor = ""
+selected_ucode = ucode.value
+selected_tm = ""
+selected_engfam = ""
+selected_grp = ""
+
+keepgoing()
+end sub
+
+sub keepgoing()
+On Error resume next
+
+' the following line of code is currently the only difference between
+' the different language versions of this file
+' if you change this program, you should be able to recreate the other
+' languages by copying and changing the language
+
+selected_language = "zzzzzz"
+'  selected_language = "spanish"
+'  selected_language = "french"
+'  selected_language = "portuguese"
+
+' zzzzzz is for english so that it got sorted last if at all
+
+dim header_name
+if selected_language = "zzzzzz" then
+	header_name = ""
+else
+	if selected_language = "spanish" then
+		header_name = " - Spanish"
+else
+	if selected_language = "french" then
+		header_name = " - French"
+else
+	if selected_language = "portuguese" then
+		header_name = " - Portuguese"
+end if
+end if
+end if
+end if
+
+
+' msgbox selected_grp, 0, "Major Group selected"
+
+selected_cts5000 = true
+selected_circuit = true
+selected_trouble = true
+selected_tsis = true
+selected_afcs = true
+selected_recalls = true
+selected_sfns = true
+' remove bcms as of April 30, 2001
+selected_bcms = false
+
+dim ii, jj, kk, mm
+
+dim reccount
+dim typeofinfo
+dim prevtypeofinfo
+dim rest_of_rec
+Dim fso, ts, s, filenamestart, filenameend, rec_filename
+Dim engfamstart, engfamend, rec_engfam, ok_engfam
+Dim translationstart, translationend, rec_translation, ok_translation
+Dim titlestart, titleend, rec_title
+Dim formnumstart, formnumend, rec_formnum
+Dim majorgrpstart, majorgrpend, rec_majorgrp, ok_grp
+dim ucodestart, ucodeend, rec_ucode, ok_ucode
+dim truckmodelstart, truckmodelend, rec_truckmodel, ok_tm
+dim vendorstart, vendorend, rec_vendor, ok_vendor
+
+dim linkname
+dim fileObj
+
+Const ForReading = 1
+
+Set fileObj = CreateObject("Scripting.FileSystemObject")
+if isobject(fileObj) then
+
+	dim pathname
+	pathname = right(window.location.pathname,len(window.location.pathname) - 1)
+	'msgbox "Pathname: " & pathname, 0, "Pathname"
+
+
+	dim x
+	dim y
+	x = 1
+	y = 1
+	z = 1
+
+	Dim foundfile
+	dim openfilename
+	dim temppath
+	dim newpath
+
+	' the following was changed Feb 28, 2007 to account for IE 7 or other browsers that appeared to return / instead of \ in the pathname
+	do until y = 0 and z = 0
+
+		y = InStr(x+1,pathname,"\")
+		z =  InStr(x+1,pathname,"/")
+		if y > 0 then
+			x = y
+		elseif z > 0 then
+			x = z
+		end if
+	loop
+
+	'msgbox "x: " & x, 0, "x"
+
+	temppath =  mid(pathname,1,x - 1)
+	'msgbox "temppath: " & temppath, 0, "temppath"
+	' handle directory structures with spaces
+	newpath = replace(temppath,"%20"," ")
+	'msgbox "newpath: " & newpath, 0, "newpath"
+
+	openfilename = "C:\NAV\ISISII_V2\msmfiles\listapplysort.txt"
+
+	foundfile = fileObj.FileExists(openfilename)
+
+	if not foundfile then
+		msgbox foundfile, 0, "Need " & openfilename
+
+		window.Document.Writeln "<html>"
+		window.Document.Writeln "<head>"
+		window.Document.Writeln "<title>Master Service Manual Titles Screen</title>"
+		window.Document.Writeln "<link rel=""STYLESHEET"" type=""text/css"" href=""style.css"">"
+		window.Document.Writeln "</head>"
+		window.Document.Writeln "<body>"
+		window.Document.Writeln "<h2 align=""center"">Master Service Manual" & header_name
+		window.Document.Writeln "</h2>"
+		window.Document.Writeln "<h3 align=""center""><img SRC=""./images/trucks2008.jpg"" WIDTH=""681"" HEIGHT=""120"">"
+		window.Document.Writeln "<font size=""5"" color=""red"">I</font><font size=""5"" color=""black"">nternational </font><font size=""5"" color=""red"">S</font><font size=""5"" color=""black"">ervice </font><font size=""5"" color=""red"">I</font><font size=""5"" color=""black"">nformation </font><font size=""5"" color=""red"">S</font><font size=""5"" color=""black"">olutions</font>"
+		window.Document.Writeln "<img SRC=""./images/whatsnew2.gif"" WIDTH=""450"" HEIGHT=""10""></h3>"
+		window.Document.Writeln "<h3>The input file was not found at " & openfilename & "</h3>"
+		window.Document.Writeln "<h3>If you put the file in this location, you can then rerun</h3>"
+		window.Document.Writeln "</body>"
+		window.Document.Writeln "</html>"
+	else
+		'msgbox foundfile, 0, "File found. " & openfilename
+		Set ts = fileObj.OpenTextFile(openfilename, ForReading)
+	end if
+
+' the following will include the rest of the file
+
+if foundfile then
+
+	' msgbox "File being used is ", 0, openfilename
+
+window.Document.Writeln "<html>"
+window.Document.Writeln "<head>"
+window.Document.Writeln "<title>Master Service Manual" & header_name & "</title>"
+window.Document.Writeln "<link rel=""STYLESHEET"" type=""text/css"" href=""style.css"">"
+window.Document.Writeln "</head>"
+window.Document.Writeln "<body>"
+window.Document.Writeln "<h2 align=""center"">Master Service Manual" & header_name
+window.Document.Writeln "</h2>"
+window.Document.Writeln "<h3 align=""center""><img SRC=""./images/trucks2008.jpg"" WIDTH=""681"" HEIGHT=""120"">"
+window.Document.Writeln "<font size=""5"" color=""red"">I</font><font size=""5"" color=""black"">nternational </font><font size=""5"" color=""red"">S</font><font size=""5"" color=""black"">ervice </font><font size=""5"" color=""red"">I</font><font size=""5"" color=""black"">nformation </font><font size=""5"" color=""red"">S</font><font size=""5"" color=""black"">olutions</font>"
+window.Document.Writeln "<img SRC=""./images/whatsnew2.gif"" WIDTH=""450"" HEIGHT=""10""></h3>"
+dim currentdate
+dim expirationdate
+dim prt_vendor
+dim prt_ucode
+dim prt_tm
+dim prt_engfam
+dim grp_name
+dim recname_display
+
+currentdate = date()
+
+expirationdate = #08/01/01#
+
+' if currentdate <= expirationdate then
+' 	window.Document.Writeln "<h5 align=""center"">Current Date is: " & currentdate & ".  This version will expire on " & expirationdate & ".</h5>"
+
+if selected_vendor > " " then
+	prt_vendor = "Vendor: " & selected_vendor & ""
+else
+	prt_vendor = ""
+end if
+
+if selected_ucode > "" then
+	if selected_ucode = " " then
+		prt_ucode = "Feature Code: ALL"
+	else
+		prt_ucode = "Feature Code: " & selected_ucode & ""
+	end if
+
+else
+	prt_ucode = ""
+end if
+
+if selected_tm > " " then
+	prt_tm = "Truck Model: " & selected_tm & ""
+else
+	prt_tm = ""
+end if
+
+if selected_engfam > "" then
+	if selected_engfam = " " then
+		prt_engfam = "Engine Family: ALL"
+	else
+		prt_engfam = "Engine Family: " & selected_engfam & ""
+	end if
+else
+	prt_engfam = ""
+end if
+
+if selected_grp > " " then
+	if selected_grp = "s01" then
+	 grp_name = "Frame"
+	else if  selected_grp = "s02" then
+	 grp_name = "Front Axle"
+	else if  selected_grp = "s03" then
+	 grp_name = "Springs"
+	else if  selected_grp = "s04" then
+	 grp_name = "Brakes"
+	else if  selected_grp = "s05" then
+	 grp_name = "Steering"
+	else if  selected_grp = "s06" then
+	 grp_name = "Prop. Shaft"
+	else if  selected_grp = "s07" then
+	 grp_name = "Exhaust"
+	else if  selected_grp = "s08" then
+	 grp_name = "Electrical"
+	else if  selected_grp = "s09" then
+	 grp_name = "Front End"
+	else if  selected_grp = "s10" then
+	 grp_name = "General"
+	else if  selected_grp = "s11" then
+	 grp_name = "Clutch"
+	else if  selected_grp = "s12" then
+	 grp_name = "Engine"
+	else if  selected_grp = "s13" then
+	 grp_name = "Transmission"
+	else if  selected_grp = "s14" then
+	 grp_name = "Rear Axle"
+	else if  selected_grp = "s15" then
+	 grp_name = "Fuel Tanks"
+	else if  selected_grp = "s16" then
+	 grp_name = "Cab"
+	else if  selected_grp = "s17" then
+	 grp_name = "Wheels"
+	else if  selected_grp = "s47" then
+	 grp_name = "Bus Body"
+	else
+	 grp_name = selected_grp
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+	end if
+
+	prt_grp = "Major Component Group: " & grp_name & ""
+else
+	prt_grp = ""
+end if
+
+window.Document.Writeln "<p align=""center"" valign=""top""><b>The information requested was</b>" & prt_grp & prt_tm & prt_ucode & prt_vendor & prt_engfam & "</p>"
+
+' added 02/05/2007
+if selected_tm = "CF 500" or selected_tm = "CF 600" or selected_tm = "PROSTAR" or selected_tm = "MXT" then
+	prt_specialmodel = "For the model selected, only information specifically meant for that model is displayed."
+else
+	prt_specialmodel = "Information that is general in nature and not specific to a particular model may be displayed"
+end if
+
+window.Document.Writeln "<p align=""center"" valign=""top""><b>" & prt_specialmodel & "</p>"
+
+
+'window.Document.Writeln "<p align=""center""><table border><caption><b>Titles Selected</b></caption>"
+'window.Document.Writeln "<tr><th>File</th><th>&nbsp;&nbsp;Formnum&nbsp;&nbsp;</th><th>Title</th></tr>"
+
+ii = 0
+kk = 0
+reccount = 0
+
+typeofinfo = ""
+prevtypeofinfo = ""
+
+' january 23, 2001
+
+dim prevroot
+prevroot = ""
+
+' january 23, 2001
+
+s = ts.Readline
+
+' msgbox s, 0, "first input record"
+
+dim colwidth
+dim rootstart
+dim rootend
+dim rec_root
+dim rec_filepart
+
+while (not ts.atendofstream)
+' while (not ts.atendofstream and reccount < 6)
+	reccount = reccount + 1
+	' msgbox s, 0, "input record"
+
+' january 23, 2001
+
+	rootstart = instr(1,s,"<root>",1)
+	rootend = instr(1,s,"</root>",1)
+
+	if rootstart > 0 then
+	   rec_root = mid(s, rootstart + 6, rootend - rootstart - 6)
+	else
+	   rec_root = ""
+	end if
+
+' january 23, 2001
+
+	filenamestart = instr(1,s,"<filename>",1)
+	filenameend = instr(1,s,"</filename>",1)
+
+	if filenamestart > 0 then
+	   rec_filename = mid(s, filenamestart + 10, filenameend - filenamestart - 10)
+	else
+	   rec_filename = ""
+	end if
+
+	' msgbox rec_filename, 0, "rec_filename"
+
+' have to account for multiple values on record
+	rest_of_rec = s
+
+	engfamstart = instr(1,rest_of_rec,"<engfam>",1)
+	engfamend = instr(1,rest_of_rec,"</engfam>",1)
+
+	ok_engfam = "no"
+	if selected_engfam <> "" and submit2 = "yes" then
+		if selected_engfam = " " and instr(1,rest_of_rec,"<grp>s12",1) > 0 then
+			ok_engfam = "yes"
+		end if
+		while (engfamstart > 0 and ok_engfam = "no")
+			rec_engfam = mid(rest_of_rec, engfamstart + 8, engfamend - engfamstart - 8)
+
+			if rec_engfam = selected_engfam then
+				ok_engfam = "yes"
+			else
+				rest_of_rec = mid(rest_of_rec, engfamend + 9)
+
+				engfamstart = instr(1,rest_of_rec,"<engfam>",1)
+				engfamend = instr(1,rest_of_rec,"</engfam>",1)
+			end if
+		wend
+	else
+		ok_engfam = "yes"
+	end if
+
+	translationstart = instr(1,s,"<trans>",1)
+	translationend = instr(1,s,"</trans>",1)
+	if translationstart > 0 then
+	   rec_translation = mid(s, translationstart + 7, translationend - translationstart - 7)
+	else
+	   rec_translation = ""
+	end if
+
+	' msgbox rec_translation, 0, "rec_translation"
+
+	titlestart = instr(1,s,"<title>",1)
+
+	titleend = instr(1,s,"</title>",1)
+
+	if titlestart > 0 then
+	   rec_title = mid(s, titlestart + 7, titleend - titlestart - 7)
+	else
+	   rec_title = ""
+	end if
+
+	' msgbox rec_title, 0, "title"
+
+	formnumstart = instr(1,s,"<formnum>",1)
+	formnumend = instr(1,s,"</formnum>",1)
+	if formnumstart > 0 then
+	   rec_formnum = mid(s, formnumstart + 9, formnumend - formnumstart - 9)
+	else
+	   rec_formnum = "&nbsp;"
+	end if
+
+' have to account for multiple values on record
+	rest_of_rec = s
+
+	majorgrpstart = instr(1,rest_of_rec,"<grp>",1)
+	majorgrpend = instr(1,rest_of_rec,"</grp>",1)
+
+	ok_grp = "no"
+
+	if selected_grp <> "ALL" and submit1 = "yes" then
+		while (majorgrpstart > 0 and ok_grp = "no")
+			rec_majorgrp = mid(rest_of_rec, majorgrpstart + 5, majorgrpend - majorgrpstart - 5)
+			if rec_majorgrp = selected_grp then
+				ok_grp = "yes"
+			else
+				rest_of_rec = mid(rest_of_rec, majorgrpend + 6)
+
+				majorgrpstart = instr(1,rest_of_rec,"<grp>",1)
+				majorgrpend = instr(1,rest_of_rec,"</grp>",1)
+			end if
+		wend
+	else
+		ok_grp = "yes"
+	end if
+
+	' unit codes are stored as 7 chars. zero fill at the front those on the input that are less
+
+	rest_of_rec = s
+
+	ucodestart = instr(1,rest_of_rec,"<uc>",1)
+	ucodeend = instr(1,rest_of_rec,"</uc>",1)
+
+	ok_ucode = "no"
+
+	if selected_ucode <> " " and submit3 = "yes" then
+
+		while (ucodestart > 0 and ok_ucode = "no")
+			rec_ucode = mid(rest_of_rec, ucodestart + 4, ucodeend - ucodestart - 4)
+
+			while (len(rec_ucode) < 7)
+				rec_ucode = "0" & rec_ucode
+			wend
+
+			if rec_ucode = selected_ucode then
+				ok_ucode = "yes"
+			else
+				rest_of_rec = mid(rest_of_rec, ucodeend + 5)
+				ucodestart = instr(1,rest_of_rec,"<uc>",1)
+				ucodeend = instr(1,rest_of_rec,"</uc>",1)
+			end if
+		wend
+	else if submit3 = "yes" and ucodestart > 0 and selected_ucode = " " or submit3 = "no" then
+		ok_ucode = "yes"
+	' if ALL selected, then only display all with uc valued
+	end if
+	end if
+
+	rest_of_rec = s
+
+	truckmodelstart = instr(1,rest_of_rec,"<tm>",1)
+	truckmodelend = instr(1,rest_of_rec,"</tm>",1)
+
+	ok_tm = "no"
+
+	' don't want to have the 4000 model show up if user selects 4200, 4300, or 4400
+
+
+	if selected_tm <> " " and submit1 = "yes" and truckmodelstart > 0 then
+		while (truckmodelstart > 0 and ok_tm = "no")
+			rec_truckmodel = mid(rest_of_rec, truckmodelstart + 4, truckmodelend - truckmodelstart - 4)
+			if rec_truckmodel = selected_tm then
+				ok_tm = "yes"
+			else
+				if mid(selected_tm,1,1) = mid(rec_truckmodel,1,1) then
+					if selected_tm <> "4200" and selected_tm <> "4300" and selected_tm <> "4400" then
+						if mid(selected_tm,2) = "000" or mid(rec_truckmodel,2) = "000" then
+							ok_tm = "yes"
+						else
+							if mid(selected_tm,2,4) = "000I" and mid(rec_truckmodel,5) = "I" or mid(rec_truckmodel,2,4) = "000I" and mid(selected_tm,5) = "I"  then
+								ok_tm = "yes"
+							end if
+						end if
+					end if
+				end if
+
+				rest_of_rec = mid(rest_of_rec, truckmodelend + 5)
+				truckmodelstart = instr(1,rest_of_rec,"<tm>",1)
+				truckmodelend = instr(1,rest_of_rec,"</tm>",1)
+			end if
+		wend
+	else
+		if selected_tm = "CF 500" or selected_tm = "CF 600" or selected_tm = "PROSTAR" or selected_tm = "MXT" then
+			ok_tm = "no"
+		else
+			ok_tm = "yes"
+		end if
+
+
+	end if
+
+	rest_of_rec = s
+
+	vendorstart = instr(1,rest_of_rec,"<vendor>",1)
+	vendorend = instr(1,rest_of_rec,"</vendor>",1)
+	ok_vendor = "no"
+	if selected_vendor <> " " and submit1 = "yes" then
+		while (vendorstart > 0 and ok_vendor = "no")
+			rec_vendor = mid(rest_of_rec, vendorstart + 8, vendorend - vendorstart - 8)
+
+			if rec_vendor = selected_vendor then
+				ok_vendor = "yes"
+			else
+				rest_of_rec = mid(rest_of_rec, vendorend + 9)
+				vendorstart = instr(1,rest_of_rec,"<vendor>",1)
+				vendorend = instr(1,rest_of_rec,"</vendor>",1)
+			end if
+		wend
+	else
+		ok_vendor = "yes"
+	end if
+
+	ok_translation = "no"
+
+' january 23, 2001
+
+	if rec_translation = selected_language or rec_translation = "zzzzzz" and prev_root <> rec_root then
+		ok_translation = "yes"
+		prev_root = rec_root
+	else
+		ok_translation = "no"
+	end if
+
+	if ok_engfam = "yes"  and ok_translation = "yes" and ok_grp = "yes" and ok_tm = "yes"  and ok_ucode = "yes" and ok_vendor = "yes" then
+
+		rec_filepart = Mid(rec_filename,1,instr(1,rec_filename,".",1) -1)
+
+		colwidth = "80"
+		if instr(1,s,"<SVCSECTION><TRUCK>",1) and selected_cts5000  then
+			typeofinfo = "Master Service Manual (Truck Group)"
+			linkname = "s" & mid(rec_filename,2,2) & "/" & rec_filename
+		else if instr(1,s,"<CIRCUIT>",1) and selected_circuit then
+			typeofinfo = "Master Service Manual (Truck Group)"
+			linkname = "s" & mid(rec_filename,2,2) & "/" & rec_filename
+		else if instr(1,s,"<TROUBLE>",1) and selected_trouble then
+			typeofinfo = "Master Service Manual (Truck Group)"
+			linkname = "s" & mid(rec_filename,2,2) & "/" & rec_filename
+		else if instr(1,s,"<SVCSECTION><ENGINE>",1) and selected_cts5000 then
+			typeofinfo = "Master Service Manual (Engine Group)"
+			linkname = "engine" & "/" & rec_filename
+			colwidth = "130"
+		else if instr(1,s,"<TSI>",1)  and selected_tsis then
+			typeofinfo = "Technical Service Information (TSI) Letters"
+
+' changed March 2003 to remove the _1.xml from the linkname, because I it is part of the filepart now
+
+' this line shows the old way	linkname = "tsis" & "/" & rec_filepart & "_1.xml"
+
+			linkname = "tsis" & "/" & rec_filename
+		else if instr(1,s,"<RECALL>",1)  and selected_recalls then
+			typeofinfo = "Vehicle Recall Campaigns"
+			linkname = "recalls" & "/" & rec_filename
+		else if instr(1,s,"<AFC>",1)  and selected_afcs then
+			typeofinfo = "Authorized Field Change (AFC) Letters"
+			linkname = "afcs" & "/" & rec_filename
+		else if instr(1,s,"<SFN>",1)  and selected_sfns then
+			typeofinfo = "Special Field Notification (SFN) Letters"
+			linkname = "sfns" & "/" & rec_filename
+			' these are longer filenames
+		else if instr(1,s,"<BCM>",1)  and selected_bcms then
+			typeofinfo = "Broadcast Messages"
+			linkname = "bcms" & "/" & rec_filename
+			colwidth = "130"
+			' these are longer filenames
+		else
+			typeofinfo = ""
+			linkname = ""
+		end if
+		end if
+		end if
+		end if
+		end if
+		end if
+		end if
+		end if
+		end if
+
+		recname_display = mid(rec_filename,1,len(rec_filename) -4)
+
+' this is to remove the .htm that user doesn't need to see
+		if mid(recname_display,len(recname_display) - 1, 2) = "_1" then
+			recname_display = mid(recname_display, 1, len(recname_display) - 2)
+		end if
+' this is to remove the _1 that might be at the end (November 19, 2002)
+
+
+	' June 18, 2002
+		' try showing the formnum instead of filename for engine
+		if typeofinfo = "Master Service Manual (Engine Group)" then
+			if rec_formnum <> "&nbsp;" then
+				recname_display = rec_formnum
+			end if
+		end if
+
+
+		if linkname > "" then
+			if typeofinfo <> prevtypeofinfo then
+				if prevtypeofinfo <> "" then
+					window.Document.Writeln "</table>"
+				end if
+				window.Document.Writeln "<p align=""center""><table border=3>"
+				window.Document.Writeln "<tr><td colspan=2 align=center><b><font size=""+1"">" & typeofinfo & "</font></b></td></tr>"
+				window.Document.Writeln "<tr><th>File</th><th>Title</th></tr>"
+				prevtypeofinfo = typeofinfo
+			end if
+			ii = ii + 1
+
+			ii_int = int(ii / 2) * 2
+			if ii_int = ii then
+				shading = " bgcolor=""DDDDDD"""
+			else
+				shading = ""
+			end if
+
+			window.Document.Writeln "<tr" & shading & "><td width=" & colwidth & ">"  & "<a href=""" & linkname & """target=""_top"">" & recname_display & "</a>" & "</td><td>" & rec_title & "</td></tr>"
+		end if
+	end if
+
+	s = ts.Readline
+
+wend
+
+window.Document.Writeln "</table>"
+
+if ii = 0 then
+	window.Document.Writeln "<p align=center><b>No information to match your request</b></p>"
+end if
+
+' else
+' 	window.Document.Writeln "<h5 align=""center"">Current Date is: " & currentdate & ".  This version expired on " & expirationdate & ".</h5>"
+' end if
+
+window.Document.Writeln "</body>"
+window.Document.Writeln "</html>"
+
+ts.close
+
+end if
+end if
+
+end sub
+
+-->
+
+</script>

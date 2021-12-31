@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (1997) - SECTION 3.5: CIRCUIT FUNCTION AND DIAGNOSTICS - INJECTION PRESSURE
+        REGULATOR (IPR) - ECM DIAGNOSTICS
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="proctype" graphiccount="0">
+        <title>ECM DIAGNOSTICS</title>
+        <svcprocinfo>
+            <para>Refer to
+                <emph type="bold">Figure
+                    <hotlnk document="e125_339.xml" xrefid="ef12518124">3.131</hotlnk>
+                    and
+                    <hotlnk document="e125_339.xml" xrefid="ef12518125">3.132</hotlnk>
+                </emph>
+                for the following discussion.
+            </para>
+            <para>The ECM monitors the Injection Control Pressure while the engine is in operation. If the actual
+                pressure is greater or less than the desired pressure, the ECM will set a fault code. When this occurs,
+                the ECM will ignore the ICP sensor and control the engine using pre programmed values for the IPR.
+            </para>
+            <para>The Electronic Service Tool is used to Perform the Engine Running Standard Test which enables the ECM
+                to vary the command signal to the IPR and monitor the performance of the Injection Control Pressure
+                system. If the system does not respond within the specified parameters, the ECM will set a fault code.
+            </para>
+            <para>Fault codes can be retrieved using the Electronic Service Tool or the Self Test Input diagnostic
+                switch located on the vehicle dash. If the ignition key is shut off, the code will be stored as an
+                Inactive code.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>FLASH CODE 241 - ATA CODE SID 42 FMI 11 - INJECTION CONTROL PRESSURE REG. OCC SELF TEST FAILED
+            </title>
+            <para>Code 241 is set only during the Engine Off Standard Output Circuit Check. This test indicates the ECM
+                has performed an output circuit test, measured voltage drop across the IPR circuit and determined it is
+                below or above specification.
+            </para>
+            <para>If this fault is present, the engine will not run. The ECM will not illuminate the Engine Warning
+                light if this code is active, however, this code will be transmitted at the completion of the Output
+                Circuit Check, using the STI switch or the Electronic Service Tool.
+            </para>
+            <para>Possible causes: Open feed circuit or fuse to the IPR, open IPR solenoid, or an open or shorted IPR
+                signal circuit.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 331 - ATA CODE PID 164 FMI 0 - INJECTION CONTROL PRESSURE - ABOVE SYSTEM WORKING RANGE
+            </title>
+            <para>Code 331 indicates the ECM has detected injection control pressure greater than 3675 PSI (25 MPA)
+                which is greater than the maximum allowable working pressure.
+            </para>
+            <para>When this code is active, the ECM will illuminate the Engine Warning light.</para>
+            <para>Possible causes: Incorrect ICP signal due to faulty circuits or sensor, grounded IPR signal circuit, a
+                malfunction in the injection control pressure system or a sticking or blocked IPR valve. Refer to
+                Injection Control Pressure system diagnostics in Section 2.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 333 - ATA CODE PID 164 FMI 10 - INJECTION CONTROL PRESSURE ABOVE/BELOW DESIRED LEVEL
+            </title>
+            <para>Code 333 may be set during normal engine operation through the continuous monitor function or during
+                the Engine Running Standard Test. It indicates the measured pressure does not match the expected value.
+                The ECM will illuminate the Engine Warning light.
+            </para>
+            <para>When this code is active, the ECM will ignore the ICP sensor signal and will control the IPR from
+                programmed values to keep the engine operating. Perform ICP sensor diagnostics to determine if the
+                problem exists in the ICP sensor/circuit. If diagnostic testing indicates the ICP sensor/circuit is
+                functioning properly, perform additional diagnostic tests on the injection control pressure system.
+                Refer to Injection Control Pressure system diagnostics in Section 2.
+            </para>
+            <para>Possible causes: Incorrect ICP signal due to circuit or sensor malfunctions. IPR signal circuit may be
+                grounded or contain excessive resistance. The IPR valve may be sticking or blocked. Injection control
+                pressure system may not be functioning properly.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 334 - ATA CODE PID 164 FMI 7 - INJECTION CONTROL PRESSURE UNABLE TO REACH SETPOINT-POOR
+                PERFORMANCE
+            </title>
+            <para>Code 334 indicates an injection control system response time fault and may be set during normal engine
+                operation through the continuous monitor function or during the Engine Running Standard Test.
+            </para>
+            <para>While the driver of the vehicle rapidly presses his foot down on the accelerator pedal, the ECM
+                compares the actual vs the desired injection control pressure and looks for a large pressure difference
+                (1300 PSI/9MPA) for a short period of time (3 seconds). If the injection control system does not respond
+                quick enough Code 334 will be set and the Engine Warning Lamp will be illuminated.
+            </para>
+            <para>Possible Causes: Low oil level, contaminated engine oil or aerated oil. Trapped air in the injection
+                control pressure system (particularly after an injector or high pressure pump replacement). Defective or
+                stuck Injection Pressure Regulator (IPR). Intermittent IPR valve wiring connection-spread IPR harness
+                terminals at IPR valve, poorly crimped terminals or pulled back pin. Leaking injector "O" rings. Problem
+                with ICP sensor and sensor circuit, system biased high or low. Refer to Injection Control Pressure
+                system diagnostics in Section 2.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 335 - ATA CODE PID 164 FMI 1 - INJECTION CONTROL PRESSURE UNABLE TO BUILD PRESSURE DURING
+                CRANKING
+            </title>
+            <para>Code 335 indicates the ECM has determined that the injection control pressure system has failed to
+                build a pressure of at least 725 PSI/5 MPA during a programmed period of engine cranking time which will
+                vary with engine temperature.
+            </para>
+            <specpara>
+                <note>
+                    <para>Engine cranking speed must be greater than 130 RPM before fault detection begins.</para>
+                </note>
+            </specpara>
+            <para>Possible Causes: No oil in engine. Air in the injection control pressure system (particularly after an
+                injector or high pressure pump replacement). Defective or stuck IPR regulator. Leaking injector "O"
+                rings. Loose high pressure pump gear. Defective high pressure oil pump.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_336.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_338.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

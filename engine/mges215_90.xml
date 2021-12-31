@@ -1,0 +1,787 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos - - FUNCIONES Y DIAGN&#211;STICOS DE CIRCUITOS - Sensor de temperatura
+        del refrigerante (ECT)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Sensor de temperatura del refrigerante (ECT)</title>
+        <svcsubproc>
+            <title>Funciones de las se&#241;ales</title>
+            <figure id="f17503046" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8841.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="300"
+                         box="yes"/>
+                <caption>Diagrama de las funciones del sensor de temperatura del refrigerante</caption>
+            </figure>
+            <para>El sensor de temperatura del refrigerante (ECT) es un sensor tipo termistor que tiene una resistencia
+                variable que cambia al ser expuesta a distintas temperaturas del refrigerante. Al ser conectado al ECM,
+                produce una se&#241;al anal&#243;gica de 0 a 5 V que indica temperatura del refrigerante.
+            </para>
+            <para>
+                <emph type="bold">Compensaci&#243;n por la temperatura del refrigerante</emph>: con temperaturas del
+                refrigerante superiores a 107&#176; C (225&#176; F) el flujo de combustible es reducido en 6% por cada
+                grado cent&#237;grado (&#176; C), hasta que la temperatura del motor alcance los 110&#176; C (229&#176;
+                F). Encima de 110&#176; C (229&#176; F) el combustible se reduce el 3% por cada grado Celsius de aumento
+                en temperatura.
+            </para>
+            <para>
+                <emph type="bold">Velocidad de ralent&#237;</emph>: a temperaturas inferiores a 70&#176; C (158&#176;
+                F), el ralent&#237; bajo se aumenta por incrementos hasta un m&#225;ximo de 875 RPM.
+            </para>
+            <para>
+                <emph type="bold">Advertencia y protecci&#243;n del motor</emph>: funciones opcionales que advierten al
+                conductor de un exceso de temperatura, y que puede ser programada para apagar el motor.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Detecci&#243;n y manejo de fallas</title>
+            <para>Si el ECM detecta una se&#241;al fuera de l&#237;mite - alta o baja desde el ECT, la ignorar&#225; y
+                asumir&#225; una temperatura del refrigerante de -34&#176; C (-29&#176; F) para arrancar y una
+                temperatura de 82&#176; C (180&#176; F) para trabajo del motor. La luz
+                <emph type="bold">ENGINE</emph> &#225;mbar se mantendr&#225; encendida mientras perdure la falla y el od&#243;metro
+                mostrar&#225; el mensaje WARN ENG.
+            </para>
+            <figure id="f17503047.5" figsize="pg-wide">
+                <graphic filename="../figEg8/Eg8808.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="200"
+                         box="yes"/>
+                <caption>Diagrama de circuito del sensor de temperatura del refrigerante con una "T" de derivaciones
+                </caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Luego de retirar el conector, siempre revise en busca de pines da&#241;ados, corrosi&#243;n y
+                        terminales sueltos.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503011.2">
+                <title>Pruebas del ECT usando Master Diagnostics</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="0.81*"/>
+                    <colspec colname="col2" colwidth="0.42*"/>
+                    <colspec colname="COLSPEC0" colwidth="0.42*"/>
+                    <colspec colname="col3" colwidth="1.76*"/>
+                    <spanspec namest="col2" nameend="COLSPEC0" spanname="SPAN3"/>
+                    <spanspec namest="COLSPEC0" nameend="col3" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas de voltaje del sensor de temperatura del refrigerante
+                                        (ECT)
+                                    </emph>
+                                    (con la llave en ON y el motor apagado)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Instale la "T" de derivaciones de 2 cables entre el ECT y el conector del haz de
+                                    cables. Vea ECT VOLTAGE con la prueba
+                                    <emph type="bold">Continuous Monitor</emph>
+                                    localizada bajo el men&#250; Diagnostics del Master Diagnostics. Si el circuito
+                                    tiene una falla activa, de acuerdo con el nivel de voltaje (C&#243;digo 114 &#60;0,127
+                                    V, C&#243;digo 115 >4,6 V), complete los siguientes pasos.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Condici&#243;n de la prueba</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Voltaje esperado</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Comentarios</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor desconectado</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>4,6 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Voltaje &#60;4,6 V, inspeccione el circuito de la se&#241;al por corto a tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Puente est&#225;ndar instalado entre los pines VERDE y NEGRO de la "T" de
+                                    derivaciones
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si el voltaje es >0,127 V, revise en busca de circuitos de tierra y se&#241;al
+                                    abiertos o con alta resistencia. Mida la resistencia del pin A al pin 19 y del pin B
+                                    al pin 13 (especificaci&#243;n &#60;5 &#x2126;) con una caja de derivaciones para
+                                    determinar si la resistencia est&#225; en el haz de cables.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0,5 k&#x2126; puente instalado entre los pines VERDE y NEGRO de la "T" de
+                                    derivaciones
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;1,0 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si el voltaje es >1,0 V, revise el circuito de la se&#241;al en busca de un corto
+                                    al V
+                                    <subscript>REF</subscript>, B+, o al voltaje de se&#241;al de otro sensor.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Sustituya el sensor si el c&#243;digo est&#225; activo y todas las
+                                        pruebas del sensor han dado los resultados esperados. El sensor est&#225; bien
+                                        si una o m&#225;s de las pruebas del sensor no produce los resultados esperados.
+                                        Vea Diagrama de flujo para ubicaci&#243;n de problemas en el ECT
+                                        <xref refid="f17503047.6"/>
+                                    </emph>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Contin&#250;a en la p&#225;gina siguiente</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas operacionales de voltaje</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Voltaje MD: (+)13 a (-)19</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN3">
+                                <para>
+                                    <emph type="bold">Especificaci&#243;n</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">(con la "T" de derivaciones instalada y la llave en ON)</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Voltaje</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Temp. &#176; F</emph>
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>
+                                    <emph type="bold">Temp. &#176; C</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Resistencia del sensor</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0,356 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>230</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>110</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>1,19 k&#x2126;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3,87 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>32</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>0</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>69,2 k&#x2126;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>4,33 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>- 5</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>- 20</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>131 k&#x2126;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Descripci&#243;n de los c&#243;digos de diagn&#243;stico de
+                                        problemas
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>114 = El voltaje de la se&#241;al fue &#60;0,127 V por m&#225;s de 0,1 s.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>115 = El voltaje de la se&#241;al fue >4,6 V por m&#225;s de 0,1 s.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>316 = La temperatura del motor no ha subido por encima de las especificaciones
+                                    despu&#233;s de 120 minutos de operaci&#243;n (s&#243;lo motores con la protecci&#243;n
+                                    contra clima fr&#237;o activada).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>321 = Temperatura del refrigerante por encina del nivel de advertencia 109&#176; C
+                                    (228&#176; F).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>322 = Temperatura del refrigerante por encina del nivel cr&#237;tico 112,5&#176; C
+                                    (234&#176; F).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>325 = Compensaci&#243;n por la temperatura del refrigerante activada, reduce el
+                                    flujo de combustible 6% por cada grado por encima de 107&#176; C (225&#176; F).
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te17503011.3">
+                <title>Especificaciones del circuito del ECT
+                    <xref refid="f17503047.5"/>
+                </title>
+                <tgroup cols="3">
+                    <colspec colnum="1" colname="col1" colwidth="0.56*"/>
+                    <colspec colnum="2" colname="col2" colwidth="0.66*"/>
+                    <colspec colnum="3" colname="col3" colwidth="1.78*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas del voltaje en el conector</emph>
+                                    (con el sensor desconectado del haz de cables y la llave en ON)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Puntos de prueba</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Especificaci&#243;n</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Comentarios</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4,6 a 5,0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltaje de activaci&#243;n. Si no hay voltaje o es muy bajo, busque circuito
+                                    abierto, con alta resistencia o en corto a tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 a 0,25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltaje >0,25 V, el cable tiene un corto al V
+                                    <subscript>REF</subscript>
+                                    o a B+
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas del conector a la tierra del chasis</emph>
+                                    (con el conector del sensor desconectado, el cable positivo de la bater&#237;a
+                                    desconectado y la llave en OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Puntos de prueba</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Especificaci&#243;n</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Comentarios</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>>5 &#x2126; indica que el circuito est&#225; abierto</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60;1 k&#x2126; indica un corto a tierra</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas de la resistencia en el haz de cables</emph>
+                                    (con la caja de derivaciones instalada s&#243;lo del lado del chasis)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Puntos de prueba</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Especificaci&#243;n</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Comentarios</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>19 a A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>75 &#x2126; indica cable de tierra abierto</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>13 a B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>75 &#x2126; indica cable de se&#241;al abierto</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Descripci&#243;n detallada</title>
+            <para>
+                <emph type="bold">Funci&#243;n</emph>
+            </para>
+            <para>El sistema de control del motor de International incluye un sensor de temperatura del refrigerante
+                (ECT). El ECM mide la se&#241;al de temperatura del refrigerante y usa esta informaci&#243;n para
+                compensar por la temperatura del refrigerante y para los sistemas opcionales de advertencia/apagado del
+                motor por alta temperatura.
+            </para>
+            <para>La compensaci&#243;n por la temperatura del refrigerante se usa para proteger al motor si la
+                temperatura es demasiado alta. El ECM monitoriza la se&#241;al del ECT para determinar la temperatura
+                del refrigerante. Si el refrigerante alcanza 107&#176; C (225&#176; F), el ECM reducir&#225; la entrega
+                de combustible en un 6% por cada grado Celsius de aumento de temperatura. Si la temperatura del
+                refrigerante aumenta a 110&#176; C (229&#176; F), el flujo de combustible ser&#225; reducido en un 3%
+                por cada grado Celsius de aumento de temperatura. La compensaci&#243;n por la temperatura del
+                refrigerante se puede programar para que no opere en ciertas aplicaciones en las que el rendimiento del
+                motor es m&#225;s importante que su protecci&#243;n.
+            </para>
+            <para>En motores con sistema de advertencia del motor, el ECM activar&#225; la alarma audible de
+                advertencia, encender&#225; la luz
+                <emph type="bold">ENGINE</emph>
+                roja y har&#225; que aparezca el indicador
+                <emph type="bold">OIL/WATER</emph>
+                en el od&#243;metro cuando la temperatura del refrigerante alcance 109&#176; C (228&#176; F).
+            </para>
+            <para>En motores con sistema de apagado del motor, el ECM apagar&#225; el motor cuando la temperatura del
+                refrigerante alcance 113&#176; C (235&#176; F). El conductor puede volver a arrancar el motor poniendo
+                la llave en OFF y volviendo a dar arranque. Al volver a arrancar, el ECM permitir&#225; que el motor
+                marche por 30 segundos adicionales antes de volverlo a apagar.
+            </para>
+            <para>
+                <emph type="bold">Operaci&#243;n</emph>
+            </para>
+            <para>El sensor de temperatura del refrigerante es del tipo termistor, que cambia la resistencia cuando es
+                expuesto a diferentes temperaturas.
+            </para>
+            <para>Cuando la temperatura del refrigerante disminuye, la resistencia del termistor aumenta, lo que hace
+                que el voltaje de la se&#241;al aumente. A medida que la temperatura del refrigerante aumenta, la
+                resistencia del termistor disminuye, lo que hace que el voltaje de la se&#241;al baje.
+            </para>
+            <para>El ECM suministra al ECT un voltaje de referencia regulado de 5 voltios. El sensor es puesto a tierra
+                en el terminal A a trav&#233;s del terminal de se&#241;al de retorno en el ECM. A medida que la
+                temperatura del refrigerante aumenta o disminuye, la resistencia del sensor cambia y provee al ECM una
+                se&#241;al con voltaje correspondiente a la temperatura del refrigerante. Esta se&#241;al es le&#237;da
+                por el ECM para determinar la temperatura del refrigerante.
+            </para>
+            <para>
+                <emph type="bold">Diagn&#243;sticos hechos por el ECM</emph>
+            </para>
+            <para>Con la llave en ON, el ECM monitoriza continuamente el circuito del ECT para determinar si la se&#241;al
+                de voltaje est&#225; dentro de los l&#237;mites esperados. Si la se&#241;al es menor o mayor que la
+                esperada, el ECM registrar&#225; un c&#243;digo de diagn&#243;stico.
+            </para>
+            <para>Si el ECM detecta una falla en el circuito del ECT, no la tomar&#225; en cuenta y utilizar&#225; una
+                temperatura programada de 82&#176; C (180&#176; F) para la operaci&#243;n de marcha del motor y de -34&#176;
+                C (-29&#176; F) para el arranque del motor. Si la falla ya no existe, se almacenar&#225; como un c&#243;digo
+                inactivo y el ECM regresar&#225; a la operaci&#243;n normal utilizando la se&#241;al del ECT.
+            </para>
+            <para>Los c&#243;digos de diagn&#243;stico de problemas pueden leerse con la herramienta electr&#243;nica de
+                servicio (EST) o interpretando los destellos de las luces
+                <emph type="bold">ENGINE</emph> &#225;mbar y roja, vea
+                <xref refid="P17502001"/>.
+            </para>
+            <para id="f175fc114">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 114</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 110, FMI 4</emph>
+            </para>
+            <para>
+                <emph type="bold">ECT: fuera de l&#237;mite - baja</emph>
+            </para>
+            <para>Cuando el c&#243;digo 114 est&#225; activo, la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar se enciende y el od&#243;metro mostrar&#225; el mensaje WARN
+                ENG.
+            </para>
+            <para>Un c&#243;digo de se&#241;al fuera de l&#237;mite - baja se establecer&#225; si el ECM detecta un
+                voltaje menor a 0,127 V por m&#225;s de 0,1 segundos. Si esta falla est&#225; activa, el ECM usar&#225;
+                el valor predeterminado de 82&#176; C (180&#176; F).
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 114 puede deberse a un corto a tierra o porque el sensor est&#225;
+                en corto o polarizado.
+            </para>
+            <para id="f175fc115">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 115</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 110, FMI 3</emph>
+            </para>
+            <para>
+                <emph type="bold">ECT: fuera de l&#237;mite - alta</emph>
+            </para>
+            <para>Cuando el c&#243;digo 115 est&#225; activo, la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar se enciende y el od&#243;metro mostrar&#225; el mensaje WARN
+                ENG.
+            </para>
+            <para>Un c&#243;digo de se&#241;al fuera de l&#237;mite - alta se establecer&#225; si el ECM detecta un
+                voltaje mayor de 4,6 V por m&#225;s de 0,1 segundos. Si esta falla est&#225; activa, el ECM usar&#225;
+                el valor predeterminado de 82&#176; C (180&#176; F).
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 115 puede deberse a un circuito abierto, porque el sensor est&#225;
+                abierto, o por un corto hacia otra fuente de voltaje.
+            </para>
+            <para id="f175fc321">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 321</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 110, FMI 0</emph>
+            </para>
+            <para>
+                <emph type="bold">Temperatura del refrigerante superior al nivel de advertencia</emph>
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 321 se establecer&#225; si el ECM detecta temperatura del
+                refrigerante superior a 109&#176; C (228&#176; F). Cuando esto ocurre, el ECM enciende la luz
+                <emph type="bold">ENGINE</emph>
+                roja, activa una alarma sonora y muestra el mensaje
+                <emph type="bold">OIL/WATER</emph>
+                en el od&#243;metro (si la protecci&#243;n del motor est&#225; activada), alertando al conductor de que
+                existe la posibilidad de da&#241;os al motor.
+            </para>
+            <para>Si la temperatura desciende a menos de 107&#176; C (225&#176; F), la falla se volver&#225; inactiva y
+                el ECM volver&#225; a funcionar normalmente.
+            </para>
+            <para id="f175fc322">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 322</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 110, FMI 7</emph>
+            </para>
+            <para>
+                <emph type="bold">Temperatura del refrigerante por encima del nivel cr&#237;tico</emph>
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 322 se establecer&#225; si el ECM detecta temperatura del
+                refrigerante superior a 112,5&#176; C (235&#176; F). Cuando esto ocurre, la luz
+                <emph type="bold">ENGINE</emph>
+                roja se encender&#225;, aparecer&#225; en el od&#243;metro el mensaje
+                <emph type="bold">OIL/WATER</emph>
+                y sonar&#225; una alarma de advertencia (si la protecci&#243;n del motor est&#225; activada), alertando
+                al conductor de que la temperatura est&#225; aumentando (luego de establecer el c&#243;digo 321), y que
+                existe la posibilidad de da&#241;os al motor. Con el c&#243;digo 322 activo, el motor se apagar&#225;.
+                Al mismo tiempo, un c&#243;digo de diagn&#243;stico, las horas de funcionamiento del motor y los kil&#243;metros
+                del odometro ser&#225;n grabados en el ECM como un Evento de Motor.
+            </para>
+            <para>Si la temperatura desciende a menos de 112,5&#176; C (235&#176; F), la falla se volver&#225; inactiva
+                y el ECM volver&#225; a funcionar normalmente. Si el motor llegara a apagarse, puede volverse a arrancar
+                para mover el veh&#237;culo hacia un lugar seguro.
+            </para>
+            <para id="f175fc325">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 325</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 110, FMI 14</emph>
+            </para>
+            <para>
+                <emph type="bold">Menor potencia, para coincidir con rendimiento del sistema de enfriamiento</emph>
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 325 se establecer&#225; si la temperatura del sistema de
+                enfriamiento excede 107&#176; C (225&#176; F). A esta temperatura el ECM reducir&#225; el combustible
+                entregado al motor. Por cada grado Celsius de temperatura, el combustible se reducir&#225; en un 6%.
+                Esto reduce el calor producido por el motor y as&#237; se disminuye la carga sobre el sistema de
+                enfriamiento. Tambi&#233;n hace disminuir la velocidad del veh&#237;culo, sugiriendo al conductor que
+                ponga un cambio m&#225;s bajo para aumentar as&#237; la eficiencia del sistema de enfriamiento.
+            </para>
+            <para>A medida que la temperatura se reduce, el nivel de compensaci&#243;n se disminuye hasta que la
+                temperatura caiga por debajo de 107&#176; C (225&#176; F), a la cual se reanuda la operaci&#243;n
+                normal.
+            </para>
+            <para id="f175fc316">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 316</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 110, FMI 1</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo de diagn&#243;stico del CAP: incapaz de calentar el motor</emph>
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 316 se registrar&#225; s&#243;lo en motores que tienen habilitado
+                el sistema de protecci&#243;n contra clima fr&#237;o (CAP), despu&#233;s de que el motor haya operado
+                por m&#225;s de 120 minutos sin haber excedido las siguientes especificaciones de temperatura del
+                refrigerante. Este c&#243;digo se puede borrar con la EST.
+            </para>
+            <verbatim>
+                <line>DT 466 / DT 530</line>
+                <line>Transmisi&#243;n mec&#225;nica 61&#176; C (142&#176; F)</line>
+                <line>Transmisi&#243;n autom&#225;tica 41&#176; C (106&#176; F)</line>
+            </verbatim>
+            <specpara>
+                <note>
+                    <para>Este c&#243;digo s&#243;lo indica que el motor no ha podido alcanzar la temperatura de operaci&#243;n.
+                        No indica una falla electr&#243;nica.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503013" tblwidth="full-page" frame="all">
+                <title>Posibles fallas del sistema y acciones recomendadas para problemas con el ECT</title>
+                <tgroup cols="2" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="200.11*"/>
+                    <colspec colname="col2" colwidth="195.89*"/>
+                    <spanspec namest="col1" nameend="col2" spanname="1to2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>
+                                    <emph type="bold">Acciones recomendadas:</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Condici&#243;n</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Acci&#243;n</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Demasiado tiempo en ralent&#237;</para>
+                            </entry>
+                            <entry>
+                                <para>Recomendar al cliente que reduzca el tiempo del ralent&#237; o aumente la
+                                    velocidad del ralent&#237;
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Baja temperatura ambiente (puede necesitar una funda de radiador)</para>
+                            </entry>
+                            <entry>
+                                <para>Recomendar al cliente que use una funda de radiador</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Termostato trabado en posici&#243;n abierta</para>
+                            </entry>
+                            <entry>
+                                <para>Hacer pruebas al termostato seg&#250;n el manual de servicio</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Encaminamiento incorrecto de la manguera del refrigerante (no pasa por el
+                                    termostato)
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>Verificar el encaminamiento correcto de las mangueras y tuber&#237;as del
+                                    sistema
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Calentadores auxiliares est&#225;n enfriando el motor</para>
+                            </entry>
+                            <entry>
+                                <para>Reducir el flujo a los calentadores o disminuir la velocidad del ventilador de los
+                                    calentadores
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Embrague del ventilador pegado</para>
+                            </entry>
+                            <entry>
+                                <para>Verificar el funcionamiento del embrague del ventilador</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f17503047.6" figsize="full-pg">
+                <graphic filename="../figEg8/Eg8822.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="592px" resolution="600"/>
+                <caption>Diagrama de flujo para ubicaci&#243;n de problemas en el ECT</caption>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_89.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_91.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

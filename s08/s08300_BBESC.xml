@@ -1,0 +1,878 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Body Builder Electrical Data Book for Models Built January 2001 to February 28, 2007 - Electrical Features -
+        Electrical System Controller (ESC) - Park, Dome and Brake (Stop Lamp) ESC Connections
+    </stitle>
+    <svcman/>
+    <svcproc id="BBESC" svcproctype="describe" graphiccount="4">
+        <title>Park, Dome and Brake (Stop Lamp) ESC Connections</title>
+        <para>
+            <emph type="bold">Part of General Electrical System Code (08000)</emph>
+        </para>
+        <para>
+            <emph type="boldundersc">FEATURE CODE DESCRIPTION:</emph>
+        </para>
+        <para>ELECTRICAL SYSTEM 12-Volt, Standard Equipment</para>
+        <para>
+            <emph type="boldundersc">FEATURE / BODY FUNCTION:</emph>
+        </para>
+        <para>International provides location to obtain a "Park Brake Set" and with some features a "Brake Applied"
+            signal is available.
+        </para>
+        <specpara>
+            <caution>
+                <para>Care must be taken when splicing into the dome lamp circuit; do not splice into the door switch
+                    circuits. The door switch circuits go to the ESC and do not function the same as vehicles less ESC.
+                </para>
+            </caution>
+        </specpara>
+        <specpara>
+            <caution>
+                <para>If a stop lamp circuit is required do not splice into the circuits that go to the brake switches
+                    (air or hydraulic). Circuits that come from the, low current, brake switches must not be altered,
+                    any attempt to alter will result in system trouble.
+                </para>
+            </caution>
+        </specpara>
+        <para>
+            <emph type="boldundersc">SOFTWARE FEATURE CODES / PROGRAMMABLE PARAMETERS:</emph>
+        </para>
+        <para>Software Feature Codes that MUST be added: 595014, 595015, 595021, and 595024</para>
+        <para>Software Feature Codes that MAY be added: 595137 and **595162**</para>
+        <para>Software Feature Codes that MUST be removed: NONE</para>
+        <para>** Feature Code 595162 automatically sets the rear chassis light parameters that are set at 0.5 Amp to 0
+            Amp. This feature code is primarily used for customers with LED style lights. This is done because LED style
+            lights operate at less than 0.5 amps, therefore, if the open and low current parameters were still set to
+            0.5 amps, the system would register a fault code, even if the lights were operating correctly.
+        </para>
+        <para>
+            <emph type="boldundersc">CHASSIS LIGHT PARAMETERS</emph>
+        </para>
+        <para>By turning the
+            <emph type="bold">Stop_Override_Hazard_Enabled</emph>
+            parameter ON, the stoplights will always override the hazard lights.
+        </para>
+        <para>If the current in the Left Rear turn signal circuit falls below the level set by the
+            <emph type="bold">LT_RR_Turn_Lo_Current</emph>
+            parameter, the ESC will register a fault code.
+        </para>
+        <para>If the current in the Left Rear light circuit exceeds the level set by the
+            <emph type="bold">LT_RR_Turn_Hi_Current</emph>
+            parameter, the ESC will shut off the circuit and register a fault code.
+        </para>
+        <para>The
+            <emph type="bold">LT_RR_Turn_OC_Current</emph>
+            parameter should be left at its factory default of zero.
+        </para>
+        <para>If the current in the Right Rear turn signal circuit falls below the level set by the
+            <emph type="bold">RT_RR_Turn_Lo_Current</emph>
+            parameter, the ESC will register a fault code.
+        </para>
+        <para>If the current in the Right Rear light circuit exceeds the level set by the
+            <emph type="bold">RT_RR_Turn_Hi_Current</emph>
+            parameter, the ESC will shut off the circuit and register a fault code.
+        </para>
+        <para>The
+            <emph type="bold">RT_RR_Turn_OC_Current</emph>
+            parameter should be left at its factory default of zero.
+        </para>
+        <para>If the current in the Left Front turn signal circuit falls below the level set by the
+            <emph type="bold">LT_FT_Turn_Lo_Current</emph>
+            parameter, the ESC will register a fault code.
+        </para>
+        <para>If the current in the Left Front light circuit exceeds the level set by the
+            <emph type="bold">LT_FT_Turn_Hi_Current</emph>
+            parameter, the ESC will shut off the circuit and register a fault code.
+        </para>
+        <para>The
+            <emph type="bold">LT_FT_Turn_OC_Current</emph>
+            parameter should be left at its factory default of zero.
+        </para>
+        <para>If the current in the Right Front turn signal circuit falls below the level set by the
+            <emph type="bold">RT_FT_Turn_Lo_Current</emph>
+            parameter, the ESC will register a fault code.
+        </para>
+        <para>If the current in the Right Front light circuit exceeds the level set by the
+            <emph type="bold">RT_FT_Turn_Hi_Current</emph>
+            parameter, the ESC will shut off the circuit and register a fault code.
+        </para>
+        <para>The
+            <emph type="bold">RT_FT_Turn_OC_Current</emph>
+            parameter should be left at its factory default of zero.
+        </para>
+        <table id="t73000h1">
+            <tgroup cols="8">
+                <colspec colname="col1" colwidth="1.45*"/>
+                <colspec colname="col2" colwidth="0.71*"/>
+                <colspec colname="col3" colwidth="1.82*"/>
+                <colspec colname="col4" colwidth="0.75*"/>
+                <colspec colname="col5" colwidth="0.91*"/>
+                <colspec colname="col6" colwidth="0.86*"/>
+                <colspec colname="col7" colwidth="0.77*"/>
+                <colspec colname="col8" colwidth="0.84*"/>
+                <thead>
+                    <row>
+                        <entry>
+                            <para>Parameter</para>
+                        </entry>
+                        <entry>
+                            <para>ID</para>
+                        </entry>
+                        <entry>
+                            <para>Description</para>
+                        </entry>
+                        <entry>
+                            <para>Default</para>
+                        </entry>
+                        <entry>
+                            <para>Units</para>
+                        </entry>
+                        <entry>
+                            <para>Min</para>
+                        </entry>
+                        <entry>
+                            <para>Max</para>
+                        </entry>
+                        <entry>
+                            <para>Step</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>Stop_ Override_ Hazard_ Enabled</para>
+                        </entry>
+                        <entry>
+                            <para>562</para>
+                        </entry>
+                        <entry>
+                            <para>Enable/ disable stoplights override hazard lights. A value of 1 enables and a value of
+                                0 disables the feature.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>ON</para>
+                        </entry>
+                        <entry>
+                            <para>No_ Units</para>
+                        </entry>
+                        <entry>
+                            <para>NA</para>
+                        </entry>
+                        <entry>
+                            <para>NA</para>
+                        </entry>
+                        <entry>
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>LT_RR_ Turn_Lo_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1904</para>
+                        </entry>
+                        <entry>
+                            <para>Left Rear Turn Signal Low Current Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>0.5</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>LT_RR_ Turn_Hi_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1905</para>
+                        </entry>
+                        <entry>
+                            <para>Left Rear Turn Signal High Current Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>LT_RR_ Turn_OC_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1906</para>
+                        </entry>
+                        <entry>
+                            <para>Left Rear Turn Signal Open Circuit Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>0.5</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>RT_RR_ Turn_Lo_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1907</para>
+                        </entry>
+                        <entry>
+                            <para>Right Rear Turn Signal Low Current Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>0.5</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>RT_RR_ Turn_Hi_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1908</para>
+                        </entry>
+                        <entry>
+                            <para>Right Rear Turn Signal High Current Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>RT_RR_ Turn_OC_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1909</para>
+                        </entry>
+                        <entry>
+                            <para>Right Rear Turn Signal Open Circuit Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>0.5</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>LT_FT_ Turn_Lo_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1910</para>
+                        </entry>
+                        <entry>
+                            <para>Left Front Turn Signal Low Current Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>0.5</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>LT_FT_ Turn_Hi_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1911</para>
+                        </entry>
+                        <entry>
+                            <para>Left Front Turn Signal High Current Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>LT_FT_ Turn_OC_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1912</para>
+                        </entry>
+                        <entry>
+                            <para>Left Front Turn Signal Open Circuit Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>0.5</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>RT_FT_ Turn_Lo_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1913</para>
+                        </entry>
+                        <entry>
+                            <para>Right Front Turn Signal Low Current Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>0.5</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>RT_FT_ Turn_Hi_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1914</para>
+                        </entry>
+                        <entry>
+                            <para>Right Front Turn Signal High Current Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>RT_FT_ Turn_OC_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1915</para>
+                        </entry>
+                        <entry>
+                            <para>Right Front Turn Signal Open Circuit Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>0.5</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">DOME LIGHT PARAMETERS</emph>
+        </para>
+        <para>If the
+            <emph type="bold">Dome_Light_Dim_Enable</emph>
+            parameter is turned ON, the dome light dimming feature is enabled.
+        </para>
+        <para>The
+            <emph type="bold">Dome_Light_Dim_Step_Size</emph>
+            parameter sets the percentage that the light will be reduced for each 20-millisecond loop.
+        </para>
+        <para>The
+            <emph type="bold">Dome_Light_PWM_Percent_Level</emph>
+            parameter is the programmable percentage of maximum voltage that dome light will be pulling when it is
+            waiting to dim.
+        </para>
+        <para>The
+            <emph type="bold">Dome_Light_Wait_Time</emph>
+            parameter sets the amount of time after the door is shut, that the dome light stays at the voltage set by
+            Dome_Light_PWM_Percent_Level, before dimming at the rate set by Dome_Light_Dim_Step_Size.
+        </para>
+        <para>If the current in the dome light circuit falls below the level set by the
+            <emph type="bold">Dome_Light_Lo_Current</emph>
+            parameter, the ESC will register a fault code.
+        </para>
+        <para>If the current in the dome light circuit exceeds the level set by the
+            <emph type="bold">Dome_Light_Hi_Current</emph>
+            parameter, the ESC will shut off the circuit and register a fault code.
+        </para>
+        <para>The
+            <emph type="bold">Dome_Light_OC_Current</emph>
+            parameter should be left at its factory default of zero.
+        </para>
+        <para>The
+            <emph type="bold">Dome_Light_Key_Off_Timeout</emph>
+            parameter sets the amount of time that the dome light will remain on after the truck is turned off and the
+            door is left open.
+        </para>
+        <table id="t73000h2">
+            <tgroup cols="8">
+                <colspec colname="col1" colwidth="1.45*"/>
+                <colspec colname="col2" colwidth="0.71*"/>
+                <colspec colname="col3" colwidth="1.82*"/>
+                <colspec colname="col4" colwidth="0.75*"/>
+                <colspec colname="col5" colwidth="0.91*"/>
+                <colspec colname="col6" colwidth="0.86*"/>
+                <colspec colname="col7" colwidth="0.77*"/>
+                <colspec colname="col8" colwidth="0.84*"/>
+                <thead>
+                    <row>
+                        <entry>
+                            <para>Parameter</para>
+                        </entry>
+                        <entry>
+                            <para>ID</para>
+                        </entry>
+                        <entry>
+                            <para>Description</para>
+                        </entry>
+                        <entry>
+                            <para>Default</para>
+                        </entry>
+                        <entry>
+                            <para>Units</para>
+                        </entry>
+                        <entry>
+                            <para>Min</para>
+                        </entry>
+                        <entry>
+                            <para>Max</para>
+                        </entry>
+                        <entry>
+                            <para>Step</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>Dome_ Light_Dim_ Enable</para>
+                        </entry>
+                        <entry>
+                            <para>177</para>
+                        </entry>
+                        <entry>
+                            <para>Enable/ disable dome light theatre dimming. A value of 1 enables and a value of 0
+                                disables the dimming feature.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>ON</para>
+                        </entry>
+                        <entry>
+                            <para>No_ Units</para>
+                        </entry>
+                        <entry>
+                            <para>NA</para>
+                        </entry>
+                        <entry>
+                            <para>NA</para>
+                        </entry>
+                        <entry>
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Dome_ Light_Dim_ Step_Size</para>
+                        </entry>
+                        <entry>
+                            <para>178</para>
+                        </entry>
+                        <entry>
+                            <para>The size (in percentages) that the Dome_Light_ Req should be stepped down each loop.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                        <entry>
+                            <para>Percent</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Dome_ Light_PWM_ Percent_ Level</para>
+                        </entry>
+                        <entry>
+                            <para>179</para>
+                        </entry>
+                        <entry>
+                            <para>The level at which the dome light should be set at while it is waiting to dim.</para>
+                        </entry>
+                        <entry>
+                            <para>80</para>
+                        </entry>
+                        <entry>
+                            <para>Percent</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>100</para>
+                        </entry>
+                        <entry>
+                            <para>5</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Dome_ Light_Wait_ Time</para>
+                        </entry>
+                        <entry>
+                            <para>182</para>
+                        </entry>
+                        <entry>
+                            <para>This is the amount of time the dome light should wait before dimming.</para>
+                        </entry>
+                        <entry>
+                            <para>20</para>
+                        </entry>
+                        <entry>
+                            <para>s</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                        <entry>
+                            <para>6000</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Dome_ Light_Lo_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1895</para>
+                        </entry>
+                        <entry>
+                            <para>Dome Light Low Current Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Dome_ Light_Hi_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1896</para>
+                        </entry>
+                        <entry>
+                            <para>Dome Light High Current Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Dome_ Light_OC_ Current</para>
+                        </entry>
+                        <entry>
+                            <para>1897</para>
+                        </entry>
+                        <entry>
+                            <para>Dome Light Open Circuit Detection Level (Amps)</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>A</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Dome_ Light_Key_ Off_ Timeout</para>
+                        </entry>
+                        <entry>
+                            <para>2213</para>
+                        </entry>
+                        <entry>
+                            <para>The amount of time that the dome light will remain on after the truck is turned off
+                                and the door is left open.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>min</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                        <entry>
+                            <para>120</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">WIRING INFORMATION:</emph>
+        </para>
+        <para>
+            <emph type="bold">Park Brake Applied Signal</emph>
+        </para>
+        <para>Pin 4 of Connector #1600 is switched to ground when the park brake is applied. This pin is rated for a
+            maximum load current of 0.5 Amp. This pin can be connected to a relay coil to activate a relay for park
+            brake interlock. To use pin, remove cavity plug from connector and insert a wire and terminal.
+        </para>
+        <figure id="f7300081" figsize="col-wide">
+            <graphic filename="../figg73/g7300081.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                     scalefitheight="272px"/>
+            <caption>Terminal P/N 3517243C1 - 18 gauge</caption>
+        </figure>
+        <para>
+            <emph type="bold">Service Brake Applied Signal</emph>
+        </para>
+        <para>If the vehicle is equipped with a feature designed for trailers with separate stop and turn, see section
+            "Trailer Socket/Body Builders Wiring", a stop circuit is available.
+        </para>
+        <para>Splice into circuit 70 after the fuse. Note there is no access inside the cab; if required, circuit will
+            have to be routed through dash.
+        </para>
+        <figure id="f7300082" figsize="pg-wide">
+            <graphic filename="../figg73/g7300082.webp" type="webp" scalefit="1" scalefitwidth="392px"
+                     scalefitheight="352px"/>
+            <caption></caption>
+        </figure>
+        <para>If the vehicle was not ordered with a feature providing a separate stop circuit, see "
+            <hotlnk document="s08300_BBHDI.xml" xrefid="BBHDI">How Do I Add</hotlnk>" in section 9 for information.
+        </para>
+        <para>
+            <emph type="bold">Dome Lamps</emph>
+        </para>
+        <para>Dome lamps are controlled by the ESC. After the door is shut, the dome lamps stay on of 20 seconds at 80%
+            voltage, a slight dimming of the lamp can be observed. After the 20 seconds, the lamps will dim then go out,
+            "Theater Dimming". The ESC can be programmed by the dealer to go out as soon as the door is closed.
+        </para>
+        <para>The dome circuit is fused internal to the ESC at 10 amp. If vehicle has courtesy lights, do not exceed 5
+            amp additional load. If vehicle does not have courtesy lights, do not exceed 8 amp additional load.
+        </para>
+        <para>In order for Body Builders to use the dome light circuit, they must splice into the wire coming from Pin C
+            on the Brown ESC output connector (#1601). Correct splicing techniques (shown in section 1 of this book)
+            should be used so that splicing is done safely and effectively.
+        </para>
+        <para>If additional loads are required, use a relay. If a relay is added, "Theater Dimming" must be turned off
+            to prevent relay chatter.
+        </para>
+        <para>See the circuit diagram below for available circuits for dome light operation. These circuits are A63E,
+            A63M (if equipped with courtesy lights), C63C and D63C. The maximum current draw for the dome lamp system is
+            10 amps.
+        </para>
+        <figure id="f7300083" figsize="pg-wide">
+            <graphic filename="../figg73/g7300083.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                     scalefitheight="432px"/>
+            <caption>Dome Light Wiring</caption>
+        </figure>
+        <figure id="f7300084" figsize="pg-wide">
+            <graphic filename="../figg73/g7300084.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                     scalefitheight="502px"/>
+            <caption>Dome Light Circuit Diagram</caption>
+        </figure>
+        <para>
+            <emph type="bold">TESTING:</emph>
+        </para>
+        <para>If parameters are changed in the Diamond Logic&#8482; Builder software or ICAP, verify that the desired
+            functionality is obtained.
+        </para>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_BB60ACW.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_31.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

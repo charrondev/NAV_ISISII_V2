@@ -1,0 +1,2103 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 9200, 9300, 9400 Models Built After January 1, 1995 - ELECTRICAL
+        TROUBLESHOOTING CATERPILLAR 3176B AND 3406E ELECTRONIC ENGINES
+    </stitle>
+    <svcman/>
+    <svcsection id="s08057" svcsectype="prodspec" division="truck" formnum="CTS-5211-06" date="06/09/1996">
+        <title>ELECTRICAL TROUBLESHOOTING CATERPILLAR 3176B AND 3406E ELECTRONIC ENGINES</title>
+        <apply>
+            <configure>
+                <truckmodelgroup/>
+
+                <truckmodel>9200
+                    <daterange>
+                        <startdate>01/01/1995</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>9300
+                    <daterange>
+                        <startdate>01/01/1995</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>9400
+                    <daterange>
+                        <startdate>01/01/1995</startdate>
+                    </daterange>
+                </truckmodel>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <lev1>
+                    <para>This section covers International installed components and circuits that directly interact
+                        with the Caterpillar 3176B and 3406E engines.
+                    </para>
+                    <para>The
+                        <emph type="underscr">Caterpillar Electronic Troubleshooting Guide</emph>
+                        should be used to diagnose the engine control system.
+                    </para>
+                    <para>This section
+                        <emph type="bold">does not provide</emph>engine diagnostics, but does provide step-by-step
+                        troubleshooting charts for International installed components and circuits. The charts in this
+                        section should be used when the
+                        <emph type="underscr">Caterpillar Electronic Troubleshooting Guide</emph>
+                        indicates a problem may be present in a International circuit or component.
+                    </para>
+                    <para>
+                        <emph type="bold">Only systems that include International installed components and/or circuits
+                            are discussed in this section.
+                        </emph>
+                    </para>
+                    <para>Refer to the appropriate Caterpillar Service Literature for additional information.</para>
+                    <para>Caterpillar, Inc. Literature Orders Section P.O. Box 5319 Morton, IL 61550</para>
+                </lev1>
+                <lev1>
+                    <title>OVERVIEW</title>
+                    <para>The 3176B/3406E controllers provide engine and vehicle functions including:</para>
+                    <para>
+                        <emph type="underscr">ENGINE FUNCTIONS</emph>
+                    </para>
+                    <seqlist style="alphauc">
+                        <item>
+                            <para>Electronic Governing*</para>
+                        </item>
+                        <item>
+                            <para>Fuel/Air Ratio Control*</para>
+                        </item>
+                        <item>
+                            <para>Injection Timing Control*</para>
+                        </item>
+                        <item>
+                            <para>Service Diagnostics**</para>
+                        </item>
+                        <item>
+                            <para>Torque Rise Shaping*</para>
+                        </item>
+                        <item>
+                            <para>Trip Data Recording*</para>
+                        </item>
+                    </seqlist>
+                    <para>*Caterpillar System</para>
+                    <para>**Caterpillar/International System</para>
+                    <para>
+                        <emph type="underscr">VEHICLE FUNCTIONS</emph>
+                    </para>
+                    <seqlist>
+                        <item>
+                            <para>Cruise Control**</para>
+                        </item>
+                        <item>
+                            <para>Data Links**</para>
+                        </item>
+                        <item>
+                            <para>Engine Brake Controls**</para>
+                        </item>
+                        <item>
+                            <para>Engine Protection System**</para>
+                        </item>
+                        <item>
+                            <para>Idle Shutdown Timer**</para>
+                        </item>
+                        <item>
+                            <para>Progressive Shifting**</para>
+                        </item>
+                        <item>
+                            <para>PTO Controls**</para>
+                        </item>
+                        <item>
+                            <para>Vehicle Speed Limiting**</para>
+                        </item>
+                    </seqlist>
+                    <para>**Caterpillar/International System</para>
+                    <lev2>
+                        <title>Programmable Parameters</title>
+                        <para>Certain programmable parameters that affect the engine electronic control systems may be
+                            changed with electronic service tools.
+                        </para>
+                        <para>The parameters are stored in the system Electronic Control Module (ECM) and are protected
+                            from unauthorized change by passwords. The programmable parameters are either "System
+                            Parameters" or "Customer Parameters."
+                        </para>
+                        <para>
+                            <emph type="bold">System Configuration Parameters</emph>are set at the factory and affect
+                            emissions or horsepower ratings within a family of engines. Factory passwords must be
+                            obtained and used to change System Configuration Parameters.
+                        </para>
+                        <para>
+                            <emph type="bold">Customer Selectable Parameters</emph>are variable, and are used to specify
+                            operating parameters for: cruise control, PTO operation, vehicle speed limits, progressive
+                            shifting, type of engine protection system, RPM and horsepower ratings within the engine
+                            family. Customer passwords are needed to change Customer Parameters.
+                        </para>
+                        <para>Since each 3176B/3406E control system is electronically programmable to individual owner
+                            specifications,
+                            <emph type="bold">the operating parameters will vary from vehicle to vehicle</emph>.
+                        </para>
+                        <para>Some of these parameters may cause the engine to operate in a way that the driver (or
+                            service technician) does not expect, if proper training has not taken place. This may lead
+                            to power or performance complaints and/or service time, when the engine is operating
+                            correctly.
+                        </para>
+                        <para>
+                            <emph type="bold">EXAMPLE:</emph>If the driver attempts to drive 60 mph and the vehicle
+                            speed limiting option has been programmed to limit vehicle speed to 55 mph, the driver may
+                            complain of low power.
+                        </para>
+                    </lev2>
+                    <lev2>
+                        <title>Passwords</title>
+                        <para>"System Configuration Parameters" are protected by Caterpillar factory passwords. Factory
+                            passwords are necessary to:
+                        </para>
+                        <seqlist style="arabic">
+                            <item>
+                                <para>Program a new ECM. When an ECM is replaced, the System Configuration Parameters
+                                    must be programmed into the new ECM. These parameters are protected by Factory
+                                    Passwords.
+                                </para>
+                            </item>
+                            <item>
+                                <para>Rerate engine to another engine family. This requires changing the Personality
+                                    Module Code, which is protected by Factory Passwords.
+                                </para>
+                            </item>
+                            <item>
+                                <para>Read Customer Passwords. If the owner loses the customer password, customer
+                                    parameters cannot be changed. Using Factory Passwords, the customer passwords can be
+                                    read, which can then be used to change customer parameters.
+                                </para>
+                            </item>
+                            <item>
+                                <para>Clear certain logged Diagnostic Codes. Engine Overspeed and Incorrect Engine
+                                    Software fault codes can only be cleared using Factory Passwords.
+                                </para>
+                                <para>
+                                    <emph type="underscr">Factory passwords are only available to authorized Caterpillar
+                                        dealers.</emph>Whenever a system configuration parameter is changed, insure that
+                                    all appropriate components (suspension, drivelines, etc.) are matched with the new
+                                    change. This may adversely affect warranty coverage.
+                                </para>
+                            </item>
+                        </seqlist>
+                        <specpara>
+                            <note>
+                                <para>For complete information on passwords, refer to the Caterpillar Electronic
+                                    Troubleshooting Guide.
+                                </para>
+                            </note>
+                        </specpara>
+                    </lev2>
+                    <lev2>
+                        <title>Self-Diagnostics</title>
+                        <para>Caterpillar Electronic Engine Control systems have some ability to diagnose their own
+                            circuits. The ECM communicates with the Driver using a Yellow Serv/Check Engine and Red
+                            Engine Warning Light.
+                        </para>
+                        <lev3>
+                            <title>Yellow Oil/Water Warning Light</title>
+                            <para>Caterpillar service literature refers to this light as the "Check Engine Light." This
+                                light is used for two purposes. The light is used to notify the driver that an active
+                                code has been logged or with the Idle Shutdown feature, the light flashes to indicate
+                                that the shutdown timer is within 90 seconds of shutting the engine down.
+                            </para>
+                            <para>On power up (key ON and engine OFF), the Yellow Serv/Check Engine will come ON for
+                                five seconds and turn OFF, indicating that the bulb circuit is working properly.
+                            </para>
+                            <para>When a problem condition is detected, an active diagnostic code is logged, which will
+                                cause the Yellow Serv/Check Engine to turn ON for five seconds, then flash OFF, then
+                                back ON for five seconds. It will repeat this until the condition is gone.
+                            </para>
+                            <para>The code is also logged (stored) in the ECM permanent memory. This memory is not lost
+                                when turning the vehicle OFF or when disconnecting the batteries for a short period of
+                                time.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Active and Inactive Codes</title>
+                            <para>Codes representing current conditions are called
+                                <emph type="bold">ACTIVE</emph>codes. They indicate that a problem of some type
+                                currently exists. They should always be serviced.
+                            </para>
+                            <para>If a fault condition occurred and caused a code to be logged, but is no longer
+                                present, the code is referred to as an
+                                <emph type="bold">INACTIVE</emph>code. This can occur with an intermittent condition or
+                                when repairs are made and the code is not cleared. Logged inactive codes don't always
+                                mean something requires service. Some codes record events and not faults.
+                            </para>
+                            <para>Codes caused by intermittent conditions are automatically cleared, if after 100 hours
+                                of ECM operation, the condition does not occur again. Codes that require a Factory
+                                Password to clear do not automatically clear.
+                            </para>
+                            <para>With Engine Protection selected, the
+                                <emph type="bold">Red Engine Warning light</emph>will be activated.
+                            </para>
+                        </lev3>
+                    </lev2>
+                    <lev2>
+                        <title>Electronic Service Tools</title>
+                        <para>Electronic service tools are designed to help the service technician locate faults and/or
+                            analyze problems within the 3176B/3406E systems. Diagnostic code reading and switch
+                            monitoring can be done using the service tools. An electronic service tool is necessary to
+                            read or change operating parameters.
+                        </para>
+                        <lev3>
+                            <title>Diagnostic Connector (137)</title>
+                            <para>International provides a Diagnostic connector (137) for connecting an Electronic
+                                Service Tool (EST) to the electronic engine control system. The Diagnostic connector is
+                                located on the instrument panel left.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Caterpillar Service Tools</title>
+                            <para>Caterpillar service tools are available for 3176B/3406E engines. The Electronic
+                                Control Analyzer Programmer (ECAP) and the Digital Diagnostic Tool (DDT) both can
+                                communicate with 3176B/3406E engines. Refer to Caterpillar Service Manual for complete
+                                information needed to use these tools.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>MPSI Pro-Link 9000</title>
+                            <para>The MPSI Pro-Link 9000 Electronic Service Tool is available with a single cartridge
+                                that communicates with both the Caterpillar 3176B/3406E engines. The Pro-Link 9000
+                                communicates with the engine ECM through the Diagnostic connector. A manual is provided
+                                with the MPSI Caterpillar cartridge explaining its use.
+                            </para>
+                            <para>This section does not discuss engine diagnostics,
+                                <emph type="bold">except as they relate to International installed circuits or
+                                    components</emph>. Refer to the Caterpillar Engine Operators Manual furnished with
+                                the vehicle and/or other Caterpillar Electronic Troubleshooting Manuals for additional
+                                engine related information.
+                            </para>
+                            <specpara>
+                                <note>
+                                    <para>When referring to an electronic service tool (EST), this manual will make
+                                        reference to the MPSI Pro-Link.
+                                    </para>
+                                </note>
+                            </specpara>
+                        </lev3>
+                    </lev2>
+                </lev1>
+                <lev1>
+                    <title>ELECTRICAL OPERATION</title>
+                    <para>This section describes specific electrical operation of International installed circuits and
+                        components, referencing specific circuits, connectors and components by number.
+                    </para>
+                    <para>Refer to circuit diagram CATERPILLAR 3176B/3406E - ENGINE CONTROLS in CTS-5119S.</para>
+                    <lev2>
+                        <title>Electronic Control Module (ECM)</title>
+                        <para>The "Brain" of the 3176B/3406E Electronic Engine Control System is two components working
+                            together: the Electronic Control Module (ECM) and the Vehicle Personality Module (VPM). The
+                            ECM is mounted on the left side of the engine and the VPM is mounted on the ECM. The ECM is
+                            the computer which controls the engine related vehicle functions. The VPM contains the
+                            operating instructions (software) including owner selected parameters and other engine
+                            information for the ECM to use, controlling how the ECM behaves.
+                        </para>
+                        <para>The International engine harness connector (400) connects to
+                            <emph type="bold">Caterpillar 40-pin connector J1</emph>. All electronic communication
+                            between the International electrical system and the Caterpillar engine control system go
+                            through (400)/J1, the International/Caterpillar connection.
+                        </para>
+                        <lev3>
+                            <title>Switched Power To The ECM</title>
+                            <para>With the key switch ON, the ECM receives (12 volt DC) operating power from the vehicle
+                                batteries through International engine harness connector (400), terminal 6. The battery
+                                power to the ECM is switched ON or OFF by the Run Relay (144), which is energized when
+                                the key switch is in the IGN position.
+                            </para>
+                            <seqlist style="arabic">
+                                <item>
+                                    <para>Turning the key switch ON applies power from Ignition Adapter (494) to the
+                                        control coil of the Run Relay (144), causing it to energize. The relay control
+                                        coil circuit 13-GZ/11GT goes to ground through (506) Panel Light Ground Adapter.
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>Battery power from connector (497) B1 Battery Adapter is applied to Run Relay
+                                        terminal 30. This circuit is protected by 20A fuse F9-B. With the relay
+                                        energized, battery passes through the Normally Open (N.O.) relay contacts (87 to
+                                        30) and is sent on circuit 97S to International ECM connector (400) terminal 6.
+                                    </para>
+                                </item>
+                            </seqlist>
+                        </lev3>
+                        <lev3>
+                            <title>Unswitched Battery Power To ECM</title>
+                            <para>Battery power from the B+ BATTERY terminal of the Cranking Motor Solenoid is always
+                                applied on circuit 2FL/97F through connector (400) terminal 4 to the ECM. This circuit
+                                is protected by a fusible link 2FL.
+                            </para>
+                            <para>The ECM uses this power to maintain a portion of memory used for customer trip data
+                                accumulators. Disconnecting this circuit does not affect engine operation or
+                                factory/customer parameters or logged diagnostic codes. Refer to the Caterpillar
+                                Electronic Troubleshooting manual for additional information on this feature.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>ECM Inputs And Outputs</title>
+                            <para>The ECM acts as 5V power supply for many Caterpillar and International components used
+                                to monitor and control the engine/vehicle systems. The ECM also supplies operating power
+                                to the Throttle Position Sensor (404), Low Coolant Sensor (402) and the Engine Fan Relay
+                                (410).
+                            </para>
+                            <para>The ECM is connected to the International installed switches that communicate with the
+                                ECM. The switches are 2-way or 3-way switches and are either ON or OFF.
+                            </para>
+                            <para>
+                                <emph type="underscr">EXAMPLE OF A 2-WAY SWITCH:</emph>Cruise Control ON-OFF Switch
+                                (435)
+                            </para>
+                            <para>The ECM needs to know if the Cruise ON/OFF switch is in the ON or OFF position. To
+                                accomplish this, the Cruise ON/OFF switch is connected to the ECM with input circuit
+                                97AE and "common" or ground circuit 97-GH.
+                            </para>
+                            <seqlist style="arabic">
+                                <item>
+                                    <para>Each International installed switch has an "input" circuit that is connected
+                                        through connector (400) to an assigned ECM terminal. This circuit has 5 volts
+                                        applied at the ECM terminal.
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>Each switch is also grounded through connector (400) terminal 29 to the ECM.
+                                        ECM terminal 5 is grounded at the engine ground stud by circuit 97-GB.
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>When the Cruise switch is OFF (switch open), the ECM sees 5 volts at ECM
+                                        terminal 20. Placing the cruise switch to the ON position (switch closed) causes
+                                        the ECM to see 0 volts (ground voltage will be 0 to 0.5 volts) at terminal 20.
+                                        The ECM programming has established that the Cruise Control Switch is OFF when
+                                        it sees 5 volts at connector (400) terminal 20 or cruise is ON when the ECM sees
+                                        0 volts at terminal 20.
+                                    </para>
+                                </item>
+                            </seqlist>
+                            <para>EXAMPLE: The service brake switch (141) is connected by input circuit 97AL to
+                                connector (400) terminal 14. Terminal 14 has a 5-volt signal present. With the brake
+                                switch closed (pedal released), the circuit is complete between terminals 14 (input) and
+                                29 (common or ground). This causes the 5 volt signal at terminal 14 to go to zero. This
+                                tells the ECM that the service brake switch is closed (pedal released).
+                            </para>
+                            <para>This type of circuit is used to communicate switch and some sensor information to the
+                                ECM. Some sensors receive a 5 volt signal and return a variable voltage indicating some
+                                variable attribute. The ECM also uses 12 volt circuits to enable (energize) relays in
+                                the system and
+                                <emph type="underscr">supplies 8V power</emph>to operate the Throttle Position Sensor.
+                            </para>
+                            <para>The ECM receives "inputs" through International connector (400) from the following
+                                International components:
+                            </para>
+                            <seqlist style="alphauc">
+                                <item>
+                                    <para>Vehicle Speed Sensor (VSS)</para>
+                                </item>
+                                <item>
+                                    <para>Throttle Position Sensor (TPS)</para>
+                                </item>
+                                <item>
+                                    <para>Service Brake Switch</para>
+                                </item>
+                                <item>
+                                    <para>Clutch Pedal Switch</para>
+                                </item>
+                                <item>
+                                    <para>Coolant Level Sensor (CLS)</para>
+                                </item>
+                                <item>
+                                    <para>Cruise Control ON/OFF Switch</para>
+                                </item>
+                                <item>
+                                    <para>Cruise Control Set/Resume Switch</para>
+                                </item>
+                                <item>
+                                    <para>Engine Brake ON/OFF Switch</para>
+                                </item>
+                                <item>
+                                    <para>Engine Brake Selector Switch</para>
+                                </item>
+                                <item>
+                                    <para>A/C Pressure Switch</para>
+                                </item>
+                                <item>
+                                    <para>ABS System.</para>
+                                </item>
+                            </seqlist>
+                            <para>The ECM receives the AC signal from the Vehicle Speed Sensor and sends a signal to the
+                                vehicle speedometer. The ECM also sends the signal to drive the vehicle tachometer.
+                            </para>
+                        </lev3>
+                    </lev2>
+                    <lev2>
+                        <title>Engine Protection</title>
+                        <para>The 3176B/3406E engine control system includes an Engine Monitoring feature. This feature
+                            monitors:
+                        </para>
+                        <seqlist style="alphauc">
+                            <item>
+                                <para>Engine Oil Pressure*</para>
+                            </item>
+                            <item>
+                                <para>Coolant Temperature*</para>
+                            </item>
+                            <item>
+                                <para>Coolant Level**</para>
+                            </item>
+                            <item>
+                                <para>Intake Manifold Air Temperature*</para>
+                            </item>
+                        </seqlist>
+                        <para>*Installed by Caterpillar</para>
+                        <para>**Installed by International.</para>
+                        <para>The ECM can be programmed to four different customer selectable modes of engine
+                            monitoring:
+                        </para>
+                        <seqlist style="alphauc">
+                            <item>
+                                <para>OFF</para>
+                            </item>
+                            <item>
+                                <para>Warning Only (default)</para>
+                            </item>
+                            <item>
+                                <para>Warning and Derate</para>
+                            </item>
+                            <item>
+                                <para>Warning, Derate and Shutdown.</para>
+                            </item>
+                        </seqlist>
+                        <para>Selecting any level except OFF activates the Red Engine Warning Light.</para>
+                        <para>
+                            <emph type="bold">OFF MODE -</emph>The engine monitoring system can be turned OFF. If the
+                            customer selects this option, the Red Engine Warning light is not functional (except for
+                            reading codes), although the Yellow Serv/Check Engine will indicate if active fault
+                            conditions are present. If Engine Monitoring is turned OFF, the diagnostic codes for the
+                            following conditions are not enabled.
+                        </para>
+                        <seqlist style="alphauc">
+                            <item>
+                                <para>Low Oil Pressure Warning</para>
+                            </item>
+                            <item>
+                                <para>Very Low Oil Pressure Warning</para>
+                            </item>
+                            <item>
+                                <para>High Coolant Temperature Warning</para>
+                            </item>
+                            <item>
+                                <para>Very High Coolant Temperature Warning</para>
+                            </item>
+                            <item>
+                                <para>Low Coolant Level Warning</para>
+                            </item>
+                            <item>
+                                <para>Coolant Level Sensor Fault (no sensor is installed)</para>
+                            </item>
+                            <item>
+                                <para>Very Low Coolant Level Warning.</para>
+                            </item>
+                        </seqlist>
+                        <para>
+                            <emph type="bold">Warning Only Mode</emph>(Default) - If the system is programmed for
+                            Warning Only mode, the ECM will indicate the diagnostic codes for conditions listed in the
+                            <hotlnk xrefid="t0805701">Code Description Table - Warning Only</hotlnk>, that are active,
+                            using the Yellow Oil/Water Warning Light. The ECM will also turn ON the Red Engine Warning
+                            Light when the necessary conditions exist.
+                            <emph type="underscr">This is the engine protection mode programmed if no other option is
+                                selected when ordering the vehicle.
+                            </emph>
+                        </para>
+                        <table id="t0805701" tblwidth="full-page" frame="all" numbered="no" view="reveal">
+                            <title>Code Description Table - Warning Only</title>
+                            <tgroup cols="5" align="center" charoff="50" char="c">
+                                <colspec colnum="1" colname="1" colwidth="2.99in"/>
+                                <colspec colnum="2" colname="2" colwidth="1.00in"/>
+                                <colspec colnum="3" colname="3" colwidth="1.00in"/>
+                                <colspec colnum="4" colname="4" colwidth="1.00in"/>
+                                <colspec colnum="5" colname="5" colwidth="1.00in" colsep="1"/>
+                                <thead valign="bottom">
+                                    <row>
+                                        <entry>
+                                            <para>CODE DESCRIPTION</para>
+                                        </entry>
+                                        <entry>
+                                            <para>RED Warning Light</para>
+                                        </entry>
+                                        <entry>
+                                            <para>45 MPH MAX</para>
+                                        </entry>
+                                        <entry>
+                                            <para>160HP</para>
+                                            <para>MAX</para>
+                                        </entry>
+                                        <entry>
+                                            <para>1350 RPM MAX</para>
+                                        </entry>
+                                    </row>
+                                </thead>
+                                <tbody valign="top">
+                                    <row>
+                                        <entry>
+                                            <para>Low Oil Pressure Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>SOLID</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>Very Low Oil Pressure Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>solid</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>High Intake Manifold Air Temp. Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>solid</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>Very High Intake Manifold Air Temp. Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>solid</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>High Coolant Temp. Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>solid</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>Very High Coolant Temp. Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>solid</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>Low Coolant Level Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>solid</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                    </row>
+                                    <row rowsep="1">
+                                        <entry>
+                                            <para>Very Low Coolant Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>solid</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                        <entry>
+                                            <para>no</para>
+                                        </entry>
+                                    </row>
+                                </tbody>
+                            </tgroup>
+                        </table>
+                        <para>
+                            <emph type="bold">Derate Mode</emph>- If the system is programmed for the Derate mode, the
+                            ECM will indicate that diagnostic codes for the conditions listed in
+                            <hotlnk xrefid="t0805702">Code Description Table - Derate Mode</hotlnk>, that are active
+                            using the Yellow Serv/Check Engine and also turn ON the Red Engine Warning Light when the
+                            necessary conditions exist.
+                        </para>
+                        <seqlist style="alphauc">
+                            <item>
+                                <para>Conditions causing active codes for
+                                    <emph type="underscr">Low Oil Pressure Warning</emph>and
+                                    <emph type="underscr">Low Coolant Level Warning</emph>will cause the Red Engine
+                                    Warning light to come on solid (light stays ON).
+                                </para>
+                            </item>
+                            <item>
+                                <para>Conditions causing active codes for
+                                    <emph type="underscr">High Coolant Temperature</emph>or
+                                    <emph type="underscr">Very High Coolant Temperature</emph>or
+                                    <emph type="underscr">Very Low Oil Pressure</emph>will cause the Red Engine Warning
+                                    Light to flash.
+                                    <emph type="bold">The Red Engine Warning Light will FLASH whenever engine power is
+                                        derated.</emph>When derated, the available engine power and vehicle speed will
+                                    be limited (if due to Very Low Oil Pressure, engine RPM is also limited).
+                                </para>
+                            </item>
+                        </seqlist>
+                        <table id="t0805702" tblwidth="full-page" frame="all" numbered="no" view="reveal">
+                            <title>Code Description Table - Derate Mode</title>
+                            <tgroup cols="5" align="center" charoff="50" char="c">
+                                <colspec colnum="1" colname="1" colwidth="2.99in"/>
+                                <colspec colnum="2" colname="2" colwidth="1.00in"/>
+                                <colspec colnum="3" colname="3" colwidth="1.00in"/>
+                                <colspec colnum="4" colname="4" colwidth="1.00in"/>
+                                <colspec colnum="5" colname="5" colwidth="1.00in" colsep="1"/>
+                                <thead valign="bottom">
+                                    <row>
+                                        <entry>
+                                            <para>
+                                                <emph type="bold">CODE DESCRIPTION</emph>
+                                            </para>
+                                        </entry>
+                                        <entry>
+                                            <para>
+                                                <emph type="bold">RED WARNING</emph>
+                                                <emph type="bold">LIGHT</emph>
+                                            </para>
+                                        </entry>
+                                        <entry>
+                                            <para>
+                                                <emph type="bold">45 MPH</emph>
+                                                <emph type="bold">MAX</emph>
+                                            </para>
+                                        </entry>
+                                        <entry>
+                                            <para>160HP</para>
+                                            <para>
+                                                <emph type="bold">MAX</emph>
+                                            </para>
+                                        </entry>
+                                        <entry>
+                                            <para>
+                                                <emph type="bold">1350 RPM</emph>
+                                                <emph type="bold">MAX</emph>
+                                            </para>
+                                        </entry>
+                                    </row>
+                                </thead>
+                                <tbody valign="top">
+                                    <row>
+                                        <entry>
+                                            <para>Low Oil Pressure Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>SOLID</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>Very Low Oil Pressure Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>FLASH</para>
+                                        </entry>
+                                        <entry>
+                                            <para>YES</para>
+                                        </entry>
+                                        <entry>
+                                            <para>YES</para>
+                                        </entry>
+                                        <entry>
+                                            <para>YES</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>High Intake Manifold Air Temp. Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>SOLID</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>Very High Intake Manifold Air Temp. Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>SOLID</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>High Coolant Temp. Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>FLASH</para>
+                                        </entry>
+                                        <entry>
+                                            <para>YES</para>
+                                        </entry>
+                                        <entry>
+                                            <para>YES</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>Very High Coolant Temp. Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>FLASH</para>
+                                        </entry>
+                                        <entry>
+                                            <para>YES</para>
+                                        </entry>
+                                        <entry>
+                                            <para>YES</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <para>Low Coolant Level Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>SOLID</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row rowsep="1">
+                                        <entry>
+                                            <para>Very Low Coolant Warning</para>
+                                        </entry>
+                                        <entry>
+                                            <para>FLASH</para>
+                                        </entry>
+                                        <entry>
+                                            <para>YES</para>
+                                        </entry>
+                                        <entry>
+                                            <para>YES</para>
+                                        </entry>
+                                        <entry>
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                </tbody>
+                            </tgroup>
+                        </table>
+                        <para>
+                            <emph type="bold">Shutdown Mode</emph>- If the system is programmed to Shutdown mode, the
+                            ECM will indicate that diagnostic codes for the conditions listed in
+                            <hotlnk xrefid="t0805703">Code Description Table - Shutdown Mode</hotlnk>, that are active
+                            using the Yellow Oil/Water Warning Light.
+                        </para>
+                        <seqlist style="alphauc">
+                            <item>
+                                <para>Conditions causing active codes for
+                                    <emph type="underscr">Low Oil Pressure Warning</emph>or
+                                    <emph type="underscr">Low Coolant Level Warning</emph>will cause the Red Engine
+                                    Warning Light to come on solid (doesn't flash).
+                                </para>
+                            </item>
+                            <item>
+                                <para>Conditions causing active codes for
+                                    <emph type="underscr">High Coolant Temperature</emph>or
+                                    <emph type="underscr">Very High Coolant Temperature</emph>or
+                                    <emph type="underscr">Very Low Oil Pressure</emph>or
+                                    <emph type="underscr">Very Low Coolant Level</emph>will cause the Red Engine Warning
+                                    Light to flash (indicating derate).
+                                </para>
+                            </item>
+                            <item>
+                                <para>If conditions causing active codes for
+                                    <emph type="underscr">Very High Coolant Temperature</emph>or
+                                    <emph type="underscr">Very Low Oil Pressure</emph>or
+                                    <emph type="underscr">Very Low Coolant Level</emph>continue to be present after
+                                    derate, the engine will shut down.
+                                </para>
+                            </item>
+                        </seqlist>
+                        <table id="t0805703" tblwidth="full-page" frame="all" numbered="no" view="reveal">
+                            <title>Code Description Table - Shutdown Mode</title>
+                            <tgroup cols="5" align="center" charoff="50" char="c">
+                                <colspec colnum="1" colname="1" colwidth="2.99in"/>
+                                <colspec colnum="2" colname="2" colwidth="1.00in"/>
+                                <colspec colnum="3" colname="3" colwidth="0.75in"/>
+                                <colspec colnum="4" colname="4" colwidth="0.75in"/>
+                                <colspec colnum="5" colname="5" colwidth="1.49in" colsep="1"/>
+                                <spanspec namest="3" nameend="4" spanname="sqspan3-4"/>
+                                <thead valign="bottom">
+                                    <row>
+                                        <entry colname="1">
+                                            <para>
+                                                <emph type="bold">CODE DESCRIPTION</emph>
+                                            </para>
+                                        </entry>
+                                        <entry colname="2">
+                                            <para>
+                                                <emph type="bold">RED WARNING</emph>
+                                                <emph type="bold">LIGHT</emph>
+                                            </para>
+                                        </entry>
+                                        <entry colspan="2" spanname="sqspan3-4" align="center">
+                                            <para>
+                                                <emph type="bold">TIME</emph>
+                                                <emph type="bold">TO</emph>
+                                                <emph type="bold">SHUTDOWN</emph>
+                                            </para>
+                                        </entry>
+                                        <entry colname="5">
+                                            <para>
+                                                <emph type="bold">START</emph>
+                                                <emph type="bold">RESTART</emph>
+                                                <emph type="bold">TIME</emph>
+                                            </para>
+                                        </entry>
+                                    </row>
+                                </thead>
+                                <tbody valign="top">
+                                    <row>
+                                        <entry colname="1">
+                                            <para>Low Oil Pressure Warning</para>
+                                        </entry>
+                                        <entry colname="2">
+                                            <para>SOLID</para>
+                                        </entry>
+                                        <entry colspan="2" spanname="sqspan3-4" align="center">
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry colname="5">
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry colname="1">
+                                            <para>Very Low Oil Pressure Warning</para>
+                                        </entry>
+                                        <entry colname="2">
+                                            <para>FLASH</para>
+                                        </entry>
+                                        <entry colspan="2" spanname="sqspan3-4" align="center">
+                                            <para>30 SECONDS</para>
+                                        </entry>
+                                        <entry colname="5">
+                                            <para>18 SECONDS</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry colname="1">
+                                            <para>High Intake Manifold Air Temp. Warning</para>
+                                        </entry>
+                                        <entry colname="2">
+                                            <para>SOLID</para>
+                                        </entry>
+                                        <entry colspan="2" spanname="sqspan3-4" align="center">
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry colname="5">
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry colname="1">
+                                            <para>Very High Intake Manifold Air Temp. Warning</para>
+                                        </entry>
+                                        <entry colname="2">
+                                            <para>SOLID</para>
+                                        </entry>
+                                        <entry colspan="2" spanname="sqspan3-4" align="center">
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry colname="5">
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry colname="1">
+                                            <para>High Coolant Temp. Warning</para>
+                                        </entry>
+                                        <entry colname="2">
+                                            <para>FLASH</para>
+                                        </entry>
+                                        <entry colspan="2" spanname="sqspan3-4" align="center">
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry colname="5">
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry colname="1">
+                                            <para>Very High Coolant Temp. Warning</para>
+                                        </entry>
+                                        <entry colname="2">
+                                            <para>FLASH</para>
+                                        </entry>
+                                        <entry colspan="2" spanname="sqspan3-4" align="center">
+                                            <para>20 SECONDS</para>
+                                        </entry>
+                                        <entry colname="5">
+                                            <para>60 SECONDS</para>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry colname="1">
+                                            <para>Low Coolant Level Warning</para>
+                                        </entry>
+                                        <entry colname="2">
+                                            <para>SOLID</para>
+                                        </entry>
+                                        <entry colspan="2" spanname="sqspan3-4" align="center">
+                                            <para>NO</para>
+                                        </entry>
+                                        <entry colname="5">
+                                            <para>NO</para>
+                                        </entry>
+                                    </row>
+                                    <row rowsep="1">
+                                        <entry colname="1">
+                                            <para>Very Low Coolant Warning</para>
+                                        </entry>
+                                        <entry colname="2">
+                                            <para>FLASH</para>
+                                        </entry>
+                                        <entry colspan="2" spanname="sqspan3-4" align="center">
+                                            <para>30 SECONDS</para>
+                                        </entry>
+                                        <entry colname="5">
+                                            <para>80 SECONDS</para>
+                                        </entry>
+                                    </row>
+                                </tbody>
+                            </tgroup>
+                        </table>
+                        <lev3>
+                            <title>Yellow "Oil/Water" Warning Light</title>
+                            <para>On power up (key ON - engine OFF), the Yellow Serv/Check Engine light will come ON for
+                                five seconds and then turn OFF indicating that the light circuit is working properly.
+                                Any time there are active codes logged, the lamp will come ON for five seconds, blink
+                                OFF, then turn ON for five more seconds. It will repeat this process until the condition
+                                causing the code is corrected.
+                            </para>
+                            <para>The Engine Warning Light can be used to flash diagnostic codes so that the codes can
+                                be read without using an electronic service tool.
+                            </para>
+                            <para>The Yellow Serv/Check Engine light receives power from 10A fuse F4-A when the key is
+                                ON. Circuit 97AZ connects the ground side of the light to ECM connector (400) terminal
+                                27. The ECM opens or closes a ground switch turning the light ON or OFF in response to
+                                engine conditions.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Red Engine Warning Light</title>
+                            <para>The Red Engine Warning light is active
+                                <emph type="underscr">unless the customer has selected the OFF level of Engine
+                                    Protection.
+                                </emph>
+                                If the OFF engine protection mode is selected, the Red Engine Warning light only is used
+                                to read flash codes. The purpose of this light is to alert the driver that an engine
+                                problem has been detected by the ECM, and that action may be taken by the ECM to protect
+                                the engine.
+                            </para>
+                            <para>The Red Engine Warning light is ON continuously while in the Warning mode.</para>
+                            <para>The Red Engine Warning light flashes while in the Derate mode. In this mode the light
+                                flashes to indicate that the ECM is reducing available engine speed, vehicle speed or
+                                horsepower.
+                            </para>
+                            <para>At power up (key ON - engine OFF), the light comes ON for two seconds and then turns
+                                OFF to check the light bulb and circuit. If a low oil pressure condition is present at
+                                start up, the light will stay ON for 15 seconds, before the ECM will log a Low Oil
+                                Pressure Diagnostic code.
+                            </para>
+                            <para>The Red Engine Warning light receives power from 10A fuse F4-A when the key is ON.
+                                Circuit 97AT connects the ground side of the light to ECM connector (400) terminal 22.
+                                The ECM opens or closes a ground switch for this circuit turning the light ON or OFF in
+                                response to engine conditions.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Engine Coolant Level Switch (402)</title>
+                            <para>The Coolant Level Sensor is a fluid- level-actuated switch that sends coolant low or
+                                coolant high signal and provides a warning when coolant is being lost. It is mounted in
+                                the coolant surge tank.
+                            </para>
+                            <para>It is an electronic switch that operates on the electrostatic or capacitance
+                                principle,
+                                <emph type="underscr">and cannot be tested with a multimeter</emph>. The probe extends
+                                into the coolant and produces a change in capacitance when coolant displaces air
+                                immediately surrounding the probe. This change is converted in the switch to an ON/off
+                                solid state switch closure indicating the absence or presence of coolant. The switch is
+                                electrically insulated providing a slick, non-fouling surface as well as good electrical
+                                characteristics to prevent current flow into the coolant.
+                            </para>
+                            <para>The Coolant Level switch connects to a 4-pin connector (402) on the International
+                                engine harness. All four Coolant Level Switch circuits go through the engine harness to
+                                connector (400).
+                            </para>
+                            <seqlist style="arabic">
+                                <item>
+                                    <para>Coolant Level Switch terminal (C) receives VREF (5V) on circuit 34B from the
+                                        ECM connector (400) terminal 36.
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>Coolant Level Switch terminal (B) is grounded through circuits 34-G/97-G at
+                                        ECM connector (400) terminal 29.
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>When the coolant level
+                                        <emph type="bold"></emph>is NORMAL (above
+                                        <emph type="bold"></emph>the probe), the ECM expects to see: a 5-volt signal
+                                        (3.5V minimum) from sensor terminal D (circuit 34A) at connector (400) terminal
+                                        2 AND a 0-volt signal (0.7V maximum) from sensor terminal A (34) at connector
+                                        (400) terminal 23.
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>When the coolant level
+                                        <emph type="bold">is below the probe</emph>, the ECM expects to see: a 5-volt
+                                        signal (3.5V minimum) from sensor terminal A (circuit 34) at connector (400),
+                                        terminal 23 AND a 0-volt signal (0.7V maximum) from sensor terminal D (34A) at
+                                        connector (400), terminal 2.
+                                    </para>
+                                    <para>To prevent false signals from coolant sloshing, a several second delay is
+                                        built into the logic. For example: to log a Coolant Low Fault, the LOW signal
+                                        must be seen by the ECM for several continuous seconds before the code is
+                                        logged.
+                                    </para>
+                                </item>
+                            </seqlist>
+                        </lev3>
+                        <lev3>
+                            <title>Engine Oil Pressure Sensor (CAT Component)</title>
+                            <para>The Caterpillar installed engine oil pressure sensor is part of the transducer module,
+                                located below the rack actuator housing on the left side of the engine. To diagnose the
+                                operation of this sensor, refer to the appropriate Caterpillar Service Manual.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Engine Coolant Temperature Sensor (CAT Component)</title>
+                            <para>The Caterpillar installed engine coolant temperature sensor is located in the water
+                                outlet housing. The engine sends a 5 volt signal to the sensor and a variable signal
+                                (0.5 to 5.5 volts) is returned to the ECM. To diagnose the operation of this sensor,
+                                refer to the appropriate Caterpillar Service Manual.
+                            </para>
+                        </lev3>
+                    </lev2>
+                    <lev2 id="x0805701">
+                        <title>ATA Data Link Connector (137)</title>
+                        <para>The six-pin ATA Data Link connector (137) allows Electronic Service Tools (EST) to
+                            communicate with the ECM. The data link carries serial data transmissions between the ECM
+                            and the electronic service tool and provides vehicle and engine speed information to the
+                            speedometer/tachometer unit. The data link provides communication capabilities for:
+                        </para>
+                        <seqlist style="alphauc">
+                            <item>
+                                <para>Engine parameter data transmission</para>
+                            </item>
+                            <item>
+                                <para>Diagnostics and troubleshooting</para>
+                            </item>
+                            <item>
+                                <para>Customer programming of vehicle parameters</para>
+                            </item>
+                            <item>
+                                <para>Field programming.</para>
+                            </item>
+                        </seqlist>
+                        <para>Data Link connector (137) is located on left instrument panel. Four of the six connector
+                            cavities have terminals. Those terminals and connecting circuits are as follows:
+                        </para>
+                        <seqlist style="arabic">
+                            <item>
+                                <para>Terminal A, circuit 98A(+) connects Data Link connector (137) to (514) Datalink
+                                    Positive bus connector. Circuit 98(+) connects (514) Datalink Positive bus connector
+                                    to ECM connector (400) terminal 7. Bus connector (514) is also connected by circuit
+                                    47/48(+) through connector (421) to the Speedometer and Tachometer unit. Note that
+                                    bus connector (514) acts like a splice, electrically connecting all circuits into
+                                    the connector together.
+                                </para>
+                            </item>
+                            <item>
+                                <para>Terminal B, circuit 98C(-) connects Data Link connector (137) to (515) Datalink
+                                    Negative bus connector. Circuit 98B(-) connects (515) Datalink Negative bus
+                                    connector to ECM connector (400) terminal 1. Bus connector (515) is also connected
+                                    by circuit 47/48(-) through connector (421) to the Speedometer/ Tachometer unit.
+                                    Note that bus connector (515) acts like a splice, electrically connecting all
+                                    circuits into the connector together.
+                                </para>
+                            </item>
+                            <item>
+                                <para>The positive and negative data link circuits are twisted wire pairs (2 twists per
+                                    inch, minimum). The twisting of the wires shields the wires from interference.
+                                </para>
+                            </item>
+                            <item>
+                                <para>Terminal C, circuit 97DL supplies ignition voltage (12V) for electronic service
+                                    tools, when the key is ON. Circuit 97DL receives power from the Run Relay (144). The
+                                    circuit is protected by 5A fuse F9-C.
+                                </para>
+                            </item>
+                            <item>
+                                <para>Terminal E, circuit 97-GR is grounded through circuit 11-GT at Panel Light Ground
+                                    Adapter (506).
+                                </para>
+                            </item>
+                        </seqlist>
+                    </lev2>
+                    <lev2>
+                        <title>Cruise and PTO Controls</title>
+                        <para>Refer to circuit diagram CATERPILLAR 3176B/3406E - CRUISE CONTROL in CTS-5119S.</para>
+                        <para>The cruise control switches are used as PTO controls (if vehicle is so equipped) when the
+                            vehicle road speed is not present (this is an owner selected parameter). Refer to the
+                            Owner's Manual furnished with the vehicle for Cruise Control operating instructions.
+                        </para>
+                        <lev3>
+                            <title>Cruise ON/OFF Switch (435)</title>
+                            <para>This is a lighted switch to allow for easy location in the dark. Cruise ON/OFF switch
+                                circuit (97AE) is an input to the ECM through connector (400) terminal 20. The ground
+                                side of the ON/OFF switch is connected through circuit 97-GH/97-GA/97-G to connector
+                                (400) terminal 29. With the switch ON, the ECM sees 0 volts at connector (400) terminal
+                                20. With the switch OFF, the ECM sees 5 volts at connector (400) terminal 20.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Cruise Set/Resume Switch (436)</title>
+                            <para>This is a lighted switch to allow for easy location in the dark. SET/RESUME switch
+                                terminal 2 is connected to the ECM through circuit 97-GD/97-GA/97-G to the connector
+                                (400) terminal 29. SET/RESUME switch SET terminal 3 is an input (circuit 97AB) to the
+                                ECM through connector (400) terminal 25. SET/RESUME switch RESUME terminal (1) is an
+                                input (circuit 97AA) to the ECM through connector (400) terminal 15.
+                            </para>
+                            <para>With the SET/RESUME switch in the SET position, the ECM sees 0 volts at connector
+                                (400) terminal 25 and 5 volts at terminal 15.
+                            </para>
+                            <para>In RESUME position, the ECM sees 5 volts at connector (400) terminal 25 and 0 volts at
+                                terminal 15.
+                            </para>
+                            <para>In the SET/RESUME neutral position, the ECM sees 5 volts at both connector (400)
+                                terminals 15 and 25.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Service Brake Switch (141)</title>
+                            <para>Service brake switch circuit 97AL is an input to the ECM through connector (400)
+                                terminal 14. The ground or common side of the Service Brake switch is connected through
+                                circuit 97-GB/97-GA/97-G to connector (400) terminal 29. With service brakes
+                                <emph type="bold">released</emph>(switch closed), the ECM sees 0 volts at connector
+                                (400) terminal 14. Applying the brakes opens the switch, and the ECM sees 5 volts at
+                                terminal 14.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Clutch Switch</title>
+                            <para>The Clutch Switch is a normally open switch, that is adjusted to be
+                                <emph type="bold">closed</emph>while the clutch pedal is RELEASED.
+                            </para>
+                            <para>The clutch switch connects to the cab harness at connector (294). Clutch switch
+                                circuit (97AH) is an input to the ECM through connector (400) terminal 24. The ground
+                                side of the clutch pedal switch is grounded through circuit 97-GE/97-GA/97-G to
+                                connector (400) terminal 29. With the driver's foot off the clutch pedal (switch
+                                closed), the ECM sees 0 volts at terminal 24. When the driver depresses the clutch pedal
+                                (switch opens), the ECM sees 5 volts at terminal 24.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Vehicle Speed Sensor (409)</title>
+                            <para id="hl08057vs">The Vehicle Speed Sensor is located at the rear of the transmission.
+                                The sensor contains a permanent magnet that creates a magnetic field that is interrupted
+                                by the teeth on the speedometer output gear. As the rotating speedometer gear teeth
+                                repeatedly interrupt the sensor magnetic field, a variable AC voltage is generated and
+                                transmitted to the ECM. From sensor connector (409) circuits 97AJ and 97AK carry the
+                                signal to ECM connector (400) terminals 12 and 18.
+                            </para>
+                        </lev3>
+                    </lev2>
+                    <lev2 id="hl08057st">
+                        <title>Speedometer/Tachometer inputs</title>
+                        <para>The input signal to the speedometer and tachometer with the 3176B and 3406E Caterpillar
+                            engines is provided by the ECM through the ATA data link circuits 98(+) and 98B(-) to
+                            Datalink Positive bus connector (514) and Datalink Negative bus connector (515), then
+                            circuit 47/48(+) from (514) and and 47/48(-) from (515) connect to the
+                            speedometer/tachometer unit at connector (421). Refer
+                            <hotlnk xrefid="x0805701">ATA Data Link Connector</hotlnk>for discussion of data link
+                            circuits.
+                        </para>
+                        <lev3>
+                            <title>Speedometer/Tachometer Unit</title>
+                            <para>Refer to Gauges And Warning Lights section in GROUP 08 - ELECTRICAL in the CTS-5000
+                                Master Service Manual.
+                            </para>
+                            <para>The ECM receives and processes a signal from Engine Position sensor (Cummins
+                                component) to determine
+                                <emph type="underscr">engine speed</emph>and receives a signal from the vehicle speed
+                                sensor to determine
+                                <emph type="underscr">vehicle speed</emph>.
+                            </para>
+                            <para>To calculate vehicle speed from the vehicle speed sensor signal, the ECM is programmed
+                                with certain vehicle parameters (refer to ECM Speedometer Programming, below.
+                            </para>
+                            <para>The ECM provides a signal over the data link circuits that the vehicle speedometer and
+                                tachometer cluster microprocessor uses to drive the gauges.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Positive Data Link Circuit To Speedometer And Tachometer</title>
+                            <para>Positive data link circuit 98(+) connects ECM connector (252) terminal 27 to Datalink
+                                Positive Connector (514) at terminal B. Datalink Positive Connector (514) terminal C is
+                                connected by circuit 47/48(+) to speedometer/tachometer connector (421). Datalink
+                                Positive Connector (514) terminal A is connected by circuit 98A(+) to the ATA Data Link
+                                connector (137) terminal A. Connector (514) has a bus installed that connects all the
+                                circuits in the connector together.ATA Data Link connector (137) can be used to access
+                                information on the data link using an electronic service tool.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Negative Data Link Circuit To Speedometer And Tachometer</title>
+                            <para>Negative data link circuit 98B(-) connects ECM connector (252) terminal 8 to Datalink
+                                Negative Connector (515) at terminal B. Datalink Negative Connector (515) terminal C is
+                                connected by circuit 47/48(-) to speedometer/tachometer connector (421). Datalink
+                                Negative Connector (515) terminal A is connected by circuit 98C(-) to the ATA Data Link
+                                connector (137) terminal B.
+                            </para>
+                            <para>Connector (515) has a bus installed that connects all the circuits in the connector
+                                together. ATA Data Link connector (137) can be used to access information on the data
+                                link using an electronic service tool.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>ECM Speedometer Programming</title>
+                            <para>The ECM is programmed with vehicle component information, so that the signal from the
+                                ECM to the speedometer/ tachometer unit causes the unit to display correct readings.
+                            </para>
+                            <para>If the vehicle tire size, axle ratio or number of teeth on the transmission
+                                speedometer gear are changed,
+                                <emph type="bold">the ECM will have to be reprogrammed with the new pulses per mile
+                                    data.</emph>The speedometer/tachometer unit does not get reprogrammed. The Prolink
+                                EST or Caterpillar EST can be used for the reprogramming. Refer to Caterpillar or
+                                Prolink manual for this procedure.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Calculating Pulses Per Mile (PPM)</title>
+                            <para>PPM= M x Ra x N</para>
+                            <para>M = Tire revolutions per mile = 10085 divided by the tire radius. Also the following
+                                table
+                                <hotlnk xrefid="t0805704">Radial/Bias Tire Revolutions Per Mile Table</hotlnk>lists
+                                revolutions per mile for various size tires. The table information is an average from
+                                several tire manufacturers. Tire manufacturers can also provide specific information for
+                                their tires.
+                            </para>
+                            <para>Ra = Rear axle ratio which can normally be found on the rear axle housing or on the
+                                lineset ticket. With a 2-speed axle use the high range ratio.
+                            </para>
+                            <para>N = The number of teeth on the transmission speedometer output gear. International
+                                installed transmissions, including Allison, have 16 teeth on the speedometer output
+                                gear.
+                            </para>
+                            <para>EXAMPLE: If a vehicle has 10 x 22 tires and 3.70:1 rear axle:</para>
+                            <seqlist style="alphauc">
+                                <item>
+                                    <para>Refer to the table, the revolutions per mile (M) = 476.</para>
+                                </item>
+                                <item>
+                                    <para>The formula is PPM = M x Ra x N</para>
+                                </item>
+                                <item>
+                                    <para>PPM = 476 x 3.70 x 16 = 28179</para>
+                                </item>
+                            </seqlist>
+                            <para>The new pulses per mile then is programmed into the ECM using the Prolink EST. The
+                                Caterpillar ECM will accept a number between 1716 PPM and 65,535 PPM.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Tachometer Programming</title>
+                            <para>The Caterpillar Engine Speed/Timing sensor signal to the ECM is used to determine
+                                engine speed (RPM). This information is transmitted over the data link circuits to the
+                                speedometer/tachometer connector (421). The speedometer/tachometer unit is programmed at
+                                the factory to operate on this type of signal.
+                            </para>
+                            <table id="t0805704" tblwidth="full-page" frame="all" numbered="no" view="reveal">
+                                <title>Radial/Bias Tire Revolutions Per Mile Table</title>
+                                <tgroup cols="3" align="center" charoff="50" char="c">
+                                    <colspec colnum="1" colname="1" colwidth="1.99in"/>
+                                    <colspec colnum="2" colname="2" colwidth="1.38in"/>
+                                    <colspec colnum="3" colname="3" colwidth="1.38in" colsep="1"/>
+                                    <spanspec namest="1" nameend="3" spanname="sqspan1-3"/>
+                                    <tbody valign="top">
+                                        <row>
+                                            <entry colspan="3" spanname="sqspan1-3" align="center">
+                                                <para>
+                                                    <emph type="bold">RADIAL TIRE REVOLUTIONS PER MILE</emph>
+                                                </para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>
+                                                    <emph type="bold">SIZE</emph>
+                                                </para>
+                                            </entry>
+                                            <entry>
+                                                <para>
+                                                    <emph type="bold">RADIUS</emph>
+                                                </para>
+                                            </entry>
+                                            <entry>
+                                                <para>
+                                                    <emph type="bold">REV/MILE</emph>
+                                                </para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>8.25 X 20</para>
+                                            </entry>
+                                            <entry>
+                                                <para>18.8</para>
+                                            </entry>
+                                            <entry>
+                                                <para>536</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>9.00 X 20</para>
+                                            </entry>
+                                            <entry>
+                                                <para>19.6</para>
+                                            </entry>
+                                            <entry>
+                                                <para>515</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>10.00 X 20</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.2</para>
+                                            </entry>
+                                            <entry>
+                                                <para>499</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>11.00 X 20</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.8</para>
+                                            </entry>
+                                            <entry>
+                                                <para>485</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>10.00 X 22</para>
+                                            </entry>
+                                            <entry>
+                                                <para>21.2</para>
+                                            </entry>
+                                            <entry>
+                                                <para>476</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>11.00 x 22</para>
+                                            </entry>
+                                            <entry>
+                                                <para>21.8</para>
+                                            </entry>
+                                            <entry>
+                                                <para>463</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>11.00 x 24</para>
+                                            </entry>
+                                            <entry>
+                                                <para>23.1</para>
+                                            </entry>
+                                            <entry>
+                                                <para>437</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>18.00 x 19.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.6</para>
+                                            </entry>
+                                            <entry>
+                                                <para>490</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>9.00 x 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>18.7</para>
+                                            </entry>
+                                            <entry>
+                                                <para>539</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>10.00 x 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>19.6</para>
+                                            </entry>
+                                            <entry>
+                                                <para>515</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>11.00 x 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.3</para>
+                                            </entry>
+                                            <entry>
+                                                <para>497</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>12.00 X 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.8</para>
+                                            </entry>
+                                            <entry>
+                                                <para>485</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>18.00 x 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>22.1</para>
+                                            </entry>
+                                            <entry>
+                                                <para>456</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>11.00 x 24.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>21.3</para>
+                                            </entry>
+                                            <entry>
+                                                <para>474</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>235/80R 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>17.7</para>
+                                            </entry>
+                                            <entry>
+                                                <para>570</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>255/80R 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>17.8</para>
+                                            </entry>
+                                            <entry>
+                                                <para>567</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>275/80R 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>19.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>517</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>275/80R 24.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.1</para>
+                                            </entry>
+                                            <entry>
+                                                <para>502</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>285/75R 24.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.2</para>
+                                            </entry>
+                                            <entry>
+                                                <para>499</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>285/80R 24.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.1</para>
+                                            </entry>
+                                            <entry>
+                                                <para>502</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>295/75R 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>19.7</para>
+                                            </entry>
+                                            <entry>
+                                                <para>512</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>295/80R 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.0</para>
+                                            </entry>
+                                            <entry>
+                                                <para>504</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>315/80R 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.6</para>
+                                            </entry>
+                                            <entry>
+                                                <para>490</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry colspan="3" spanname="sqspan1-3" align="center">
+                                                <para>
+                                                    <emph type="bold">BIAS TIRE REVOLUTIONS PER MILE</emph>
+                                                </para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>SIZE</para>
+                                            </entry>
+                                            <entry>
+                                                <para>RADIUS</para>
+                                            </entry>
+                                            <entry>
+                                                <para>REV/MILE</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>8.25 x 20</para>
+                                            </entry>
+                                            <entry>
+                                                <para>18.7</para>
+                                            </entry>
+                                            <entry>
+                                                <para>539.3</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>9.00 x 20</para>
+                                            </entry>
+                                            <entry>
+                                                <para>19.4</para>
+                                            </entry>
+                                            <entry>
+                                                <para>519.8</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>10.00 x 20</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.2</para>
+                                            </entry>
+                                            <entry>
+                                                <para>499.3</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>11.00 x 20</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.7</para>
+                                            </entry>
+                                            <entry>
+                                                <para>487.2</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>10.00 x 22</para>
+                                            </entry>
+                                            <entry>
+                                                <para>21.0</para>
+                                            </entry>
+                                            <entry>
+                                                <para>480.2</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>11.00 x 22</para>
+                                            </entry>
+                                            <entry>
+                                                <para>21.7</para>
+                                            </entry>
+                                            <entry>
+                                                <para>464.8</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>11.00 x 24</para>
+                                            </entry>
+                                            <entry>
+                                                <para>23.0</para>
+                                            </entry>
+                                            <entry>
+                                                <para>438.5</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>18.00 x 19.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>21.0</para>
+                                            </entry>
+                                            <entry>
+                                                <para>480.2</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>9.00 x 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>18.7</para>
+                                            </entry>
+                                            <entry>
+                                                <para>539.3</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>10.00 x 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>19.4</para>
+                                            </entry>
+                                            <entry>
+                                                <para>519.8</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>11.00 x 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.2</para>
+                                            </entry>
+                                            <entry>
+                                                <para>499.7</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>12.00 x 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>20.7</para>
+                                            </entry>
+                                            <entry>
+                                                <para>487.2</para>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <para>18.00 x 22.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>22.0</para>
+                                            </entry>
+                                            <entry>
+                                                <para>458.4</para>
+                                            </entry>
+                                        </row>
+                                        <row rowsep="1">
+                                            <entry>
+                                                <para>11.00 x 24.5</para>
+                                            </entry>
+                                            <entry>
+                                                <para>21.0</para>
+                                            </entry>
+                                            <entry>
+                                                <para>480.2</para>
+                                            </entry>
+                                        </row>
+                                    </tbody>
+                                </tgroup>
+                            </table>
+                        </lev3>
+                    </lev2>
+                    <lev2>
+                        <title>Throttle Position Sensor (404)</title>
+                        <para>Refer to circuit diagram CATERPILLAR 3176B - CRUISE CONTROL in CTS-5119S.</para>
+                        <para>The pedal mounted Throttle Position Sensor (TPS) is used to provide a throttle signal to
+                            the ECM. Sensor output is a constant frequency signal with a pulse width that varies with
+                            throttle position. This output signal is referred to as either "Duty Cycle" or a "Pulse
+                            Width Modulated" (PWM) signal and is expressed as a percentage between 0 and 100%.
+                        </para>
+                        <para>The pedal mounted Throttle Position Sensor is attached directly to the throttle pedal
+                            assembly and requires no adjustment. This sensor can be replaced separately from the
+                            throttle pedal assembly, however an incorrectly calibrated pedal mounted throttle position
+                            sensor assembly cannot be calibrated- the pedal assembly must be replaced.
+                        </para>
+                        <para>The "soda can" style remote sensor is not used by International on 1995 engines and is not
+                            discussed in this manual.
+                        </para>
+                        <para>The TPS connects to the cab harness at three-pin connector (404). When the ECM is powered
+                            (key switch ON), the TPS
+                            <emph type="underscr">receives operating voltage (8 volts)</emph>at terminal A on circuit
+                            99E, which is connected to ECM connector (400) terminal 35. TPS terminal B is grounded by
+                            circuit 99-G/97-GA/97-G through ECM connector (400) terminal 29.
+                        </para>
+                        <para>TPS terminal C outputs the variable throttle position signal on circuit 99 to ECM
+                            connector (400) terminal 37.
+                        </para>
+                        <para>The pedal mounted TPS should produce a Duty Cycle of 10 to 22 percent at low idle and 75
+                            to 90 percent at full throttle. An electronic service tool can be used to monitor the
+                            signal. The percent duty cycle is translated in the ECM into a throttle position percentage
+                            of 3 to 100%.
+                        </para>
+                    </lev2>
+                    <lev2>
+                        <title>Engine Brake Controls</title>
+                        <para>Refer to circuit diagram CATERPILLAR 3176B - ENGINE BRAKE in CTS-5119S.</para>
+                        <para>This manual only discusses engine brake control circuits and components installed by
+                            International: the Engine Brake ON/OFF switch (434), the Engine Brake Selector switch (433)
+                            and the connecting circuits. The International installed Clutch Switch (294) and Service
+                            Brake Switch (141) also provide inputs to the Engine Brake Control System and are discussed
+                            in paragraphs 1.2.4.3 and 1.2.4.4 .
+                        </para>
+                        <para>For a complete description of Engine Brake Operation, refer to the appropriate Caterpillar
+                            Service Manual.
+                        </para>
+                        <para>There are two owner selected Engine Brake operation modes, which are COAST and LATCH.
+                        </para>
+                        <lev3>
+                            <title>COAST Operation Mode</title>
+                            <para>If the COAST mode (standard mode) is selected, the engine brake operates when:</para>
+                            <seqlist>
+                                <item>
+                                    <para>Engine speed is over 1000 rpm.</para>
+                                </item>
+                                <item>
+                                    <para>The driver's foot is off the throttle pedal (throttle position less than
+                                        7%).
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>Clutch pedal is not depressed.</para>
+                                </item>
+                                <item>
+                                    <para>The Service Brake pedal is depressed (engine brake only operates while service
+                                        brake is applied).
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>The cruise control switch can be in the ON position, although it will be
+                                        disabled by applying the service brake.
+                                    </para>
+                                </item>
+                            </seqlist>
+                        </lev3>
+                        <lev3>
+                            <title>LATCH Operation Mode</title>
+                            <para>If the LATCH mode is selected, the engine brake operates when:</para>
+                            <seqlist style="arabic">
+                                <item>
+                                    <para>Engine speed is over 1000 rpm.</para>
+                                </item>
+                                <item>
+                                    <para>The driver's foot is off the throttle pedal (throttle position less than
+                                        7%).
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>Clutch pedal is not depressed.</para>
+                                </item>
+                                <item>
+                                    <para>The cruise control switch must be OFF.</para>
+                                </item>
+                                <item>
+                                    <para>The engine brake operates when the driver applies the service brake, but the
+                                        engine brake continues to operate (LATCHES ON so to speak) after the driver
+                                        takes his foot off the brake. The engine brake stays engaged (LATCHED ON) until
+                                        one of the other ECM inputs changes: clutch pedal depressed, throttle pedal
+                                        depressed, engine speed drops below 950 rpm or the brake pedal is depressed a
+                                        second time.
+                                    </para>
+                                </item>
+                            </seqlist>
+                        </lev3>
+                        <lev3>
+                            <title>Engine Brake Control</title>
+                            <para>Control of the engine brake is shared by the driver and the ECM. The driver turns the
+                                engine brake ON or OFF and selects how much engine brake is desired (number of
+                                cylinders). The ECM monitors certain engine parameters, then enables the engine brake
+                                system when all conditions are acceptable.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Engine Brake With Antilock Brake System</title>
+                            <para>When Antilock Brakes (ABS) are installed with an Engine Brake also installed, the ABS
+                                controller is connected to the ECM through J1922 connector (403). This connection allows
+                                the ABS controller to communicate with the ECM by serial data circuits 98Z(+) and
+                                98Y(-). These circuits are a twisted wire pair. This allows the ECM to TURN OFF the
+                                engine brake when the ABS system detects that a vehicle wheel is encountering a slippery
+                                road surface.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>ON/OFF Switch (434)</title>
+                            <para>To enable (turn ON) the Engine Brake Control System, this switch must be ON (closed).
+                                With the ON/Off switch closed, the circuit between ECM connector (400) terminal 29 and
+                                the Engine Brake selector switch terminal 2 is complete.
+                            </para>
+                        </lev3>
+                        <lev3>
+                            <title>Engine Brake Selector Switch (433)</title>
+                            <para>The Engine Brake Selector Switch has three circuits, Low, Medium and a common or
+                                ground circuit connected to the engine brake ON/Off switch.
+                            </para>
+                            <para>Selector switch terminal 2 is connected by circuit 24A to the Engine Brake ON/Off
+                                switch (434) at terminal 5. When the ON/Off switch is ON, the circuit between the engine
+                                brake selector switch (433) terminal 2 and ECM connector (400) terminal 29 is complete.
+                            </para>
+                            <para>With the Selector switch (433) in the
+                                <emph type="bold">Low position</emph>, the ECM sees a 0 volt signal at connector (400)
+                                terminal 19 and a 5 volt signal at terminal 13.
+                            </para>
+                            <para>With the Selector switch (433) in the
+                                <emph type="bold">Medium position</emph>, the ECM sees a 0 volt signal at connector
+                                (400) terminal 13 and a 5 volt signal at terminal 19.
+                            </para>
+                            <para>With the Selector switch (433) in the
+                                <emph type="bold">High position</emph>, the ECM sees a 0 volt signal at connector (400)
+                                terminal 13 and 19.
+                            </para>
+                        </lev3>
+                    </lev2>
+                    <lev2>
+                        <title>Idle Shutdown Timer System</title>
+                        <para>The idle shutdown timer is a feature which helps improve fuel consumption by limiting idle
+                            time. The "shutdown time" is a customer specified parameter, and may be from 3 to 60
+                            minutes. Programming the time to zero shuts the timer OFF.
+                        </para>
+                        <para>The timer is activated and the countdown (from the customer selected time) begins when:
+                        </para>
+                        <seqlist style="alphauc">
+                            <item>
+                                <para>The vehicle speed is zero.</para>
+                            </item>
+                            <item>
+                                <para>The engine is warmed up.</para>
+                            </item>
+                            <item>
+                                <para>The engine is not under load (with or without the park brake set).</para>
+                            </item>
+                        </seqlist>
+                        <para>Ninety seconds before the programmed time is reached, the Yellow Serv/Check Engine light
+                            will begin to flash rapidly. If the driver moves the clutch or service brake pedal during
+                            this 90-second time period, the timer will be overridden until it is reset. The timer is
+                            reset and begins counting over by moving the vehicle a short distance.
+                        </para>
+                        <para>A code (Override of Idle Shutdown Timer) will be logged when the driver overrides the
+                            timer within the 90-second time period. If the timer is activated and allowed to shut down
+                            the engine, then a code (Idle Shutdown Timed Out) will be set. These codes record an event-
+                            they do not indicate a fault in the system.
+                        </para>
+                        <specpara>
+                            <important>
+                                <para>Note that the system shuts the engine down, but does not turn off power to the
+                                    vehicle.
+                                </para>
+                            </important>
+                        </specpara>
+                    </lev2>
+                </lev1>
+            </geninfo>
+        </description>
+    </svcsection>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08051_94.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08051_96.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08051.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,399 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 530 Engine Diagnostic Manual for 4000 Series Trucks (2001) - ELECTRONIC CONTROL SYSTEM
+        DIAGNOSTICS - CIRCUIT FUNCTION AND DIAGNOSTICS - Barometric Absolute Pressure Sensor (BAP)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Barometric Absolute Pressure Sensor (BAP)</title>
+        <svcsubproc>
+            <title>Signal Functions</title>
+            <figure id="f17503022" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1216.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Barometric Absolute Pressure Sensor Function Diagram</caption>
+            </figure>
+            <para>The Barometric Absolute Pressure (BAP) sensor is a variable capacitance sensor that when supplied with
+                a 5V reference signal from the ECM produces a linear analog voltage signal that indicates pressure.
+            </para>
+            <para>
+                <emph type="bold">Timing Control -</emph>
+                The BAP signal is used to determine altitude to adjust timing and fuel quantity to optimize engine
+                operation and control smoke throughout all altitude conditions.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>When BAP signal voltage is detected Out of Range HIGH or Out of Range LOW by the ECM will ignore the
+                BAP signal and use the Manifold Absolute Pressure (MAP) signal generated at low idle as an indication of
+                barometric pressure. If a MAP fault is also detected, the BAP signal will default to 29.6 in Hg
+                (barometric pressure at sea level).
+            </para>
+            <figure id="f17503023" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8828.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Barometric Absolute Pressure Sensor Circuit Diagram</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>After removing connectors always check for damaged pins, corrosion, loose terminals.</para>
+                </note>
+            </specpara>
+            <table id="te17503004" frame="all">
+                <title>Barometric Absolute Pressure Sensor and Circuit Diagnostics</title>
+                <tgroup cols="4" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="34.88*"/>
+                    <colspec colname="col2" colwidth="36.30*"/>
+                    <colspec colname="col3" colwidth="28.93*"/>
+                    <colspec colname="col4" colwidth="295.88*"/>
+                    <spanspec namest="col1" nameend="col4" spanname="1to4"/>
+                    <spanspec namest="col3" nameend="col4" spanname="3to4"/>
+                    <spanspec namest="col1" nameend="col2" spanname="1to2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="1to4">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>(check with sensor connector (1808)
+                                    disconnected, ignition key on)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;0.25V</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Ground circuit, no voltage expected.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>V
+                                    <subscript>REF</subscript>
+                                    check with KEY ON, if voltage not within spec., check V
+                                    <subscript>REF</subscript>
+                                    circuit for short to gnd or open.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;0.25V</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>If voltage is >0.25V, signal wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or battery
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4">
+                                <para>
+                                    <emph type="bold">Connector Checks to Chassis Ground</emph>(check with sensor
+                                    connector (1808) disconnected, positive battery cable disconnected and ignition key
+                                    off)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance to chassis ground, check with key off, > 5&#x2126; the harness is
+                                    open
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance &#60;1k&#x2126; indicates a short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance &#60;1k&#x2126; indicates a short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (check with breakout box installed on chassis harness only)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>11 to A</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance >5&#x2126; indicates wires are open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to B</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance >5&#x2126; indicates wires are open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>29 to C</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance >5&#x2126; indicates wires are open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2">
+                                <para>Test (+) 29 to (-) 11</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks</emph>
+                                    (check with breakout box installed in line with the ECM)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Voltage</para>
+                            </entry>
+                            <entry>
+                                <para>in Hg</para>
+                            </entry>
+                            <entry>
+                                <para>kPa</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4.89</para>
+                            </entry>
+                            <entry>
+                                <para>31.0905</para>
+                            </entry>
+                            <entry>
+                                <para>105</para>
+                            </entry>
+                            <entry>
+                                <para>High atmospheric pressure.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4.60</para>
+                            </entry>
+                            <entry>
+                                <para>29.61</para>
+                            </entry>
+                            <entry>
+                                <para>100</para>
+                            </entry>
+                            <entry>
+                                <para>Normal atmospheric pressure at sea level.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2.60</para>
+                            </entry>
+                            <entry>
+                                <para>17.766</para>
+                            </entry>
+                            <entry>
+                                <para>60</para>
+                            </entry>
+                            <entry>
+                                <para>Normal atmospheric pressure at 10,000 feet.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Description</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4">
+                                <para>151= Signal voltage was >4.95V for more than 1.0 sec.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4">
+                                <para>152 = Signal voltage was &#60;1.0V for more than 1.0 sec.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>
+                <emph type="bold">Operation</emph>
+            </para>
+            <para>The ECM sends a regulated 5V signal from ECM (black) chassis connector terminal 3 to BAP connector
+                terminal 2. The BAP sensor returns a variable voltage signal (representing atmospheric pressure) from
+                BAP connector terminal 3 to the ECM at terminal 29. The BAP sensor is grounded from the BAP connector
+                terminal 1 to the ECM signal ground terminal 11.
+            </para>
+            <para>
+                <emph type="bold">ECM Diagnostics</emph>
+            </para>
+            <para>The ECM continuously monitors the signal from the BAP sensor to ECM terminal 29. If the signal voltage
+                is out of the expected range, a Diagnostic Trouble Code is logged (warning lamp does NOT turn on) and
+                the ECM uses the Manifold Absolute Pressure (MAP) signal generated at low idle to determine barometric
+                pressure.
+            </para>
+            <para>Diagnostic Trouble Codes can be retrieved using the Electronic Service Tool (EST) or by reading the
+                Diagnostic Trouble Code flashes from the amber and red ENGINE lamps, see .
+            </para>
+            <para id="f175fc151">
+                <emph type="bold">Diagnostic Trouble Code 151</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, PID 108, FMI 3</emph>
+            </para>
+            <para>
+                <emph type="bold">ECM: BAP Voltage Signal Out of Range HIGH</emph>
+                (
+                <emph type="bold">ORH</emph>)
+            </para>
+            <para>BAP signal greater than 4.95V for more than 1 second.</para>
+            <para>Possible causes for Code 151 include: signal circuit shorted to V
+                <subscript>REF</subscript>
+                or B+, defective sensor.
+            </para>
+            <para id="f175fc152">
+                <emph type="bold">Diagnostic Trouble Code 152</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, PID 108, FMI 4</emph>
+            </para>
+            <para>
+                <emph type="bold">ECM: BAP Voltage Signal Out of Range LOW</emph>(
+                <emph type="bold">ORL</emph>)
+            </para>
+            <para>BAP signal less than 1.0V for more than 1 second.</para>
+            <para>Possible causes for Code 152 include: signal circuit shorted to ground or open, V
+                <subscript>REF</subscript>
+                shorted to ground or open, defective sensor.
+            </para>
+            <figure id="f17503023.1" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8805.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>BAP Circuit Diagram</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refer to S08285 - Electrical Circuit Diagrams - 4200/4300/4400</para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_S17503001.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_81.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

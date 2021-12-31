@@ -1,0 +1,392 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Engine Fan Control (EFAN)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>Engine Fan Control (EFAN)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3369" filename="../figd33/d3369.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function Diagram for Engine Fan Control (EFAN)</caption>
+            </figure>
+            <para>The Function Diagram for EFAN includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Engine Coolant Temperature (ECT) sensor</para>
+                </item>
+                <item>
+                    <para>Intake Air Temperature (IAT) sensor</para>
+                </item>
+                <item>
+                    <para>Electronic System Controller (ESC)</para>
+                </item>
+                <item>
+                    <para>Engine fan relay</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The EFAN control provides ON/OFF control of the engine cooling system fan. The ECM can be programmed
+                to set and monitor limits for engine coolant temperature, intake air temperature, engine mode selection
+                (operating or diagnostic).
+            </para>
+            <para>EFAN is accessible with the EST. Fan on and off temperature can be programmed by technician, but the
+                mode of operation must be done by Tech Services.
+            </para>
+            <para>The purpose of the Engine Fan Control is to provide the correct logic to determine when the Fan should
+                be turned on or off by energizing/de-energizing the fan drive relay. The purpose of the engine fan is to
+                allow a higher air flow for heat exchange between the radiator and the ambient air when needed.
+            </para>
+            <para>
+                <emph type="bold">Engine Fan Control</emph>: This parameter indicates to the on-board electronics
+                whether or not the truck has the electronic engine fan control feature.
+            </para>
+            <para>
+                <emph type="bold">AC Fan Activation</emph>: This feature will allow fan activation though the ECM when
+                requested through the ESC during AC operation.
+            </para>
+            <para>
+                <emph type="bold">Disable</emph>: Feature is turned off at all times.
+            </para>
+            <para>
+                <emph type="bold">Fan On Temperature</emph>: This parameter indicates the coolant temperature that the
+                fan will be electronically activated.
+            </para>
+            <para>
+                <emph type="bold">Fan Off Temperature</emph>: This parameter indicates the coolant temperature that the
+                fan will be electronically deactivated.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>EFAN Circuit Operation</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3370" filename="../figd33/d3370.webp" type="webp" scalefit="1" scalefitwidth="352px"/>
+                <caption>EFAN Circuit Diagram</caption>
+            </figure>
+            <para>With the ignition key on, power is supplied to terminals 30 and 86 on the engine fan relay. Terminal
+                X4-14 on the ECM is used to either apply or remove the ground circuit from the fan relay coil side
+                terminal 85. When the fan needs to be energized (turned on), terminal X4-14 is set high (12 volts) and
+                the ground circuit to the coil side of the relay is interrupted causing the relay to unlatch, sending
+                power supply from terminal 30 to 87A on the relay to the fan clutch. When the fan needs to be
+                de-energized (turned off), terminal X4-14 is set low (grounded internal to the ECM) and the ground
+                circuit to the coil side of the relay is complete causing the relay to latch, interrupting the power
+                supply to the fan clutch.
+            </para>
+            <specpara>
+                <note>
+                    <para>The circuit shown is with the fan engaged / on and the relay de-energized / off.</para>
+                </note>
+            </specpara>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>An open or short to ground in the EFAN can be detected by the ECM during an on-demand engine standard
+                test. The IAT and ECT are monitored continuously. If a DTC is detected in the IAT or ECT, the EFAN
+                control is disabled and the engine fan is on all the time.
+            </para>
+            <specpara>
+                <note>
+                    <para>Before diagnosing, check that ECM is programmed correctly. Verify vehicle / application has an
+                        electronic fan.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>EFAN Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim id="f240dtc246">
+                <line>
+                    <emph type="bold">DTC 246</emph>
+                </line>
+                <line>
+                    <emph type="bold">OCC self test fault</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 246 is set by the ECM only during the Key ON Engine OFF Standard test. During this test
+                        the ECM performs an output circuit test that momentarily enables the EFAN solenoid and measures
+                        the voltage drop across the relay
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">Tools</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Relay breakout harness</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EFAN Pin Point Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3370" filename="../figd33/d3370.webp" type="webp" scalefit="1" scalefitwidth="352px"/>
+                <caption>EFAN Circuit Diagram</caption>
+            </figure>
+            <para>The EFAN circuit requires the use of vehicle circuit diagrams. See truck Chassis Electrical Circuit
+                Diagram manual for circuit numbers, connector and fuse locations.
+            </para>
+            <table id="te24007037" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Fan Clutch Voltage / Resistance Checks</emph>
+                                    (Disconnect fan clutch. Key ON Engine OFF.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do Output State Test High. If B+ is present, the EFAN circuit is functioning. If
+                                    no voltage is present, the relay is not on. Check for an open in circuit to solenoid
+                                    or improperly programmed ECM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0V</para>
+                            </entry>
+                            <entry>
+                                <para>Do Output State Test Low. If voltage is present, check for short to voltage source
+                                    or actuator circuit shorted to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Key OFF resistance to ground. If >5&#x2126;, check for open or loose connection to
+                                    ground at engine crankcase.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Voltage Checks at Fan Relay Connector</emph>
+                                    (Check with relay removed and key ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3" morerows="1">
+                                <para>V
+                                    <subscript>IGN</subscript>
+                                    power to relay. If no voltage is present, see truck Chassis Electrical Circuit
+                                    Diagram manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>86 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>85 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ECM control (no voltage expected)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>87A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Power to EFAN (no voltage expected with relay disconnected)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Voltage Checks at ECM X4</emph>
+                                    (Check with breakout box installed to ECM and chassis harness, relay installed, and
+                                    key ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-14 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Fan off - Do Output State Test Low</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-14 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Fan on - Do Output State Test High</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Turn ignition key OFF. Disconnect fan. Check with breakout box installed on chassis
+                                    harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-14 to 85</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for harness open between ECM and relay terminal.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>87A to A (fan)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for harness open between relay terminal and A (fan).</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 to Fuse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for harness open between fuse and relay terminal. See truck
+                                    Chassis Electrical Circuit Diagram manual for fuse information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 to 86</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for harness open at relay terminal.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_143.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_145.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

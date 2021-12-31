@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE / 9200 9300 9400 MODELS BUILT AFTER JANUARY 1, 1995 - ELECTRONIC
+        ENGINE CONTROLS - DETROIT DIESEL SERIES 60 - 1992 - 1993 - SYSTEM COMPONENTS AND OPERATION - ENGINE PROTECTION
+        SYSTEM
+    </stitle>
+    <svcsection/>
+    <svcproc svcproctype="IDcomponent" graphiccount="0">
+        <title>ENGINE PROTECTION SYSTEM</title>
+        <svcprocinfo>
+            <para>Each Series 60 engine includes a standard engine protection system to prevent engine damage. All
+                International installed Series 60 engines can be programmed to one of two modes of operation. The
+                <emph type="bold">DEFAULT</emph>
+                (standard) setting is for warning lights only.
+            </para>
+            <para>The optional (customer selectable) method is the Engine Power Reduction/Shutdown feature. This feature
+                includes warning lights, engine derating and engine shutdown.
+            </para>
+            <para>The programmable parameter sheet included in the "Driver Information Package" with the truck indicates
+                which mode of engine protection that the factory programmed this vehicle for.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Engine Protection System</title>
+            <para>Series 60 equipped vehicles have a YELLOW "Check Engine Light" (CEL) and a RED "Stop Engine Light"
+                (SEL), located in the right gauge cluster. As a self-test feature, each time the key switch is turned to
+                the ON position, the CEL and SEL lights turn on for several seconds, then go off.
+            </para>
+            <para>
+                <emph type="bold">If the lights remain ON</emph>, it means the ECM has detected a problem. A diagnostic
+                check may be performed using the Diagnostic ON/OFF switch. See
+                <hotlnk document="s08141_14.xml" xrefid="x0814103">TROUBLESHOOTING</hotlnk>.
+            </para>
+            <para>With either the standard "Warning Lights Only" system or the programmable "Engine Power
+                Reduction/Shutdown" option, the system monitors the following three inputs:
+            </para>
+            <seqlist>
+                <item>
+                    <para>Engine Coolant Level**</para>
+                </item>
+                <item>
+                    <para>Engine Oil Pressure*</para>
+                </item>
+                <item>
+                    <para>Engine Oil Temperature*</para>
+                </item>
+            </seqlist>
+            <para>** International Circuit And Components</para>
+            <para>* DDEC Circuit And Components</para>
+            <para>
+                <emph type="underscr">With either of the two engine protection systems</emph>: If during vehicle
+                operation (or when starting the vehicle), any of the above inputs goes outside of a limit set by Detroit
+                Diesel, both the yellow CEL and red SEL lights will be turned ON.
+            </para>
+            <para>If the Engine Power Reduction/Shutdown feature is enabled (customer selected) and one of the three
+                monitored parameters goes outside the pre-set limits, the CEL and SEL lights turn ON and the engine
+                power will gradually be reduced until the engine is shutdown 30 seconds later.
+            </para>
+            <para>There is a Engine Override switch which, when held momentarily in the ON position, provides an
+                additional 30 seconds of engine operation to allow the vehicle to be brought to a safe stop.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Yellow Check Engine Light (CEL)</title>
+            <para>
+                <emph type="bold">If the yellow CEL remains ON, it means the ECM has detected a problem.</emph>
+                Take the vehicle to a service center as soon as possible. Some engine/vehicle features may be lost while
+                the light is ON.
+            </para>
+            <para>The CEL receives ignition power from J1 Ignition Feed Connector, which powers all the lights in the
+                right gauge cluster. The CEL ground circuit, 97AT, is connected to the ECM through ECM connector (273),
+                location B1. The ECM "enables" or "disables" the ground turning the CEL ON or OFF by either applying 12V
+                or 0V to circuit 97AT through the ECM connector. When ECM connector (273), location B1 is HIGH (12V),
+                the CEL is OFF, and when B1 is LOW (0V), the CEL is ON.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Red Stop Engine Light (SEL)</title>
+            <para>
+                <emph type="bold">If the RED "Stop Engine Light" (SEL) comes on while operating the vehicle, the vehicle
+                    should be brought to a safe stop, and the engine SHUT DOWN.
+                </emph>
+            </para>
+            <para>The SEL receives ignition power from J1 Ignition Feed Connector, which powers all the lights in the
+                right gauge cluster. The SEL ground circuit, 97AP, is connected to the ECM through ECM connector (273),
+                location B2. The ECM "enables" or "disables" the ground turning the SEL ON or OFF by either applying 12V
+                or 0V to circuit 97AP through the ECM connector. When ECM connector (273), location B2 is HIGH (12V),
+                the SEL is OFF, and when B2 is LOW (0V), the SEL is ON.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Engine Override Switch (260)</title>
+            <para>The engine override switch (260) is a 2-pole switch normally closed (N.C.) momentary ON switch. One
+                switch pole is connected to the ECM (circuit 97AU) through connector (273), location G2. This location
+                has 5V present from the ECM. The other side of the switch is ground through circuit 97-GD. Closing the
+                switch causes the voltage state at ECM location G2 to change from 5V to ground, indicating to the ECM
+                that the engine override switch is in the ON position. When this occurs, 30 seconds of additional run
+                time is provided.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>DDEC Low Coolant Module (274) And Probe (278)</title>
+            <para>The DDEC coolant module (installed by International) is connected to the International engine harness
+                at connector (274). 12V ignition power from 20A fuse H1, through circuit 13D to 34B powers the Low
+                Coolant Module at terminal (5). The Low Coolant Module is grounded from terminal (3) on circuit 34-G.
+            </para>
+            <para>Low Coolant Module terminal (1) sends a very low current signal on circuit 34 to the low coolant
+                probe. When the coolant level is above the probe, the signal is conducted through the probe to ground on
+                circuit 34-GA. If the coolant level is
+                <emph type="underscr">below the probe</emph>
+                (for several seconds to prevent false signals from sloshing), the probe circuit is open, which is
+                detected by the Low Coolant Module and a signal is sent to the ECM from terminal (4).
+            </para>
+            <para>Low Coolant Module terminal (4) is connected by circuit 34A through ECM connector (273), location H3.
+                The ECM can receive several different signals from the Low Coolant Module, including one when coolant is
+                ABOVE the probe and one when coolant is BELOW the probe. Additionally, the ECM monitors (using signals
+                on 34A) voltage levels that the ECM uses in setting diagnostic fault codes.
+                <emph type="bold">This manual does not recommend bench testing the DDEC coolant module using a Fluke DOM
+                    as internal circuits may be damaged.
+                </emph>
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08141_6.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08141_8.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08141.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

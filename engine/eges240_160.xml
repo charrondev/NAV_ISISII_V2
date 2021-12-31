@@ -1,0 +1,572 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Reference Voltage (VREF)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="2">
+        <title>Reference Voltage (V
+            <subscript>REF</subscript>)
+        </title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3345" filename="../figd33/d3345.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function Diagram for the Reference Voltage (Vref)</caption>
+            </figure>
+            <para>The Function Diagram for the V
+                <subscript>REF</subscript>
+                includes the following:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Manifold Absolute Pressure (MAP) sensor</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation Position (EGRP) sensor</para>
+                </item>
+                <item>
+                    <para>Injection Control Pressure (ICP) sensor</para>
+                </item>
+                <item>
+                    <para>Barometric Atmospheric Pressure (BAP) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Oil Pressure (EOP) sensor</para>
+                </item>
+                <item>
+                    <para>Accelerator Position Sensor (APS)</para>
+                </item>
+                <item>
+                    <para>Exhaust Back Pressure (EBP) sensor</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The ECM contains a regulated 5V DC voltage reference source to power engine and vehicle sensors. The
+                sensor signals are compared to the V
+                <subscript>REF</subscript>
+                to determine actual sensor output signal values. These values are processed by the ECM for engine
+                operation.
+            </para>
+            <para>The system has two V
+                <subscript>REF</subscript>
+                circuits:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>V
+                        <subscript>REF</subscript>
+                        A for engine sensors
+                    </para>
+                </item>
+                <item>
+                    <para>V
+                        <subscript>REF</subscript>
+                        B for chassis sensors
+                    </para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>See truck Chassis Electrical Circuit Diagram manual for APS and BAP sensor circuit diagrams.
+                    </para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>V
+                <subscript>REF</subscript>
+                Circuit Operation
+            </title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3346" filename="../figd33/d3346.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>
+                    <emph type="bold">V
+                        <subscript>REF</subscript>
+                    </emph>
+                    Circuit Diagram
+                </caption>
+            </figure>
+            <para>The ECM supplies V
+                <subscript>REF</subscript>
+                when the ignition key is on at terminals X1-14 (engine connector) and X4-4 (chassis connector).
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>There are no DTCs for V
+                <subscript>REF</subscript>. When a V
+                <subscript>REF</subscript>
+                circuit fault occurs in a sensor, the ECM may set an out of range high or low code. Multiple high or low
+                codes are indicators of a V
+                <subscript>REF</subscript>
+                or signal ground fault condition. When a V
+                <subscript>REF</subscript>
+                signal is shorted to ground, shorted to ground occurs, the ECM will reset and cause a stumble.
+            </para>
+            <para>When the ECM sets multiple sensor DTCs, the V
+                <subscript>REF</subscript>
+                circuit is open or shorted, or the signal ground circuit is open. To determine if the V
+                <subscript>REF</subscript>
+                circuits are the cause, complete the pin point diagnostics check.
+            </para>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout harnesses</para>
+                </item>
+                <item>
+                    <para>Breakout box</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>After removing connector, inspect for damaged pins, corrosion, or loose terminals. Repair as
+                        required.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>V
+                <subscript>REF</subscript>
+                Pin Point Diagnostics
+            </title>
+            <table id="te24007080" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="0.71*"/>
+                    <colspec colname="col2" colwidth="0.77*"/>
+                    <colspec colname="col3" colwidth="0.58*"/>
+                    <colspec colname="col4" colwidth="2.03*"/>
+                    <spanspec namest="col1" nameend="col4" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1" align="center">
+                                <note>
+                                    <para>The ECM monitors voltage on V
+                                        <subscript>REF</subscript>
+                                        A and will adjust signal values for the sensors that use V
+                                        <subscript>REF</subscript>
+                                        A for operation. If a sensor or circuit pulls V
+                                        <subscript>REF</subscript>
+                                        lower than 5V, the ECM may set out of range high DTCs for the sensors that
+                                        operate on V
+                                        <subscript>REF</subscript>
+                                        B (APS, BAP, B+, and VSS).
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Voltage Reference Connector Checks</emph>
+                                    (If multiple DTCs are set, remove harness connections and measure V
+                                    <subscript>REF</subscript>
+                                    at suspected sensor circuits.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>5V &#177;0.5</para>
+                            </entry>
+                            <entry colname="col4" morerows="5">
+                                <para>Check V
+                                    <subscript>REF</subscript>
+                                    at each sensor. To isolate area of short or open circuit, identify sensors without V
+                                    <subscript>REF</subscript>
+                                    and sensors that share a common V
+                                    <subscript>REF</subscript>. If disconnecting a sensor causes V
+                                    <subscript>REF</subscript>
+                                    to be present in the circuit that had no previous V
+                                    <subscript>REF</subscript>, it is likely that the disconnected sensor had shorted V
+                                    <subscript>REF</subscript>
+                                    to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>MAP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>5V &#177;0.5</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ICP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>5V &#177;0.5</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>APS</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>5V &#177;0.5</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>BAP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>5V &#177;0.5</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGRP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>D to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>5V &#177;0.5</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Checks to Chassis Ground</emph>
+                                    (Turn ignition key OFF. Disconnect sensors and negative battery cable.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>>500&#x2126;</para>
+                            </entry>
+                            <entry colname="col4" morerows="5">
+                                <para>If resistance is&#60; spec, check for short to ground. If a short to ground
+                                    condition exists, remove all sensor connectors that are connected to V
+                                    <subscript>REF</subscript>
+                                    and ECM. Inspect to determine if short is in sensor, ECM, or wiring harness. Spec is
+                                    >1k&#x2126; with all common sensors disconnected from harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>MAP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>>500&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ICP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>>500&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>APS</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>BAP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGRP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>D to gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>>500&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Turn ignition key OFF and all accessories. Disconnect sensors and install breakout
+                                    box on engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to X1-14</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col4" morerows="5">
+                                <para>Measure resistance with DMM from sensor connector to ECM 24 pin connectors. If
+                                    resistance is >5&#x2126;, check for high resistance or an open in the V
+                                    <subscript>REF</subscript>
+                                    supply circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>MAP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to X1-14</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ICP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to X1-14</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>APS</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>C to X4-4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>BAP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B to X4-4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGRP</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>D to X1-14</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_159.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_161.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

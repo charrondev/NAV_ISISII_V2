@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE / 2000 4000 and 8000 MODELS BUILT OCTOBER 1, 1998 AND AFTER -
+        ALLISON WT TRANSMISSION WITH WTEC III ELECTRONIC CONTROLS - TROUBLESHOOTING - TROUBLESHOOTING WITH DIAGNOSTIC
+        CODES
+    </stitle>
+    <svcsection/>
+    <svcproc id="x0824603" svcproctype="troubleshoot" graphiccount="0">
+        <title>TROUBLESHOOTING WITH DIAGNOSTIC CODES</title>
+        <svcprocinfo>
+            <para>The tests in this section are written to be performed by reading the diagnostic codes using the shift
+                selector and the Fluke 88 multimeter. In many cases an electronic service tool can be used for reading
+                the codes and performing some system diagnostics if the proper software is available. Note that if
+                battery power is not present at the ECU, the electronic service tool will not be able to read the codes
+                or perform other diagnostics.
+            </para>
+            <para>When beginning the troubleshooting process, always check for ACTIVE diagnostic codes first.
+                <emph type="bold">The codes listed in this service section are only those codes that are likely to be
+                    involved with International-installed components and harnesses.</emph>For a full listing of
+                diagnostic codes, refer to the Allison WT Service Manual and WTEC III Controls and General Information
+                Manual.
+            </para>
+            <specpara>
+                <important>
+                    <para>Low transmission oil levels, low battery power, battery power interruptions and intermittent
+                        ground connections can cause many diagnostic codes to be registered.
+                    </para>
+                </important>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Before diagnosing any fault codes:</title>
+            <step1>
+                <para count="1">Check transmission oil level.</para>
+            </step1>
+            <para></para>
+            <step1>
+                <para count="1">Perform test
+                    <hotlnk document="s08246_36.xml" xrefid="t0824603">ECU and Shift Selector Power and Ground
+                        Circuits</hotlnk>, Table 3. Look carefully for (and correct) conditions that can cause
+                    intermittent conditions such as:
+                </para>
+                <step2>
+                    <para count="1">Loose, dirty, corroded or painted connections.</para>
+                </step2>
+                <step2>
+                    <para count="1">Check related relays and fuses for overheating or open condition.</para>
+                </step2>
+                <step2>
+                    <para count="1">Check for damaged, chafing wires.</para>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Main Code 13 Sub Code 12, 13, or 23 - ECU Input Voltage</title>
+            <para>This code means the ECU has detected either a high, medium low, or low battery input voltage. The ECU
+                monitors battery voltage input levels to its connector (632)/pins 136 and 136A, and shift selector
+                (420)/pin R. LOW voltage is considered less than 8 volts, medium low voltage is considered 10 volts, and
+                HIGH voltage is considered more than 32 volts. Common causes for this code are usually vehicle wiring
+                conditions, vehicle charging system and batteries, or poor ground conditions.
+            </para>
+            <specpara>
+                <note>
+                    <para>The ECU turns OFF when voltage drops to approximately 7.0 volts.</para>
+                </note>
+            </specpara>
+            <para>Perform test
+                <hotlnk document="s08246_36.xml" xrefid="t0824603">ECU and Shift Selector Power and Ground
+                    Circuits</hotlnk>, Table 3.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Main Code 23 Sub Code 12 or 16</title>
+            <para>This code indicates a fault with the shift selector assembly or the harnesses that connect it to the
+                ECU.
+            </para>
+            <step1>
+                <para count="1">Clear active codes as explained in
+                    <hotlnk document="s08246_29.xml" xrefid="x0824604">Clearing Diagnostic Code Indicator</hotlnk>. If
+                    code 23 XX re-occurs, go to step 2.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Check for poor connections at connectors (420) and (634).</para>
+            </step1>
+            <step1>
+                <para count="1">Go to test
+                    <hotlnk document="s08246_36.xml" xrefid="t0824605">Shift Selector Harness Circuitry</hotlnk>, Table
+                    5.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If no problem found with circuitry have Allison dealer diagnose and replace selector if
+                    necessary.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If condition persists, replace ECU.</para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Main Code 26 Sub Code 00 or 11</title>
+            <para>This code indicates that the ECU has not detected either a throttle source or an engine coolant
+                temperature source.
+            </para>
+            <step1>
+                <para count="1">When code 26 00 is logged and the throttle signal is being supplied via the J1587
+                    communications link, refer to code 66 00 for troubleshooting.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">When code 26 11 is logged and the engine coolant temperature is being supplied via the
+                    J1587 communications link, refer to code 66 00 for troubleshooting.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Main Code 35 Sub Code 00 or 16 - Power Interruption</title>
+            <para>This code indicates that the ECU detected a complete battery power loss before the ignition was turned
+                off. This code cannot be displayed as an active code, but will be displayed only after power is
+                restored.
+            </para>
+            <para>When this happens, the ECU is not able to save the current operating parameters in memory before
+                turning itself off.
+            </para>
+            <step1>
+                <para count="1">On vehicles equipped with a master switch, turning off the master switch before turning
+                    off the ignition switch can cause this code.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If improper switch sequencing is not the cause, check ECU power and ground circuits (see
+                    test
+                    <hotlnk document="s08246_36.xml" xrefid="t0824603">ECU and Shift Selector Power and Ground
+                        Circuits</hotlnk>, Table 3).
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If all system power and ground connections are satisfactory and problem persists, have
+                    Allison dealer diagnose and replace ECU if necessary.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Main Code 62 Sub Code 32 or 33</title>
+            <para>This code indicates that the engine coolant temperature sensor or circuit has failed. Code 62 32
+                reports that the reading is below operational values. Code 62 33 reports that the leading is above
+                operations values.
+            </para>
+            <step1>
+                <para count="1">If code 66 11 is present refer to test
+                    <hotlnk document="s08246_36.xml" xrefid="t0824604">J1708 Communications Link</hotlnk>, Table 4.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Refer to engine troubleshooting guide to diagnose problem with coolant temperature
+                    sensor or circuits to engine ECM if code 66 11 is not present.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Main Code 66 Sub Code 00 or 11</title>
+            <para>This code indicates that the Allison ECU detects a problem getting information over the J1708 (Serial
+                Communications Interface) data link.
+            </para>
+            <para>Code 66 00 reports that the link is not functioning.</para>
+            <para>Code 66 11 reports that the Allison ECU cannot find a source for the engine coolant temperature.
+            </para>
+            <para>These codes can also be set if the J1939 communications link communications fail.</para>
+            <step1>
+                <para count="1">Use an electronic service tool to check for throttle and coolant temperature signals. If
+                    no data communications are present refer to test
+                    <hotlnk document="s08246_36.xml" xrefid="t0824604">J1708 Communications Link</hotlnk>, Table 4. If
+                    problem not found, go to step 2.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Using the engine warning lights or electronic service tool check for engine throttle or
+                    coolant temperature fault codes, If no problem found, go to step 3.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Reprogram/replace engine ECM if necessary.</para>
+            </step1>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08246_33.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08246_35.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08246.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

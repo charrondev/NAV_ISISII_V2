@@ -1,0 +1,764 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ANTILOCK BRAKES/TRACTION CONTROL: MERITOR WABCO WITH "D" VERSION ECU - TROUBLESHOOTING - DIAGNOSTICS
+    </stitle>
+    <svcsection/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>DIAGNOSTICS</title>
+        <svcsubproc>
+            <title>Blink Code Diagnostics: Definitions</title>
+            <para>Before using blink code diagnostics, you should be familiar with a few basic terms. If you used
+                previous versions of Meritor WABCO's blink code diagnostics, review these definitions to identify major
+                changes.
+            </para>
+            <deflist>
+                <term>ABS Warning Lamp</term>
+                <def>This lamp serves two purposes: it alerts drivers to an ABS fault and it is used during diagnostics
+                    to display the blink code.
+                </def>
+                <term>Blink Code</term>
+                <def>A series of blinks or flashes that describe a particular ABS system fault or condition.</def>
+                <term>Blink Code Cycle</term>
+                <def>A set of two flashes with each flash separated by a one-and-one-half second pause. Blink codes are
+                    defined in
+                    <hotlnk xrefid="x0403701">Blink Code Identification</hotlnk>.
+                </def>
+                <term>Blink Code Switch</term>
+                <def>A momentary switch that activates blink code diagnostic capabilities.</def>
+                <term>Clear</term>
+                <def>The process of erasing faults from the ECU.</def>
+                <term>Diagnostics</term>
+                <def>The process of using blink codes to determine ABS system faults.</def>
+                <term>Fault</term>
+                <def>An ABS malfunction detected and stored in memory by the Meritor WABCO ECU. System faults may be
+                    <emph type="bold">Active</emph>
+                    or
+                    <emph type="bold">Stored</emph>. (Meritor WABCO recommends you keep a record of these faults for
+                    future reference.)
+                </def>
+                <term>Active Fault</term>
+                <def>A condition that
+                    <emph type="bold">currently exists</emph>
+                    in the ABS system; for example, a sensor circuit malfunction on the left front steering axle. An
+                    active fault must be repaired before it can be cleared from memory - and before you can display
+                    additional faults.
+                </def>
+                <term>Stored Fault</term>
+                <def>There are two types of stored faults: A. A repaired active fault that
+                    <emph type="bold">has not been cleared</emph>
+                    from the ECU. B. A fault that occurred but
+                    <emph type="bold">no longer exists</emph>. For example, a loose wire that makes intermittent
+                    contact. Because stored faults are not currently active, they do not have to be repaired before they
+                    can be cleared from memory.
+                </def>
+                <term>System Configuration Code</term>
+                <def>One digit code displayed during the clear mode. Blink codes for common ABS system configurations
+                    are shown in
+                    <hotlnk xrefid="f0403716">Figure 16</hotlnk>.
+                </def>
+            </deflist>
+            <figure id="f0403716" figsize="pg-wide">
+                <graphic filename="../figg04/g0403716.webp" type="webp" scalefit="1" scalefitwidth="312px"
+                         scalefitheight="312px"/>
+                <caption>Figure 16. Blink Codes for Common ABS System Configurations</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagnostic Mode</title>
+            <para>To enter the diagnostic mode, press and hold the blink code switch for one second, then release.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Clear Mode</title>
+            <para>To erase faults from the ECU, you must be in the clear mode. To enter the clear mode, press and hold
+                the blink code switch for at least three seconds, then release.
+            </para>
+            <para>If the system displays eight quick flashes followed by a system configuration code, the clear was
+                successful. The ABS fault has been cleared from memory.
+            </para>
+            <para>f you do not receive eight flashes, there are still active faults that must be repaired before they
+                can be cleared.
+            </para>
+        </svcsubproc>
+        <svcsubproc id="x0403709">
+            <title>Blink Code Diagnostics Table</title>
+            <para>Refer to
+                <hotlnk xrefid="f0403717">Figure 17</hotlnk>
+                and
+                <hotlnk xrefid="f0403718">Figure 18</hotlnk>.
+            </para>
+            <figure id="f0403717" figsize="pg-wide">
+                <graphic filename="../figg04/g0403717.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="592px"/>
+                <caption>Figure 17. Blink Codes Illustrated</caption>
+            </figure>
+            <figure id="f0403718" figsize="pg-wide">
+                <graphic filename="../figg04/g0403718.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="432px"/>
+                <caption>Figure 18. Blink Codes Illustrated (Cont.)</caption>
+            </figure>
+            <table id="t0403703" frame="all">
+                <title>Blink Code Diagnostics</title>
+                <tgroup cols="4" colsep="1" rowsep="1">
+                    <colspec colwidth="0.71in"/>
+                    <colspec colwidth="1.25in"/>
+                    <colspec colwidth="2.47in"/>
+                    <colspec colwidth="2.26in"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Mode</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Procedure</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">System Response</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Action</emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry morerows="3">
+                                <para>Diag- nostic</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Step I.</emph>
+                                    Turn ignition ON.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>Possible responses:</para>
+                                <para>1. ABS warning lamp comes on momentarily then goes out, indicating System OK.
+                                </para>
+                                <para>2. ABS warning lamp does not light, indicating possible wiring fault or burned-out
+                                    bulb.
+                                </para>
+                                <para>3. ABS warning lamp stays on, indicating: A. fault, or faults, in the system; B.
+                                    sensor fault during last operation; C. faults cleared from ECU, but vehicle not
+                                    driven; D. ECU disconnected.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>1. No recognizable active faults in the ABS. No action required.</para>
+                                <para>2. Inspect wiring. Inspect bulb. Make necessary repairs.</para>
+                                <para>3A. Continue with blink code diagnostics. (Go to Step II.)</para>
+                                <para>3B. Continue with blink code diagnostics. (Go to Step II.)</para>
+                                <para>3C. Drive vehicle - lamp will go out when vehicle reaches 4 mph (6 km/h).</para>
+                                <para>3D. Connect ECU.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Step II.</emph>
+                                    Press and hold Blink Code Switch for one second, then release.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>ABS warning lamp begins flashing two-digit blink code(s).</para>
+                            </entry>
+                            <entry>
+                                <para>Determine if fault is active or stored:
+                                    <emph type="bold">Active Fault</emph>
+                                    - Lamp will repeatedly display one code.
+                                </para>
+                                <para>
+                                    <emph type="bold">Stored Fault</emph>
+                                    - Lamp will display code for each stored fault then stop blinking. Faults will be
+                                    displayed
+                                    <emph type="bold">one time only</emph>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Step III.</emph>
+                                    Count the flashes to determine the blink code.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>First Digit: 1-8 flashes, Pause (1-1/2 seconds). Second Digit: 1-6 flashes, Pause
+                                    (4 seconds).
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>Find definition for blink code on blink code chart.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Step IV.</emph>
+                                    Turn ignition OFF. Repair and record faults.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>Active Fault.</para>
+                                <para>Stored Faults.</para>
+                            </entry>
+                            <entry>
+                                <para>Make the necessary repairs. Repeat Steps I, II, and III until System OK code (1-1)
+                                    is received. Record for future reference.
+                                    <emph type="bold">NOTE: Last fault stored is first fault displayed.</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Clear</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Step V.</emph>Turn ignition ON. Clear faults from memory:
+                                    <emph type="bold">Press and hold</emph>
+                                    blink code switch for at least 3 seconds, then release.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>1. ABS Warning Lamp flashes 8 times.</para>
+                                <para>2. Eight flashes not received.</para>
+                            </entry>
+                            <entry>
+                                <para>1. All faults successfully cleared. Turn ignition OFF.</para>
+                                <para>2. Active faults still exist, repeat Steps I through V.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Working With Blink Codes</title>
+            <para>When using blink code diagnostics, the following conditions could occur:</para>
+            <table id="t0403704" frame="all">
+                <title>Blink Code Conditions</title>
+                <tgroup cols="3" colsep="1" rowsep="1">
+                    <colspec colwidth="2.26in"/>
+                    <colspec colwidth="2.19in"/>
+                    <colspec colwidth="2.28in"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Condition</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Reason</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Action</emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry morerows="1">
+                                <para>ABS lamp does not come on at ignition.</para>
+                            </entry>
+                            <entry>
+                                <para>Loose or burned-out bulb.</para>
+                            </entry>
+                            <entry>
+                                <para>Check bulb. Check connections. Make necessary repairs.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Voltage not within acceptable range (11-14 volts for a 12-volt system, 18-30 volts
+                                    for a 24-volt system).
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>Check connections. Measure voltage. Make necessary repairs.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry morerows="1">
+                                <para>Can't use blink code diagnostics; ABS lamp will not go off when blink code is
+                                    activated.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>Switch not held for proper length of time: 1 second - Diagnostics Mode; 3 seconds
+                                    - Clear All Mode.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>Repeat procedure, hold switch for proper length of time.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>Improper or faulty wiring.</para>
+                            </entry>
+                            <entry>
+                                <para>Inspect and repair wiring.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Eight flashes not received after blink code switch pressed for
+                                    <emph type="bold">at least</emph>
+                                    three seconds.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>Active faults still exist.</para>
+                            </entry>
+                            <entry>
+                                <para>Identify active faults, then make necessary repairs. Turn ignition OFF, then
+                                    repeat Blink Code Diagnostics.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="x0403701">
+            <title>Blink Code Identification</title>
+            <table id="t0403705" frame="all">
+                <title>Blink Code Identification</title>
+                <tgroup cols="2" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="2.75in"/>
+                    <colspec colname="col2" colwidth="3.75in"/>
+                    <spanspec namest="col1" nameend="col2" spanname="1to2"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">First Digit (Type of Fault)</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Second Digit - Specific Location of Fault</emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>1. No faults</para>
+                            </entry>
+                            <entry>
+                                <para>1. No faults</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2. ABS modulator valve.</para>
+                                <para>3. Too much sensor gap.</para>
+                                <para>4. Sensor short or open.</para>
+                                <para>5. Sensor signal erratic.</para>
+                                <para>6. Tooth wheel.</para>
+                            </entry>
+                            <entry>
+                                <para>1. Right front steer axle (curb side).</para>
+                                <para>2. Left front steer axle (driver side).</para>
+                                <para>3. Right rear drive axle (curb side).</para>
+                                <para>4. Left rear drive axle (driver side).</para>
+                                <para>5. Right rear/additional axle (curb side)*.</para>
+                                <para>6. Left rear/additional axle (driver side)*.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7. System function.</para>
+                            </entry>
+                            <entry>
+                                <para>1. J1922 or J1939 datalink.</para>
+                                <para>2. ATC valve.</para>
+                                <para>3. Retarder relay (third brake).</para>
+                                <para>4. ABS warning lamp.</para>
+                                <para>5. ATC configuration.</para>
+                                <para>6. Reserved for future use.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8. ECU.</para>
+                            </entry>
+                            <entry>
+                                <para>1. Low power supply.</para>
+                                <para>2. High power supply.</para>
+                                <para>3. Internal fault.</para>
+                                <para>4. System configuration error.</para>
+                                <para>5. Ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2">
+                                <para>*Tandem, lift, tag or pusher axle depending upon the type of suspension.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Blink Code Troubleshooting and Repair</title>
+            <table id="t0403706" frame="all">
+                <title>Blink Code Troubleshooting and Repair</title>
+                <tgroup cols="4" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="0.75in"/>
+                    <colspec colname="col2" colwidth="0.75in"/>
+                    <colspec colwidth="3.42in"/>
+                    <colspec colwidth="1.76in"/>
+                    <spanspec namest="col1" nameend="col2" spanname="1to2"/>
+                    <thead>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>
+                                    <emph type="bold">Blink Code</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Action Required</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Reference</emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry align="center">
+                                <para>2-1</para>
+                                <para>2-2</para>
+                                <para>2-3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>2-4</para>
+                                <para>2-5</para>
+                                <para>2-6</para>
+                            </entry>
+                            <entry>
+                                <para>Check ABS modulator valve, valve cable, and connectors. Verify 4.0 - 8.0 ohms
+                                    resistance (ABS Modulator valve).
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <hotlnk document="s04037_11.xml" xrefid="x0403702">ABS Modulator Valve</hotlnk>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>3-1</para>
+                                <para>3-2</para>
+                                <para>3-3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>3-4</para>
+                                <para>3-5</para>
+                                <para>3-6</para>
+                            </entry>
+                            <entry>
+                                <para>Adjust wheel sensor to touch tooth wheel. Check sensor gap. Check for loose wheel
+                                    bearings or excessive hub runout. Verify minimum 0.2 volt AC output @ 30 RPM.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <hotlnk document="s04037_9.xml" xrefid="x0403703">Sensor Adjustment</hotlnk>
+                                    and/or
+                                    <hotlnk document="s04037_9.xml" xrefid="x0403704">Sensor Output Voltage
+                                        Test</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>4-1</para>
+                                <para>4-2</para>
+                                <para>4-3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>4-4</para>
+                                <para>4-5</para>
+                                <para>4-6</para>
+                            </entry>
+                            <entry>
+                                <para>Check sensor, sensor cable, and connectors. Verify 700-3000 ohms resistance.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <hotlnk document="s04037_9.xml" xrefid="x0403705">Sensor Resistance</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>5-1</para>
+                                <para>5-2</para>
+                                <para>5-3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>5-4</para>
+                                <para>5-5</para>
+                                <para>5-6</para>
+                            </entry>
+                            <entry>
+                                <para>Check for tire size mismatch or tooth wheel difference. Check sensor, sensor
+                                    cable, and connector for intermittent contact.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <hotlnk document="s04037_8.xml" xrefid="x0403706">Tire Size Range</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>6-1</para>
+                                <para>6-2</para>
+                                <para>6-3</para>
+                            </entry>
+                            <entry align="center">
+                                <para>6-4</para>
+                                <para>6-5</para>
+                                <para>6-6</para>
+                            </entry>
+                            <entry>
+                                <para>Check for damaged tooth wheel.</para>
+                            </entry>
+                            <entry></entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>7-1</para>
+                            </entry>
+                            <entry>
+                                <para>Check for proper data link connections (J1922 and J1939). Verify wheel spin on
+                                    each axle.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <hotlnk document="s04037_16.xml" xrefid="x0403707">Wiring Diagram, Appendix
+                                        II</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>7-2</para>
+                            </entry>
+                            <entry>
+                                <para>Check ATC valve, valve cables, and connectors. Verify 8.0-14.0 ohms resistance for
+                                    a 12-volt system, 16.0-28.0 ohms resistance for a 24-volt system.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <hotlnk document="s04037_11.xml" xrefid="x0403708">ATC Valve</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>7-3</para>
+                            </entry>
+                            <entry>
+                                <para>Check retarder (third brake) connections.</para>
+                            </entry>
+                            <entry morerows="2">
+                                <para>
+                                    <hotlnk document="s04037_16.xml" xrefid="x0403707">Wiring Diagram, Appendix
+                                        II</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>7-4</para>
+                            </entry>
+                            <entry>
+                                <para>Check ABS warning light connections. Verify blink code switch was activated longer
+                                    than 16 seconds.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>7-5</para>
+                            </entry>
+                            <entry>
+                                <para>Verify proper ATC set-up.</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>7-6</para>
+                            </entry>
+                            <entry>
+                                <para>Verify accuracy of blink code and clear from ECU memory.</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <hotlnk xrefid="x0403709">Blink Code Diagnostics</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>8-1</para>
+                            </entry>
+                            <entry>
+                                <para>Check for low voltage. Check vehicle voltage, fuse, and supply to ECU (11-14
+                                    volts).
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <hotlnk document="s04037_16.xml" xrefid="x0403707">Wiring Diagram, Appendix II
+                                    </hotlnk>
+                                    and/or
+                                    <hotlnk document="s04037_9.xml" xrefid="x0403710">Voltage Check</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>8-2</para>
+                            </entry>
+                            <entry>
+                                <para>Check for high voltage. Check vehicle voltage: 11-14 volts for a 12-volt system.
+                                    Verify accuracy of blink code and clear from ECU memory.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <hotlnk document="s04037_9.xml" xrefid="x0403710">Voltage Check</hotlnk>
+                                    and/or
+                                    <hotlnk xrefid="x0403709">Blink Code Diagnostics</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>8-3</para>
+                            </entry>
+                            <entry>
+                                <para>Verify accuracy of blink code and clear from ECU memory.</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <hotlnk xrefid="x0403709">Blink Code Diagnostics</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>8-4</para>
+                            </entry>
+                            <entry>
+                                <para>Verify all ECU connectors are in place. Verify accuracy of blink code and clear
+                                    from ECU memory.
+                                    <emph type="bold">If code does not clear, it may be necessary to replace the ECU.
+                                    </emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>Contact Meritor Customer Service at 1-800-535-5560.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>8-5</para>
+                            </entry>
+                            <entry>
+                                <para>Check ABS ground connections.</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <hotlnk document="s04037_16.xml" xrefid="x0403707">Wiring Diagram, Appendix
+                                        II</hotlnk>.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04037_5.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04037_7.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04037.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

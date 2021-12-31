@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Tachometer Output Circuit
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="2">
+        <title>Tachometer Output Circuit</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3366" filename="../figd33/d3366.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function Diagram for the Tachometer Output Circuit</caption>
+            </figure>
+            <para>The Function Diagram for the Tachometer output circuit consists of the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Remote tachometer</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Camshaft Position (CMP) sensor</para>
+                </item>
+                <item>
+                    <para>Crankshaft Position (CKP) sensor</para>
+                </item>
+            </randlist>
+            <para>The ECM provides an output for a remote tachometer with a 0-12V digital signal that indicates engine
+                speed. The frequency sent by the ECM is 1/5th of the actual engine rpm (12 pulse / rev = rpm / 5).
+            </para>
+            <specpara>
+                <note>
+                    <para>Initial production ECMs send a frequency of 1 pulse / 2 revs = CMPO.</para>
+                </note>
+            </specpara>
+            <para>
+                <title>Tachometer Input Signal</title>
+            </para>
+            <para>The ECM receives a signal from the CMP sensor and calculates engine speed (rpm). The ECM sends the
+                calculated engine speed as a digital buffered TACH signal from the ECM connector to the owner installed
+                tachometer.
+            </para>
+            <para>
+                <title>Tachometer Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are not available for communication between the ECM and the remote tachometer.</para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Tachometer Pin Point Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3367" filename="../figd33/d3367.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Tachometer Circuit Diagram</caption>
+            </figure>
+            <table id="te24007082" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="1.32in"/>
+                    <colspec colname="col2" colwidth="1.10in"/>
+                    <colspec colname="COLSPEC0" colwidth="1.09in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Key ON Engine OFF Voltage Checks at ECM</emph>
+                                    (Check with breakout box installed and Key ON Engine OFF.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Signal</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-11 to X3-7</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177;1.5</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>TACH A</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>The signal is pulled up by the ECM with the Key ON Engine OFF.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Checks to Ground at ECM</emph>
+                                    (Check with breakout box installed and key OFF.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-11 to X3-7</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>TACH A</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, check for short to ground either through the harness or
+                                    internal ECM. Disconnect the ECM from the breakout box and measure to ground again.
+                                    If short is still present, repair harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Check with breakout box installed and key OFF.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-11 to tach</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>TACH</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance from ECM connector to TACH input - Optional owner / operator tach.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Key ON Engine Running Signal Checks - TACH</emph>
+                                    (Check with breakout box installed.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-11 to X3-7</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>140-700 Hz</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tach signal from the ECM is a frequency that is engine rpm &#247;5.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <specpara>
+                <note>
+                    <para>The instrument cluster tachometer does not use these outputs. See truck Electrical System
+                        Troubleshooting Guide.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_161.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_163.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

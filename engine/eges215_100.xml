@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 530 Engine Diagnostic Manual for 4000 Series Trucks (2001) - ELECTRONIC CONTROL SYSTEM
+        DIAGNOSTICS - CIRCUIT FUNCTION AND DIAGNOSTICS - Idle Shutdown Timer (IST)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="1">
+        <title>Idle Shutdown Timer (IST)</title>
+        <svcsubproc>
+            <title>System Functions</title>
+            <figure id="f17503070" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1295.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Idle Shutdown Timer Function Diagram</caption>
+            </figure>
+            <para>The Idle Shutdown feature is an optional feature that allows the ECM to shut off the engine if an idle
+                condition has been detected for more than the customer specified programmed period (2 to 120 minutes).
+                Prior to engine shutdown the red Engine lamp illuminates and causes the message
+                <emph type="bold">OIL/WATER</emph>
+                to be displayed on the odometer. The lamp will flash for 30 seconds to warn the driver of the pending
+                shutdown. The idle time is measured from the last clutch or break pedal transition. The engine must be
+                out of gear for the idle shutdown timer to be initiated. This feature can be programmed to operate only
+                at specific ambient air temperatures to allow prolonged engine operation in cold or hot weather
+                operation. For PTO applications this feature can also be programmed not to be turned on under specific
+                load levels or when the PTO switches are on.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>
+                <emph type="bold">Diagnostic Trouble Code 324</emph>
+            </para>
+            <para>The Idle Shutdown feature is internal to the ECM. All subsystems that input the idle shutdown strategy
+                have their own Diagnostic Trouble Code detection and management strategy (e.g. IAT temperature sensor
+                circuit). A Diagnostic Trouble Code will be set if the idle shutdown timer has been activated.
+                <emph type="bold">This is not a system Diagnostic Trouble Code. Its only purpose is to indicate to the
+                    owner, driver or technician that the idle shutdown timer has been activated and that the engine has
+                    been shut down.
+                </emph>
+            </para>
+            <para>
+                <emph type="bold">Diagnostic Trouble Code 324</emph>
+            </para>
+            <specpara>
+                <note>
+                    <para>This Diagnostic Trouble Code does not indicate any system or circuit faults, no diagnostics
+                        are necessary. If the (IST) programming parameters need to be changed, see the following
+                        Extended Description.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>The following list of parameters are essential to setting the IST function to meet the customer's
+                needs and expectations. They are accessible by using the EST.
+            </para>
+            <para>
+                <emph type="bold">Engine Idle Shutdown Control Parameters</emph>
+            </para>
+            <para>This group of parameters customizes the prolonged engine idle automatic shutdown feature. The purpose
+                of this feature is to shut down the engine after a programmable period of idle time has been exceeded.
+                This allows fuel conservation, a reduction of engine wear and emissions. Thirty (30.0) seconds prior to
+                an automatic engine shutdown, the operator will be warned via the red ENGINE lamp and causes the message
+                <emph type="bold">OIL/WATER</emph>
+                message being displayed on the odometer. This lamp will begin flashing until the engine is shut down.
+                The operator may override the electronics at any time. After an engine shutdown occurs, the red ENGINE
+                lamp will stop flashing and a Diagnostic Trouble Code (324) will be recorded. The Diagnostic Trouble
+                Code is recorded to assist in diagnosing possible service complaints of the engine shutting down.
+            </para>
+            <para>Currently, there are four states of electronic operation:</para>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Idle Shutdown Timer</emph>
+                    -This parameter indicates to the on-board electronics if this vehicle has the Idle Shutdown timer
+                    feature.
+                </para>
+            </step1>
+            <seqlist>
+                <item>
+                    <para>
+                        <emph type="bold">OFF</emph>- Feature is turned off at all times.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">PTO Available</emph>- Feature will allow prolonged engine idle shutdown only
+                        when the engine is in the low idle no load condition and PTO operation is off.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">No Engine Load</emph>- Feature allows prolonged engine idle shutdown when the
+                        engine is in the low idle no load condition.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Tamper Proof</emph>- Feature is tamper proof from operator over ride.
+                    </para>
+                </item>
+            </seqlist>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Idle Shutdown Time</emph>
+                    -This parameter indicates the length of engine idle time before the engine may be shut down.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Maximum Intake Ambient Air Temperature (IAT) for Idle Shutdown</emph>- This
+                    parameter indicates the maximum ambient intake air temperature that the on-board electronics may
+                    shut down during prolonged idling engine. This temperature is used to circumvent the shutting down
+                    of an engine when it is running because the air conditioning may be turned on.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Minimum Intake Ambient Air Temperature (IAT) for Idle Shutdown</emph>- This
+                    parameter indicates the minimum ambient intake air temperature that the on-board electronics may
+                    shut down during prolonged idle time. This temperature is used to circumvent engine shut down when
+                    it is running because of cold ambient temperature.
+                </para>
+            </step1>
+            <para id="f175fc324">
+                <emph type="bold">Diagnostic Trouble Code 324</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, PID 71, FMI 14</emph>
+            </para>
+            <para>
+                <emph type="bold">Idle Shutdown Timer Enabled Engine Shutdown</emph>
+            </para>
+            <para>This Diagnostic Trouble Code is set when the engine has been shut off by the ECM because the
+                programmed idle time criteria has been exceeded. The idle shutdown feature must be turned on for this
+                Diagnostic Trouble Code to be displayed. This Diagnostic Trouble Code can be cleared using the EST.
+            </para>
+            <verbatim>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line>THIS PAGE INTENTIONALLY LEFT BLANK</line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+            </verbatim>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_99.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_101.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

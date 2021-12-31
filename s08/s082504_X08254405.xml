@@ -1,0 +1,316 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 3200, 4100, 4200, 4300, 4400, 7300, 7400, 7500, 7600, 8500, 8600
+        Models Built After 05/19/2003 - ELECTRONIC GAUGE CLUSTER AND AUXILIARY GAUGE SWITCH PACK - TROUBLESHOOTING -
+        SERVICE PARK BRAKE WARNING LAMP
+    </stitle>
+    <svcman/>
+    <svcproc id="x08254405" svcproctype="troubleshoot" graphiccount="1">
+        <title>SERVICE PARK BRAKE WARNING LAMP</title>
+        <svcsubproc>
+            <title>Circuit Function</title>
+            <figure id="f08254a20" figsize="pg-wide">
+                <graphic filename="../figg08/g08254a5.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="312px"/>
+                <caption>Service Park Brake Warning Lamp Function Diagram</caption>
+                <calloutgroup>
+                    <callout1>1. AIR ACTUATED PARK BRAKE SAAR TRAVEL SENSOR</callout1>
+                    <callout1>2. ELECTRICAL SYSTEM CONTROLLER</callout1>
+                    <callout1>3. DRIVE TRAIN 1939 DATA LINK</callout1>
+                    <callout1>4. ELECTRONIC GAUGE CLUSTER (EGC)</callout1>
+                </calloutgroup>
+            </figure>
+            <para>The electrical circuits for the Travel Sensor integrated within the Spring Apply / Air Release (SAAR)
+                Chamber used on the powered park brake system. The powered park brake system is an option for vehicles
+                equipped with a hydraulic park brake system.
+            </para>
+            <para>The electrical output is provided to indicate the SAAR piston has moved when air pressure is released
+                from the chamber. A failure of the piston to move may indicate a park brake malfunction or
+                maladjustment. The sensor output will interface with a digital input on the ESC.
+            </para>
+            <para>SAAR - Spring Apply / Air Release: A component that actuates the park brake via a cable attached to a
+                piston. Then air is applied to the chamber at a great enough pressure to compress the spring, the park
+                brake is released. When air is evacuated from the chamber, the spring pushes back on the piston, which
+                in turn pulls the cable, which then actuates the piston.
+            </para>
+            <para>Inputs to the device shall consist of a nominal voltage of 14 VDC, and a ground connection.</para>
+            <para>Outputs:</para>
+            <para>Apply condition. The device shall deliver a HI signal when SAAR stroke is less than 19.05 +/- 3.175 mm
+                (.75 +/- .125 inches) and when the SAAR stroke exceeds 64.8 +/- 3.175 mm (2.55 +/- .125 inches) in the
+                apply condition. At all other times the device shall deliver a low signal.
+            </para>
+            <para>Release condition. The device shall deliver a HI signal when the SAAR stroke is less than 17.78 +/-
+                3.175 mm (.70 +/- .125 inches) and when the SAAR stroke exceeds 63.50 +/- 3.175 mm (2.50 +/- .125
+                inches) in the release condition. At all other times the device shall deliver a low signal.
+            </para>
+            <para>The device is meant to drive a low-current, digital input.</para>
+            <para>The EGC activates the
+                <hotlnk xrefid="f08254a20">Service Park Brake warning lamp</hotlnk>
+                when it receives a message on the Drivetrain 1939 data link from the ESC.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagnostics</title>
+            <para>The service tool (EZ-Tech) running the "INTUNE" diagnostic software can command the ESC to turn on all
+                of the warning lamps. This will verify that the EGC is working and communicating on the data link.
+            </para>
+            <para>The Service Park Brake Warning lamp is on when the Air Powered Park Brake is stuck. This occurs when
+                the park brake switch does not match the spring apply air release (SAAR) chamber travel sensor. This
+                indicates the park brake cannot be applied or cannot be released.
+            </para>
+            <para>The Service Park Brake Warning lamp is on when the auto apply portion with the Air Powered Park Brake
+                is not operating. This occurs when the park brake switch is not set within 5 seconds of the receipt of
+                the Park as the requested gear. This failure would indicate a failure in the auto apply or in the air
+                lines between the auto apply relay and the Park Brake switch.
+            </para>
+            <para>If the lamp stays on continuously or doesn't come on when commanded by the ESC, the problem may be in
+                ESC/EGC programming, EGC hardware or problems with the input circuits to the ESC from the park brake
+                switch.
+            </para>
+            <table id="t0825423" tblwidth="pg-wide" frame="all" numbered="no" view="reveal">
+                <title>Service Park Brake Warning Lamp Preliminary Check</title>
+                <tgroup cols="6" colsep="1" rowsep="1" align="center" charoff="50">
+                    <colspec colname="1" charoff="50" colwidth="0.53in"/>
+                    <colspec colname="2" charoff="50" colwidth="0.56in"/>
+                    <colspec colname="3" charoff="50" colwidth="1.61in"/>
+                    <colspec colname="5" charoff="50" colwidth="1.22in"/>
+                    <colspec colname="6" charoff="50" colwidth="1.03in"/>
+                    <colspec colname="7" charoff="50" colwidth="1.51in"/>
+                    <thead>
+                        <row>
+                            <entry colname="1" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">STEP</emph>
+                                </para>
+                            </entry>
+                            <entry colname="2" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">KEY</emph>
+                                </para>
+                            </entry>
+                            <entry colname="3" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">ACTION</emph>
+                                </para>
+                            </entry>
+                            <entry colname="5" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="6" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">YES-IN SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="7" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">NO-OUT OF SPEC.</emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody valign="top">
+                        <row>
+                            <entry colname="1" rotate="0">
+                                <para>1.</para>
+                            </entry>
+                            <entry colname="2" rotate="0">
+                                <para>Off/On</para>
+                            </entry>
+                            <entry colname="3" rotate="0">
+                                <para>Connect diagnostic tool (EZ-Tech) to the diagnostic connector. Turn key to
+                                    accessory position. Start the "ICAP" programming software. Verify warning lamp and
+                                    warning lamp inputs are programmed to operate.
+                                </para>
+                            </entry>
+                            <entry colname="5" rotate="0">
+                                <para>Warning lamp and warning lamp inputs are programmed to operate.</para>
+                            </entry>
+                            <entry colname="6" rotate="0">
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry colname="7" rotate="0">
+                                <para>Program the warning lamp with the "ICAP" software.</para>
+                                <para>Refer to
+                                    <hotlnk document="s082504_X0825388.xml" xrefid="x0825388">Programming</hotlnk>in the
+                                    Electrical System Controller section of this manual.
+                                    <xref refid="x0825388"/>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry rotate="0">
+                                <para>2.</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>On</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Attempt to exercise the warning lamp with the "INTUNE" diagnostic software.</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Warning Lamp responds to EGC diagnostic input.</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Lamp circuits from data link to EGC are working correctly.</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Insure bulb is not burned out. Replace EGC circuit board.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry rotate="0">
+                                <para>3.</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>On</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>
+                                    <hotlnk xrefid="x082540105b">Check for Service Park Brake Warning Lamp diagnostic
+                                        trouble codes.
+                                    </hotlnk>
+                                    <xref refid="x082540105b"/>
+                                </para>
+                                <para>Read display on odometer.</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Service Park Brake Warning Lamp diagnostic trouble codes are active.</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Go to the
+                                    <hotlnk document="s082504_X0825993.xml" xrefid="x0825993">Air Actuated Park
+                                        Brake</hotlnk>in the Chassis Features section of the manual.
+                                    <xref refid="x0825993"/>
+                                </para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Go to next step</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry rotate="0">
+                                <para>4.</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Off/On</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Temporarily swap a known good cluster with the current cluster and check operation
+                                    of the lamp.
+                                </para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Lamp operates correctly.</para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Message from ESC is being transmitted. Replace circuit board on original EGC.
+                                </para>
+                            </entry>
+                            <entry rotate="0">
+                                <para>Message from ESC is not being transmitted.
+                                    <hotlnk document="s082504_X0825310A.xml" xrefid="x0825310a">Consider replacing
+                                        ESC</hotlnk>.
+                                    <xref refid="x0825310a"/>
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="x082540105b">
+            <title>Diagnostic Trouble Codes (DTC)</title>
+            <para>To display diagnostic codes, put the vehicle in diagnostic mode. Set the parking brake and turn the
+                Ignition key "ON". Then press the Cruise "ON" switch and the Cruise "Resume" switch. If no diagnostic
+                trouble codes are present, the cluster odometer will display "NO FAULT". If diagnostic trouble codes are
+                present, the gauge cluster will display the total number of faults and cycle to the next diagnostic
+                trouble code after 10 seconds. To manually cycle through the diagnostic trouble code list, press the
+                cluster display select/reset button. The last character of the diagnostic trouble code will end in "A"
+                for active diagnostic trouble codes or "P" for previously active diagnostic trouble codes. Turning the
+                ignition key off or releasing the park brake will take the ESC and the gauge cluster out of the
+                diagnostic mode.
+            </para>
+            <para>The previously active diagnostic trouble codes may be cleared, while in the diagnostic mode, by
+                turning on the left turn signal and pressing the cruise on and set switches simultaneously.
+            </para>
+            <table id="t0825405b" tblwidth="pg-wide" numbered="no" view="reveal">
+                <title>Service Park Brake Warning Lamp Diagnostic Trouble Codes</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" align="center" colwidth="2.45in"/>
+                    <colspec colname="col2" colwidth="4.13in"/>
+                    <spanspec namest="col1" nameend="col2" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry align="center" colname="col1">
+                                <para>
+                                    <emph type="bold">DIAGNOSTIC TROUBLE CODE</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>
+                                    <emph type="bold">FAULT DESCRIPTION</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center" colname="col1">
+                                <para>70 14 1 0</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Air Powered Park Brake is stuck.</para>
+                                <para>Occurs when the park brake switch does not match the spring apply air release
+                                    (SAAR) chamber travel sensor. This indicates the park brake cannot be applied or
+                                    cannot be released.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center" colname="col1">
+                                <para>70 14 1 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>The auto apply portion with the Air Powered Park Brake is not operating.</para>
+                                <para>Occurs when the park brake switch is not set within 5 seconds of the receipt of
+                                    the Park as the requested gear. This failure would indicate a failure in the auto
+                                    apply or in the air lines between the auto apply relay and the Park Brake switch.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504_X082540105.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504_X082540106.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

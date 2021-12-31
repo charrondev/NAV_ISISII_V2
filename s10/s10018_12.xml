@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>3200 Integrated Mobility Option Service Manual - Hadley Smart Air Management System - SAMS Height Sensor
+    </stitle>
+    <svcsection/>
+    <svcproc svcproctype="describe" graphiccount="1">
+        <title>SAMS Height Sensor</title>
+        <svcprocinfo>
+            <para>This section is written to provide a basic understanding of the SAMS Height Sensor. The content is not
+                intended to be all inclusive, but is to provide basic knowledge for mounting the sensor, the sensor
+                function, and to provide a basic troubleshooting procedure.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Theory of Operation</title>
+            <para>The height sensor is used by the system ECU (electronic control unit) to monitor and control the
+                vehicle ride height. The sensor arm moves in reaction to the suspension movement and provides a voltage
+                signal that is proportional to the ride height at any given time. Typically, while the vehicle is in
+                operation, the ECU will default to and maintain a programmed ride height. The system design requires a
+                three sensor configuration: one front sensor and two rear sensors to provide the 3-point control.
+            </para>
+            <para>The sensor contains three wires (red, black, blue) that interface with the system ECU through the
+                supplied main wiring harness. The red wire provides an ECU generated reference voltage, typically 5VDC
+                (+/- 2%). The black wire provides the ground and the blue wire provides the voltage signal back to the
+                ECU. This voltage is proportional to the position of the sensor arm within its range of travel.
+            </para>
+            <para>The sensor arm is typically installed to be in the center of its travel, when the vehicle is at normal
+                ride height. This would provide a voltage signal on the blue wire that is one-half of the supplied
+                reference voltage (approximately 2.4VDC - 2.6VDC). As the sensor arm moves clockwise, the voltage on the
+                blue wire would continue to increase until the sensor arm reaches approximately +45 degrees of rotation
+                from the center position. At the +45 degrees of rotation, the voltage on the sensor's blue wire would be
+                approximately 4.4VDC to 4.6VDC. The sensor arm travel in the clockwise direction would be typical in a
+                decrease situation from the normal vehicle ride height.
+            </para>
+            <para>As the sensor arm moves counter-clockwise, the voltage on the blue wire would continue to decrease
+                until the sensor arm reaches approximately -45 degrees of rotation from the center position. At the -45
+                degrees of rotation, the voltage on the sensor's blue wire would be approximately 0.4VDC to 0.6VDC. The
+                sensor arm travel in the counter-clockwise direction would be typical in an increase situation from the
+                normal vehicle ride height.
+            </para>
+            <para>It is important to clarify that the sensor only monitors the ride height and provides feedback to the
+                ECU through only 90 degrees of movement. In other words, from the center position, a change in the ride
+                height of +45 degrees to -45 degrees of sensor arm movement provides a signal to the ECU. Movement
+                either above or below this range provides no additional feedback to the ECU. Therefore it is important
+                to install the sensor correctly to obtain the correct linkage arm inclination (see SAMS Height Sensor
+                Arm and Linkage Installation procedure outlined in Appendix C). Improper linkage installation can result
+                in sensor damage and result in improper system control and incorrect vehicle ride height.
+            </para>
+            <figure id="f1001828" figsize="pg-wide">
+                <graphic filename="../figG10/G1001828.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="392px"/>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Sensor Mounting</title>
+            <para>Care must be taken when mounting the sensor to the vehicle frame. The mounting surface must be flat so
+                the sensor body is mounted flush to the vehicle surface. It is recommended that two button head cap
+                screws, &#188;" - 20 thread, be used to mount the sensor to the vehicle and the screws be tightened to
+                60-80 inch/lbs. of torque. If the frame mounting holes are a through-hole (non-threaded), a nylon style
+                of locknut is also recommended to maintain the tightening torque.
+            </para>
+            <para>
+                <emph type="italic">It is important to clarify the above mounting information, otherwise distortion or
+                    breakage of the sensor body is possible when tightening the mounting hardware. Not having the sensor
+                    flush can distort the sensor body resulting in breakage as well as over-tightening can crack the
+                    housing. Damage to the senor will result in improper system control and incorrect vehicle ride
+                    height.
+                </emph>
+            </para>
+            <para>After the sensor is mounted to the vehicle, connect the sensor wiring female connector to the
+                respective vehicle wiring harness male connector. The center wire of the vehicle wiring harness
+                connector will be color coded to identify the respective location on the vehicle. The system vehicle
+                wiring harness center wire configuration is as follows:
+            </para>
+            <verbatim>
+                <line>Wiring harness blue wire = front sensor connector</line>
+                <line>Wiring harness yellow wire = rear drive sensor connector</line>
+                <line>Wiring harness green wire = rear curb sensor connector</line>
+            </verbatim>
+            <specpara>
+                <note>
+                    <para>Prior to connecting the wiring harness to the sensor connectors, be sure to apply a good brand
+                        of moisture displacement lubricant to the connectors. This will help prevent moisture from
+                        entering the connections and affecting system operation due to the low current and voltage
+                        application of the sensor.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Sensor Test Procedure</title>
+            <para>The ECU monitors the system and can identify voltages that are below 0.4VDC (short to ground, broken
+                wire, disconnected harness connector, etc.) or voltages equal to the supply reference (short to supply
+                voltage). Voltages associated with these conditions would generate a sensor alarm. The alarm would be
+                displayed by flashing a fault code on the system supplied LED. However, voltages that are above 0.4VDC
+                and below the supply reference from the ECU fall within the normal operating parameters of the sensor
+                and are not subject to alarm. If a sensor is identified to be faulty, a test can be performed to
+                validate its functionality. The following step by step process outlines that test procedure:
+            </para>
+            <step1>
+                <para count="1">Disconnect power from the system prior to performing any repairs or component
+                    removal/replacement. This will prevent any possible short circuits that could result in component or
+                    supply voltage damage.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Disconnect the sensor 3-wire connector from the supplied main wiring harness.</para>
+            </step1>
+            <step1>
+                <para count="1">Disconnect the linkage from the sensor arm.</para>
+            </step1>
+            <step1>
+                <para count="1">Unbolt the sensor from the vehicle frame and remove the sensor.</para>
+            </step1>
+            <step1>
+                <para count="1">Obtain a DC voltage power supply capable of supplying a regulated 5VDC supply.</para>
+            </step1>
+            <step1>
+                <para count="1">Connect the red lead from the power supply to the red wire on the sensor connector.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Connect the black lead from the power supply to the black wire on the sensor
+                    connector.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Obtain a voltmeter to monitor the DC feedback voltage.</para>
+            </step1>
+            <step1>
+                <para count="1">Connect the red lead of the voltmeter to the sensor blue wire and the black lead to the
+                    sensor black wire.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Orientate the sensor so the lever arm faces up, points to your left, and the sensor
+                    wiring is to your right.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Place the sensor in the mid-range of its travel.</para>
+            </step1>
+            <step1>
+                <para count="1">Turn on the DC power supply and adjust the voltage to 5VDC, if necessary.</para>
+            </step1>
+            <step1>
+                <para count="1">With the sensor arm in the center position, the voltage on the blue wire should read
+                    approximately one-half of the 5VDC supply; i.e., 2.4VDC to 2.6VDC.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Slowly rotate the senor arm in the clockwise direction and observe the voltage reading
+                    on the voltmeter. As the sensor arm is rotated clockwise, the voltage on the blue wire should
+                    increase until approximately +45 degrees of rotation from center is reached. At the +45 degrees of
+                    rotation, the voltage should read approximately 4.4VDC to 4.6VDC. If rotation continues above this
+                    point, no additional increase in voltage should be observed.
+                </para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>The voltage should increase steadily, with no loss in the voltage signal, no erratic changes
+                        should occur, or the voltage should not read +5VDC or 0VDC at any point throughout the range of
+                        movement.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">After verifying the voltage increase, slowly rotate the sensor arm counter-clockwise. As
+                    the sensor arm is rotated counter-clockwise, the voltage on the blue wire should decrease until
+                    approximately -45 degrees of rotation from center is reached. At the -45 degrees of rotation, the
+                    voltage should read approximately 0.4VDC to 0.6VDC. If rotation continues below this point, no
+                    additional decrease in voltage should be observed.
+                </para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>The voltage should decrease steadily, with no loss in the voltage signal, no erratic changes
+                        should occur, or the voltage should not read 0VDC or +5VDC at any point throughout the range of
+                        movement.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">If the sensor fails to test as described, then replacement is necessary.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>When replacing the sensor (or upon re-installation in the event of a satisfactory test), be
+                        sure to adhere to the installation instructions mentioned earlier in this document. Proper
+                        installation is necessary to prevent damaging the sensor. Proper sensor operation is necessary
+                        to provide accurate feedback to the ECU for correct vehicle height control.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Summary</title>
+            <para>This completes the basic installation, operation, and troubleshooting information on the height
+                control sensor. All information contained in this document is of equal importance and should not be
+                ignored. Time spent by installation and service personnel to better understand component operation will
+                ensure a properly installed and serviced system, thereby providing correct system operation.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s10018_11.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s10018_13.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s10018.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

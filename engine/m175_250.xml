@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de Diagnosticos de los Motores Diesel para Camiones DT-466E e International&#174; 530E
+        EGES-175 - SECCI&#211;N 3.5: SENSOR DE POSICI&#211;N DEL PEDAL DEL ACELERADOR E INTERRUPTOR IVS (APS E IVS) -
+        SENSOR DE PRESI&#211;N DEL ACEITE DEL MOTOR (EOP) - DIAGN&#211;STICOS DEL ECM
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="PROCTYPE" graphiccount="0">
+        <title>DIAGN&#211;STICOS DEL ECM</title>
+        <svcprocinfo>
+            <para>El ECM monitorea continuamente la se&#241;al desde el sensor EOP para asegurarse de que est&#233;
+                dentro del rango correcto de operaci&#243;n. Si la se&#241;al es menor o mayor de lo requerido, el ECM
+                define un c&#243;digo de falla. Este c&#243;digo de falla se recupera usando la Herramienta de servicio
+                electr&#243;nico (EST) o leyendo el c&#243;digo de destello mediante el interruptor de diagn&#243;stico
+                STI. Si la llave de ignici&#243;n se gira a OFF, el c&#243;digo se almacena como un c&#243;digo
+                inactivo.
+            </para>
+            <para>Durante el funcionamiento del motor, el ECM tambi&#233;n monitorea la se&#241;al de velocidad del
+                motor. Compara la especificaci&#243;n esperada de presi&#243;n del aceite con la velocidad del motor. Si
+                detecta que la presi&#243;n del aceite es menor para una velocidad determinada del motor, el ECM define
+                un c&#243;digo de falla. Si la presi&#243;n es menor que el nivel "cr&#237;tico", el ECM registra un c&#243;digo
+                de falla. El ECM registra autom&#225;ticamente esto como un "evento" de baja presi&#243;n del aceite que
+                se almacena en la memoria del ECM y no se puede borrar usando la EST. Esto se transforma en un registro
+                de funcionamiento del motor.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>C&#243;digo de destello 211, C&#211;DIGO ATA PID 100 FMI 4, SE&#209;AL DE PRESI&#211;N DEL ACEITE DEL
+                MOTOR FUERA DE RANGO BAJO
+            </title>
+            <para>Se define un c&#243;digo fuera de rango bajo si el ECM detecta un voltaje inferior a 0.039 voltios
+                durante m&#225;s de 0.1 segundos. Si se define este c&#243;digo de falla, el ECM desconoce la se&#241;al
+                EOP y contin&#250;a funcionando normalmente. Sin embargo, si la falla est&#225; activa, el ECM enciende
+                la luz ENGINE WARNING.
+            </para>
+            <para>El c&#243;digo 211 puede ser causado por una alimentaci&#243;n Vref abierta, un circuito de se&#241;al
+                abierto o un sensor defectuoso.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>C&#243;digo de destello 212, C&#211;DIGO ATA PID 100 FMI 3, SE&#209;AL DE PRESI&#211;N DEL ACEITE DEL
+                MOTOR FUERA DE RANGO ALTO
+            </title>
+            <para>Se define un c&#243;digo fuera de rango alto si el ECM detecta un voltaje superior a 4.9 voltios
+                durante m&#225;s de 0.1 segundos. Si se define este c&#243;digo de falla, el ECM desconoce la se&#241;al
+                EOP y contin&#250;a funcionando normalmente. Si esta falla est&#225; activa, el ECM enciende la luz
+                ENGINE WARNING.
+            </para>
+            <para>El c&#243;digo 212 puede ser causado por un circuito de retorno de se&#241;al abierto, un
+                cortocircuito a una fuente de voltaje o un sensor defectuoso.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>C&#243;digo de destello 225, C&#211;DIGO ATA PID 100 FMI 0, FALLA DE SE&#209;AL DEL SENSOR DE PRESI&#211;N
+                DEL ACEITE DEL MOTOR EN RANGO
+            </title>
+            <para>El ECM define el c&#243;digo 225 si la se&#241;al desde el sensor EOP es mayor de lo esperado con la
+                llave de la ignici&#243;n en ON y el motor apagado (una se&#241;al que indica 40 psi). Si detecta esta
+                falla, el ECM desconoce la se&#241;al EOP y enciende la luz ENGINE WARNING. Este c&#243;digo se define
+                con mayor probabilidad debido a un sensor EOP defectuoso o a un circuito polarizado.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>C&#243;digo de destello 313, C&#211;DIGO ATA PID 100 FMI 1, PRESI&#211;N DEL ACEITE DEL MOTOR BAJO
+                NIVEL DE ADVERTENCIA
+            </title>
+            <para>El c&#243;digo 313 indica que la presi&#243;n del aceite ha ca&#237;do bajo el nivel de advertencia.
+                La especificaci&#243;n para el nivel de advertencia es 5.0 psi (34kPa) a 700 rpm o 10.0 psi (69 kPa) a
+                1400 rpm o 20.0 psi (138 kPa) a 2000 rpm.
+            </para>
+            <para>El c&#243;digo 313 puede ser causado por un sensor defectuoso que env&#237;a una se&#241;al
+                incorrecta. Para confirmar esto, compare la presi&#243;n del aceite real (con un indicador mec&#225;nico)
+                con la lectura en la lista de datos de la EST. Una presi&#243;n de aceite baja debido a componentes mec&#225;nicos
+                defectuosos tambi&#233;n define este c&#243;digo.
+            </para>
+            <specpara>
+                <note>
+                    <para>NOTA: Es posible que se defina este c&#243;digo en el encendido, especialmente si el aceite se
+                        cambi&#243; recientemente o despu&#233;s de una reconstrucci&#243;n hasta que el sistema de
+                        aceite se cebe.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>C&#243;digo de destello 314, C&#211;DIGO ATA PID 100 FMI 7, PRESI&#211;N DEL ACEITE DEL MOTOR BAJO
+                NIVEL CR&#205;TICO
+            </title>
+            <para>Si se define el c&#243;digo de destello 314, esto indica que la presi&#243;n del aceite ha ca&#237;do
+                por debajo del nivel cr&#237;tico. La especificaci&#243;n para el nivel cr&#237;tico es 2.0 psi (14kPa)
+                a 700 rpm o 5.0 psi (34 kPa) a 1400 rpm o 12.0 psi (152 kPa) a 2000 rpm.
+            </para>
+            <para>El c&#243;digo 314 puede ser causado por un sensor defectuoso que env&#237;a una se&#241;al
+                incorrecta. Para confirmar esto, compare la presi&#243;n del aceite real (con un indicador mec&#225;nico
+                instalado) con la lectura en la lista de datos de la EST. Una baja presi&#243;n de aceite debido a
+                componentes mec&#225;nicos defectuosos tambi&#233;n define este c&#243;digo.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="m175_249.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="m175_HL1751615.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="m175.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

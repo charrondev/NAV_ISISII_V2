@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - TSI 08-12-01 - Regulaci&#243;n (IST) del temporizador para apagar el motor</stitle>
+    <tsi id="m081201" year="2007" tsitype="engine" translation="spanish">
+        <tsinumber>08-12-01</tsinumber>
+        <tsidate>Deciembre 2007</tsidate>
+        <subjectfile>Motor</subjectfile>
+        <subjectgroup>
+            <subject>Regulaci&#243;n (IST) del temporizador para apagar el motor</subject>
+        </subjectgroup>
+        <apply>
+            <configure>
+                <engfamgroup/>
+
+                <engfam>MaxxForce DT</engfam>
+                <engfam>MaxxForce 5</engfam>
+                <engfam>MaxxForce 7</engfam>
+                <engfam>MaxxForce 9</engfam>
+                <engfam>MaxxForce 10</engfam>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <para>Comenzando en Mayo del 2008, Todos los motores International&#174; MaxxForce&#8482; certificados
+                    para la venta en el Estado de California, cumplir&#225;n con las regulaciones obligatorias (ESS)
+                    sobre el Sistema de apagado del motor, emitidas por la Junta de recursos del aire de California
+                    (CARB).
+                </para>
+                <para>La caracter&#237;stica (IST) del Temporizador para apagado del motor permite que el M&#243;dulo de
+                    control Electr&#243;nico (ECM) apague el motor durante periodos extendidos de funcionamiento del
+                    motor en ralent&#237;.
+                </para>
+                <para>La funci&#243;n anterior del IST est&#225; disponible en motores exonerados y certificados
+                    Federalmente CA ESS (autobuses escolares, veh&#237;culos para emergencias y militares).
+                </para>
+                <para>
+                    <title>Advertencia de apagado del motor</title>Treinta segundos antes del paro del motor definido
+                    por IST, se activa un indicador en el tablero de instrumentos del veh&#237;culo. Hay dos tipos de
+                    indicadores:
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Indicador de apagado del motor con destellos &#225;mbar para los sistemas el&#233;ctricos
+                            multiplex.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Indicador con destellos rojos y alarma sonora para los sistemas el&#233;ctricos diferentes
+                            al multiplex.
+                        </para>
+                    </item>
+                </randlist>
+                <para>Esto continua hasta que el motor se apague o se restablezca el temporizador de apagado por ralent&#237;
+                    del motor.
+                </para>
+            </geninfo>
+        </description>
+        <svcproc>
+            <title>Temporizador para apagado del motor para los motores que cumplen el ESS de California</title>
+            <para>La duraci&#243;n del funcionamiento en ralent&#237; est&#225; limitada para los motores que cumplen
+                las normas ESS como sigue:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Cuando est&#225; activado el freno de estacionamiento del veh&#237;culo, el tiempo de apagado
+                        por funcionamiento en ralent&#237; est&#225; limitado a los requerimientos CARB, de 5 minutos.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando es liberado el freno de estacionamiento del veh&#237;culo, el tiempo de apagado por
+                        funcionamiento en ralent&#237; est&#225; limitado a los requerimientos CARB, de 15 minutos.
+                    </para>
+                </item>
+            </randlist>
+            <para>Los valores de duraci&#243;n del comando CARB, se pueden reducir a valores inferiores a los 15 minutos
+                mediante programaci&#243;n IST de los par&#225;metros del cliente. Ajustando este par&#225;metro se
+                reduce los tiempos de paro del sistema en general como sigue:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Ajustando el valor del par&#225;metro entre 5 y 15 minutos se reduce el tiempo de parada del
+                        motor con el freno de estacionamiento liberado. El valor preconfigurado de 5 minutos para la
+                        condici&#243;n de freno de estacionamiento "Activado" permanece sin ser afectado.
+                    </para>
+                </item>
+                <item>
+                    <para>Ajustando el valor del par&#225;metro entre 2 y 5 minutos se reduce el tiempo de
+                        funcionamiento del motor en ambas condiciones, con el freno de estacionamiento "liberado", o
+                        "activado".
+                    </para>
+                </item>
+            </randlist>
+            <para>Mientras la Herramienta para servicio electr&#243;nico (EST) es instalada, el tiempo de parada del
+                motor est&#225; configurado por la f&#225;brica en 60 minutos, y no puede ser ajustado. Si el IST es
+                habilitado, la Protecci&#243;n para ambientes fr&#237;os (CAP) no funcionar&#225;.
+            </para>
+            <specpara>
+                <note>
+                    <para>La caracter&#237;stica CARB IST es programada en f&#225;brica. Los clientes no pueden
+                        desactivar (OFF) el IST en los motores que cumplan con las normas ESS.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <emph type="bold">Condiciones CARB IST</emph>
+            </para>
+            <para>Las siguientes condiciones tienen que ser verdaderas para que el temporizador de parada del motor se
+                active en todos los modos. Cualquier cambio en el estado "verdadero" de una o m&#225;s de estas
+                condiciones restablecer&#225; o inhabilitar&#225; el IST.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Filtro de materia particulada diesel manual (DPF), la regeneraci&#243;n est&#225; inactiva (no
+                        habilitada).
+                    </para>
+                </item>
+                <item>
+                    <para>Estado de la l&#237;nea motriz estable (no se detecta transici&#243;n). No hay cambio en el
+                        estado del interruptor de embrague (transmisi&#243;n manual), o en el cambiador de transmisi&#243;n
+                        entre la posici&#243;n engranada y neutral o estacionamiento (Transmisi&#243;n autom&#225;tica).
+                    </para>
+                </item>
+                <item>
+                    <para>Modo remoto del Tomafuerza (PTO) inhabilitado.</para>
+                </item>
+                <item>
+                    <para>Temperatura del refrigerante del motor superior a 15.6&#176; C (60&#176; F).</para>
+                </item>
+                <item>
+                    <para>No hay diagn&#243;stico de fallas activo del sensor de temperatura del refrigerante.</para>
+                </item>
+                <item>
+                    <para>No hay diagn&#243;stico de fallas activo del sensor de temperatura del aire de
+                        admisi&#243;n.
+                    </para>
+                </item>
+                <item>
+                    <para>El motor est&#225; operando en el modo de funcionamiento, o en el modo de herramienta de diagn&#243;stico
+                        activa.
+                    </para>
+                </item>
+                <item>
+                    <para>La velocidad del veh&#237;culo es menor de 1.25 millas/hora.</para>
+                </item>
+                <item>
+                    <para>No hay diagn&#243;stico de fallas activo de velocidad del veh&#237;culo.</para>
+                </item>
+                <item>
+                    <para>El control del PTO est&#225; desactivado (OFF) o en el modo de Reserva.</para>
+                </item>
+                <item>
+                    <para>Velocidad del motor menor de 750 RPM en los motores MaxxForce&#8482; 5, 7, DT, 9 y 10.</para>
+                </item>
+                <item>
+                    <para>Velocidad del motor menor de 650 RPM en los motores MaxxForce&#8482; 11 y 13.</para>
+                </item>
+                <item>
+                    <para>Posici&#243;n estable del pedal acelerador (no se detecta transici&#243;n proveniente de
+                        ninguna posici&#243;n preestablecida).
+                    </para>
+                </item>
+                <item>
+                    <para>Estado del pedal de freno estable (no se detecta transici&#243;n proveniente de ning&#250;n
+                        estado preestablecido).
+                    </para>
+                </item>
+                <item>
+                    <para>Estado del pedal de freno de estacionamiento estable (Mensaje CAN) (no se detecta transici&#243;n
+                        proveniente de ning&#250;n estado preestablecido).
+                    </para>
+                </item>
+            </randlist>
+        </svcproc>
+        <svcproc>
+            <title>Temporizador de paro del motor (Opcional - Federal)</title>
+            <para>El tiempo de ralent&#237; se puede programar desde 5 hasta 120 minutos. Mientras la EST est&#225;
+                instalada, la funci&#243;n IST quedar&#225; activa con el tiempo de apagado programado en efecto. La
+                transici&#243;n del freno de estacionamiento restablece el temporizador de apagado en todos los motores
+                2008. Si el IST es habilitado, la Protecci&#243;n para ambientes fr&#237;os (CAP) no funcionar&#225;.
+            </para>
+            <para>
+                <emph type="bold">Condiciones IST Federal</emph>
+            </para>
+            <para>Las siguientes condiciones tienen que ser verdaderas para que el temporizador de parada del motor se
+                active. Cualquier cambio para el estado "verdadero" de una o m&#225;s de estas condiciones restablecer&#225;
+                o inhabilitar&#225; el IST.
+            </para>
+        </svcproc>
+        <svcproc>
+            <randlist type="bullet">
+                <title>Condiciones habilitadas comunes para todas las opciones IST Federales</title>
+                <item>
+                    <para>Filtro de materia particulada diesel manual (DPF), la regeneraci&#243;n est&#225; inactiva (no
+                        habilitada).
+                    </para>
+                </item>
+                <item>
+                    <para>Estado de la l&#237;nea motriz estable (no se detecta transici&#243;n). No hay cambio en el
+                        estado del interruptor de embrague (transmisi&#243;n manual), o en el cambiador de transmisi&#243;n
+                        entre la posici&#243;n engranada y neutral o estacionamiento (Transmisi&#243;n autom&#225;tica).
+                    </para>
+                </item>
+                <item>
+                    <para>Modo del PTO remoto, inhabilitado.</para>
+                </item>
+                <item>
+                    <para>Temperatura del aire de admisi&#243;n mayor de 15.6&#176; C (60&#176; F) (Preconfiguraci&#243;n
+                        MFG, par&#225;metro ajustable por el cliente).
+                    </para>
+                </item>
+                <item>
+                    <para>Temperatura del aire de admisi&#243;n menor de 44&#176; C (112&#176; F) (Preconfiguraci&#243;n
+                        MFG, par&#225;metro ajustable por el cliente).
+                    </para>
+                </item>
+                <item>
+                    <para>Temperatura del refrigerante del motor superior a 60&#176; C (140&#176; F).</para>
+                </item>
+                <item>
+                    <para>No hay diagn&#243;stico de fallas activo del sensor de temperatura del refrigerante.</para>
+                </item>
+                <item>
+                    <para>No hay diagn&#243;stico de fallas activo del sensor de temperatura del aire de
+                        admisi&#243;n.
+                    </para>
+                </item>
+                <item>
+                    <para>El motor est&#225; operando en el modo de funcionamiento, o en el modo de herramienta de diagn&#243;stico
+                        activa.
+                    </para>
+                </item>
+                <item>
+                    <para>La velocidad del veh&#237;culo es menor de 1.25 millas/hora.</para>
+                </item>
+                <item>
+                    <para>No hay diagn&#243;stico de fallas activo de velocidad del veh&#237;culo.</para>
+                </item>
+                <item>
+                    <para>Estado del freno de estacionamiento estable (Mensaje CAN). No se detecta transici&#243;n
+                        proveniente de ning&#250;n estado preconfigurado.
+                    </para>
+                </item>
+            </randlist>
+        </svcproc>
+        <svcproc>
+            <para>Condiciones habilitadas de operaci&#243;n adicional dependiendo del modo de operaci&#243;n IST Federal
+                seleccionado:
+            </para>
+            <randlist type="bullet">
+                <title>Modo 1 IST Federal: Condiciones para habilitar la opci&#243;n de operaci&#243;n del PTO</title>
+                <item>
+                    <para>El control del PTO est&#225; desactivado (OFF) o en el modo de Reserva.</para>
+                </item>
+                <item>
+                    <para>Velocidad del motor menor de 750 RPM en los motores MaxxForce&#8482; 5, 7, DT, 9 y 10.</para>
+                </item>
+                <item>
+                    <para>Velocidad del motor menor de 650 RPM en los motores MaxxForce&#8482; 11 y 13.</para>
+                </item>
+                <item>
+                    <para>Posici&#243;n del pedal acelerador es menor del 2%.</para>
+                </item>
+                <item>
+                    <para>No hay diagn&#243;stico de fallas activo del pedal acelerador.</para>
+                </item>
+                <item>
+                    <para>Estado del pedal de freno estable (no se detecta transici&#243;n).</para>
+                </item>
+                <item>
+                    <para>No hay diagn&#243;stico de fallas activo del sistema de frenos.</para>
+                </item>
+            </randlist>
+        </svcproc>
+        <svcproc>
+            <randlist type="bullet">
+                <title>Modo 2 IST Federal: Condiciones para habilitar la opci&#243;n l&#237;mite No carga / Carga
+                    ligera
+                </title>
+                <item>
+                    <para>La posici&#243;n del pedal acelerador es menor del 2%.</para>
+                </item>
+                <item>
+                    <para>No hay diagn&#243;stico de fallas activo del pedal acelerador.</para>
+                </item>
+                <item>
+                    <para>Estado del pedal de freno estable (no se detecta transici&#243;n).</para>
+                </item>
+                <item>
+                    <para>No hay diagn&#243;stico de fallas activo del sistema de frenos.</para>
+                </item>
+                <item>
+                    <para>Uso de combustible reportado por el motor (carga) es menor que el l&#237;mite especificado ECM
+                        (calibrado en f&#225;brica, no ajustable por el cliente).
+                    </para>
+                </item>
+            </randlist>
+        </svcproc>
+        <svcproc>
+            <randlist type="bullet">
+                <title>Modo 3 IST Federal: Condiciones para habilitar la opci&#243;n de prueba de antivandalismo</title>
+                <item>
+                    <para>Uso de combustible reportado por el motor (carga) es menor que el l&#237;mite especificado ECM
+                        (calibrado en f&#225;brica, no ajustable por el cliente).
+                    </para>
+                </item>
+                <item>
+                    <para>Posici&#243;n del pedal acelerador estable (no se detecta transici&#243;n proveniente de ning&#250;n
+                        estado preestablecido).
+                    </para>
+                </item>
+                <item>
+                    <para>Estado del pedal de freno estable (no se detecta transici&#243;n proveniente de ning&#250;n
+                        estado preestablecido).
+                    </para>
+                </item>
+            </randlist>
+        </svcproc>
+    </tsi>
+</isis>

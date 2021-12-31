@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Injection Pressure Regulator (IPR)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>Injection Pressure Regulator (IPR)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="D3320" filename="../figD33/D3320.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function Diagram for the Injector Pressure Regulator (IPR)</caption>
+            </figure>
+            <para>The Function Diagram for the IPR includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Injection Pressure Regulator (IPR)</para>
+                </item>
+                <item>
+                    <para>Engine Oil Temperature (EOT) sensor</para>
+                </item>
+                <item>
+                    <para>Injection Control Pressure (ICP) sensor</para>
+                </item>
+                <item>
+                    <para>Manifold Absolute Pressure (MAP) sensor</para>
+                </item>
+                <item>
+                    <para>Barometric Pressure (BAP) sensor</para>
+                </item>
+                <item>
+                    <para>Camshaft Position (CMP) sensor</para>
+                </item>
+                <item>
+                    <para>Crankshaft Position (CKP) sensor</para>
+                </item>
+                <item>
+                    <para>Accelerator Position / Idle Validation (APS/IVS) sensor</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The IPR valve controls oil pressure in the high pressure injection control system that actuates the
+                injectors. The IPR valve consists of a solenoid, poppet, and a spool valve assembly. The IPR is mounted
+                on the top rear of engine in the high pressure oil pump cover. The ECM regulates ICP by controlling the
+                ON/OFF time of the IPR solenoid. An increase or decrease in the ON/OFF time positions the poppet and
+                spool valve inside the IPR and maintains pressure in the ICP system or vents pressure to the oil sump
+                via the rear cover.
+            </para>
+            <specpara>
+                <note>
+                    <para>The engine may not operate with an IPR fault, depending on the mode of failure.</para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>IPR Circuit Operation</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="D3321" filename="../figD33/D3321.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>IPR Circuit Diagram</caption>
+            </figure>
+            <para>The IPR valve is supplied with voltage from V
+                <subscript>IGN</subscript>
+                at terminal 1 of the IPR connector. The control of the injection control system is gained by the ECM
+                grounding terminal 2 of the IPR valve through PIN X1-12 of the ECM. Precise control is gained by varying
+                the percentage of ON/OFF time of the IPR solenoid. A high duty cycle indicates a high amount of
+                injection control pressure is being commanded. A low duty cycle indicates less pressure being commanded.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>An open or short to ground in the EGR control circuit can be detected by an on demand output circuit
+                check during KOEO Standard tests. If there is a circuit fault detected a DTC will be set. When the
+                engine is running, the ECM can detect if the injection control pressure is equal to the desired
+                pressure. When the measured injection control pressure does not compare to the desired pressure, the ECM
+                will ignore the measured ICP signal and controls the engine with the desired value.
+            </para>
+            <para>
+                <title>IPR Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim id="f240dtc241">
+                <line>
+                    <emph type="bold">DTC 241</emph>
+                </line>
+                <line>
+                    <emph type="bold">Output Circuit Check (OCC)</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 241 is set by the ECM when the OCC test has failed after the KOEO Standard test has been
+                        run.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 241 can be set when a poor connection to the IPR solenoid or defective IPR coil exists.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 241 is active the engine will not run and the amber ENGINE lamp will not be
+                        illuminated.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout box</para>
+                </item>
+                <item>
+                    <para>Breakout harness</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+            <para>The IPR circuit requires the use of vehicle circuit diagrams. See truck Chassis Electrical Circuit
+                Diagram manual for circuit numbers, connector and fuse locations.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>IPR Pin Point Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="D3321" filename="../figD33/D3321.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>IPR Circuit Diagram</caption>
+            </figure>
+            <table id="te24007069" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">IPR Voltage Checks</emph>
+                                    (Check with regulator connector disconnected, breakout harness installed, and
+                                    ignition Key ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>IPR power from V
+                                    <subscript>IGN</subscript>
+                                    - If no voltage, check from fuse to IPR connector. See truck Chassis Electrical
+                                    Circuit Diagram manual for circuit numbers, connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0- 0.25V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >0.25V, control wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground</emph>
+                                    (Check with IPR connector disconnected, ignition key OFF, and negative battery cable
+                                    disconnected.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance to chassis ground. If &#60;1k&#x2126;, check for short to ground in
+                                    circuit (check with fuse removed)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Install breakout box on engine harness only. Check with fuse removed.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-12 to fuse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5-20&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance through entire IPR circuit including regulator, check with harness
+                                    connected to IPR
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Fuse to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126; IPR power is open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-12 to 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126; IPR control wire is open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">IPR Diagnostic Trouble Code</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 241 = Output Circuit Check detected during Standard Test, indicates high or
+                                    low resistance in circuit.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_155.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_157.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

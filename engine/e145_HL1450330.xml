@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - KEEP ALIVE MEMORY POWER AND VPM BATTERY POWER CIRCUIT
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450330" svcproctype="proctype" graphiccount="5">
+        <title>KEEP ALIVE MEMORY POWER AND VPM BATTERY POWER CIRCUIT</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef14503d3">Figure 3.108 Keep Alive Memory Power and VPM Battery Power Circuit</hotlnk>
+            </para>
+            <figure id="ef14503d3" figsize="col-wide">
+                <graphic id="eg6049" filename="../figeg6/eg6049.webp" type="webp"/>
+                <caption>Figure 3.108 Keep Alive Memory Power and VPM Battery Power Circuit</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>CIRCUIT OPERATION</title>
+            <para>The Electronic Control Module (ECM) has information stored in volatile memory which is erased or lost
+                when power is disconnected from the module. This memory is referred to as Keep Alive Memory (KAM). The
+                ECM stores historical diagnostic information from previous engine operating cycles, learned limits from
+                certain engine and vehicle sensors and programmable parameters sent from the VPM.
+            </para>
+            <para>The Vehicle Personality Module (VPM) utilizes the KAM power circuit to remain powered for at least 30
+                minutes after each key off cycle to record accumulator values for vehicle miles, hours and fuel used.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION MANAGEMENT</title>
+            <para>On every power up KAM memory in the ECM is checked by the processor to determine if any information in
+                memory has been lost or can be stored correctly. A fault code will be set if power has been
+                disconnected, information sent from the VPM does not agree with the last power up or if the memory
+                internal to the ECM is defective.
+            </para>
+            <para>There is no fault detection for loss of KAM power to the the VPM, however, the VPM will be unable to
+                communicate with the Electronic Service Tool (EST) when the ignition key is in the OFF position.
+            </para>
+            <para>
+                <hotlnk xrefid="ef14503d4">Figure 3.109 Keep Alive Memory Power and VPM Battery Power Circuit
+                    Diagnostics
+                </hotlnk>
+            </para>
+            <figure id="ef14503d4" figsize="col-wide">
+                <graphic id="eg6050" filename="../figeg6/eg6050.webp" type="webp"/>
+                <caption>Figure 3.109 Keep Alive Memory Power and VPM Battery Power Circuit Diagnostics</caption>
+            </figure>
+            <para>KAMPWR to ECM - Connector (379) with breakout box installed and key OFF</para>
+            <table id="et1450321">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>#1 to grd.</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, if 0 volts check for open/short to ground or
+                                    blown fuse (If fuse is open the ECM will not be powered with key ON and Prolink will
+                                    not read codes)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>#1 to #40</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, if 0 volts check for open in ground path.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <specpara>
+                <note>
+                    <para>If the KAM PWR to the ECM is good and ground circuits are good, and Flash code 224 or 615
+                        remains active, the ECM is defective.
+                    </para>
+                </note>
+            </specpara>
+            <table id="et1450322">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>#8 to grd.</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, if 0 volts check for open/short to ground or
+                                    blown fuse (If fuse is open the ECM will not be powered with key ON and Prolink will
+                                    not read codes)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>#8 to #15</para>
+                                <para></para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, if 0 volts check for open in ground path.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="et1450323">
+                <tgroup cols="1">
+                    <colspec colname="1" colwidth="432p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Fault Code Descriptions</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>224 = Kam Memory</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>615 = Programmable Parameter KAM Corrupt Memory Information</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM KAM AND VPM BATTERY POWER</title>
+            <para>The ECM Keep Alive Memory (KAM) circuit 97J provides battery power from the Positive battery terminal
+                through ECM connector 379 to ECM terminal 1 at all times. The circuit is protected by 15 amp, #1 ECM PWR
+                Fuse, which also supplies power to the VPM, VBAT terminal (8). KAM stores fault codes and operating
+                constants between engine starts.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>KAM Power</title>
+            <para>During normal vehicle operation, the ECM performs certain tests. When the key is turned ON, the ECM
+                performs the Start-Up KAM Test to test its Keep-Alive Memory. The test is performed once each time the
+                key is turned on or the ECM resets.
+            </para>
+            <para>The ECM performs a test to determine if the memory is working properly, but a lack of battery power to
+                ECM terminal 1 can cause fault code(s) 224 and 653 to be set. When power to KAM has been disrupted,
+                inactive fault codes will be lost.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VBAT Power To VPM</title>
+            <para>If battery power is not present to VPM terminal 8, no fault code will be set. The symptoms will
+                include innaccurate accumulator totals in VPM memory. Refer to VPM Fuel/Hour Meter And Odometer
+                <emph type="bold"></emph>in this section for flash codes that may be caused by no VBAT power to the VPM.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 224</title>
+            <para>
+                <title>SID 254 FMI 2</title>
+            </para>
+            <para>
+                <title>ECM: KAM CORRUPT</title>
+            </para>
+            <para>Flash Code 224 can be caused by:</para>
+            <seqlist style="alphauc">
+                <item>
+                    <para>Short or open in KAM circuit. High or low voltage to ECM terminal 1 from the KAM battery
+                        supply circuits will cause code 224.
+                    </para>
+                    <para>Note that if the battery cable has been disconnected, on the next key ON cycle, code 224 will
+                        be present, indicating that the KAM memory has lost power. The code will change to inactive
+                        status on the next key cycle.
+                    </para>
+                </item>
+                <item>
+                    <para>Faulty KAM memory in the ECM.</para>
+                </item>
+            </seqlist>
+            <para>Conditions causing Flash Code 224 can also cause Flash Code 615 to occur.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 615</title>
+            <para>
+                <title>SID 254 FMI 13</title>
+            </para>
+            <para>
+                <title>ECM: PROGRAMMABLE PARAMETER KAM CORRUPT FAULT</title>
+            </para>
+            <para>If flash code 615 occurs when the KAM power supply to the ECM is good, then the KAM memory is
+                defective. Refer to Electronic Control Module (ECM) Self Diagnostics.
+            </para>
+            <figure id="ef14503d5" figsize="col-wide">
+                <graphic id="eg6051" filename="../figeg6/eg6051.webp" type="webp"/>
+                <caption>Figure 3.110 Circuit Diagram</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Before Troubleshooting</title>
+            <step1>
+                <para count="1">Before troubleshooting, make sure that the batteries are fully charged! Check battery
+                    connections and grounds for clean, tight connections free of damage. Voltage tests will give
+                    mis-leading readings if batteries are not fully charged.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting a particular circuit, inspect connectors for pushed back, loose
+                    or damaged (spread or bent) terminals, or wires with cut strands, etc. The wires and connections
+                    must be free of damage or corrosion. When some connectors corrode, a light white residue will be
+                    present that must be removed.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting, inspect the suspect circuit grounds for clean, tight
+                    connections, free of damage or corrosion.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If Flash code 224 or 653 is active, perform KAM POWER TO ECM test.</para>
+            </step1>
+            <step1>
+                <para count="1">If the ECM is powered, the fuse does not need to be checked as the same fuse feeds the
+                    ECM.
+                </para>
+                <para>
+                    <hotlnk xrefid="ef14503d6">Figure 3.111 Kam Power to ECM</hotlnk>
+                </para>
+                <figure id="ef14503d6" figsize="col-wide">
+                    <graphic id="eg6052" filename="../figeg6/eg6052.webp" type="webp"/>
+                    <caption>Figure 3.111 Kam Power to ECM</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>Refer to circuit diagram Figure
+                            <hotlnk xrefid="ef14503d5">3.110</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <para>
+                    <hotlnk xrefid="ef14503d7">Figure 3.112 VBAT Power To VPM Terminal 8</hotlnk>
+                </para>
+                <figure id="ef14503d7" figsize="col-wide">
+                    <graphic id="eg6053" filename="../figeg6/eg6053.webp" type="webp"/>
+                    <caption>Figure 3.112 VBAT Power To VPM Terminal 8</caption>
+                </figure>
+            </step1>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450329.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450331.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

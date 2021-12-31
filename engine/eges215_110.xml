@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 530 Engine Diagnostic Manual for 4000 Series Trucks (2001) - ELECTRONIC CONTROL SYSTEM
+        DIAGNOSTICS - CIRCUIT FUNCTION AND DIAGNOSTICS - Vehicle Speed Sensor (VSS)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="vss" graphiccount="2">
+        <title>Vehicle Speed Sensor (VSS)</title>
+        <svcsubproc>
+            <title>Signal Functions</title>
+            <figure id="f17503109" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8852.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Vehicle Speed Sensor Function Diagram</caption>
+            </figure>
+            <para>Transmission tailshaft speed is detected by a magnetic pickup mounted on the transmission that senses
+                the rotation of a 16 toothed gear installed on the rear of the transmission. The resultant AC
+                (alternating current) sine wave signal is received by the ECM and is utilized along with tire size and
+                axle ratio, to calculate vehicle speed. Calculated vehicle speed is transmitted to the instrument
+                cluster through the Drive Train Data Link to operate the speedometer within the instrument cluster.
+                Calculated vehicle speed is also utilized in the control strategies that control features such as Cruise
+                Control, PTO operation and Road Speed Limiting.
+            </para>
+            <para>Allison WTEC MD and 2000 Series Transmissions utilize an internal VSS sensor that sends a signal to
+                the transmission ECM. The transmission ECM buffers the signal and sends a square wave signal to the
+                Engine ECM.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>When the ECM determines that the vehicle is operating at 0 M.P.H., the ECM performs diagnostic
+                checking on the VSS circuitry. A voltage signal is transmitted on the VSS circuitry by the ECM and will
+                detect if the return voltage is Out of Range HIGH or LOW . When a VSS Diagnostic Trouble Code condition
+                is detected, the ECM disables Cruise Control, PTO operation and if Road Speed Limiting is enabled, will
+                limit engine rpm in all gears. On vehicles equipped with Allison MD (WTEC) and 2000 Series
+                Transmissions, no Diagnostic Trouble Codes will be sent in the event of a VSS sensor circuit failure.
+                Any VSS Diagnostic Trouble Codes set with vehicles equipped with MD transmissions only diagnose the
+                communication circuit between the Engine ECM and the Transmission ECM.
+            </para>
+            <specpara>
+                <note>
+                    <para>See Allison WTEC maintenance/diagnostic manual to diagnose any MD VSS sensor problems.</para>
+                </note>
+            </specpara>
+            <figure id="f17503110" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8853.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Vehicle Speed Sensor Circuit Diagram</caption>
+            </figure>
+            <table id="te17503037" frame="all">
+                <title>Vehicle Speed Sensor Connector Checks</title>
+                <tgroup cols="3" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="16.74*"/>
+                    <colspec colname="COLSPEC0" colwidth="14.22*"/>
+                    <colspec colname="col3" colwidth="69.04*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="1to3"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Key ON Engine OFF - Voltage Checks at VSS Connector (check with
+                                        VSS sensor connector disconnected, ignition key ON, engine OFF)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>(+) Test Points (-)</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>2 to 3V</para>
+                            </entry>
+                            <entry morerows="1">
+                                <para>ECM pull up voltage when sensor disconnected, if no voltage is present check for
+                                    an open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>2 to 3V</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">VSS Sensor Continuity Checks (check with VSS sensor disconnected,
+                                        measure resistance through the sensor)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>(+) Test Points (-)</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>100&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60;100&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>100&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60;100&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to A</para>
+                            </entry>
+                            <entry>
+                                <para>600 - 800&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Manual transmission.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to A</para>
+                            </entry>
+                            <entry>
+                                <para>See Allison manual</para>
+                            </entry>
+                            <entry>
+                                <para>MD Automatic Transmission (electronically controlled), 2000 Series (LCT) Automatic
+                                    Transmission (electronically controlled).
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks (check with VSS sensor disconnected,
+                                        battery disconnected and breakout box installed)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>(+) Test Points (-)</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>40 to B</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If >5&#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>39 to A</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If >5&#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>40 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>100&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60;100&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>39 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>100&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60;100&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Continued on Next Page</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Operational Check (check with VSS sensor connected and breakout
+                                        box installed)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <warning>
+                                    <para>
+                                        <emph type="bold">PLACE REAR AXLES ON JACK STANDS WITH FRONT WHEELS BLOCKED.
+                                        </emph>
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <note>
+                                    <para>MEASURE WITH TRANSMISSION IN HIGH GEAR, ENGINE AT LOW IDLE.</para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>(+) Test Points (-)</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>40 to 39</para>
+                            </entry>
+                            <entry>
+                                <para>>2V AC</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60;2V AC, check sensor adjustment or replace defective sensor.</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Description</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>141 = ECM detected low "test" voltage across VSS circuit for >0.5 seconds.
+                                    Possible open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>142 = ECM detected high "test" voltage across VSS circuit for >0.5 seconds.
+                                    Possible internal sensor short or short to power.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para id="f175fc215">215 = ECM detected a VSS frequency signal >4.365 kHz.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <specpara>
+                <note>
+                    <para>Refer to S08250 - Electrical Troubleshooting Guide - 4200/4300/4400.</para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>The Vehicle Speed Sensor (VSS) is located on the transmission and sends an AC signal to the ECM. The
+                VSS sensor contains a permanent magnet which creates a magnetic field. The AC signal is created when the
+                transmission speedometer gear rotates breaking the magnetic field created by the sensor. The ECM
+                processes the AC signal and transmits vehicle speed data on the Drive Train Data Link and utilizes it
+                for various engine and vehicle control strategies. On a manual transmission, the VSS sensor is mounted
+                at the rear of the transmission.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM Diagnostics</title>
+            <para>Diagnostic Trouble Codes can be retrieved using the Electronic Service Tool (EST) or by reading the
+                Diagnostic Trouble Code flashes from the amber and red ENGINE lamps, see .
+            </para>
+            <para id="f175fc141">
+                <emph type="bold">Diagnostic Trouble Code 141</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, PID 84, FMI 4</emph>
+            </para>
+            <para>
+                <emph type="bold">VSS Out of Range LOW</emph>
+            </para>
+            <para>This code is set when the ECM detects an Out of Range LOW condition in the VSS circuit. This is a
+                continuous monitor code and can be set any time the vehicle is operating. It may be displayed as an
+                active or inactive diagnostic trouble code. When this code is set the amber ENGINE lamp will not be
+                illuminated.
+            </para>
+            <para>Possible Causes: Open sensor wiring, open sensor, short to ground in wiring or sensor.</para>
+            <para id="f175fc142">
+                <emph type="bold">Diagnostic Trouble Code 142</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, PID 84, FMI 3</emph>
+            </para>
+            <para>This code is set when the ECM detects an Out of Range HIGH condition in the VSS circuit. This is a
+                continuous monitor code and can be set any time the vehicle is operating. It may be displayed as an
+                active or inactive diagnostic trouble code. When this code is set the amber ENGINE lamp will not be
+                illuminated.
+            </para>
+            <para>Possible Causes: Wiring short to power (V
+                <subscript>REF</subscript>
+                or battery), internal short in VSS sensor.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_109.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_SEC-4-NGV.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

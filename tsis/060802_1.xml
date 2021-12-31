@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>TSI 06-08-02 - Dual Fuel Tank Transfer Pump System Troubleshooting with Diamond Logic Builder (DLB)</stitle>
+    <tsi id="tsi060802" tsitype="truck">
+        <tsinumber>06-08-02</tsinumber>
+        <tsidate>February, 2006</tsidate>
+        <subjectfile>ELECTRICAL</subjectfile>
+        <subjectgroup>
+            <subject>Dual Fuel Tank Transfer Pump System Troubleshooting with Diamond Logic Builder (DLB)</subject>
+        </subjectgroup>
+        <distribution dealer="yes" fleet="yes" bodybuilder="no" isis_cd="yes"/>
+        <apply>
+            <configure>
+                <truckmodelgroup/>
+
+                <truckmodel>4200
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>4300
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>4400
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>7300
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>7400
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>7500
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>7600
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>8500
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>8600
+                    <daterange>
+                        <startdate>08/19/2002</startdate>
+                    </daterange>
+                </truckmodel>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <para>This TSI applies to the models listed above with two wire fuel transfer pumps.</para>
+                <para>Trucks built after the above referenced date are equipped with two wire fuel transfer pumps that
+                    rely entirely on the ESC for their activation. The dual tank with transfer pump feature on HPV
+                    vehicles is designed to transfer fuel from the storage tank to the draw tank under strict guidelines
+                    and fuel level conditions. The ESC reads the fuel levels in both tanks and "filters" these readings
+                    to account for sloshing fuel and to assure that the draw tank is not overfilled and the supply tank
+                    is not emptied. The information provided in this TSI will help the technician use DLB to understand
+                    and answer two basic questions: Does the transfer pump move fuel from the storage tank into the draw
+                    tank, and if not what is the proper procedure to isolate and troubleshoot the problem?
+                </para>
+            </geninfo>
+        </description>
+        <svcproc svcproctype="repair" graphiccount="7">
+            <title>Service procedure</title>
+            <svcprocinfo>
+                <para>As previously mentioned, the ESC controls the fuel transfer pump and uses specific rules and
+                    conditions to determine when to turn on the transfer pump. Some of the more basic conditions that
+                    must be met before the pump is energized are:
+                </para>
+                <seqlist style="arabic">
+                    <item>
+                        <para>No faults (open or shorted) can be active on either of the fuel sensors.</para>
+                    </item>
+                    <item>
+                        <para>ESC must see engine RPM.</para>
+                    </item>
+                    <item>
+                        <para>Storage tank must be at or above the 20% level.</para>
+                    </item>
+                    <item>
+                        <para>Draw tank must be below 80%.</para>
+                    </item>
+                    <item>
+                        <para>Draw tank fuel level must be at 12% (+/- 6%) below the storage tank fuel level.</para>
+                    </item>
+                </seqlist>
+                <para>Because there are various conditions when the tanks are very full or very empty the exact fuel
+                    pump control parameters can vary, this procedure is written to provide the technician with a
+                    standard test procedure to be followed in verifying the capability of the fuel transfer system.
+                    Passing these tests assure that the system is performing as designed and will provide the customer
+                    with a system that equalizes the fuel levels of the vehicle's two tanks while providing a fuel
+                    system without a fuel crossover line.
+                </para>
+                <specpara>
+                    <warning>
+                        <para>Do not perform the following test procedures if the draw tank (Fuel Sensor 1 Signal) has a
+                            fuel level above 80%. Failure to heed this warning could result in overfilling the draw
+                            tank, spilling fuel, and causing a hazardous waste spill or a fire hazard.
+                        </para>
+                    </warning>
+                </specpara>
+                <specpara>
+                    <warning>
+                        <para>To avoid property damage, personal injury, or death, park the vehicle on a flat level
+                            surface, set the parking brake, and place the vehicle's transmission in neutral prior to
+                            beginning diagnostics and/or starting the engine.
+                        </para>
+                    </warning>
+                </specpara>
+                <specpara>
+                    <caution>
+                        <para>Do not perform the following test procedures if the storage tank (Fuel Sensor 2 Signal)
+                            has a fuel level below 10%. Failure to heed this caution could result in running the
+                            transfer pump without fuel and causing damage to the pump.
+                        </para>
+                    </caution>
+                </specpara>
+            </svcprocinfo>
+            <svcsubproc>
+                <title>Verify Fuel Senders and Wiring</title>
+                <para>The following table shows the draw and storage tank positions on the various generations of truck
+                    models. Use the table to determine the fuel tank location where sensor 1 (draw) should be and where
+                    sensor 2 (storage) should be.
+                </para>
+                <table id="t0608fueltank1" tblwidth="pg-wide">
+                    <tgroup cols="7">
+                        <colspec colname="col1" colwidth="1.39*"/>
+                        <colspec colname="col2" colwidth="0.90*"/>
+                        <colspec colname="col3" colwidth="0.82*"/>
+                        <colspec colname="col4" colwidth="0.78*"/>
+                        <colspec colname="col5" colwidth="0.77*"/>
+                        <colspec colname="col6" colwidth="1.14*"/>
+                        <colspec colname="col7" colwidth="1.21*"/>
+                        <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                        <thead>
+                            <row>
+                                <entry align="center">
+                                    <para>Models with Dual Tanks and Fuel Transfer Pump</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Pre 03/01/04 Draw Tank</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Post 03/01/04 Draw Tank</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Pre 03/01/04 Storage Tank</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Post 03/01/04 Storage Tank</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Pre 03/01/04 Pump Location</para>
+                                </entry>
+                                <entry align="center">
+                                    <para>Post 03/01/04 Pump Location</para>
+                                </entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>
+                                    <para>42/43/4400</para>
+                                </entry>
+                                <entry>
+                                    <para>RT</para>
+                                </entry>
+                                <entry>
+                                    <para>RT</para>
+                                </entry>
+                                <entry>
+                                    <para>LT</para>
+                                </entry>
+                                <entry>
+                                    <para>LT</para>
+                                </entry>
+                                <entry>
+                                    <para>Rt rail</para>
+                                </entry>
+                                <entry>
+                                    <para>Rt rail</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>73/74/75/8500</para>
+                                </entry>
+                                <entry>
+                                    <para>RT</para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        <emph type="italic">*LT</emph>
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>LT</para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        <emph type="italic">*RT</emph>
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>Rt rail</para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        <emph type="italic">*Xmsn Housing</emph>
+                                    </para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>8600</para>
+                                </entry>
+                                <entry>
+                                    <para>LT</para>
+                                </entry>
+                                <entry>
+                                    <para>LT</para>
+                                </entry>
+                                <entry>
+                                    <para>RT</para>
+                                </entry>
+                                <entry>
+                                    <para>RT</para>
+                                </entry>
+                                <entry>
+                                    <para>Xmsn Housing</para>
+                                </entry>
+                                <entry>
+                                    <para>Xmsn Housing</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>7600</para>
+                                </entry>
+                                <entry>
+                                    <para>LT</para>
+                                </entry>
+                                <entry>
+                                    <para>LT</para>
+                                </entry>
+                                <entry>
+                                    <para>RT</para>
+                                </entry>
+                                <entry>
+                                    <para>RT</para>
+                                </entry>
+                                <entry>
+                                    <para>Lt rail</para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        <emph type="italic">*Xmsn Housing</emph>
+                                    </para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry colspan="7" spanname="SPAN1">
+                                    <para>* Trucks built after 03/01/2004.</para>
+                                    <para>
+                                        <emph type="italic">Changes to models are highlighted in italics.</emph>
+                                    </para>
+                                </entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+                <step1>
+                    <para count="1">Hook up EZ-Tech to the vehicle's 9-way diagnostic connector.</para>
+                </step1>
+                <step1>
+                    <para count="1">Open DLB and open a new "Dual Fuel Tanks.dls" session to monitor the parameters
+                        necessary to troubleshoot the dual fuel tank transfer pump function. The Watched Signals are
+                        shown in Figure 1.
+                    </para>
+                </step1>
+                <specpara>
+                    <note>
+                        <para>The actual fuel sensor readings are displayed as Fuel Sensor 1 Signal (draw) and Fuel
+                            Sensor 2 Signal (storage). The ESC conditions these signals over time to allow for fuel
+                            sloshing and other transitional effects. The ESC looks at the conditioned signals (Fuel Draw
+                            Level and Fuel Storage Level) and uses these values to determine whether or not the fuel
+                            transfer pump should be activated. The ESC also conditions the Fuel Sensor 1 Signal and
+                            transmits a conditioned signal to be used by the instrument cluster fuel gauge. The
+                            importance of this is that the ESC does not react to instant changes in the sensor signals;
+                            it waits until the conditioned signals meet the required parameters to activate or
+                            deactivate the transfer pump.
+                        </para>
+                    </note>
+                </specpara>
+                <figure id="f0608021" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0608021.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                             scalefitheight="392px"/>
+                    <caption>Figure 1.</caption>
+                </figure>
+                <step1>
+                    <para count="1">Verify that the draw tank is in the position listed in Table 1 above. The draw tank
+                        should have the fuel supply to the engine, the fuel return line (if equipped with a Cummins or
+                        Caterpillar), the transfer pump outlet, and the vent line going into the top of the tank.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Turn the vehicle ignition ON and enter the DLB Diagnostic Mode to show the actual
+                        vehicle values as shown in Figure 2. Note that the conditioned signals (Fuel Draw Level and Fuel
+                        Storage Level) will always start out at 100% and 0% respectively. The ESC will not begin to
+                        condition these values, based on the sensor outputs, until it sees engine RPM.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Disconnect the fuel level sender connector on the draw tank. If the DLB screen
+                        indicates that Fuel Sensor 1 has moved to "0" from its previous position then the wiring to
+                        sensor 1 is correct. Reconnect the fuel level sender and verify that the sender output and the
+                        actual fuel level in the draw tank are approximately the same.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Disconnect the fuel level sender connector on the opposite side tank (should be
+                        storage) and verify that DLB shows Fuel Sensor 2 has gone to "0". Reconnect the fuel level
+                        sender and verify that the sender output and the actual fuel level in the storage tank are
+                        approximately the same.
+                    </para>
+                </step1>
+                <figure id="f0608022" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0608022.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                             scalefitheight="432px"/>
+                    <caption>Figure 2.</caption>
+                </figure>
+                <step1>
+                    <para count="1">If both fuel senders pass the above test it verifies that they are wired correctly
+                        and operating properly. If the draw tank is not Fuel Sensor 1 and the storage tank is not Fuel
+                        Sensor 2 the wiring is reversed and the transfer pump will not work. See Circuit Diagrams at end
+                        of procedure for proper connections.
+                    </para>
+                </step1>
+            </svcsubproc>
+            <svcsubproc>
+                <title>Verify Transfer Pump Function</title>
+                <step1>
+                    <para count="1">Verify the vehicle ignition is ON and the
+                        <emph type="bold">engine not running</emph>.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Using DLB left click on the "Fuel Transfer Pump Req" Value box and both the Fuel
+                        Transfer Pump Req and the Fuel Transfer Pump Relay Cmd boxes should show a check mark indicating
+                        ON.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Listen for the activation of the fuel transfer pump and verify that the pump inlet
+                        is coming from the storage tank and the output is going to the draw tank.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">If the pump does not turn on then check the wiring to the ESC, the ESC output on pin
+                        25 of Connector 4004, the pump relay as described in the Introduction of S082503, or the pump
+                        itself.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">Left click the "Fuel Transfer Pump Req" padlock symbol and the padlock should open
+                        up and remove the checks from the "Fuel Transfer Pump Req" and the "Fuel Transfer Pump Relay
+                        Cmd" boxes, the transfer pump should now be off. See Figure 2.
+                    </para>
+                </step1>
+                <specpara>
+                    <warning>
+                        <para>Do not let the transfer pump run for an extended period. When the function is verified
+                            make sure you turn the transfer pump off by performing step 5. above! Failure to heed this
+                            warning could result in overfilling the draw tank, spilling fuel, and causing a hazardous
+                            waste spill or a fire hazard.
+                        </para>
+                    </warning>
+                </specpara>
+            </svcsubproc>
+            <svcsubproc>
+                <title>Verify The ESC Logic and Function</title>
+                <step1>
+                    <para count="1">With the ignition ON and engine
+                        <emph type="bold">not</emph>
+                        running, insert "0" into the "Fuel Sensor 1 Signal" (draw tank) Value and "100" into the "Fuel
+                        Sensor 2 Signal" (storage tank). To insert values place the curser over the value you want to
+                        change, double left click, type in the value wanted and hit "enter". Note that while the engine
+                        is not running the "Fuel Transfer Pump Relay Cmd" should be off and the DLB window should look
+                        like Figure 3.
+                    </para>
+                </step1>
+                <figure id="f0608023" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0608023.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                             scalefitheight="432px"/>
+                    <caption>Figure 3.</caption>
+                </figure>
+                <step1>
+                    <para count="1">Start the vehicle's engine. Note that the Engine RPM should be indicated and the
+                        Engine Running value box should be checked. Within 2 minutes the "Fuel Transfer Pump Req" and
+                        the "Fuel Transfer Pump Relay Cmd" on the DLB session window should turn ON (check in Value box)
+                        as shown in Figure 4. Note that Figure 4 shows the Fuel Storage Level at 94% and the Fuel Draw
+                        Level at 0.4% which meets the parameters for pump command to turn the transfer pump on. Remember
+                        the actual ESC command to turn the pump on will occur shortly after the Fuel Draw Level Value
+                        falls below the Fuel Storage Level as the two levels are conditioned by the ESC when it
+                        interprets the Fuel Sensor 1 Signal and the Fuel Sensor 2 Signal. The ESC does not activate the
+                        transfer pump based on the Fuel Sensor signals; it reacts to the
+                        <emph type="bold">conditioned signals only - "Fuel Draw Level" and "Fuel Storage Level".</emph>
+                    </para>
+                </step1>
+                <figure id="f0608024" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0608024.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                             scalefitheight="432px"/>
+                    <caption>Figure 4.</caption>
+                </figure>
+                <step1>
+                    <para count="1">When the ESC Logic and Function have been verified, turn off the engine and left
+                        click the locked padlock symbols of Fuel Sensor 1 Signal and Fuel Sensor 2 Signal. Once the
+                        padlocks symbols are opened sensor 1 and sensor 2 values should return to the actual sensor
+                        readings.
+                    </para>
+                </step1>
+                <specpara>
+                    <warning>
+                        <para>Do not let the transfer pump run for an extended period. When the function is verified
+                            make sure you turn the transfer pump off by performing step 3. above! Failure to heed this
+                            warning could result in overfilling the draw tank, spilling fuel, and causing a hazardous
+                            waste spill or a fire hazard.
+                        </para>
+                    </warning>
+                </specpara>
+                <step1>
+                    <para count="1">Since the fuel sensors, their wiring, and the transfer pump function has been
+                        verified, if the logic test fails to turn on pin 25 of connector 4004 either the ESC is not
+                        seeing the engine RPM or the ESC is at fault.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">If the transfer pump fails to energize in Procedure #2 above, check the cluster to
+                        see if the tach is working. The cluster uses the same tach message that the ESC uses to enable
+                        the fuel transfer pump.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">If the ESC is seeing the engine RPM and still does not activate the transfer pump
+                        under the above conditions, check Features and make sure that the "Dumb Pump" relay drive
+                        feature 00595192 is enabled and that 00595054 is disabled.
+                    </para>
+                </step1>
+                <step1>
+                    <para count="1">If the above procedure is followed and the transfer pump will not activate, the ESC
+                        or its software are at fault.
+                    </para>
+                </step1>
+            </svcsubproc>
+            <svcsubproc>
+                <title>Circuit Diagrams</title>
+                <figure id="f0608025" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0608025.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                             scalefitheight="532px"/>
+                    <caption>Figure 5.</caption>
+                </figure>
+                <figure id="f0608026" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0608026.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                             scalefitheight="532px"/>
+                    <caption>Figure 6.</caption>
+                </figure>
+                <figure id="f0608027" figsize="pg-wide">
+                    <graphic filename="../tsifigures/G0608027.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                             scalefitheight="532px"/>
+                    <caption>Figure 7.</caption>
+                </figure>
+            </svcsubproc>
+        </svcproc>
+    </tsi>
+</isis>

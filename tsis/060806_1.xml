@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>TSI 06-08-06 - Required PTO Wiring for CF 500 and CF 600 Models with Automatic Transmission Code 13ADL
+    </stitle>
+    <tsi id="tsi060806" tsitype="truck">
+        <tsinumber>06-08-06</tsinumber>
+        <replace>
+            <tsinumber>05-08-03RA</tsinumber>
+        </replace>
+        <tsidate>September, 2006</tsidate>
+        <subjectfile>ELECTRICAL</subjectfile>
+        <subjectgroup>
+            <subject>Required PTO Wiring for CF 500 and CF 600 Models with Automatic Transmission Code 13ADL</subject>
+        </subjectgroup>
+        <distribution dealer="yes" fleet="yes" bodybuilder="yes" isis_cd="yes"/>
+        <apply>
+            <configure>
+                <truckmodelgroup/>
+
+                <truckmodel>CF 500</truckmodel>
+                <truckmodel>CF 600</truckmodel>
+                <ucodegroup/>
+
+                <ucode>13ADL</ucode>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <para>The following information is required when installing a PTO in a CF 500 / CF 600 Model with
+                    automatic transmission, Code 13ADL.
+                </para>
+            </geninfo>
+        </description>
+        <svcproc svcproctype="repair" graphiccount="3">
+            <title>Service procedure</title>
+            <specpara>
+                <warning>
+                    <para>To avoid property damage, personal injury, or death, park the vehicle on a flat level surface,
+                        set the parking brake, turn the engine off, and chock the wheels.
+                    </para>
+                </warning>
+            </specpara>
+            <specpara>
+                <caution>
+                    <para>Installing a transmission-mounted PTO without the proper electrical connections to the
+                        transmission may result in transmission failure.
+                    </para>
+                </caution>
+            </specpara>
+            <para>To minimize the risk of transmission damage, PTO controls must be integrated into the vehicle
+                wiring.
+            </para>
+            <para>
+                <emph type="bold">PTO Request</emph>
+                - Applying vehicle battery voltage to the "PTO Request" wire will (1) place the transmission in PTO mode
+                and (2) elevate idle engine idle speed when certain conditions (described below) are met. This wire MUST
+                be part of the PTO control system; failing to do so may result in PTO clutch wear due to low hydraulic
+                pressure, resulting in rapid contamination of transmission fluid and internal transmission damage.
+            </para>
+            <para>
+                <emph type="bold">Remote PTO Enable</emph>
+                - One of the two available remote PTO engine wires MUST also be part of the PTO control system. The wire
+                must be connected to the PTO Request circuit.
+            </para>
+            <para>
+                <emph type="underscr">Conditions for PTO Elevated Idle:</emph>
+            </para>
+            <seqlist style="arabic">
+                <item>
+                    <para>Park brake applied</para>
+                </item>
+                <item>
+                    <para>Service brake released</para>
+                </item>
+                <item>
+                    <para>Transmission in PARK position</para>
+                </item>
+                <item>
+                    <para>Vehicle speed = 0</para>
+                </item>
+                <item>
+                    <para>Engine speed below 1200 RPM</para>
+                </item>
+            </seqlist>
+            <para>
+                <emph type="bold">PTO Enable</emph>
+                - An output wire is available that indicates when the elevated idle is active. The "PTO Enable" output
+                should be used to prevent PTO engagement when conditions are not optimal for PTO performance and/or when
+                engagement of the PTO may cause damage to the transmission.
+            </para>
+            <para>
+                <emph type="bold">PTO Engaged</emph>
+                - An input wire is available to control the PTO lamp in the instrument cluster. Applying vehicle battery
+                voltage to the "PTO Engaged" wire will illuminate the PTO lamp.
+            </para>
+            <para>
+                <emph type="bold">"PTO Request", "PTO Enable", "PTO Engaged"</emph>, and the remote engine
+                <emph type="bold">PTO</emph>signals are blunt cut wires supplied with the vehicle and are located behind
+                the cab on the left frame rail near the transmission. All other PTO components are to be supplied by the
+                body builder.
+            </para>
+            <para>
+                <emph type="bold">Engine Programming</emph>
+                - The engine programmable parameter "PTO-CONTROL" must be set to either "1: REMOTE OPERATION ONLY" or
+                "3: REMOTE AND IN-CAB OPERATION" for PTO installations. This parameter is set to "3: REMOTE AND IN-CAB
+                OPERATION" from the factory.
+            </para>
+            <figure id="f0508031" figsize="col-wide">
+                <graphic filename="../tsifigures/G0508031.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="272px"/>
+            </figure>
+            <table id="t0508031">
+                <title>CF Series PTO Wiring</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.57*"/>
+                    <colspec colname="col2" colwidth="0.59*"/>
+                    <colspec colname="col3" colwidth="1.84*"/>
+                    <thead>
+                        <row>
+                            <entry>
+                                <para>Circuit Intent</para>
+                            </entry>
+                            <entry>
+                                <para>Wire Name</para>
+                            </entry>
+                            <entry>
+                                <para>Description</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>Input (VPWR)</para>
+                            </entry>
+                            <entry>
+                                <para>PTO Request</para>
+                            </entry>
+                            <entry>
+                                <para>Blunt cut wire Circuit No. 2335, wire color Violet/Light Green. Applying vehicle
+                                    battery voltage to this wire will request the transmission to enter PTO mode and
+                                    will elevate engine speed if conditions are met.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Output</para>
+                            </entry>
+                            <entry>
+                                <para>PTO Enable</para>
+                            </entry>
+                            <entry>
+                                <para>Blunt cut wire Circuit No. 2334, wire color Brown/Yellow. A low-side driver,
+                                    changing from open-circuit to ground indicating the elevated idle (PTO) is active.
+                                    Intended for turning on a relay coil. Maximum current is 1 amp.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Input (VPWR)</para>
+                            </entry>
+                            <entry>
+                                <para>PTO Engaged</para>
+                            </entry>
+                            <entry>
+                                <para>Blunt cut wire Circuit No. 2336, wire color Red/Orange. Applying vehicle battery
+                                    voltage to this wire will activate the PTO lamp in the instrument cluster, and
+                                    removing vehicle battery voltage will deactivate the PTO lamp.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Input (VPWR)</para>
+                            </entry>
+                            <entry>
+                                <para>ECM Remote Preset PTO Enable</para>
+                            </entry>
+                            <entry>
+                                <para>Blunt cut wire Circuit No. 2231, wire color Light Blue/Red. Applying vehicle
+                                    battery voltage to this wire will enable the Remote Preset PTO engine operation.
+                                    This input, or ECM Remote Variable, is required for PTO.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Input (VPWR)</para>
+                            </entry>
+                            <entry>
+                                <para>ECM Remote Variable PTO Enable</para>
+                            </entry>
+                            <entry>
+                                <para>Blunt cut wire Circuit No. 2232, wire color Red/Light Blue. Applying vehicle
+                                    battery voltage to this wire will enable the Remote Variable PTO engine operation.
+                                    This input, or ECM Remote Preset PTO Enable, is required for PTO.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <figure id="f0508032" figsize="pg-wide">
+                <graphic filename="../tsifigures/G05080303.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="484px"/>
+                <caption>Figure 1. Example Wiring Diagram for Stationary PTO Operation</caption>
+            </figure>
+            <figure id="f0508033" figsize="pg-wide">
+                <graphic filename="../tsifigures/G05080304.webp" type="webp" scalefit="1" scalefitwidth="484px"
+                         scalefitheight="272px"/>
+                <caption>Figure 2. Example Wiring Diagram for PTO Lamp</caption>
+            </figure>
+        </svcproc>
+    </tsi>
+</isis>

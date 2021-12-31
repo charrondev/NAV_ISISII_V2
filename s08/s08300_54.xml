@@ -1,0 +1,436 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Body Builder Electrical Data Book for Models Built January 2001 to February 28, 2007 - Electrical Features -
+        Lights - Work Light / Aux. Rear Light
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="5">
+        <title>Work Light / Aux. Rear Light</title>
+        <svcsubproc id="BB08WLL">
+            <title>08WLL (Tractor) and 08WMA (Straight Truck)</title>
+            <para>Refer to the Circuit Diagram in
+                <exhotlnk document="../S08/S082853_CD08585.xml" bookname="S082853">S08285, Chapter 7, page 7</exhotlnk>.
+            </para>
+            <para>
+                <emph type="boldundersc">FEATURE CODE DESCRIPTION:</emph>
+            </para>
+            <para>08WLL - LIGHT Work; Pedestal Mounted With Switch on Instrument Panel</para>
+            <para>08WMA - SWITCH, TOGGLE, FOR WORK LIGHT Lighted; on Instrument Panel and Wiring Effects for Customer
+                Furnished Back of Cab Light
+            </para>
+            <para>
+                <emph type="boldundersc">FEATURE / BODY FUNCTION:</emph>
+            </para>
+            <para>With the International installed work light (08WLL), nighttime trailer hook-ups are made easier with a
+                work light mounted at the back of the cab on tractors. This light illuminates the fifth wheel area of
+                the vehicle. Both features include a switch in the instrument panel, which illuminates when the switch
+                is on. These feature provide the ability to activate either an in-cab load (Pin F of ESC connector
+                #1601), an out-of-cab load (Pin F of ESC connector #4007), or both depending on the pin selected and as
+                long as the total load does not exceed 10 amps.
+            </para>
+            <para>The feature without the light (08WMA) can be used to satisfy any number of electrical needs for
+                vehicles with straight truck brakes (4091) such as lights inside dry van boxes, small pumps, and
+                illumination to aid in various job functions.
+            </para>
+            <para>If the engine is off, there is a time out feature, which is factory set at 120 minutes. The time out
+                period can be changed by an International dealer. If the vehicle is running, the work light will not
+                time out after 120 minutes. If the work light is left on when the vehicle is moving, the green indicator
+                light in the work light switch will flash.
+            </para>
+            <figure id="f7300067" figsize="pg-wide">
+                <graphic filename="../figg73/g73000ab.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="312px"/>
+                <caption>1601 (ESC J3)</caption>
+            </figure>
+            <figure id="f7300068" figsize="pg-wide">
+                <graphic filename="../figg73/g73000af.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="312px"/>
+                <caption>4007 (ESC J1)</caption>
+            </figure>
+            <figure id="f7300069" figsize="col-wide">
+                <graphic filename="../figg73/g73000ac.webp" type="webp" scalefit="1" scalefitwidth="168px"
+                         scalefitheight="192px"/>
+                <caption>Work Light Switch in 3-Switchpack Below and Left of Gauge Cluster</caption>
+            </figure>
+            <para>
+                <emph type="boldundersc">SOFTWARE FEATURE CODES / PROGRAMMABLE PARAMETERS:</emph>
+            </para>
+            <para>Required Software Feature Codes:</para>
+            <para>
+                <emph type="bold">08WLL:</emph>
+                595250
+            </para>
+            <para>
+                <emph type="bold">08WMA:</emph>
+                595250, 595168
+            </para>
+            <para>Software Feature Code that must be removed: 595025</para>
+            <para>The
+                <emph type="bold">Work_Light_Timeout_Enable</emph>
+                parameter is used to set the amount of time that the customer desires the work light to remain ON after
+                the ignition key is turned off. This parameter is for customers who desire to have their work light time
+                out after a specified length of time so that the light does not drain the battery in case the operator
+                forgets to turn the light off.
+            </para>
+            <para>If the current in the work light circuit falls below the level set by the
+                <emph type="bold">Work_Light_Lo_Current</emph>
+                parameter, the ESC will register a fault code.
+            </para>
+            <para>If the current in the work light circuit exceeds the level set by the
+                <emph type="bold">Work_Light_Hi_Current</emph>
+                parameter, the ESC will shut off the circuit and register a fault code.
+            </para>
+            <para>The
+                <emph type="bold">Work_Light_OC_Current</emph>
+                parameter should be left at its factory default of zero.
+            </para>
+            <table id="t73000e3">
+                <tgroup cols="8">
+                    <colspec colname="col1" colwidth="1.45*"/>
+                    <colspec colname="col2" colwidth="0.71*"/>
+                    <colspec colname="col3" colwidth="1.82*"/>
+                    <colspec colname="col4" colwidth="0.75*"/>
+                    <colspec colname="col5" colwidth="0.91*"/>
+                    <colspec colname="col6" colwidth="0.86*"/>
+                    <colspec colname="col7" colwidth="0.77*"/>
+                    <colspec colname="col8" colwidth="0.84*"/>
+                    <thead>
+                        <row>
+                            <entry>
+                                <para>Parameter</para>
+                            </entry>
+                            <entry>
+                                <para>ID</para>
+                            </entry>
+                            <entry>
+                                <para>Description</para>
+                            </entry>
+                            <entry>
+                                <para>Default</para>
+                            </entry>
+                            <entry>
+                                <para>Units</para>
+                            </entry>
+                            <entry>
+                                <para>Min</para>
+                            </entry>
+                            <entry>
+                                <para>Max</para>
+                            </entry>
+                            <entry>
+                                <para>Step</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>Work_Light_ Timeout_ Enable</para>
+                            </entry>
+                            <entry>
+                                <para>640</para>
+                            </entry>
+                            <entry>
+                                <para>This signal is a parameter that can be adjusted to vary the amount of time that
+                                    the work light will remain on after the ignition key is turned off. If this value is
+                                    set to 6, the work light will remain on for 60 minutes after the ignition key is
+                                    turned off.
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>120</para>
+                            </entry>
+                            <entry>
+                                <para>Min</para>
+                            </entry>
+                            <entry>
+                                <para>10</para>
+                            </entry>
+                            <entry>
+                                <para>1440</para>
+                            </entry>
+                            <entry>
+                                <para>10</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Work_Light_ Lo_Current</para>
+                            </entry>
+                            <entry>
+                                <para>1898</para>
+                            </entry>
+                            <entry>
+                                <para>Work Light Low Current Detection Level (Amps)</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>A</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>10</para>
+                            </entry>
+                            <entry>
+                                <para>0.1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Work_Light_ Hi_Current</para>
+                            </entry>
+                            <entry>
+                                <para>1899</para>
+                            </entry>
+                            <entry>
+                                <para>Work Light High Current Detection Level (Amps)</para>
+                            </entry>
+                            <entry>
+                                <para>10</para>
+                            </entry>
+                            <entry>
+                                <para>A</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>10</para>
+                            </entry>
+                            <entry>
+                                <para>0.1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Work_Light_ OC_Current</para>
+                            </entry>
+                            <entry>
+                                <para>1900</para>
+                            </entry>
+                            <entry>
+                                <para>Work Light Open Circuit Detection Level (Amps)</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>A</para>
+                            </entry>
+                            <entry>
+                                <para>0</para>
+                            </entry>
+                            <entry>
+                                <para>10</para>
+                            </entry>
+                            <entry>
+                                <para>0.1</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="boldundersc">WIRING INFORMATION:</emph>
+            </para>
+            <para>The maximum current load for the work light/aux light is 10 amp. The circuit protection is internal to
+                the ESC.
+            </para>
+            <table id="t73000e4">
+                <title>Parts Required to Connect to Work Light Cable</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="0.97*"/>
+                    <colspec colname="col2" colwidth="1.01*"/>
+                    <colspec colname="col3" colwidth="1.01*"/>
+                    <colspec colname="col4" colwidth="1.02*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Connector P/N</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Lock P/N</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Term P/N</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Seal P/N</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry align="center">
+                                <para>1661778C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1661874C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1661872C1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1661872C1</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t73000e5">
+                <title>Terminals Designed for 16-Gauge Wire</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" align="center" colwidth="0.89*"/>
+                    <colspec colname="col2" align="center" colwidth="0.71*"/>
+                    <colspec colname="col3" align="center" colwidth="1.40*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Connector Cavity</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Circuit Number</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Circuit Description</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry align="center">
+                                <para>A</para>
+                            </entry>
+                            <entry align="center">
+                                <para>J65*</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Work Light Feed</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>B</para>
+                            </entry>
+                            <entry align="center">
+                                <para>J65-G**</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Work Light Ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>* "16BK" for 7000 Models</para>
+                                <para>** "J11-GK for 7000 models</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f7300070" figsize="pg-wide">
+                <graphic filename="../figg73/g73000ad.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="472px"/>
+                <caption>Arrow Indicates Location of Work Light Connector (Straight Truck)</caption>
+            </figure>
+            <figure id="f7300071" figsize="pg-wide">
+                <graphic filename="../figg73/g73000ae.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="472px"/>
+                <caption>Arrow Indicates Location of Work Light (Tractor)</caption>
+            </figure>
+            <para>
+                <emph type="boldundersc">TESTING:</emph>
+            </para>
+            <step1>
+                <para count="1">Activate Work Light Switch.</para>
+            </step1>
+            <step1>
+                <para count="1">Verify that Pin F (labeled Work_Light) on the Brown ESC output connector (#4007) and/or
+                    Pin F (labeled Work_Light) on the Brown ESC output connector (#1601) is providing battery voltage.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Verify that the work light (or alternate load) is functioning properly.</para>
+            </step1>
+            <step1>
+                <para count="1">Turn work light switch OFF.</para>
+            </step1>
+            <step1>
+                <para count="1">Verify that the Work Light output goes OFF.</para>
+            </step1>
+            <para>
+                <emph type="boldundersc">HOW DO I ADD THIS FEATURE:</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>For 08WLL, the Software feature code 595250 must be enabled on the vehicle using ICAP or the
+                        Diamond Logic&#8482; Builder software (see Local Dealer)
+                    </para>
+                </item>
+                <item>
+                    <para>For 08WMA, the Software feature codes 595250 and 595168 must be enabled on the vehicle using
+                        ICAP or the Diamond Logic&#8482; Builder software (see Local Dealer)
+                    </para>
+                </item>
+                <item>
+                    <para>Use ICAP or the Diamond Logic&#8482; Builder software to make sure that software feature code
+                        595025 is NOT enabled on the vehicle (see Local Dealer)
+                    </para>
+                </item>
+                <item>
+                    <para>Set the desired programmable parameters for each signal using ICAP or the Diamond Logic&#8482;
+                        Builder software (see Local Dealer)
+                    </para>
+                </item>
+                <item>
+                    <para>Customer must wire the desired load into the pin labeled Work_Light on either the Brown ESC
+                        output connector (#4007 - Hood) or the Brown ESC output connector (#1601 - Inside Cab)
+                    </para>
+                </item>
+                <item>
+                    <para>Customer must install a 3-position momentary rocker switch (Part Number 3549804C91) in the far
+                        right position of the 3-switch switchpack below and to the left of the gauge cluster. The switch
+                        is backlit with an amber light (Part Number 3533928C1) for better viewing during night
+                        operations. The switch has a green indicator light (Part Number 3578733C1) in the top half of
+                        the switch to indicate when the work light is on.
+                    </para>
+                </item>
+            </randlist>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_53.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_55.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

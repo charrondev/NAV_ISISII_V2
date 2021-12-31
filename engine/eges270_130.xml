@@ -1,0 +1,1299 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - Brake Shut-off Valve
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="7">
+        <title>Brake Shut-off Valve</title>
+        <svcprocinfo>
+            <figure id="f27007026" figsize="pg-wide">
+                <graphic filename="../figh31/h31326.webp" type="webp" scalefit="1" scalefitwidth="392px"
+                         scalefitheight="472px"/>
+                <caption>Function diagram for the Brake Shut-off Valve</caption>
+            </figure>
+            <para id="s27005012">The function diagram for the brake shut-off valve includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para id="bsv">Engine Oil Temperature (EOT) sensor</para>
+                </item>
+                <item>
+                    <para>Speed Control Command Switches (SCCS)</para>
+                </item>
+                <item>
+                    <para>Injection Control Pressure (ICP) sensor</para>
+                </item>
+                <item>
+                    <para>Brake Control Pressure (BCP) sensor</para>
+                </item>
+                <item>
+                    <para>Engine brake switches</para>
+                </item>
+                <item>
+                    <para>Camshaft Position (CMP) sensor</para>
+                </item>
+                <item>
+                    <para>Accelerator Position / Idle Validation (APS/IVS) sensors</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Brake pedal</para>
+                </item>
+                <item>
+                    <para>Brake shut-off valve</para>
+                </item>
+                <item>
+                    <para>Variable Geometry Turbocharger (VGT) actuator</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation (EGR) actuator</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The brake shut-off valve controls pressure in the oil gallery of the high-pressure oil rail. When the
+                engine brake is activated, the ECM provides power to activate the brake shut-off valve to allow oil from
+                the injector oil gallery to flow to the brake oil gallery. High oil pressure activates the brake
+                actuator pistons to open the exhaust valves.
+            </para>
+            <para>The ECM removes the power from the brake shut-off valve to deactivate the engine brake. Residual brake
+                gallery pressure initially bleeds from the actuator bore. When brake gallery pressure reaches 1000 psi,
+                the brake pressure relief valve opens, and oil drains back to sump.
+            </para>
+            <para>The brake shut-off valve consists of a solenoid and valve assembly and is located in the center of the
+                high-pressure oil rail.
+            </para>
+            <para>The ECM monitors the following criteria to make sure certain conditions are met.</para>
+            <randlist type="bullet">
+                <item>
+                    <para>ABS (inactive)</para>
+                </item>
+                <item>
+                    <para>RPM (greater than 1200)</para>
+                </item>
+                <item>
+                    <para>APS (less than 5%)</para>
+                </item>
+                <item>
+                    <para>EOT (greater than 60 &#176;C [140 &#176;F])</para>
+                </item>
+                <item>
+                    <para>Idle validation</para>
+                </item>
+                <item>
+                    <para>Operator input switches (On/Off) (power selection - Low, Medium, High)</para>
+                </item>
+            </randlist>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Brake Shut-off Valve Circuit Operation</title>
+            <figure id="f27007027" figsize="pg-wide">
+                <graphic filename="../figh31/h31075.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Brake Shut-off Valve circuit diagram</caption>
+            </figure>
+            <para>The brake shut-off valve is supplied ground to Pin 1 from the battery through Pin 4 of the 12-pin
+                connector and then through Pin A of the valve cover gasket. The ECM controls the engine brake by
+                supplying 12 volts through Pin C of the valve cover gasket to Pin 2 of the brake shut-off valve.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>An open or short to ground in the brake shut-off valve control circuit can be detected by an on demand
+                Output Circuit Check (OCC) during KOEO Standard Test. If there is a circuit fault detected a DTC will be
+                set.
+            </para>
+            <para>When the engine is running, the ECM compares engine brake control pressure to injection control
+                pressure and BCP desired. When the brake is activated, brake control pressure will equal injection
+                control pressure.
+            </para>
+            <para>If the brake control pressure does not match injection control pressure, the ECM will disable the
+                engine brake, a DTC will be set, and the amber ENGINE lamp will be illuminated.
+            </para>
+            <para>When the engine brake is not active and the ECM detects an undesired value, the ECM will set a DTC and
+                the amber ENGINE lamp will be illuminated.
+            </para>
+            <para>A bias BCP sensor can also cause the fault. The brake shut-off valve and the BCP sensor circuit should
+                both be diagnosed.
+            </para>
+            <para>
+                <title>Brake Shut-off Valve Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red ENGINE lamp.</para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 247</emph>
+                </line>
+                <line>
+                    <emph type="bold">Engine brake enable OCC self-test failed</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 247 is set by the ECM when the OCC test has failed after the KOEO Standard Test has been
+                        run.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 247 can be set when a poor connection, an open or short to ground in the brake shut-off
+                        valve control circuit, or a failed brake shut-off valve solenoid exists.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 247 is active the amber ENGINE lamp will be illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 546</emph>
+                </line>
+                <line>
+                    <emph type="bold">Engine brake control pressure below expected range</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 546 is set by the ECM when the brake control pressure is less than injection control
+                        pressure 4 MPa (580 psi) for more than 3 seconds.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 546 can be set due to a bias low BCP sensor or a failed BCP sensor. See "Brake Control
+                        Pressure (BCP) Sensor - Section 7.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 546 can be set due to an open control circuit (power or ground), a failed brake shut-off
+                        valve, or a failed brake shut-off valve solenoid.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 546 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 547</emph>
+                </line>
+                <line>
+                    <emph type="bold">Engine brake control pressure above expected range</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 547 is set by the ECM when the brake control pressure is greater than desired brake
+                        control pressure by 4.5 MPa (653 psi) for more than 3 seconds.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 547 can be set due to an open signal ground, V
+                        <subscript>REF</subscript>
+                        shorted to a voltage source higher than 5.5 V, or a failed BCP sensor. See "Brake Control
+                        Pressure (BCP) Sensor - Section 7.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 547 can be set due to a control circuit short to B+ or a brake shut-off valve stuck
+                        open.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 547 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>VC Gasket Breakout Harness</para>
+                </item>
+                <item>
+                    <para>12-Pin Breakout Harness</para>
+                </item>
+                <item>
+                    <para>500 Ohm Resistor Harness</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Brake Shut-off Valve Pin-Point Diagnostics (ECM to valve cover gasket connector)</title>
+            <figure id="f27007028" figsize="pg-wide">
+                <graphic filename="../figh31/h31075.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Brake Shut-off Valve circuit diagram</caption>
+            </figure>
+            <table id="te27007025" tblwidth="pg-wide" type="simple" frame="topbot" numbered="no">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.69*"/>
+                    <colspec colname="col2" colwidth="0.72*"/>
+                    <colspec colname="col3" colwidth="1.57*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1" align="center">
+                                <note>
+                                    <para>
+                                        <emph type="bold">Complete all pin-point diagnostics (ECM to valve cover gasket
+                                            connector) before removing valve cover for under-valve-cover diagnostics.
+                                        </emph>
+                                    </para>
+                                    <randlist type="bullet">
+                                        <item>
+                                            <para>Turn the ignition switch to OFF before disconnecting engine wiring
+                                                harness connectors from components.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>See truck Chassis Electrical Circuit Diagram Manual for circuit
+                                                numbers, connector and fuse locations.
+                                            </para>
+                                        </item>
+                                    </randlist>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Actuator Control Voltage Check at Valve Cover Gasket Connector
+                                    </emph>
+                                    (Disconnect engine harness from valve cover gasket. Inspect for bent pins or
+                                    corrosion. Connect VC Gasket Breakout Harness to engine harness and valve cover
+                                    gasket. Turn the ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to A</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, continue with next test point, C to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, control wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+, or an open ground, open control circuit, or open solenoid exists.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, ground wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Output State Test - Signal Check at Valve Cover Gasket Connector
+                                    </emph>
+                                    (Disconnect engine harness from valve cover gasket. Connect VC Gasket Breakout
+                                    Harness to engine harness and valve cover gasket. Run the Output State Tests. For
+                                    help, see
+                                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Diagnostic Software
+                                        Operation"
+                                    </hotlnk>
+                                    in Section 3 for procedure to run the Low and High Output State Tests.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test State/Point</para>
+                            </entry>
+                            <entry>
+                                <para>Setting/Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>KOEO</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>&#160;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to A</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, disconnect VC Gasket Breakout Harness from gasket. Connect 500 Ohm
+                                    Resistor Harness between C and A and retest.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If > 0.25 V, run the Low and High Output State Test.</para>
+                                    </item>
+                                    <item>
+                                        <para>If &#60; 0.25 V, the concern is the valve cover gasket, UVC wiring, or
+                                            brake shut-off valve.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Output State Test - Low</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>Toggling between the Low and High Output State Tests can be done during this
+                                    procedure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to A</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, disconnect VC Gasket Breakout Harness from gasket. Connect 500 Ohm
+                                    Resistor Harness between C and A and retest Output State Test - Low.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If > 0.25 V the concern is the engine harness or ECM, check for a short to
+                                            B+ or V
+                                            <subscript>REF</subscript>.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If &#60; 0.25 V, the concern is the valve cover gasket, UVC wiring, or
+                                            Brake Shut-off Valve.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Output State Test - High</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>Toggling between the Low and High Output State Tests can be done during this
+                                    procedure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to A</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, disconnect VC Gasket Breakout Harness from gasket. Connect 500 Ohm
+                                    Resistor Harness between C and A and retest and retest Output State Test - High.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If equal to B+ the concern is the valve cover gasket, UVC wiring, or Brake
+                                            Shut-off Valve. Check for short to ground or open on control circuit, or
+                                            open ground circuit.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If &#60; B+ the concern is the engine harness or ECM. Check the ECM
+                                            programming and check for a short to ground or open control circuit. Do the
+                                            <hotlnk xrefid="BSV3">Actuator Control Voltage Check at ECM</hotlnk>
+                                            and
+                                            <hotlnk xrefid="BSV1">Harness Resistance Checks</hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007029" figsize="pg-wide">
+                <graphic filename="../figh31/h31075.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Brake Shut-off Valve circuit diagram</caption>
+            </figure>
+            <table id="te27007026" tblwidth="pg-wide" type="simple" frame="topbot" numbered="no">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.72*"/>
+                    <colspec colname="col2" colwidth="0.76*"/>
+                    <colspec colname="col3" colwidth="1.52*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>
+                                        <emph type="bold">Complete all pin-point diagnostics (ECM to valve cover gasket
+                                            connector) before removing valve cover for under-valve-cover diagnostics.
+                                        </emph>
+                                    </para>
+                                    <randlist type="bullet">
+                                        <item>
+                                            <para>Turn the ignition switch to OFF before disconnecting engine wiring
+                                                harness connectors from components.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>See truck Chassis Electrical Circuit Diagram Manual for circuit
+                                                numbers, connector and fuse locations.
+                                            </para>
+                                        </item>
+                                    </randlist>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="BSV3">
+                                    <emph type="bold">Actuator Control Voltage Check at ECM</emph>
+                                    (Connect breakout box [X2 only] to ECM and engine harness. Engine harness is not
+                                    connected to valve cover gasket. Connect 500 Ohm Resistor Harness to X2-18 and
+                                    ground. Turn the ignition switch to ON. Run Low and High Output State Test. For
+                                    help, see
+                                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Diagnostic Software
+                                        Operation"
+                                    </hotlnk>
+                                    in Section 3 for procedure to run the Low and High Output State Tests. Measure
+                                    across X2-18 and ground.)
+                                </para>
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test State/Point</para>
+                            </entry>
+                            <entry>
+                                <para>Setting/Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>KOEO</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>&#160;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2 - 18 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, disconnect engine harness from breakout box harness and retest.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If > 0.25 V, run the Low and High Output State Tests.</para>
+                                    </item>
+                                    <item>
+                                        <para>If &#60; 0.25 V, diagnose engine wiring harness. Check for short to V
+                                            <subscript>REF</subscript>
+                                            or B+.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Output State Test - Low</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>Toggling between the Low and High Output State Tests can be done during this
+                                    procedure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2 - 18 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, disconnect engine harness from breakout box harness and retest.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If &#60; 0.25 V, diagnose engine wiring harness. Check for short to V
+                                            <subscript>REF</subscript>
+                                            or B+.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If > 0.25 V with breakout box connected only to ECM, replace ECM.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Output State Test - High</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>Toggling between the Low and High Output State Tests can be done during this
+                                    procedure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2 - 18 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, disconnect engine harness from breakout box harness and retest.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If equal to B+, diagnose engine wiring harness. Do
+                                            <hotlnk xrefid="BSV1">Harness Resistance Checks</hotlnk>
+                                            . Check for short to ground or open circuit.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If &#60; B+ with breakout box connected only to ECM, replace the ECM.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007030" figsize="pg-wide">
+                <graphic filename="../figh31/h31075.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Brake Shut-off Valve circuit diagram</caption>
+            </figure>
+            <table id="te27007027" tblwidth="pg-wide" type="simple" frame="topbot" numbered="no">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.56*"/>
+                    <colspec colname="col2" colwidth="0.35*"/>
+                    <colspec colname="col3" colwidth="2.09*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>
+                                        <emph type="bold">Complete all pin-point diagnostics (ECM to valve cover gasket
+                                            connector) before removing valve cover for under-valve-cover diagnostics.
+                                        </emph>
+                                    </para>
+                                    <randlist type="bullet">
+                                        <item>
+                                            <para>Turn the ignition switch to OFF before disconnecting engine wiring
+                                                harness connectors from components.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>See truck Chassis Electrical Circuit Diagram Manual for circuit
+                                                numbers, connector and fuse locations.
+                                            </para>
+                                        </item>
+                                    </randlist>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="bsv1">
+                                    <emph type="bold">Harness Resistance Check - Valve Cover Gasket Connector to ECM
+                                        Chassis Ground
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the ground connection for the ECM and IDM. See truck Chassis
+                                        Electrical Circuit Diagram Manual for complete chassis side ECM and IDM ground
+                                        circuit information.</ftnote>. Connect VC Gasket Breakout Harness to engine
+                                    wiring harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for an open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Check - Valve Cover Gasket Connector to Chassis
+                                        Ground
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect harness from
+                                    valve cover gasket. Use disconnected negative battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Check - 12-Pin Connector to ECM Chassis
+                                        Ground
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Connect 12-pin Breakout Harness to chassis wiring
+                                    harness only. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in chassis wiring harness ground circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Check - 12-Pin Connector to Chassis Ground
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect 12-pin
+                                    connector and use chassis side for test point. Use disconnected negative battery
+                                    cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Check - Valve Cover Gasket Connector to 12-Pin
+                                        Connector
+                                    </emph>
+                                    (Connect VC Gasket Breakout Harness to engine wiring harness only. Connect 12-Pin
+                                    Breakout Harness to engine wiring harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to 4
+                                    <ftnref xrefid="V-DC"/>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in actuator ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Check - Valve Cover Gasket Connector to ECM
+                                    </emph>
+                                    (Connect VC Gasket Breakout Harness to engine wiring harness only. Connect breakout
+                                    box X2 to engine wiring harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to X2-18</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in control wire.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Resistance Check - Valve Cover Gasket, UVC Wiring, and Brake
+                                        Shut-off Valve/Solenoid
+                                    </emph>
+                                    (Connect VC Gasket Breakout Harness to valve cover gasket only.)
+                                </para>
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to C</para>
+                            </entry>
+                            <entry>
+                                <para>10 &#x2126; &#177; 2 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If > 12 &#x2126;, the concern is the valve cover gasket, UVC wiring, or
+                                            brake shut-off valve/solenoid. Do
+                                            <hotlnk xrefid="BSV2">Harness Resistance Check - Valve Cover Gasket
+                                                Connector to UVC Connector
+                                            </hotlnk>
+                                            and
+                                            <hotlnk xrefid="BSV2">Solenoid Resistance Check - Brake Shut-off Valve
+                                            </hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If &#60; 8 &#x2126;, a short to ground exists. The concern is the valve
+                                            cover gasket, UVC wiring, or brake shut-off valve/solenoid.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Brake Shut-off Valve Pin-Point Diagnostics (ECM to brake valve - valve cover removed)</title>
+            <figure id="f27007031" figsize="pg-wide">
+                <graphic filename="../figh31/h31075.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Brake Shut-off Valve circuit diagram</caption>
+            </figure>
+            <table id="te27007028" tblwidth="pg-wide" type="simple" frame="topbot" numbered="no">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.69*"/>
+                    <colspec colname="col2" colwidth="0.72*"/>
+                    <colspec colname="col3" colwidth="1.57*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1" align="center">
+                                <note>
+                                    <para>
+                                        <emph type="bold">Complete all pin-point diagnostics (ECM to valve cover gasket
+                                            connector) before removing valve cover for under-valve-cover diagnostics.
+                                        </emph>
+                                    </para>
+                                    <randlist type="bullet">
+                                        <item>
+                                            <para>Turn the ignition switch to OFF before disconnecting engine wiring
+                                                harness connectors from components.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>See truck Chassis Electrical Circuit Diagram Manual for circuit
+                                                numbers, connector and fuse locations.
+                                            </para>
+                                        </item>
+                                    </randlist>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Actuator Control Voltage Check at UVC Connector</emph>
+                                    (Remove valve cover following procedure in the Engine Service Manual. Disconnect UVC
+                                    connector from valve. Use the Terminal Test Adapter Kit to connect the 500 Ohm
+                                    Resistor harness to the UVC connector Pin 2 and ground. Turn the ignition switch to
+                                    ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 1</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, continue with next test point, 2 to chassis ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to chassis gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, control wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to chassis gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, ground wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Output State Test - Signal Check at UVC Connector</emph>
+                                    (Disconnect UVC connector from valve. Use the Terminal Test Adapter Kit to connect
+                                    the 500 Ohm Resistor harness to the UVC connector Pin 2 and ground. Run the Output
+                                    State Tests. For help, see
+                                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Diagnostic Software
+                                        Operation"
+                                    </hotlnk>
+                                    in Section 3 for procedure to run the Low and High Output State Tests. Measure
+                                    across adapter and ground.)
+                                </para>
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test State/Point</para>
+                            </entry>
+                            <entry>
+                                <para>Setting/Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Output State Test - Low</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>Toggling between the Low and High Output State Tests can be done during this
+                                    procedure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, and all pin-point diagnostic tests (ECM to valve cover gasket) were
+                                    in spec, the valve cover gasket or UVC wiring are suspect. Check for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Output State Test - High</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>Toggling between the Low and High Output State Tests can be done during this
+                                    procedure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, and all pin-point diagnostic tests (ECM to valve cover gasket) were
+                                    in spec, the valve cover gasket or UVC wiring are suspect. Check for short to
+                                    ground, open control wire, or open ground wire. Do
+                                    <hotlnk xrefid="BSV2">Harness Resistance Checks</hotlnk>
+                                    .
+                                </para>
+                                <para>If equal to B+, and all pin-point diagnostic tests (ECM to valve cover gasket)
+                                    were in spec, do
+                                    <hotlnk xrefid="BSV2">Solenoid Resistance Check - Brake Shut-off Valve</hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007032" figsize="pg-wide">
+                <graphic filename="../figh31/h31075.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Brake Shut-off Valve circuit diagram</caption>
+            </figure>
+            <table id="te2700128" tblwidth="pg-wide" type="simple" frame="topbot" numbered="no">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.53*"/>
+                    <colspec colname="col2" colwidth="0.35*"/>
+                    <colspec colname="col3" colwidth="2.12*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>
+                                        <emph type="bold">Complete all pin-point diagnostics (ECM to valve cover gasket
+                                            connector) before removing valve cover for under-valve-cover diagnostics.
+                                        </emph>
+                                    </para>
+                                    <randlist type="bullet">
+                                        <item>
+                                            <para>Turn the ignition switch to OFF before disconnecting engine wiring
+                                                harness connectors from components.
+                                            </para>
+                                        </item>
+                                        <item>
+                                            <para>See truck Chassis Electrical Circuit Diagram Manual for circuit
+                                                numbers, connector and fuse locations.
+                                            </para>
+                                        </item>
+                                    </randlist>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="BSV2">
+                                    <emph type="bold">Harness Resistance Check - UVC Connector to ECM Chassis Ground
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the ground connection for the ECM and IDM. See truck Chassis
+                                        Electrical Circuit Diagram Manual for complete chassis side ECM and IDM ground
+                                        circuit information.</ftnote>.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for an open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Check - UVC Connector to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect harness from
+                                    valve. Use disconnected negative battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Check - Valve Cover Gasket Connector to UVC
+                                        Connector
+                                    </emph>
+                                    (Connect VC Gasket Breakout Harness to valve cover gasket only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to 1</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in actuator ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to 2</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in control wire.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Solenoid Resistance Check - Brake Shut-off Valve</emph>
+                                    (Measure across terminals of solenoid.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 1</para>
+                            </entry>
+                            <entry>
+                                <para>10 &#x2126; &#177; 2 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If not to specification, replace brake shut-off valve.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_129.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_131.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

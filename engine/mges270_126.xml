@@ -1,0 +1,1076 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos para motores DT 466, DT 570 y HT 570 - Diagn&#243;sticos del sistema
+        de control electr&#243;nico - Diagn&#243;sticos de circuitos - APS / IVS (sensor de posici&#243;n del acelerador
+        e interruptor de confirmaci&#243;n de ralent&#237;)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="5">
+        <title>APS / IVS (sensor de posici&#243;n del acelerador e interruptor de confirmaci&#243;n de ralent&#237;)
+        </title>
+        <svcprocinfo>
+            <figure id="f27107005" figsize="pg-wide">
+                <graphic filename="../figh31/h31023sp.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama de la funci&#243;n del APS / IVS</caption>
+            </figure>
+            <para id="APS">El diagrama de la funci&#243;n del APS / IVS incluye lo siguiente:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>APS / IVS</para>
+                </item>
+                <item>
+                    <para>Regulador de presi&#243;n de control de inyecci&#243;n (IPR)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>Turbo de geometr&#237;a variable (VGT)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo impulsor de los inyectores (IDM)</para>
+                </item>
+                <item>
+                    <para>Inyector de combustible</para>
+                </item>
+                <item>
+                    <para>Luz ENGINE &#225;mbar</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>
+            </para>
+            <para>El APS / IVS es un sensor tipo potenci&#243;metro instalado en la cabina. Cuando el APS recibe una se&#241;al
+                de referencia de 5 V y una tierra desde el ECM, una se&#241;al lineal anal&#243;gica de voltaje desde el
+                sensor indicar&#225; la demanda de potencia del conductor. El IVS proporciona 0 o 12 V al ECM como una
+                se&#241;al redundante para verificar la posici&#243;n de reposo del pedal.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Operaci&#243;n del circuito del APS / IVS</title>
+            <figure id="f27107006" figsize="pg-wide">
+                <graphic filename="../figh31/h31056sp.webp" type="webp" scalefit="1" scalefitwidth="448px"/>
+                <caption>Diagrama del circuito del APS / IVS</caption>
+            </figure>
+            <para>El APS y el IVS est&#225;n integrados en un solo componente instalado en el pedal. Puede cambiar el
+                APS / IVS sin necesidad de cambiar todo el conjunto del pedal del acelerador.
+            </para>
+            <para>El ECM determina la posici&#243;n del pedal del acelerador procesando se&#241;ales que recibe desde el
+                APS y el IVS.
+            </para>
+            <para>La posici&#243;n del pedal del acelerador es una de las variables de control en el c&#225;lculo de la
+                presi&#243;n de control de inyecci&#243;n deseada.
+            </para>
+            <para>
+                <title>APS</title>
+            </para>
+            <para>El ECM suministra una se&#241;al regulada de 5 V desde el pin X4-4 del conector del chasis al pin C
+                del conector del APS. El APS devuelve una se&#241;al de voltaje variable (dependiendo de la posici&#243;n
+                del pedal) desde el pin A de su conector hacia el pin X4-18 del ECM. El APS est&#225; conectado a tierra
+                en el pin B de su conector desde el pin X4-24 del ECM.
+            </para>
+            <para>
+                <title>Calibraci&#243;n autom&#225;tica del APS</title>
+            </para>
+            <para>El ECM detecta las posiciones m&#225;s baja y m&#225;s alta del pedal, interpretando y almacenando los
+                niveles de voltaje m&#237;nimo y m&#225;ximo que recibe desde el APS. De esta manera, el ECM calibra
+                autom&#225;ticamente el sistema para permitir que el pedal tenga m&#225;xima sensibilidad. El ECM hace
+                esta calibraci&#243;n autom&#225;tica mientras la llave de encendido est&#225; en ON, pero cuando la
+                llave de encendido se pone en OFF, estos valores se pierden. Cuando la llave es puesta en ONnuevamente,
+                el proceso vuelve a comenzar. Despu&#233;s de haber desconectado el pedal o de haber instalado uno
+                nuevo, no hay necesidad de calibrarlo. El ECM calibra autom&#225;ticamente el nuevo pedal en el momento
+                que la llave es puesta en ON nuevamente.
+            </para>
+            <para>
+                <title>IVS</title>
+            </para>
+            <para>El ECM espera recibir una de dos se&#241;ales a trav&#233;s del pin X4-12 de su conector del chasis
+                desde el pin D del conector del APS / IVS:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>0 V cuando el pedal est&#225; en reposo.</para>
+                </item>
+                <item>
+                    <para>B+ cuando el pedal est&#225; oprimido.</para>
+                </item>
+            </randlist>
+            <para>El IVS recibe voltaje de encendido de 12 V por el pin F desde el fusible de encendido en la caja de
+                distribuci&#243;n de energ&#237;a. Cuando el pedal no est&#225; en reposo (acelerador pisado), el IVS
+                suministra una se&#241;al de 12 V al ECM.
+            </para>
+            <para>El ECM compara las se&#241;ales recibidas desde el APS / IVS para verificar cu&#225;ndo el pedal est&#225;
+                en posici&#243;n de reposo. Si la se&#241;al del APS hacia el pin X4-18 indica que se est&#225; pisando
+                el acelerador, el ECM espera recibir 12 V desde el IVS. Si la se&#241;al del APS indica que el
+                acelerador no est&#225; pisado, el ECM espera recibir 0 V desde el IVS. El proceso de sincronizaci&#243;n
+                es muy importante entre el APS y el IVS. Por esta raz&#243;n es muy dif&#237;cil determinar si el
+                conjunto APS / IVS est&#225; funcionando correctamente usando s&#243;lo un mult&#237;metro digital
+                (DMM).
+            </para>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>
+            </para>
+            <para>Cuando la llave est&#225; en ON, el ECM monitoriza constantemente los circuitos del APS / IVS en busca
+                de los voltajes esperados. Tambi&#233;n compara las se&#241;ales del APS y del IVS en busca de
+                conflictos. Si las se&#241;ales no resultan ser lo que el ECM espera, se establecer&#225;n c&#243;digos
+                de falla.
+            </para>
+            <para>Cualquier problema en el funcionamiento en el circuito del APS / IVS har&#225; que la luz ENGINE
+                &#225;mbar se encienda. Si el ECM detecta que la se&#241;al del APS excede el l&#237;mite superior o
+                inferior, har&#225; que el motor la ignore y funcione en ralent&#237; bajo. Si el ECM detecta un
+                desacuerdo entre el estado del IVS y el APS y adem&#225;s determina que es una falla del IVS, permitir&#225;
+                que el APS funcione hasta un m&#225;ximo del 50%. Si el ECM no puede determinar si se trata de una falla
+                del APS o del IVS, el motor s&#243;lo podr&#225; funcionar en ralent&#237; bajo.
+            </para>
+            <para>
+                <title>C&#243;digos de falla (DTC) del APS / IVS</title>
+            </para>
+            <para>Los DTC se leen con la EST o contando los destellos de las luces de advertencia ENGINE &#225;mbar y
+                roja.
+            </para>
+            <specpara>
+                <note>
+                    <para>Si aparecen varios DTC relacionados con el APS / IVS, verifique que el n&#250;mero de pieza
+                        sea correcto para el modelo espec&#237;fico del veh&#237;culo.
+                    </para>
+                </note>
+            </specpara>
+            <specpara>
+                <note>
+                    <para>Si el ralent&#237; bajo se eleva despu&#233;s de cambiar el pedal o el APS / IVS y no aparecen
+                        DTC, verifique que el n&#250;mero de pieza del pedal y del APS / IVS sean los correctos.
+                    </para>
+                </note>
+            </specpara>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 131</emph>
+                </line>
+                <line>
+                    <emph type="bold">Se&#241;al del APS excede el l&#237;mite inferior</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El DTC 131 aparece si el ECM detecta menos de 0,147 V; cuando esto sucede, limita la velocidad
+                        del motor a ralent&#237;.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 131 puede aparecer porque la se&#241;al o el V
+                        <subscript>REF</subscript>
+                        del APS tienen un corto a tierra o est&#225;n interrumpidos. Si el problema que dio origen al
+                        DTC 131 es intermitente y ya no existe, el c&#243;digo se volver&#225; inactivo y el motor
+                        volver&#225; a funcionar normalmente.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 131 est&#225; activo, la luz ENGINE&#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 132</emph>
+                </line>
+                <line>
+                    <emph type="bold">Se&#241;al del APS excede el l&#237;mite superior</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El DTC 132 aparece si el ECM detecta m&#225;s de 4,55 V; cuando esto sucede, limita la
+                        velocidad del motor a ralent&#237;.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 132 puede aparecer porque la se&#241;al del APS tiene un corto al V
+                        <subscript>REF</subscript>
+                        o a B+.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 132 est&#225; activo, la luz ENGINE&#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 133, 134 y 135</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM mide el voltaje del APS comparando su se&#241;al con la del IVS. Las se&#241;ales del
+                        APS y del IVS pueden diferenciarse en los siguientes casos:
+                    </para>
+                    <randlist type="bullet">
+                        <item>
+                            <para>La se&#241;al del APS indica que el pedal est&#225; pisado para acelerar, pero la se&#241;al
+                                del IVS indica que el pedal est&#225; en reposo.
+                            </para>
+                        </item>
+                        <item>
+                            <para>La se&#241;al del APS indica que el pedal ya no est&#225; pisado, para permitir que el
+                                motor vuelva a ralent&#237;, pero la se&#241;al del IVS indica que el pedal no est&#225;
+                                en reposo.
+                            </para>
+                            <para>Si el ECM detecta una de estas condiciones, intentar&#225; aislar la fuente del
+                                conflicto y generar&#225; un DTC.
+                            </para>
+                        </item>
+                    </randlist>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 133</emph>
+                </line>
+                <line>
+                    <emph type="bold">APS falla dentro de los l&#237;mites</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>Si la se&#241;al del IVS var&#237;a y la se&#241;al del APS es constante, el ECM supondr&#225;
+                        que el APS es la fuente del conflicto, generar&#225; el DTC 133 y limitar&#225; las RPM del
+                        motor a ralent&#237;.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 133 est&#225; activo, la luz ENGINE&#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 134</emph>
+                </line>
+                <line>
+                    <emph type="bold">Las se&#241;ales del APS y del IVS no coinciden</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>Si ninguna de las dos se&#241;ales var&#237;an, o ambas var&#237;an, o si el ECM no puede
+                        determinar el origen del problema en un tiempo determinado, generar&#225; el DTC 134 y limitar&#225;
+                        las RPM del motor a ralent&#237;.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 134 est&#225; activo, la luz ENGINE&#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 135</emph>
+                </line>
+                <line>
+                    <emph type="bold">IVS - falla del circuito</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>Si la se&#241;al del APS var&#237;a y la se&#241;al del IVS es constante, el ECM supondr&#225;
+                        que el IVS es la fuente del conflicto y generar&#225; el DTC 135. En este caso el ECM limitar&#225;
+                        la se&#241;al del APS a un valor menor, que proporcionar&#225; menos de la velocidad total, pero
+                        las RPM del motor no ser&#225;n restringidas a ralent&#237;.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 135 est&#225; activo, la luz ENGINE&#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <para>Los DTC 133, 134 y 135 son causados por problemas intermitentes. Estos DTC permanecen activos hasta
+                que se apaga y se vuelve a encender el motor. No se pueden leer sin antes poner la llave de encendido en
+                OFFy luego en ON. Es posible que futuras versiones del software de calibraci&#243;n permitan leer los
+                DTC sin necesidad de apagar y volver a encender el motor.
+            </para>
+            <randlist type="bullet">
+                <title>Herramientas</title>
+                <item>
+                    <para>EST con software MasterDiagnostics&#174;</para>
+                </item>
+                <item>
+                    <para>Cable de conexi&#243;n EZ-Tech&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Cableado con 3 clavijas banana</para>
+                </item>
+                <item>
+                    <para>Cable de resistencia de 500 &#x2126;</para>
+                </item>
+                <item>
+                    <para>Caja de derivaciones</para>
+                </item>
+                <item>
+                    <para>Cableado de derivaci&#243;n para APS / IVS</para>
+                </item>
+                <item>
+                    <para>Juego de adaptadores para probar terminales</para>
+                </item>
+            </randlist>
+            <para>El circuito del APS / IVS requiere usar los diagramas de circuitos del veh&#237;culo. Refi&#233;rase
+                al &#171;Manual de diagramas de circuitos el&#233;ctricos del chasis&#187; para informaci&#243;n sobre
+                los n&#250;meros de los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos de operaci&#243;n del APS / IVS</title>
+            <figure id="f27107007" figsize="pg-wide">
+                <graphic filename="../figh31/h31056sp.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama del circuito del APS / IVS</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>Para evitar lesiones personales graves, posibles accidentes fatales o da&#241;os al motor o al
+                        veh&#237;culo, cumpla con las siguientes advertencias:
+                    </para>
+                    <para>Evite cualquier contacto con piezas rotativas y en movimiento (correas y ventilador) y
+                        superficies calientes del motor.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Abra la sesi&#243;n de monitorizaci&#243;n continua en la EST. Para monitorizar el
+                    voltaje de las se&#241;ales, use la prueba Continuous Monitor Test con la llave en ON y el motor
+                    apagado.
+                </para>
+            </step1>
+            <figure id="f27107008" figsize="col-wide">
+                <graphic filename="../figH31/H31229.webp" type="webp" scalefit="1" scalefitwidth="176px"
+                         scalefitheight="472px" box="no"/>
+                <caption>Prueba de monitorizaci&#243;n continua</caption>
+            </figure>
+            <step1>
+                <para count="1">Para monitorizar el voltaje de las se&#241;ales, use la prueba Continuous Monitor Test
+                    con la llave en ON y el motor apagado. Refi&#233;rase a la &#171;Prueba de monitorizaci&#243;n
+                    continua&#187; en la Secci&#243;n 3.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Monitorice el voltaje de la se&#241;al del APS. Verifique que haya un DTC activo para el
+                    circuito del APS / IVS.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Si hay un DTC activo, haga los pasos 6 y 7 para probar el circuito del APS con la tabla
+                    siguiente.
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Mediciones del circuito del APS</para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">Si el DTC est&#225; inactivo, sacuda los conectores y cables en los puntos sospechosos.
+                    Si la continuidad del circuito se interrumpe, la EST mostrar&#225; los DTC relacionados con el
+                    problema.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Desenchufe el cableado del chasis del APS.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Inspeccione los conectores en busca de pines da&#241;ados, sueltos o corrosi&#243;n. Haga las
+                        reparaciones necesarias.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Conecte el cableado de derivaci&#243;n para APS / IVS s&#243;lo al cableado del
+                    chasis.
+                </para>
+            </step1>
+            <table id="te27107013" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o aver&#237;as al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo principal de la
+                                        bater&#237;a al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones del circuito del APS</emph>
+                                    (Con EST, DMM, cableado de derivaci&#243;n y cable de resistencia de 500 &#x2126;)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Condici&#243;n de la prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Requisito</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Mediciones</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor desconectado usando la EST</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 0,147 V, busque un corto entre la se&#241;al y V
+                                    <subscript>REF</subscript>
+                                    o B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Mida el voltaje con el DMM desde el pin C (azul) a tierra.</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 &#177; 0,5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5,5 V, busque un corto entre V
+                                    <subscript>REF</subscript>
+                                    y B+. Si &#60; 4,5 V, busque una interrupci&#243;n o un corto entre V
+                                    <subscript>REF</subscript>
+                                    y tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Cable de resistencia de 500 &#x2126; entre el pin A (verde) y el pin C (azul) del
+                                    cableado de derivaci&#243;n.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 4,55 V, busque un corto o una interrupci&#243;n entre la se&#241;al y
+                                    tierra.
+                                </para>
+                                <randlist type="dash">
+                                    <item>
+                                        <para>Desenchufe el conector 9260
+                                            <ftnote id="f1">El conector 9260 es un conector de dos cables generalmente
+                                                ubicado en la caja de bater&#237;as. El pin A es la conexi&#243;n a la
+                                                tierra del chasis para el ECM y el IDM. Para informaci&#243;n sobre el
+                                                circuito de tierra del ECM y del IDM en el chasis, refi&#233;rase al
+                                                &#171;Manual de diagramas de circuitos el&#233;ctricos del
+                                                chasis&#187;.</ftnote>. Mida la resistencia desde el pin C al pin A del
+                                            conector 9260 (la especificaci&#243;n es > 1 k&#x2126;) en busca de un corto
+                                            a tierra en el cableado.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Desconecte el cable negativo de la bater&#237;a. Mida la resistencia desde
+                                            el pin C al cable de tierra para ver si hay un corto a tierra.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Use la caja de derivaciones para medir desde el pin A al pin X4-18 (la
+                                            especificaci&#243;n es &#60; 5 &#x2126;) para ver si el cableado est&#225;
+                                            interrumpido.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Resistencia desde el pin B (negro) del cableado de derivaci&#243;n a la tierra del
+                                    ECM en el chasis, pin A del conector 9260, con el DMM.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, busque interrupci&#243;n o alta resistencia entre el ECM y el
+                                    conector del sensor. Mida la resistencia con la caja de derivaciones desde el pin B
+                                    al pin X4-24 (la especificaci&#243;n es &#60; 5 &#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Conecte el cableado del chasis al sensor y ponga la llave en ON y en OFF. Use la
+                                    EST para borrar los DTC. Si despu&#233;s de revisar las condiciones de la prueba
+                                    sigue apareciendo un DTC activo, revise si el conjunto del pedal est&#225; muy
+                                    gastado. Si el conjunto del pedal est&#225; en buen estado, sustituya el APS / IVS.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos del APS / IVS con los pines</title>
+            <table id="te27107014" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.15in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de voltaje en el conector</emph>
+                                    (Separe el cableado y el sensor. Inspeccione en busca de pines doblados y corrosi&#243;n.
+                                    Conecte el cableado de derivaci&#243;n s&#243;lo al cableado del chasis. Ponga la
+                                    llave en ON).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Requisito</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 - 0,25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 0,25 V, hay un corto entre la se&#241;al y V
+                                    <subscript>REF</subscript>
+                                    o B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Circuito a tierra, no deber&#237;a haber voltaje.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 &#177; 0,05 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si es mayor, cable en corto a B+; si es menor, cable con interrupci&#243;n o corto
+                                    a tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 - 0,25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 0,25 V, hay un corto entre la se&#241;al del IVS y V
+                                    <subscript>REF</subscript>
+                                    o B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 10,5 V, busque una interrupci&#243;n o alta resistencia - fusible
+                                    quemado.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia del conector a la tierra del chasis
+                                    </emph>
+                                    (Con la llave en OFF. Conecte el cableado de derivaci&#243;n s&#243;lo al cableado
+                                    del chasis. Desenchufe el conector 9260
+                                    <ftnote id="f1">El conector 9260 es un conector de dos cables generalmente ubicado
+                                        en la caja de bater&#237;as. El pin A es la conexi&#243;n a la tierra del chasis
+                                        para el ECM y el IDM. Para informaci&#243;n sobre el circuito de tierra del ECM
+                                        y del IDM en el chasis, refi&#233;rase al &#171;Manual de diagramas de circuitos
+                                        el&#233;ctricos del chasis&#187;.</ftnote>).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A al pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, busque una interrupci&#243;n a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C a pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 500 &#x2126;, busque corto a tierra en el cableado.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D a pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra en el cableado.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F a pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60; 1 k&#x2126; con el fusible desconectado, busque un corto a tierra en el
+                                    cableado.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o aver&#237;as al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo principal de la
+                                        bater&#237;a al final.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia del conector a la tierra del chasis
+                                    </emph>
+                                    (Con la llave en OFF. Desenchufe el conector 9260 del chasis
+                                    <ftnref xrefid="f1"/>. Desconecte el cable negativo de la bater&#237;a. Separe el
+                                    cableado y el sensor. Use el cable negativo desconectado de la bater&#237;a como
+                                    punto de tierra para la prueba).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A al cable de tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B al cable de tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 500 &#x2126;, busque una interrupci&#243;n a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C al cable de tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 500 &#x2126;, busque corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>D al cable de tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126;, busque un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>F al cable de tierra</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60; 1 k&#x2126; con el fusible desconectado, busque un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el cableado</emph>
+                                    (Con la caja de derivaciones [s&#243;lo X4] s&#243;lo en el cableado del chasis.
+                                    Conecte el cableado de derivaci&#243;n s&#243;lo al cableado del chasis).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-18 a A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, busque una interrupci&#243;n en la se&#241;al del APS.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-24 a B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, busque una interrupci&#243;n a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-4 a C</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, busque una interrupci&#243;n en el V
+                                    <subscript>REF</subscript>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-12 a D</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, busque una interrupci&#243;n en la se&#241;al del IVS.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Fusible a F</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si > 5 &#x2126;, busque una interrupci&#243;n en el cable de suministro del IVS.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>Refi&#233;rase al &#171;Manual de diagramas de circuitos el&#233;ctricos del
+                                        chasis&#187; para informaci&#243;n sobre la ubicaci&#243;n de los fusibles.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27107009" figsize="pg-wide">
+                <graphic filename="../figh31/h31056sp.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama del circuito del APS / IVS</caption>
+            </figure>
+            <table id="te27107015" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="5">
+                    <colspec colname="col1" colwidth="1.00*"/>
+                    <colspec colname="col2" colwidth="1.00*"/>
+                    <colspec colname="col3" colwidth="1.00*"/>
+                    <colspec colname="col4" colwidth="0.89*"/>
+                    <colspec colname="col5" colwidth="1.12*"/>
+                    <spanspec namest="col1" nameend="col5" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones del voltaje de operaci&#243;n del APS / IVS con el
+                                        cableado de derivaci&#243;n
+                                    </emph>
+                                    (Con el cableado de derivaci&#243;n conectado al sensor y al cableado del chasis,
+                                    con la llave en ON y el motor apagado).
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Puntos de prueba del APS:</emph>
+                                            (+) A (verde) a (-) B (negro)
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Puntos de prueba del IVS:</emph>
+                                            (+) D (blanco) a (-) B (negro)
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Posici&#243;n</para>
+                            </entry>
+                            <entry>
+                                <para>Voltaje</para>
+                            </entry>
+                            <entry>
+                                <para>% APS</para>
+                            </entry>
+                            <entry>
+                                <para>Voltaje del IVS</para>
+                            </entry>
+                            <entry>
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Ralent&#237; bajo</para>
+                            </entry>
+                            <entry>
+                                <para>0,64 - 0,66 V</para>
+                            </entry>
+                            <entry>
+                                <para>0%</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>IVS cambia s&#243;lo por encima de ralent&#237;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Ralent&#237; alto</para>
+                            </entry>
+                            <entry>
+                                <para>3,84 - 3,86 V</para>
+                            </entry>
+                            <entry>
+                                <para>98 a 102%</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>&#160;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones del voltaje de operaci&#243;n del APS / IVS con la caja
+                                        de derivaciones
+                                    </emph>
+                                    (Con la caja de derivaciones [s&#243;lo X4] conectada al ECM y al cableado del
+                                    chasis, con la llave en ONy el motor apagado).
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Puntos de prueba del APS:</emph>
+                                            (+) X4-18 a (-) X4-24
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Puntos de prueba del IVS:</emph>
+                                            (+) X4-12 a (-) X4-24
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Posici&#243;n</para>
+                            </entry>
+                            <entry>
+                                <para>Voltaje</para>
+                            </entry>
+                            <entry>
+                                <para>% APS</para>
+                            </entry>
+                            <entry>
+                                <para>Voltaje del IVS</para>
+                            </entry>
+                            <entry>
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Ralent&#237; bajo</para>
+                            </entry>
+                            <entry>
+                                <para>0,64 - 0,66 V</para>
+                            </entry>
+                            <entry>
+                                <para>0%</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>IVS cambia s&#243;lo por encima de ralent&#237;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Ralent&#237; alto</para>
+                            </entry>
+                            <entry>
+                                <para>3,84 - 3,86 V</para>
+                            </entry>
+                            <entry>
+                                <para>98 a 102%</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>&#160;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>C&#243;digos de falla del APS / IVS</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 131 = La se&#241;al del APS fue &#60; 0,147 V por m&#225;s de 0,35 segundos.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 132 = La se&#241;al del APS fue > 4,55 V por m&#225;s de 0,35 segundos.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 133 = La se&#241;al del APS fall&#243; dentro de los l&#237;mites.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 134 = Las se&#241;ales del APS y del IVS no coinciden.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 135 = Falla del circuito del interruptor de confirmaci&#243;n de ralent&#237;
+                                    - s&#243;lo 50% APS.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges270_125.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges270_127.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (1997) - SECTION 3.5: CIRCUIT FUNCTION AND DIAGNOSTICS - ENGINE COOLANT
+        TEMPERATURE (ECT) SENSOR - ECM DIAGNOSTICS
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="proctype" graphiccount="0">
+        <title>ECM DIAGNOSTICS</title>
+        <svcprocinfo>
+            <para>Refer to ECT Sensor Diagnostics (Figure ) for the following discussion.</para>
+            <para>With the ignition key "ON", the ECM continuously monitors the ECT circuit for expected voltages. If
+                the signal voltage is less than or more than expected the ECM will set a fault code.
+            </para>
+            <para>If the ECM detects a fault in the ECT signal, the ECM will disregard the signal and default to a
+                temperature of 180&#176;F (82&#176;C) for engine running operation and -4&#176;F (-20&#176;C) for
+                starting the engine. If the fault is no longer present, the ECM will once again return to normal
+                operation using the ECT signal for processing.
+            </para>
+            <para>Faults in the ECT signal can be retrieved using the Self Test Input Switch (STI) or the Electronic
+                Service Tool. If the fault is no longer present, it will be stored as an Inactive Code.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>FLASH CODE 114 - ATA CODE PID 110 FMI 4 - ECT: OUT OF RANGE LOW</title>
+            <para>An out of range low code will be set if the ECM detects a voltage less than .127 volts for more than
+                0.1 seconds. If this fault is Active, the ECM will use the default value of 180&#176;F (82&#176;C).
+            </para>
+            <para>Code 114 may be caused by a short to ground or a shorted or biased sensor.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 115 - ATA CODE PID 110 FMI 3 - ECT: OUT OF RANGE HIGH</title>
+            <para>An out of range high code will be set if the ECM detects a voltage greater than 4.6 volts for more
+                than 0.1 seconds. If this fault is Active, the ECM will use the a default value of 180&#176;F (82&#176;C).
+            </para>
+            <para>Code 115 may be caused by an open circuit, an open sensor, or a short to another voltage source.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 316 - ATA CODE PID 110 FMI 1 - ENGINE COOLANT TEMPERATURE UNABLE TO REACH COMMANDED
+                SETPOINT
+            </title>
+            <para>Code 316 will only be set with engines that have the Cold Ambient Protection (CAP) System enabled.
+                This code will be set after the engine has run for greater than 120 minutes and has not exceeded 147&#176;F
+                (75&#176;C) for vehicles with manual transmissions and 140&#176;F (60&#176;C) for vehicles with
+                automatic transmissions.
+            </para>
+            <specpara>
+                <note>
+                    <para>This code only indicates that the engine has not been able to reach operating temperature. It
+                        does not indicate an electronic fault.
+                    </para>
+                </note>
+            </specpara>
+            <para>Possible causes of code 316: Extended idle time, cold ambient temperatures, (may require use of winter
+                front), thermostat stuck open, mis-plumbed cooling system (thermostat bypass bypassed), auxiliary heater
+                cores cooling off engine (school bus applications or fan clutch locked on.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 321 - ATA CODE PID 110 FMI 0 - ENGINE COOLANT TEMPERATURE - ABOVE WARNING LEVEL</title>
+            <para>Code 321 will be set if the ECM detects engine coolant temperature above 225&#176;F (107&#176;C). When
+                this occurs, the ECM illuminates the OIL/WATER warning light and sounds the audible alarm (if equipped),
+                alerting the operator that a potential for engine damage exists.
+            </para>
+            <para>If the temperature drops below 225&#176;F(107&#176;C), the code will become inactive and the ECM will
+                return to normal operation.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 322 - ATA CODE PID 110 FMI 7 - ENGINE COOLANT TEMPERATURE ABOVE - CRITICAL LEVEL</title>
+            <para>Code 322 will be set if the ECM detects engine coolant temperature above 235&#176;F (112.5&#176;C).
+                When this occurs, the OIL/WATER warning light illuminates and the audible alarm sounds (if equipped)
+                will alert the operator that the temperature is increasing (having set code 321) indicating a potential
+                for engine damage. With code 322 active, the engine will shut down. At the same time the code and
+                current engine hours will be recorded in the VPM as an Engine Event.
+            </para>
+            <para>If the temperature drops below 235&#176;F (112.5&#176;C), the code will become inactive and the ECM
+                will return to normal operation. Should the engine shut down, it can be restarted to move the vehicle to
+                a safe place.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 325 - ATA CODE PID 110 FMI 14 - POWER REDUCED, MATCHED TO COOLING - SYSTEM PERFORMANCE
+            </title>
+            <para>Code 325 will be set if the cooling system temperature exceeds 214&#176;F (101&#176;C ). At this
+                temperature the ECM will reduce the fuel delivered to the engine at or near the maximum demand level.
+                For each one Celsius degree of temperature the fuel will be reduced 6%. This reduces the heat produced
+                by the engine thereby reducing the burden on the engine cooling system. It will also slow the vehicle
+                speed encouraging the operator to downshift, thus increasing the efficiency of the cooling system.
+            </para>
+            <para>As the temperature is reduced the compensation level is reduced until the temperature drops below 214&#176;F
+                (101&#176;C ) at which normal operation is resumed.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_267.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_269.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

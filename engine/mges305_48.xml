@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;stico del motor VT 275 - Funcionamiento del software de diagn&#243;stico -
+        Pruebas de diagn&#243;stico - Pruebas con la llave en ONy el motor en marcha Key-On Engine-Running Tests
+    </stitle>
+    <svcman/>
+    <svcproc id="s306000303.3" svcproctype="diagnose" graphiccount="10">
+        <title>Pruebas con la llave en ONy el motor en marcha Key-On Engine-Running Tests</title>
+        <svcsubproc id="s306000303.3.1">
+            <title>Prueba est&#225;ndar</title>
+            <specpara>
+                <note>
+                    <para>Esta prueba se puede hacer s&#243;lo con la EST y el software Master Diagnostics&#174;.</para>
+                </note>
+            </specpara>
+            <para>Durante la prueba est&#225;ndar KOER, el ECM env&#237;a instrucciones al IPR para que haga una prueba
+                en etapas, para determinar si el sistema de presi&#243;n de control de inyecci&#243;n est&#225;
+                funcionando adecuadamente. El ECM monitoriza los valores de las se&#241;ales que recibe desde el ICP y
+                los compara con los valores esperados. Cuando la prueba est&#225;ndar termina, el ECM vuelve el motor a
+                la operaci&#243;n normal y transmite los DTC establecidos durante la prueba.
+            </para>
+            <specpara>
+                <note>
+                    <para>Antes de hacer esta prueba confirme lo siguiente:</para>
+                    <randlist type="bullet">
+                        <item>
+                            <para>Ya corrigi&#243; los problemas que causaron la aparici&#243;n de DTC activos y borr&#243;
+                                los DTC.
+                            </para>
+                        </item>
+                        <item>
+                            <para>La temperatura del refrigerante debe ser por lo menos de 70 &#176;C (158 &#176;F).
+                            </para>
+                        </item>
+                        <item>
+                            <para>El voltaje de la bater&#237;a debe ser superior a 10,5 V.</para>
+                        </item>
+                        <item>
+                            <para>La transmisi&#243;n est&#225; en PARKo en neutro.</para>
+                        </item>
+                    </randlist>
+                </note>
+            </specpara>
+            <figure id="f306000324" figsize="col-wide">
+                <graphic filename="../figj31/j31180.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Sesi&#243;n de prueba est&#225;ndar KOER</caption>
+            </figure>
+            <step1>
+                <para count="1">Con el motor en marcha, pulse Sessionen la barra del men&#250;, seleccione Openy del
+                    cuadro Open Session File seleccione D_KOER_Standard.ssn.
+                </para>
+            </step1>
+            <figure id="f306000325" figsize="col-wide">
+                <graphic filename="../figj31/j31049.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Prueba est&#225;ndar</caption>
+            </figure>
+            <step1>
+                <para count="1">Pulse Diagnostics en la barra del men&#250;.</para>
+            </step1>
+            <step1>
+                <para count="1">Seleccione Key-On Engine-Running Tests en el men&#250; desplegable.</para>
+            </step1>
+            <step1>
+                <para count="1">Seleccione Standarden el cuadro Key-On Engine-Running Diagnosticsy pulse Run para
+                    comenzar la prueba.
+                </para>
+            </step1>
+            <para>El ECM aumenta el ralent&#237; a un valor determinado y ordena al IPR ajustar la presi&#243;n de
+                control de inyecci&#243;n al valor de velocidad nominal. Si el rendimiento del sistema de presi&#243;n
+                de control de inyecci&#243;n es aceptable, el ECM le ordenar&#225; al IPR reducir la presi&#243;n en
+                etapas, mientras sigue monitorizando el rendimiento del sistema.
+            </para>
+            <para>Cuando la prueba termina, el ECM vuelve el motor a la operaci&#243;n normal y aparecer&#225; la
+                ventana Diagnostic Trouble Codes con la lista de DTC, si se encontraron problemas.
+            </para>
+            <step1>
+                <para count="1">Corrija los problemas que hayan causado la aparici&#243;n de DTC activos.</para>
+            </step1>
+            <step1>
+                <para count="1">Borre los DTC.</para>
+            </step1>
+            <figure id="f306000326" figsize="col-wide">
+                <graphic filename="../figj31/j31243.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Cierre la sesi&#243;n</caption>
+            </figure>
+            <step1>
+                <para count="1">Cuando termine la prueba, pulse Sessionen la barra del men&#250; y seleccione Close.
+                </para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Cuando haga pruebas de diagn&#243;stico KOEO o KOER con la EST, la prueba Standard est&#225;
+                        siempre seleccionada y debe hacerse primero. Mientras no ponga el interruptor de encendido en
+                        OFF, no es necesario repetir la prueba Standard.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc id="s306000303.3.2">
+            <title>Prueba de monitorizaci&#243;n continua</title>
+            <specpara>
+                <note>
+                    <para id="s306000303.3.2.1">Esta prueba se puede hacer s&#243;lo con la EST y el software Master
+                        Diagnostics&#174;.
+                    </para>
+                </note>
+            </specpara>
+            <para>La prueba de monitorizaci&#243;n continua busca fallas relacionadas con conexiones intermitentes en
+                sensores y activadores. El motor puede estar apagado o en marcha.
+            </para>
+            <para>La EST monitoriza los siguientes circuitos:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Sensor de posici&#243;n del acelerador (APS)</para>
+                </item>
+                <item>
+                    <para>Sensor de presi&#243;n barom&#233;trica absoluta (BAP)</para>
+                </item>
+                <item>
+                    <para>Sensor de temperatura del refrigerante (ECT)</para>
+                </item>
+                <item>
+                    <para>Sensor de presi&#243;n del aceite del motor (EOP)</para>
+                </item>
+                <item>
+                    <para>Sensor de temperatura del aceite del motor (EOT)</para>
+                </item>
+                <item>
+                    <para>Sensor de temperatura del aire de admisi&#243;n (IAT)</para>
+                </item>
+                <item>
+                    <para>Sensor de presi&#243;n de control de inyecci&#243;n (ICP)</para>
+                </item>
+                <item>
+                    <para>Sensor de temperatura del aire en el m&#250;ltiple (MAT)</para>
+                </item>
+                <item>
+                    <para>Sensor de presi&#243;n absoluta del m&#250;ltiple (MAP)</para>
+                </item>
+                <item>
+                    <para>Sensor de flujo de aire masivo (MAF)</para>
+                </item>
+            </randlist>
+            <figure id="f306000327" figsize="col-wide">
+                <graphic filename="../figj31/j31240.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Sesi&#243;n de monitorizaci&#243;n continua</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>Para evitar lesiones personales graves, tenga cuidado de no golpearse con los bordes de la
+                        puerta cuando la cabina est&#233; elevada y la puerta est&#233; abierta.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Pulse Session en la barra del men&#250;, seleccione Openy del cuadro Open Session File
+                    seleccione D_ContinuousMonitor.ssn.
+                </para>
+            </step1>
+            <figure id="f306000328" figsize="col-wide">
+                <graphic filename="../figj31/j31050.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Prueba de monitorizaci&#243;n continua</caption>
+            </figure>
+            <step1>
+                <para count="1">Pulse Diagnostics en la barra del men&#250;.</para>
+            </step1>
+            <step1>
+                <para count="1">Seleccione Key-On Engine-Running Tests en el men&#250; desplegable.</para>
+            </step1>
+            <step1>
+                <para count="1">Seleccione Continuous Monitoren el cuadro Key-On Engine-Running Diagnosticsy pulse Run
+                    para comenzar la prueba.
+                </para>
+            </step1>
+            <specpara>
+                <warning>
+                    <para>Para evitar lesiones personales graves, accidentes fatales o fallas al motor o al veh&#237;culo,
+                        tenga cuidado cuando est&#233; cerca de piezas en movimiento (correas y ventilador) y
+                        superficies calientes del motor.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Sacuda todos los conectores y cables en todas las &#225;reas sospechosas. Si la
+                    continuidad del circuito se interrumpe, la EST mostrar&#225; los DTC relacionados con el problema.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Corrija los problemas que hayan causado la aparici&#243;n de DTC activos.</para>
+            </step1>
+            <step1>
+                <para count="1">Borre los DTC.</para>
+            </step1>
+            <figure id="f306000329" figsize="col-wide">
+                <graphic filename="../figj31/j31243.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Cierre la sesi&#243;n</caption>
+            </figure>
+            <step1>
+                <para count="1">Cuando termine la prueba, pulse Sessionen la barra del men&#250; y seleccione Close.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc id="s306000303.3.3">
+            <title>Prueba de control y manejo del aire</title>
+            <specpara>
+                <note>
+                    <para>Cuando haga pruebas de diagn&#243;stico KOEO o KOER con la EST, la prueba Standard est&#225;
+                        siempre seleccionada y debe hacerse primero. Mientras no ponga el interruptor de encendido en
+                        OFF, no es necesario repetir la prueba Standard.
+                    </para>
+                </note>
+                <note>
+                    <para>Esta prueba se puede hacer s&#243;lo con la EST y el software Master Diagnostics&#174;. Antes
+                        de hacer la prueba de control de aire debe hacer la prueba est&#225;ndar.
+                    </para>
+                </note>
+            </specpara>
+            <para>La prueba de control y manejo del aire revisa el funcionamiento del sistema de control y manejo del
+                aire y de la v&#225;lvula de EGR.
+            </para>
+            <para>Durante la prueba de control y manejo del aire KOER, el ECM env&#237;a instrucciones al activador de
+                la v&#225;lvula de EGR para que haga una prueba en etapas, para determinar si la v&#225;lvula est&#225;
+                funcionando adecuadamente.
+            </para>
+            <para>Si se detecta alguna falla, la prueba se detendr&#225;, el motor volver&#225; a funcionar normalmente
+                y aparecer&#225; un DTC.
+            </para>
+            <para>Si no se detectan fallas, la prueba terminar&#225; y el motor volver&#225; a funcionar normalmente.
+            </para>
+            <figure id="f306000330" figsize="col-wide">
+                <graphic filename="../figj31/j31244.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Sesi&#243;n de la prueba de control y manejo del aire KOER</caption>
+            </figure>
+            <step1>
+                <para count="1">Con el motor en marcha, pulse Sessionen la barra del men&#250;, seleccione Openy del
+                    cuadro Open Session File seleccione D_KOER_AirManagement_V6.ssn.
+                </para>
+            </step1>
+            <figure id="f306000331" figsize="col-wide">
+                <graphic filename="../figj31/j31051.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Prueba de control y manejo del aire</caption>
+            </figure>
+            <step1>
+                <para count="1">Pulse Diagnostics en la barra del men&#250;.</para>
+            </step1>
+            <step1>
+                <para count="1">Seleccione Key-On Engine-Running Tests en el men&#250; desplegable.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Cuando haga pruebas de diagn&#243;stico KOEO o KOER con la EST, la prueba Standard est&#225;
+                        siempre seleccionada y debe hacerse primero. Mientras no ponga el interruptor de encendido en
+                        OFF, no es necesario repetir la prueba Standard.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Seleccione Air Managementen el cuadro Key-On Engine-Running Diagnosticsy pulse Run para
+                    comenzar la prueba.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Corrija los problemas que hayan causado la aparici&#243;n de DTC activos.</para>
+            </step1>
+            <step1>
+                <para count="1">Borre los DTC.</para>
+            </step1>
+            <figure id="f306000332" figsize="col-wide">
+                <graphic filename="../figj31/j31243.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Cierre la sesi&#243;n</caption>
+            </figure>
+            <step1>
+                <para count="1">Cuando termine la prueba, pulse Sessionen la barra del men&#250; y seleccione Close.
+                </para>
+            </step1>
+            <figure id="f306000333" figsize="pg-wide">
+                <graphic filename="../figj31/j31272.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="472px"/>
+                <caption>Pantalla con valores de diagn&#243;stico de RPM del motor, posici&#243;n de la v&#225;lvula de
+                    EGR y el MAF de la prueba de control y manejo del aire
+                </caption>
+            </figure>
+            <para>El ECM ordena el cierre de la v&#225;lvula de EGR y aumenta el ralent&#237; a 900 RPM. El ECM permite
+                que el flujo de aire masivo se estabilice. El ECM monitoriza y compara el flujo de aire masivo con los
+                valores esperados; se supone que el flujo debe aumentar. Si el flujo de aire masivo no supera el valor
+                esperado o si falla el MAF, la prueba queda cancelada y aparece el mensaje &#171;Engine Not In Testing
+                Range&#187;(el motor no alcanz&#243; los valores para la prueba).
+            </para>
+            <para>El ECM ordena la apertura de la v&#225;lvula de EGR y permite que el flujo de aire masivo se
+                estabilice. El ECM monitoriza y compara el flujo de aire masivo con los valores esperados; se supone que
+                el flujo debe disminuir. Si el flujo de aire masivo no es menor al esperado, aparece el DTC 346 y se
+                cancela la prueba.
+            </para>
+            <para>El ECM ordena el cierre de la v&#225;lvula de EGR y permite que el flujo de aire masivo se estabilice.
+                El ECM monitoriza y compara el flujo de aire masivo con los valores esperados; se supone que el flujo
+                debe aumentar. Si el flujo de aire masivo no es mayor al esperado, aparece el DTC 346 y se cancela la
+                prueba.
+            </para>
+            <para>El ECM vuelve el motor a ralent&#237; bajo. Si todas las comparaciones del flujo cumplen con los
+                requisitos, no aparecen DTC y el motor vuelve a funcionar normalmente.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges305_47.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges305_49.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges305.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

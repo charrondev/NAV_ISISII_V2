@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>TSI 02-13-03 - Detroit Diesel Optimized Idle System Faulting Out when used with Eaton Fuller Lightning
+        Transmission Models FRLO/F-xx410C/T2
+    </stitle>
+    <tsi id="tsi021303" tsitype="truck">
+        <tsinumber>02-13-03</tsinumber>
+        <tsidate>September, 2002</tsidate>
+        <subjectfile>TRANSMISSION</subjectfile>
+        <subjectgroup>
+            <subject>Detroit Diesel Optimized Idle System Faulting Out when used with Eaton Fuller Lightning
+                Transmission Models FRLO/F-xx410C/T2
+            </subject>
+        </subjectgroup>
+        <apply>
+            <configure>
+                <vendorgroup/>
+
+                <vendor>Detroit Diesel</vendor>
+                <vendor>Eaton Fuller</vendor>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <title>Notice</title>
+                <para>The information supplied herein has been furnished by the manufacturer and/or the supplier for use
+                    with its product. International Truck and Engine Corporation reprints this information based on
+                    representations made to the Company by the manufacturer and/or supplier and is not responsible for
+                    any errors or mishaps resulting from such errors or from any misuse of the product. Every user is
+                    urged to carefully follow the instructions which accompany the product.
+                </para>
+            </geninfo>
+        </description>
+        <svcproc svcproctype="repair" graphiccount="0">
+            <stitle>TSI 02-13-03 - Detroit Diesel Optimized Idle System Faulting Out when used with Eaton Fuller
+                Lightning Transmission Models FRLO/F-xx410C/T2
+            </stitle>
+            <title>Eaton Fuller Transmissions TMIB-0119</title>
+            <para>
+                <emph type="bold">Bulletin Type:</emph>
+                Service Information
+            </para>
+            <para>
+                <emph type="bold">Topic:</emph>
+                Detroit Diesel Optimized Idle W/ Lightning
+            </para>
+            <para>
+                <emph type="bold">Affected Models:</emph>
+                All Lightning models, FRLO/F-xx4l 00 / T2 with Detroit Diesel Optimized Idle system.
+            </para>
+            <para>
+                <emph type="bold">Issue/Background:</emph>
+                Driver complaints of the Optimized Idle system faulting out during automatic engine crank sequence. The
+                transmission may log active fault code 35 (SID 231, FMI 2) or the engine may log fault code 74 (PID 070,
+                FMI 4). This complaint is caused when the Optimized Idle system is active and a non- zero output shaft
+                speed is received but the park brake digital input is grounded. (speed and brake sensor do
+                <emph type="bold">not</emph>
+                agree). Lightning model transmissions broadcast unfiltered output speed information over the SAE J1939
+                data link. When the vehicle is stopped, non-zero output shaft readings of 3-5 mph can be produced during
+                engine crank when normal oscillation of the transmission output shaft occurs in combination with partial
+                alignment of the speed sensor and tone wheel.
+            </para>
+            <para>
+                <emph type="bold">Correction/Action:</emph>
+                To correct this complaint it may be necessary to re-configure the Vehicle Speed Sensor (VSS) used by the
+                Optimized Idle system. A separate speed sensor must be added and hard wired to the engine. The VSS
+                provides vehicle speed information to the engine ECM and is required for Optimized Idle. It must be
+                installed so it can sense low road speed but not trigger false speed when the vehicle is not moving.
+            </para>
+            <para>The following actions have been effective to correct these VSS / transmission / Optimized Idle system
+                issues:
+            </para>
+            <step1>
+                <para count="1">VSS configuration, two options are available.</para>
+                <step2>
+                    <para count="1">(most effective) Make sure the transmission output bearing cover has provisions for
+                        both; push-in style (non-adjustable) and thread-in style (adjustable) output speed sensors.
+                        Reference Lightning Illustrated Parts List (TRIP-0586) for specific bearing cover P/N'S. A
+                        push-in style speed sensor must be installed specifically for use by the Lightning transmission.
+                        A second adjustable thread-in speed sensor must be added to provide VSS information for the
+                        Optimized Idle system. The second sensor can be adjusted by increasing the air gap as required
+                        so the Optimized Idle system does not fault out.
+                    </para>
+                </step2>
+                <step2>
+                    <para count="1">(effective) Make sure the transmission output bearing cover has provisions for two
+                        push-in style (non-adjustable) output speed sensors. A push-in style speed sensor must be
+                        installed specifically for use by the Lightning transmission. A second low-output/low gain
+                        push-in speed sensor (Eaton P/N A-7421) must be added to provide VSS information for the
+                        Optimized Idle system. Reference Lightning Illustrated Parts List (TRIP-0586) for specific
+                        bearing cover P/N's.
+                    </para>
+                </step2>
+            </step1>
+            <step1>
+                <para count="1">Engine Configuration for Transmission _ ID: The transmission ID must be set at #0 -
+                    Manual. This configuration will allow transmission and engine communication over J1939 but force the
+                    engine to use the separate (hard-wired) speed sensor for engine VSS information.
+                </para>
+            </step1>
+            <para>
+                <emph type="bold">Warranty Statement:</emph>
+                The above transmission configuration changes are required to allow the DDEC Optimized Idle system to
+                operate correctly. Eaton does not accept any responsibility for transmission failures or costs
+                associated with changes to the transmission to accommodate this vehicle-related system. Please contact
+                Detroit Diesel for technical assistance for any issues regarding the Optimized Idle system.
+            </para>
+        </svcproc>
+    </tsi>
+</isis>

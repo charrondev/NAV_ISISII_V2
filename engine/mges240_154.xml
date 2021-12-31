@@ -1,0 +1,349 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos para motores VT 365 (2002) - DIAGN&#211;STICOS DEL SISTEMA DE CONTROL
+        ELECTR&#211;NICO - Diagn&#243;sticos de circuitos - Sensor de la posici&#243;n del &#225;rbol de levas (CMP)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>Sensor de la posici&#243;n del &#225;rbol de levas (CMP)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3316" filename="../figd33/d3316.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama de la funci&#243;n del sensor de la posici&#243;n del &#225;rbol de levas (CMP)
+                </caption>
+            </figure>
+            <para>El diagrama de la funci&#243;n del CMP incluye lo siguiente:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Sensor de la posici&#243;n del &#225;rbol de levas (CMP)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo impulsor de los inyectores (IDM)</para>
+                </item>
+                <item>
+                    <para>Inyector de combustible</para>
+                </item>
+                <item>
+                    <para>Luz ENGINE &#225;mbar</para>
+                </item>
+            </randlist>
+            <para>La fuente de la se&#241;al de la posici&#243;n del &#225;rbol de levas es un sensor de captaci&#243;n
+                magn&#233;tica instalado en el lado delantero izquierdo del bloque del motor. El sensor identifica la
+                posici&#243;n del &#225;rbol de levas ubicando una clavija. La clavija pasa frente al sensor una vez en
+                cada revoluci&#243;n del &#225;rbol de levas y produce un solo impulso.
+            </para>
+            <para>La velocidad del &#225;rbol de levas se calcula a partir de la frecuencia de la se&#241;al del CMP. La
+                informaci&#243;n de diagn&#243;stico de la se&#241;al de entrada del CMP se obtiene con estrategias de
+                software que miden la exactitud de los niveles, la frecuencia y el ciclo de trabajo de la se&#241;al.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Operaci&#243;n del circuito del CMP</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3317" filename="../figd33/d3317.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama del circuito del CMP</caption>
+            </figure>
+            <para>El ECM necesita las se&#241;ales recibidas desde el CMP y el CKP para calcular la velocidad y posici&#243;n
+                del motor. El CMP origina una se&#241;al que el ECM usa para indicar un lado en particular. El CMP
+                contiene un im&#225;n permanente que crea un campo magn&#233;tico. La se&#241;al se origina cuando la
+                clavija del &#225;rbol de levas pasa frente al sensor, rompiendo el campo magn&#233;tico. Los terminales
+                del ECM correspondientes al CMP son posici&#243;n positiva X1-9 y posici&#243;n negativa X1-10.
+            </para>
+            <specpara>
+                <note>
+                    <para>El motor no funciona si no hay se&#241;al del CMP.</para>
+                </note>
+            </specpara>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>
+            </para>
+            <para>Durante el arranque, el ECM detecta si el CMP no est&#225; enviando se&#241;ales. Durante el arranque
+                del motor, el ECM monitoriza la se&#241;al del CKP y la presi&#243;n de control de inyecci&#243;n para
+                verificar que el motor est&#233; girando. Si el CMP no env&#237;a se&#241;ales durante este tiempo,
+                aparecer&#225; un DTC. El ECM tambi&#233;n puede detectar interferencia el&#233;ctrica. Cuando el nivel
+                es suficiente para afectar el funcionamiento del motor, aparecer&#225; un DTC. La falta de actividad del
+                CMP impedir&#225; que el motor arranque.
+            </para>
+            <para>
+                <title>C&#243;digos de falla (DTC) del CMP</title>
+            </para>
+            <para>Los DTC se leen con la herramienta electr&#243;nica de servicio (EST) o contando los destellos de las
+                luces ENGINE &#225;mbar y roja.
+            </para>
+            <verbatim id="f240dtc143">
+                <line>
+                    <emph type="bold">DTC 143</emph>
+                </line>
+                <line>
+                    <emph type="bold">Firma incorrecta de la se&#241;al del CMP</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 143 cuando la transici&#243;n del CMP ocurre cuando el CKP reporta una
+                        posici&#243;n incorrecta.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 143 puede deberse a una mala sincronizaci&#243;n entre el &#225;rbol de levas y el cig&#252;e&#241;al,
+                        a interferencia el&#233;ctrica en el circuito del CMP o a que el CMP est&#225; defectuoso.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc145">
+                <line>
+                    <emph type="bold">DTC 145</emph>
+                </line>
+                <line>
+                    <emph type="bold">Se&#241;al del CMP est&#225; inactiva</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 145 si no detecta la se&#241;al del CMP mientras la se&#241;al del CKP
+                        est&#225; activa y la presi&#243;n de control de inyecci&#243;n ha aumentado.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 145 puede aparecer si hay un corto a tierra o una interrupci&#243;n a la fuente de
+                        voltaje en el circuito del CMP. El DTC 145 puede aparecer si hay un sensor defectuoso.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Herramientas</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Herramienta electr&#243;nica de servicio (EST) con software Master Diagnostics</para>
+                </item>
+                <item>
+                    <para>Cable de interfaz EZ-Tech de International&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Caja de conexiones</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos del CMP con los pines</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3317" filename="../figd33/d3317.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+            </figure>
+            <table id="te24007020" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el sensor y el circuito</emph>
+                                    (Con la caja de conexiones conectada al cableado del motor solamente y el CMP
+                                    conectado. Inspeccione en busca de pines doblados y corrosi&#243;n).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-9 a X1-10</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>800 &#x2126; a 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Hay resistencia a trav&#233;s del sensor y de todo el circuito.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-9 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque corto a tierra en el cableado o en el sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-10 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque corto a tierra en el cableado o en el sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el cableado</emph>
+                                    (Con la caja de conexiones conectada al cableado del motor solamente. Mida desde el
+                                    ECM hasta el conector del sensor).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-9 a 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el circuito.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-10 a 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el circuito.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007021" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="5">
+                    <colspec colname="col1" colwidth="1.56in"/>
+                    <colspec colname="col2" colwidth="1.36in"/>
+                    <colspec colname="COLSPEC0" colwidth="2.99*"/>
+                    <colspec colname="COLSPEC1" colwidth="3.24*"/>
+                    <colspec colname="COLSPEC2" colwidth="3.28*"/>
+                    <spanspec namest="col1" nameend="COLSPEC2" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones operacionales del CMP</emph>
+                                    (Con la caja de conexiones conectada al ECM y al cableado del motor).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Punto de prueba</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Arranque del motor</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Ralent&#237; bajo</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>Ralent&#237; alto</para>
+                            </entry>
+                            <entry colname="COLSPEC2">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-9 a X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>130-225 RPM
+                                    <supscript>2</supscript>
+                                    a 130-225 RPM
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>700 RPM
+                                    <supscript>2</supscript>
+                                    a 700 RPM
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>2950 RPM
+                                    <supscript>2</supscript>
+                                    a 2950 RPM
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC2">
+                                <para>Ponga el DMM en DCmV-rpm
+                                    <supscript>2</supscript>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Descripci&#243;n de los c&#243;digos de falla</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 143 = Firma incorrecta de la se&#241;al del CMP.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 145 = Se&#241;al del CMP est&#225; inactiva.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_153.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_155.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

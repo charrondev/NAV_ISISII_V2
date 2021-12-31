@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 530 Engine Diagnostic Manual for 4000 Series Trucks (2001) - ELECTRONIC CONTROL SYSTEM
+        DIAGNOSTICS - CIRCUIT FUNCTION AND DIAGNOSTICS - Controller Area Network Communications
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Controller Area Network Communications</title>
+        <figure id="f17503088.1" figsize="pg-wide">
+            <graphic filename="../figeg8/eg8876.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+        </figure>
+        <para>
+            <emph type="bold">Drive Train Data Link</emph>
+            - is a Society of Automotive Engineers (SAE) designation for one of the common truck data links. It is now
+            commonly used for power train communications and control. The Drive Train Data Link (includes the ECM, ESC
+            and the instrument cluster) will be the primary communications link between the ECM, ESC and the instrument
+            cluster.
+        </para>
+        <figure id="f17503088.2" figsize="pg-wide">
+            <graphic filename="../figeg8/eg8875.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+            <caption>Communications Circuit Diagnostics</caption>
+        </figure>
+        <table id="te17503088.1">
+            <title>Communications Circuit Diagnostics</title>
+            <tgroup cols="4">
+                <colspec colname="col1" colwidth="0.40*"/>
+                <colspec colname="col2" colwidth="0.40*"/>
+                <colspec colname="col3" colwidth="0.40*"/>
+                <colspec colname="col4" colwidth="2.80*"/>
+                <spanspec namest="col1" nameend="col4" spanname="SPAN1"/>
+                <tbody>
+                    <row>
+                        <entry colspan="4" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">Key On Engine Off - Voltage Checks at EST Connector</emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>Test Point</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>Spec.</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>Signal</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>Comments</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>B to A</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>B+</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>Power</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>Should be 12V power at B at all times. If no power, check ground and power circuits
+                                (F2).
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>C to A</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>C+</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>Power</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>Should be between 2V - 7V.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="4" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">Key Off Resistance Checks at EST Connector</emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>Test Point</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>Spec.</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>Signal</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>Comments</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>C to D</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>60&#x2126;</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>CAN</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>The datalink has two terminating resistors in parallel of 120&#x2126; each. If >70&#x2126;,
+                                check for missing terminating resister or open in the CAN (+) or CAN (-) wires. If &#60;50&#x2126;
+                                but >5&#x2126;, check for extra terminating resistor. &#60;5&#x2126; indicate short
+                                between CAN (+) and CAN (-).
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>C to E</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>>1M&#x2126;</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>CAN (+)</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>&#60;1 M&#x2126; indicates a short between CAN(+) and CAN(SHLD). Disconnect ECM and
+                                try again. If short no longer exists, replace ECM. If short still exists, harness or
+                                other node component is bad.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>D to E</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>>1M&#x2126;</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>CAN (-)</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>&#60;1 M&#x2126; indicates a short between CAN(+) and CAN(SHLD). Disconnect ECM and
+                                try again. If short no longer exists, replace ECM. If short still exists, harness or
+                                other node component is bad.
+                            </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="bold">Engine Controller Diagnostics</emph>
+        </para>
+        <para>All Engine Control Module diagnostics are communicated though an Electronic Service Tool (EST) such as MD
+            software on the ATA (J1708) Data Link. .
+        </para>
+        <specpara>
+            <note>
+                <para>Refer to S08285 - Electrical Circuit Diagrams - 4200/4300/4400</para>
+            </note>
+        </specpara>
+        <para>
+            <emph type="bold">Extended Description</emph>
+        </para>
+        <para>
+            <emph type="bold">Dashboard Information</emph>
+            - Information transmitted from the engine controller is received by the instrument cluster via data link.
+            Functions updated on the instrument cluster by the engine include:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>Oil Pressure Gauge</para>
+            </item>
+            <item>
+                <para>Engine Oil Temperature Gauge</para>
+            </item>
+            <item>
+                <para>Tachometer (Engine Speed)</para>
+            </item>
+            <item>
+                <para>Speedometer (Vehicle Speed)</para>
+            </item>
+            <item>
+                <para>Odometer</para>
+            </item>
+            <item>
+                <para>Coolant Temperature Gauge</para>
+            </item>
+            <item>
+                <para>Coolant Level Lamp</para>
+            </item>
+            <item>
+                <para>Engine Red Lamp (Stop)</para>
+            </item>
+            <item>
+                <para>Engine Amber Lamp (Warning)</para>
+            </item>
+            <item>
+                <para>Change Oil Message</para>
+            </item>
+            <item>
+                <para>Cruise Lamp</para>
+            </item>
+        </randlist>
+        <para>A number of features other than odometer are available from the engine controller on the cluster LCD such
+            as:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>Engine Hours</para>
+            </item>
+            <item>
+                <para>PTO Hours</para>
+            </item>
+            <item>
+                <para>Fuel Economy</para>
+            </item>
+        </randlist>
+        <para>
+            <emph type="bold">Multiplexing</emph>
+            - The status of the following switches are communicated from the ESC to the ECM using the drive train data
+            link:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>Cruise Control ON/OFF Switch (COO)</para>
+            </item>
+            <item>
+                <para>Cruise Control Set/Cruise Switch (SCS)</para>
+            </item>
+            <item>
+                <para>Cruise Control Resume/Accelerate Switch (RAS)</para>
+            </item>
+            <item>
+                <para>Cruise Control Clutch Status</para>
+            </item>
+            <item>
+                <para>Brake Pedal Status</para>
+            </item>
+            <item>
+                <para>Exhaust Brake ON/OFF Switch</para>
+            </item>
+            <item>
+                <para>Two Speed Axle Switch (TSA)</para>
+            </item>
+        </randlist>
+        <para>Two other ESC outputs are sent to the ECM using the drive train data link:</para>
+        <randlist type="bullet">
+            <item>
+                <para>AC Demand (Fan request)</para>
+            </item>
+            <item>
+                <para>Self Test Input</para>
+            </item>
+        </randlist>
+        <figure id="f17503088.3" figsize="full-pg">
+            <graphic filename="../figeg8/eg8830.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                     scalefitheight="592px"/>
+            <caption>Drive Train Data Link (chassis)</caption>
+        </figure>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_83.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_85.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

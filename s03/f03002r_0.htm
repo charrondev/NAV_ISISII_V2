@@ -1,0 +1,185 @@
+<HTML>
+<HEAD>
+    <TITLE>Service Section TOC</TITLE>
+    <LINK href="../style.css" rel="STYLESHEET" type="text/css">
+    <SCRIPT LANGUAGE="JavaScript1.1">
+<!-- begin hiding
+var indentPixels = 15
+var collapsedWidget = "../images/plus.gif"
+var expandedWidget = "../images/minus.gif"
+var endpointWidget = "../images/end.gif"
+var widgetWidth = 17
+var widgetHeight = 18
+var displayTarget = "mainframe"
+// AHJO - In the folowing db the fourth field (after the xml file name) is new and set to "0" 
+var db = new Array()
+ db[1] = new dbRecord(true, "Suspension Pneumatique Neway","f03002r_1.xml","0",0,"","YES")
+ db[2] = new dbRecord(false, "Description","f03002r_1.xml","0",1,"","YES")
+ db[3] = new dbRecord(true, "Fonctionnement","f03002r_2.xml","0",1,"","")
+ db[4] = new dbRecord(false, "SOUPAPES DE COMMANDE DE HAUTEUR","f03002r_2.xml","0",2,"","YES")
+ db[5] = new dbRecord(false, "&#201;vacuation De L'air &#224; Partir De La Cabine","f03002r_3.xml","0",2,"","YES")
+ db[6] = new dbRecord(true, "Entretien","f03002r_4.xml","0",1,"","")
+ db[7] = new dbRecord(false, "ENTRETIEN QUOTIDIEN","f03002r_4.xml","0",2,"","YES")
+ db[8] = new dbRecord(false, "Inspection &#224; 3 000 Milles","f03002r_5.xml","0",2,"","YES")
+ db[9] = new dbRecord(false, "50 000 Milles Ou 1 An (minimum)","f03002r_6.xml","0",2,"","YES")
+ db[10] = new dbRecord(false, "V&#233;rifications D'entretien","f03002r_7.xml","0",1,"","YES")
+ db[11] = new dbRecord(true, "D&#233;pose Et Installation","f03002r_8.xml","0",1,"","YES")
+ db[12] = new dbRecord(false, "Ressorts Pneumatiques De Suspension","f03002r_9.xml","0",2,"","YES")
+ db[13] = new dbRecord(false, "Amortisseurs","f03002r_10.xml","0",2,"","YES")
+ db[14] = new dbRecord(false, "Balanciers","f03002r_11.xml","0",2,"","YES")
+ db[15] = new dbRecord(false, "Coussinets De La Poutre Transversale","f03002r_12.xml","0",2,"","YES")
+ db[16] = new dbRecord(false, "Bielles De Force","f03002r_13.xml","0",2,"","YES")
+ db[17] = new dbRecord(false, "Alignement","f03002r_14.xml","0",1,"","YES")
+ db[18] = new dbRecord(false, "R&#233;glage De La Garde Au Sol","f03002r_15.xml","0",1,"","YES")
+ db[19] = new dbRecord(false, "D&#233;pannage","f03002r_16.xml","0",1,"","YES")
+ db[20] = new dbRecord(true, "Sp&#233;cifications","f03002r_17.xml","0",1,"","")
+ db[21] = new dbRecord(false, "SP&#201;CIFICATIONS RELATIVES AUX COUPLES DE SERRAGE","f03002r_17.xml","0",2,"","YES")
+ db[22] = new dbRecord(false, "Tableau Des Gardes Au Sol Et Des Codes","f03002r_18.xml","0",2,"","YES")
+ db[23] = new dbRecord(false, "Outils Sp&#233;ciaux","f03002r_19.xml","0",2,"","YES")
+ db[24] = new dbRecord(false, "M&#201;THODE PARTICULI&#200;RE RELATIVE AUX &#171; &#201;CROUS INTELLIGENTS &#187;","f03002r_20.xml","0",2,"","YES")
+// AHJO - In the following function the parameter 'occurs' was added Oct/Nov 2001
+function dbRecord(mother,display,URL,occurs,indent,statusMsg,link){
+	this.mother = mother   // is this item a parent?
+	this.display = display // text to display
+	this.URL = URL         // used to link to TOC
+	this.occurances =  occurs  // how many times does search occur - THIS LINE WAS ADDED by AHJO
+	this.indent = indent   // how many levels nested?
+	this.statusMsg = statusMsg  // descriptive text for status bar 
+	this.link = link  //  link tied to text; if empty string, item appears as straight text
+	return this
+}
+// pre-load all images into cache
+var collapsedImg = new Image(widgetWidth,widgetHeight)
+collapsedImg.src = collapsedWidget
+var expandedImg = new Image(widgetWidth,widgetHeight)
+expandedImg.src = expandedWidget
+var endpointImg = new Image(widgetWidth,widgetHeight)
+endpointImg.src = endpointWidget
+// mainframeURL = parent.mainframe.document.URL // get URL of mainframe 
+// ** functions that get and set persistent cookie data **
+// set cookie data
+var mycookie = document.cookie
+function setCurrState(setting) {
+        mycookie = document.cookie = "currState=" + escape(setting)
+}
+// retrieve cookie data
+function getCurrState() {
+        var label = "currState="
+        var labelLen = label.length
+        var cLen = mycookie.length
+        var i = 0
+        while (i < cLen) {
+                var j = i + labelLen
+                if (mycookie.substring(i,j) == label) {
+                        var cEnd = mycookie.indexOf(";",j)
+                        if (cEnd ==     -1) {
+                                cEnd = mycookie.length
+                       }
+                        return unescape(mycookie.substring(j,cEnd))
+                }
+               i++
+       }
+        return ""
+}
+// **function that updates persistent storage of state**
+// toggles an outline mother entry, storing new value in the cookie
+function toggle(n) {
+	if (n != 0) {
+		var newString = ""
+		var currState = getCurrState() // of whole outline
+		var expanded = currState.charAt(n-1) // of clicked item
+		newString += currState.substring(0,n-1)
+		newString += expanded ^ 1 // Bitwise XOR clicked item
+		newString += currState.substring(n,currState.length)
+		setCurrState(newString) // write new state back to cookie
+	}
+}
+// **functions used in assembling updated outline**
+// returns the proper GIF file name for each entry's control
+function getGIF(n) {
+	var mom = db[n].mother  // is entry a parent?
+	var expanded = getCurrState().charAt(n-1) // of clicked item
+	if (!mom) {
+		return endpointWidget
+	} else {
+		if (expanded == 1) {
+			return expandedWidget
+		}
+	}
+	return collapsedWidget
+}
+// returns the proper status line text based on the icon style
+function getGIFStatus(n) {
+	var mom = db[n].mother  // is entry a parent
+	var expanded = getCurrState().charAt(n-1) // of rolled item
+	if (!mom) {
+		return "No further items"
+	} else {
+		if (expanded == 1) {
+			return "Click to collapse nested items"
+		}
+	}
+	return "Click to expand nested items"
+}
+// initialize 'current state' storage field
+if (getCurrState() == "" || getCurrState().length != (db.length-1)) {
+	initState = ""
+	for (i = 1; i < db.length; i++) {
+		initState += "0"
+	}
+	setCurrState(initState)
+}
+// end -->
+
+
+    </SCRIPT>
+</HEAD>
+<BODY>
+<SCRIPT LANGUAGE="JavaScript1.1">
+<!-- start
+// build new outline based on the values of the cookie
+// and data points in the outline data array.
+// This fires each time the user clicks on a control,
+// because the HREF for each one reloads the current document.
+var newOutline = ""
+var prevIndentDisplayed = 0
+var showMyDaughter = 0
+// cycle through each entry in the outline array
+for (var i = 1; i < db.length; i++) {
+	var theGIF = getGIF(i)				// get the image
+	var theGIFStatus = getGIFStatus(i)  // get the status message
+	var currIndent = db[i].indent		// get the indent level
+	var expanded = getCurrState().charAt(i-1) // current state
+        db[i].currentrow = ""
+
+	if (currIndent == 0 || currIndent == 1 || db[i].currentrow == "currentrow" || currIndent <= prevIndentDisplayed || (showMyDaughter == 1 && (currIndent - prevIndentDisplayed == 1))) {
+ // Phil added the if to remove the image from before the root element 
+         if (currIndent != 0) {
+			newOutline += "<SPAN class=\"" + db[i].currentrow + "\" style=\" position:relative;left:" + (indentPixels * currIndent) + "px;width:200px\"><A HREF=\"javascript:history.go(0)\" onMouseOver=\"window.status=\'" + theGIFStatus + "\';return true;\" onClick=\"toggle(" + i + ");return " + "\">"
+			newOutline += "<IMG ALIGN=TOP SRC=\"" + theGIF + "\" HEIGHT=" + widgetHeight + " WIDTH=" + widgetWidth + " BORDER=0></A>"
+			newOutline += "<SPAN title=\"" + db[i].display + "\" style=\"width:" + (200-widgetWidth) + "px\">"
+			}
+			if (db[i].link == "" || db[i].link == null) {
+				newOutline += " <font size='1'>" +  db[i].display + "</font></SPAN></SPAN>" + "<BR>"	// no link, just a listed item
+			} else {
+                 if (db[i].occurances > 0)	{ 
+				newOutline += " <A HREF=\"" + db[i].URL + "\" TARGET=\"" + displayTarget + "\" onMouseOver=\"window.status=\'" + db[i].statusMsg + "\';return true;\"><font size='1'>" + db[i].display + "&nbsp;&nbsp;(" + db[i].occurances + ")</font></A></SPAN></SPAN><BR>"
+			} else {
+				newOutline += " <A HREF=\"" + db[i].URL + "\" TARGET=\"" + displayTarget + "\" onMouseOver=\"window.status=\'" + db[i].statusMsg + "\';return true;\"><font size='1'>" + db[i].display + "</font></A></SPAN></SPAN><BR>"
+			}
+			}
+		prevIndentDisplayed = currIndent
+		showMyDaughter = expanded
+		if (db.length > 25) {
+			document.write(newOutline)
+			newOutline = ""
+		}
+	}
+}
+document.write(newOutline)
+// end -->
+
+
+</SCRIPT>
+</BODY>
+</html>

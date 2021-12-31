@@ -1,0 +1,623 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>TSI 08-12-06 - RE and RC Bus Hydraulic Cooling Fan Diagnostics</stitle>
+    <tsi id="tsi081206" tsitype="truck">
+        <tsinumber>08-12-06</tsinumber>
+        <tsidate>March, 2008</tsidate>
+        <subjectfile>ENGINE</subjectfile>
+        <subjectgroup>
+            <subject>RE and RC Bus Hydraulic Cooling Fan Diagnostics</subject>
+        </subjectgroup>
+        <distribution dealer="yes" fleet="yes" bodybuilder="no" isis_cd="yes"/>
+        <apply>
+            <configure>
+                <truckmodelgroup/>
+
+                <truckmodel>RE Bus</truckmodel>
+                <truckmodel>RC Bus</truckmodel>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <lev1>
+                    <para>Beginning with the 2008 model year, RE and RC bus products are equipped with a side mount
+                        cooling package. This cooling package uses a hydraulically driven cooling fan (as shown in
+                        Figure 1 below). The hydraulic fan circuit and power steering circuit share the same reservoir
+                        and are both cooled by a water-to-oil cooler.
+                    </para>
+                    <para>This TSI is designed to help the service technician troubleshoot the hydraulic cooling fan
+                        circuit.
+                    </para>
+                    <figure id="f077001" figsize="pg-wide">
+                        <graphic filename="../tsifigures/g077001.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                                 scalefitheight="272px"/>
+                        <caption>Figure 1.</caption>
+                    </figure>
+                    <para>The hydraulic return filter on the hydraulic fan drive circuit contains a bypass valve that
+                        opens when the backpressure reaches 25 psi.
+                    </para>
+                    <specpara>
+                        <note>
+                            <para>For this system use ONLY the power steering fluid specified in the operator's manual
+                                (Fleetrite P/N CH990625C2).
+                            </para>
+                        </note>
+                    </specpara>
+                </lev1>
+            </geninfo>
+        </description>
+        <svcproc svcproctype="troubleshoot" graphiccount="0">
+            <title>Hydraulic Fan Drive Troubleshooting Procedure</title>
+            <specpara>
+                <warning>
+                    <para>To avoid property damage, personal injury, or death, DO NOT operate a vehicle with a fan drive
+                        or fan blades that are malfunctioning or damaged.
+                    </para>
+                </warning>
+            </specpara>
+            <specpara>
+                <warning>
+                    <para>To avoid property damage, personal injury, or death, DO NOT attempt to restrict fan blade
+                        rotation during engine operation.
+                    </para>
+                </warning>
+            </specpara>
+            <specpara>
+                <warning>
+                    <para>To avoid property damage, personal injury, or death, comply with the following before
+                        performing tests on the fan drive:
+                    </para>
+                    <randlist type="bullet">
+                        <item>
+                            <para>Shift transmission to park or neutral, set parking brake, and block wheels.</para>
+                        </item>
+                        <item>
+                            <para>Wear safety glasses with side shields.</para>
+                        </item>
+                        <item>
+                            <para>Do not wear loose clothing that can come into contact with the rotating fan blades.
+                            </para>
+                        </item>
+                        <item>
+                            <para>Avoid contact with hot surfaces.</para>
+                        </item>
+                        <item>
+                            <para>Protect test leads from contact with rotating components.</para>
+                        </item>
+                    </randlist>
+                </warning>
+            </specpara>
+            <specpara>
+                <warning>
+                    <para>To avoid personal injury or death when working with hot liquids and objects or near a hot
+                        engine, wear heat protective clothing and heat protective gloves.
+                    </para>
+                </warning>
+            </specpara>
+            <para>
+                <emph type="bold">1.&#9;Excessive Fan Noise (fan fully engaged all the time/low power):</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Measure fan speed using a photo tachometer - reference SPX p/n 3665 (perform this measurement
+                        on a cold system - coolant temp of 190&#186;F (88&#186;C) or less).
+                    </para>
+                    <randlist type="dash">
+                        <item>
+                            <para>If fan speed measures between the lower and upper limits (from 0.94 to 1 times the
+                                engine rpm), the fan is fully engaged (reference appendix, Table 1).
+                            </para>
+                        </item>
+                        <item>
+                            <para>If fan is in the fully engaged state on a cold system - check the coolant temperature
+                                sensor.
+                            </para>
+                        </item>
+                    </randlist>
+                </item>
+                <item>
+                    <para>Coolant temperature sensor check:</para>
+                    <randlist type="dash">
+                        <item>
+                            <para>Using master diagnostics or Service Assistant and IR thermometer (ZTSE 4799), ensure
+                                that the coolant temperature sensor is functioning correctly and that there are no
+                                active or stored coolant sensor fault codes.
+                            </para>
+                        </item>
+                        <item>
+                            <para>If coolant temperature sensor is OK - proceed with checking the electronic fan
+                                controller.
+                            </para>
+                        </item>
+                    </randlist>
+                </item>
+                <item>
+                    <para>Electronic fan controller:</para>
+                    <randlist type="dash">
+                        <item>
+                            <para>Visually check for a green LED on the fan controller (reference appendix, Figure 3).
+                                The presence of a green LED indicates that the controller is getting power (Pin 2 at the
+                                controller) and ground (Pin 1 at the controller). If not, inspect the wiring and
+                                connectors (a "wiggle test" may help to identify any loose connections).
+                            </para>
+                        </item>
+                        <item>
+                            <para>Using a Fluke 88 (ZTSE 4357) check for the presence of a pulse width signal to the
+                                proportional control valve (reference appendix, Figure 2).
+                            </para>
+                            <randlist type="bullet">
+                                <item>
+                                    <para>If the controller is getting power, ground, and all connections are good (good
+                                        continuity) and no signal is read to the proportional control valve - electronic
+                                        fan controller should be replaced.
+                                    </para>
+                                </item>
+                            </randlist>
+                        </item>
+                    </randlist>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">2.&#9;Fan doesn't spin:</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Check power steering/hydraulic fan drive reservoir and ensure specified fluid is present and
+                        at the proper level.
+                    </para>
+                </item>
+                <item>
+                    <para>Visually inspect the hydraulic pump and ensure belt is still present and tight and that the
+                        pulley is turning with the engine running.
+                    </para>
+                    <randlist type="dash">
+                        <item>
+                            <para>If belt is present and pulley is turning with the engine running, ensure the pulley is
+                                not spinning on the pump shaft without engaging it.
+                            </para>
+                            <randlist type="bullet">
+                                <item>
+                                    <para>If pump is engaged - hydraulic pump and motor performance testing is required
+                                        (procedure not yet available).
+                                    </para>
+                                </item>
+                            </randlist>
+                        </item>
+                    </randlist>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">3.&#9;Fan spins too slowly:</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Check power steering/hydraulic fan drive reservoir and ensure specified fluid is present and
+                        at the proper level.
+                    </para>
+                </item>
+                <item>
+                    <para>Inspect system for kinked or obstructed hoses and leaks.</para>
+                </item>
+                <item>
+                    <para>Proportional control valve check:</para>
+                    <randlist type="dash">
+                        <item>
+                            <para>With engine off, unplug the electrical connection at the proportional control valve
+                                (reference appendix, Figure 4) and start the engine, fan should spin in the fully
+                                engaged state. Measure the fan speed using a photo tachometer - SPX p/n 3665 (reference
+                                appendix, Table 1).
+                            </para>
+                            <randlist type="bullet">
+                                <item>
+                                    <para>If fan speed measures between the lower and upper limits (0.94 to 1 times
+                                        engine rpm) with the proportional control valve solenoid unplugged - proceed to
+                                        coolant temperature sensor check.
+                                    </para>
+                                </item>
+                                <item>
+                                    <para>If fan still spins too slowly (less than 0.94 times engine rpm) - hydraulic
+                                        pump and motor performance testing is required (procedure not yet available).
+                                    </para>
+                                </item>
+                            </randlist>
+                        </item>
+                    </randlist>
+                </item>
+                <item>
+                    <para>Coolant temperature sensor check:</para>
+                    <randlist type="dash">
+                        <item>
+                            <para>Using master diagnostics or Service Assistant and IR thermometer (ZTSE 4799), ensure
+                                that the coolant temperature sensor is functioning correctly and that there are no
+                                active or stored coolant sensor fault codes.
+                            </para>
+                        </item>
+                        <item>
+                            <para>If coolant temperature sensor is OK - proceed with checking the proportional control
+                                valve signal.
+                            </para>
+                        </item>
+                    </randlist>
+                </item>
+                <item>
+                    <para>Proportional control valve signal check:</para>
+                    <randlist type="dash">
+                        <item>
+                            <para>Using a Fluke 88 (ZTSE 4357) check for the presence of a pulse width signal to the
+                                proportional control valve (reference appendix, Figure 2).
+                            </para>
+                            <randlist type="bullet">
+                                <item>
+                                    <para>If a signal is measured to the proportional control valve - hydraulic pump and
+                                        motor performance testing is required (procedure not yet available).
+                                    </para>
+                                </item>
+                            </randlist>
+                        </item>
+                    </randlist>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">4.&#9;Fan spins intermittently/erratically:</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Check power steering/hydraulic fan drive reservoir and ensure specified fluid is present and
+                        at the proper level.
+                    </para>
+                </item>
+                <item>
+                    <para>Inspect system for kinked or obstructed hoses and leaks.</para>
+                </item>
+                <item>
+                    <para>Coolant temperature sensor check:</para>
+                    <randlist type="dash">
+                        <item>
+                            <para>Using master diagnostics or Service Assistant and IR thermometer (ZTSE 4799), ensure
+                                that the coolant temperature sensor is functioning correctly and that there are no
+                                active or stored coolant sensor fault codes.
+                            </para>
+                        </item>
+                        <item>
+                            <para>If coolant temperature sensor is OK - proceed with checking the electronic fan
+                                controller.
+                            </para>
+                        </item>
+                    </randlist>
+                </item>
+                <item>
+                    <para>Electronic fan controller check:</para>
+                    <randlist type="dash">
+                        <item>
+                            <para>Visually check for a green LED on the fan controller (reference appendix, Figure 3).
+                                The presence of a green LED indicates that the controller is getting power (Pin 2 at the
+                                controller) and ground (Pin 1 at the controller). If not, inspect the wiring and
+                                connectors (a "wiggle test" may help to identify any loose connections).
+                            </para>
+                        </item>
+                        <item>
+                            <para>Using a Fluke 88 (ZTSE 4357) check for the presence of a pulse width signal to the
+                                proportional control valve (reference appendix, Figure 2) a "wiggle test" may help to
+                                identify any loose connections.
+                            </para>
+                            <randlist type="bullet">
+                                <item>
+                                    <para>If the controller power, ground, and all connections are good (good
+                                        continuity) including signal to the proportional control valve - hydraulic pump
+                                        and motor performance testing is required (procedure not yet available).
+                                    </para>
+                                </item>
+                            </randlist>
+                        </item>
+                    </randlist>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">5.&#9;Hydraulic pump or motor is excessively noisy:</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Check power steering/hydraulic fan drive reservoir and ensure specified power steering fluid
+                        is present and at the proper level.
+                    </para>
+                </item>
+                <item>
+                    <para>Inspect system for kinked or obstructed hoses and leaks.</para>
+                    <randlist type="dash">
+                        <item>
+                            <para>If fluid and hoses are OK, hydraulic pump and motor performance testing is required
+                                (procedure not yet available).
+                            </para>
+                        </item>
+                    </randlist>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">6.&#9;Hydraulic fluid is foaming:</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Check power steering/hydraulic fan drive reservoir and ensure specified fluid is present, not
+                        contaminated, and at the proper level.
+                    </para>
+                </item>
+                <item>
+                    <para>Inspect system for kinked or obstructed hoses and leaks.</para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">7.&#9;Hydraulic fluid is overheating:</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Check power steering/hydraulic fan drive reservoir and ensure specified fluid is present and
+                        at the proper level.
+                    </para>
+                    <para>
+                        <emph type="bold">***Note: For this system use ONLY the power steering fluid specified in the
+                            operator's manual (Fleetrite P/N CH990625C2)***
+                        </emph>
+                    </para>
+                </item>
+                <item>
+                    <para>Inspect system for kinked or obstructed hoses and leaks.</para>
+                </item>
+                <item>
+                    <para>Inspect cooler for leaks or damage.</para>
+                </item>
+                <item>
+                    <para>Ensure vehicle coolant is in good condition and at the proper level.</para>
+                </item>
+            </randlist>
+        </svcproc>
+        <svcproc svcproctype="describe" graphiccount="3">
+            <title>Appendix</title>
+            <table id="t077001">
+                <tgroup cols="3">
+                    <colspec colname="col1" align="center" colwidth="0.71*"/>
+                    <colspec colname="col2" align="center" colwidth="0.66*"/>
+                    <colspec colname="COLSPEC1" colwidth="0.69*"/>
+                    <tbody>
+                        <row>
+                            <entry align="center">
+                                <para>Engine rpm</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Fan Speed (lower limit)</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Fan Speed (upper limit)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>800</para>
+                            </entry>
+                            <entry align="center">
+                                <para>752</para>
+                            </entry>
+                            <entry align="center">
+                                <para>800</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>900</para>
+                            </entry>
+                            <entry align="center">
+                                <para>846</para>
+                            </entry>
+                            <entry align="center">
+                                <para>900</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1000</para>
+                            </entry>
+                            <entry align="center">
+                                <para>940</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1000</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1100</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1034</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1100</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1200</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1128</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1200</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1300</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1222</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1300</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1400</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1316</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1400</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1500</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1410</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1500</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1600</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1504</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1600</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1700</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1598</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1700</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1800</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1692</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1800</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>1900</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1786</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1900</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>2000</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1880</para>
+                            </entry>
+                            <entry align="center">
+                                <para>2000</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>2100</para>
+                            </entry>
+                            <entry align="center">
+                                <para>1974</para>
+                            </entry>
+                            <entry align="center">
+                                <para>2100</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>2200</para>
+                            </entry>
+                            <entry align="center">
+                                <para>2068</para>
+                            </entry>
+                            <entry align="center">
+                                <para>2200</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>2300</para>
+                            </entry>
+                            <entry align="center">
+                                <para>2162</para>
+                            </entry>
+                            <entry align="center">
+                                <para>2300</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f077002" figsize="pg-wide">
+                <graphic filename="../tsifigures/g077002.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="392px"/>
+                <caption>Figure 2.</caption>
+            </figure>
+            <figure id="f077003" figsize="pg-wide">
+                <graphic filename="../tsifigures/g077003.webp" type="webp" scalefit="1" scalefitwidth="288px"
+                         scalefitheight="248px"/>
+                <caption>Figure 3.</caption>
+            </figure>
+            <figure id="f077004" figsize="pg-wide">
+                <graphic filename="../tsifigures/g077004.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="392px"/>
+                <caption>Figure 4.</caption>
+            </figure>
+            <para>
+                <emph type="bold">Example Calculations:</emph>
+            </para>
+            <para>
+                <emph type="italic">Fan speed</emph>
+            </para>
+            <para>If fan speed measures from 0.94 to 1 times the engine rpm fan is fully engaged</para>
+            <para>Fully engaged fan speed should be 0.94 to 1 times engine rpm</para>
+            <para>Engine rpm = 2100</para>
+            <para>Fan rpm (lower limit) = 0.94 * 2100 = 1974 rpm</para>
+            <para>Fan rpm (upper limit) = 1 * 2100 = 2100 rpm</para>
+            <para>
+                <emph type="italic">Fan should be between 1974 and 2100 rpm with the engine at 2100 rpm (calculated
+                    above)
+                </emph>
+            </para>
+            <para>
+                <emph type="bold">Frequently Asked Questions (FAQs):</emph>
+            </para>
+            <para>
+                <emph type="italic">Q - What happens if the filter plugs?</emph>
+            </para>
+            <para>A - There is a by-pass so plugged filter should not present any symptoms.</para>
+            <para>
+                <emph type="italic">Q - What are the symptoms of the system being filled with the wrong fluid?</emph>
+            </para>
+            <para>A - Using the wrong fluid could cause foaming, noise, overheating, and power steering assist issues.
+            </para>
+            <para>
+                <emph type="italic">Q - What are the symptoms of low fluid?</emph>
+            </para>
+            <para>A - Low fluid could cause overheating and foaming of the fluid as well as intermittent power steering
+                assist.
+            </para>
+        </svcproc>
+    </tsi>
+</isis>

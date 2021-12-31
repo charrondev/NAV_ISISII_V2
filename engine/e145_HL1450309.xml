@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - APS/IVS PEDAL POSITION SENSOR / IDLE VALIDATION SWITCH
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450309" svcproctype="proctype" graphiccount="7">
+        <title>APS/IVS PEDAL POSITION SENSOR / IDLE VALIDATION SWITCH</title>
+        <svcprocinfo>
+            <figure id="ef1450311" figsize="col-wide">
+                <graphic id="eg1114" filename="../figeg1/eg1114.webp" type="webp"/>
+                <caption>Figure 3.7 APS/IVS</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>SIGNAL FUNCTIONS (FIGURE
+                <hotlnk xrefid="ef1450311">3.7</hotlnk>)
+            </title>
+            <para>The Accelerator Pedal Position Sensor (APS) is a potentiometer type sensor which, when supplied with a
+                5 volt reference signal from the Electronic Control Module (ECM), provides a linear analog voltage
+                signal that indicates the driver's demand for power.
+            </para>
+            <para>The Idle Validation Switch (IVS) is a 0/12 volt switch that provides the ECM with a redundant signal
+                to verify when the pedal is in the idle position.
+            </para>
+            <para>
+                <emph type="bold">Fuel Quantity and Timing Control -</emph>The APS signal is used in calculating desired
+                fuel quantity and injector timing.
+            </para>
+            <para>
+                <emph type="bold">Injection Control Pressure -</emph>Accelerator pedal position is one of the
+                controlling variables in the calculation of desired injection control pressure.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION/MANAGEMENT</title>
+            <para>Any detected malfunction of the APS or IVS sensor circuit will illuminate the WARN ENGINE lamp.</para>
+            <para>An APS signal that is detected out of range high or low by the ECM will cause the engine to ignore the
+                APS signal and will only allow the engine to operate at low idle.
+            </para>
+            <para>If a disagreement in the state of IVS and APS is detected by the ECM and the ECM determines that it is
+                an IVS fault, the ECM will only allow a maximum of 50% APS to be commanded.
+            </para>
+            <para>If a disagreement in the state of IVS and APS is detected by the ECM and the ECM can not discern if it
+                is an APS or IVS fault or if it is an APS fault, the engine will be allowed to operate at low idle only.
+            </para>
+            <para>
+                <hotlnk xrefid="ef1450312">Figure 3.8 APS/IVS Circuit Diagnostics</hotlnk>
+            </para>
+            <figure id="ef1450312" figsize="col-wide">
+                <graphic id="eg6140" filename="../figeg6/eg6140.webp" type="webp"/>
+                <caption>Figure 3.8 APS/IVS Circuit Diagnostics</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>APS/IVS EXTENDED SYSTEM DESCRIPTION</title>
+            <para>Navistar electronic engines use an electronic accelerator pedal assembly that includes a
+                <emph type="bold"></emph>Accelerator Position Sensor (APS) and Idle Validation Switch (IVS). These two
+                functions are integrated into one component mounted on the pedal. The accelerator pedal assembly is
+                serviceable to the extent that the APS/IVS switch can be replaced without replacing the complete
+                assembly.
+            </para>
+            <para>The engine Electronic Control Module (ECM) determines the position of the accelerator pedal by
+                processing the input signals from the Accelerator Position Sensor (APS) and Idle Validation Switch
+                (IVS).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Accelerator Position Sensor (Aps)</title>
+            <para>Refer to circuit diagram
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450313">3.9</hotlnk>
+                </emph>
+                for the following discussion.
+            </para>
+            <para>The ECM sends a regulated 5 volt signal through ECM connector (379) terminal 26 to APS connector (382)
+                terminal C. The APS then returns a variable voltage signal (depending on pedal position) from APS
+                connector (382) terminal A to the ECM at terminal 47. The APS is grounded from connector (382) terminal
+                B to the ECM signal ground terminal 46.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>APS AUTO-CALIBRATION</title>
+            <para>The ECM learns the lowest and highest pedal positions by reading and storing the minimum and maximum
+                voltage levels from the APS. In this manner the ECM "auto- calibrates" the system to allow maximum pedal
+                sensitivity. The ECM auto-calibrates as the key is ON, but when the key is turned OFF, these values are
+                lost. When the key is turned on again, this process starts over. When the pedal is disconnected (or new
+                one installed), the pedal does not need to be calibrated, as the calibration happens when the key is
+                turned on.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>IDLE VALIDATION SWITCH (IVS)</title>
+            <para>The ECM expects to receive one of two signals through ECM connector (379) terminal 8 from APS/IVS
+                connector (382) terminal D:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>0 volts when the pedal is at the idle posItion.</para>
+                </item>
+                <item>
+                    <para>12 volts when the pedal is depressed.</para>
+                </item>
+            </randlist>
+            <para>The Idle Validation Switch receives 12 volt ignition voltage from 10A fuse F4 (H1 with FBC). When the
+                pedal is NOT in the idle position (throttle applied), the IVS sends a 12 volt signal to the ECM.
+            </para>
+            <para>The ECM compares the inputs it receives at terminals 47 and 8 from the APS/IVS to verify when the
+                pedal is in the idle position. If the APS signal at terminal 47 indicates throttle is being applied,
+                then the ECM expects to see 12 volts at IVS terminal 8. If the APS signal at terminal 47 indicates
+                throttle is not applied, then the ECM expects to see 0 volts at the IVS terminal 8. The timing process
+                is critical between the APS and the IVS sensors. For this reason, it is very difficult to determine if
+                the APS/IVS assembly is working properly using a volt-ohmmeter.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM DIAGNOSTICS</title>
+            <para>When the key is ON, the ECM continuously monitors the APS/IVS circuits for expected voltages. It also
+                compares the APS and IVS signals for conflict. If the signals are not what the ECM expects to see, Fault
+                codes will be set.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 131</title>
+            <para>
+                <title>ATA Code PID 91 FMI 4 -</title>
+            </para>
+            <para>
+                <title>ECM: APS Out of Range Low</title>
+            </para>
+            <para>The ORL (out of range low) code 131 is set if the ECM detects a voltage lower than 0.146 volts at
+                terminal 47. Possible causes include: a short to ground or an open in circuit 99B. This code is
+                displayed by either the Prolink EST or using the Engine Warn Light to flash codes.
+            </para>
+            <para>When code 131 is active, the ECM restricts engine speed to idle and turns the Engine Warning Light ON.
+                If the condition causing code 131 is intermittent and the condition is no longer present, the code will
+                become inactive and normal engine operation will resume. If code 131 is active, perform Testing APS/IVS
+                Switch and Circuits
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450314">3.10</hotlnk>.
+                </emph>
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 132</title>
+            <para>
+                <title>ATA Code PID 91 FMI 3 -</title>
+            </para>
+            <para>
+                <title>ECM: APS Out Of Range High</title>
+            </para>
+            <para>The ORH (out of range high) code 132 is set if the ECM detects a voltage greater than 4.56 volts at
+                terminal 47. Possible cause: short to VREF or 12 volts in circuit 99B. This code is displayed by either
+                the Prolink EST or using the Engine Warn Light to flash codes.
+            </para>
+            <para>When code 132 is active, the ECM restricts engine speed to idle and turns the Engine Warn Light ON. If
+                the condition causing code 132 is intermittent and the condition is no longer present, the code will
+                become inactive and normal engine operation will resume. If code 132 is active, perform Testing APS/IVS
+                Switch and Circuits
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450314">3.10</hotlnk>.
+                </emph>
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Codes 133, 134 And 135</title>
+            <para>
+                <title>APS IN-RANGE Faults</title>
+            </para>
+            <para>The ECM checks the voltage output of the APS by comparing the APS signal with the IVS signal. APS and
+                IVS signals can disagree in two cases:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>The APS signal indicates the pedal is pressed down to accelerate, but the IVS signal indicates
+                        idle position.
+                    </para>
+                </item>
+                <item>
+                    <para>The APS signal indicates the pedal has been released to allow the engine to return to idle,
+                        but the IVS signal indicates off-idle position of the pedal.
+                    </para>
+                </item>
+            </randlist>
+            <para>If the ECM detects either of the above conditions, the ECM attempts to isolate the source of conflict.
+                If code(s) 133, 134 and/or 135 are active, perform Testing APS/IVS Switch and Circuits
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450314">3.10</hotlnk>.
+                </emph>
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 133</title>
+            <para>
+                <title>ATA Code PID 91 FMI 2 -</title>
+            </para>
+            <para>
+                <title>ECM: APS In Range Fault</title>
+            </para>
+            <para>If the IVS signal is changing and the APS signal is constant, the ECM assumes APS is the conflict
+                source and sets code 133. Engine rpm is restricted to idle and the Engine Warn Light is turned ON.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 134</title>
+            <para>
+                <title>ATA Code PID 91 FMI 7-</title>
+            </para>
+            <para>
+                <title>ECM: APS/IVS Disagree</title>
+            </para>
+            <para>If neither the APS or IVS is changing, or both are changing or the ECM cannot determine the faulty
+                code in specified time, then code 134 is set, engine rpm is restricted to idle and the Engine Warn Light
+                is turned ON.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 135</title>
+            <para>
+                <title>ATA Code SID 230 FMI 11-</title>
+            </para>
+            <para>
+                <title>ECM: IVS Circuit Fault</title>
+            </para>
+            <para>If the APS is changing and IVS is constant, the ECM assumes IVS is the conflict source and sets flash
+                code 135. In this case the ECM limits the APS signal to a lower value, which provides less than full
+                rpm, but does not limit engine rpm to idle. The Engine Warn Light is not turned ON.
+            </para>
+            <para>Note that codes 133, 134 and 135 are caused by an intermittent condition, the codes remain ACTIVE
+                until the vehicle has been shutdown and restarted. They do not recover without cycling the key switch.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>TROUBLESHOOTING</title>
+            <para>The APS and IVS circuits operate with low current levels. When troubleshooting, pay special attention
+                to the connectors.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Before Performing Any Test</title>
+            <para>Inspect connectors for pushed back, damaged, corroded or dirty terminals, as well as making sure that
+                the terminals and wires are properly crimped. Make sure the connectors are properly joined together.
+                Also check for any damage to the wiring and make sure system grounds are clean and tight.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>TESTING APS/IVS CIRCUITS</title>
+            <randlist type="bullet">
+                <item>
+                    <para>If flash codes 131, 132, 133, 134 or 135 are present, perform Testing APS/IVS Switch and
+                        Circuits
+                        <emph type="bold">Figure
+                            <hotlnk xrefid="ef1450314">3.10</hotlnk>.
+                        </emph>
+                    </para>
+                </item>
+            </randlist>
+            <para>These tests systematically check the APS and IVS circuits for:</para>
+            <seqlist style="alphauc">
+                <item>
+                    <para>Short circuits to ground.</para>
+                </item>
+                <item>
+                    <para>Short circuits to unwanted voltage sources.</para>
+                </item>
+                <item>
+                    <para>Open circuits or excessive circuit resistance.</para>
+                </item>
+                <item>
+                    <para>Proper feeds and grounds.</para>
+                </item>
+            </seqlist>
+            <specpara>
+                <note>
+                    <para>The tests performed on the accelerator pedal assembly check for shorts, opens and correct
+                        resistance values, but do not check for proper timing between the two functions. If all of the
+                        circuits between the ECM and the accelerator pedal assembly check good (Testing APS/IVS Switch
+                        and Circuits
+                        <emph type="bold">Figure
+                            <hotlnk xrefid="ef1450314">3.10</hotlnk>
+                        </emph>
+                        ), then the APS/IVS accelerator switch should be replaced.
+                    </para>
+                </note>
+            </specpara>
+            <figure id="ef1450313" figsize="col-wide">
+                <graphic id="eg5936" filename="../figeg5/eg5936.webp" type="webp"/>
+                <caption>Figure 3.9 Circuit Diagram APS/IVS System</caption>
+            </figure>
+            <para>
+                <emph type="bold">COMPONENT LOCATIONS:</emph>
+            </para>
+            <para>F4 FUSE . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                . . . . . . MAIN FUSE PANEL W/TRUCK
+            </para>
+            <para>H1 FUSE . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                . . . . . . . . .MAIN FUSE PANEL W/FBC
+            </para>
+            <para>Refer to
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450313">3.9</hotlnk>
+                </emph>
+                while performing this test.
+            </para>
+            <figure id="ef1450314" figsize="col-wide">
+                <graphic id="eg6938" filename="../figeg6/eg6938.webp" type="webp"/>
+                <caption>Figure 3.10 Testing APS/IVS Switch And Circuits</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef1450315">Figure 3.10a Testing APS/IVS Switch And Circuits</hotlnk>
+            </para>
+            <figure id="ef1450315" figsize="col-wide">
+                <graphic id="eg5939" filename="../figeg5/eg5939.webp" type="webp"/>
+                <caption>Figure 3.10a Testing APS/IVS Switch And Circuits</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef1450316">Figure 3.10b Testing APS/IVS Switch And Circuits</hotlnk>
+            </para>
+            <figure id="ef1450316" figsize="col-wide">
+                <graphic id="eg5940" filename="../figeg5/eg5940.webp" type="webp"/>
+                <caption>Figure 3.10b Testing APS/IVS Switch And Circuits</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef1450317">Figure 3.10c Testing APS/IVS Switch And Circuits</hotlnk>
+            </para>
+            <figure id="ef1450317" figsize="col-wide">
+                <graphic id="eg5941" filename="../figeg5/eg5941.webp" type="webp"/>
+                <caption>Figure 3.10c Testing APS/IVS Switch And Circuits</caption>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_100.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450310.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

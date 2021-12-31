@@ -1,0 +1,485 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - BAP Sensor (Barometric Absolute Pressure)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>BAP Sensor (Barometric Absolute Pressure)</title>
+        <svcprocinfo>
+            <figure id="f27007013" figsize="pg-wide">
+                <graphic filename="../figh31/h31025.webp" type="webp" scalefit="1" scalefitwidth="432px" box="no"/>
+                <caption>Function diagram for the BAP sensor</caption>
+            </figure>
+            <para id="s27005026">The function diagram for the BAP sensor includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para id="BAP">BAP sensor</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Injection Driver Module (IDM)</para>
+                </item>
+                <item>
+                    <para>Fuel injector</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation (EGR)</para>
+                </item>
+                <item>
+                    <para>Variable Geometry Turbocharger (VGT)</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The BAP sensor is a variable capacitance sensor and is located in the cab. The ECM supplies a 5 V
+                reference signal which the BAP sensor uses to produce a linear analog voltage signal that indicates
+                pressure.
+            </para>
+            <para>The primary function of the BAP sensor is to provide a feedback signal to the ECM to adjust timing and
+                fuel quantity. The ECM monitors the BAP signal to determine altitude, adjust timing, fuel quantity, and
+                inlet air heater operation.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>BAP Circuit Operation</title>
+            <figure id="f27007014" figsize="pg-wide">
+                <graphic filename="../figh31/h31058.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>BAP circuit diagram</caption>
+            </figure>
+            <para>The BAP sensor is supplied with a 5 V reference voltage at Pin 2 from ECM Pin X4-4 . The BAP sensor is
+                grounded at Pin 1 from ECM Pin X4-24. The BAP sensor returns a variable voltage signal from Pin 3 to ECM
+                at Pin X3-24.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>When the ECM detects the BAP voltage signal out of range high or low, the ECM will ignore the BAP
+                signal and use the Manifold Absolute Pressure (MAP) signal generated at low idle as an indication of
+                barometric pressure. When a MAP fault is detected, the BAP signal will default to barometric pressure at
+                sea level, 101 kPa (29.8 in Hg).
+            </para>
+            <para>
+                <title>BAP Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red ENGINE lamp.</para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 151</emph>
+                </line>
+                <line>
+                    <emph type="bold">BAP signal out-of-range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 151 is set when the BAP signal is greater than 4.95 V for more than 0.5 second.</para>
+                </item>
+                <item>
+                    <para>DTC 151 can be set when the signal circuit is shorted to V
+                        <subscript>REF</subscript>
+                        or B+ or a failed BAP sensor.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 151 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 152</emph>
+                </line>
+                <line>
+                    <emph type="bold">BAP signal out-of-range low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 152 is set when the BAP signal is less than 1.0 V for more than 0.5 second.</para>
+                </item>
+                <item>
+                    <para>DTC 152 can be set when the signal circuit is shorted to ground or open, V
+                        <subscript>REF</subscript>
+                        is shorted to ground, or a failed BAP sensor.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 152 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>BAP Pin-Point Diagnostics</title>
+            <figure id="f27007015" figsize="pg-wide">
+                <graphic filename="../figh31/h31058.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>BAP circuit diagram</caption>
+            </figure>
+            <table id="te27007017" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.27in"/>
+                    <colspec colname="col2" colwidth="1.11in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>See truck Chassis Electrical Circuit Diagram Manual for circuit numbers,
+                                        connector and fuse locations.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks to Ground</emph>
+                                    (Disconnect harness from sensor. Inspect for bent pins or corrosion. Turn the
+                                    ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 0.25 V, check ground circuit for open or high resistance. Check signal ground
+                                    for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is not to spec, V
+                                    <subscript>REF</subscript>
+                                    circuit is shorted to ground, shorted to B+, or open.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 0.25 V, signal circuit is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to ECM Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the chassis ground connection for the ECM and IDM. See truck
+                                        Chassis Electrical Circuit Diagram Manual for complete chassis side ECM and IDM
+                                        ground circuit information.</ftnote>.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open signal ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for V
+                                    <subscript>REF</subscript>
+                                    short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for signal short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect harness from
+                                    sensor. Use disconnected negative battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126; , check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for V
+                                    <subscript>REF</subscript>
+                                    short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for signal short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Connect breakout box to chassis harness [X3 and X4 only].)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-24 to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open signal ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-4 to 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open V
+                                    <subscript>REF</subscript>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-24 to 3</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open signal circuit.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007018" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="1.33in"/>
+                    <colspec colname="col2" colwidth="0.65in"/>
+                    <colspec colname="col3" colwidth="2.19*"/>
+                    <colspec colname="COLSPEC1" colwidth="3.81*"/>
+                    <spanspec namest="col1" nameend="COLSPEC1" spanname="SPAN2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for BAP Sensor</emph>
+                                    (Check with breakout box connected [X3 and X4 only] to ECM and chassis harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Voltage</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Pressure</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-24 to X4-24</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4.89 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>105 kPa (31 in Hg)</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>High atmospheric pressure.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-24 to X4-24</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4.60 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>100 kPa (29.5 in Hg)</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>Normal atmospheric pressure at sea level.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-24 to X4-24</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2.60 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>60 kPa (17.7 in Hg)</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>Normal atmospheric pressure at 10,000 feet.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>BAP Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 151 = Signal voltage was > 4.95 V for more than 0.5 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 152 = Signal voltage was &#60; 1.0 V for more than 0.5 second</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_127.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_129.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

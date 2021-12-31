@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos - - FUNCIONES Y DIAGN&#211;STICOS DE CIRCUITOS - Control del
+        ventilador del motor (EFN)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Control del ventilador del motor (EFN)</title>
+        <svcsubproc>
+            <title>Funciones de las se&#241;ales</title>
+            <figure id="f17503051" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8877.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="200"
+                         box="yes"/>
+                <caption>Diagrama de las funciones del control del ventilador del motor</caption>
+            </figure>
+            <para>El prop&#243;sito del control del ventilador del motor es encender y apagar el ventilador del sistema
+                de enfriamiento del motor y proporcionar una carga para retardar el veh&#237;culo cuando se requiera. La
+                estrategia en el ECM que controla el solenoide del ventilador del motor, monitoriza la temperatura del
+                refrigerante, la temperatura de aire de admisi&#243;n, la selecci&#243;n de la modalidad del motor
+                (motor en modalidad de operaci&#243;n o en modalidad de diagn&#243;sticos) y los l&#237;mites y valores
+                programados en el ECM. Puede ganarse acceso al control del ventilador del motor con la EST, para
+                programarlo de acuerdo a la siguiente lista:
+            </para>
+            <seqlist style="arabic">
+                <item>
+                    <para>Inhabilitado (apagado)</para>
+                </item>
+                <item>
+                    <para>Activaci&#243;n por la temperatura del refrigerante y la demanda del acondicionador de aire
+                    </para>
+                </item>
+                <item>
+                    <para>Activaci&#243;n por la temperatura del refrigerante y la operaci&#243;n del retardador</para>
+                </item>
+            </seqlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Detecci&#243;n y manejo de fallas</title>
+            <para>El ECM puede detectar que el circuito EFN est&#225; abierto o en corto a tierra, durante una prueba
+                est&#225;ndar de motor a solicitud. El IAT y el ECT son monitorizados en forma continua. Si se detecta
+                una falla en cualquiera de los dos circuitos, el EFN es inhabilitado y el ventilador del motor queda
+                encendido continuamente.
+            </para>
+            <figure id="f17503052" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8854.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="200"
+                         box="yes"/>
+                <caption>Diagrama de circuito del control del ventilador del motor</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Al retirar el conector, siempre revise en busca de pines da&#241;ados, corrosi&#243;n y
+                        terminales sueltos.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503015" frame="all">
+                <title>Diagn&#243;sticos del control del ventilador del motor</title>
+                <tgroup cols="3" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="13.23*"/>
+                    <colspec colname="COLSPEC0" colwidth="10.83*"/>
+                    <colspec colname="col3" colwidth="75.94*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="1to3"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Llave en ON y motor apagado - Pruebas del voltaje en el conector
+                                        del EFN
+                                    </emph>
+                                    (solenoide desconectado y llave en ON)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>(+) Puntos de prueba (-)</para>
+                            </entry>
+                            <entry>
+                                <para>Especif.</para>
+                            </entry>
+                            <entry>
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>12 V &#177;1,5</para>
+                            </entry>
+                            <entry>
+                                <para>Debe haber voltaje con llave en ON; revise el fusible o circuitos abiertos o en
+                                    corto
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Si hay voltaje, busque corto a energ&#237;a</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Pruebas de la resistencia en los circuitos (con el solenoide del
+                                        EFC y el cable positivo de la bater&#237;a desconectados, caja de derivaciones
+                                        instalada y la llave en OFF)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>(+) Puntos de prueba (-)</para>
+                            </entry>
+                            <entry>
+                                <para>Especif.</para>
+                            </entry>
+                            <entry>
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 a B</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si >5 &#x2126;, busque un circuito abierto</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>F1-H1 a A</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si >5 &#x2126;, busque un circuito abierto</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60;1 k&#x2126;, busque un corto a tierra</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Si &#60;1 k&#x2126;, busque un corto a tierra, revise con fusible desconectado
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Pruebas operacionales</emph>
+                                    (con el solenoide del EFC conectado y la caja de derivaciones instalada)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <note>
+                                    <para>Esta prueba s&#243;lo debe hacerse cuando no haya fallas en el ECT ni en el
+                                        IAT; el voltaje pasar&#225; de 12 a 0 V cuando se enciende el ventilador al
+                                        hacer la comprobaci&#243;n del estado de las salidas.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>(+) Puntos de prueba (-)</para>
+                            </entry>
+                            <entry>
+                                <para>Especif.</para>
+                            </entry>
+                            <entry>
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 a 19</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Solenoide energizado - ventilador apagado</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>8 a 19</para>
+                            </entry>
+                            <entry>
+                                <para>12 V</para>
+                            </entry>
+                            <entry>
+                                <para>Solenoide desenergizado - ventilador encendido</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <note>
+                                    <para>La temperatura normal del ventilador encendido es 100&#176; C (212&#176; F) y
+                                        del ventilador apagado es 97,5&#176; C (207,5&#176; F).
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Descripci&#243;n de los c&#243;digos de diagn&#243;stico de
+                                        problemas
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>246 = El rel&#233; de control del ventilador del motor fall&#243; la comprobaci&#243;n
+                                    del circuito de salida durante una prueba est&#225;ndar con la llave en ON y el
+                                    motor apagado.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <note>
+                                    <para>Con fines de prueba, el solenoide del EFC puede ser encendido y apagado
+                                        durante la comprobaci&#243;n del estado de las salidas.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Descripci&#243;n detallada</title>
+            <para>
+                <emph type="bold">Funci&#243;n</emph>
+            </para>
+            <para>El prop&#243;sito del control del ventilador del motor es determinar cu&#225;ndo deber&#225;
+                encenderse o apagarse el ventilador, suministrando o cortando la energ&#237;a al solenoide del
+                ventilador. El prop&#243;sito del ventilador del motor es producir un mayor flujo de aire para
+                intercambio de calor entre el radiador y el ambiente, cuando sea necesario. Adem&#225;s, el ventilador
+                del motor puede usarse como un dispositivo retardador del veh&#237;culo.
+            </para>
+            <para>
+                <emph type="bold">Control del ventilador del motor</emph>: Este par&#225;metro indica al sistema electr&#243;nico
+                si este cami&#243;n tiene la funci&#243;n de control del ventilador del motor.
+            </para>
+            <para>
+                <emph type="bold">Encendido del ventilador por acondicionador de aire</emph>: Esta funci&#243;n permitir&#225;
+                el encendido del ventilador a trav&#233;s del ECM cuando se solicite a trav&#233;s del ESC durante la
+                operaci&#243;n del acondicionador de aire.
+            </para>
+            <para>
+                <emph type="bold">Inhabilitado</emph>: La funci&#243;n est&#225; desactivada continuamente.
+            </para>
+            <para>
+                <emph type="bold">Activaci&#243;n s&#243;lo por temperatura del refrigerante</emph>: Permite la activaci&#243;n
+                del ventilador s&#243;lo en base a la temperatura del refrigerante.
+            </para>
+            <para>
+                <emph type="bold">Activaci&#243;n por temperatura del refrigerante y operaci&#243;n de retardador</emph>
+                : Permite la activaci&#243;n del ventilador en base a la temperatura del refrigerante o como un
+                dispositivo retardador del veh&#237;culo.
+            </para>
+            <para>
+                <emph type="bold">Temperatura de encendido del ventilador</emph>: Este par&#225;metro indica la
+                temperatura del refrigerante por encima de la cual el ventilador ser&#225; encendido electr&#243;nicamente.
+            </para>
+            <para>
+                <emph type="bold">Temperatura de apagado del ventilador</emph>: Este par&#225;metro indica la
+                temperatura del refrigerante por debajo de la cual el ventilador ser&#225; apagado electr&#243;nicamente.
+            </para>
+            <para id="f175fc246">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 246</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, SID 56, FMI 11</emph>
+            </para>
+            <para>
+                <emph type="bold">Autoprueba de OCC del ventilador del motor fall&#243;</emph>
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 246 es registrado s&#243;lo durante la prueba est&#225;ndar con la
+                llave en ON y el motor apagado. Durante esta prueba, el ECM realiza una comprobaci&#243;n de los
+                circuitos de salida que moment&#225;neamente habilita el solenoide del EFN y mide la ca&#237;da de
+                voltaje a trav&#233;s del solenoide. Refi&#233;rase a Diagrama de circuito del ventilador del motor
+                <xref refid="f17503053"/>.
+            </para>
+            <figure id="f17503053" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8818.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="300"
+                         box="yes"/>
+                <caption>Diagrama de circuito del ventilador del motor</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refi&#233;rase a S08285 - Diagramas de circuitos el&#233;ctricos - 4200/4300/4400</para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_90.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_92.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

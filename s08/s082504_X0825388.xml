@@ -1,0 +1,1644 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 3200, 4100, 4200, 4300, 4400, 7300, 7400, 7500, 7600, 8500, 8600
+        Models Built After 05/19/2003 - ELECTRICAL SYSTEM CONTROLLER AND SWITCH PACKS - ELECTRICAL SYSTEM CONTROLLER -
+        PROGRAMMING
+    </stitle>
+    <svcman/>
+    <svcproc id="x0825388" svcproctype="program" graphiccount="3">
+        <title>PROGRAMMING</title>
+        <svcprocinfo>
+            <para>When switches or switch packs are added or removed, gauge configurations are changed, features are
+                added, programmable parameters are changed or the ESC is replaced, the ESC must be reprogrammed with an
+                EZ-Tech running the" ICAP" software. The ICAP software can download the current configuration from the
+                truck or from International. When programming changes are completed the software will update the ESC
+                with the new configuration. The new configuration will have to be uploaded to International. This is
+                accomplished by dialing in and uploading the updated programming. A copy of the programming is stored at
+                International and updated each time there is a change. This is required in case there is a need to
+                restore the programming during ESC replacement.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>ESC Programmable Features and Parameters</title>
+            <para>The following parameters may be programmed in the ESC when the applicable feature is enabled. The ICAP
+                software must be used to program the system. Some parameters can only be changed by dealers while others
+                may be changed by body builders (TEMs) or Fleets.
+            </para>
+            <table id="t0825366" frame="all">
+                <title>ESC Programmable Parameters</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.61in"/>
+                    <colspec colname="col2" colwidth="1.16in"/>
+                    <colspec colname="col3" colwidth="2.91in"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>
+                                    <emph type="bold">Signal Name</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>
+                                    <emph type="bold">Access Rights</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>
+                                    <emph type="bold">Description</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Ammeter_Alrm_Ty_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Ammeter_Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Ammeter_Max_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Ammeter_Min_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>AutoLock_Speed</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM, Fleet</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>The speed at which the vehicle doors will lock automatically (requires power
+                                    locks)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Battery_Voltage_Alrm_Ty_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Battery_Voltage_Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Battery_Voltage_Max_WL_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Battery_Voltage_Min_WL_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Brake_App_Alrm_Ty_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Brake_App_Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Brake_App_Max_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Brake_App_Min_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Chirp_Enable</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Enables the Chirp when you hit the Keyless Remote Lock</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Cruise_Active_Ind_Enabled</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Fleet</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Deactivate/activate cruise control warning light in the EGC. Cruise control
+                                    operation not affected by this setting.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Diff_Lock_Engmt_Spd</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM, Fleet</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter defines the maximum speed at which a vehicle will allow the
+                                    Differential Lock to engaged.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Dome_Light_Dim_Enable</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM, Fleet</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Theatre dome light disable/enable.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Dome_Light_PWM_Percent_ Level</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>The level at which the dome light should be set at while it is waiting to dim
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Dome_Light_Wait_Time</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM, Fleet</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This is the amount of time the dome light should wait before dimming.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>DTRL_Enabled</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Activate/deactivate daytime running lights.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Oil_Press_Alrm_Ty_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Oil_Press_Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Oil_Press_Max_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Oil_Press_Min_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Oil_Temp_Alrm_Ty_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Oil_Temp_Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Oil_Temp_Max_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Oil_Temp_Min_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Speed_Alrm_Ty_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Speed_Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Speed_Max_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Speed_Min_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Watr_Temp_Alrm_Ty_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Watr_Temp_Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Watr_Temp_Max_WL_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Eng_Watr_Temp_Min_WL_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fuel_Level_Alrm_Ty_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fuel_Level_Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fuel_Level_Max_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fuel_Level_Min_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fuel_Press_Alrm_Ty_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fuel_Press_Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fuel_Press_Max_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fuel_Press_Min_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fwd_RR_Axle_Temp_Alrm_ Ty_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fwd_RR_Axle_Temp_ Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fwd_RR_Axle_Temp_Max_ WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Fwd_RR_Axle_Temp_Min_ WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>LOWW_Enabled</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM, Fleet</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Deactivate/activate lights on with wipers</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Max_Dump_Spd</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter defines the maximum vehicle speed at which a vehicle will allow
+                                    suspension dump to occur
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Max_Low_Range_Spd</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter defines the maximum vehicle speed at which a vehicle will allow the
+                                    rear axle to shift to a lower ratio.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Mirror_Heat_Timeout_Enable</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM, Fleet</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Enable Mirror Heat Intervals</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Panic_Enable</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM, Fleet</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Enables the Panic Mode for the Keyless Remote</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PDL_Warning_Spd</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Sets the maximum vehicle speed at which the PDL warning light is illuminated.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PTO_Throttle_Light_Enable</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Enable/disable PTO/Throttle Warning Light in the EGC.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Fuse_Level1_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 1 of RPM1
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Fuse_Level2_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 2 of RPM1
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Fuse_Level3_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 3 of RPM1
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Fuse_Level4_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 4 of RPM1
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Fuse_Level5_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 5 of RPM1
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Fuse_Level6_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 6 of RPM1
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Init_State1_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 1 of RPM1 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Init_State2_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 2 of RPM1 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Init_State3_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 3 of RPM1 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Init_State4_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 4 of RPM1 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Init_State5_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 5 of RPM1 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod1_Init_State6_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 6 of RPM1 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Fuse_Level1_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 1 of RPM2
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Fuse_Level2_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 2 of RPM2
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Fuse_Level3_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 3 of RPM2
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Fuse_Level4_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 4 of RPM2
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Fuse_Level5_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 5 of RPM2
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Fuse_Level6_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 6 of RPM2
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Init_State1_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 1 of RPM2 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Init_State2_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 2 of RPM2 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Init_State3_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 3 of RPM2 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Init_State4_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 4 of RPM2 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Init_State5_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 5 of RPM2 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod2_Init_State6_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 6 of RPM2 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Fuse_Level1_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 1 of RPM4
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Fuse_Level2_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 2 of RPM4
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Fuse_Level3_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 3 of RPM4
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Fuse_Level4_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 4 of RPM4
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Fuse_Level5_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 5 of RPM4
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Fuse_Level6_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 6 of RPM4
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Init_State1_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 1 of RPM4 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Init_State2_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 2 of RPM4 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Init_State3_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 3 of RPM4 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Init_State4_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 4 of RPM4 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Init_State5_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 5 of RPM4 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod4_Init_State6_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 6 of RPM4 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Fuse_Level1_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 1 of RPM7
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Fuse_Level2_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 1 of RPM7
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Fuse_Level3_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 1 of RPM7
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Fuse_Level4_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 1 of RPM7
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Fuse_Level5_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 1 of RPM7
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Fuse_Level6_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates what the current shut-off threshold of output 1 of RPM7
+                                    should be set to when the output is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Init_State1_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 1 of RPM7 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Init_State2_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 1 of RPM7 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Init_State3_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 1 of RPM7 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Init_State4_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 1 of RPM7 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Init_State5_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 1 of RPM7 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>PwrMod7_Init_State6_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>This parameter indicates if output 1 of RPM7 should be turned on or off initially
+                                    when the vehicle is turned on.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Pyrometer_Alrm_Ty_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Pyrometer_Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Pyrometer_Max_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Pyrometer_Min_WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Rear_RR_Axle_Temp_Alrm_ Ty_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Rear_RR_Axle_Temp_ Filter_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Rear_RR_Axle_Temp_Max_ WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Rear_RR_Axle_Temp_Min_ WL_Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Stop_Override_Hazard_ Enabled</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM, Fleet</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Enable/disable stoplights override hazard lights.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Susp_Air_Press_Alrm_Ty_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Susp_Air_Press_Filter_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Susp_Air_Press_Min_WL_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Trans_Oil_Temp_Alrm_Ty_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Trans_Oil_Temp_Filter_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Trans_Oil_Temp_Max_WL_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Turbo_Boost_Press_Alrm_ Ty_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge Alarm Type</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Turbo_Boost_Press_Filter_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Gauge update rate</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Turbo_Boost_Press_Max_ WL_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Maximum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Turbo_Boost_Press_Min_ WL_ Param</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Minimum set point for in-gauge warning light</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom">
+                                <para>Work_Light_Timeout_Enable</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Dealer, TEM, Fleet</para>
+                            </entry>
+                            <entry colname="col3" valign="bottom">
+                                <para>Enables/disables Work Light timeout</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Changing Gauge Configurations</title>
+            <specpara>
+                <note>
+                    <para>Refer to the ICAP software manual for instructions on the use of the programming software.
+                    </para>
+                </note>
+            </specpara>
+            <para>When a new gauge is added to the current configuration, the EZ-Tech&#174; programming software must be
+                used to determine if there is room to add the desired gauge. Some gauges will only fit in certain
+                locations in the EGC. If the gauge cannot be located in the EGC, the gauge may be able to fit in the
+                optional auxiliary gauge switch pack (AGSP) module. Adding the AGSP module to the instrument panel can
+                be expensive, especially if only one gauge is being added and the switches in the AGSP are not going to
+                be used. The EZ-Tech programming software must be used to program the ESC and EGC or AGSP to recognize
+                the new gauge.
+            </para>
+            <para>After the appropriate gauge location has been identified in the EGC or AGSP, the sensor for the gauge
+                and the required wiring must be installed.
+            </para>
+            <para>The EZ-Tech programming software must be used to determine available circuit locations on the ESC
+                connectors and to program the ESC to recognize the added circuits and sensor.
+            </para>
+            <para>Installing the new circuits in the ESC connector is accomplished by removing the plug and inserting
+                new connector pins in the appropriate slots of the connector.
+            </para>
+            <para>Pins with pigtails already connected to them should be available to insert into the connector. The new
+                circuits should be spliced to the pigtail.
+            </para>
+            <specpara>
+                <note>
+                    <para>The 36-way ESC connectors are not very rugged. Take care when disassembling the connector,
+                        inserting new pins and reassembling the connector.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc id="x082539">
+            <title>Programming Switch Configurations</title>
+            <specpara>
+                <note>
+                    <para>Refer to the EZ-Tech programming software manual for instructions on the use of the
+                        programming software.
+                    </para>
+                </note>
+            </specpara>
+            <para>When a new feature requiring a multiplexed switch is added to the vehicle, the EZ-Tech programming
+                software must be used to determine where the switch should be installed. Hopefully, there will be a
+                vacant position in one of the switch pack modules. If there are no vacant positions, it may be necessary
+                to install an additional switch pack module. The EZ-Tech programming software must be used to program
+                the ESC to recognize the new switch.
+            </para>
+            <para>After the appropriate switch location has been identified, the wiring and other hardware for the
+                feature must be installed.
+            </para>
+            <para>The EZ-Tech running the "ICAP" programming software must be used to determine available circuit
+                locations on the ESC connectors and to program the ESC to recognize the added circuits and the feature
+                sensor.
+            </para>
+            <para>Installing the new circuits in the ESC connector is accomplished by removing the plug from the cavity
+                and inserting new connector pins in the appropriate slots of the connector.
+            </para>
+            <para>Pins with pigtails already connected to them should be available to insert into the connector. The new
+                circuits should be spliced to the pigtail.
+            </para>
+            <specpara>
+                <note>
+                    <para>The 36-way ESC connectors are not very rugged. Take care when disassembling the connector,
+                        inserting new pins and reassembling the connector.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Programming Templates</title>
+            <para>Mark the following templates to keep track of new switch, gauge or pin requirements assigned by the
+                "ICAP" software.
+            </para>
+            <figure id="f08253041" figsize="pg-wide">
+                <graphic filename="../figg08/g0825311.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Switch Pack Templates</caption>
+            </figure>
+            <figure id="f082533" figsize="pg-wide">
+                <graphic filename="../figg08/g0825403.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Gauge and AGSP Location Templates</caption>
+            </figure>
+            <figure id="f082533d" figsize="pg-wide">
+                <graphic filename="../figg08/g0825312.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>ESC Harness Connector Templates (Mating Views Shown)</caption>
+                <calloutgroup>
+                    <callout1>(1600) 36-WAY CAB ESC CONNECTOR</callout1>
+                    <callout1>(1601) 8-WAY, BROWN, CAB ESC CONNECTOR</callout1>
+                    <callout1>(4004) 36-WAY ENGINE ESC CONNECTOR</callout1>
+                    <callout1>(4007) 8-WAY, BROWN, ENGINE ESC CONNECTOR</callout1>
+                    <callout1>(4008) 8-WAY, BLUE, ENGINE ESC CONNECTOR</callout1>
+                </calloutgroup>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504_56.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504_X0825310A.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

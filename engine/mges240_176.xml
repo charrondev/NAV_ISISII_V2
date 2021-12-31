@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos para motores VT 365 (2002) - DIAGN&#211;STICOS DEL SISTEMA DE CONTROL
+        ELECTR&#211;NICO - Diagn&#243;sticos de circuitos - Regulador de la presi&#243;n de inyecci&#243;n (IPR)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>Regulador de la presi&#243;n de inyecci&#243;n (IPR)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="D3320" filename="../figD33/D3320.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama de la funci&#243;n del regulador de la presi&#243;n de inyecci&#243;n (IPR)</caption>
+            </figure>
+            <para>El diagrama de la funci&#243;n del IPR incluye lo siguiente:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Regulador de la presi&#243;n de inyecci&#243;n (IPR)</para>
+                </item>
+                <item>
+                    <para>Sensor de la temperatura del aceite del motor (EOT)</para>
+                </item>
+                <item>
+                    <para>Sensor de la presi&#243;n de control de inyecci&#243;n (ICP)</para>
+                </item>
+                <item>
+                    <para>Sensor de la presi&#243;n absoluta del m&#250;ltiple de admisi&#243;n (MAP)</para>
+                </item>
+                <item>
+                    <para>Sensor de la presi&#243;n barom&#233;trica absoluta (BAP)</para>
+                </item>
+                <item>
+                    <para>Sensor de la posici&#243;n del &#225;rbol de levas (CMP)</para>
+                </item>
+                <item>
+                    <para>Sensor de la posici&#243;n del cig&#252;e&#241;al (CKP)</para>
+                </item>
+                <item>
+                    <para>Sensor de posici&#243;n del acelerador / Interruptor de confirmaci&#243;n de ralent&#237; (APS
+                        / IVS)
+                    </para>
+                </item>
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>
+            </para>
+            <para>La v&#225;lvula IPR controla la presi&#243;n del aceite en el sistema de control de inyecci&#243;n a
+                alta presi&#243;n que activa los inyectores. El IPR consiste en un solenoide y en v&#225;lvulas de v&#225;stago
+                y carrete. El IPR est&#225; instalado en la parte superior trasera del motor, en la tapa de la bomba de
+                aceite de alta presi&#243;n. El ECM regula la presi&#243;n de control de inyecci&#243;n controlando el
+                tiempo de activaci&#243;n y desactivaci&#243;n del solenoide del IPR. Un aumento o disminuci&#243;n en
+                el tiempo de activaci&#243;n y desactivaci&#243;n hace cambiar la posici&#243;n de las v&#225;lvulas de
+                v&#225;stago y carrete dentro del IPR, manteniendo la presi&#243;n en el sistema o desahogando la presi&#243;n
+                hacia el c&#225;rter a trav&#233;s de la tapa trasera.
+            </para>
+            <specpara>
+                <note>
+                    <para>Dependiendo del tipo de falla, el motor puede que no funcione si hay una falla en el IPR.
+                    </para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Operaci&#243;n del circuito del IPR</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="D3321" filename="../figD33/D3321.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama del circuito del IPR</caption>
+            </figure>
+            <para>El IPR recibe voltaje desde el V
+                <subscript>IGN</subscript>
+                por el terminal 1 de su conector. El control del sistema de control de inyecci&#243;n es realizado por
+                el ECM poniendo a tierra el terminal 2 del IPR desde el pin X1-12 del ECM. Variando el porcentaje de
+                tiempo de activaci&#243;n y desactivaci&#243;n del solenoide del IPR se obtiene un control preciso. Un
+                ciclo de trabajo alto indica que se est&#225; ordenando una alta cantidad de presi&#243;n de control de
+                inyecci&#243;n. Un ciclo de trabajo bajo indica que se est&#225; ordenando menos presi&#243;n.
+            </para>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>
+            </para>
+            <para>Un circuito de control interrumpido o en corto a tierra puede detectarse mediante una comprobaci&#243;n
+                de los circuitos de salida realizada durante las pruebas est&#225;ndar con la llave en ON y el motor
+                apagado. Si se detecta una falla en el circuito aparecer&#225; un DTC. Cuando el motor est&#225; en
+                marcha, el ECM puede detectar si la presi&#243;n de control de inyecci&#243;n es igual a la presi&#243;n
+                deseada. Cuando la presi&#243;n medida no se parece a la presi&#243;n deseada, el ECM ignorar&#225; la
+                se&#241;al del ICP e intentar&#225; controlar el motor con el valor deseado.
+            </para>
+            <para>
+                <title>C&#243;digos de falla (DTC) del IPR</title>
+            </para>
+            <para>Los DTC se leen con la herramienta electr&#243;nica de servicio (EST) o contando los destellos de las
+                luces ENGINE &#225;mbar y roja.
+            </para>
+            <verbatim id="f240dtc241">
+                <line>
+                    <emph type="bold">DTC 241</emph>
+                </line>
+                <line>
+                    <emph type="bold">Falla de la autoprueba de OCC del IPR</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 241 cuando falla la prueba de OCC luego de hacer una prueba est&#225;ndar
+                        con la llave en ON y el motor apagado.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 241 puede aparecer cuando hay mala conexi&#243;n al solenoide del IPR o una bobina del
+                        IPR est&#225; defectuosa.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 241 est&#225; activo, el motor no funcionar&#225; ni se encender&#225; la luz
+                        ENGINE &#225;mbar.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Herramientas</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Herramienta electr&#243;nica de servicio (EST) con software Master Diagnostics</para>
+                </item>
+                <item>
+                    <para>Cable de interfaz EZ-Tech de International&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Caja de conexiones</para>
+                </item>
+                <item>
+                    <para>Haz de derivaci&#243;n</para>
+                </item>
+                <item>
+                    <para>Juego de adaptadores para probar terminales</para>
+                </item>
+            </randlist>
+            <para>El circuito del IPR requiere que se usen los diagramas de circuitos del veh&#237;culo. Refi&#233;rase
+                al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n sobre los n&#250;meros
+                de los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos del IPR con los pines</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="D3321" filename="../figD33/D3321.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama del circuito del IPR</caption>
+            </figure>
+            <table id="te24007069" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de voltaje en el IPR</emph>
+                                    (Con el conector del IPR desenchufado, el haz de derivaci&#243;n instalado y la
+                                    llave en ON).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a del IPR desde V
+                                    <subscript>IGN</subscript>. Si no hay voltaje, revise del fusible al conector del
+                                    IPR. Refi&#233;rase al manual Diagrama de circuitos el&#233;ctricos del chasis para
+                                    informaci&#243;n sobre los n&#250;meros de los circuitos y la ubicaci&#243;n de los
+                                    conectores y fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0-0,25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >0,25 V, el cable de control est&#225; en corto al V
+                                    <subscript>REF</subscript>
+                                    o B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia del conector a la tierra del chasis
+                                    </emph>
+                                    (Con el conector del IPR desenchufado, llave en OFF y el cable negativo de la bater&#237;a
+                                    desconectado).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistencia a la tierra del chasis. Si &#60;1 k&#x2126;, busque un corto a tierra,
+                                    revise con fusible desconectado.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el cableado</emph>
+                                    (Con la caja de conexiones s&#243;lo en el cableado del motor. Con el fusible
+                                    desconectado).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-12 al fusible</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5-20 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistencia a trav&#233;s de todo el circuito, incluyendo el IPR; mida con el
+                                    conector del cableado conectado al IPR.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Fusible a 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126; hay interrupci&#243;n en el cable de energ&#237;a del IPR.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-12 a 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126; el cable de control del IPR est&#225; abierto</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">C&#243;digos de falla del IPR</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 241 = Fue detectada una comprobaci&#243;n de los circuitos de salida durante
+                                    la prueba est&#225;ndar, lo que indica resistencia alta o baja en el circuito.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_175.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_177.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

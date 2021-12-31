@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - WIF Sensor (Water in Fuel)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>WIF Sensor (Water in Fuel)</title>
+        <svcprocinfo>
+            <figure id="f27007127" figsize="pg-wide">
+                <graphic filename="../figh31/h31335.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for the WIF system</caption>
+            </figure>
+            <para id="WIF">The function diagram for the WIF system includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Fuel filter assembly</para>
+                </item>
+                <item>
+                    <para>FUEL FILTER lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>The Electronic Control Module (ECM) monitors the fuel filter header and alerts the operator when water
+                is present in the fuel supply. When water is detected, the ECM will set a Diagnostic Trouble Code (DTC)
+                and the amber FUEL FILTER lamp will illuminate.
+            </para>
+            <para id="WIF">The WIF system includes the ECM and the fuel filter assembly with a WIF sensor. The WIF
+                sensor is used in the fuel filter assembly.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>WIF Circuit Operation</title>
+            <figure id="f27007128" figsize="pg-wide">
+                <graphic filename="../figh31/h31336.webp" type="webp" scalefit="1" scalefitwidth="312px"
+                         scalefitheight="532px"/>
+                <caption>WIF circuit diagram</caption>
+            </figure>
+            <para>The WIF sensor uses two electrical contacts exposed to the fuel supply. When water is present in the
+                fuel supply, the circuit between the contacts is closed. This allows a 5 V signal at ECM Pin X2-9. When
+                water is not present, the circuit is open and ECM Pin X2-9 will be 0 V.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM continuously monitors the WIF circuit for in-range faults. The ECM does not detect open or
+                short circuits in the WIF circuit. When the ECM detects an in-range fault, DTC 153 will be set.
+            </para>
+            <para>
+                <title>WIF Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 153</emph>
+                </line>
+                <line>
+                    <emph type="bold">WIF signal out-of-range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 153 is set when the ECM detects an in-range voltage at or above 4.5 V at ECM Pin X2-9.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 153 is set when the WIF signal circuit is shorted to V
+                        <subscript>REF</subscript>
+                        or V
+                        <subscript>BAT</subscript>.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 153 is active, the FUEL FILTER lamp is not illuminated.</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>WIF Pin-Point Diagnostics</title>
+            <figure id="f27007129" figsize="pg-wide">
+                <graphic filename="../figh31/h31336.webp" type="webp" scalefit="1" scalefitwidth="312px"
+                         scalefitheight="532px"/>
+                <caption>WIF system circuit diagram</caption>
+            </figure>
+            <para>The WIF circuit may require the use of vehicle circuit diagrams. See truck Chassis Electrical Circuit
+                Diagram Manualfor circuit numbers, connector and fuse locations.
+            </para>
+            <table id="te27007107" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.36in"/>
+                    <colspec colname="col2" colwidth="1.09in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Voltage Checks at WIF Sensor Connector</emph>
+                                    (Disconnect harness from sensor and turn the ignition switch to ON.)
+                                    <emph type="bold">Note:</emph>
+                                    After removing connector, inspect for damaged pins, corrosion, or loose pins. Repair
+                                    as required.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage &#60; 5 V, check for open V
+                                    <subscript>REF</subscript>
+                                    circuit or failed ECM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 0 V, check for signal circuit shorted to another circuit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Sensor Resistance Check</emph>
+                                    (Disconnect connector from sensor and measure across sensor.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for water in fuel, failed sensor, or shorted sensor
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to ECM Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the chassis ground connection for the ECM and IDM. Refer to truck
+                                        Chassis Electrical Circuit Diagram Manual for complete chassis side ECM and IDM
+                                        ground circuit information.</ftnote>. Disconnect harness from sensor.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to Pin B (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to signal ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to Pin B (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to signal ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect harness from
+                                    sensor. Use disconnected negative battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to chassis ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to chassis ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Check - WIF Connector to ECM</emph>
+                                    (Turn the ignition switch to OFF. Connect breakout box to chassis harness only.
+                                    Disconnect sensor.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-14 to B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open V
+                                    <subscript>REF</subscript>
+                                    circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-9 to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open signal wire.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for WIF Sensor</emph>
+                                    (Check with breakout box connected to ECM and engine harness and WIF sensor
+                                    connected. Turn the ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-9 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 2.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>Voltage is 2.5 V with water in fuel. Voltage 0 V without water in fuel (use
+                                    breakout box).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>WIF Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 153 = Signal voltage was > 4.5 V</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_163.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_E2700108.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

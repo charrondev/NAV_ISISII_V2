@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>FULL POWER HYDRAULIC ABS BRAKE SYSTEM - OPERATION - WARNING INDICATORS</stitle>
+    <svcsection/>
+    <svcproc id="hl04051301" graphiccount="0">
+        <title>WARNING INDICATORS</title>
+        <para>Indicators located in the Electronic Gauge Cluster (EGC), are used to display the status of the brake
+            system. Refer to
+            <hotlnk document="s04051_11.xml" xrefid="f0405115">FIGURE 15</hotlnk>. Some of the indicators identify
+            conditions that may require service. In addition to the warning indicators, a buzzer is sounded for certain
+            conditions. The following table includes brief descriptions of how each of the indicators is energized. In
+            the event that a lit indicator is the result of a malfunction, diagnostic codes identifying the source of
+            the malfunction will be stored in the ECU memory. Retrieval of the diagnostic codes is explained in Section
+            5,
+            <hotlnk document="s04051_HL04051500.xml" xrefid="hl04051500">DIAGNOSIS AND TROUBLESHOOTING</hotlnk>
+            . Although the following table lists possible malfunctions for each indicator, some malfunctions such as
+            loss of data link communications, will result in more than one indicator being lit. When the IGN key is
+            turned on a bulb check is performed. The indicators in the gauge cluster will light for about 3 seconds,
+            then turn off.
+        </para>
+        <table id="t0405102" tblwidth="pg-wide">
+            <title>Warning Indicators</title>
+            <tgroup cols="4">
+                <colspec colname="col1" colwidth="0.31*"/>
+                <colspec colname="COLSPEC0" colwidth="0.39*"/>
+                <colspec colname="col2" colwidth="0.31*"/>
+                <colspec colname="col3" colwidth="2.55*"/>
+                <spanspec namest="COLSPEC0" nameend="col2" spanname="SPAN3"/>
+                <spanspec namest="col1" nameend="COLSPEC0" spanname="SPAN2"/>
+                <spanspec namest="col1" nameend="col2" spanname="SPAN1"/>
+                <thead>
+                    <row>
+                        <entry colspan="3" spanname="SPAN1" valign="bottom" align="center">
+                            <para>
+                                <emph type="bold">INDICATOR</emph>
+                            </para>
+                        </entry>
+                        <entry valign="bottom" align="center">
+                            <para>
+                                <emph type="bold">SYSTEM CONDITION BEING INDICATED</emph>
+                            </para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry colspan="2" spanname="SPAN2">
+                            <para>
+                                <emph type="bold">BRAKE</emph>
+                            </para>
+                        </entry>
+                        <entry></entry>
+                        <entry></entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- SOLID ON</para>
+                        </entry>
+                        <entry>
+                            <para>
+                                <emph type="bold">Half system failure.</emph>
+                                A sensor in the HCU has detected low pressure (&#60;1550 psi) in the accumulator for
+                                either the front or rear brake circuit.
+                            </para>
+                            <para>The ECU sends a J1939 data link signal to the Body Controller (BC). The BC sends a
+                                J1939 data link signal to the EGC commanding it to turn on the indicator and sound the
+                                warning buzzer.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- FLASHING</para>
+                        </entry>
+                        <entry>
+                            <para>
+                                <emph type="bold">Full system failure.</emph>
+                                A sensor in the HCU has detected low pressure (&#60;1550 psi) in the accumulators for
+                                both the front and rear brake circuits.
+                            </para>
+                            <para>The ECU sends a J1939 data link signal to the BC. The BC sends a J1939 data link
+                                signal to the EGC commanding it to turn on the indicator and sound the warning buzzer.
+                            </para>
+                            <para>The ECU sends a J1939 data link signal to the ECM. Once vehicle speed drops below 25
+                                mph, engine limiting will limit the vehicle speed to 25 mph or less.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- OFF</para>
+                        </entry>
+                        <entry>
+                            <para>System pressures are in normal range.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="2" spanname="SPAN2">
+                            <para>
+                                <emph type="bold">BRAKE FLUID</emph>
+                            </para>
+                        </entry>
+                        <entry></entry>
+                        <entry></entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- SOLID ON</para>
+                        </entry>
+                        <entry>
+                            <para>Low brake fluid level detected in the Master Cylinder reservoir.</para>
+                            <para>The fluid level sensor on the MC reservoir sends a signal to the ECU. The ECU sends a
+                                J1939 data link signal to the Body Controller (BC). The BC sends a J1939 data link
+                                signal to the EGC commanding it to turn on the indicator.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- OFF</para>
+                        </entry>
+                        <entry>
+                            <para>Brake fluid level detected in the Master Cylinder reservoir is at or above MIN.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="2" spanname="SPAN2">
+                            <para>
+                                <emph type="bold">ABS</emph>
+                            </para>
+                        </entry>
+                        <entry></entry>
+                        <entry></entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- SOLID ON</para>
+                        </entry>
+                        <entry>
+                            <para>An ABS related fault has been detected by the ECU.</para>
+                            <para>-OR-</para>
+                            <para>Communications between the ECU and the Body Controller (BC) have been lost.</para>
+                            <para>-OR-</para>
+                            <para>The ECU is not receiving power.</para>
+                            <para>When the ECU detects an ABS related fault, it sends a J1939 data link signal to the
+                                BC. The BC sends a J1939 data link signal to the EGC commanding it to turn on the
+                                indicator.
+                            </para>
+                            <para>When the BC does not receive a communication from the ECU within a predetermined
+                                period of time, it sends a J1939 data link signal to the EGC commanding it to turn on
+                                the indicator.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- OFF</para>
+                        </entry>
+                        <entry>
+                            <para>The ECU is receiving power and is communicating with the BC; and no ABS related faults
+                                have been detected by the ECU.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="2" spanname="SPAN2">
+                            <para>
+                                <emph type="bold">TRAC CTRL</emph>
+                            </para>
+                        </entry>
+                        <entry></entry>
+                        <entry>
+                            <para>(Vehicles equipped with optional ATC)</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- SOLID ON</para>
+                        </entry>
+                        <entry>
+                            <para>The TRAC CTRL indicator will be continuously lit whenever:</para>
+                            <para>A traction control related fault has been detected.</para>
+                            <para>
+                                <emph type="bold">- OR -</emph>
+                            </para>
+                            <para>The ATC system is operating correctly, and an ATC event is occurring.</para>
+                            <para>When the ECU experiences an ATC event or detects an ATC related fault, it sends a
+                                J1939 data link signal to the Body Controller (BC). The BC sends a J1939 data link
+                                signal to the EGC commanding it to turn on the indicator.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- FLASHING</para>
+                        </entry>
+                        <entry>
+                            <para>The TRAC CTRL indicator will be flashing whenever the Mud and Snow mode has been
+                                selected using the traction control switch (switch indicator lit).
+                            </para>
+                            <para>The BC senses the position of the dash switch via the switch data link. The BC sends a
+                                J1939 data link signal to the ECU. The ECU sends a J1939 data link signal back to the BC
+                                indicating that the Mud and Snow mode is selected, and that no ATC related faults have
+                                been detected. The BC sends a J1939 data link signal to the EGC commanding it to flash
+                                the indicator.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- OFF</para>
+                        </entry>
+                        <entry>
+                            <para>The ATC system is operating correctly, the Mud and Snow mode has not been selected,
+                                and the vehicle is not experiencing an ATC event.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="2" spanname="SPAN2">
+                            <para>
+                                <emph type="bold">BRAKE</emph>
+                            </para>
+                        </entry>
+                        <entry></entry>
+                        <entry>
+                            <para>On vehicles with an additional BRAKE indicator located in one of the indicator
+                                quadrants below the speedometer and tach.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- SOLID ON</para>
+                        </entry>
+                        <entry>
+                            <para>Low brake fluid level detected in the Master Cylinder reservoir.</para>
+                            <para>(The fluid level sensor on the MC reservoir sends a signal to the ECU. The ECU sends a
+                                signal to the indicator relay causing the relay to turn on the indicator.)
+                            </para>
+                            <para>
+                                <emph type="bold">- OR -</emph>
+                            </para>
+                            <para>Half system failure. A sensor in the HCU has detected low pressure (&#60;1550 psi) in
+                                the accumulator for either the front or rear brake circuit.
+                            </para>
+                            <para>(The ECU sends a signal to the indicator relay causing the relay to turn on the
+                                indicator.)
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- FLASHING</para>
+                        </entry>
+                        <entry>
+                            <para>Full system failure. A sensor in the HCU has detected low pressure (&#60;1550 psi) in
+                                the accumulators for both the front and rear brake circuits.
+                            </para>
+                            <para>The ECU sends a signal to the indicator relay causing the relay to turn on the
+                                indicator in a flashing pattern.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry></entry>
+                        <entry colspan="2" spanname="SPAN3">
+                            <para>- OFF</para>
+                        </entry>
+                        <entry>
+                            <para>System pressures are in normal range, and the brake fluid level detected in the Master
+                                Cylinder reservoir is at or above MIN.
+                            </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04051_HL04051300.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04051_14.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04051.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

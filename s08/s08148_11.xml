@@ -1,0 +1,656 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE / 9200 9300 9400 MODELS BUILT AFTER JANUARY 1, 1995 - CATERPILLAR
+        3176B/3406E ELECTRONIC ENGINE CONTROLS - 1994 - ELECTRICAL OPERATION - SPEEDOMETER/TACHOMETER INPUTS
+    </stitle>
+    <svcsection/>
+    <svcproc id="x0814830" svcproctype="IDcomponent" graphiccount="0">
+        <title>SPEEDOMETER/TACHOMETER INPUTS</title>
+        <svcprocinfo>
+            <para>Refer to
+                <emph type="bold">
+                    <hotlnk document="s08148_36.xml" xrefid="x0814804">CIRCUIT DIAGRAMS</hotlnk>, Figures
+                    <hotlnk document="s08148_7.xml" xrefid="f0814801">6.07</hotlnk>
+                    or
+                    <hotlnk document="s08148_7.xml" xrefid="f0814802">6.10</hotlnk>
+                    and
+                    <hotlnk document="s08148_9.xml" xrefid="f0814807">6.11</hotlnk>
+                </emph>
+                , for this discussion.
+            </para>
+            <para>The input signal to the speedometer and tachometer with the 3176B and 3406E Caterpillar engines is
+                provided by the ECM through the ATA data link circuits 98(+) and 98B(-) to Datalink Positive bus
+                connector (514) and Datalink Negative bus connector (515), then circuit 47/48(+) from (514) and 47/48(-)
+                from (515) connect to the speedometer/tachometer unit at connector (595). Also refer to
+                <emph type="bold">
+                    <hotlnk document="s08148_9.xml" xrefid="x0814816">ATA DATA LINK CONNECTOR (220)</hotlnk>
+                </emph>
+                for discussion of data link circuits.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Speedometer/Tachometer Unit</title>
+            <para>Refer to
+                <emph type="bold">
+                    <hotlnk document="s08148_36.xml" xrefid="x0814804">CIRCUIT DIAGRAMS</hotlnk>, Figure
+                    <hotlnk document="s08148_9.xml" xrefid="f0814807">6.11</hotlnk>
+                </emph>
+                , for this discussion.
+            </para>
+            <para>The speedometer/tachometer cluster initially used with the 3176B and 3406E engines was International
+                part number 1682010C91. Since that time improvements have been made to the unit and the part number was
+                revised to 1682010C92, then to 1682010C93. There are some differences in how they were programmed, so
+                each will be discussed separately. The part number appears on the back of each cluster, along with the
+                initial factory settings.
+            </para>
+            <para>
+                <emph type="bold">Speedometer/Tachometer - 1682010C91</emph>
+            </para>
+            <para>The speedometer/tachometer has two sets of Dip Switches, ten in each set. One set is for the
+                speedometer and one set is for the tachometer.
+                <emph type="bold">The ten speedometer dip switches are physically positioned in the one position at the
+                    factory.
+                </emph>
+            </para>
+            <para>Speedometer - 1111111111</para>
+            <para>
+                <emph type="bold">The tachometer requires the eight switches on the left switch bank to be physically
+                    positioned in the one position.
+                </emph>
+                The ninth switch is not used (set at zero) and the tenth switch is for miles (0 position) or kilometers
+                (1 position). A unit set for miles would look like the following:
+            </para>
+            <para>Tachometer - 1111111100</para>
+            <para>These settings program the speedometer/tachometer unit to operate using inputs (serial data
+                transmissions) from the ECM over the data link.
+                <emph type="bold">If the tire size or rear axle ratios are changed, the ECM programming, not the
+                    speedometer unit, has to be changed</emph>.
+            </para>
+            <para>
+                <emph type="bold">Speedometer/Tachometer - 1682010C92 and 1682010C93</emph>
+            </para>
+            <para>The speedometer/tachometer cluster has two sets of Dip Switches, ten in each set. One set is for the
+                speedometer and one set is for the tachometer. For the C92 and C93 part number clusters,
+                <emph type="bold">the ten speedometer and the ten tachometer dip switches are physically positioned in
+                    the
+                </emph>
+                <emph type="bold">zero position.</emph>
+                They are
+                <emph type="underscr">electronically programmed</emph>
+                to the following settings:
+            </para>
+            <para>Speedometer - 1111111111</para>
+            <para>Tachometer - 1111111100 (miles/hr)</para>
+            <para>1111111101 (kilometers/hr)</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM Speedometer Programming</title>
+            <para>The ECM receives a vehicle speed signal from the International installed vehicle speed sensor or
+                Allison installed speed sensor.
+                <emph type="italic">The ECM is programmed with the number of pulses per mile from the vehicle speed
+                    sensor.
+                </emph>
+            </para>
+            <para>If the vehicle tire size, axle ratio or number of teeth on the transmission speedometer gear are
+                changed,
+                <emph type="bold">the ECM will have to be reprogrammed with the new pulses per mile data.</emph>
+                The speedometer/tachometer unit does not get reprogrammed. The Prolink EST or Caterpillar EST can be
+                used for the reprogramming. Refer to Caterpillar or Prolink manual for this procedure.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Calculating Pulses Per Mile (PPM)</title>
+            <para>PPM= M x Ra x N</para>
+            <para>M = Tire revolutions per mile = 10085 divided by the tire radius. Also the following table
+                <hotlnk document="s08148_8.xml" xrefid="t0814803">(Figure 2.05)</hotlnk>
+                lists revolutions per mile for various size tires. The table information is an average from several tire
+                manufacturers. Tire manufacturers can also provide specific information for their tires.
+            </para>
+            <table id="t0814804" tblwidth="full-page" frame="all" numbered="no" view="reveal">
+                <title>Tire Revolutions Per Mile</title>
+                <tgroup cols="3" align="center" charoff="50" char="c">
+                    <colspec colname="1" colwidth="1.55in"/>
+                    <colspec colname="2" colwidth="1.51in"/>
+                    <colspec colname="3" colwidth="1.47in"/>
+                    <spanspec namest="1" nameend="3" spanname="s1t3" align="center"/>
+                    <tbody valign="top">
+                        <row>
+                            <entry colspan="3" spanname="s1t3">
+                                <para>
+                                    <emph type="bold">Radial Tire Revolutions Per Mile</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>
+                                    <emph type="bold">SIZE</emph>
+                                </para>
+                            </entry>
+                            <entry colname="2">
+                                <para>
+                                    <emph type="bold">RADIUS</emph>
+                                </para>
+                            </entry>
+                            <entry colname="3">
+                                <para>
+                                    <emph type="bold">REV/MILE</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>8.25 X 20</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>18.8</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>536</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>9.00 X 20</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>19.6</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>515</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>10.00 X 20</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.2</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>499</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>11.00 X 20</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.8</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>485</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>10.00 X 22</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>21.2</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>476</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>11.00 x 22</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>21.8</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>463</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>11.00 x 24</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>23.1</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>437</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>18.00 x 19.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.6</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>490</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>9.00 x 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>18.7</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>539</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>10.00 x 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>19.6</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>515</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>11.00 x 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.3</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>497</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>12.00 X 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.8</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>485</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>18.00 x 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>22.1</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>456</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>11.00 x 24.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>21.3</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>474</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>235/80R 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>17.7</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>570</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>255/80R 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>17.8</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>567</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>275/80R 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>19.5</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>517</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>275/80R 24.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.1</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>502</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>285/75R 24.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.2</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>499</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>285/80R 24.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.1</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>502</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>295/75R 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>19.7</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>512</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>295/80R 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.0</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>504</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>315/80R 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.6</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>490</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="s1t3">
+                                <para>
+                                    <emph type="bold">BIAS TIRE REVOLUTIONS PER MILE</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>
+                                    <emph type="bold">SIZE</emph>
+                                </para>
+                            </entry>
+                            <entry colname="2">
+                                <para>
+                                    <emph type="bold">RADIUS</emph>
+                                </para>
+                            </entry>
+                            <entry colname="3">
+                                <para>
+                                    <emph type="bold">REV/MILE</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>8.25 x 20</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>18.7</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>539.3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>9.00 x 20</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>19.4</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>519.8</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+                <caption>
+                    <emph type="bold">Figure 2.05 - Tire Rev/Mile Chart (Cont. on next page)</emph>
+                </caption>
+            </table>
+            <table id="t0814805" tblwidth="full-page" frame="all" numbered="no" view="reveal">
+                <tgroup cols="3" align="center" charoff="50" char="c">
+                    <colspec colname="1" colwidth="1.50in"/>
+                    <colspec colname="2" colwidth="1.50in"/>
+                    <colspec colname="3" colwidth="1.50in"/>
+                    <spanspec namest="1" nameend="3" spanname="s1t3" align="center"/>
+                    <tbody valign="top">
+                        <row>
+                            <entry colname="1">
+                                <para>10.00 x 20</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.2</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>499.3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>11.00 x 20</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.7</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>487.2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>10.00 x 22</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>21.0</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>480.2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>11.00 x 22</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>21.7</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>464.8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>11.00 x 24</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>23.0</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>438.5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>18.00 x 19.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>21.0</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>480.2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>9.00 x 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>18.7</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>539.3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>10.00 x 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>19.4</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>519.8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>11.00 x 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.2</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>499.7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>12.00 x 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>20.7</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>487.2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>18.00 x 22.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>22.0</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>458.4</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>11.00 x 24.5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>21.0</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>480.2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="s1t3">
+                                <para>
+                                    <emph type="bold">Figure 2.05 - Tire Rev/Mile Chart</emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>Ra = Rear axle ratio which can normally be found on the rear axle housing or on the lineset ticket.
+                With a 2-speed axle use the high range ratio.
+            </para>
+            <para>N = The number of teeth on the transmission speedometer output gear. International installed
+                transmissions, including Allison have 16 teeth on the speedometer output gear.
+            </para>
+            <para>EXAMPLE:</para>
+            <para>If a vehicle has 10 x 22 tires and 3.70:1 rear axle:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Refer to the table, the revolutions per mile (M) = 476.</para>
+                </item>
+                <item>
+                    <para>The formula is PPM = M x Ra x N</para>
+                </item>
+                <item>
+                    <para>PPM = 476 x 3.70 x 16 = 28179</para>
+                </item>
+            </randlist>
+            <para>The new pulses per mile then is programmed into the ECM using the Prolink EST. The Caterpillar ECM
+                will accept a number between 1716 PPM and 65,535 PPM.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Tachometer Programming</title>
+            <para>The Caterpillar Engine Speed/Timing sensor signal to the ECM is used to determine engine speed (rpm).
+                This information is transmitted over the data link circuits to the speedometer/tachometer connector
+                (595). The speedometer/tachometer unit is programmed at the factory to operate on this type of signal.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08148_10.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08148_12.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08148.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

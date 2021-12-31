@@ -1,0 +1,501 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 530 Engine Diagnostic Manual for 4000 Series Trucks (2001) - ELECTRONIC CONTROL SYSTEM
+        DIAGNOSTICS - CIRCUIT FUNCTION AND DIAGNOSTICS - Camshaft Position Sensor (CMP)
+    </stitle>
+    <svcman/>
+    <svcproc id="S1750208" svcproctype="troubleshoot" graphiccount="2">
+        <title>Camshaft Position Sensor (CMP)</title>
+        <svcsubproc>
+            <title>Signal Functions</title>
+            <figure id="f17503031" figsize="pg-wide">
+                <graphic filename="../figEg8/Eg8882.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Camshaft Position Sensor Functions</caption>
+            </figure>
+            <para>The CMP (Camshaft Position) sensor is a Hall Effect type sensor that generates a digital frequency as
+                windows on the timing disk pass through its magnetic field. Engine speed is determined by counting 24
+                windows on the timing sensor disk each camshaft revolution. The position of cylinder 1 is determined by
+                distinguishing a narrow vane on the camshaft timing sensor disk.
+            </para>
+            <para>
+                <emph type="bold">Engine Mode Selection -</emph>
+                Allows the ECM to discern when the engine is in the off, crank or run mode.
+            </para>
+            <para>
+                <emph type="bold">Injection Control Pressure -</emph>
+                Engine speed is one of the controlling variables in the calculation of desired injection control
+                pressure.
+            </para>
+            <para>
+                <emph type="bold">Fuel Quantity Control/Torque Limiting -</emph>
+                Engine torque and fuel is controlled and is dependent on engine speed. Fuel quantity is determined by
+                engine speed.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>An inactive CMP signal during cranking is detectable by the ECM. An inactive CMP signal will cause a
+                no start condition. Electrical noise can also be detected by the ECM, if the level is sufficient to
+                effect engine operation a corresponding Diagnostic Trouble Code will be set.
+            </para>
+            <specpara>
+                <note>
+                    <para>The engine will not operate without a functioning CMP</para>
+                </note>
+            </specpara>
+            <figure id="f17503032" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1221.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Camshaft Position Sensor Circuit Diagram</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>After removing connectors always check for damaged pins, corrosion, loose terminals.</para>
+                </note>
+            </specpara>
+            <table id="te17503006" frame="all">
+                <title>Camshaft Position Sensor and Circuit Diagnostics</title>
+                <tgroup cols="3" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="43.40*"/>
+                    <colspec colname="col2" colwidth="43.41*"/>
+                    <colspec colname="col3" colwidth="309.20*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="1to3"/>
+                    <spanspec namest="col1" nameend="col2" spanname="1to2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>(check with sensor connector
+                                    disconnected, ignition key ON, all accessories off)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0V</para>
+                            </entry>
+                            <entry>
+                                <para>Ground circuit, no voltage expected.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry>
+                                <para>V
+                                    <subscript>REF</subscript>
+                                    not present, check open/short to ground Pin #40 to B, see V
+                                    <subscript>REF</subscript>
+                                    circuit (a defective EOP, ICP or MAP sensor can short V
+                                    <subscript>REF</subscript>
+                                    to ground).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; than 4.5V check for poor connection, if 0V check for open/short to ground
+                                    circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Connector Checks to Chassis Ground</emph>(check with sensor
+                                    connector (406) disconnected, positive battery cable disconnected and ignition key
+                                    OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance to chassis ground, check with key off, > than 5&#x2126; the harness is
+                                    open.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance &#60; 1k&#x2126; indicates a short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance &#60; 1k&#x2126; indicates a short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>(check with breakout box installed
+                                    on engine harness only with ignition key Off)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>53 to A</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from harness connector to 60 pin connector - Signal ground (CMP) has
+                                    dedicated ground circuit, > 5&#x2126; indicates an open circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>40 to B</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from harness connector to 60 pin connector - V
+                                    <subscript>REF.</subscript>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>51 to C</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from harness connector to 60 pin connector - CMP signal.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2">
+                                <para>Test Points (+) #51 to (-) #53</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks</emph>(check with breakout tee
+                                    installed in line with the ECM and ignition key ON)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Voltage</para>
+                            </entry>
+                            <entry>
+                                <para>Position</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry>
+                                <para>Vane</para>
+                            </entry>
+                            <entry>
+                                <para>With the breakout tee or breakout box installed, the CMP sensor &#38; ECM
+                                    connected, bar engine by hand.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>0.2V to 2V</para>
+                            </entry>
+                            <entry>
+                                <para>Window</para>
+                            </entry>
+                            <entry>
+                                <para>The CMP signal voltage should change voltage state as timing wheel on cam is
+                                    rotated.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Continued on Next Page</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Description</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>612 = ECM / target disk mismatch detected (wrong ECM Programming Installed).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>315 = Engine rpm exceeded 3000 rpm.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>143 = Incorrect number of sync to transition counts detected, possible
+                                    intermittent CMP sensor/circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>144 = Electrical noise detected, check wire routing and grounds.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>145 = Inactive CMP signal detected during engine cranking when ICP pressure was
+                                    sufficient for starting.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>
+                <emph type="bold">Function</emph>
+            </para>
+            <para>The International engine control system includes a Camshaft Position Sensor (CMP). This sensor
+                provides the Electronic Control Module (ECM) with a signal that indicates camshaft position and engine
+                speed.
+            </para>
+            <para>The CMP sensor signal is used by the ECM to synchronize piston position to injector firing sequence.
+                The injector firing order sequence begins when the ECM detects the narrow vane on the timing disk
+                indicating the position of number 1 cylinder. Engine position for each cylinder is then continuously
+                calculated as each vane on the timing disk passes by the CMP sensor. This information is processed by
+                the ECM and used for injection timing and fuel delivery control. The ECM can then initiate the beginning
+                of firing.
+            </para>
+            <para>
+                <emph type="bold">Operation</emph>
+            </para>
+            <para>The Camshaft Position Sensor is a Hall Effect type sensor that generates a digital frequency as
+                windows on the timing disk pass through the magnetic field. The frequency of the windows passing by the
+                sensor as well as the width of selected windows allows the ECM to detect engine speed and position. When
+                the narrow vane passes the CMP sensor, the signal on time is less than when the other vanes pass the
+                sensor. This produces a signal that the ECM uses to indicate engine position.
+            </para>
+            <para>Engine speed is detected by the ECM by counting the frequency of the 24 signal pulses for each
+                camshaft revolution.
+            </para>
+            <para>
+                <emph type="bold">ECM Diagnostics</emph>
+            </para>
+            <para>Once the ECM has recognized the narrow vane (wide window) it will synchronize the engine firing order
+                to the timing of the CMP signal. Every 2 crankshaft revolutions it will verify that synchronization. If
+                the ECM receives too many or too few pulses for the number of engine revolutions, it will set a
+                Diagnostic Trouble Code.
+            </para>
+            <para>The engine will not operate without a functioning CMP signal. However, the ECM will attempt to
+                determine the cause of an invalid signal and identify it with a Diagnostic Trouble Code. CMP codes that
+                are set will become inactive codes if the key is turned off.
+            </para>
+            <para>Diagnostic Trouble Codes can be retrieved using the Electronic Service Tool (EST) or by reading the
+                Diagnostic Trouble Code flashes from the amber and red ENGINE lamps, see .
+            </para>
+            <para id="f175fc143">
+                <emph type="bold">Diagnostic Trouble Code 143</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, SID 21, FMI 2</emph>
+            </para>
+            <para>
+                <emph type="bold">Incorrect Number of CMP Signal Transitions per Cam Revolution</emph>
+            </para>
+            <para>Code 143 indicates the ECM has received CMP signals with the wrong number of transitions. This
+                indicates that the ECM has counted the voltage transitions and found less than the specified number of
+                pulses from the sensor. When this problem is continuous, the engine will stop running and the ECM will
+                log an active code. If the key is shut off, the code will become an inactive code. This code will not
+                turn the amber ENGINE lamp on.
+            </para>
+            <para>Possible causes for code 143: Intermittent CMP signal caused by a intermittent circuit, defective
+                Camshaft Position Sensor or incorrect CMP sensor to timing disk clearance.
+            </para>
+            <para id="f175fc144">
+                <emph type="bold">Diagnostic Trouble Code 144</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, SID 21, FMI 2</emph>
+            </para>
+            <para>
+                <emph type="bold">CMP Signal Noise Detected</emph>
+            </para>
+            <para>Code 144 indicates that the ECM has detected voltage spikes or transitions other than the CMP signal.
+                If this problem is continuous, the engine could stop running and the ECM will log an active code. If the
+                key is shut off, the code will become inactive. This code will not turn the amber ENGINE lamp on.
+            </para>
+            <para>Code 144 may be due to: Poor ground connections for CMP or other electronic components. Wire harness
+                shielding missing or incorrectly installed on the engine harness. Outside components that could induce
+                voltage signals.
+            </para>
+            <para id="f175fc145">
+                <emph type="bold">Diagnostic Trouble Code 145</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, SID 21, FMI 12</emph>
+            </para>
+            <para>
+                <emph type="bold">CMP Signal Inactive while ICP has Increased</emph>
+            </para>
+            <para>Diagnostic Trouble Code 145 indicates that the ECM does not detect a CMP signal. This code would be
+                set if the engine was rotating and the ECM detected a rise in ICP pressure, but did not detect a CMP
+                signal. To set this code the engine must be rotated long enough for the ICP pressure to increase. When
+                this code is set, the engine will not operate.
+            </para>
+            <para>Possible causes for Diagnostic Trouble Code 145: V
+                <subscript>REF</subscript>
+                shorted to B+, defective CMP sensor, faulty sensor circuitry or improper air gap between sensor and
+                camshaft timing disk.
+            </para>
+            <para id="f175fc612">
+                <emph type="bold">Diagnostic Trouble Code 612</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, SID 21, FMI 7</emph>
+            </para>
+            <para>
+                <emph type="bold">Incorrect ECM Installed for CMP Timing Disk</emph>
+            </para>
+            <para>When code 612 is active the amber ENGINE lamp is illuminated and the odometer displays the message
+                WARN ENG.
+            </para>
+            <para>Diagnostic Trouble Code 612 indicates that the ECM has monitored the CMP signal and the signal is
+                incorrect for the programming in the ECM. This means that the ECM does not recognize the signal
+                generated from the timing disk and CMP sensor.
+            </para>
+            <para>Possible causes: ECM has been accidently replaced with an incorrect ECM for the particular engine
+                application. For example, the timing disk for the I-6 and the V-8 (T 444E) are dissimilar, with each
+                generating a distinctive signal. The ECM from the V-8 (T 444E) engine will not run an I-6 engine and
+                vice-versa. Incorrect signal due to a defective CMP sensor or incorrect air gap between the CMP sensor
+                and the timing disk.
+            </para>
+            <para id="f175fc315">
+                <emph type="bold">Diagnostic Trouble Code 315</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code, PID 190, FMI 0</emph>
+            </para>
+            <para>
+                <emph type="bold">Engine Speed Above Warning Level</emph>
+            </para>
+            <para>When code 315 is active the amber ENGINE lamp is illuminated and the odometer displays the message
+                WARN ENG.
+            </para>
+            <para>Diagnostic Trouble Code 315 indicates that the ECM has detected an engine speed above 3000 rpm. The
+                most likely cause of the excessive engine speed is an unintended down shift, steep acceleration down a
+                hill without correct brake application or an external fuel source being ingested into the air intake
+                system. The engine hours and miles on the last two overspeed occurrences will be recorded in the Engine
+                Event Log.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_81.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_83.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

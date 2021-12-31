@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>TSI 04-08-04 - Battery Supervisor With Latching Relay</stitle>
+    <tsi id="tsi040804" tsitype="truck">
+        <tsinumber>04-08-04</tsinumber>
+        <tsidate>April, 2004</tsidate>
+        <subjectfile>ELECTRICAL</subjectfile>
+        <subjectgroup>
+            <subject>Battery Supervisor With Latching Relay</subject>
+        </subjectgroup>
+        <apply>
+            <configure>
+                <truckmodelgroup/>
+
+                <truckmodel>9100i
+                    <daterange>
+                        <startdate>01/07/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>9200i
+                    <daterange>
+                        <startdate>01/07/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>9400i
+                    <daterange>
+                        <startdate>01/07/2002</startdate>
+                    </daterange>
+                </truckmodel>
+                <truckmodel>9900i
+                    <daterange>
+                        <startdate>01/07/2002</startdate>
+                    </daterange>
+                </truckmodel>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <para>The Battery Supervisor monitors the vehicle battery voltage at all times. The system will activate
+                    an audible alarm and a red warning light (LED) for 60 seconds if the battery voltage decreases to
+                    the preset level of 12.1 Volts DC or lower. Once the vehicle voltage drops to 12.1 Volts DC or lower
+                    and the audible alarm has sounded for 60 seconds, the system will disconnect any accessory circuit
+                    connected to the control relay if the engine is not running. After 60 seconds the alarm stops and
+                    the warning light (LED) will start flashing until the system is reset. The system is reset
+                    automatically when the engine starter is activated. This system is designed to provide adequate
+                    voltage for restarting the engine. The control relay doesn't require any voltage to stay open or
+                    closed, a voltage pulse is sent to the relay to activate the open or close feature.
+                </para>
+                <para>The system has a feature that prevents disconnecting accessories while the engine is running. A
+                    Normally Closed (N/C) oil pressure switch is used for this purpose.
+                </para>
+            </geninfo>
+        </description>
+        <svcproc svcproctype="repair" graphiccount="1">
+            <title>Troubleshooting Procedure</title>
+            <specpara>
+                <warning>
+                    <para>To avoid property damage, personal injury or death, park the vehicle on a flat, level surface,
+                        set the parking brake, chock the wheels and turn the engine off.
+                    </para>
+                </warning>
+            </specpara>
+            <specpara>
+                <note>
+                    <para>See Figure 1 for all circuit and connector references.</para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">
+                    <emph type="bold">Low Battery warning light doesn't turn ON at the preset voltage or below with
+                        engine OFF, however all other system functions work as designed.
+                    </emph>
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Verify the connector (816F) located approximately 6" from the LED is fully mated with the
+                            system harness and all other connectors to the system are fully mated.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Check WHITE wire circuit 11GDC (Pin F on control module connector 815M), using an
+                            ohmmeter, verify if the wire has continuity to ground, it must be connected to a reliable
+                            chassis ground.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Disconnect the LED connector (816F) from the main harness. On the LED side of the
+                            connector verify the LED is working by using the diode test mode on an appropriate DVOM. If
+                            LED doesn't show voltage in one direction and an open circuit in the other, change the LED.
+                            If the LED checks OK, verify wires from LED connector (816F) to the control module using a
+                            continuity meter. Disconnect connector (815M) from the control module and check for
+                            continuity between the LED connector (Pin A) through to the control module (Pin D) and LED
+                            connector (Pin B) through the control module (Pin F). If the continuity of all wires is
+                            good, change control module.
+                        </para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">
+                    <emph type="bold">The system doesn't disconnect the accessories when battery is low with the engine
+                        OFF, however all other system functions work as designed.
+                    </emph>
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Verify all system harness connectors are fully mated.</para>
+                    </item>
+                    <item>
+                        <para>Make sure the three (3)-pin connector (1255) near the control relay is mated properly.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Check for constant + 12 volts on the RED wire circuit 14DMH (Pin H) on the control module
+                            using a voltmeter. If no voltage, check fuse F10-A in harness, if blown, replace with a 10
+                            amp. fuse. If fuse is good and still no voltage, verify connection of the RED wire circuit
+                            14DAF from Battery Feed pin at the control relay. If not connected or the wire connection is
+                            broken, repair appropriately.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Check WHITE wire circuit 11GDC (Pin F) on the control module connector (815M), using an
+                            ohmmeter verify if the wire has continuity to ground, it must be connected to a reliable
+                            chassis ground.
+                        </para>
+                    </item>
+                    <item>
+                        <para>The system has a disabling feature when the engine is running. The wiring from the control
+                            module goes through the oil pressure switch (Normally Closed) and then to the control relay.
+                            With the engine OFF, using a continuity meter, check the continuity between the control
+                            relay BLUE wire circuit 14DMC (Pin C) on connector (1255) and the control module BLUE wire
+                            (Pin C) on connector (815M). If no continuity, locate oil pressure switch in the engine
+                            compartment and make sure that the oil pressure switch connector (817M) is fully mated with
+                            the switch and test the system again. If no continuity, disconnect the pressure switch
+                            connector and check the continuity between the Pin C of the control relay and one of the
+                            terminals of the pressure switch harness connector (817M). If no continuity, repair wire
+                            appropriately. Then check the continuity between the other switch connector terminal and the
+                            Pin C of the control module. If no continuity, repair wire appropriately. If all prior tests
+                            are good, verify the continuity of the oil pressure switch with an ohmmeter. Connect the two
+                            leads from the ohmmeter to the two terminals of the switch; the circuit must be closed. If
+                            the circuit is open change the oil pressure switch.
+                        </para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">
+                    <emph type="bold">The system disconnects the accessories when battery is low, however, no warning
+                        light and warning buzzer turn on.
+                    </emph>
+                </para>
+                <para>
+                    <emph type="bold">Warning Light</emph>
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>To test the warning light circuitry, see Step 1 above.</para>
+                    </item>
+                </randlist>
+                <para>
+                    <emph type="bold">Warning Buzzer</emph>
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Verify that all system harness connectors are fully mated.</para>
+                    </item>
+                    <item>
+                        <para>Verify the RED wire circuit 14DMG (Pin 3) at the warning buzzer connector (201M) for + 12
+                            Volts using a voltmeter. If no voltage, verify the constant power feed source for broken
+                            wire. The power feed comes from the RED wire from the Battery Feed on the Control Relay and
+                            through F10-A fuse. Repair appropriately.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Using an ohmmeter, check for continuity between the BLACK wire circuit 14DME (Pin A) at
+                            the control module connector (815M) and the BLACK wire (Pin 1) at the buzzer connector
+                            (201M). If no continuity, repair wire appropriately.
+                        </para>
+                    </item>
+                    <item>
+                        <para>On the warning buzzer connector (201M), using a wire jumper, apply ground to Pin 1. The
+                            warning buzzer should function. If not, change warning buzzer. If warning buzzer functioned,
+                            change the control module.
+                        </para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">
+                    <emph type="bold">System doesn't reconnect the accessories when engine is started.</emph>
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Make sure the control relay connector (1255) is fully mated with the module harness.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Using a voltmeter, check on the control module connector (815M) Pin E, you must have +12
+                            volts only when the vehicle engine is being started. If no voltage, verify that the PINK
+                            wire circuit 17DSK is connected to the start feed. If connected, verify continuity of the
+                            PINK wire between the start feed and the control module (Pin E). If no continuity, repair
+                            wire appropriately. If continuity, verify continuity of the GREEN wire from the relay
+                            connector (1255) Pin A and the RED wire circuit 14DMB from the control module connector
+                            (815M) Pin B. If no continuity, repair wire appropriately. If you have continuity, change
+                            control module.
+                        </para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">
+                    <emph type="bold">The system disconnects the accessories when the engine is running.</emph>
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>ENGINE RUNNING: Locate the oil pressure switch in the engine compartment. Unplug harness
+                            connector from the oil pressure switch. Using an ohmmeter connect the two leads from the
+                            ohmmeter to the two terminals of the oil pressure switch, with the engine running the
+                            circuit must be open, if the circuit is closed change the oil pressure switch.
+                        </para>
+                    </item>
+                    <item>
+                        <para>The system disconnect feature has a disabling feature while the engine is running. The
+                            wiring from the control module goes through the oil pressure switch (Normally Closed -
+                            Engine OFF) to the control relay.
+                        </para>
+                    </item>
+                    <item>
+                        <para>ENGINE OFF: Using an ohmmeter, check the continuity between the control relay connector
+                            (1255) BLUE wire circuit 14DMC (Pin C) and the control module connector (815M) BLUE wire
+                            circuit 14DMD (Pin C). If you have continuity with the engine off and did not have
+                            continuity with the engine running the switch is working properly and the control module
+                            should be changed.
+                        </para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">
+                    <emph type="bold">With the engine running, the low battery light and the buzzer turn on. After one
+                        minute, the low battery light starts flashing, the buzzer stops, however the system doesn't shut
+                        down any accessory.
+                    </emph>
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>If the above condition occurs when driving, the battery supervisor is working as designed,
+                            however most likely one of these following vehicle problems has occurred:
+                        </para>
+                        <randlist type="dash">
+                            <item>
+                                <para>A faulty charging circuit.</para>
+                            </item>
+                            <item>
+                                <para>The alternator doesn't put out enough current to keep up with the actual current
+                                    draw of the vehicle.
+                                </para>
+                            </item>
+                            <item>
+                                <para>A broken wire on the alternator input or output.</para>
+                            </item>
+                        </randlist>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">
+                    <emph type="bold">How to verify the oil pressure switch disabling feature.</emph>
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>With the engine
+                            <emph type="bold">OFF</emph>, locate oil pressure switch in the engine compartment.
+                            Disconnect the switch connector (817M) from the oil pressure switch. Using an ohmmeter,
+                            connect the two leads from the ohmmeter to the two terminals of the switch; the circuit must
+                            be closed (showing continuity), if the circuit is open (no continuity) change the oil
+                            pressure switch. If the switch is good, go to next step.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Make sure that the oil pressure switch harness connector (817M) is re-connected and fully
+                            mated with the switch and check the continuity between the control relay BLUE wire (Pin C)
+                            and the control module BLUE wire (Pin C). If no continuity, disconnect the switch connector
+                            and check the continuity between the Pin C of the relay and one of the terminals of the
+                            switch connector. If no continuity, repair wire appropriately. If you have continuity, then
+                            check the continuity between the other switch connector terminal and the Pin C of the
+                            control module. If no continuity, repair wire appropriately.
+                        </para>
+                    </item>
+                </randlist>
+            </step1>
+            <figure id="f0408041" figsize="pg-wide">
+                <graphic filename="../tsifigures/g0408041.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="472px"/>
+                <caption>Figure 1.</caption>
+            </figure>
+        </svcproc>
+    </tsi>
+</isis>

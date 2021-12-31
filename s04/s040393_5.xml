@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Lucas Varity/TRW Hydraulic Antilock Brake System - OPERATION - ABS BRAKING MODE</stitle>
+    <svcsection/>
+    <svcproc svcproctype="operate" graphiccount="3">
+        <title>ABS BRAKING MODE</title>
+        <svcprocinfo>
+            <para>The antilock brake system will monitor the four wheel speed sensors and control the hydraulic pressure
+                changes at each wheel until the vehicle has come to a complete stop or the brake pedal has been
+                released.
+            </para>
+            <randlist type="bullet">
+                <title>The system operates through a four step process, which occurs approximately 18 times per
+                    second:
+                </title>
+                <item>
+                    <para>Pressure isolate/maintain</para>
+                </item>
+                <item>
+                    <para>Pressure decrease</para>
+                </item>
+                <item>
+                    <para>Pressure increase</para>
+                </item>
+                <item>
+                    <para>Brake release (fluid return)</para>
+                </item>
+            </randlist>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Sequence Of Events</title>
+            <step1>
+                <para count="1">With the vehicle at 10 km/h (6 mph) or greater, the driver depresses the brake pedal.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">The brake switch closes and the wheel speeds begin to decrease as the master cylinder
+                    pressure and the brake pressure increase.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">As the wheel speed continues to decrease from the vehicle speed (wheels starting to
+                    slip), the normally open isolation valve for the affected channel closes to stop additional pressure
+                    to the wheel.
+                    <hotlnk xrefid="f0403905">Refer to Isolation Mode
+                        <xref refid="f0403905"/>
+                    </hotlnk>
+                    . The master cylinder pressure continues to increase as the driver depresses the pedal. The pressure
+                    to the brake is now limited to the ABS system pressure.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">When the ECU determines the wheel is about to lock up, the normally closed dump valve is
+                    opened.
+                    <hotlnk xrefid="f0403906">Refer to Dump Mode
+                        <xref refid="f0403906"/>
+                    </hotlnk>
+                    . This bleeds off some of the pressure at the caliper to allow the wheel to return to a speed closer
+                    to the vehicle speed.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">The dump valve is again closed and isolation valve remains closed to allow the wheel
+                    speed to completely recover from the lock up.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Once the wheel has recovered from the lock-up tendency, the isolation valve is
+                    momentarily pulsed open to allow the master cylinder pressure and pump pressure to reach the brakes
+                    <hotlnk xrefid="f0403907">Refer to Re-apply Mode
+                        <xref refid="f0403907"/>
+                    </hotlnk>
+                    . This controlled pressure rise continues until the wheel is at optimum brake output or until the
+                    brake pressure is brought up to master cylinder output pressure. The ABS allows the brake fluid to
+                    flow to the wheel, to build pressure until the wheels start to slip again, repeating steps 3 through
+                    6. The following paragraphs describe the various modes in more detail.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Isolation Mode (Pressure Maintain)</title>
+            <figure id="f0403905" figsize="pg-wide">
+                <graphic id="g0403905" filename="../figg04/g0403905.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>Figure 5. Isolation Mode (Pressure Maintain)</caption>
+            </figure>
+            <para>Refer to
+                <hotlnk xrefid="f0403905">Isolation Mode
+                    <xref refid="f0403905"/>
+                </hotlnk>
+                . The ECU is armed when the driver applies the brakes and sends a signal to the module to prepare for a
+                possible antilock stop. Isolation will occur when the driver applies excessive braking for the given
+                road conditions, causing the wheel(s) to decelerate at a rate greater than the vehicle is capable of. If
+                the information from the wheel speed sensors indicates excessive wheel deceleration (imminent lock-up),
+                the first step in the antilock sequence is to isolate the brake pressure being applied by the driver.
+                The ECU sends a voltage, to the coil, to energize and close the isolation valve by pulling down on the
+                armature with a magnetic force. This will prevent any additional brake pressure from reaching the wheel.
+                Though each channel can operate independently, once any front channel (brake) sees excessive
+                deceleration, both front ISO valves are energized and closed. Thus, with the isolation valves closed,
+                further unnecessary increases in brake pressure will be prohibited.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Dump Mode (Pressure Decrease)</title>
+            <figure id="f0403906" figsize="pg-wide">
+                <graphic id="g0403906" filename="../figg04/g0403906.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>Figure 6. Dump Mode (Pressure Decrease)</caption>
+            </figure>
+            <para>Refer to
+                <hotlnk xrefid="f0403906">Dump Mode
+                    <xref refid="f0403906"/>
+                </hotlnk>
+                . Once the pressure is isolated, the ECU analyzes the wheel speed. If the wheel speed does not recover
+                to the vehicle speed, brake pressure must be reduced in order to get the wheels rolling again. This is
+                accomplished by dumping a portion of the brake fluid pressure into a low pressure accumulator (LPA). The
+                ECU energizes the dump valve coil(s) to open the dump valve, allowing fluid from the wheels to be dumped
+                into the LPA. Very short activation pulses open and close the dump valve passageway to control this
+                action. Brake pressure is lowered at the wheel and allows the affected wheel to roll again. The fluid
+                from the wheels forces a spring back and is stored in the LPA at approximately 1034 kPa (150 PSI). A
+                portion of the fluid also primes the pump so it can begin building re-apply pressure. The dump valves
+                are opened independently to control the deceleration of the wheel.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Re-Apply Mode (Pressure Increase)</title>
+            <figure id="f0403907" figsize="pg-wide">
+                <graphic id="g0403907" filename="../figg04/g0403907.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>Figure 7. Re-apply Mode (Pressure Increase)</caption>
+            </figure>
+            <para>Refer to
+                <hotlnk xrefid="f0403907">Re-apply Mode
+                    <xref refid="f0403907"/>
+                </hotlnk>
+                . The re-apply sequence is initiated to obtain optimum braking at each wheel. The isolation valve is
+                momentarily pulsed to allow master cylinder and pump pressure to reach the brakes. This controlled
+                pressure rise continues until the wheel is at optimum brake output or until the brake pressure is
+                brought up to the master cylinder output pressure. If more pressure is required, more fluid is drawn
+                from the master cylinder and applied to the brakes. The driver will feel pedal pulsations, or pedal
+                drop. This is normal and expected when in the antilock mode. As fluid is re-applied to the wheels, they
+                begin to slow down at an optimum rate. If they approach imminent lock up again, the module will isolate,
+                dump, and re-apply. These control cycles (isolation, dump, and re-apply) occur in millisecond intervals,
+                allowing several cycles to occur each second. It occurs much faster with more control than manually
+                pumping the brake pedal.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Brake Release</title>
+            <para>At the end of the antilock stop, when the driver releases the brake pedal, the motor will remain on
+                for a short time to help drain any fluid left in the LPA. As the fluid drains back into the system, the
+                spring force in the LPA pushes the piston to the home position. When the brake switch opens, the
+                isolation valve is turned off and fluid may return through the isolation orifice.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s040393_4.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s040393_6.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s040393.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ENGINE SYSTEMS - Electronic Control System - Injection Drive
+        Module (IDM)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="1">
+        <title>Injection Drive Module (IDM)</title>
+        <figure id="f2400134" figsize="col-wide">
+            <graphic filename="../figD33/D3336.cgm" type="cgm" scalefit="1" scalefitwidth="248px" box="no"/>
+            <caption>Injection Drive Module (IDM)</caption>
+            <calloutgroup>
+                <callout1 type="arabic">Camshaft with peg</callout1>
+                <callout1 type="arabic">Camshaft Position (CMP) signal</callout1>
+                <callout1 type="arabic">Crankshaft position sensor timing disk</callout1>
+                <callout1 type="arabic">Crankshaft Position (CKP) signal</callout1>
+                <callout1 type="arabic">Electronic Control Module (ECM)</callout1>
+                <callout1 type="arabic">Camshaft Position Output (CMPO) signal</callout1>
+                <callout1 type="arabic">Crankshaft Position Output (CKPO) signal</callout1>
+                <callout1 type="arabic">Controller Area Network (CAN 2) communication</callout1>
+                <callout1 type="arabic">Injection Drive Module (IDM)</callout1>
+                <callout1 type="arabic">Fuel injectors</callout1>
+            </calloutgroup>
+        </figure>
+        <para>The IDM has three functions:</para>
+        <randlist type="bullet">
+            <item>
+                <para>Electronic distributor for injectors</para>
+            </item>
+            <item>
+                <para>Power source for injectors</para>
+            </item>
+            <item>
+                <para>IDM and injector diagnostics</para>
+            </item>
+        </randlist>
+        <para>
+            <title>Electronic distributor for injectors</title>The IDM distributes current to the injectors. The IDM
+            controls fueling to the engine by sending high voltage pluses to the OPEN and CLOSE coils of the injector.
+            The IDM uses information from the ECM to determine the timing and quantity of fuel for each injector.
+        </para>
+        <para>The ECM uses CMP and CKP input signals to calculate engine speed and position. The ECM conditions both
+            input signals and supplies the IDM with CMP and CKP output signals. The IDM uses CMP and CKP output signals
+            to determine the correct sequence for injector firing.
+        </para>
+        <para>The ECM sends information (fuel volume, EOT, and ICP) through the CAN 2 link to the IDM; the IDM uses this
+            information to calculate the injection cycle.
+        </para>
+        <para>
+            <title>Injector Power Source</title>The IDM creates a constant 48 volt (DC) supply to all injectors by
+            making and breaking a 12 volt source across a coil in the IDM. The 48 volts created by the collapsed field
+            is stored in capacitors until used by the injectors.
+        </para>
+        <para>The IDM controls when the injector is turned on and how long the injector is active. The IDM first
+            energizes the OPEN coil, then the CLOSE coil. The low side driver supplies a return circuit to the IDM for
+            each injector coil (open and close). The high side driver controls the power supply to the injector. During
+            each injection event, the low and high side drivers are switched on and off for each coil.
+        </para>
+        <para>
+            <title>IDM and injector diagnostics</title>The IDM determines if an injector is drawing enough current. The
+            IDM sends a fault to the ECM, indicating potential problems in the wiring harness or injector, and the ECM
+            will set a DTC. The IDM also does self-diagnostic checks and sets a DTC to indicate failure of the IDM.
+        </para>
+        <para>On demand tests can be done using the Electronic Service Tool (EST). The EST sends a request to the ECM,
+            the ECM sends a request to the IDM to do a test. Some tests generate a DTC when a problem exists. Other
+            tests require the technician to evaluate parameters, if a problem exists.
+        </para>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_20.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_22.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,780 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics Model Years 1999-2000 - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS -
+        Circuit Function And Diagnostics - Engine Coolant Temperature Sensor (ECT)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="4">
+        <title>Engine Coolant Temperature Sensor (ECT)</title>
+        <svcsubproc>
+            <title>Signal Functions</title>
+            <figure id="f17503046" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1228.webp" type="webp" scalefit="1" scalefitwidth="352px" box="no"/>
+                <caption>Function Diagram for Engine Coolant Sensor</caption>
+            </figure>
+            <para>The Engine Coolant Temperature (ECT) sensor is a thermistor type sensor that changes resistance when
+                exposed to changes in coolant temperature. When interfaced with the ECM it produces a 0 to 5V analog
+                signal that indicates temperature.
+            </para>
+            <para>
+                <emph type="bold">Coolant Temperature Compensation-</emph>
+                At coolant temperatures greater than 214&#176;F (101&#176;C) full load fuel quantity is reduced by
+                approximately 6% for each degree of temperature (&#176;C), until engine temperature reaches 218&#176;F
+                (103&#176;C). Above 218&#176;F (103&#176;C) fuel is reduced by 3% for each &#176;C increase in
+                temperature.
+            </para>
+            <para>
+                <emph type="bold">Idle Speed-</emph>
+                At temperatures below 158&#176;F, (70&#176;C) low idle is incrementally increased to a maximum of 875
+                rpm.
+            </para>
+            <para>
+                <emph type="bold">Engine Warning and Protection -</emph>
+                Optional feature when enabled will warn driver of overheat condition and can be programmed to shut the
+                engine down.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>An ECT signal detected Out of Range High
+                <hotlnk xrefid="f175fc115"></hotlnk>or Out of Range Low by the ECM will cause the ECM to ignore the ECT
+                signal and assume an engine coolant temperature of -29&#176;F (-20&#176;C) for starting and a
+                temperature of 180&#176;F (82&#176;C) for engine running conditions. The WARN ENGINE lamp will also be
+                illuminated as long as the Diagnostic Trouble Code condition exists.
+            </para>
+            <figure id="f17503047" figsize="pg-wide">
+                <graphic filename="../figeg7/eg7375A.webp" type="webp" scalefit="1" scalefitwidth="392px" box="no"/>
+                <caption>Circuit Diagram for Engine Coolant Temperature Sensor</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>After removing connectors always check for damaged pins, corrosion, and loose terminals.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503011.1" tblwidth="pg-wide" frame="all">
+                <title>Engine Coolant Temperature Sensor Diagnostics</title>
+                <tgroup cols="4">
+                    <colspec colnum="1" colname="col1" colwidth="1.00*"/>
+                    <colspec colnum="2" colname="col3" colwidth="0.54*"/>
+                    <colspec colnum="3" colname="COLSPEC1" colwidth="0.54*"/>
+                    <colspec colnum="4" colname="COLSPEC0" colwidth="2.77*"/>
+                    <spanspec namest="col3" nameend="COLSPEC1" spanname="SPAN10"/>
+                    <spanspec namest="COLSPEC1" nameend="COLSPEC0" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="COLSPEC0" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>(Check with sensor disconnected
+                                    from harness and ignition key ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Points</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Spec.</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to Gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>4.6 - 5.0V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Pull up voltage, if no voltage or low voltage, circuit is open or has high
+                                    resistance or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to Gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>0 - 0.25V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Voltage > 0.25V, wire shorted to Vref or B+</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Checks To Chassis Ground</emph>(Check with sensor
+                                    connector disconnected, positive battery cable disconnected, and key OFF.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Points</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Spec.</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to Gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>More than 5 &#x2126; indicates harness is open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to Gnd</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>> 1000&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>If &#60; 1000&#x2126; indicates a short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Points: (+) No. 13 to (-) No.19</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN10">
+                                <para>
+                                    <emph type="bold">Spec.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>
+                                    <emph type="bold">(Check with breakout tee installed and key-ON.)</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Temp &#176;F</emph>
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>
+                                    <emph type="bold">Temp &#176;C</emph>
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>
+                                    <emph type="bold">Sensor Resistance</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0.356V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>230</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>110</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>1.19 k&#x2126;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3.87V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>32</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>0</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>69.2 k&#x2126;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>4.33V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>- 5</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>- 20</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>131 k&#x2126;</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>(Check with breakout box installed
+                                    on Engine side only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Points:</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Spec.</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>19 to A</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60; 5&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Ground wire open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>13 to B</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>&#60; 5&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Signal wire open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Continued on next page</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Reference</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>114 = Engine coolant temperature signal voltage &#60; 0.127V for more than 0.1
+                                    second
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>115 = Engine coolant temperature signal voltage > 4.6V for more than 0.1 second
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>316 = CAP temperature specifications not met after 120 minutes of operation</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>321 = Engine coolant temperature above WARN level, 228&#176;F (109&#176;C)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>322 = Engine coolant temperature above critical level, 234&#176;F (112&#176;C)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>325 = Engine coolant temperature compensation enabled</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f17503047.5" figsize="pg-wide">
+                <graphic filename="../figEg8/Eg8808A.webp" type="webp" scalefit="1" scalefitwidth="392px" box="no"/>
+                <caption>Circuit Diagram for Engine Coolant Temperature Sensor (with two wire breakout tee)</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>The following ECT sensor tests are for 2001 MY vehicles with serial No. 1287935-up.</para>
+                </note>
+            </specpara>
+            <table id="te17503011.3" tblwidth="pg-wide">
+                <title>ECT sensor tests using Master Diagnostics</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="0.81*"/>
+                    <colspec colname="col2" colwidth="0.42*"/>
+                    <colspec colname="COLSPEC0" colwidth="0.42*"/>
+                    <colspec colname="col3" colwidth="1.76*"/>
+                    <spanspec namest="COLSPEC0" nameend="col3" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Engine Coolant Temperature (ECT) Sensor Voltage Checks</emph>
+                                    (Check with key-ON engine-OFF.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Install the 2 wire breakout tee between the ECT sensor and harness connector. View
+                                    ECT VOLTAGE using the
+                                    <emph type="bold">Continuous Monitor</emph>
+                                    test found under the diagnostics menu in MASTER DIAGNOSTICS. If the circuit has an
+                                    active fault according to the voltage level (Code 114 &#60;0.127V, Code 115 >4.6V),
+                                    complete the following steps.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Condition</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Expected Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor Disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>4.6 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Voltage &#60;4.6, inspect the signal circuit for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Standard jumper installed between the GREEN and BLACK pins of the breakout tee
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>If voltage is >0.127, check ground and signal circuits for an open or high
+                                    resistance. Measure resistance from PIN A to PIN 19, and from PIN B to PIN 13 (spec.
+                                    &#60;5&#x2126;) using a breakout box to determine if the resistance is in the
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0.5 k&#x2126; jumper installed between the GREEN and BLACK pins of the breakout
+                                    tee
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;1.0V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>If voltage is >1.0V, check signal circuit for a short to V
+                                    <subscript>REF</subscript>, B+, or another sensor's signal voltage.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Replace the sensor if the code is active and the expected results
+                                        are obtained with all the sensor tests. The sensor is not at fault if one or
+                                        more of the sensor tests does not produce the expected results. See ECT Sensor
+                                        Troubleshooting Flowchart</emph>.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f175328" figsize="pg-wide">
+                <graphic filename="../figEG8/EG8822.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>Troubleshooting chart for Engine Coolant Temperature Sensor</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>
+                <emph type="bold">Function</emph>
+            </para>
+            <para>The International&#174; engine control system includes an Engine Coolant Temperature sensor (ECT). The
+                ECM measures the Engine Coolant Temperature signal and uses this information for Coolant Temperature
+                Compensation and optional high temperature warning and shut down systems.
+            </para>
+            <para>Coolant Temperature Compensation is used to protect the engine if the coolant temperature is too high.
+                The ECM monitors the ECT signal to determine coolant temperature. If the coolant reaches 214&#176;F (101&#176;C),
+                the ECM will reduce the fuel delivery by 6% for each degree (in Celsius) of temperature increase. If the
+                coolant temperature increases to 218&#176;F (104&#176;C), fuel quantity will be reduced 3% for each
+                degree (in Celsius) of temperature increase. Coolant Temperature Compensation can be programmed to be
+                inoperative in certain applications where full engine performance is required over the protection of the
+                engine.
+            </para>
+            <para>For engines equipped with an engine warning system, the ECM will activate the audible warning alarm
+                and illuminate the red Oil/Water warning light when the engine coolant temperature reaches 225&#176;F
+                (107&#176;C).
+            </para>
+            <para>For engines equipped with an engine shut down system, the ECM will shut the engine off when the
+                coolant temperature reaches 235&#176;F (112.5&#176;C). The vehicle operator may restart the engine by
+                turning the ignition key OFF and then restarting it. After restart, the ECM will allow the engine to run
+                for an additional 30 seconds, before shutting off the engine again.
+            </para>
+            <para>
+                <emph type="bold">Operation</emph>
+            </para>
+            <para>The Engine Coolant temperature sensor is a thermistor type sensor that changes resistance when exposed
+                to different temperatures.
+            </para>
+            <para>When the temperature of the coolant is decreased, the resistance of the thermistor increases which
+                causes the signal voltage to increase. As the temperature of the coolant is increased the resistance of
+                the thermistor decreases, which causes the signal voltage to decrease.
+            </para>
+            <para>The ECT sensor is supplied a regulated 5V reference voltage from the ECM. The sensor is grounded at
+                terminal A through the signal return terminal at the ECM. As the coolant temperature increases or
+                decreases, the sensor changes resistance and provides the ECM with the coolant temperature signal
+                voltage. This signal voltage is then read by the ECM to determine the temperature of the coolant.
+            </para>
+            <para>
+                <emph type="bold">ECM Diagnostics</emph>
+            </para>
+            <para>With the ignition key ON, the ECM continuously monitors the ECT circuit for expected voltages. If the
+                signal voltage is more or less than the expected value the ECM will set a Diagnostic Trouble Code.
+            </para>
+            <para>If the ECM detects a Diagnostic Trouble Code in the ECT signal, the ECM will disregard the signal and
+                default to a temperature of 180&#176;F (82&#176;C) for engine running operation and -29&#176;F (-33.9&#176;C)
+                for starting the engine. If the Diagnostic Trouble Code is no longer present, the ECM will return to
+                normal operation using the ECT signal for processing.
+            </para>
+            <para>Diagnostic Trouble Codes in the ECT signal can be retrieved using the Engine Diagnostic Switch or the
+                Electronic Service Tool (EST). If the Diagnostic Trouble Code is no longer present, it will be stored as
+                an Inactive Code.
+            </para>
+            <para id="f175fc114">
+                <emph type="bold">Diagnostic Trouble Code 114</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA PID 110 FMI 4</emph>
+            </para>
+            <para>
+                <emph type="bold">ECT Out of Range Low</emph>
+            </para>
+            <para>An Out of Range Low Diagnostic Trouble Code 114 will be set if the ECM detects voltage less than
+                0.127V for more than 0.1 seconds. If code 114 is active, the ECM will use the default value of 180&#176;F
+                (82&#176;C) for engine operation.
+            </para>
+            <para>Diagnostic trouble code 114 may be caused by a short to ground or a shorted or biased sensor.</para>
+            <para id="f175fc115">
+                <emph type="bold">Diagnostic Trouble Code 115</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 110 FMI 3</emph>
+            </para>
+            <para>
+                <emph type="bold">ECT Out of Range High</emph>
+            </para>
+            <para>An Out of Range High Diagnostic Trouble Code 115 will be set if the ECM detects voltage greater than
+                4.6V for more than 0.1 seconds. If Code 115 is active, the ECM will use the a default value of 180&#176;F
+                (82&#176;C) for engine operation.
+            </para>
+            <para>Diagnostic Trouble Code 115 may be caused by an open circuit, an open sensor, or a short to another
+                voltage source.
+            </para>
+            <para id="f175fc321">
+                <emph type="bold">Diagnostic Trouble Code 321</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 110 FMI 0</emph>
+            </para>
+            <para>
+                <emph type="bold">Engine Coolant Temperature Above Warning Level</emph>
+            </para>
+            <para>Diagnostic Trouble Code 321 will be set if the ECM detects engine coolant temperature above 225&#176;F
+                (107&#176;C). When this occurs, the ECM illuminates the OIL/WATER warning light and sounds the audible
+                alarm (if equipped), alerting the operator.
+            </para>
+            <para>If the temperature drops below 225&#176;F (107&#176;C), code 321 will become inactive and the ECM will
+                return to normal operation.
+            </para>
+            <para id="f175fc322">
+                <emph type="bold">Diagnostic Trouble Code 322</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 110 FMI 7</emph>
+            </para>
+            <para>
+                <emph type="bold">Engine Coolant Temperature Above Critical Level</emph>
+            </para>
+            <para>Diagnostic trouble code 322 will be set if the ECM detects engine coolant temperature above 235&#176;F
+                (112.5&#176;C). When this occurs, the OIL/WATER warning light illuminates and the audible alarm sounds
+                (if equipped) alerting the operator that the temperature is increasing (having set code 321) indicating
+                a potential for engine damage. With code 322 active, the engine will shut down (if programmed to do so).
+                At the same time, current engine hours and an odometer reading will be recorded in the ECM as an Engine
+                Event.
+            </para>
+            <para>If the temperature drops below 235&#176;F (112.5&#176;C), the code will become inactive and the ECM
+                will return to normal operation. Should the engine shut down, it can be restarted to move the vehicle to
+                a safe place.
+            </para>
+            <para id="f175fc325">
+                <emph type="bold">Diagnostic Trouble Code 325</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 110 FMI 14</emph>
+            </para>
+            <para>
+                <emph type="bold">Power reduced or matched to cooling system performance</emph>
+            </para>
+            <para>Diagnostic Trouble Code 325 will be set if the cooling system temperature exceeds 214&#176;F (101&#176;C).
+                At this temperature the ECM will reduce the fuel delivered to the engine. For each Celsius degree of
+                temperature above 1% the fuel will be reduced 6%. This reduces the heat produced by the engine and
+                reduces the burden on the engine cooling system. Reduced fuel to the engine will also slow the vehicle,
+                encouraging the operator to downshift, increasing the efficiency of the cooling system.
+            </para>
+            <para>As the temperature is reduced the compensation level is reduced until the temperature drops below 214&#176;F
+                (101&#176;C) at which normal operation is resumed.
+            </para>
+            <para id="f175fc316">
+                <emph type="bold">Diagnostic Trouble Code 316</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 110 FMI 1</emph>
+            </para>
+            <para>
+                <emph type="bold">CAP diagnostic trouble code - Unable to warm engine</emph>
+            </para>
+            <para>Diagnostic Trouble Code 316 will only be set with engines that have CAP (Cold Ambient Protection)
+                strategy enabled. Code 316 is set after the engine has run for more than 120 minutes and has not
+                exceeded the following specifications for engine coolant temperature. This code can be cleared with the
+                Electronic Service Tool (EST).
+            </para>
+            <para>
+                <emph type="bold">DT 466E / 530E</emph>
+            </para>
+            <para>Manual Transmission 142&#176;F / 61&#176;C</para>
+            <para>Automatic Transmission 106&#176;F / 41&#176;C</para>
+            <specpara>
+                <note>
+                    <para>This code only indicates that the engine has not reached operating temperature. It does not
+                        indicate an electrical problem.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <emph type="bold">Possible System Faults</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Extended idle time</para>
+                </item>
+                <item>
+                    <para>Cold ambient temperatures (may require winter front)</para>
+                </item>
+                <item>
+                    <para>Thermostat stuck in open position</para>
+                </item>
+                <item>
+                    <para>Incorrect coolant hose routing (thermostat bypassed)</para>
+                </item>
+                <item>
+                    <para>Auxiliary heater cores cooling off engine (school bus application)</para>
+                </item>
+                <item>
+                    <para>Fan clutch locked on</para>
+                </item>
+            </randlist>
+            <para>See
+                <hotlnk xrefid="te17503013">Recommended Actions for Engine Coolant Temperature Sensor Problems
+                    <xref refid="te17503013"/>
+                </hotlnk>
+                .
+            </para>
+            <table id="te17503013" tblwidth="pg-wide" frame="all">
+                <title>Recommended Actions for Engine Coolant Temperature Sensor Problems</title>
+                <tgroup cols="2" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="200.11*"/>
+                    <colspec colname="col2" colwidth="195.89*"/>
+                    <spanspec namest="col1" nameend="col2" spanname="1to2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="1to2" align="center">
+                                <para>
+                                    <emph type="bold">Recommended Actions:</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Condition</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">Action</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Extended idle time</para>
+                            </entry>
+                            <entry>
+                                <para>Recommend to customer to reduce idle time or increase idle speed</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Cold ambient temperatures</para>
+                            </entry>
+                            <entry>
+                                <para>Recommend use of winter front</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Thermostat stuck in open position</para>
+                            </entry>
+                            <entry>
+                                <para>Perform thermostat tests per service manual</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Incorrect coolant hose routing (thermostat bypassed)</para>
+                            </entry>
+                            <entry>
+                                <para>Verify correct cooling system routing</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Auxiliary heater cores cooling off engine</para>
+                            </entry>
+                            <entry>
+                                <para>Reduce flow to heater cores or slow down fan speed of heater</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Fan clutch locked on</para>
+                            </entry>
+                            <entry>
+                                <para>Verify proper fan clutch operation</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_107.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_109.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

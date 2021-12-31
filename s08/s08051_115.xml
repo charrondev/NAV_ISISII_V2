@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 9200, 9300, 9400 Models Built After January 1, 1995 - ELECTRICAL
+        TROUBLESHOOTING 1994-1995 DETROIT DIESEL SERIES 60 DDEC III ENGINES - DIAGNOSTICS AND TROUBLESHOOTING -
+        DETERMINING FAULT CODES
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="proctype" graphiccount="1">
+        <title>DETERMINING FAULT CODES</title>
+        <svcprocinfo>
+            <para>The ECM continuously monitors itself and other system components, including sensors, injectors,
+                connectors and associated wiring.
+            </para>
+            <para>
+                <emph type="bold">The</emph>
+                <emph type="bold">yellow Engine Warning Light is turned ON</emph>if a minor fault occurs. A fault code
+                is also logged. This indicates the problem should be diagnosed as soon as possible.
+            </para>
+            <para>
+                <emph type="bold">The ECM turns ON the yellow Engine Warning Light and the red Stop Engine Light</emph>
+                and stores a fault code if a major fault is detected. If this occurs, the vehicle should be brought to a
+                safe stop and the engine shut down.
+            </para>
+            <para>A diagnostic check may be performed using the Diagnostic ON/OFF switch or Prolink EST.</para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Diagnostic ON/OFF/Shutdown Override Switch</title>
+            <para>The Diagnostic ON/OFF switch is used to activate the yellow Engine Warning light and the red Stop
+                Engine light to flash codes. The red Stop Engine light will flash the ACTIVE codes and the yellow Engine
+                Warning light will flash the INACTIVE codes.
+            </para>
+            <para>If no fault codes are logged, the code "25" will be flashed out on the yellow Engine Warning Light.
+                For example, the yellow engine warning light blinks out: FLASH, FLASH. The first digit is a 2, then a
+                half-second pause: FLASH FLASH, FLASH, FLASH, FLASH. The second digit is a 5. Code 25 is System OK.
+            </para>
+            <para>The Diagnostic ON/OFF switch is used to flash codes in the following circumstances:</para>
+            <seqlist style="alphauc">
+                <item>
+                    <para>When the engine is not running and the ignition switch is ON, toggling and releasing the
+                        Diagnostic ON/OFF switch will flash out the engine codes. Toggling then releasing the Diagnostic
+                        ON/OFF switch a second time will stop the ECM from flashing the codes.
+                    </para>
+                </item>
+                <item>
+                    <para>When the engine is idling and not in an "engine protection condition," toggling and releasing
+                        the Diagnostic ON/OFF switch will flash out the engine codes. Toggling then releasing the
+                        Diagnostic ON/OFF switch a second time will stop the ECM from flashing the codes.
+                    </para>
+                </item>
+            </seqlist>
+            <specpara>
+                <note>
+                    <para>All Series 60 fault codes are 2 digits.</para>
+                </note>
+            </specpara>
+            <para>The Detroit Diesel Troubleshooting Manual contains flash code descriptions and diagnostic
+                procedures.
+            </para>
+            <para>If the fault code(s) or symptoms indicate a need to troubleshoot a International installed circuit or
+                component, procedures are included in this chapter.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>MPSI Prolink Electronic Service Tool (EST)</title>
+            <para>The MPSI (Prolink) electronic service tool (EST) with a Series 60 cartridge can be used to read logged
+                fault codes and monitor many of the system switches and operating parameters. Refer to the Prolink
+                manual for information on using the EST.
+            </para>
+            <para>International vehicles include an 8-way and 12-way (for DDEC EST) diagnostic connector used to access
+                the system with an EST.
+            </para>
+            <para>The troubleshooting charts in this section are not designed for specific symptoms, but designed to
+                test those circuits and components installed by International. Use DDEC III diagnostics procedures to
+                identify the suspect circuit or system, then use the procedures included in this section to troubleshoot
+                the specific International circuit.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Inspection</title>
+            <para>
+                <emph type="bold">NO TESTS in this section require testing "into" the DDEC ECM.</emph>
+            </para>
+        </svcsubproc>
+        <svcsubproc id="hl08058bt">
+            <title>Before Troubleshooting</title>
+            <seqlist style="alphauc">
+                <item>
+                    <para>
+                        <emph type="bold">Before troubleshooting, make sure that the vehicle batteries are fully
+                            charged!</emph>Check battery cables and grounds for clean, tight connections free of damage
+                        and corrosion. Many of the voltage tests included in the procedures will give misleading
+                        readings if the batteries are not fully charged.
+                    </para>
+                </item>
+                <item>
+                    <para>Before troubleshooting a particular circuit, inspect connectors for pushed back, loose or
+                        damaged (spread or bent), or corroded terminals, or wires with cut strands, etc. The wires and
+                        connections must be free of damage or corrosion. When some connectors corrode, a light white
+                        residue will be present that must be removed.
+                    </para>
+                </item>
+                <item>
+                    <para>Before troubleshooting, inspect the suspect circuit grounds for clean, tight connections free
+                        of damage or corrosion.
+                    </para>
+                </item>
+            </seqlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Testing Hella Relay</title>
+            <para>International circuits use suppressed Hella relays for controlling power to load devices (
+                <hotlnk xrefid="f0805801">Figure 1</hotlnk>). The suppression feature (a resistor circuit parallel to
+                the relay coil) prevents voltage spikes from damaging electronic components in the vehicle.
+                <emph type="bold">These relays must be replaced with approved International parts.</emph>
+            </para>
+            <figure id="f0805801" figsize="col-wide">
+                <graphic id="g0805801" filename="../figg08/g0805801.webp" type="webp" scalefit="0"/>
+                <caption>Typical Hella Relay</caption>
+            </figure>
+            <para>The part number and relay circuit diagram are embossed on the relay body. The terminals are numbered
+                on the relay in the same manner as in the circuit diagrams.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Relay Test Procedure</title>
+            <step1>
+                <para count="1">With relay removed, measure resistance between terminals 30 and 87A. If resistance is
+                    less than 5 ohms, go to step 2; otherwise replace the relay.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Measure resistance between terminals 30 and 87. If resistance is 100K ohms or more, go
+                    to step 3; otherwise replace the relay.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Using 12V battery source and test leads, connect (+) lead to terminal 85 and (-) lead to
+                    terminal 86. If relay energizes with an audible click sound, go to step 4; otherwise replace the
+                    relay.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">While relay is energized, measure resistance between terminals 30 and 87. If resistance
+                    is less than 5 ohms, go to step 5; otherwise replace the relay.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">While relay is energized, measure resistance between terminals 30 and 87A. If resistance
+                    is 100K ohms or more, the relay is good; otherwise replace relay.
+                </para>
+            </step1>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08051_114.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08051_116.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08051.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,559 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Diagnostic Software
+        Operation - Diagnostic Tests - Key-On Engine-Off Tests
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="15">
+        <title>Key-On Engine-Off Tests</title>
+        <svcsubproc>
+            <title>Standard Test</title>
+            <para>The KOEO Standard test is done by the ECM. The technician runs this test, using the EST or the CRUISE
+                ON and RESUME/ACCEL switches.
+            </para>
+            <para>During the KOEO Standard test, the ECM does an internal test of its processing components and memory
+                followed by an Output Circuit Check (OCC). The OCC evaluates the electrical condition of the circuits,
+                not mechanical or hydraulic performance of the systems. By operating the ECM output circuits and
+                measuring each response, the Standard test detects shorts or opens in the harnesses, actuators, and ECM.
+                If a circuit fails the test, a fault is logged and a DTC is set.
+            </para>
+            <para>The ECM checks the following circuits:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Injection Pressure Regulator (IPR)</para>
+                </item>
+                <item>
+                    <para>Brake shutoff valve (optional)</para>
+                </item>
+                <item>
+                    <para>Engine Fan (EFAN) (optional)</para>
+                </item>
+                <item>
+                    <para>Radiator Shutter Enable (RSE) (optional)</para>
+                </item>
+            </randlist>
+            <para>When the OCC is done, the DTC window will display DTCs, if there are problems.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Standard Test Using EST</title>
+            <step1>
+                <para count="1">Set parking brake to ensure the correct signal from the Electronic System Controller
+                    (ESC).
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Turn the ignition switch to ON. (Do not crank the engine.)</para>
+            </step1>
+            <figure id="f27003007" figsize="col-wide">
+                <graphic filename="../figH31/H31145.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Standard test</caption>
+            </figure>
+            <step1>
+                <para count="1">Select Diagnostics from the menu bar.</para>
+            </step1>
+            <step1>
+                <para count="1">Select Key-On Engine-Off tests from the drop down menu.</para>
+            </step1>
+            <step1>
+                <para count="1">From the KOEO Diagnostics menu, select Standard and Run to start the test.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>When using the EST to do KOEO or KOER diagnostic tests, Standard test is always selected and
+                        run first. If the ignition switch is not cycled, the Standard test does not have to be run
+                        again.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Standard Test Using Cruise Switches</title>
+            <figure id="f27003008" figsize="col-wide">
+                <graphic filename="../figD31/D3172.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+                <caption>Cruise Switches</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para id="s27005016">Read and be familiar with all steps and time limits in this procedure before
+                        starting.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Set parking brake to ensure the correct signal from the Electronic System Controller
+                    (ESC).
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Turn the ignition switch to ON. (Do not crank the engine.)</para>
+            </step1>
+            <step1>
+                <para count="1">Press and release the CRUISE ON and RESUME/ACCEL switches at the same time, twice within
+                    3 seconds of the ignition switch on.
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>The ECM will begin the Output Circuit Check (OCC).</para>
+                        <para>When the OCC is done, the ECM will flash the red ENGINE and amber ENGINE lamps to signal
+                            the DTCs.
+                        </para>
+                    </item>
+                </randlist>
+            </step1>
+            <specpara>
+                <note>
+                    <para>There could be as much as a 10 second delay from the time switches are pressed to the time
+                        DTCs are flashed.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Injector Test</title>
+            <specpara>
+                <note>
+                    <para>The Injector test can only be done with the EST; MasterDiagnostics&#174; software is required.
+                        The Standard test must be done before doing the Injector test.
+                    </para>
+                </note>
+            </specpara>
+            <para>The Injector test diagnoses electrical problems in IDM wiring or injectors.</para>
+            <specpara>
+                <note>
+                    <para>Before doing the Injector test, DTCs should be accessed, noted, and cleared. This allows DTCs
+                        found to be displayed as Active DTCs.
+                    </para>
+                </note>
+            </specpara>
+            <para>During the Injector test, the ECM requests the IDM actuate the injectors in numerical order (1 through
+                6), not in firing order. The IDM monitors the electrical circuit for each injector, evaluates the
+                performance of the injector coils, and checks the operation of the electrical circuit. If an electronic
+                component in the injector drive circuit fails the expected parameters, the IDM sends a fault to the ECM.
+                The ECM logs the fault, a DTC is set and sent to the EST.
+            </para>
+            <specpara>
+                <note>
+                    <para>The technician can monitor injector operation by listening to the sound of each injector when
+                        activated by the IDM. During Hard Start and No Start conditions, when oil is very cold and
+                        thick, injectors may be hard to hear.
+                    </para>
+                </note>
+            </specpara>
+            <para>The DTC window will display DTCs, if there are problems.</para>
+            <figure id="f27003009" figsize="col-wide">
+                <graphic filename="../figH31/H31146.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Injector test</caption>
+            </figure>
+            <step1>
+                <para count="1">Select Diagnostics from the menu bar.</para>
+            </step1>
+            <step1>
+                <para count="1">Select Key-On Engine-Off Tests from the drop down menu.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>When using the EST to do KOEO or KOER diagnostic tests, Standard test is always selected and
+                        run first. If the ignition switch is not cycled, the Standard test does not have to be run
+                        again.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">From the KOEO Diagnostics menu, select Injector and Run to start the test.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>During the Injector test, injector solenoids should click when actuated. If a series of clicks
+                        are not heard for each injector, one or more injectors are not activating.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Continuous Monitor Test</title>
+            <specpara>
+                <note>
+                    <para>This test can only be done with the EST; MasterDiagnostics&#174; software is required.</para>
+                </note>
+            </specpara>
+            <para>The Continuous Monitor test troubleshoots intermittent connections between the ECM and sensors. The
+                engine can be off or running.
+            </para>
+            <para>The EST monitors the following circuits:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Accelerator Position Sensor (APS)</para>
+                </item>
+                <item>
+                    <para>Barometric Absolute Pressure (BAP)</para>
+                </item>
+                <item>
+                    <para>Battery Voltage (VBatt)</para>
+                </item>
+                <item>
+                    <para>Brake Control Pressure (BCP) (optional)</para>
+                </item>
+                <item>
+                    <para>EGR Valve Position (EGRP)</para>
+                </item>
+                <item>
+                    <para>Exhaust Back Pressure (EBP)</para>
+                </item>
+                <item>
+                    <para>Engine Coolant Level (ECL)</para>
+                </item>
+                <item>
+                    <para>Engine Fuel Pressure (EFP) (optional)</para>
+                </item>
+                <item>
+                    <para>Engine Oil Pressure (EOP)</para>
+                </item>
+                <item>
+                    <para>Engine Oil Temperature (EOT)</para>
+                </item>
+                <item>
+                    <para>Intake Air Temperature (IAT)</para>
+                </item>
+                <item>
+                    <para>Injection Control Pressure (ICP)</para>
+                </item>
+                <item>
+                    <para>Manifold Air Temperature (MAT)</para>
+                </item>
+                <item>
+                    <para>Manifold Absolute Pressure (MAP)</para>
+                </item>
+            </randlist>
+            <figure id="f27003010" figsize="col-wide">
+                <graphic filename="../figj31/j31240.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="592px"/>
+                <caption>Continuous Monitor session</caption>
+            </figure>
+            <step1>
+                <para count="1">Select D_ContinuousMonitor.ssn from the open session file window and select OPEN to open
+                    the session.
+                </para>
+            </step1>
+            <figure id="f27003011" figsize="col-wide">
+                <graphic filename="../figH31/H31229.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Continuous Monitor test</caption>
+            </figure>
+            <step1>
+                <para count="1">Select Diagnostics from the menu bar.</para>
+            </step1>
+            <step1>
+                <para count="1">Select Key-On Engine-Off Tests from the drop down menu.</para>
+            </step1>
+            <step1>
+                <para count="1">From the KOEO Diagnostics menu, select Continuous Monitor and select Run to start the
+                    test.
+                </para>
+            </step1>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle, be
+                        careful to avoid rotating parts (belts and fan) and hot engine surfaces.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Wiggle connectors and wires at all suspected problem locations. If circuit continuity is
+                    interrupted, the EST will display DTCs related to the condition.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Correct problem causing active DTCs.</para>
+            </step1>
+            <step1>
+                <para count="1">Clear DTCs.</para>
+            </step1>
+            <figure id="f27003012" figsize="col-wide">
+                <graphic filename="../figj31/j31087.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Close session</caption>
+            </figure>
+            <step1>
+                <para count="1">When finished with this test, select Session from menu bar, then Close.</para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Output State Low Test</title>
+            <specpara>
+                <note>
+                    <para>This test can only be done with the EST; MasterDiagnostics&#174; software is required.</para>
+                </note>
+            </specpara>
+            <para>The Output State Low test allows the technician to diagnose the operation of the output signals and
+                actuators.
+            </para>
+            <para>In the Output State Low test mode, the ECM pulls down the output voltage to the low state. This
+                grounds the low side driver circuits and actuates the output components controlled by the ECM.
+            </para>
+            <para>During Output State Low test, the output of the circuit in question can be monitored with a DMM. The
+                DMM measures a low voltage state as the outputs are toggled. The actual voltage will vary with the
+                circuit tested.
+            </para>
+            <specpara>
+                <note>
+                    <randlist type="bullet">
+                        <item>
+                            <para>A Breakout Box or Breakout Harness and a DMM are required to monitor the suspected
+                                circuit or actuator.
+                            </para>
+                        </item>
+                        <item>
+                            <para>DTCs are not set by the ECM during this test.</para>
+                        </item>
+                    </randlist>
+                </note>
+            </specpara>
+            <para>The following actuators are activated when toggled low during the test:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Injection Pressure Regulator (IPR) (electrical circuit only)</para>
+                </item>
+                <item>
+                    <para>Engine Fan (EFAN) relay (optional) (electrical circuit and inspect if clutch is engaged)
+                    </para>
+                </item>
+                <item>
+                    <para>Radiator Shutter Enable (RSE) (optional) (electrical circuit, audible, and visual inspection
+                        of shutter position)
+                    </para>
+                </item>
+                <item>
+                    <para>EGR (audible and visual inspection only) continuous monitoring by EGR drive module</para>
+                </item>
+                <item>
+                    <para>VGT vanes full open (electrical circuit, audible, and visual inspection of actuator arm)
+                    </para>
+                </item>
+            </randlist>
+            <figure id="f27003013" figsize="col-wide">
+                <graphic filename="../figh31/h31416.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Output State Test Session</caption>
+            </figure>
+            <step1>
+                <para count="1">Select D_OutputStateTest.ssn from the open session file window.</para>
+            </step1>
+            <figure id="f27003014" figsize="col-wide">
+                <graphic filename="../figH31/H31231.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Output State Low test</caption>
+            </figure>
+            <step1>
+                <para count="1">Select Diagnostics from the menu bar.</para>
+            </step1>
+            <step1>
+                <para count="1">Select Key-On Engine-Off Tests from the drop down menu.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>When using the EST to do KOEO or KOER diagnostic tests, Standard test is always selected and
+                        run first. If the ignition switch is not cycled, the Standard test does not have to be run
+                        again.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">From the KOEO Diagnostics menu, select Output State Low and Run to start the test.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Toggle between the Low and High tests in the Output State Test. Listen and observe
+                    actuator control or circuit operation.
+                </para>
+            </step1>
+            <figure id="f27003015" figsize="col-wide">
+                <graphic filename="../figj31/j31087.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Close session</caption>
+            </figure>
+            <step1>
+                <para count="1">When finished with this test, select Session from menu bar, then Close.</para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Output State High Test</title>
+            <specpara>
+                <note>
+                    <para>This test can only be done with the EST; MasterDiagnostics&#174; software is required.</para>
+                </note>
+            </specpara>
+            <para>The Output State High test allows the technician to diagnose the operation of the output signals and
+                actuators.
+            </para>
+            <para>In the Output State High test mode, the ECM pulls up the output voltage to the high state. This
+                energizes the control high side driver circuits and actuates the output components controlled by the
+                ECM.
+            </para>
+            <para>During this test, the output of the circuit in question is monitored with a DMM. The DMM measures a
+                high voltage state, as the outputs are toggled. The actual voltage will vary with the circuit tested.
+            </para>
+            <specpara>
+                <note>
+                    <randlist type="bullet">
+                        <item>
+                            <para>A Breakout Box or Breakout Harness and a DMM are required to monitor the suspected
+                                circuit or actuator.
+                            </para>
+                        </item>
+                        <item>
+                            <para>DTCs are not set by the ECM during this test.</para>
+                        </item>
+                    </randlist>
+                </note>
+            </specpara>
+            <para>The following actuators are activated when toggled high during the test:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>VGT vanes full closed (electrical circuit, audible, and visual inspection of actuator arm)
+                    </para>
+                </item>
+                <item>
+                    <para>Brake Shutoff valve (optional) (electrical circuit only)</para>
+                </item>
+            </randlist>
+            <figure id="f27003016" figsize="col-wide">
+                <graphic filename="../figh31/h31416.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Output State Test Session</caption>
+            </figure>
+            <step1>
+                <para count="1">Select D_OutputStateTest.ssn from the open session file window.</para>
+            </step1>
+            <figure id="f27003017" figsize="col-wide">
+                <graphic filename="../figH31/H31230.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Output State High test</caption>
+            </figure>
+            <step1>
+                <para count="1">Select Diagnostics from the menu bar.</para>
+            </step1>
+            <step1>
+                <para count="1">Select Key-On Engine-Off Tests from the drop down menu.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>When using the EST to do KOEO or KOER diagnostic tests, Standard test is always selected and
+                        run first. If the ignition switch is not cycled, the Standard test does not have to be run
+                        again.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">From the KOEO Diagnostics menu, select Output State Test High and Run to start the
+                    test.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Toggle between the Output State Test Low and the Output State Test High. Listen and
+                    observe actuator control or circuit operation.
+                </para>
+            </step1>
+            <figure id="f27003018" figsize="col-wide">
+                <graphic filename="../figj31/j31087.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Close session</caption>
+            </figure>
+            <step1>
+                <para count="1">When finished with this test, select Session from menu bar, then Close.</para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Glow Plug/Inlet Air Heater Output State Test</title>
+            <specpara>
+                <note>
+                    <para>This test can only be done with the EST; MasterDiagnostics&#174; software is required.</para>
+                </note>
+            </specpara>
+            <para>The Glow Plug/Inlet Air Heater Output State test allows the technician to determine if the Inlet Air
+                Heater System is operating correctly.
+            </para>
+            <para>The inlet air heater relay operation is activated for 30 seconds. A DMM and current clamp are used to
+                measure the time the relay is on and the amperage that is drawn for the inlet air heater.
+            </para>
+            <figure id="f27003019" figsize="col-wide">
+                <graphic filename="../figh31/h31416.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Output State Test Session</caption>
+            </figure>
+            <step1>
+                <para count="1">Select D_OutputStateTest.ssn from the open session file window.</para>
+            </step1>
+            <figure id="f27003020" figsize="col-wide">
+                <graphic filename="../figj31/j31139.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Glow Plug/Inlet Air Heater Output State test</caption>
+            </figure>
+            <step1>
+                <para count="1">Select Diagnostics from the menu bar.</para>
+            </step1>
+            <step1>
+                <para count="1">Select Key-On Engine-Off Tests from the drop down menu.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>When using the EST to do KOEO or KOER diagnostic tests, Standard test is always selected and
+                        run first. If the ignition switch is not cycled, the Standard test does not have to be run
+                        again.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">From the KOEO Diagnostics menu, select Glow Plug/Inlet Air Heater and Run to start the
+                    test.
+                </para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>This test can only be run twice for each ignition switch cycle. Earlier calibration may not
+                        allow the test to be run, contact International&#174; Technical Services.
+                    </para>
+                </note>
+            </specpara>
+            <figure id="f27003021" figsize="col-wide">
+                <graphic filename="../figj31/j31087.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Close session</caption>
+            </figure>
+            <step1>
+                <para count="1">When finished with this test, select Session from menu bar, then Close.</para>
+            </step1>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_55.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_57.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,2210 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>CF 500, CF 600 - Electrical - Instrument Cluster - Diagnosis and Testing</stitle>
+    <svcsection/>
+    <svcproc svcproctype="test" graphiccount="23">
+        <title>Diagnosis and Testing</title>
+        <svcprocinfo>
+            <para>Refer to Wiring Diagrams, Instrument Cluster for schematic and connector information.</para>
+            <table id="t1105002">
+                <title>Special Tools</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.16*"/>
+                    <colspec colname="col2" colwidth="0.84*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <graphic filename="../figST1/ST1137A.webp" type="webp" scalefit="1" scalefitwidth="152px"
+                                         scalefitheight="112px"/>
+                            </entry>
+                            <entry>
+                                <para>Automotive Meter</para>
+                                <para>ZTSE4357</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <graphic filename="../figEZT/EZTech.webp" type="webp" scalefit="1" scalefitwidth="152px"
+                                         scalefitheight="112px"/>
+                            </entry>
+                            <entry>
+                                <para>EZ-Tech III</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Principles of Operation</title>
+            <para>
+                <emph type="bold">Instrument Cluster</emph>
+            </para>
+            <para>The instrument cluster is a hybrid electronic cluster (HEC) that contains a microprocessor, gauges,
+                indicator lamps and internal circuitry. The instrument cluster is non-repairable.
+            </para>
+            <para>The instrument cluster carries out a display prove-out to verify that the warning/indicator lamps and
+                monitored systems are operating correctly. When the ignition switch is turned to the ON position with
+                the engine off, the following indicators illuminate for 3 seconds:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Brake fluid level</para>
+                </item>
+                <item>
+                    <para>Check transmission</para>
+                </item>
+                <item>
+                    <para>Transmission temperature</para>
+                </item>
+                <item>
+                    <para>Check electrical system</para>
+                </item>
+                <item>
+                    <para>ABS</para>
+                </item>
+                <item>
+                    <para>Wait to Start (this indicator may stay on longer if the ECM determines that glow plugs will be
+                        required to start the engine)
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Odometer Display</title>
+            </para>
+            <para>This Liquid Crystal Display (LCD) module provides the odometer and trip odometer information.</para>
+            <para>
+                <title>Gauges</title>
+            </para>
+            <para>
+                <emph type="bold">Speedometer</emph>
+            </para>
+            <para>The instrument cluster receives a vehicle speed signal from the engine control module (ECM) through
+                the communication network. The instrument cluster monitors this input from the ECM and commands a
+                corresponding movement of the speedometer pointer.
+            </para>
+            <para>
+                <emph type="bold">Tachometer</emph>
+            </para>
+            <para>The tachometer is electrically operated and indicates the engine speed in revolutions per minute
+                (rpm). The tachometer range is 0 to 4,000 rpm. The tachometer receives the signal through the
+                communication network from the ECM. If the rpm information sent to the instrument cluster is invalid or
+                missing, the instrument cluster defaults the tachometer to 0 rpm.
+            </para>
+            <para>
+                <emph type="bold">Odometer</emph>
+            </para>
+            <para>The odometer is tamper-resistant and accumulates and registers up to one million kilometers in metric
+                mode or one million miles in English mode, based upon rolling count data sent from the ECM over the
+                communication network. The trip odometer is resettable and accumulates and registers up to 999.9
+                kilometers (999.9 miles).
+            </para>
+            <para>
+                <emph type="bold">Fuel Gauge</emph>
+            </para>
+            <para>The instrument cluster is hardwired to the fuel sending unit, which is a variable resistor controlled
+                by the action of a float arm. When the fuel level is low, resistance in the unit is low. When the fuel
+                level is high, the resistance is high. The instrument cluster uses the input from the fuel sender and
+                commands the fuel gauge indication according to the fuel level data. The fuel gauge has an integrated
+                low fuel warning indicator.
+            </para>
+            <para>
+                <emph type="bold">Engine Coolant Temperature Gauge</emph>
+            </para>
+            <para>The instrument cluster monitors the engine coolant temperature data received from the ECM over the
+                communication network, and commands the temperature gauge indication with a corresponding movement of
+                the pointer. The engine coolant temperature gauge has an integrated temperature warning indicator.
+            </para>
+            <para>
+                <title>Warning Indicator Lamps</title>
+            </para>
+            <para>
+                <emph type="bold">Anti-Lock Brake System (ABS) Warning Indicator</emph>
+            </para>
+            <para>The ABS warning indicator is used to indicate an ABS concern or deactivation of the ABS. The
+                instrument cluster, upon receipt of the ABS message from the ABS module through the communication
+                network, turns on the ABS warning indicator.
+            </para>
+            <para>
+                <emph type="bold">Brake Fluid Level</emph>
+            </para>
+            <para>The instrument cluster brake fluid level warning indicator illuminates when there is a low brake fluid
+                level. The brake fluid level switch is hardwired to the instrument cluster. The brake fluid level switch
+                provides a ground to the instrument cluster when the brake fluid level is low or when the electrical
+                connector is disconnected.
+            </para>
+            <para>
+                <emph type="bold">Park Brake</emph>
+            </para>
+            <para>The instrument cluster park brake warning indicator illuminates when the parking brake is applied. The
+                parking brake switch is hardwired to the instrument cluster. The parking brake switch provides a ground
+                to the instrument cluster when the parking brake switch is applied.
+            </para>
+            <para>
+                <emph type="bold">Charging System Warning Indicator</emph>
+            </para>
+            <para>Internal circuitry in the voltage regulator provides a ground path to the instrument cluster and the
+                indicator illuminates. When the generator builds up enough voltage to energize the voltage regulator,
+                voltage is applied to the ground side of the indicator effectively removing the ground path and turning
+                the indicator off.
+            </para>
+            <para>
+                <emph type="bold">Safety Belt Warning Indicator</emph>
+            </para>
+            <para>The safety belt warning indicator is powered through the instrument cluster and is grounded through
+                the safety belt switch. When the safety belt is buckled, the switch opens and the instrument cluster
+                turns off the safety belt warning indicator. When the safety belt is unbuckled, the switch closes and
+                provides a ground to the instrument cluster to illuminate the safety belt warning indicator.
+            </para>
+            <para>
+                <emph type="bold">Transmission Warning Indicator</emph>
+            </para>
+            <para>The instrument cluster receives data from the transmission control module (TCM) over the communication
+                network. The TCM communicates to the instrument cluster to illuminate the transmission warning indicator
+                if a DTC is set by the TCM.
+            </para>
+            <para>
+                <emph type="bold">Transmission Oil Temperature Warning Indicator</emph>
+            </para>
+            <para>The instrument cluster receives data from the TCM over the communication network. The TCM communicates
+                to the instrument cluster to illuminate the transmission warning indicator if the transmission oil is
+                above the calibrated temperature.
+            </para>
+            <para>
+                <emph type="bold">Water In Fuel Warning Indicator</emph>
+            </para>
+            <para>The instrument cluster receives data from the ECM over the communication network. The ECM communicates
+                to the instrument cluster to illuminate the water-in-fuel indicator when the fuel system water collector
+                is full.
+            </para>
+            <para>
+                <emph type="bold">Change Oil Warning Indicator</emph>
+            </para>
+            <para>The instrument cluster receives data from the ECM over the communication network. The ECM communicates
+                to the instrument cluster to illuminate the change oil indicator when the ECM determines an oil change
+                is necessary.
+            </para>
+            <para>
+                <emph type="bold">Check Electrical System Warning Indicator</emph>
+            </para>
+            <para>The instrument cluster will illuminate the indicator continuously when there is a loss of
+                communication between the instrument cluster and the ECM, TCM or ABS module. The indicator will flash if
+                the instrument cluster determines that the ABS indicator is not functional.
+            </para>
+            <para>
+                <emph type="bold">Low Fuel Warning Indicator</emph>
+            </para>
+            <para>The fuel gauge has an integrated low fuel warning indicator. This indicator will illuminate when the
+                fuel level is below 1/8 of the tank.
+            </para>
+            <para>
+                <emph type="bold">Engine Coolant Temperature Warning Indicator</emph>
+            </para>
+            <para>The instrument cluster will illuminate the indicator continuously when the engine coolant temperature
+                is above 110&#176;C (230&#176;F). The indicator will flash if the instrument cluster does not receive
+                coolant temperature information from the ECM.
+            </para>
+            <para>
+                <title>Indicator Lamps</title>
+            </para>
+            <para>
+                <emph type="bold">High Beam Indicator</emph>
+            </para>
+            <para>The instrument cluster provides a ground for the high beam indicator. When the high beam headlamps are
+                turned ON, the multifunction switch provides a power signal to the instrument cluster through hardwired
+                circuitry and illuminates the high beam indicator.
+            </para>
+            <para>
+                <emph type="bold">RH and LH Turn Indicators</emph>
+            </para>
+            <para>The instrument cluster provides a ground for the RH and LH turn indicators. When the multifunction
+                switch is in the RH or LH turn position, power is supplied to the instrument cluster through hardwired
+                circuitry and the RH or LH turn indicators flash ON and OFF. The indicators will operate when the hazard
+                switch is ON, regardless of the key position.
+            </para>
+            <para>
+                <emph type="bold">Wait to Start Indicator</emph>
+            </para>
+            <para>The wait to start signal is transmitted to the instrument cluster over the communication network from
+                the ECM. The wait to start indicator illuminates when the ignition switch is in the ON position with the
+                engine OFF indicating that the glow plugs are heating.
+            </para>
+            <para>
+                <emph type="bold">Tow/Haul Indicator</emph>
+            </para>
+            <para>The tow/haul indicator illuminates when the tow/haul button is pressed on the transmission range (TR)
+                selector lever. When the vehicle is in the tow mode, the indicator is illuminated by a signal from the
+                ECM to inform the operator that the vehicle will not shift into overdrive. When the indicator is
+                illuminated, the vehicle also provides engine braking and early transmission downshifts when braking on
+                downhill grades.
+            </para>
+            <para>
+                <emph type="bold">Power Take-Off (PTO) Indicator</emph>
+            </para>
+            <para>The PTO indicator illuminates when a signal from the TCM tells the instrument cluster that the PTO
+                unit is in use.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Inspection and Verification</title>
+            <step1>
+                <para count="1">Verify the customer concern.</para>
+            </step1>
+            <step1>
+                <para count="1">Visually inspect for obvious signs of mechanical and electrical damage.</para>
+            </step1>
+            <table id="t1301004">
+                <title>Visual Inspection Chart</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.16*"/>
+                    <colspec colname="col2" colwidth="0.84*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Mechanical</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Electrical</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Engine oil filter</para>
+                                    </item>
+                                    <item>
+                                        <para>Engine oil level</para>
+                                    </item>
+                                    <item>
+                                        <para>Engine coolant level</para>
+                                    </item>
+                                    <item>
+                                        <para>Coolant thermostat</para>
+                                    </item>
+                                    <item>
+                                        <para>Fuel tank</para>
+                                    </item>
+                                    <item>
+                                        <para>Low fuel</para>
+                                    </item>
+                                    <item>
+                                        <para>Fuel tank(s)</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry open/shorted</para>
+                                    </item>
+                                    <item>
+                                        <para>Fuel level sender</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <step1>
+                <para count="1">If the fault is not visually evident, determine the symptom and GO to the Symptom
+                    Chart.
+                </para>
+            </step1>
+            <table id="t1301005" tblwidth="pg-wide">
+                <title>Symptom Chart</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.93*"/>
+                    <colspec colname="col2" colwidth="1.03*"/>
+                    <colspec colname="col3" colwidth="1.04*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Condition</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Possible Sources</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Action</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>Incorrect fuel gauge indication</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry open.</para>
+                                    </item>
+                                    <item>
+                                        <para>Fuel level sender.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test A.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The speedometer, tachometer or temperature gauge is inoperative.</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry open.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test B.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The park brake warning indicator is never on</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry open.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                    <item>
+                                        <para>Parking brake switch.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test C.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The park brake warning indicator is always on</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry shorted.</para>
+                                    </item>
+                                    <item>
+                                        <para>Parking brake switch.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test D.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The brake fluid level warning indicator is never on</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry open.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                    <item>
+                                        <para>Brake fluid level switch.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test E.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The brake fluid level warning indicator is always on</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry shorted.</para>
+                                    </item>
+                                    <item>
+                                        <para>Brake fluid level switch.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test F.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The charging system indicator is never on</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry open.</para>
+                                    </item>
+                                    <item>
+                                        <para>Alternator control.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test G.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The charging system indicator is always on</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry shorted.</para>
+                                    </item>
+                                    <item>
+                                        <para>Alternator control.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test H.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The high beam indicator is never on</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry open.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test I.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The LH or RH turn indicator is never on</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry open.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test J.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The instrument cluster is inoperative</para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Circuitry.</para>
+                                    </item>
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>Go to Pinpoint Test K.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The low fuel or coolant temperature warning indicator is inoperative/always on
+                                </para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If the fuel or coolant temperature gauge operates correctly, INSTALL a new
+                                            instrument cluster. For additional information, refer to Instrument Cluster
+                                            Removal and Installation in this section. TEST the system for normal
+                                            operation.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>The ABS, transmission warning, transmission temp warning, tow/haul, PTO,
+                                    wait-to-start, water-in-fuel, stop engine warning, engine warning, or change oil
+                                    indicator is inoperative/always on.
+                                </para>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Instrument cluster.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>INSTALL a new instrument cluster. Refer to Instrument Cluster Removal and
+                                            Installation in this section. TEST the system for normal operation.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Pinpoint Tests</title>
+            <para>
+                <emph type="italic">Pinpoint Test A: Incorrect Fuel Gauge Indication</emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, the fuel level sender is grounded through circuit 57 (BK). The instrument
+                cluster reads a variable voltage from the fuel level sender through circuit 29 (YE/WH).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>An open in circuit 29 (YE/WH) or 57 (BK)</para>
+                </item>
+                <item>
+                    <para>A short to ground in circuit 29 (YE/WH)</para>
+                </item>
+                <item>
+                    <para>Fuel level sender</para>
+                </item>
+                <item>
+                    <para>Instrument cluster</para>
+                </item>
+            </randlist>
+            <table id="t1301050" tblwidth="pg-wide">
+                <title>PINPOINT TEST A: INCORRECT FUEL GAUGE INDICATION</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A1 CHECK FUEL LEVEL SENDER</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Estimate the fuel level.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Instrument Cluster C220a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ground and instrument cluster C220a-10,
+                                            circuit 29 (YE/WH).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025263.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>Compare the resistance to the levels below.</para>
+                                <para>Tank Level:
+                                    <emph type="bold">Above Full</emph>
+                                    - Sensor Resistance:
+                                    <emph type="bold">157-163</emph>
+                                    Ohms
+                                </para>
+                                <para>Tank Level:
+                                    <emph type="bold">Full</emph>
+                                    - Sensor Resistance:
+                                    <emph type="bold">142-148</emph>
+                                    Ohms
+                                </para>
+                                <para>Tank Level:
+                                    <emph type="bold">3/4</emph>
+                                    - Sensor Resistance:
+                                    <emph type="bold">112-118</emph>
+                                    Ohms
+                                </para>
+                                <para>Tank Level:
+                                    <emph type="bold">1/2</emph>
+                                    - Sensor Resistance:
+                                    <emph type="bold">82-88</emph>
+                                    Ohms
+                                </para>
+                                <para>Tank Level:
+                                    <emph type="bold">1/4</emph>
+                                    - Sensor Resistance:
+                                    <emph type="bold">54-56</emph>
+                                    Ohms
+                                </para>
+                                <para>Tank Level:
+                                    <emph type="bold">Empty</emph>
+                                    - Sensor Resistance:
+                                    <emph type="bold">24-26</emph>
+                                    Ohms
+                                </para>
+                                <para>Tank Level:
+                                    <emph type="bold">Below Empty</emph>
+                                    - Sensor Resistance:
+                                    <emph type="bold">14-16</emph>
+                                    Ohms
+                                </para>
+                                <para>
+                                    <emph type="bold">Does the measured resistance match the resistance above?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. REFER to Instrument Cluster, Removal and
+                                    Installation in this section. TEST the system for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>If the resistance is greater than 160 ohms, GO to A2.</para>
+                                <para>If the resistance is less than 15 ohms, GO to A4.</para>
+                                <para>If the resistance is 15-160 ohms, INSTALL a new fuel level sender. For additional
+                                    information, refer to
+                                    <exhotlnk document="../S15/S15002.htm" bookname="S15002">Fuel Tank and Lines in
+                                        S15002</exhotlnk>. TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A2 CHECK CIRCUIT 57 (BK) FOR AN OPEN</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Fuel Level Sender C3262
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ground and fuel level sender C3262-A or
+                                            C3261-4, circuit 57 (BK).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025264.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to A3.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 57 (BK) for an open. TEST the system for normal operation.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A3 CHECK CIRCUIT 29 (YE/WH) FOR AN OPEN</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the resistance between fuel level sender C3262-B or C3261-2,
+                                            circuit 29 (YE/WH) and instrument cluster C220a-10, circuit 29 (YE/WH).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025265.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new fuel level sender. For additional information, refer to
+                                    <exhotlnk document="../S15/S15002.htm" bookname="S15002">Fuel Tank and Lines in
+                                        S15002</exhotlnk>. TEST the system for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 29 (YE/WH) for an open. TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A4 CHECK CIRCUIT 29 (YE/WH) FOR A SHORT TO GROUND</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Fuel Level Sender C3262
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ground and instrument cluster C220a-10,
+                                            circuit 29 (YE/WH).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025263.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance greater than 10,000 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new fuel level sender. For additional information, refer to
+                                    <exhotlnk document="../S15/S15002.htm" bookname="S15002">Fuel Tank and Lines in
+                                        S15002</exhotlnk>. TEST the system for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 29 (YE/WH) for a short to ground. TEST the system for normal
+                                    operation.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test B: The Speedometer, Tachometer Or Temperature Gauge Is Inoperative
+                </emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, the instrument cluster receives voltage through circuit 489 (PK/BK). The
+                instrument cluster is grounded through circuit 57 (BK).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>An open in circuit 57 (BK) or 489 (PK/BK)</para>
+                </item>
+                <item>
+                    <para>Instrument cluster</para>
+                </item>
+            </randlist>
+            <table id="t1301051" tblwidth="pg-wide">
+                <title>PINPOINT TEST B: THE SPEEDOMETER, TACHOMETER OR TEMPERATURE GAUGE IS INOPERATIVE</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">B1 CHECK GAUGE OPERATION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Observe speedometer, tachometer or temperature gauge operation.</para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Are all 3 gauges inoperative?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to B2.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>GO to B4.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">B2 CHECK VOLTAGE TO THE INSTRUMENT CLUSTER</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Instrument Cluster C220a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage between ground and instrument cluster C220a-1, circuit
+                                            489 (PK/BK).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025266.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage greater than 10 volts?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to B3.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 489 (PK/BK) for an open. TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">B3 CHECK GROUND TO THE INSTRUMENT CLUSTER</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ground and instrument cluster:</para>
+                                        <randlist type="dash">
+                                            <item>
+                                                <para>C220a-7, circuit 57 (BK).</para>
+                                            </item>
+                                            <item>
+                                                <para>C220b-1, circuit 57 (BK).</para>
+                                            </item>
+                                            <item>
+                                                <para>C220b-2, circuit 57 (BK).</para>
+                                            </item>
+                                            <item>
+                                                <para>C220b-3, circuit 57 (BK).</para>
+                                            </item>
+                                        </randlist>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025267.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. Refer to Instrument Cluster, Removal and
+                                    Installation in this section. TEST the system for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 57 (BK) for an open. TEST the system for normal operation.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">B4 CHECK THE ECM PIDS</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in START position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Enter the following diagnostic mode on the diagnostic tool: Vehicle Speed,
+                                            Engine Speed or Coolant Temperature ECM PID.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Test drive the vehicle.</para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Did the vehicle speed, engine speed or coolant temperature
+                                        change?
+                                    </emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. Refer to Instrument Cluster, Removal and
+                                    Installation in this section. TEST the system for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REFER to the engine manual EGES-305.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test C: The Park Brake Warning Indicator Is Never On</emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, the park brake switch is grounded through circuit 57 (BK). When the park brake
+                is applied, the park brake switch is closed and ground is provided to the instrument cluster park brake
+                warning indicator through circuit 162 (LG/RD).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>An open in circuit 57 (BK) or 162 (LG/RD)</para>
+                </item>
+                <item>
+                    <para>Park brake switch</para>
+                </item>
+                <item>
+                    <para>Instrument cluster</para>
+                </item>
+            </randlist>
+            <table id="t1301052" tblwidth="pg-wide">
+                <title>PINPOINT TEST C: THE PARK BRAKE WARNING INDICATOR IS NEVER ON</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">C1 CHECK THE PARKING BRAKE SWITCH GROUND</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>Parking Brake Switch C306.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ground and parking brake switch C306-A,
+                                            circuit 57 (BK).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025260.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>Go to C2.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 57 (BK) for an open. TEST the system for normal operation.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">C2 CHECK THE PARKING BRAKE SWITCH</emph>
+                                </para>
+                                <para>Connect a fused jumper wire between ground and parking brake switch C306-B,
+                                    circuit 162 (LG/RD).
+                                </para>
+                                <graphic filename="../fign00/n0025261.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Does the brake warning indicator illuminate?</emph>
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new parking brake switch. TEST the system for normal operation.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>Go to C3.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">C3 CHECK CIRCUIT 162 (LG/RD) FOR AN OPEN</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Instrument Cluster C220a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between instrument cluster C220a-12, circuit 162
+                                            (LG/RD) and parking brake switch C306-B, circuit 162 (LG/RD).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025268.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. Refer to Instrument Cluster, Removal and
+                                    Installation in this section. TEST the system for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 162 (LG/RD) for an open. TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test D: The Park Brake Warning Indicator Is Always On</emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, the park brake switch is grounded through circuit 57 (BK). When the park brake
+                is applied, the park brake switch is closed and ground is provided to the instrument cluster park brake
+                warning indicator through circuit 162 (LG/RD).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>A short to ground in circuit 162 (LG/RD)</para>
+                </item>
+                <item>
+                    <para>Park brake switch</para>
+                </item>
+                <item>
+                    <para>Instrument cluster</para>
+                </item>
+            </randlist>
+            <table id="t1301053" tblwidth="pg-wide">
+                <title>PINPOINT TEST D: THE PARK BRAKE WARNING INDICATOR IS ALWAYS ON</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">D1 CHECK THE PARKING BRAKE SWITCH</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Parking Brake Switch C306
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Observe the brake warning indicator.</para>
+                                    </item>
+                                </randlist>
+                                <para>
+                                    <emph type="bold">Is the brake warning indicator OFF?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new parking brake switch. TEST the system for normal operation.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>Go to D2.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">D2 CHECK CIRCUIT 162 (LG/RD) FOR AN OPEN</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Instrument Cluster C220a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ground and parking brake switch C306-B,
+                                            circuit 162 (LG/RD).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025269.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance greater than 10,000 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. For additional information, refer to Instrument
+                                    Cluster, Removal and Installation in this section. TEST the system for normal
+                                    operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 162 (LG/RD) for a short to ground. TEST the system for normal
+                                    operation.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test E: The Brake Fluid Level Warning Indicator Is Never On</emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, the brake fluid level switch is grounded through circuit 57 (BK). When the
+                fluid level is low, the brake fluid level switch is closed and ground is provided to the instrument
+                cluster brake fluid level warning indicator through circuit 128 (VT/YE).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>An open in circuit 57 (BK) or 128 (VT/YE)</para>
+                </item>
+                <item>
+                    <para>Brake fluid level switch</para>
+                </item>
+                <item>
+                    <para>Instrument cluster</para>
+                </item>
+            </randlist>
+            <table id="t1301054" tblwidth="pg-wide">
+                <title>PINPOINT TEST E: THE BRAKE FLUID LEVEL WARNING INDICATOR IS NEVER ON</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E1 CHECK THE BRAKE FLUID LEVEL SWITCH GROUND</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Brake Fluid Level Switch C124
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ground and brake fluid level switch C124-B,
+                                            circuit 57 (BK).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025270.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>Go to E2.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 57 (BK) for an open. TEST the system for normal operation.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E2 CHECK THE BRAKE FLUID LEVEL SWITCH</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Connect a fused jumper wire between ground and brake fluid level switch
+                                            C124-A, circuit 128 (VT/YE).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025271.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Does the brake fluid level warning indicator illuminate?
+                                            </emph>
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new brake fluid level switch. TEST the system for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>Go to E3.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">E3 CHECK CIRCUIT 128 (VT/YE) FOR AN OPEN</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Instrument Cluster C220b
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between instrument cluster C220b-12, circuit 128
+                                            (VT/YE) and brake fluid level switch C124-A, circuit 128 (VT/YE).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025272.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. For additional information, refer to Instrument
+                                    Cluster, Removal and Installation in this section. TEST the system for normal
+                                    operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 128 (VT/YE) for an open. TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test F: The Brake Fluid Level Warning Indicator Is Always On</emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, the brake fluid level switch is grounded through circuit 57 (BK). When the
+                fluid level is low, the brake fluid level switch is closed and ground is provided to the instrument
+                cluster brake fluid level warning indicator through circuit 128 (VT/YE).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>A short to ground in circuit 128 (VT/YE)</para>
+                </item>
+                <item>
+                    <para>Brake fluid level switch</para>
+                </item>
+                <item>
+                    <para>Instrument cluster</para>
+                </item>
+            </randlist>
+            <table id="t1301055" tblwidth="pg-wide">
+                <title>PINPOINT TEST F: THE BRAKE FLUID LEVEL WARNING INDICATOR IS ALWAYS ON</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">F1 CHECK THE BRAKE FLUID LEVEL SWITCH</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Brake Fluid Level Switch C124
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Observe the brake fluid level warning indicator.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Is the brake fluid level warning indicator OFF?</emph>
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new brake fluid level switch. TEST the system for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>Go to F2.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">F2 CHECK CIRCUIT 128 (VT/YE) FOR AN OPEN</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>Instrument Cluster C220b
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ground and brake fluid level switch C124-1,
+                                            circuit 128 (VT/YE).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025273.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance greater than 10,000 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. For additional information, refer to Instrument
+                                    Cluster, Removal and Installation in this section. TEST the system for normal
+                                    operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 128 (VT/YE) for a short to ground. TEST the system for normal
+                                    operation.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test G: The Charging System Indicator Is Never On</emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, when voltage is low, the alternator control provides ground to the instrument
+                cluster charging indicator through circuit 1818 (WH/BK)/904 (LG/RD).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>An open in circuit 1818 (WH/BK)/904 (LG/RD)</para>
+                </item>
+                <item>
+                    <para>Instrument cluster</para>
+                </item>
+                <item>
+                    <para>Alternator control</para>
+                </item>
+            </randlist>
+            <table id="t1301056" tblwidth="pg-wide">
+                <title>PINPOINT TEST G: THE CHARGING SYSTEM INDICATOR IS NEVER ON</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">G1 CHECK THE CHARGING SYSTEM WARNING INDICATOR OPERATION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Alternator Control C102a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Connect a fused jumper wire between ground and alternator control C102a-1,
+                                            circuit 1818 (WH/BK).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025274.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Does the charging system warning indicator illuminate?
+                                            </emph>
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new alternator control. REFER to
+                                    <hotlnk document="s08307_X4140234.xml" xrefid="x4140234">Generator and
+                                        Regulator</hotlnk>. TEST the system for normal operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>Go to G2.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">G2 CHECK CIRCUIT 904 (LG/RD)/1818 (WH/BK) FOR AN OPEN</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>Instrument Cluster C220a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between instrument cluster C220a-6, circuit 904
+                                            (LG/RD) and alternator control C102a-1, circuit 1818 (WH/BK).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025275.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. For additional information, refer to Instrument
+                                    Cluster, Removal and Installation in this section. TEST the system for normal
+                                    operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 904 (LG/RD)/1818 (WH/BK) for an open. TEST the system for normal
+                                    operation.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test H: The Charging System Indicator Is Always On</emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, when voltage is low, the alternator control provides ground to the instrument
+                cluster charging indicator through circuit 1818 (WH/BK)/904 (LG/RD).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>A short to ground in circuit 1818 (WH/BK)/904 (LG/RD)</para>
+                </item>
+                <item>
+                    <para>Instrument cluster</para>
+                </item>
+                <item>
+                    <para>Alternator control</para>
+                </item>
+            </randlist>
+            <table id="t1301057" tblwidth="pg-wide">
+                <title>PINPOINT TEST H: THE CHARGING SYSTEM INDICATOR IS ALWAYS ON</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">H1 CHECK THE CHARGING SYSTEM WARNING INDICATOR OPERATION</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Alternator Control C102a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Observe the charging system warning indicator.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Does the charging system warning indicator continue to
+                                                illuminate?
+                                            </emph>
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>Go to H2.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>INSTALL a new alternator control. REFER to
+                                    <hotlnk document="s08307_X4140234.xml" xrefid="x4140234">Generator and
+                                        Regulator</hotlnk>. TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">H2 CHECK CIRCUIT 904 (LG/RD)/1818 (WH/BK) FOR A SHORT TO GROUND
+                                    </emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>Instrument Cluster C220a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ground and alternator control C102a-1,
+                                            circuit 1818 (WH/BK).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025276.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance greater than 10,000 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. For additional information, refer to Instrument
+                                    Cluster, Removal and Installation in this section. TEST the system for normal
+                                    operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 904 (LG/RD)/1818 (WH/BK) for a short to ground. TEST the system for
+                                    normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test I: The High Beam Indicator Is Never On</emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, when the high beams are on, voltage is provided to the instrument cluster high
+                beam indicator through circuit 1718 (RD/PK).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>An open in circuit 1718 (RD/PK)</para>
+                </item>
+                <item>
+                    <para>Instrument cluster</para>
+                </item>
+            </randlist>
+            <table id="t1301058" tblwidth="pg-wide">
+                <title>PINPOINT TEST I: THE HIGH BEAM INDICATOR IS NEVER ON</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">I1 CHECK HIGH BEAM VOLTAGE TO THE INSTRUMENT CLUSTER</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Instrument Cluster C220a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Place the multifunction switch in the HEADLAMPS position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Activate the high beams.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage between ground and instrument cluster C220a-11,
+                                            circuit 1718 (RD/PK).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0028781.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage greater than 10 volts?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. For additional information, refer to Instrument
+                                    Cluster, Removal and Installation in this section. TEST the system for normal
+                                    operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 1718 (RD/PK) for an open. TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test J: The LH Or RH Turn Indicator Is Never On</emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, when the LH or RH turn signals are on, voltage is provided to the instrument
+                cluster LH or RH turn indicator through circuit (LH) 1719 (GY/BK) or (RH) 1720 (DB/OG).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>An open in circuit 1719 (GY/BK) or 1720 (DB/OG)</para>
+                </item>
+                <item>
+                    <para>Instrument cluster</para>
+                </item>
+            </randlist>
+            <table id="t1301059" tblwidth="pg-wide">
+                <title>PINPOINT TEST J: THE LH OR RH TURN INDICATOR IS NEVER ON</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">J1 CHECK LH OR RH TURN SIGNAL VOLTAGE TO THE INSTRUMENT CLUSTER
+                                    </emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Instrument Cluster C220a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Activate the hazard lamps.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage between ground and instrument cluster:</para>
+                                        <randlist type="dash">
+                                            <item>
+                                                <para>C220a-3, circuit 1719 (GY/BK).</para>
+                                            </item>
+                                            <item>
+                                                <para>C220a-4, circuit 1720 (DB/OG).</para>
+                                            </item>
+                                        </randlist>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0028780.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage pulse from 0 volts to greater than 10 volts?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. For additional information, refer to Instrument
+                                    Cluster, Removal and Installation in this section. TEST the system for normal
+                                    operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 1719 (GY/BK) or 1720 (DB/OG) for an open. TEST the system for
+                                    normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <emph type="italic">Pinpoint Test K: The Instrument Cluster Is Inoperative</emph>
+            </para>
+            <para>
+                <emph type="bold">Normal Operation</emph>
+            </para>
+            <para>Under normal operation, the instrument cluster receives voltage through circuit 489 (PK/BK). The
+                instrument cluster is grounded through circuit 57 (BK).
+            </para>
+            <para>
+                <emph type="bold">Possible Causes</emph>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>An open in circuit 57 (BK) or 489 (PK/BK)</para>
+                </item>
+                <item>
+                    <para>Instrument cluster</para>
+                </item>
+            </randlist>
+            <table id="t1301060" tblwidth="pg-wide">
+                <title>PINPOINT TEST K: THE INSTRUMENT CLUSTER IS INOPERATIVE</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">K1 CHECK VOLTAGE TO THE INSTRUMENT CLUSTER</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Instrument Cluster C220a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage between ground and instrument cluster C220a-1, circuit
+                                            489 (PK/BK).
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025266.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage greater than 10 volts?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to K2.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 489 (PK/BK) for an open. TEST the system for normal operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">K2 CHECK GROUND TO THE INSTRUMENT CLUSTER</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Instrument Cluster C220b
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ground and instrument cluster:</para>
+                                        <randlist type="dash">
+                                            <item>
+                                                <para>C220a-7, circuit 57 (BK).</para>
+                                            </item>
+                                            <item>
+                                                <para>C220b-1, circuit 57 (BK).</para>
+                                            </item>
+                                            <item>
+                                                <para>C220b-2, circuit 57 (BK).</para>
+                                            </item>
+                                            <item>
+                                                <para>C220b-3, circuit 57 (BK).</para>
+                                            </item>
+                                        </randlist>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0025267.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="312px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 5 ohms?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new instrument cluster. For additional information, refer to Instrument
+                                    Cluster, Removal and Installation in this section. TEST the system for normal
+                                    operation.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 57 (BK) for an open. TEST the system for normal operation.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08307_10.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08307_12.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08307.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

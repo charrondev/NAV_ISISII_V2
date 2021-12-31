@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Performance Diagnostics - Test Procedures - 11. Air Management</stitle>
+    <svcman/>
+    <svcproc id="s305010603.11" svcproctype="diagnose" graphiccount="5">
+        <title>11. Air Management</title>
+        <figure id="f305010650" figsize="col-wide">
+            <graphic filename="../figj31/j31106.webp" type="webp" scalefit="1" scalefitwidth="248px"/>
+            <caption></caption>
+        </figure>
+        <para id="tp305010611">
+            <title>Purpose</title>To check the operation of the Air Management System and the Exhaust Gas Recirculation
+            (EGR) valve
+        </para>
+        <randlist type="bullet">
+            <title>Tools</title>
+            <item>
+                <para>EST with MasterDiagnostics&#174; software</para>
+            </item>
+            <item>
+                <para>EZ-Tech&#174; interface cable</para>
+            </item>
+        </randlist>
+        <specpara>
+            <warning>
+                <para>To avoid personal injury, death, including damage to the engine or vehicle, comply with the
+                    following:
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Read all safety instructions in the "Safety Information" section of this manual.</para>
+                    </item>
+                    <item>
+                        <para>Before running engine for diagnostic or service procedures, shift transmission to park or
+                            neutral, set parking brake, and block wheels.
+                        </para>
+                    </item>
+                </randlist>
+            </warning>
+            <warning>
+                <para>To avoid personal injury or death, use proper ventilation when operating an engine in a closed
+                    area, in order to remove deadly exhaust fumes. Inhalation of exhaust fumes may be fatal.
+                </para>
+            </warning>
+        </specpara>
+        <figure id="f305010651" figsize="col-wide">
+            <graphic filename="../figj31/j31177.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                     scalefitheight="312px"/>
+            <caption>KOER Air Management session</caption>
+        </figure>
+        <step1>
+            <para count="1">Select D_KOER_AirManagement_V6.ssn in the Open Session File window, select Open to monitor
+                engine operation.
+            </para>
+        </step1>
+        <specpara>
+            <note>
+                <para>When using the EST to do KOEO or KOER diagnostic tests, Standard Test is always selected and run
+                    first. If the ignition switch is not cycled, the Standard Test does not have to be run again.
+                </para>
+            </note>
+        </specpara>
+        <figure id="f305010652" figsize="col-wide">
+            <graphic filename="../figj31/j31051.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                     scalefitheight="312px"/>
+            <caption>Air Management test</caption>
+        </figure>
+        <step1>
+            <para count="1">Select Diagnostics from menu bar.</para>
+        </step1>
+        <step1>
+            <para count="1">Select Key-On Engine-Running Tests from the drop down menu.</para>
+        </step1>
+        <step1>
+            <para count="1">From the KOER Diagnostics menu, select Air Management and select Run to start the test.
+            </para>
+            <para>The ECM will start the Air Management test and direct the engine to accelerate to a predetermined rpm.
+                The ECM will monitor the effects of the EGR valve movement using MAF.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>If a problem is detected the ECM will cancel the test, set a DTC, and restore normal engine
+                        operation.
+                    </para>
+                </item>
+            </randlist>
+        </step1>
+        <specpara>
+            <note>
+                <para>If engine load is above the engine load specification the test won't run.</para>
+            </note>
+        </specpara>
+        <step1>
+            <para count="1">Record DTCs on Diagnostic Form. See "
+                <hotlnk document="eges3052_E3050112.xml" xrefid="e3050112">Appendix B: Diagnostic Trouble Codes</hotlnk>
+                " for a definition of the DTCs.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Correct problems causing active DTCs. Before replacing the EGR valve, check all other
+                possible causes.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Clear DTCs.</para>
+        </step1>
+        <figure id="f305010653" figsize="col-wide">
+            <graphic filename="../figj31/j31087.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                     scalefitheight="312px"/>
+            <caption>Close session</caption>
+        </figure>
+        <step1>
+            <para count="1">When finished with this test, select Session from menu bar, then Close.</para>
+        </step1>
+        <figure id="f305010654" figsize="pg-wide">
+            <graphic filename="../figj31/j31272.webp" type="webp" scalefit="1" scalefitwidth="472px" box="no"/>
+            <caption>Air Management diagnostic readout for engine rpm, EGR position, and MAF</caption>
+        </figure>
+        <para>The ECM commands the EGR valve to close and increases the engine idle speed to 900 rpm. The ECM allows the
+            Manifold Air Flow (MAF) to stabilize. The ECM reads and matches the MAF pressure to the expected values;
+            pressure is expected to increase to greater than 3.8 lb/min to pass. If the MAF does not meet the expected
+            pressure, DTC 346 is set and the test is cancelled.
+        </para>
+        <para>The ECM commands the EGR to open, and allows MAF to stabilize. The ECM reads MAF pressure and matches it
+            to the expected pressure; pressure is expected to decrease to less than 2.97 lb/min to pass. If the MAF
+            pressure does not match the expected pressure, DTC 346 is set and the test is cancelled.
+        </para>
+        <para>The ECM commands the EGR valve to close, and allows MAF to stabilize. The ECM reads MAF pressure and
+            matches it to the expected pressure; pressure is expected to increase to greater than 3.8 lb/min to pass. If
+            the MAF pressure does not match the expected pressure, DTC 346 is set and the test is cancelled.
+        </para>
+        <para>The ECM returns the EGR valve and engine idle speed to normal operation. If all flows matched or exceeded
+            the expected flows, no DTC is set and the engine is returned to normal operation.
+        </para>
+        <table id="t305010615" type="simple" frame="topbot">
+            <title>Possible Causes</title>
+            <tgroup cols="1">
+                <colspec colname="col1"/>
+                <tbody>
+                    <row rowsep="0">
+                        <entry>
+                            <para>Exhaust leaks</para>
+                        </entry>
+                    </row>
+                    <row rowsep="0">
+                        <entry>
+                            <para>Intake leaks</para>
+                        </entry>
+                    </row>
+                    <row rowsep="0">
+                        <entry>
+                            <para>Biased MAF sensor</para>
+                        </entry>
+                    </row>
+                    <row rowsep="0">
+                        <entry>
+                            <para>Failed turbocharger</para>
+                        </entry>
+                    </row>
+                    <row rowsep="0">
+                        <entry>
+                            <para>Failed EGR control valve and drive module</para>
+                        </entry>
+                    </row>
+                    <row rowsep="0">
+                        <entry>
+                            <para>Plugged or restricted Catalytic converter - if equipped</para>
+                        </entry>
+                    </row>
+                    <row rowsep="0">
+                        <entry>
+                            <para>Plugged or restricted Catalyzed Diesel Particulate Filter (CDPF) - if equipped</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_107.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_109.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

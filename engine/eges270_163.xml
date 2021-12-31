@@ -1,0 +1,514 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - VSS (Vehicle Speed Sensor)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="4">
+        <title>VSS (Vehicle Speed Sensor)</title>
+        <svcprocinfo>
+            <figure id="f27007125" figsize="pg-wide">
+                <graphic filename="../figh31/h31054.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for the VSS</caption>
+            </figure>
+            <para id="VSS">The function diagram for the VSS includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>VSS</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>World Transmission Electronic Control (WTEC) ECM</para>
+                </item>
+                <item>
+                    <para>Cruise Control</para>
+                </item>
+                <item>
+                    <para>Power Takeoff</para>
+                </item>
+                <item>
+                    <para>Road Speed Limit</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The VSS is on the left side of the transmission. The VSS reads the rotation of a 16 toothed gear and
+                produces a sine wave signal. The ECM processes the sine wave signal to calculate vehicle speed. The
+                Drivetrain Datalink (CAN 1) transmits the calculated speed to the speedometer. The calculated speed also
+                assists in control strategies that include Cruise Control, Power Takeoff, and Road Speed Limiting.
+            </para>
+            <para>Allison WTEC MD, HD, and 2000 series transmissions use an internal VSS that sends a signal to the
+                transmission module. The transmission module processes the signal and sends a square wave signal to the
+                engine ECM.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>VSS Circuit Operation (Manual and Allison Transmissions)</title>
+            <figure id="f27007126" figsize="pg-wide">
+                <graphic filename="../figH31/H31366.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>VSS circuit diagram (manual and Allison transmissions)</caption>
+            </figure>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM performs diagnostic checks on the VSS circuit when the engine is operating at 0 mph. The ECM
+                transmits a voltage signal on the VSS circuit and determines if the return voltage is out of range high
+                or low. When a fault condition is detected, the ECM disables the cruise control and power takeoff. If
+                the road speed limiting option is enabled, the ECM will limit engine rpm for all gears.
+            </para>
+            <para>The ECM will not set DTCs for VSS circuit failure for vehicles equipped with Allison transmissions.
+            </para>
+            <specpara>
+                <note>
+                    <para>See truck Chassis Electrical Circuit Diagram Manual for circuit numbers, connector and fuse
+                        locations. To diagnose Allison transmission VSS sensor problems, see truck Electrical System
+                        Troubleshooting Guide and Allison maintenance and diagnostic manuals.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>VSS Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red ENGINE lamp.</para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 141</emph>
+                </line>
+                <line>
+                    <emph type="bold">VSS signal out-of-range low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 141 is set by the ECM when an out of range low condition is detected in the VSS circuit.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 141 is active the amber ENGINE lamp is not illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 142</emph>
+                </line>
+                <line>
+                    <emph type="bold">VSS signal out-of-range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 142 is set by the ECM when an out of range high condition is detected in the VSS
+                        circuit.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 142 is active the amber ENGINE lamp is not illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 215</emph>
+                </line>
+                <line>
+                    <emph type="bold">VSS signal frequency out-of-range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 215 is set by the ECM when the ECM detects a VSS signal greater than 4365 Hz.</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Electrical System Troubleshooting Guide (truck manual)</para>
+                </item>
+                <item>
+                    <para>Electrical Circuit Diagrams (truck manual)</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VSS Pin-Point Diagnostics (Manual Transmissions)</title>
+            <figure id="f27007126" figsize="pg-wide">
+                <graphic filename="../figh31/h31081.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>VSS circuit diagram (manual transmissions)</caption>
+            </figure>
+            <table id="te27007106" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.50in"/>
+                    <colspec colname="col2" colwidth="1.49in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>The VSS circuit requires the use of vehicle circuit diagrams. See truck Chassis
+                                    Electrical Circuit Diagram Manual for circuit numbers, connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>
+                                    (Disconnect harness from sensor. Inspect for bent pins or corrosion. Turn the
+                                    ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2 V to 3 V</para>
+                            </entry>
+                            <entry colname="col3" morerows="1">
+                                <para>ECM pull up voltage when sensor disconnected. If no voltage present, check for
+                                    open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2 V to 3 V</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Sensor Resistance Checks</emph>
+                                    (Check with sensor disconnected and ignition switch OFF.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>600 &#x2126; to 800 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Manual transmission (measure resistance through sensor)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Sensor and Circuit Resistance Checks</emph>
+                                    (Check with breakout box connected [X4 only] to engine harness only with VSS
+                                    connected. Inspect for bent pins or corrosion.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-10 to X4-9</para>
+                            </entry>
+                            <entry>
+                                <para>600 &#x2126; to 800 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Manual transmission (measure resistance through sensor)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the chassis ground connection for the ECM and IDM. Refer to truck
+                                        Chassis Electrical Circuit Diagram Manual for complete chassis side ECM and IDM
+                                        ground circuit information.</ftnote>. Disconnect negative battery cable.
+                                    Disconnect harness from sensor. Use disconnected negative battery cable for ground
+                                    test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Check with breakout box connected to chassis harness only. Check from ECM to sensor
+                                    harness connector.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-10 to A</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-9 to B</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Operation Checks for VSS</emph>
+                                    (Check with breakout box connected to ECM and chassis harness. Turn the ignition
+                                    switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-10 to X4-9</para>
+                            </entry>
+                            <entry>
+                                <para>> 2 V AC</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 2 V AC, check sensor adjustment or replace failed sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Note:</emph>
+                                    If circuit checks are within specification and condition remains, see transmission
+                                    manual for sensor inspection and adjustment.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>VSS Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 141 = ECM detected low voltage across VSS circuit for > 0.5 seconds</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 142 = ECM detected high voltage across VSS circuit for > 0.5 seconds</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 215 = ECM detected VSS frequency signal > 4365 Hz</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VSS Pin-Point Diagnostics (Allison Transmissions)</title>
+            <figure id="f27007126" figsize="pg-wide">
+                <graphic filename="../figh31/h31370.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>VSS circuit diagram (Allison transmissions)</caption>
+            </figure>
+            <table id="te27007106" tblwidth="pg-wide" type="simple" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.50in"/>
+                    <colspec colname="col2" colwidth="1.50in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>The VSS circuit requires the use of vehicle circuit diagrams. See truck Chassis
+                                    Electrical Circuit Diagram Manual for circuit numbers, connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>
+                                    (Disconnect harness from sensor. Inspect for bent pins or corrosion. Turn the
+                                    ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ECU transmission Pin to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2 V to 3 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ECM pull up voltage when sensor disconnected. If no voltage present, check for
+                                    open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">Resistance Checks to Chassis Ground with Breakout Box</emph>
+                                    (Turn the ignition switch to OFF. Connect breakout box X4 only to chassis harness.
+                                    Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Use disconnected negative
+                                    battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-10 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Check with breakout box connected to engine harness only. Check from ECM to sensor
+                                    harness connector.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-10 to ECU transmission Pin</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Note:</emph>
+                                    If circuit checks are within specification and condition remains, see transmission
+                                    manual for sensor inspection and adjustment.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_162.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_164.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

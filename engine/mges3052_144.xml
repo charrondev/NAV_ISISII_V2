@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;stico del motor VT 275 - Diagn&#243;sticos del sistema de control electr&#243;nico
+        - Diagn&#243;sticos de circuitos - Sistema de temporizador de apagado en ralent&#237; (IST)
+    </stitle>
+    <svcman/>
+    <svcproc id="s306000706.28" svcproctype="diagnose" graphiccount="1">
+        <title>Sistema de temporizador de apagado en ralent&#237; (IST)</title>
+        <svcprocinfo id="s306000706.28.1">
+            <figure id="f3060007112" figsize="pg-wide">
+                <graphic filename="../figj31/j31205.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="472px"/>
+                <caption>Diagrama de la funci&#243;n del sistema de IST</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc id="s306000706.28.2">
+            <title>Operaci&#243;n del IST</title>
+            <para id="s306000706.28.2.1">El IST es una funci&#243;n opcional que permite que el ECM apague el motor
+                cuando haya transcurrido mucho tiempo funcionando en ralent&#237;. El temporizador puede programarse a
+                solicitud del cliente para que apague autom&#225;ticamente el motor en per&#237;odos en ralent&#237;
+                entre 2 y 120 minutos.
+            </para>
+            <para>Antes de que se apague el motor, se encender&#225; la luz roja de aceite/refrigerante. La luz
+                destellar&#225; por 30 segundos para advertir al conductor que el motor se apagar&#225;. El tiempo en
+                ralent&#237; es medido desde la &#250;ltima operaci&#243;n del pedal de freno. Para que el IST funcione,
+                la transmisi&#243;n no debe estar en una marcha.
+            </para>
+            <para>Esta funci&#243;n de IST puede programarse para que opere durante temperaturas ambientales espec&#237;ficas,
+                para permitir la operaci&#243;n del motor en temperaturas fr&#237;as o calientes.
+            </para>
+            <para>El IST no funciona si:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>El motor no est&#225; en velocidad de ralent&#237; (700 RPM).</para>
+                </item>
+                <item>
+                    <para>Se detecta que el veh&#237;culo se mueve.</para>
+                </item>
+                <item>
+                    <para>La temperatura del refrigerante es menor de 60 &#176;C (140 &#176;F).</para>
+                </item>
+                <item>
+                    <para>La temperatura ambiente es menor de 16 &#176;C (60 &#176;F) o mayor de 35 &#176;C (95 &#176;F).</para>
+                </item>
+                <item>
+                    <para>Se usa el pedal de freno o se detecta una falla en el interruptor de freno.</para>
+                </item>
+                <item>
+                    <para>Se mueve la palanca de cambios fuera de neutro o de PARK.</para>
+                </item>
+            </randlist>
+            <para>La funci&#243;n de IST proporciona varias ventajas cuando est&#225; activada. Menor cantidad de
+                emisiones, menor consumo de combustible y menor desgaste del motor son resultados directos de la
+                estrategia del IST.
+            </para>
+            <para>La operaci&#243;n electr&#243;nica del IST tiene cuatro estados.</para>
+            <randlist type="bullet">
+                <item>
+                    <para>
+                        <emph type="bold">Idle shutdown timer (temporizador de apagado en ralent&#237;)</emph>
+                        Indica a los componentes electr&#243;nicos que el veh&#237;culo tiene las siguientes funciones:
+                    </para>
+                    <randlist type="bullet">
+                        <item>
+                            <para>Apagado OFF - La funci&#243;n est&#225; apagada en todo momento.</para>
+                        </item>
+                        <item>
+                            <para>No engine load (sin carga en el motor) - Permite demorar la activaci&#243;n del IST
+                                cuando el motor est&#225; en ralent&#237; bajo y sin carga.
+                            </para>
+                        </item>
+                        <item>
+                            <para>No se puede contradecir Tamper Proof- Impide que el conductor contradiga al sistema
+                                electr&#243;nico.
+                            </para>
+                        </item>
+                    </randlist>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Idle shutdown time (tiempo de activaci&#243;n del apagado en ralent&#237;)
+                        </emph>
+                        - Indica el valor programado de tiempo que debe transcurrir antes de que el IST apague el motor.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Maximum ambient intake air temperature (temperatura ambiente m&#225;xima)
+                        </emph>
+                        - Indica la temperatura ambiente m&#225;xima programada para apagar el motor. Esta funci&#243;n
+                        impide el apagado del motor debido al uso del aire acondicionado.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Minimum ambient intake air temperature (temperatura ambiente m&#237;nima)
+                        </emph>
+                        - Indica la temperatura ambiente m&#237;nima programada para apagar el motor. Esta funci&#243;n
+                        impide el apagado del motor debido a la baja temperatura ambiente.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>La funci&#243;n IST es interna en el ECM. Los
+                subsistemas que contribuyen a la estrategia del IST tienen sus propios c&#243;digos de falla. El c&#243;digo
+                de falla del IST no es un DTC del sistema. El c&#243;digo de falla del IST aparece para indicar que el
+                IST ha sido activado y que el motor se apag&#243;.
+            </para>
+            <para>
+                <title>DTC del IST</title>Los DTC se leen con la EST o contando los destellos de la luz &#225;mbar de
+                advertencia del motor y de la luz roja de aceite/refrigerante.
+            </para>
+            <table id="t3060007207" type="simple" frame="topbot">
+                <title>DTC 324</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <title>El IST activ&#243; el apagado del motor</title>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>El ECM genera el DTC 324 cuando el motor fue apagado porque se excedi&#243; el
+                                    tiempo programado. El IST debe estar activado para que aparezca el DTC 324.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <note>
+                                    <para>El DTC 324 no indica fallas en el sistema o en sus circuitos. No se requieren
+                                        mediciones de diagn&#243;stico para el DTC 324.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <randlist type="bullet">
+                <title>Herramientas</title>
+                <item>
+                    <para>EST con software MasterDiagnostics&#174;</para>
+                </item>
+                <item>
+                    <para>Cable de conexi&#243;n EZ-Tech&#174;</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges3052_143.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges3052_145.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

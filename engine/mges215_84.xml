@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos - - FUNCIONES Y DIAGN&#211;STICOS DE CIRCUITOS - Comunicaciones de la
+        red de &#225;rea de controlador
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Comunicaciones de la red de &#225;rea de controlador</title>
+        <figure id="f17503088.1" figsize="pg-wide">
+            <graphic filename="../figeg8/eg8876.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="600"
+                     box="yes"/>
+        </figure>
+        <para>
+            <emph type="bold">Enlace de datos del tren propulsor</emph>: Es una designaci&#243;n de la Sociedad de
+            Ingenieros en Automotores (SAE) para uno de los enlaces de datos comunes para camiones. Actualmente se usa
+            frecuentemente para comunicaciones relacionadas con el control del tren propulsor. El enlace de datos del
+            tren propulsor (incluye el ECM, el ESC y el conjunto de instrumentos) ser&#225; el enlace de comunicaciones
+            primario entre el ECM, el ESC y el conjunto de instrumentos.
+        </para>
+        <figure id="f17503088.2" figsize="pg-wide">
+            <graphic filename="../figeg8/eg8875.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="600"
+                     box="yes"/>
+            <caption>Diagn&#243;sticos de los circuitos de comunicaciones</caption>
+        </figure>
+        <table id="te17503088.1">
+            <title>Diagn&#243;sticos de los circuitos de comunicaciones</title>
+            <tgroup cols="4">
+                <colspec colname="col1" colwidth="0.40*"/>
+                <colspec colname="col2" colwidth="0.40*"/>
+                <colspec colname="col3" colwidth="0.40*"/>
+                <colspec colname="col4" colwidth="2.80*"/>
+                <spanspec namest="col1" nameend="col4" spanname="SPAN1"/>
+                <tbody>
+                    <row>
+                        <entry colspan="4" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">Llave en ON y motor apagado - Pruebas del voltaje en el conector de la
+                                    EST
+                                </emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>Punto de prueba</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>Especif.</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>Se&#241;al</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>Comentarios</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>B a A</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>B+</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>Energ&#237;a</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>Debe haber 12 V en B en todo momento. Si no hay voltaje, revise los circuitos de
+                                tierra y energ&#237;a (F2).
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>C a A</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>C+</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>Energ&#237;a</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>Debe ser entre 2 y 7 V</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="4" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">Pruebas de resistencia en el conector de la EST, con la llave en OFF
+                                </emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>Punto de prueba</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>Especif.</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>Se&#241;al</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>Comentarios</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>C a D</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>60 &#x2126;</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>CAN</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>El enlace de datos tiene dos resistores terminantes en paralelo de 120 &#x2126; cada
+                                uno. Si >70 &#x2126;, revise si hay un resistor terminante que falte o est&#233; abierto
+                                en los cables CAN (+) o CAN (-). Si &#60;50 &#x2126; pero >5 &#x2126;, revise si hay un
+                                resistor terminante extra. &#60;5 &#x2126; indica un corto entre CAN (+) y CAN (-).
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>C a E</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>>1 M&#x2126;</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>CAN (+)</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>&#60;1 M&#x2126; indica un corto entre CAN(+) y CAN(SHLD). Desconecte el ECM y repita
+                                la prueba. Si ya no hay corto, sustituya el ECM. Si sigue habiendo corto, el haz de
+                                cables u otro componente del nodo est&#225; en malas condiciones.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="col1">
+                            <para>D a E</para>
+                        </entry>
+                        <entry colname="col2">
+                            <para>>1 M&#x2126;</para>
+                        </entry>
+                        <entry colname="col3">
+                            <para>CAN (-)</para>
+                        </entry>
+                        <entry colname="col4">
+                            <para>&#60;1 M&#x2126; indica un corto entre CAN(+) y CAN(SHLD). Desconecte el ECM y repita
+                                la prueba. Si ya no hay corto, sustituya el ECM. Si sigue habiendo corto, el haz de
+                                cables u otro componente del nodo est&#225; en malas condiciones.
+                            </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="bold">Diagn&#243;sticos del controlador del motor</emph>
+        </para>
+        <para>Todos los diagn&#243;sticos del m&#243;dulo de control electr&#243;nico del motor se comunican a trav&#233;s
+            de una herramienta electr&#243;nica de servicio (EST) como el software Master Diagnostics en el enlace de
+            datos ATA (J1708).
+            <xref refid="S17503001"/>.
+        </para>
+        <specpara>
+            <note>
+                <para>Refi&#233;rase a S08285 - Diagramas de circuitos el&#233;ctricos - 4200/4300/4400</para>
+            </note>
+        </specpara>
+        <para>
+            <emph type="bold">Descripci&#243;n detallada</emph>
+        </para>
+        <para>
+            <emph type="bold">Informaci&#243;n en el tablero</emph>: La informaci&#243;n transmitida desde el
+            controlador del motor se recibe en el conjunto de instrumentos a trav&#233;s del enlace de datos. Las
+            funciones actualizadas en el conjunto de instrumentos por el motor incluyen:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>Medidor de la presi&#243;n del aceite</para>
+            </item>
+            <item>
+                <para>Medidor de la temperatura del aceite del motor</para>
+            </item>
+            <item>
+                <para>Tac&#243;metro (velocidad del motor)</para>
+            </item>
+            <item>
+                <para>Veloc&#237;metro (velocidad del veh&#237;culo)</para>
+            </item>
+            <item>
+                <para>Od&#243;metro</para>
+            </item>
+            <item>
+                <para>Medidor de temperatura del refrigerante</para>
+            </item>
+            <item>
+                <para>Luz de nivel del refrigerante</para>
+            </item>
+            <item>
+                <para>Luz roja del motor (STOP)</para>
+            </item>
+            <item>
+                <para>Luz &#225;mbar del motor (WARNING)</para>
+            </item>
+            <item>
+                <para>Mensaje de cambio de aceite</para>
+            </item>
+            <item>
+                <para>Luz de crucero</para>
+            </item>
+        </randlist>
+        <para>El controlador del motor pone a disposici&#243;n varias funciones en el conjunto de LCD, aparte del od&#243;metro:</para>
+        <randlist type="bullet">
+            <item>
+                <para>Horas de funcionamiento del motor</para>
+            </item>
+            <item>
+                <para>Horas de funcionamiento de la toma de fuerza</para>
+            </item>
+            <item>
+                <para>Consumo de combustible</para>
+            </item>
+        </randlist>
+        <para>
+            <emph type="bold">Multiplexi&#243;n</emph>: El estado de los siguientes interruptores se comunica desde el
+            ESC al ECM usando el enlace de datos del tren propulsor:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>Interruptor ON/OFF del control de crucero (COO)</para>
+            </item>
+            <item>
+                <para>Interruptor SET/CRUISE del control de crucero (SCS)</para>
+            </item>
+            <item>
+                <para>Interruptor RESUME/ACCEL del control de crucero (RAS)</para>
+            </item>
+            <item>
+                <para>Estado del embrague del control de crucero</para>
+            </item>
+            <item>
+                <para>Estado del pedal del freno</para>
+            </item>
+            <item>
+                <para>Interruptor ON/OFF del freno por escape</para>
+            </item>
+            <item>
+                <para>Interruptor del eje de dos velocidades (TSA)</para>
+            </item>
+        </randlist>
+        <para>Otras dos salidas del ESC se env&#237;an al ECM usando el enlace de datos del tren propulsor:</para>
+        <randlist type="bullet">
+            <item>
+                <para>Demanda de CA (solicitud del ventilador)</para>
+            </item>
+            <item>
+                <para>Entrada de autoprueba</para>
+            </item>
+        </randlist>
+        <figure id="f17503088.3" figsize="full-pg">
+            <graphic filename="../figeg8/eg8830.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                     scalefitheight="592px" resolution="300"/>
+            <caption>Enlace de datos del tren propulsor (chasis)</caption>
+        </figure>
+        <verbatim>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line>ESTA P&#193;GINA SE DEJ&#211; EN BLANCO INTENCIONALMENTE</line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+            <line></line>
+        </verbatim>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_83.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_85.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

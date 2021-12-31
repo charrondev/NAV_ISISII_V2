@@ -1,0 +1,497 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Body Builder Electrical Data Book for Models Built January 2001 to February 28, 2007 - Electrical Features -
+        Special Gauge Cluster Indicators and Alarms - 60AJC - Two Indicator Lights and Audible Alarms Programmable Mode
+        for Various Switch Actions (Waste Solution)
+    </stitle>
+    <svcman/>
+    <svcproc id="BB60AJC" svcproctype="describe" graphiccount="2">
+        <title>60AJC - Two Indicator Lights and Audible Alarms Programmable Mode for Various Switch Actions (Waste
+            Solution)
+        </title>
+        <para>
+            <emph type="boldundersc">FEATURE CODE DESCRIPTION:</emph>
+            BDY INTG, INDICATOR LIGHTS (2) 1 for Gate Open and 1 for Rear Alert, Includes Audible Alarm, Programmable
+            Mode for Various Switch Action (requires 2 Remote Power Module inputs).
+        </para>
+        <para>
+            <emph type="boldundersc">FEATURE/BODY FUNCTION:</emph>
+            This feature provides a custom alarm package designed for the Refuse/Waste Applications. Provides both an
+            audible and visual alarm for Gate Open and Rear Alert. RED indicator lights are located in prime viewing
+            area of the driver in the gauge cluster. Audible alarm provides a second level of warning to the driver to
+            indicate the status of these two equipment options.
+        </para>
+        <para>The "Gate Open" Indicator light is ON constant when the Gate Open input is active with the Park Brake set.
+            If the Park Brake is released, with the Gate Open input active, the Gate Open indicator shall flash at
+            0.6-second intervals, accompanied by an audible alarm. Flexibility is provided through programmable
+            parameters to establish whether the inputs are active high (12V) or active low (ground). (See ICAP or the
+            Diamond Logic&#8482; Builder software to set programmable parameters).
+        </para>
+        <para>Rear Alert provides the operator the capability to communicate from the rear of the vehicle to the cab. A
+            customer-mounted switch is wired into the Black 23-pin Remote Power Module input connector (See ICAP or the
+            Diamond Logic&#8482; Builder software for pin location). The ignition switch must be in "Run" for this
+            feature to function. Programmable Parameters allow the customer to establish whether the input is active at
+            12 volts or active at ground. When the operator activates the customer-mounted switch, the Rear Alert light
+            in the gauge cluster illuminates and an audible alarm sounds.
+        </para>
+        <figure id="f73000bg" figsize="col-wide">
+            <graphic filename="../figg73/g73000bg.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                     scalefitheight="272px"/>
+            <caption>Gauge Cluster Display of "Gate Open" and "Rear Alert" Indicator Lights</caption>
+        </figure>
+        <para>
+            <emph type="boldundersc">PROGRAMMABLE PARAMETERS:</emph>
+        </para>
+        <para>Required software feature codes: (595197 or 595255**) and 595198</para>
+        <para>** Software feature code 595197 should be used with an automatic transmission, whereas Software feature
+            code 595255 should be used for a truck with a manual transmission.
+        </para>
+        <para>Software feature codes that must be removed: 595201, 595202</para>
+        <para>The
+            <emph type="bold">TEM_Tail_Gate_Input_Active_State</emph>
+            parameter sets the voltage level that determines when the Gate Open alert should be active.
+        </para>
+        <para>0 = Input active when open circuit</para>
+        <para>1 = Input active when grounded</para>
+        <para>3 = Input active when at 12V</para>
+        <para>When the
+            <emph type="bold">TEM_Tail_Gate_Park_Brake_Inhibit</emph>
+            parameter is turned ON, the tailgate alert will only alert when the Park Brake is released.
+        </para>
+        <para>The
+            <emph type="bold">TEM_Tail_Gate_Transmission_Interlock</emph>
+            parameter indicates the action of the tailgate alert based on transmission gear.
+        </para>
+        <para>0 = Ignores Gear</para>
+        <para>1 = Alert will only activate if the transmission is NOT in reverse</para>
+        <para>2 = Alert will only activate if transmission is in reverse</para>
+        <para>3 = Alert will activate for the tailgate sensor or if the transmission is in reverse</para>
+        <para>The
+            <emph type="bold">TEM_Rear_Alert_Input_Active_State</emph>
+            parameter sets the voltage level that determines when the rear alert should be active.
+        </para>
+        <para>0 = Input active when open circuit</para>
+        <para>1 = Input active when grounded</para>
+        <para>3 = Input active when at 12V</para>
+        <para>The
+            <emph type="bold">TEM_Tail_Gate_Alarm_Timeout</emph>
+            parameter determines the length of time that the audible alarm will beep continuously after the gate is
+            opened and the park brake is released. If this parameter is set to 0, the audible alarm will beep
+            continuously as long as the gate open indicator is illuminated. Once the audible alarm has stopped
+            continuous beeping (as set by the TEM_Tail_Gate_Alarm_Timeout parameter) and the gate open indicator remains
+            illuminated, the
+            <emph type="bold">TEM_Tail_Gate_Alarm_Period</emph>parameter determines the length of time between
+            INDIVIDUAL beeps of the audible alarm.
+        </para>
+        <table id="t7300082">
+            <tgroup cols="8">
+                <colspec colname="col1" colwidth="1.52*"/>
+                <colspec colname="col2" colwidth="0.68*"/>
+                <colspec colname="col4" colwidth="1.68*"/>
+                <colspec colname="COLSPEC1" colwidth="0.91*"/>
+                <colspec colname="COLSPEC0" colwidth="0.81*"/>
+                <colspec colname="col5" align="center" colwidth="0.78*"/>
+                <colspec colname="col6" align="center" colwidth="0.77*"/>
+                <colspec colname="col7" align="center" colwidth="0.73*"/>
+                <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                <thead>
+                    <row>
+                        <entry colspan="8" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">Off</emph>
+                                - Indicates a 0 is set in for this parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="8" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">On</emph>
+                                - Indicates a 1 is set for the parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>Parameter</para>
+                        </entry>
+                        <entry align="center">
+                            <para>ID</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Description</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Default</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Units</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Min</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Max</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Step</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>TEM_Tail_ Gate_Input_ Active_State</para>
+                        </entry>
+                        <entry>
+                            <para>2160</para>
+                        </entry>
+                        <entry>
+                            <para>This parameter is used to set the voltage level that indicates when the tail gate
+                                alert should be active.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>3</para>
+                        </entry>
+                        <entry>
+                            <para>List</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                        <entry align="center">
+                            <para>&#160;</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Tail_ Gate_Park_ Brake_Inhibit</para>
+                        </entry>
+                        <entry>
+                            <para>2165</para>
+                        </entry>
+                        <entry>
+                            <para>When set, the tailgate alert will only alert if the park brake is not set.</para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry>
+                            <para>On/ Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>&#160;</para>
+                        </entry>
+                        <entry align="center">
+                            <para>&#160;</para>
+                        </entry>
+                        <entry align="center">
+                            <para>&#160;</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Tail_ Gate_ Transmission_ Interlock</para>
+                        </entry>
+                        <entry>
+                            <para>2167</para>
+                        </entry>
+                        <entry>
+                            <para>This parameter is used to determine how the tailgate alert acts based upon the
+                                transmission.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>List</para>
+                        </entry>
+                        <entry align="center">
+                            <para>&#160;</para>
+                        </entry>
+                        <entry align="center">
+                            <para>&#160;</para>
+                        </entry>
+                        <entry align="center">
+                            <para>&#160;</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Rear_ Alert_Input_ Active_State</para>
+                        </entry>
+                        <entry>
+                            <para>2168</para>
+                        </entry>
+                        <entry>
+                            <para>This parameter is used to set the voltage level that indicates when the rear alert
+                                should be active.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>3</para>
+                        </entry>
+                        <entry>
+                            <para>List</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                        <entry align="center">
+                            <para>&#160;</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Tail_ Gate_Alarm_ Period</para>
+                        </entry>
+                        <entry>
+                            <para>2172</para>
+                        </entry>
+                        <entry>
+                            <para>Once the audible alarm has stopped continuous beeping and the gate open indicator
+                                remains illuminated, this parameter determines the length of time between individual
+                                beeps of the audible alarm.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>20</para>
+                        </entry>
+                        <entry>
+                            <para>s</para>
+                        </entry>
+                        <entry align="center">
+                            <para>10</para>
+                        </entry>
+                        <entry align="center">
+                            <para>60</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Tail_ Gate_Alarm_ Timeout</para>
+                        </entry>
+                        <entry>
+                            <para>2175</para>
+                        </entry>
+                        <entry>
+                            <para>This parameter determines the length of time that the audible alarm will beep
+                                continuously. If this parameter is set to 0, the audible alarm will beep continuously as
+                                long as the gate open indicator is illuminated.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>s</para>
+                        </entry>
+                        <entry align="center">
+                            <para>10</para>
+                        </entry>
+                        <entry align="center">
+                            <para>60</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">WIRING INFORMATION</emph>
+        </para>
+        <para>**If your truck has a manual transmission and you wish to interlock your indicator lights and alarm with
+            the transmission, you must splice a wire off of the reverse light circuit and run that wire into a pin on
+            the Black 23-pin Remote Power Module Input connector (See ICAP or the Diamond Logic&#8482; Builder software
+            for correct pin and switch locations). This wire will indicate to the ESC that the truck is in reverse.
+            <emph type="bold">This is ONLY required if the customer wishes to interlock the functionality of the
+                indicator lights and audible alarm with reverse (And they have a manual transmission).
+            </emph>
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>The customer must run a wire from the Tailgate switch to the pin labeled Tail_Gate_Open_input on
+                    the Black 23-pin input connector on the Remote Power Module (See ICAP or the Diamond Logic&#8482;
+                    Builder software for correct pin locations)
+                </para>
+            </item>
+            <item>
+                <para>The customer must run a wire from the Rear Alert switch to the pin labeled Rear_Alert_Switch_Input
+                    on the Black 23-pin input connector on the Remote Power Module (See ICAP or the Diamond Logic&#8482;
+                    Builder software for correct pin locations)
+                </para>
+            </item>
+        </randlist>
+        <figure id="f73000bh" figsize="pg-wide">
+            <graphic filename="../figg73/g73000bh.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                     scalefitheight="502px"/>
+            <caption></caption>
+        </figure>
+        <para>
+            <emph type="boldundersc">TESTING</emph>
+        </para>
+        <step1>
+            <para count="1">Set park brake.</para>
+        </step1>
+        <step1>
+            <para count="1">Open the tail gate.</para>
+        </step1>
+        <step1>
+            <para count="1">Verify that the input labeled Tail_Gate_Open_input is receiving the correct voltage (As
+                programmed in ICAP or the Diamond Logic&#8482; Builder software).
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Verify that the Red "Gate Open" indicator light in the gauge cluster comes on.</para>
+        </step1>
+        <step1>
+            <para count="1">Release park brake.</para>
+        </step1>
+        <step1>
+            <para count="1">Verify that indicator light flashes and audible alarm sounds and works according to the set
+                programmable parameters seen above.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Close tail gate.</para>
+        </step1>
+        <step1>
+            <para count="1">Reset park brake.</para>
+        </step1>
+        <step1>
+            <para count="1">Activate Rear Alert switch.</para>
+        </step1>
+        <step1>
+            <para count="1">Verify that the input labeled Rear_Alert_Switch_Input is receiving the correct voltage (As
+                programmed in ICAP or the Diamond Logic&#8482; Builder software).
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Verify that the red "Rear Alert" indicator light in the gauge cluster comes on and an
+                audible alarm sounds.
+            </para>
+        </step1>
+        <para>
+            <emph type="boldundersc">HOW TO ADD THIS FEATURE:</emph>
+        </para>
+        <para>1) For an AUTOMATIC TRANSMISSION</para>
+        <randlist type="bullet">
+            <item>
+                <para>Requires lens 3584294C1 be added to the instrument cluster if this feature is added aftermarket.
+                </para>
+            </item>
+            <item>
+                <para>Software feature codes 595198 and 595197 must be enabled using ICAP or the Diamond Logic&#8482;
+                    Builder software (See Local Dealer)
+                </para>
+            </item>
+            <item>
+                <para>Using ICAP or the Diamond Logic&#8482; Builder software, make sure that feature codes 595201 and
+                    595202 are removed from the vehicle (See Local Dealer)
+                </para>
+            </item>
+            <item>
+                <para>Set programmable parameters for software feature codes using ICAP or the Diamond Logic&#8482;
+                    Builder software (See Local Dealer).
+                </para>
+            </item>
+            <item>
+                <para>Install the wiring from Tailgate switch into a pin on the Black 23-pin input connector on the
+                    Remote Power Module (See ICAP or the Diamond Logic&#8482; Builder software for pin locations).
+                </para>
+            </item>
+            <item>
+                <para>Install the wiring from Rear Alert switch into a pin on the Black 23-pin input connector on the
+                    Remote Power Module (See ICAP or the Diamond Logic&#8482; Builder software for pin locations).
+                </para>
+            </item>
+            <item>
+                <para>Customer must install indicator light labels in gauge cluster.</para>
+            </item>
+        </randlist>
+        <para>2) For a MANUAL TRANSMISSION</para>
+        <randlist type="bullet">
+            <item>
+                <para>Requires lens 3584294C1 be added to the instrument cluster if this feature is added aftermarket.
+                </para>
+            </item>
+            <item>
+                <para>Software feature codes 595198 and 595255 must be enabled using ICAP or the Diamond Logic&#8482;
+                    Builder software (See Local Dealer).
+                </para>
+            </item>
+            <item>
+                <para>Using ICAP or the Diamond Logic&#8482; Builder software, make sure that feature codes 595201 and
+                    595202 are removed from the vehicle (See Local Dealer).
+                </para>
+            </item>
+            <item>
+                <para>Set programmable parameters for software feature codes using ICAP or the Diamond Logic&#8482;
+                    Builder software (See Local Dealer).
+                </para>
+            </item>
+            <item>
+                <para>Install the wiring from Tailgate switch into a pin on the Black 23-pin input connector on the
+                    Remote Power Module (See ICAP or the Diamond Logic&#8482; Builder software for pin locations).
+                </para>
+            </item>
+            <item>
+                <para>Install the wiring from Rear Alert switch into a pin on the Black 23-pin input connector on the
+                    Remote Power Module (See ICAP or the Diamond Logic&#8482; Builder software for pin locations).
+                </para>
+            </item>
+            <item>
+                <para>Splice a wire into the Backup light circuit and run that wire into a pin on the Black 23-pin input
+                    connector on the Remote Power Module (See ICAP or the Diamond Logic&#8482; Builder software for pin
+                    locations).
+                </para>
+            </item>
+            <item>
+                <para>Customer must install indicator light labels in gauge cluster.</para>
+            </item>
+        </randlist>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_88.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_BB60AJD.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

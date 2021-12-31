@@ -1,0 +1,438 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Body Builder Electrical Data Book for Models Built January 2001 to February 28, 2007 - Electrical Features -
+        Remote Throttle - 60AJE - Remote Throttle Control Interlocked to Park Brake Applied
+    </stitle>
+    <svcman/>
+    <svcproc id="BB60AJE" svcproctype="describe" graphiccount="4">
+        <title>60AJE - Remote Throttle Control Interlocked to Park Brake Applied</title>
+        <para>
+            <emph type="boldundersc">FEATURE CODE DESCRIPTION:</emph>
+            BDY INTG, THROTTLE CONTROL Accommodation for Single Customer Mounted External Engine Speed Control Switch,
+            Programmable Mode for Various Switch Actions and Engine Speed Control Option; Useable Only While Vehicle is
+            Stopped and the Park Brake is Applied (requires 1 Remote Power Module input)
+        </para>
+        <para>
+            <emph type="boldundersc">FEATURE/BODY FUNCTION:</emph>
+            This feature is a general purpose Remote Throttle feature to be used on all applications. The customer can
+            achieve temporary Remote Engine Speed Control using a pressure switch or a momentary switch. The customer
+            can also achieve permanent engine speed control by using a latched switch. As long as the input is active,
+            the engine will ramp up to the first engine pre-set speed. When the switch is released, the engine speed
+            returns to normal idle. This input is interlocked with park brake so that the customer can only use this
+            option when the park brake is applied and the vehicle is stopped. This feature utilizes one pin on the Black
+            23-pin Remote Power Module input connector (Use ICAP or the Diamond Logic&#8482; Builder software to
+            determine correct pin location). The ESC reads the voltage on this input pin and communicates the correct
+            action to the Engine Control Module. This code is offered to add additional functionality and to provide a
+            simpler alternative to the hardwired Remote Engine Speed Controls offered by 12VVW or 12VYC. All remote
+            throttle switches and associated wiring should be customer supplied. Feature code 12VXU is required to
+            program the engine for the desired mode of engine speed control.
+        </para>
+        <para>
+            <emph type="bold">60AJE Default Switch Action:</emph>
+            When ground is applied to the Remote Power Module input, the engine ramps to the first preset speed and
+            maintains that speed as long as the input is held at ground. Removing ground from the Remote Power Module
+            input returns the engine to idle.
+        </para>
+        <para>
+            <emph type="boldundersc">SOFTWARE FEATURE CODES / PROGRAMMABLE PARAMETERS:</emph>
+        </para>
+        <para>Required software feature code: 595241</para>
+        <para>Software feature codes that must be removed: 595172, 595240, 595196, 595263</para>
+        <table id="t7300087">
+            <tgroup cols="8">
+                <colspec colname="col1" colwidth="1.52*"/>
+                <colspec colname="col2" colwidth="0.68*"/>
+                <colspec colname="col4" colwidth="1.68*"/>
+                <colspec colname="COLSPEC1" colwidth="0.91*"/>
+                <colspec colname="COLSPEC0" colwidth="0.81*"/>
+                <colspec colname="col5" align="center" colwidth="0.78*"/>
+                <colspec colname="col6" align="center" colwidth="0.77*"/>
+                <colspec colname="col7" align="center" colwidth="0.73*"/>
+                <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                <thead>
+                    <row>
+                        <entry align="center">
+                            <para>Parameter</para>
+                        </entry>
+                        <entry align="center">
+                            <para>ID</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Description</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Default</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Units</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Min</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Max</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Step</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>TEM_Ext_ Eng_Speed_ Control_ Mode</para>
+                        </entry>
+                        <entry>
+                            <para>2035</para>
+                        </entry>
+                        <entry>
+                            <para>This parameter sets the mode of operation for the TEM External Engine Speed Control
+                                feature.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>3</para>
+                        </entry>
+                        <entry>
+                            <para>List</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Ext_ Eng_Spd_ Ctrl_Active_ State</para>
+                        </entry>
+                        <entry>
+                            <para>2158</para>
+                        </entry>
+                        <entry>
+                            <para>This is the active state for the external engine speed control switch.</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                        <entry>
+                            <para>List</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                        <entry align="center">
+                            <para>List</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>The engine speed control will only operate when the vehicle is stopped with the park brake applied and the
+            transmission in neutral. The increased engine speed will be cancelled if any of these conditions are not met
+            or if:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>The cruise disable switch is depressed</para>
+            </item>
+            <item>
+                <para>The brake pedal is depressed</para>
+            </item>
+            <item>
+                <para>The clutch is depressed (if present)</para>
+            </item>
+        </randlist>
+        <para>
+            <emph type="bold">TEM_Ext_Eng_Spd_Control_Mode</emph>
+        </para>
+        <para>This parameter controls the mode in which the engine speed control feature operates. The setting of this
+            parameter depends upon the type of switch that will be controlling the engine speed and the speed control
+            action that is desired. The mode is described in terms of what the engine will do based on what state is on
+            the Remote Power Module Input. The valid states on an RPM input are:
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>Ground - The input is connected to ground through a switch</para>
+            </item>
+            <item>
+                <para>Floating - The input is not connected to anything</para>
+            </item>
+            <item>
+                <para>12 Volts - The input is connected to 12 Volts through a switch</para>
+            </item>
+        </randlist>
+        <para>There are 4 different settings for this programmable mode parameter</para>
+        <table id="t7300088">
+            <tgroup cols="3">
+                <colspec colname="col1" colwidth="0.29*"/>
+                <colspec colname="col2" colwidth="0.99*"/>
+                <colspec colname="col3" colwidth="1.74*"/>
+                <thead>
+                    <row>
+                        <entry align="center">
+                            <para>Setting</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Mode Explanation</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Diagram</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>This mode disables the remote engine speed control. Use this if the feature is not
+                                desired.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                        <entry>
+                            <para>In this mode, the feature will be expecting the switch to be a center stable momentary
+                                up/down switch wired as shown in the diagram. When the remote power module input is
+                                pulled to 12 Volts (switch is in the up position on the diagram), the engine speed will
+                                ramp to engine preset 1. When the remote power module input is pulled to ground (switch
+                                is in the down position on the diagram), the engine speed will return to idle. When the
+                                switch is left in the center stable position (as it is presently shown in the diagram)
+                                no action will occur. E.g. if the engine was already ramped, it will stay ramped, and if
+                                the engine was at idle, it would stay at idle.
+                            </para>
+                        </entry>
+                        <entry>
+                            <graphic filename="../figg73/g73000b8.webp" type="webp" scalefit="1" scalefitwidth="288px"
+                                     scalefitheight="232px"/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>2</para>
+                        </entry>
+                        <entry>
+                            <para>In this mode, the feature will be expecting a momentary (not latched) type switch.
+                                When the switch is depressed and released, the engine will ramp to engine preset 1. When
+                                the switch is depressed and released again, the engine will return to idle. There are
+                                two different connection diagrams shown for the two possible active states of the input.
+                                The selecting of the active state is done with the active state parameter explained
+                                below.
+                            </para>
+                        </entry>
+                        <entry>
+                            <graphic filename="../figg73/g73000ba.webp" type="webp" scalefit="1" scalefitwidth="312px"
+                                     scalefitheight="272px"/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>3</para>
+                        </entry>
+                        <entry>
+                            <para>
+                                <emph type="bold">THIS IS THE DEFAULT SWITCH ACTION!</emph>
+                                In this mode the feature will be expecting a momentary (not latched) type plunger switch
+                                or a momentary pressure switch. When the plunger is depressed, the engine will ramp to
+                                engine preset 1 for as long as the plunger is held. When the plunger is released, the
+                                engine speed will return to idle. There are two different connection diagrams shown for
+                                the two possible active states of the input. The selecting of the active state is done
+                                with the active state parameter explained below.
+                            </para>
+                        </entry>
+                        <entry>
+                            <graphic filename="../figg73/g73000ba.webp" type="webp" scalefit="1" scalefitwidth="312px"
+                                     scalefitheight="272px"/>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="bold">TEM_Ext_Eng_Spd_Ctrl_PTO_Ilock</emph>
+        </para>
+        <para>This parameter can only be used on vehicles that have an International PTO feature.</para>
+        <para>If this parameter is set, the remote engine speed control will be interlocked to PTO. This means that the
+            remote engine speed control will only be allowed to operate if the PTO is being requested to engage. If this
+            parameter is not set, the engine speed control will operate regardless of the PTO request.
+        </para>
+        <para>
+            <emph type="bold">TEM_Ext_Eng_Spd_Ctrl_Active_State</emph>
+        </para>
+        <para>This parameter tells the engine control feature what state to look for on the remote power module input.
+            This parameter setting is only used when TEM_Ext_Eng_Spd_Control_Mode is set to 2, or 3. The valid settings
+            for this parameter are:
+        </para>
+        <table id="t7300089">
+            <tgroup cols="2">
+                <colspec colname="col1" align="center" colwidth="0.31*"/>
+                <colspec colname="col2" colwidth="1.69*"/>
+                <thead>
+                    <row>
+                        <entry align="center">
+                            <para>Setting</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Active State</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>Floating (the plunger provides a floating input to the remote power module when
+                                depressed. This setting is not recommended)
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                        <entry>
+                            <para>Ground (the plunger provides a ground to the remote power module input when
+                                depressed)
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                        <entry>
+                            <para>12 Volts (the plunger provides 12 Volts to the remote power module input when
+                                depressed)
+                            </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">WIRING INFORMATION</emph>
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>Customer provides a ground active switch that is wired into the pin labeled
+                    Remote_Engine_Speed_Sw_Input on the Black 23-pin input connector on the Remote Power Module (See
+                    ICAP or the Diamond Logic&#8482; Builder software for correct pin location).
+                </para>
+            </item>
+        </randlist>
+        <figure id="f73000bb" figsize="pg-wide">
+            <graphic filename="../figg73/g73000bb.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                     scalefitheight="502px"/>
+            <caption></caption>
+        </figure>
+        <para>
+            <emph type="boldundersc">TESTING</emph>
+        </para>
+        <step1>
+            <para count="1">Start vehicle.</para>
+        </step1>
+        <step1>
+            <para count="1">Activate the Remote Engine Speed Control Switch (Close switch to active input condition that
+                has been programmed; i.e., 12 volts or Ground).
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Verify the Remote Power Module Input labeled Remote_Engine_Speed_Sw_Input (Pin position
+                specified by ICAP or the Diamond Logic&#8482; Builder software is receiving Ground as long as the switch
+                is closed.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Verify that the engine ramps to the first preset speed.</para>
+        </step1>
+        <step1>
+            <para count="1">If engine does not ramp to the first preset speed, check engine programming to verify that
+                the correct engine speed control parameters are set.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Deactivate the Remote Engine Speed Control switch (Release Ground).</para>
+        </step1>
+        <step1>
+            <para count="1">Verify the Remote Power Module Input labeled Remote_Engine_Speed_Sw_Input (Pin position
+                specified by ICAP or the Diamond Logic&#8482; Builder software) is an open circuit.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Verify that the engine returns to idle.</para>
+        </step1>
+        <para>
+            <emph type="boldundersc">HOW TO ADD THIS FEATURE:</emph>
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>Select software feature code 595241 using ICAP or the Diamond Logic&#8482; Builder software (See
+                    Local Dealer)
+                </para>
+            </item>
+            <item>
+                <para>Using ICAP or the Diamond Logic&#8482; Builder software, make sure that software feature codes
+                    595172, 595240, 595196, and 595263 are removed from the vehicle (See Local Dealer)
+                </para>
+            </item>
+            <item>
+                <para>Use ICAP or the Diamond Logic&#8482; Builder software to determine which pin on the Black 23-pin
+                    Remote Power Module input connector has been assigned to Remote Engine Speed Control
+                </para>
+            </item>
+            <item>
+                <para>Customer must install a remote-mounted switch to control Engine Speed and a wire that runs from
+                    the switch to the pin labeled Remote_Engine_Speed_Sw_Input on the Remote Power Module input
+                    connector.
+                </para>
+            </item>
+        </randlist>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_BB60AJA.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_BB60AJG.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,1261 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics - Air
+        Management System (AMS)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="1">
+        <title>Air Management System (AMS)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3378" filename="../figd33/d3378.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Function Diagram for the Air Management System (AMS)</caption>
+                <calloutgroup>
+                    <callout1 type="arabic">Exhaust tube assembly, right</callout1>
+                    <callout1 type="arabic">Shielded tube exhaust assembly</callout1>
+                    <callout1 type="arabic">EGR valve</callout1>
+                    <callout1 type="arabic">EGR cooler</callout1>
+                    <callout1 type="arabic">EVRT&#8482; turbocharger assembly with mounting bracket</callout1>
+                    <callout1 type="arabic">Air inlet duct</callout1>
+                    <callout1 type="arabic">Right exhaust manifold</callout1>
+                    <callout1 type="arabic">Intake manifold</callout1>
+                    <callout1 type="arabic">Right cylinder head</callout1>
+                    <callout1 type="arabic">Left cylinder head</callout1>
+                    <callout1 type="arabic">Left exhaust manifold</callout1>
+                </calloutgroup>
+            </figure>
+            <para>The Function Diagram for the AMS includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Variable Geometry Turbocharger (VGT) System</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation (EGR)</para>
+                </item>
+                <item>
+                    <para>Exhaust system</para>
+                </item>
+            </randlist>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>AMS Operation</title>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The
+                <emph type="bold">Variable Geometry Turbocharger (VGT) system</emph>
+                controls internal actuated vanes to change the flow characteristics of the exhaust gas through the
+                turbine, which causes a variation in the boost pressure produced by the turbocharger.
+            </para>
+            <para>The VGT system is closed loop using the EBP sensor as the feedback. The vane position is adjusted to
+                reach the desired exhaust back pressure. Vane position management is accomplished by changing the
+                direction of engine oil flow in the VGT actuator. The ECM sends a pulse-width modulated signal to the
+                VGT actuator causing the vanes to move. Varying the vane position changes the flow characteristics of
+                the exhaust gas through the turbine housing and additionally results in a change of boost pressure.
+            </para>
+            <para>The ECM calculates the appropriate desired exhaust back pressure in response to the changing engine
+                speed, fuel desired, operator demand, engine operating temperatures, and altitude. The components
+                involved with the control of the VGT include the following:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Exhaust Back Pressure (EBP) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Oil Temperature (EOT) sensor</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation Position (EGR) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Coolant Temperature (ECT) sensor</para>
+                </item>
+            </randlist>
+            <para>The
+                <emph type="bold">Exhaust Gas Recirculation (EGR) system</emph>
+                controls the amount of exhaust gas being introduced to the engine intake manifold by modulating the EGR
+                valve.
+            </para>
+            <para>The EGR system is closed loop using the EGR valve Position (EGRP) sensor as the feedback. The EGRP is
+                adjusted to reach the desired EGR valve position. The ECM sends a pulse-width modulated signal to the
+                EGR valve actuator causing the EGR valve to move. The actual exhaust gas flow from the exhaust manifold
+                to the intake manifold is regulated by calculating the pressure differential and the opening and closing
+                of the EGR valve.
+            </para>
+            <para>The EGR valve's fully closed position is calibrated each time the ECM is powered up to allow some
+                compensation of carbon build up on the EGR valve.
+            </para>
+            <para>When the engine operating temperatures and conditions are appropriate, the EGR valve will be exercised
+                when the engine is shut down to reduce the chance of a stuck EGR valve.
+            </para>
+            <para>The ECM calculates the appropriate desired EGR valve position in response to the changing engine
+                speed, fuel desired, operator demand, engine operating temperatures, exhaust back pressure, boost
+                pressure and altitude. Components involved with the control of the EGR include the following:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Barometric Absolute Pressure (BAP) sensor</para>
+                </item>
+                <item>
+                    <para>Exhaust Back Pressure (EBP) sensor</para>
+                </item>
+                <item>
+                    <para>Manifold Air Temperature (MAT) sensor</para>
+                </item>
+                <item>
+                    <para>Manifold Air Pressure (MAP) sensor</para>
+                </item>
+                <item>
+                    <para>Accelerator Pedal Position Sensor (APS)</para>
+                </item>
+                <item>
+                    <para>Engine Coolant Temperature (ECT) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Oil Temperature (EOT) sensor</para>
+                </item>
+                <item>
+                    <para>Electronic Variable Response Turbocharger (EVRT&#8482;) actuator</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM continuously monitors the Air Management System (AMS). When the ECM detects a fault in the any
+                of the interdependent systems, the ECM will set a DTC and illuminate the amber ENGINE lamp.
+            </para>
+            <para>
+                <emph type="bold">The Electronic Variable Response Turbocharger (EVRT&#8482;)</emph>
+                is continuously monitored by the ECM using the exhaust back pressure and the EVRT pulse-width modulated
+                signal's duty cycle. A DTC is logged when the ECM determines that the duty cycle required to reach the
+                desired boost or exhaust backpressure is greater or less than the ECM's pre-programmed expected values.
+            </para>
+            <para>Service bay diagnostics for the EVRT are available and can be performed using the Electronic Service
+                Tool (EST).
+            </para>
+            <para>
+                <emph type="bold">The Exhaust Gas Recirculation (EGR)</emph>
+                system is continuously monitored by the ECM using the EGR valve position signal. When the EBP, MAP, MAT,
+                EGRP, or BAP sensor has an out of range fault (high or low), the EGR duty cycle will default to a
+                pre-programmed value and close the valve.
+            </para>
+            <para>Service bay diagnostics for the EGR are available and can be performed using the Electronic Service
+                Tool (EST).
+            </para>
+            <para>
+                <title>AMS Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <specpara>
+                <note>
+                    <para>Before proceeding make sure all sensor, injector and actuator electrical DTCs have been
+                        repaired. Follow the procedures outlined in Section 6 or Performance Diagnostics form EGED-250.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te24007004" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para id="f240dtc343">
+                                    <emph type="bold">DTC 343 - Excessive exhaust backpressure</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 343 is set by the ECM when the exhaust backpressure is greater than 260 kPa
+                                    (37.7 psi).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor bias high</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP signal ground open</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Exhaust restriction (muffler or catalytic converter)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Inspect exhaust - do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>VGT valve or vanes stuck closed</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>VGT Control Circuit short to B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do VGT circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007005" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">DTC 344 - Exhaust back pressure above spec with engine OFF</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 344 is set by the ECM when the EBP is greater than 300 kPa (43.5 psi) when
+                                    engine is off or being cranked.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor bias high</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor or tube line plugged</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Clean and retest (replace if needed)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007006" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para id="f240dtc345">
+                                    <emph type="bold">DTC 345 - Faults detected during VGT portion of AMS test</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 345 is set by the ECM during the AMS test when the ECM measures the EBP and
+                                    does not see the expected response in pressures.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Oil pressure and quality</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>High intake restriction</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Intake / CAC system leak (pipes, loose clamps, hoses)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Exhaust system leak</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>MAP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in MAP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR stuck open</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>VGT valve or vanes sticking</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor or tube plugged</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Clean and retest (replace if needed)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Power cylinder integrity</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>VGT control circuit</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do KOEO standard test and VGT circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007007" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para id="f240dtc346">
+                                    <emph type="bold">DTC 346 - Faults detected during EGR portion of AMS test</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 346 is set by the ECM during AMS test when the ECM measures EBP and EGRP and
+                                    does not see the expected response in pressures versus position.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR valve stuck or sticking</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR valve position sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EGR circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor or tube plugged</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Clean and retest (replace if needed)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR control circuit</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do KOEO standard test and EGR circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007008" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para id="f240dtc351">
+                                    <emph type="bold">DTC 351 - Change in exhaust back pressure did not occur when
+                                        expected
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 351 is set by the ECM when less than 14.5 kPa (2.1 psi) is detected between
+                                    Key ON and 2500 rpm.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP tube or sensor plugged</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Clean and retest (replace if needed).</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR valve stuck open</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Exhaust system leak</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007009" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para id="f240dtc353">
+                                    <emph type="bold">DTC 353 - VGT control over duty cycle</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 353 is set when the ECM overcompensates by increasing duty cycle to the VGT to
+                                    achieve desired boost/backpressure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Oil pressure and quality</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>High intake restriction</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Intake / CAC system leak (pipes, loose clamps, hoses)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Exhaust system leak</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>BAP sensor bias low</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in BAP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>MAP sensor bias low</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in MAP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor bias low</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ICP sensor bias high</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in ICP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Power cylinder integrity</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ICP system integrity</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Injector operation / part number</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check previous repairs. Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR valve stuck open</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>VGT valve or vanes sticking</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>VGT control circuit open</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do KOEO standard test and VGT circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007010" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para id="f240dtc354">
+                                    <emph type="bold">DTC 354 - VGT control under duty cycle</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 354 is set when the ECM overcompensates by decreasing duty cycle to the VGT to
+                                    achieve the desired boost/backpressure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Oil pressure and quality</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>BAP sensor bias high</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in BAP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>MAP sensor bias high</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in MAP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor bias high</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Open Exhaust (no muffler)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Inspect exhaust system.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ICP sensor bias low</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in ICP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ICP system integrity</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Injector operation / part number</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check previous repairs. Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Exhaust restriction (muffler or catalytic converter)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Inspect exhaust - do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007011" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para id="f240dtc355">
+                                    <emph type="bold">DTC 355 - VGT overspeed</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 355 is set when the ECM detects turbo over speed several times in a specific
+                                    period of time (dependent on ECM calibration). Turbo speed is estimated by engine
+                                    speed, boost pressure, and barometric pressure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>High intake restriction</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Intake / CAC system leak (pipes, loose clamps, hoses)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Restricted CAC system</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>VGT valve or vanes sticking</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Open exhaust (no muffler)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Inspect exhaust system</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>BAP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in BAP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>MAP sensor bias high</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in MAP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor bias low</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007012" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para id="f240dtc361">
+                                    <emph type="bold">DTC 361 - VGT control input (MAP/EBP) above/below desired level
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 361 is set when the ECM detects an in range error in the MAP/EBP signal.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>High intake restriction</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Intake / CAC system leak (pipes, loose clamps, hoses)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>BAP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in BAP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>MAP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in MAP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ICP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in ICP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Power cylinder integrity</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ICP system integrity</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Injector operation / part number</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check previous repairs. Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR valve stuck open</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>VGT valve or vanes sticking</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>VGT control circuit open</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do KOEO standard test and VGT circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Open Exhaust (no muffler)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Inspect exhaust system.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Exhaust restriction or leak (muffler or catalytic converter)</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Inspect exhaust - do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007013" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para id="f240dtc365">
+                                    <emph type="bold">DTC 365 - EGR valve position above / below desired level</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 365 is set when the actual EGR Valve Position does not match desired.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR valve stuck or sticking</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR valve position sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EGR circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor or tube plugged</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Clean and retest (replace if needed)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>EGR control circuit</para>
+                            </entry>
+                            <entry>
+                                <para>Do KOEO standard test and EGR circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007014" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para id="f240dtc366">
+                                    <emph type="bold">DTC 366 - EGR valve duty operating out of expected range</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 366 is set when the ECM has overcompensated by increasing or decreasing EGR
+                                    duty to achieve the desired EGRP.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR valve stuck</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR valve sluggish</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR valve position sensor error</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EGR circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Exhaust leak</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>BAP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in BAP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EBP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EBP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>MAP sensor bias</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in MAP circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR cooler restriction/leak</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007015" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.59in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para id="f240dtc367">
+                                    <emph type="bold">DTC 367 - Improper position signal when EGR valve is expected
+                                        closed
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>DTC 367 is set when the ECM detects the EGR Valve position is out of desired range
+                                    during Key ON (signal voltage >2.5V).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Possible Causes</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR Valve stuck open</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Do performance diagnostics.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EGR Valve position sensor bias high</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check sensor signal voltage in EGR circuit diagnostics.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_129.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_131.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

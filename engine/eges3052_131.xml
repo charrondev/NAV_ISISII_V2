@@ -1,0 +1,597 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - BCS (Boost
+        Control Solenoid) Assembly
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.5" svcproctype="describe" graphiccount="3">
+        <title>BCS (Boost Control Solenoid) Assembly</title>
+        <svcprocinfo id="s305010706.5.1">
+            <figure id="f305010728" figsize="pg-wide">
+                <graphic filename="../figj31/j31230.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Functional diagram for the BCS assembly</caption>
+            </figure>
+            <para id="s305010706.5.1.1"></para>
+            <table id="t305010742" type="simple" frame="topbot">
+                <title>The Functional Diagram for the BCS assembly includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Boost Control Solenoid (BCS) assembly</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Injection Pressure Regulator (IPR)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Accelerator Pedal Position sensor and Idle Validation Switch (APS/IVS)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Barometric Absolute Pressure (BAP) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Camshaft Position (CMP) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Crankshaft Position (CKP) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Exhaust Gas Recirculation (EGR) valve</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Engine Oil Temperature (EOT) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Manifold Absolute Pressure (MAP) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Mass Air Flow/Intake Air Temperature (MAF/IAT) sensor</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Function</title>The BCS assembly is a two position valve that controls boost pressure going to
+                the pneumatic actuator. During engine operation, the ECM will energize the BCS (100% duty cycle) dumping
+                boost pressure from the pneumatic actuator into the air inlet, keeping the turbocharger bypass valve
+                closed. When boost pressure is higher then desired, the ECM will de-energize the BCS allowing boost
+                pressure to the pneumatic actuator and opening the turbocharger bypass valve.
+            </para>
+            <para>Actuator control is achieved by setting duty cycle to 100% or to 0% in response to engine speed,
+                desired fuel quantity, and altitude.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.5.2">
+            <title>BCS Circuit Operation</title>
+            <figure id="f305010729" figsize="pg-wide">
+                <graphic filename="../figj31/j31231.webp" type="webp" scalefit="1" scalefitwidth="502px"/>
+                <caption>BCS circuit diagram</caption>
+            </figure>
+            <para>The BCS assembly receives ground at Pin 1 from Pin 4 of the 12-pin connector. The ECM controls the BCS
+                by sending a 100% duty cycle signal from Pin X2-18 to Pin 2 on the BCS.
+            </para>
+            <specpara>
+                <note>
+                    <para>Although BCS is duty cycle controlled, 0% and 100% cannot be monitored with DMM. Voltage, not
+                        duty cycle, needs to be monitored.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>Fault Detection/Management</title>There are no specific Diagnostic Trouble Codes (DTCs) relating
+                to the wiring or Output Circuit Check (OCC) for the BCS. When diagnosing the air management system, BCS
+                wiring can be tested with the following checks.
+            </para>
+            <table id="t305010743" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech&#174; interface cable</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Digital Multimeter (DMM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Breakout Box</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Terminal Test Adapter Kit</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>12-pin breakout harness</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+        </svcsubproc>
+        <svcsubproc id="s305010706.5.3">
+            <title>BCS Assembly Pin-Point Diagnostics</title>
+            <table id="t305010744" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - BCS</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.81*"/>
+                    <colspec colname="col2" colwidth="0.67*"/>
+                    <colspec colname="col3" colwidth="1.53*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Disconnect the BCS connector, using DMM measure voltage. Negative lead Pin 1,
+                                    positive lead to B+ at alternator.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to B+ at alternator</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If voltage is below specifications, check for an open in the BCS ground circuit.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010745" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - ECM (Output State Test)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="0.98in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging relays
+                                        or the ECM module. Failure to turn ignition switch to OFF could cause a voltage
+                                        spike and damage the electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Install Breakout Box X2 and X3 to ECM and harness. Connect 500 &#x2126; resistor
+                                    between X2-18 and X3-6. Turn ignition switch to ON (do not crank the engine). Run
+                                    Output State Tests, see "Diagnostic Tests" in the "Diagnostic Software Operation"
+                                    section of this manual for the procedure to do the Output State Tests.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Output State Test - Low</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-18 to X3-6</para>
+                            </entry>
+                            <entry>
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 0.25 volts disconnect engine harness from Breakout Box and
+                                    retest.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry></entry>
+                            <entry></entry>
+                            <entry>
+                                <seqlist style="alphalc">
+                                    <item>
+                                        <para>If less than 0.25 volts, diagnose engine wiring harness. Do Harness
+                                            Resistance Check - ECM to BCS.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If greater than 0.25 volts, with Breakout Box only connected to ECM,
+                                            replace ECM.
+                                        </para>
+                                    </item>
+                                </seqlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Output State Test - High</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-18 to X3-6</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If value is not in specification, disconnect engine harness from Breakout Box and
+                                    retest.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry></entry>
+                            <entry></entry>
+                            <entry>
+                                <seqlist style="alphalc">
+                                    <item>
+                                        <para>If equal to B+, diagnose engine wiring harness. Do Harness Resistance
+                                            Check - ECM to BCS.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If less than B+ with Breakout Box only connected to ECM, replace ECM.
+                                        </para>
+                                    </item>
+                                </seqlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f305010730" figsize="pg-wide">
+                <graphic filename="../figj31/j31231.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>BCS circuit diagram</caption>
+            </figure>
+            <table id="t305010746" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - Chassis Ground</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging relays
+                                        or the ECM module. Failure to turn ignition switch to OFF could cause a voltage
+                                        spike and damage the electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch OFF. Disconnect harness from BCS. Disconnect the negative
+                                    battery cable.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for an open in ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t305010747" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - 12-Pin Connector to Chassis Ground</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging relays
+                                        or the ECM module. Failure to turn ignition switch to OFF could cause a voltage
+                                        spike and damage the electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect 12-pin connector, connect 12-pin breakout
+                                    harness. Disconnect negative battery cable, use negative battery cable as ground
+                                    test point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 (12-pin) to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open in ground.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t305010748" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - ECM to BCS</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect BCS connector. Connect Breakout Box X2 to
+                                    engine harness only.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-18 to 2</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open in BCS circuit.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t305010749" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - 12-pin Connector to BCS</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect BCS connector and 12-pin connector.
+                                    Connect 12-pin breakout harness to engine harness only.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>4 (12-pin) to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open in ground.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <table id="t305010750" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Actuator Resistance Check - Across BCS Terminals</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect the BCS connector. Check resistance
+                                    through the BCS only.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Across BCS terminals</para>
+                            </entry>
+                            <entry>
+                                <para>40 to 44 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If resistance is not within specifications, replace the BCS assembly.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_130.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_132.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

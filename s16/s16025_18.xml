@@ -1,0 +1,1112 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>HEAT VENTILATION AIR CONDITIONING (HVAC), Orifice Tube System, Pre-March 2007 - 3200, 4100, 4200, 4300,
+        4400, 7300, 7400, 7500, 7600, 7700, 8500, 8600 - DIAGNOSIS AND TROUBLESHOOTING - DIAGNOSIS
+    </stitle>
+    <svcsection/>
+    <svcproc svcproctype="diagnose" graphiccount="1">
+        <title>DIAGNOSIS</title>
+        <svcprocinfo>
+            <para>A malfunctioning HVAC system is received because the operator feels that the system is not operating
+                correctly. Usually, the operator will provide a symptom describing the operation of the system.
+                Effective diagnosis begins with observing any Diagnostic Trouble Codes (DTC) logged by the Electronic
+                Gauge Cluster (EGC). If no diagnostic trouble codes are displayed, verify the reported fault by
+                operating the system and observing the symptoms.
+            </para>
+            <specpara>
+                <note>
+                    <para>Before starting the engine, perform a simple visual check of the HVAC system to verify that no
+                        obvious faults (missing belt, broken wire, ruptured hose, etc.) are present.
+                    </para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Refrigerant Control and Diagnostic (RCD) System</title>
+            <para>The Refrigerant Control and Diagnostic (RCD) System is the software used by the Electrical System
+                Controller (ESC) to monitor and control A/C system operation. The RCD system monitors the refrigerant
+                sensors (transducer and thermistors) and other system parameters to determine if all parameters are
+                within acceptable limits. This information allows the RCD system to keep the A/C system operating within
+                its optimum range by controlling the cycling of the refrigerant compressor. When certain nondestructive
+                conditions are detected, the RCD system will allow the A/C system to continue operating while it
+                generates diagnostic trouble codes that may be used to diagnose and isolate the source of the problem.
+                If destructive conditions are detected, the RCD system will protect the compressor by commanding the ESC
+                to turn the compressor off, shutting down the A/C system. In addition, the RCD system will also generate
+                diagnostic trouble codes that may be used to diagnose and isolate problems in the system. For a more
+                complete description of the RCD system, refer to
+                <hotlnk document="s16025_HL1602568.xml" xrefid="hl1602568">SECTION 8.1</hotlnk>
+                <xref refid="hl1602568"/>.
+            </para>
+            <specpara>
+                <note>
+                    <para>The RCD system is continually being improved and revised. If an invalid DTC has been set (see
+                        <hotlnk xrefid="t1602504">DIAGNOSTIC CHART 'A'</hotlnk>)
+                        <xref refid="t1602504"/>, reflash (update) the ESC software to the latest revision.
+                    </para>
+                    <para>If no invalid DTC's have been set, do not reflash the ESC unnecessarily. If the ESC software
+                        is suspected of being out of date, contact Technical Services at 1-800-336-4500 to determine if
+                        reflashing the ESC is necessary.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Observing the RCD Signals with the EZ-Tech&#174; Service Tool</title>
+            <para>The EZ-Tech electronic service tool, running diagnostic software allows the servicer to monitor the
+                HVAC electrical signals that pass through the ESC. Refer to
+                <hotlnk document="s16025_110.xml" xrefid="f1602589">Figure 93</hotlnk>,
+                <xref refid="f1602589"/>. When used in conjunction with these procedures or the electrical
+                troubleshooting manual, the EZ-Tech allows the servicer to isolate electrical faults efficiently. See
+                the diagnostic software manual for details on using the software.
+            </para>
+        </svcsubproc>
+        <svcsubproc id="hl1602542">
+            <title>Diagnostic Trouble Codes</title>
+            <para>The RCD system within the ESC monitors parameters throughout the A/C system and generates diagnostic
+                trouble codes whenever a measured parameter falls outside of its specified range. Also within the HVAC
+                system, the HVAC control head monitors some conditions and notifies the ESC when it detects a fault. The
+                ESC assigns a Diagnostic Trouble Code (DTC) to each of these faults. When any DTC is generated it is
+                stored in memory even if the fault condition is only temporary. If a fault is detected once, and then
+                not detected at a later time, the DTC for that fault is stored as an inactive
+                <emph type="bold">(Previously active)</emph>
+                fault in a memory circuit located in the Electronic Gauge Cluster (EGC). If the detected fault is still
+                present it is considered an
+                <emph type="bold">Active</emph>
+                fault. Faults that are severe enough to inhibit HVAC compressor operation are displayed as Active
+                faults.
+            </para>
+            <para>The DTC's are viewed by placing the system into the diagnostic mode. The following figure (
+                <hotlnk xrefid="f1602513">Figure 13</hotlnk>) illustrates the format of the DTC's and shows how a
+                typical code would appear on the LCD readout and in print. To enter the diagnostic mode:
+            </para>
+            <seqlist style="arabic">
+                <item>
+                    <para>Set the parking brake.</para>
+                </item>
+                <item>
+                    <para>Place the transmission in Neutral.</para>
+                </item>
+                <item>
+                    <para>Turn the ignition to the ON position but do not start the engine.</para>
+                </item>
+                <item>
+                    <para>After the Electronic Gauge Cluster (EGC) performs a 'power-on-self-test' the LCD readout will
+                        display the EGC software version number.
+                    </para>
+                </item>
+                <item>
+                    <para>Verify that the parking brake indicator is on.</para>
+                </item>
+                <item>
+                    <para>Simultaneously depress the Cruise ON and Cruise RESUME switches.</para>
+                </item>
+                <item>
+                    <para>If no DTC's are present, the LCD readout will display "NO FAULTS".</para>
+                </item>
+                <item>
+                    <para>If DTC's are present, the LCD readout will first display the total number of "A"ctive and
+                        "P"reviously active faults.
+                    </para>
+                </item>
+                <item>
+                    <para>After approximately 10 seconds the EGC will automatically scroll through the DTC's, displaying
+                        each DTC for approximately 10 seconds. The Select/Reset button on the EGC can be used to
+                        manually scroll through the DTC's.
+                    </para>
+                </item>
+                <item>
+                    <para>To exit the diagnostic mode, turn ignition key off, release parking brake, or start engine.
+                    </para>
+                </item>
+            </seqlist>
+            <specpara>
+                <note>
+                    <para>Clearing the Previously active DTC's, as described in the following step, may result in losing
+                        useful diagnostic information. Insure that all Previously active DTC's have been reviewed before
+                        they are cleared.
+                    </para>
+                </note>
+            </specpara>
+            <para>While in the diagnostic mode the Previously active DTC's may be cleared by turning the left turn
+                signal ON and simultaneously pressing the Cruise ON and Cruise SET switches. If there are no Active
+                DTC's, the LCD readout should now display "NO FAULTS". Clearing the Previously active DTC's will not
+                clear the Active DTC's, engine fault codes or ABS fault codes. The DTC's may also be viewed and cleared
+                using the diagnostic service tool (EZ-Tech), running the diagnostic software.
+            </para>
+            <figure id="f1602513" figsize="pg-wide">
+                <graphic filename="../figg16/g1602513.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="232px"/>
+                <caption>Figure 13. Diagnostic Trouble Code (DTC)</caption>
+                <calloutgroup>
+                    <callout1>1. DIAGNOSTIC TROUBLE CODE FIELDS</callout1>
+                    <callout1>2. BYTE 7 FIELD</callout1>
+                    <callout1>3. BYTE 8 FIELD</callout1>
+                    <callout1>4. SUSPECT PARAMETER NUMBER (SPN) FIELD</callout1>
+                    <callout1>5. FAILURE MODE INDICATOR (FMI) FIELD</callout1>
+                    <callout1>6. FAILURE ACTIVE/PREVIOUS STATUS (A/P) FIELD</callout1>
+                    <callout1>7. TYPICAL DIAGNOSTIC TROUBLE CODE DISPLAY</callout1>
+                    <callout1>8. PRINTED FORMAT OF TYPICAL DIAGNOSTIC TROUBLE CODE</callout1>
+                </calloutgroup>
+            </figure>
+        </svcsubproc>
+        <svcsubproc id="hl1602558">
+            <title>Fault Identification Procedure</title>
+            <specpara>
+                <note>
+                    <para>Before starting this procedure, perform a simple visual check of the HVAC system to verify
+                        that no obvious faults (missing belt, broken wire, ruptured hose, etc.) are present.
+                    </para>
+                </note>
+                <note>
+                    <para>The following test may not perform correctly if the ambient temperature is too cold. If the
+                        A/C compressor does not turn on when first attempted, allow the engine to warm up to operating
+                        temperature, and try again. If the A/C system compressor still will not turn on, a fault
+                        probably exists.
+                    </para>
+                </note>
+            </specpara>
+            <specpara>
+                <note>
+                    <para>The engine does not need to be started to display the diagnostic trouble codes.</para>
+                </note>
+                <note>
+                    <para>The cycling rate of the A/C compressor will vary with the ambient temperature. In cooler
+                        ambient temperatures the compressor may cycle up to four times a minute.
+                    </para>
+                </note>
+            </specpara>
+            <para>Perform the following steps to determine if a diagnostic trouble code is being generated and/or to
+                verify a reported symptom. If a diagnostic trouble code is displayed,
+                <emph type="bold">stop this procedure</emph>, record the codes, and refer to
+                <hotlnk xrefid="t1602504">Diagnostic Chart 'A'</hotlnk>
+                <xref refid="t1602504"/>. If no diagnostic trouble codes are displayed, perform the procedure and note
+                any symptoms observed; then proceed to
+                <hotlnk xrefid="t1602505">Diagnostic Chart 'B'</hotlnk>
+                <xref refid="t1602505"/>.
+            </para>
+            <step1>
+                <para count="1">To display diagnostic trouble codes, set the parking brake and turn the ignition key to
+                    ON (without starting the engine). Then, simultaneously press the Cruise ON switch and the Cruise
+                    RESUME switches. If no diagnostic trouble codes are present, the odometer display will read "NO
+                    FAULTS". If codes are present, the odometer will display the total number of diagnostic trouble
+                    codes currently in memory; then, the display will automatically scroll through all of the codes,
+                    displaying each code for 5 seconds. To manually scroll through the diagnostic trouble code list,
+                    press the cluster display SELECT/RESET button. The alpha character in the diagnostic trouble code
+                    will be an "A" for active faults or "P" for previously active faults. Turn the ignition key to OFF,
+                    or release the parking brake, to take the ESC and the EGC out of the diagnostic mode.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If no diagnostic trouble codes were displayed, start the engine and set the air
+                    conditioning control panel for maximum cooling, as follows.
+                </para>
+                <seqlist>
+                    <item>
+                        <para>Set blower speed control to highest speed, full cw.</para>
+                    </item>
+                    <item>
+                        <para>Set temperature control for maximum cooling, full ccw.</para>
+                    </item>
+                    <item>
+                        <para>Set mode control to MAXA/C, full ccw.</para>
+                    </item>
+                </seqlist>
+            </step1>
+            <step1>
+                <para count="1">Set the engine speed at 1500 RPM or above.</para>
+            </step1>
+            <step1>
+                <para count="1">Run the air conditioning system for at least five minutes even if it appears that the
+                    system is not operating correctly.
+                </para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>In the following step, verify only that the blower is operating and air flow is present at
+                        some outlet. The air distribution system will be checked in a later step.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Cycle the blower speed control through each of its settings and verify correct blower
+                    operation. (Air flow stops in the OFF position and increases as the control is rotated in a
+                    clockwise direction.)
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Set the blower speed control to the highest setting (full cw).</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>In the following step verify that the main forced air flow is through the indicated outlets.
+                        However, it is normal for a very slight amount of bleed-through air to be present at other
+                        outlets.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Slowly cycle the mode control through each of its settings and verify correct air
+                    distribution at the various air outlets as follows:
+                </para>
+                <step2>
+                    <para count="1">MAX, NORM, and Vent Only settings direct air flow through the instrument panel vents
+                        ONLY.
+                    </para>
+                </step2>
+                <step2>
+                    <para count="1">Bi-level setting directs air flow through the instrument panel vents and the floor
+                        ducts ONLY.
+                    </para>
+                </step2>
+                <step2>
+                    <para count="1">Floor setting directs air flow through the floor ducts ONLY.</para>
+                </step2>
+                <step2>
+                    <para count="1">Floor/Defrost setting directs air flow through the floor ducts and the defrost ducts
+                        ONLY.
+                    </para>
+                </step2>
+                <step2>
+                    <para count="1">Defrost setting directs air flow through the defrost ducts ONLY.</para>
+                </step2>
+            </step1>
+            <step1>
+                <para count="1">Repeat the previous step and verify that the air flow at the correct outlets is strong
+                    (high).
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Set the mode control to the Floor setting.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>The engine coolant must be at operating temperature before the next step will work
+                        correctly.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Set the temperature control to the maximum heat setting (full cw), and verify that the
+                    temperature of the air flow at the floor ducts is warm to hot.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Set the temperature control to the maximum cooling setting (full ccw).</para>
+            </step1>
+            <step1>
+                <para count="1">Set the mode control to the MAX air conditioning setting (full ccw), and verify that
+                    within five minutes cold air is present at the instrument panel vents.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Set the mode control to the Defrost setting, and verify that the compressor cycles on
+                    within two minutes.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Repeat the previous step with the mode control set to the Floor/Defrost setting; the
+                    compressor should continue to operate.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">With the engine still running, place the ESC and EGC into the diagnostic mode by setting
+                    the parking brake and simultaneously pressing the Cruise ON and Cruise RESUME switches.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Again observe the odometer display, and note any diagnostic trouble codes displayed
+                    there. If a diagnostic trouble code is displayed refer to
+                    <hotlnk xrefid="t1602504">Diagnostic Chart 'A'</hotlnk>
+                    and perform the action indicated for that diagnostic trouble code.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If no codes are displayed on the odometer display, and the system is not operating
+                    correctly, find the fault symptom in
+                    <hotlnk xrefid="t1602505">Diagnostic Chart 'B'</hotlnk>.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If you are performing this test after making repairs; the fault has been repaired and
+                    the system is now operating correctly. Before returning the vehicle to service, perform an physical
+                    inspection of the HVAC system, including a refrigerant leak test; and road test the vehicle.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc id="hl1602543">
+            <title>DIAGNOSTIC CHART A</title>
+            <para>This chart is used to determine what action is required when a diagnostic trouble code is displayed on
+                the odometer display. After locating the displayed code in the chart, service the system as instructed
+                in the indicated troubleshooting table. If more than one diagnostic trouble code is displayed, it is
+                good practice to begin by repairing the component-based faults before any faults related to the general
+                system condition.
+            </para>
+            <specpara>
+                <note>
+                    <para>The RCD System is the software used by the ESC to control the A/C system. The ESC software is
+                        continually being improved and revised. If an invalid DTC has been set, reflash (update) the ESC
+                        software to the latest revision. If no invalid DTC's have been set, do not reflash the ESC
+                        unnecessarily. If the ESC software is suspected of being out of date, contact Technical Services
+                        at 1-800-336-4500 to determine if reflashing the ESC is necessary.
+                    </para>
+                </note>
+            </specpara>
+            <para>Once the system has been serviced, it should be tested to verify correct operation. If the fault was
+                refrigerant based, verify the repairs by performing the
+                <hotlnk document="s16025_HL1602546.xml" xrefid="hl1602546">A/C SYSTEM PERFORMANCE TEST PROCEDURE
+                </hotlnk>
+                <xref refid="hl1602546"/>. If the fault was not refrigerant based, verify the repairs by performing the
+                <hotlnk xrefid="hl1602558">FAULT IDENTIFICATION PROCEDURE</hotlnk>
+                <xref refid="hl1602558"/>.
+            </para>
+            <table id="t1602504" tblwidth="pg-wide">
+                <title>Diagnostic Chart 'A' (HVAC Diagnostic Trouble Codes)</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.71in"/>
+                    <colspec colname="col2" colwidth="3.91in"/>
+                    <spanspec namest="col1" nameend="col2" spanname="SPAN1"/>
+                    <thead>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>
+                                    <emph type="bold">DIAGNOSTIC TROUBLE CODE</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>
+                                    <emph type="bold">FAULT DESCRIPTION</emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>611 14 9 1</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Compressor clutch under current (open circuit)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code indicates that the current in the compressor clutch circuit
+                                    is &#60;0.5A. This condition is the result of an open, or a high resistance, in the
+                                    compressor clutch circuit.
+                                </para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602561.xml" xrefid="hl1602561">AC COMPRESSOR
+                                        CIRCUITS</hotlnk>.
+                                    <xref refid="hl1602561"/>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>611 14 9 2</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Compressor clutch over current (short circuit)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of a short to ground in the compressor clutch
+                                    circuit or a short across the compressor clutch solenoid.
+                                </para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602561.xml" xrefid="hl1602561">AC COMPRESSOR CIRCUITS
+                                    </hotlnk>
+                                    <xref refid="hl1602561"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>611 14 9 3</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Compressor clutch current, higher than open circuit level, but lower than normal
+                                    low current level
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of one or more high resistance connections in
+                                    the compressor clutch or in the clutch circuit current path.
+                                </para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602561.xml" xrefid="hl1602561">AC COMPRESSOR CIRCUITS
+                                    </hotlnk>
+                                    <xref refid="hl1602561"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>611 14 9 4</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Compressor clutch current, lower than fusing level, but higher than normal high
+                                    current level
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of less than normal resistance in the
+                                    compressor clutch circuit (probably due to shorted windings in the compressor clutch
+                                    solenoid).
+                                </para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602561.xml" xrefid="hl1602561">AC COMPRESSOR CIRCUITS
+                                    </hotlnk>
+                                    <xref refid="hl1602561"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>611 14 9 6</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Compressor clutch has current flow when commanded OFF.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of a defective ESC.</para>
+                                <para>Replace the ESC.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>612 14 27 1</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC outlet thermistor out of range low</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of a short to ground in the outlet thermistor
+                                    circuit.
+                                </para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602566.xml" xrefid="hl1602566">AC REFRIGERANT THERMISTOR
+                                        CIRCUITS
+                                    </hotlnk>
+                                    <xref refid="hl1602566"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>612 14 27 2</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC outlet thermistor out of range high</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of an open, or a high resistance, in the outlet
+                                    thermistor circuit.
+                                </para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602566.xml" xrefid="hl1602566">AC REFRIGERANT THERMISTOR
+                                        CIRCUITS
+                                    </hotlnk>
+                                    <xref refid="hl1602566"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>612 14 29 1</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC inlet thermistor out of range low</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of a short to ground in the inlet thermistor
+                                    circuit.
+                                </para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602566.xml" xrefid="hl1602566">AC REFRIGERANT THERMISTOR
+                                        CIRCUITS
+                                    </hotlnk>
+                                    <xref refid="hl1602566"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>612 14 29 2</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC inlet thermistor out of range high</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of an open, or a high resistance, in the inlet
+                                    thermistor circuit.
+                                </para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602566.xml" xrefid="hl1602566">AC REFRIGERANT THERMISTOR
+                                        CIRCUITS
+                                    </hotlnk>
+                                    <xref refid="hl1602566"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>612 14 30 1</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>+5V reference line out of range low</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of a short to ground or a low resistance on the
+                                    +5 Vdc reference line; or a defective ESC.
+                                </para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602567.xml" xrefid="hl1602567">AC PRESSURE TRANSDUCER
+                                        CIRCUIT
+                                    </hotlnk>
+                                    <xref refid="hl1602567"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>612 14 31 1</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>This Diagnostic code is no longer valid.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>If this Diagnostic code is displayed, the ESC software is out of date and must be
+                                    updated.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>612 14 31 2</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC pressure sensor out of range high</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of the sense circuit shorted high, or an open
+                                    in the 0 Volt Ref circuit.
+                                </para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602567.xml" xrefid="hl1602567">AC PRESSURE TRANSDUCER
+                                        CIRCUIT
+                                    </hotlnk>
+                                    <xref refid="hl1602567"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>613 14 1 1</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>Air inlet fault</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is logged as the result of the fresh/recirculate air door
+                                    actuator motor being in the wrong position or unresponsive.
+                                </para>
+                                <para>(Detected by HVAC control head.)</para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602508">AIR INLET
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602508"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>613 14 1 2</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC hot/cold temperature mix control fault</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of the temperature door actuator motor being in
+                                    the wrong position or unresponsive.
+                                </para>
+                                <para>(Detected by HVAC control head.)</para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602509">HEATER/AIR CONDITIONER
+                                        TEMPERATURE MIX TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602509"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>613 14 1 3</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC mode control fault</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of the actuator motor for the mode doors being
+                                    in the wrong position or unresponsive.
+                                </para>
+                                <para>(Detected by HVAC control head.)</para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602510">MODE SELECTION
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602510"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>613 14 1 4</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC multiple faults</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of two or more of the previous three faults
+                                    being active.
+                                </para>
+                                <para>(Detected by HVAC control head.)</para>
+                                <para>The ESC prevents A/C compressor operation.</para>
+                                <para>Refer to the appropriate following troubleshooting tables.</para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <hotlnk document="s16025_HL1602549.xml" xrefid="t1602508">AIR INLET
+                                                TROUBLESHOOTING
+                                            </hotlnk>
+                                            Table
+                                            <xref refid="t1602508"/>.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <hotlnk document="s16025_HL1602549.xml" xrefid="t1602509">HEATER/AIR
+                                                CONDITIONER TEMPERATURE MIX TROUBLESHOOTING
+                                            </hotlnk>
+                                            table
+                                            <xref refid="t1602509"/>.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <hotlnk document="s16025_HL1602549.xml" xrefid="t1602510">MODE SELECTION
+                                                TROUBLESHOOTING
+                                            </hotlnk>
+                                            table
+                                            <xref refid="t1602510"/>.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>613 14 1 5</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC control head fault, loss of communications with the ESC</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is the result of an open circuit, short to ground or short to
+                                    voltage on the digital diagnostic line between the HVAC control head and the ESC.
+                                </para>
+                                <para>The ESC prevents A/C compressor operation.</para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602560.xml" xrefid="hl1602560">HVAC CONTROL HEAD
+                                        CIRCUITS
+                                    </hotlnk>
+                                    <xref refid="hl1602560"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>613 14 1 6</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>This Diagnostic code is no longer valid.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code was to be logged when the ESC sensed that the system
+                                    refrigerant charge was low, but not too low to operate. Under certain conditions,
+                                    the sensitivity of the system could cause this code to be set even though the system
+                                    was correctly charged. This Diagnostic code was discontinued with vehicles built on
+                                    and after May 18, 2004.
+                                </para>
+                                <para>If the ESC is registering this code, reflash the ESC; then, check the operation of
+                                    the A/C system.
+                                </para>
+                                <para>If the A/C system is setting DTC's, locate each DTC in table 3 and follow the
+                                    instructions.
+                                </para>
+                                <para>If the A/C system is not operating correctly, but is not setting DTC's; locate the
+                                    symptom in
+                                    <hotlnk xrefid="t1602505">DIAGNOSTIC CHART 'B' (SYMPTOM LIST)</hotlnk>
+                                    <xref refid="t1602505"/>
+                                    and follow the instructions.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>613 14 1 7</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC system SERVICE NOW - LOW CHARGE</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is logged when the ESC senses that the system refrigerant
+                                    charge is too low to allow safe operation. The code may be caused by any of the
+                                    following:
+                                </para>
+                                <para>(1) Faulty Thermistor Circuit</para>
+                                <para>(2) Refrigerant Leak</para>
+                                <para>(3) Improperly Charged System</para>
+                                <para>The ESC prevents A/C compressor operation.</para>
+                                <para>Refer to the
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602511">REFRIGERANT CHARGE
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602511"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>613 14 1 8</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC system SERVICE NOW - VERY LOW CHARGE</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is logged when the ESC senses that the system refrigerant
+                                    charge is too low to allow safe operation. The code may be caused by any of the
+                                    following:
+                                </para>
+                                <para>(1) Faulty Thermistor Circuit</para>
+                                <para>(2) Refrigerant Leak</para>
+                                <para>(3) Improperly Charged System</para>
+                                <para>The ESC prevents A/C compressor operation.</para>
+                                <para>Refer to the
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602511">REFRIGERANT CHARGE
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602511"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>613 14 1 9</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>This Diagnostic code is no longer valid.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>If this Diagnostic code is displayed, the ESC software is out of date and must be
+                                    updated.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>613 14 1 10</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>HVAC system SERVICE NOW - HIGH HEAD PRESSURE</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>This Diagnostic code is logged when the ESC senses that the A/C refrigerant system
+                                    pressure is above acceptable levels. Vehicles with viscous fan will not set this
+                                    fault unless vehicle speed is greater than 20 mph. The code may be caused by any of
+                                    the following:
+                                </para>
+                                <para>(1) Faulty Pressure Transducer</para>
+                                <para>(2) Blocked Condenser</para>
+                                <para>(3) Faulty Fan or Fan Drive</para>
+                                <para>(4) Restriction in High Pressure Side of System</para>
+                                <para>(5) Air/moisture in System</para>
+                                <para>(6) Too Much Oil in Refrigerant System</para>
+                                <para>The ESC prevents A/C compressor operation.</para>
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602512">HIGH HEAD PRESSURE
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602512"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry valign="bottom" align="center">
+                                <para>613 14 1 11</para>
+                            </entry>
+                            <entry valign="bottom">
+                                <para>This Diagnostic code is no longer valid.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>If this Diagnostic code is displayed, the ESC software is out of date and must be
+                                    updated.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" valign="bottom" align="center">
+                                <para>613 14 1 12</para>
+                            </entry>
+                            <entry colname="col2" valign="bottom">
+                                <para>This Diagnostic code is no longer valid.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <para>If this Diagnostic code is displayed, the ESC software is out of date and must be
+                                    updated.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>After all repairs have been made, the diagnostic trouble codes may be cleared by setting the parking
+                brake, putting the ignition key in the ACCESSORY or RUN position, turning on the left turn signal and
+                simultaneously pressing the cruise "ON" and SET" switches.
+            </para>
+        </svcsubproc>
+        <svcsubproc id="hl1602544">
+            <title>DIAGNOSTIC CHART B</title>
+            <para>This chart is used to determine what action is required when a fault symptom exists but no diagnostic
+                trouble code has been logged by the ESC. After locating the fault symptom in the chart, service the
+                system as instructed in the indicated troubleshooting table.
+            </para>
+            <para>Once the system has been serviced, it should be tested to verify correct operation. If the fault was
+                refrigerant based, verify the repairs by performing the
+                <hotlnk document="s16025_HL1602546.xml" xrefid="hl1602546">A/C SYSTEM PERFORMANCE TEST PROCEDURE
+                </hotlnk>
+                <xref refid="hl1602546"/>. If the fault was not refrigerant based, verify the repairs by performing the
+                <hotlnk xrefid="hl1602558">FAULT IDENTIFICATION PROCEDURE</hotlnk>
+                <xref refid="hl1602558"/>.
+            </para>
+            <table id="t1602505" tblwidth="pg-wide">
+                <title>Diagnostic Chart 'B' (Symptom List)</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="3.04in"/>
+                    <colspec colname="col2" colwidth="3.29in"/>
+                    <spanspec namest="col1" nameend="col2" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Symptom</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Action</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN1">
+                                <note>
+                                    <para>This table is designed to be used after completing the FAULT IDENTIFICATION
+                                        PROCEDURE and resolving any HVAC related Diagnostic Trouble Codes that were set.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>No Air Flow</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602515">NO AIR FLOW
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602515"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Wrong Air Distribution</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602510">MODE SELECTION
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602510"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Low Air Flow</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602516">LOW AIR FLOW
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602516"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Insufficient Heat (Heater Mode)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602517">INSUFFICIENT HEAT
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602517"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Insufficient Cooling (A/C Mode) (Compressor may be operable or inoperable)</para>
+                                <note>
+                                    <para>Refer to
+                                        <hotlnk xrefid="t1602504">DIAGNOSTIC CHART 'A'</hotlnk>
+                                        <xref refid="t1602504"/>
+                                        if any Diagnostic codes are set.
+                                    </para>
+                                </note>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602519">INSUFFICIENT COOLING
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602519"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Insufficient Defrost (Defrost Mode)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602520">INSUFFICIENT DEFROST
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602520"/>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Compressor Has Excessive Vibration or Noise</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Refer to
+                                    <hotlnk document="s16025_HL1602549.xml" xrefid="t1602521">NOISY COMPRESSOR
+                                        TROUBLESHOOTING
+                                    </hotlnk>
+                                    table
+                                    <xref refid="t1602521"/>.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s16025_HL1602541.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s16025_HL1602545.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s16025.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,657 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>HEAT VENTILATION AIR CONDITIONING (HVAC), Orifice Tube System, Pre-March 2007 - 3200, 4100, 4200, 4300,
+        4400, 7300, 7400, 7500, 7600, 7700, 8500, 8600 - HVAC ELECTRICAL CIRCUITS OVERVIEW - Refrigerant Control and
+        Diagnostic (RCD) System
+    </stitle>
+    <svcsection/>
+    <svcproc id="hl1602568" graphiccount="0">
+        <title>Refrigerant Control and Diagnostic (RCD) System</title>
+        <svcprocinfo>
+            <para>The Refrigerant Control and Diagnostic (RCD) system is the software used by the Electronic System
+                Controller (ESC) to control the A/C compressor. The purposes of the RCD system are:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Verify that safe operating conditions exist before the compressor clutch is energized.</para>
+                </item>
+                <item>
+                    <para>Keep the A/C system operating within its optimum range by controlling the cycling of the
+                        refrigerant compressor.
+                    </para>
+                </item>
+                <item>
+                    <para>Detect faults or abnormal conditions within the A/C system.</para>
+                </item>
+                <item>
+                    <para>Protect the A/C compressor by deactivating the compressor when destructive conditions are
+                        detected.
+                    </para>
+                </item>
+                <item>
+                    <para>Generate diagnostic trouble codes that may be used to diagnose and isolate problems in the
+                        system.
+                    </para>
+                </item>
+            </randlist>
+            <para>To do this the RCD system monitors seven input signals from the A/C system and its environment. When
+                certain nondestructive conditions are detected, the RCD system will allow the A/C system to continue
+                operating while it generates diagnostic trouble codes. If destructive conditions are detected, in
+                addition to generating diagnostic trouble codes, the RCD system will protect the compressor by
+                commanding the ESC to turn the compressor off, shutting down the A/C system.
+            </para>
+            <specpara>
+                <note>
+                    <para>The RCD system is continually being improved and revised. If an invalid DTC has been set (see
+                        <hotlnk document="s16025_18.xml" xrefid="t1602504">DIAGNOSTIC CHART 'A'</hotlnk>)
+                        <xref refid="t1602504"/>, reflash (update) the ESC software to the latest revision.
+                    </para>
+                    <para>If no invalid DTC's have been set, do not reflash the ESC unnecessarily. If the ESC software
+                        is suspected of being out of date, contact Technical Services at 1-800-336-4500 to determine if
+                        reflashing the ESC is necessary.
+                    </para>
+                </note>
+            </specpara>
+            <para>The RCD software is used to control a microprocessor located in the ESC. The microprocessor cycles the
+                A/C compressor clutch on and off by controlling a 10 Amp FET (also located in the ESC). The seven inputs
+                used by that microprocessor are described in
+                <hotlnk xrefid="t1602501">Table 21</hotlnk>.
+            </para>
+            <table id="t1602501" tblwidth="pg-wide">
+                <title>Inputs of the RCD System</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.02in"/>
+                    <colspec colname="col2" colwidth="4.66in"/>
+                    <thead>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>
+                                    <emph type="bold">Inputsto The RCD System</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>
+                                    <emph type="bold">Descriptions of RCD System Inputs</emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>A/C REQUEST</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>The A/C REQUEST signal originates in the HVAC control head, and indicates that the
+                                    operator has set the controls to a combination that requires operation of the A/C
+                                    system. This condition occurs when any A/C or defrost position is selected AND the
+                                    fan control is NOT set to OFF. In this condition, the control head provides a
+                                    chassis ground on the A/C REQUEST line, which is monitored by the ESC.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>HVAC CONTROL HEAD DIAGNOSTICS</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>The control head diagnostics signals are generated by the HVAC control head to
+                                    indicate the current status of several control head related circuits. In addition to
+                                    the 'normal' signal, there are five signals indicating various fault conditions. The
+                                    ESC monitors the DIAGNOSTICS line. Some fault conditions cause the ESC to log a
+                                    fault and disable the A/C system. Lesser faults cause the ESC to log a fault, but
+                                    allow the A/C system to continue to operate.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>HIGH SIDE PRESSURE</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>The HIGH SIDE PRESSURE signal is an analog signal that originates at the pressure
+                                    transducer in the condenser-to-evaporator A/C refrigerant line. The ESC provides the
+                                    transducer with +5V and the Zero Volt Reference (ZVR). The output signal of the
+                                    transducer reflects the pressure level in the high side of the A/C system, and is
+                                    monitored by the ESC. The high side pressure information is used by the ESC to
+                                    disable the A/C clutch if high side pressure is too high or too low for safe
+                                    compressor operation. The pressure information is also used by the ESC to control an
+                                    optional on-off cooling fan drive. The high side pressure input is similar in
+                                    functionality to a high-pressure cut-off switch, a low-pressure cut-off switch, and
+                                    a cooling fan switch on a conventional A/C system.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EVAPORATOR INLET REFRIGERANT TEMPERATURE (INLET THERMISTOR)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>The EVAPORATOR INLET REFRIGERANT TEMPERATURE input is actually a variable
+                                    resistance that is monitored by a circuit in the ESC. The temperature of the
+                                    refrigerant in the evaporator inlet A/C line, is measured by a thermistor with a
+                                    negative temperature coefficient. As the refrigerant temperature increases, the
+                                    thermistor resistance decreases. Under normal operating conditions, this temperature
+                                    information is used by the ESC to determine when to cycle the A/C compressor clutch.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>EVAPORATOR OUTLET REFRIGERANT TEMPERATURE (OUTLET THERMISTOR)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>The EVAPORATOR OUTLET REFRIGERANT TEMPERATURE input is actually a variable
+                                    resistance that is monitored by a circuit in the ESC. The temperature of the
+                                    refrigerant in the accumulator, located at the evaporator outlet, is measured by a
+                                    thermistor with a negative temperature coefficient. As the refrigerant temperature
+                                    increases, the thermistor resistance decreases. Under light heat load conditions,
+                                    this temperature information is used by the ESC to cycle the A/C compressor clutch
+                                    to prevent evaporator freeze-up. The ESC also uses this temperature information, in
+                                    conjunction with the high side pressure information, to determine if the ambient
+                                    temperature is too low for safe compressor operation.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>ENGINE RPM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>The ENGINE RPM information is received by the ESC as a J1939 Drivetrain data link
+                                    message. The ENGINE RPM information is monitored by the ESC to establish one of the
+                                    conditions required for activation of the A/C compressor clutch.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>VEHICLE SPEED</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>The VEHICLE SPEED information is received by the ESC as a J1939 Drivetrain data
+                                    link message. The ESC uses the VEHICLE SPEED information, in conjunction with the
+                                    high side pressure information, to determine if a fault should be logged for
+                                    excessive high side pressure. This fault would cause the ESC to disable the A/C
+                                    compressor clutch, preventing A/C system operation.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Normal A/C System Operation</title>
+            <para>The A/C system is activated by energizing the A/C compressor clutch. One of the purposes of the RCD
+                system is to verify that safe operating conditions exist before the compressor clutch is energized.
+                <emph type="bold">ALL</emph>
+                of the following conditions must exist before the RCD system (the ESC) will energize the compressor
+                clutch by supplying 12V on the clutch line.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>A J1939 engine RPM signal (indicating an engine RPM of at least 300) must have been present at
+                        the ESC for at least 8 seconds. Engine RPM signals that are temporarily lost must have been
+                        returned for at least 8 seconds.
+                    </para>
+                </item>
+                <item>
+                    <para>The A/C REQUEST line from the A/C control head to the ESC must be &#60;0.8Vdc. This line is
+                        pulled low by the control head when an A/C or defrost mode is selected, and the Blower Speed
+                        Control is NOT set to OFF.
+                    </para>
+                </item>
+                <item>
+                    <para>The signal from the high side pressure transducer must indicate a pressure value that is &#60;250
+                        psi and >40 psi. A value of &#60;250 psi indicates that an 'excessive high pressure' condition
+                        does not exists. The ESC also verifies that the pressure is >40 psi. This value is used in
+                        conjunction with the temperature value indicated by the outlet thermistor (must be >33&#176;F)
+                        to verify that the ambient temperature is high enough for safe compressor operation.
+                    </para>
+                </item>
+                <item>
+                    <para>The value of the outlet thermistor must indicate a temperature of >33&#176;F. The ESC uses
+                        this value, in conjunction with the pressure value indicated by the high side pressure
+                        transducer (must be >40 psi) to verify that the ambient temperature is high enough for safe
+                        compressor operation.
+                    </para>
+                </item>
+                <item>
+                    <para>The value of the inlet thermistor must indicate a temperature of >43&#176;F,
+                        <emph type="bold">AND</emph>
+                        the A/C compressor clutch must have been off for
+                        <emph type="underscr">></emph>8 seconds.
+                    </para>
+                </item>
+                <item>
+                    <para>There must be no
+                        <emph type="bold">active</emph>
+                        faults detected in the transducer or thermistor circuits.
+                    </para>
+                </item>
+                <item>
+                    <para>The HVAC control head DIAGNOSTIC signal must be present at the ESC input,
+                        <emph type="bold">AND</emph>
+                        it must not indicate multiple faults.
+                    </para>
+                </item>
+                <item>
+                    <para>The A/C compressor clutch virtual fusing circuit in the ESC must not be faulted. The virtual
+                        fuse circuit activates when the clutch draws more than 10 Amps, indicating a fault.
+                    </para>
+                </item>
+            </randlist>
+            <para>Once the A/C compressor is turned on and the system is operating normally, the evaporator inlet
+                refrigerant temperature (inlet thermistor) is used to determine when to cycle the compressor off. Too
+                low of an evaporator temperature will cause moisture condensed on the evaporator to turn to ice and
+                block airflow through the evaporator (evaporator freeze-up). When evaporator inlet refrigerant
+                temperature drops to 30&#176;F
+                <emph type="bold">AND</emph>
+                the compressor has been on for
+                <emph type="underscr">></emph>7 seconds, the A/C compressor clutch is de-energized (cycled off).
+            </para>
+            <para>After the compressor has been off for at least 8 seconds, the cycle will be repeated when the
+                evaporator inlet refrigerant temperature again reaches 43&#176;F. Both conditions must exist before the
+                compressor can be energized.
+            </para>
+            <para>Therefore, under light heat load conditions, the fastest cycle rate for the compressor is 15 seconds
+                (8 seconds off and 7 seconds on). Under high heat load conditions, the compressor may remain energized
+                continuously until the engine or the A/C system is shut off. This is because the evaporator inlet
+                refrigerant temperature may not drop below 30&#176;F.
+            </para>
+            <para>Under some light heat load conditions, the evaporator outlet refrigerant temperature may be several
+                degrees lower than the evaporator inlet refrigerant temperature. If the outlet refrigerant temperature
+                drops below 24&#176;F,
+                <emph type="bold">AND</emph>
+                at least 7 seconds have elapsed since the compressor was cycled on, the ESC will de-energize the A/C
+                compressor clutch to help prevent evaporator freeze-up.
+            </para>
+            <para>On vehicles equipped with an on-off fan drive, the ESC will request the engine controller to switch on
+                the engine fan when the pressure transducer indicates a pressure greater than 285 psi. This
+                ESC-to-engine controller communication is sent over the drivetrain data link. The engine fan will be
+                turned on for one minute intervals until the high side pressure drops below 185 psi. Therefore, once the
+                pressure drops below 185 psi, the fan will remain on until one minute after it was last turned on. The
+                fan will also turn on when an AC RQST signal is received and the following conditions exist: vehicle
+                speed &#60; 10 mph, engine speed > 1200 rpm, high side pressure > 100 psi, and the inlet thermistor
+                temperature >85&#176;F.
+            </para>
+            <para>The ESC will also de-energize the A/C compressor clutch if the pressure transducer indicates a high
+                side pressure greater than 400 psi.
+            </para>
+            <para>In conclusion, the RCD system (ESC) will de-energize the A/C compressor clutch if/when ANY of the
+                following conditions occur.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>The J1939 engine RPM signal indicates that the engine has stopped
+                        <emph type="bold">OR</emph>
+                        the signal is lost.
+                    </para>
+                </item>
+                <item>
+                    <para>The evaporator inlet refrigerant temperature is &#60;30&#176;F
+                        <emph type="bold">AND</emph>
+                        the A/C compressor clutch has been energized for at least 7 seconds.
+                    </para>
+                </item>
+                <item>
+                    <para>The evaporator outlet refrigerant temperature is &#60;24&#176;F
+                        <emph type="bold">AND</emph>
+                        the A/C compressor clutch has been energized for at least 7 seconds.
+                    </para>
+                </item>
+                <item>
+                    <para>The high side pressure transducer indicates a pressure >400 psi.</para>
+                </item>
+                <item>
+                    <para>The A/C REQUEST line from the A/C control head to the ESC is >4.0Vdc. This normally indicates
+                        that an A/C or defrost mode is not selected, or the Blower Speed Control is set to OFF.
+                    </para>
+                </item>
+                <item>
+                    <para>The ESC has detected an
+                        <emph type="bold">active</emph>
+                        fault in the transducer or thermistor circuits.
+                    </para>
+                </item>
+                <item>
+                    <para>The HVAC control head DIAGNOSTIC signal is missing from the ESC input,
+                        <emph type="bold">AND</emph>
+                        the A/C compressor clutch has been energized for at least 7 seconds.
+                    </para>
+                </item>
+                <item>
+                    <para>The HVAC control head DIAGNOSTIC signal is indicating multiple faults,
+                        <emph type="bold">AND</emph>
+                        the A/C compressor clutch has been energized for at least 7 seconds.
+                    </para>
+                </item>
+                <item>
+                    <para>The A/C compressor clutch virtual fusing circuit in the ESC has been activated. The virtual
+                        fuse circuit activates when the clutch draws more than 10 Amps, indicating a fault.
+                    </para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Refrigerant Charge Diagnostics</title>
+            <para>One purpose of the RCD system is to protect the A/C system by monitoring the system sensors and
+                indicating when the refrigerant level is low before all cooling ability is lost. The RCD system enables
+                the ESC to diagnose a refrigerant charge problem, and indicate the severity of the problem with three
+                fault levels (marginal charge, low charge, and very low charge).
+            </para>
+            <para>When the A/C compressor is on, the temperature difference between the evaporator inlet refrigerant
+                (inlet thermistor) and the evaporator outlet refrigerant (outlet thermistor) is used to help determine
+                the condition of the system refrigerant charge. In addition to the temperature differential, the RCD
+                system considers the heat load and time to calculate the charge level (refer to
+                <hotlnk xrefid="t1602546">VALUES FOR REFRIGERANT CHARGE DIAGNOSTICS</hotlnk>). The following
+                descriptions assume that the compressor is running and the cab temperature has stabilized.
+            </para>
+            <para>With a fully charged system the temperature difference between the evaporator inlet refrigerant (inlet
+                thermistor) and the evaporator outlet refrigerant (outlet thermistor) is minimal (&#60; 18&#176;F at
+                Extreme operating temperatures). Depending on the heat load, the evaporator inlet refrigerant
+                temperature will be slightly lower or higher than the evaporator outlet refrigerant temperature.
+            </para>
+            <para>With an A/C system that is less than fully charged, the evaporator inlet refrigerant temperature will
+                be much lower than the evaporator outlet refrigerant temperature. This is because there is an
+                insufficient amount of refrigerant moving through the evaporator to absorb any more heat. The level of
+                system charge is indicated by the magnitude of this temperature differential. The greater the
+                temperature differential, the lower the charge level of the system.
+            </para>
+            <para>If the RCD system determines that the charge level is too low for safe compressor operation, the ESC
+                will de-energize the A/C compressor clutch and set either a 'SERVICE NOW low charge' fault or a 'SERVICE
+                NOW very low charge' fault. Under Extreme operating temperatures, the 'low charge' fault is indicated by
+                a thermistor temperature differential of
+                <emph type="underscr">></emph>35&#176;F, but &#60;50&#176;F, for a period > 30 minutes. Under Extreme
+                operating temperatures, the 'very low charge' fault is indicated by a thermistor temperature
+                differential of
+                <emph type="underscr">></emph>50&#176;F, for a period > 15 minutes . In addition the ESC will command
+                the EGC to turn on the CHECK AC warning indicator. The ESC will continue to inhibit A/C compressor
+                operation until the problem is fixed and the fault is cleared.
+            </para>
+            <table id="t1602546" tblwidth="pg-wide">
+                <title>Values for Refrigerant Charge Diagnostics</title>
+                <tgroup cols="5">
+                    <colspec colname="col1" colwidth="1.00*"/>
+                    <colspec colname="col2" colwidth="1.00*"/>
+                    <colspec colname="col3" colwidth="1.00*"/>
+                    <colspec colname="col4" colwidth="0.42*"/>
+                    <colspec colname="col5" colwidth="1.59*"/>
+                    <spanspec namest="col3" nameend="col4" spanname="SPAN3"/>
+                    <spanspec namest="col1" nameend="col5" spanname="SPAN2"/>
+                    <spanspec namest="col3" nameend="col5" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry morerows="1" align="center">
+                                <para>
+                                    <emph type="bold">OperatingCondition</emph>
+                                </para>
+                            </entry>
+                            <entry morerows="1" align="center">
+                                <para>
+                                    <emph type="bold">Averaged Value of Outlet Thermistor(X3)</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Fault Detection Thresholds(Temperature Differential between Outlet
+                                        Thermistor and Inlet Thermistor)
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN3" align="center">
+                                <para>
+                                    <emph type="bold">dTLow Charge</emph>
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="bold">dTVery Low Charge</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Extreme</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>65&#176;F</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN3" align="center">
+                                <para>
+                                    <emph type="underscr">></emph>35&#176;
+                                </para>
+                            </entry>
+                            <entry align="center">
+                                <para>
+                                    <emph type="underscr">></emph>50&#176;
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Normal</para>
+                            </entry>
+                            <entry align="center">
+                                <para>55&#176; - 65&#176;F</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN3" align="center">
+                                <para>
+                                    <emph type="underscr">></emph>20&#176;
+                                </para>
+                            </entry>
+                            <entry align="center"></entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Cold</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;55&#176;F</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN3" align="center">
+                                <para>
+                                    <emph type="underscr">></emph>15&#176;
+                                </para>
+                            </entry>
+                            <entry align="center"></entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN2">
+                                <note>
+                                    <para>The temperature differences in the table above must be maintained for the
+                                        following time periods, before a fault code will be set.
+                                    </para>
+                                </note>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>A low charge fault will be set if the temperature difference is in the low
+                                            charge range for > 30 minutes.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>A very low charge fault will be set if the temperature difference is in
+                                            the very low charge range for > 15 minutes.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">EXAMPLES</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN2">
+                                <seqlist>
+                                    <item>
+                                        <para>Low Charge Fault under Cold Operating Conditions (X3 = &#60;55&#176;F):
+                                        </para>
+                                        <para>dT
+                                            <emph type="underscr">></emph>15&#176; for 30 minutes.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Very Low Charge Fault under Extreme Operating Conditions (X3 = >65&#176;F):</para>
+                                        <para>dT
+                                            <emph type="underscr">></emph>50&#176; for 15 minutes.
+                                        </para>
+                                    </item>
+                                </seqlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>System Pressure Diagnostics</title>
+            <para>Another purpose of the RCD system is to protect the A/C system from excessive pressure by monitoring
+                the pressure transducer and other operating conditions. Under certain conditions the RCD system will
+                cycle the A/C system off without commanding the ESC to set a fault. This allows temporary high pressure
+                conditions to occur without disabling the A/C system. When high pressure conditions are determined to be
+                unsafe for A/C compressor operation, the ESC will set an 'excessive pressure' fault, and will command
+                the EGC to turn on the CHECK AC warning indicator. The ESC will inhibit A/C compressor operation until
+                the problem is fixed and the fault is cleared.
+            </para>
+            <para>If the pressure transducer indicates a high side pressure greater than 400 psi, the RCD system will
+                command the ESC to de-energize the A/C compressor. The RCD system then checks the vehicle speed by
+                monitoring the J1939 drivetrain data link.
+            </para>
+            <para>If the vehicle speed is &#60;20 mph, the ESC will not set a fault. The ESC will prevent the compressor
+                from turning on until the high side pressure drops to
+                <emph type="underscr">&#60;</emph>250 psi
+                <emph type="bold">AND</emph>
+                the compressor has been off for at least 8 seconds. If this cycle repeats a number of times, the ESC
+                will disable the A/C compressor clutch for 5 minutes or until the vehicle speed exceeds 20 mph. If the
+                vehicle speed remains below 20 mph, the ESC will permit this pattern (including the 5 minute rest
+                periods) to continue without setting a fault.
+            </para>
+            <para>If the vehicle speed is
+                <emph type="underscr">></emph>20 mph and the high side pressure reaches 400 psi on 60 successive clutch
+                ON cycles, the ESC will set a 'SERVICE NOW excessive pressure' fault, and will command the EGC to turn
+                on the CHECK AC warning indicator. The ESC will inhibit A/C compressor operation until the problem is
+                fixed and the fault is cleared.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Pressure Transducer Diagnostics</title>
+            <para>For diagnostic purposes, the RCD system analyzes the voltage value of the high side pressure
+                transducer to determine if the transducer circuit is operating outside of its normal range. If the RCD
+                system detects a voltage value at either extreme of the transducer's range, it assumes that a fault
+                exists in the circuit. The ESC will command the EGC to turn on the CHECK AC warning indicator. In
+                addition, the ESC will inhibit A/C compressor operation until the fault is no longer detected,
+                <emph type="bold">AND</emph>
+                at least 8 seconds have elapsed since the A/C compressor clutch was de-energized.
+            </para>
+            <para>If the voltage value approaches 5 Vdc (indicating a pressure of
+                <emph type="underscr">></emph>500 psi), the ESC will set a fault indicating that the high side pressure
+                transducer is operating above the normal range.
+            </para>
+            <para>The ESC will also set a fault if the transducer voltage value drops to near 0 Vdc (indicating a
+                pressure of 0 psi or the presence of a vacuum). The fault will indicate that the pressure transducer is
+                operating below the normal range.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Shorted Thermistor Diagnostics</title>
+            <para>For diagnostic purposes, the RCD system analyzes the resistance values of the inlet and outlet
+                thermistors to determine if either thermistor circuit is open or shorted to ground (or zero volt
+                reference). Because the RCD system does not detect the full range of resistance values it cannot
+                directly detect an open or shorted circuit.
+            </para>
+            <para>If the RCD system reads a thermistor resistance value at the low end of its range it assumes that the
+                thermistor circuit is shorted to ground, because this value (which corresponds to 240&#176;F) does not
+                reflect a normal reading. The ESC will set a fault indicating that that particular thermistor is shorted
+                to ground. The ESC will also command the EGC to turn on the CHECK AC warning indicator. In addition, the
+                ESC will inhibit A/C compressor operation until the short is no longer detected,
+                <emph type="bold">AND</emph>
+                at least 8 seconds have elapsed since the A/C compressor clutch was de-energized.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Open Thermistor Diagnostics</title>
+            <para>If the RCD system reads a thermistor resistance value at the high end of its range it cannot assume
+                that the thermistor circuit is open because this value (which corresponds to 0&#176;F) can also occur
+                during normal operation. Therefore, to determine if a thermistor circuit is open, the RCD system must
+                perform these additional checks.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>The thermistor resistance values are checked while the A/C compressor is cycled OFF.</para>
+                </item>
+                <item>
+                    <para>The high side pressure transducer value is checked to verify that the ambient temperature is
+                        not excessively low. Its value must be greater than 20 psi.
+                    </para>
+                </item>
+                <item>
+                    <para>The resistance values of the two thermistors are compared. If one indicates 0&#176;F and the
+                        other one indicates
+                        <emph type="underscr">></emph>30&#176;F, the thermistor circuit indicating 0&#176;F is
+                        considered open.
+                    </para>
+                </item>
+            </randlist>
+            <para>After making these additional checks, if the RCD system determines that a thermistor circuit is open,
+                the ESC will set a fault indicating that that particular thermistor circuit is open. The ESC will also
+                command the EGC to turn on the CHECK AC warning indicator. In addition, the ESC will inhibit A/C
+                compressor operation until the open is no longer detected,
+                <emph type="bold">AND</emph>
+                at least 8 seconds have elapsed since the A/C compressor clutch was de-energized.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>OBSERVING THE RCD SIGNALS WITH THE EZ-TECH&#174; SERVICE TOOL</title>
+            <para>The EZ-Tech electronic service tool, running diagnostic software allows the servicer to monitor the
+                HVAC electrical signals that pass through the ESC. Refer to
+                <hotlnk document="s16025_110.xml" xrefid="f1602589">Figure 93</hotlnk>,
+                <xref refid="f1602589"/>. When used in conjunction with these procedures or the electrical
+                troubleshooting manual, the EZ-Tech allows the servicer to isolate electrical faults efficiently. See
+                the diagnostic software manual for details on using the software.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s16025_62.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s16025_HL1602560.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s16025.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

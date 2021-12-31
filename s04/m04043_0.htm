@@ -1,0 +1,189 @@
+<HTML>
+<HEAD>
+    <TITLE>Service Section TOC</TITLE>
+    <LINK href="../style.css" rel="STYLESHEET" type="text/css">
+    <SCRIPT LANGUAGE="JavaScript1.1">
+<!-- begin hiding
+var indentPixels = 15
+var collapsedWidget = "../images/plus.gif"
+var expandedWidget = "../images/minus.gif"
+var endpointWidget = "../images/end.gif"
+var widgetWidth = 17
+var widgetHeight = 18
+var displayTarget = "mainframe"
+// AHJO - In the folowing db the fourth field (after the xml file name) is new and set to "0" 
+var db = new Array()
+ db[1] = new dbRecord(true, "Controlador Ec-30 De Abs/atc","m04043_1.xml","0",0,"","YES")
+ db[2] = new dbRecord(false, "INTRODUCCI&#211;N","m04043_1.xml","0",1,"","YES")
+ db[3] = new dbRecord(false, "Componentes","m04043_2.xml","0",1,"","YES")
+ db[4] = new dbRecord(false, "Cobertura","m04043_3.xml","0",1,"","YES")
+ db[5] = new dbRecord(false, "Montaje","m04043_4.xml","0",1,"","YES")
+ db[6] = new dbRecord(false, "Configuraciones Del Herraje Del Ec-30","m04043_5.xml","0",1,"","YES")
+ db[7] = new dbRecord(false, "Ec-30 Con Plc","m04043_6.xml","0",1,"","YES")
+ db[8] = new dbRecord(false, "Entradas Del Ec-30","m04043_7.xml","0",1,"","YES")
+ db[9] = new dbRecord(false, "Salidas Del Ec-30","m04043_8.xml","0",1,"","YES")
+ db[10] = new dbRecord(false, "Secuencia De Encendido","m04043_9.xml","0",1,"","YES")
+ db[11] = new dbRecord(false, "Funcionamiento Del Abs","m04043_10.xml","0",1,"","YES")
+ db[12] = new dbRecord(false, "Funcionamiento Del Atc","m04043_11.xml","0",1,"","YES")
+ db[13] = new dbRecord(false, "Autocalibraci&#243;n","m04043_12.xml","0",1,"","YES")
+ db[14] = new dbRecord(false, "Par&#225;metros Configurables Del Ec-30","m04043_13.xml","0",1,"","YES")
+ db[15] = new dbRecord(false, "Autoconfiguraci&#243;n Del Ec-30","m04043_14.xml","0",1,"","YES")
+ db[16] = new dbRecord(false, "Detecci&#243;n De Fallas","m04043_15.xml","0",1,"","YES")
+ db[17] = new dbRecord(false, "Parada Parcial Del Abs","m04043_16.xml","0",1,"","YES")
+ db[18] = new dbRecord(false, "Pantalla De Diagn&#243;stico Del Ec-30","m04043_17.xml","0",1,"","YES")
+ db[19] = new dbRecord(false, "Diagn&#243;sticos De C&#243;digos De Parpadeo","m04043_18.xml","0",1,"","YES")
+ db[20] = new dbRecord(false, "HERRAMIENTA DE DIAGN&#211;STICO DCI de BENDIX","m04043_19.xml","0",1,"","YES")
+ db[21] = new dbRecord(false, "Acom For Windows De Bendix","m04043_20.xml","0",1,"","YES")
+ db[22] = new dbRecord(false, "Cartucho Bendix De Mpsi","m04043_21.xml","0",1,"","YES")
+ db[23] = new dbRecord(false, "C&#243;mo Ponerse En Contacto Con Bendix","m04043_22.xml","0",1,"","YES")
+ db[24] = new dbRecord(false, "Pr&#225;cticas Seguras De Mantenimiento","m04043_23.xml","0",1,"","YES")
+ db[25] = new dbRecord(false, "Extracci&#243;n Del Ensamblaje Del Ec-30","m04043_24.xml","0",1,"","YES")
+ db[26] = new dbRecord(false, "Instalaci&#243;n De Un Nuevo Controlador Ec-30","m04043_25.xml","0",1,"","YES")
+ db[27] = new dbRecord(false, "Cableado Del Abs Y Del Atc","m04043_26.xml","0",1,"","YES")
+ db[28] = new dbRecord(false, "LOCALIZACI&#211;N Y SOLUCI&#211;N DE PROBLEMAS","m04043_27.xml","0",1,"","YES")
+// AHJO - In the following function the parameter 'occurs' was added Oct/Nov 2001
+function dbRecord(mother,display,URL,occurs,indent,statusMsg,link){
+	this.mother = mother   // is this item a parent?
+	this.display = display // text to display
+	this.URL = URL         // used to link to TOC
+	this.occurances =  occurs  // how many times does search occur - THIS LINE WAS ADDED by AHJO
+	this.indent = indent   // how many levels nested?
+	this.statusMsg = statusMsg  // descriptive text for status bar 
+	this.link = link  //  link tied to text; if empty string, item appears as straight text
+	return this
+}
+// pre-load all images into cache
+var collapsedImg = new Image(widgetWidth,widgetHeight)
+collapsedImg.src = collapsedWidget
+var expandedImg = new Image(widgetWidth,widgetHeight)
+expandedImg.src = expandedWidget
+var endpointImg = new Image(widgetWidth,widgetHeight)
+endpointImg.src = endpointWidget
+// mainframeURL = parent.mainframe.document.URL // get URL of mainframe 
+// ** functions that get and set persistent cookie data **
+// set cookie data
+var mycookie = document.cookie
+function setCurrState(setting) {
+        mycookie = document.cookie = "currState=" + escape(setting)
+}
+// retrieve cookie data
+function getCurrState() {
+        var label = "currState="
+        var labelLen = label.length
+        var cLen = mycookie.length
+        var i = 0
+        while (i < cLen) {
+                var j = i + labelLen
+                if (mycookie.substring(i,j) == label) {
+                        var cEnd = mycookie.indexOf(";",j)
+                        if (cEnd ==     -1) {
+                                cEnd = mycookie.length
+                       }
+                        return unescape(mycookie.substring(j,cEnd))
+                }
+               i++
+       }
+        return ""
+}
+// **function that updates persistent storage of state**
+// toggles an outline mother entry, storing new value in the cookie
+function toggle(n) {
+	if (n != 0) {
+		var newString = ""
+		var currState = getCurrState() // of whole outline
+		var expanded = currState.charAt(n-1) // of clicked item
+		newString += currState.substring(0,n-1)
+		newString += expanded ^ 1 // Bitwise XOR clicked item
+		newString += currState.substring(n,currState.length)
+		setCurrState(newString) // write new state back to cookie
+	}
+}
+// **functions used in assembling updated outline**
+// returns the proper GIF file name for each entry's control
+function getGIF(n) {
+	var mom = db[n].mother  // is entry a parent?
+	var expanded = getCurrState().charAt(n-1) // of clicked item
+	if (!mom) {
+		return endpointWidget
+	} else {
+		if (expanded == 1) {
+			return expandedWidget
+		}
+	}
+	return collapsedWidget
+}
+// returns the proper status line text based on the icon style
+function getGIFStatus(n) {
+	var mom = db[n].mother  // is entry a parent
+	var expanded = getCurrState().charAt(n-1) // of rolled item
+	if (!mom) {
+		return "No further items"
+	} else {
+		if (expanded == 1) {
+			return "Click to collapse nested items"
+		}
+	}
+	return "Click to expand nested items"
+}
+// initialize 'current state' storage field
+if (getCurrState() == "" || getCurrState().length != (db.length-1)) {
+	initState = ""
+	for (i = 1; i < db.length; i++) {
+		initState += "0"
+	}
+	setCurrState(initState)
+}
+// end -->
+
+
+    </SCRIPT>
+</HEAD>
+<BODY>
+<SCRIPT LANGUAGE="JavaScript1.1">
+<!-- start
+// build new outline based on the values of the cookie
+// and data points in the outline data array.
+// This fires each time the user clicks on a control,
+// because the HREF for each one reloads the current document.
+var newOutline = ""
+var prevIndentDisplayed = 0
+var showMyDaughter = 0
+// cycle through each entry in the outline array
+for (var i = 1; i < db.length; i++) {
+	var theGIF = getGIF(i)				// get the image
+	var theGIFStatus = getGIFStatus(i)  // get the status message
+	var currIndent = db[i].indent		// get the indent level
+	var expanded = getCurrState().charAt(i-1) // current state
+        db[i].currentrow = ""
+
+	if (currIndent == 0 || currIndent == 1 || db[i].currentrow == "currentrow" || currIndent <= prevIndentDisplayed || (showMyDaughter == 1 && (currIndent - prevIndentDisplayed == 1))) {
+ // Phil added the if to remove the image from before the root element 
+         if (currIndent != 0) {
+			newOutline += "<SPAN class=\"" + db[i].currentrow + "\" style=\" position:relative;left:" + (indentPixels * currIndent) + "px;width:200px\"><A HREF=\"javascript:history.go(0)\" onMouseOver=\"window.status=\'" + theGIFStatus + "\';return true;\" onClick=\"toggle(" + i + ");return " + "\">"
+			newOutline += "<IMG ALIGN=TOP SRC=\"" + theGIF + "\" HEIGHT=" + widgetHeight + " WIDTH=" + widgetWidth + " BORDER=0></A>"
+			newOutline += "<SPAN title=\"" + db[i].display + "\" style=\"width:" + (200-widgetWidth) + "px\">"
+			}
+			if (db[i].link == "" || db[i].link == null) {
+				newOutline += " <font size='1'>" +  db[i].display + "</font></SPAN></SPAN>" + "<BR>"	// no link, just a listed item
+			} else {
+                 if (db[i].occurances > 0)	{ 
+				newOutline += " <A HREF=\"" + db[i].URL + "\" TARGET=\"" + displayTarget + "\" onMouseOver=\"window.status=\'" + db[i].statusMsg + "\';return true;\"><font size='1'>" + db[i].display + "&nbsp;&nbsp;(" + db[i].occurances + ")</font></A></SPAN></SPAN><BR>"
+			} else {
+				newOutline += " <A HREF=\"" + db[i].URL + "\" TARGET=\"" + displayTarget + "\" onMouseOver=\"window.status=\'" + db[i].statusMsg + "\';return true;\"><font size='1'>" + db[i].display + "</font></A></SPAN></SPAN><BR>"
+			}
+			}
+		prevIndentDisplayed = currIndent
+		showMyDaughter = expanded
+		if (db.length > 25) {
+			document.write(newOutline)
+			newOutline = ""
+		}
+	}
+}
+document.write(newOutline)
+// end -->
+
+
+</SCRIPT>
+</BODY>
+</html>

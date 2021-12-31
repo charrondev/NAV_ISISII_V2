@@ -1,0 +1,637 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - EOT Sensor (Engine Oil Temperature)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="4">
+        <title>EOT Sensor (Engine Oil Temperature)</title>
+        <svcprocinfo>
+            <figure id="f27007074" figsize="pg-wide">
+                <graphic filename="../figh31/h31055.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for the EOT sensor</caption>
+            </figure>
+            <para id="EOT">The function diagram for the EOT sensor includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>EOT sensor</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Injection Driver Module (IDM)</para>
+                </item>
+                <item>
+                    <para>Fuel injector</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation Position (EGR)</para>
+                </item>
+                <item>
+                    <para>Variable Geometry Turbocharger (VGT)</para>
+                </item>
+                <item>
+                    <para>Injection Pressure Regulator (IPR)</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The EOT sensor is a thermistor sensor installed in the rear of the front cover, left of the
+                high-pressure oil pump assembly. The ECM supplies a 5 V reference signal which the EOT sensor uses to
+                produce an analog voltage that indicates temperature.
+            </para>
+            <para>The EOT changes resistance when exposed to different temperatures. As oil temperature decreases, the
+                resistance of the thermistor increases. This causes the signal voltage to increase. As oil temperature
+                increases, the resistance of the thermistor decreases. This causes the signal voltage to decrease.
+            </para>
+            <para>The EOT sensor provides a feedback signal to the ECM indicating engine oil temperature. The ECM
+                monitors the EOT signal to control fuel quantity and timing throughout the operating range of the
+                engine. The EOT signal allows the ECM to compensate for oil viscosity variations due to temperature
+                changes in the operating environment, ensuring that adequate power and torque are available for all
+                operating conditions. During engine operation, if the ECM recognizes that the EOT signal is greater or
+                less than the expected value it will set a DTC.
+            </para>
+            <para>
+                <title>Fast Idle Advance</title>
+            </para>
+            <para>Fast idle advance increases engine cold idle speed up to 750 rpm (normally 700 rpm) for faster warm-up
+                to operating temperature. This is accomplished by the ECM monitoring the EOT sensor input and adjusting
+                the fuel injector operation accordingly.
+            </para>
+            <para>Low idle speed is increased proportionally when the engine oil temperature is between 15 &#176;C (59
+                &#176;F) at 700 rpm to below -10 &#176;C (14 &#176;F) at 750 rpm.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>EOT Circuit Operation</title>
+            <figure id="f27007075" figsize="pg-wide">
+                <graphic filename="../figh31/h31070.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>EOT circuit diagram</caption>
+            </figure>
+            <para>The EOT sensor is supplied with a 5 V reference voltage at Pin 2 from ECM Pin X2-1. The sensor is
+                grounded at Pin 1 through the signal ground at ECM Pin X1-6. As the oil temperature increases or
+                decreases, the sensor changes resistance and provides the oil temperature signal voltage at the ECM. The
+                signal voltage is monitored by the ECM to determine the temperature of the oil.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM continuously monitors the signal of the EOT sensor to determine if the signal is within an
+                expected range. If the ECM detects an out of range high or low, the ECM will ignore the EOT signal and
+                assume an engine oil temperature of -20 &#176;C (-4 &#176;F) for starting and 100 &#176;C (212 &#176;F)
+                for engine running conditions.
+            </para>
+            <para>
+                <title>EOT Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red ENGINE lamp.</para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 311</emph>
+                </line>
+                <line>
+                    <emph type="bold">EOT signal out-of-range low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 311 is set by the ECM when the EOT signal is less than 0.2 V for more than 0.35 second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 311 can be set due to a sensor signal wire short to ground or a failed EOT sensor.</para>
+                </item>
+                <item>
+                    <para>When DTC 311 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 312</emph>
+                </line>
+                <line>
+                    <emph type="bold">EOT signal out-of-range high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 312 is set by the ECM when the EOT signal is greater than 4.78 V for more than 0.35
+                        second.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 312 can be set due to a signal or ground circuit open, a short to a voltage source, or a
+                        failed EOT sensor.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 312 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>3-Banana Plug Harness</para>
+                </item>
+                <item>
+                    <para>500 Ohm Resistor Harness</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+                <item>
+                    <para>Breakout Harness</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EOT Operational Diagnostics</title>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle - comply
+                        with the following:
+                    </para>
+                    <para>Be careful to avoid rotating parts (belts and fan) and hot engine surfaces.</para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Using EST, open the D_ContinuousMonitor.ssn.</para>
+            </step1>
+            <figure id="f27007076" figsize="col-wide">
+                <graphic filename="../figH31/H31229.webp" type="webp" scalefit="1" scalefitwidth="176px"
+                         scalefitheight="472px" box="no"/>
+                <caption>Continuous Monitor Test</caption>
+            </figure>
+            <step1>
+                <para count="1">To monitor signal voltage, run KOEO Continuous Monitor Test. For help, see
+                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Continuous Monitor Test"</hotlnk>
+                    in Section 3 .
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Monitor EOT signal voltage. Verify an active DTC for the EOT circuit.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is active, do step 6 and 7 to check circuit for the EOT sensor using the
+                    following table.
+                </para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Circuit Checks for EOT Sensor</para>
+                    </item>
+                </randlist>
+            </step1>
+            <step1>
+                <para count="1">If code is inactive, wiggle connectors and wires at all suspected problem locations. If
+                    circuit continuity is interrupted, the EST will display DTCs related to the condition.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Disconnect engine harness from temperature sensor.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Inspect connectors for damaged pins, corrosion, or loose pins. Repair if necessary.</para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Connect Temperature Sensor Breakout Harness to engine harness only.</para>
+            </step1>
+            <table id="te27007063" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.29in"/>
+                    <colspec colname="col2" colwidth="1.05in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Circuit Checks for EOT Sensor</emph>
+                                    (Use EST, breakout harness, 3-Banana Plug Harness, and 500 Ohm Resistor Harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Condition</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 4.78 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage &#60; 4.78 V, check signal circuit for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3-Banana Plug Harness connected between Pin 2 (Green) and Pin 1 (Black) of
+                                    breakout harness
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is > 0.2 V, check ground and signal circuit for open or high
+                                    resistance. Use a breakout box and measure resistance from Pin 1 to Pin X1-6 and
+                                    from Pin 2 to X2-1 (spec &#60; 5 &#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>500 Ohm Resistor Harness connected between Pin 2 (Green) and Pin 1 (Black) of
+                                    breakout harness
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 1.0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 1.0 V, check signal circuit for short to V
+                                    <subscript>REF</subscript>, B+, or another sensor's signal voltage.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Connect engine harness to sensor. Use the EST to clear DTCs. If an active code
+                                    remains after checking test conditions, replace the EOT sensor.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EOT Pin-Point Diagnostics</title>
+            <figure id="f27007077" figsize="pg-wide">
+                <graphic filename="../figh31/h31070.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>EOT circuit diagram</caption>
+            </figure>
+            <table id="te27007064" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.32in"/>
+                    <colspec colname="col2" colwidth="1.12in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks to Ground</emph>
+                                    (Disconnect harness from sensor. Inspect for bent pins or corrosion. Connect
+                                    breakout harness to engine harness only. Turn the ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4.8 V to 5.0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Pull up voltage, if low or no voltage, circuit has open, high resistance, or short
+                                    to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 0.25 V, signal ground wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to ECM Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness from sensor. Connect breakout
+                                    harness to engine harness only. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the chassis ground connection for the ECM and IDM. See truck
+                                        Chassis Electrical Circuit Diagram Manual for complete chassis side ECM and IDM
+                                        ground circuit information.</ftnote>.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to Pin A (9260)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect harness from
+                                    sensor. Connect breakout harness to engine harness only. Use disconnected negative
+                                    battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126; , check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for signal short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Connect breakout box to engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open ground wire</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-1 to 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open signal wire</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007065" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="1.56in"/>
+                    <colspec colname="col2" colwidth="1.82in"/>
+                    <colspec colname="COLSPEC0" colwidth="3.50*"/>
+                    <colspec colname="col3" colwidth="2.50*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for EOT Sensor with Breakout Harness
+                                    </emph>
+                                    (Check with breakout harness connected to sensor and engine harness. Connect
+                                    breakout harness to engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Temp</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance</para>
+                            </entry>
+                            <entry>
+                                <para>Voltage</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 (Green) to 1 (Black)</para>
+                            </entry>
+                            <entry>
+                                <para>0 &#176;C (32 &#176;F)</para>
+                            </entry>
+                            <entry>
+                                <para>91.1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>4.348 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 (Green) to 1 (Black)</para>
+                            </entry>
+                            <entry>
+                                <para>20 &#176;C (68 &#176;F)</para>
+                            </entry>
+                            <entry>
+                                <para>35.5 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>3.782 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 (Green) to 1 (Black)</para>
+                            </entry>
+                            <entry>
+                                <para>100 &#176;C (212 &#176;F)</para>
+                            </entry>
+                            <entry>
+                                <para>2.0 k &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>0.819 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for EOT Sensor with Breakout Box</emph>
+                                    (Check with breakout box [X1 and X2 only] connected to the ECM and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-1 to X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 &#176;C (32 &#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>91.1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>4.348 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-1 to X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>20 &#176;C (68 &#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>35.5 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>3.782 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-1 to X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>100 &#176;C (212 &#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>2.0 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>0.819 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>EOT Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>DTC 311 = Signal voltage was &#60; 0.2 V for more than 0.35 second</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>DTC 312 = Signal voltage was > 4.78 V for more than 0.35 second</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_145.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_147.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

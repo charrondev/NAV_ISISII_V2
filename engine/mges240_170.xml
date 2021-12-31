@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos para motores VT 365 (2002) - DIAGN&#211;STICOS DEL SISTEMA DE CONTROL
+        ELECTR&#211;NICO - Diagn&#243;sticos de circuitos - Circuito de control de las buj&#237;as incandescentes (GPC)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>Circuito de control de las buj&#237;as incandescentes (GPC)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3358" filename="../figd33/d3358.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama de la funci&#243;n del control de las buj&#237;as incandescentes (GPC)</caption>
+            </figure>
+            <para>El diagrama de la funci&#243;n del sistema de control de las buj&#237;as incandescentes incluye lo
+                siguiente:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Buj&#237;as incandescentes</para>
+                </item>
+                <item>
+                    <para>Rel&#233; de las buj&#237;as incandescentes</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>Sensor de la temperatura del refrigerante (ECT)</para>
+                </item>
+                <item>
+                    <para>Sensor de presi&#243;n barom&#233;trica absoluta (BAP)</para>
+                </item>
+                <item>
+                    <para>Bater&#237;a</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>
+            </para>
+            <para>El sistema de control de las buj&#237;as incandescentes calienta los cilindros del motor para ayudar
+                al arranque en fr&#237;o y reducir las emisiones de escape durante el calentamiento del motor.
+            </para>
+            <para>El ECM est&#225; programado para energizar las buj&#237;as incandescentes (mediante el rel&#233; de
+                las buj&#237;as incandescentes) mientras monitoriza ciertas condiciones programadas de temperatura del
+                refrigerante y presi&#243;n atmosf&#233;rica.
+            </para>
+            <para>El ECM monitoriza el voltaje de la bater&#237;a y usa informaci&#243;n del BAP y del ECT para
+                determinar la cantidad de tiempo que debe permanecer encendida la luz indicadora WAIT TO START y el
+                tiempo de activaci&#243;n de las buj&#237;as incandescentes. El ECM controla la luz indicadora WAIT TO
+                START y la activaci&#243;n de las buj&#237;as incandescentes por separado. La luz WAIT TO START indica
+                que las buj&#237;as incandescentes no han estado activadas lo suficiente para arrancar el motor. El
+                tiempo de activaci&#243;n var&#237;a normalmente entre 2 y 10 segundos. Las buj&#237;as incandescentes
+                son autolimitantes y no requieren ser encendidas y apagadas. El rel&#233; de las buj&#237;as
+                incandescentes se encender&#225; y apagar&#225; repetidamente s&#243;lo si el voltaje del sistema es
+                superior a 14 V.
+            </para>
+            <para>Si el motor est&#225; fr&#237;o o la presi&#243;n barom&#233;trica es baja (a grandes alturas), las
+                buj&#237;as incandescentes son activadas por m&#225;s tiempo.
+            </para>
+            <para>El motor est&#225; listo cuando la luz WAIT TO START se apaga por &#243;rdenes del ECM. Mientras el
+                motor est&#225; en marcha, las buj&#237;as incandescentes pueden permanecer encendidas hasta por 120
+                segundos, para reducir las emisiones de escape durante el calentamiento.
+            </para>
+            <specpara>
+                <note>
+                    <para>El tiempo que la luz WAIT TO START permanece encendida es independiente del tiempo que el rel&#233;
+                        de las buj&#237;as incandescentes permanece activado.
+                    </para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Operaci&#243;n del circuito del GPC</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3359" filename="../figd33/d3359.webp" type="webp" scalefit="1" scalefitwidth="352px"/>
+                <caption>Diagrama del circuito de control de las buj&#237;as incandescentes (GPC)</caption>
+            </figure>
+            <para>El tiempo que el sistema de control de las buj&#237;as incandescentes permanece activado depende del
+                ECT, del BAP y del voltaje de la bater&#237;a. El rel&#233; de las buj&#237;as incandescentes se activa
+                con energ&#237;a suministrada desde el terminal X1-17 del ECM hacia el circuito 97CH. La bobina del rel&#233;
+                de las buj&#237;as incandescentes es puesta a tierra a trav&#233;s del circuito 97IG8, el conector de 12
+                pines y el terminal negativo de la bater&#237;a. La energ&#237;a se suministra al lado conmutador del
+                rel&#233; de las buj&#237;as incandescentes desde el motor de arranque. Cuando la bobina del rel&#233;
+                se energiza, se transmite corriente a las buj&#237;as incandescentes, que son puestas a tierra a trav&#233;s
+                de la culata.
+            </para>
+            <para>El tiempo de encendido de la luz WAIT TO START se transmite por el enlace de datos CAN 1. Consulte el
+                manual Diagrama de los circuitos el&#233;ctricos del chasis.
+            </para>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>
+            </para>
+            <para>Puede detectar una interrupci&#243;n o corto a tierra en el circuito del rel&#233; de las buj&#237;as
+                incandescentes con una comprobaci&#243;n de los circuitos de salida (OCC) a solicitud hecha con la
+                prueba est&#225;ndar con la llave en ON y el motor apagado. Si se detecta una falla en el circuito
+                aparecer&#225; un DTC. Los problemas de las buj&#237;as incandescentes y su cableado no son detectados
+                por el ECM.
+            </para>
+            <para>
+                <title>C&#243;digos de falla (DTC) del control de las buj&#237;as incandescentes</title>
+            </para>
+            <para>Los DTC se leen con la herramienta electr&#243;nica de servicio (EST) o contando los destellos de las
+                luces ENGINE &#225;mbar y roja.
+            </para>
+            <verbatim id="f240dtc251">
+                <line>
+                    <emph type="bold">DTC 251</emph>
+                </line>
+                <line>
+                    <emph type="bold">Falla de la autoprueba comprobaci&#243;n de los circuitos de salida del GPC</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 251 cuando falla la prueba de OCC luego de hacer una prueba est&#225;ndar
+                        con la llave en ON y el motor apagado.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 251 puede aparecer debido a una interrupci&#243;n o corto en el circuito de la se&#241;al
+                        del GPC, una interrupci&#243;n en un circuito de suministro o una interrupci&#243;n en la bobina
+                        del rel&#233; de las buj&#237;as incandescentes.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Herramientas</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Caja de conexiones</para>
+                </item>
+                <item>
+                    <para>Haz de derivaci&#243;n de 12 pines</para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>El circuito del GPC requiere que se usen los diagramas de circuitos del veh&#237;culo. Refi&#233;rase
+                        al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n sobre los n&#250;meros
+                        de los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos del GPC con los pines</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3359" filename="../figd33/d3359.webp" type="webp" scalefit="1" scalefitwidth="352px"/>
+                <caption>Diagrama del circuito de control de las buj&#237;as incandescentes (GPC)</caption>
+            </figure>
+            <table id="te24007049" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.86in"/>
+                    <colspec colname="col2" colwidth="1.50in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Mediciones de voltaje en el rel&#233; de las buj&#237;as incandescentes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Suministro del rel&#233; a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a de conmutaci&#243;n del rel&#233;, debe haber B+ constantemente
+                                    (terminal con un solo cable calibre 6). Si no hay voltaje, revise la conexi&#243;n
+                                    con el motor de arranque o los enlaces fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Suministro de buj&#237;as a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Debe haber voltaje de suministro 0 a 120 segundos despu&#233;s de poner la llave
+                                    en ON (dependiendo de la temperatura). (Terminal grande con 3 cables).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97CH a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+ &#243; 0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>GPC. El ECM ordena la activaci&#243;n del rel&#233; (B+) o la desactivaci&#243;n
+                                    (0 V)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97IG8 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Rel&#233; del GPC puesto a tierra desde las bater&#237;as. Si hay voltaje, busque
+                                    un circuito interrumpido.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el cableado</emph>
+                                    (Conexiones espec&#237;ficas desconectadas y la llave en OFF).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97IG8 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el circuito entre el rel&#233; y
+                                    tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97IG8 a pin 1 en el haz de derivaci&#243;n de 12 pines</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n desde el rel&#233; al conector de 12
+                                    pines.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97CH a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque corto a tierra desde el rel&#233; al X1-17.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>97CH en el rel&#233; al X1-17</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el circuito entre el rel&#233; y el
+                                    ECM.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>Refi&#233;rase a los diagn&#243;sticos de las buj&#237;as incandescentes y su cableado en la Secci&#243;n
+                5 del manual.
+            </para>
+            <specpara>
+                <note>
+                    <para>El circuito 97FU1 est&#225; reservado y no se usa actualmente.</para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_169.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_171.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

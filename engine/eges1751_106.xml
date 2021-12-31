@@ -1,0 +1,386 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics Model Years 1999-2000 - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS -
+        Circuit Function And Diagnostics - Electronic Pressure Governor
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="2">
+        <title>Electronic Pressure Governor</title>
+        <svcsubproc>
+            <title>Signal Functions</title>
+            <figure id="f17503059" figsize="pg-wide">
+                <graphic filename="../figEG7/EG7315B.webp" type="webp" scalefit="1" scalefitwidth="352px" box="no"/>
+                <caption>Function Diagram for Electronic Pressure Governor</caption>
+            </figure>
+            <para>The Electronic Pressure Governor (EPG) is an optional feature used for closed loop control of
+                hydraulic pressure based on an external hydraulic pressure input and a programmable desired hydraulic
+                pressure. This feature is targeted for fluid delivery pumps, especially fire truck applications.
+            </para>
+            <para>The EPG feature is active when no Electronic Pressure Sensor (EPS) Diagnostic Trouble Code exists, the
+                driveline is in its proper state (which is dependent on the type of pump used), the vehicle is
+                stationary and its corresponding programmable parameter is turned on.
+            </para>
+            <para>When the EPG feature is first initiated, the desired hydraulic pressure is ramped up at a programmable
+                ramp rate. The limited desired pressure (set point) is then used along with the actual hydraulic
+                pressure signal (feedback) to control desired engine speed required to achieve the desired hydraulic
+                pressure.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>If the ECM detects a an Out of Range High or Low condition in the Electronic Pressure Sensor (EPS)
+                circuit, the ECM will set a Diagnostic Trouble Code and disable EPG operation.
+            </para>
+            <para>The ECM also monitors hydraulic pressure, engine speed and the status of the EPG select switch. If
+                pressure loss is detected (also referred to as steady state error) the EPG feature is turned off and a
+                corresponding Diagnostic Trouble Code is set.
+            </para>
+            <figure id="f17503060" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8759A.webp" type="webp" scalefit="1" scalefitwidth="408px" box="no"/>
+                <caption>Circuit Diagram for Electronic Pressure Governor</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>After removing connectors, always check for damaged pins, corrosion, and loose terminals.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503018" tblwidth="pg-wide" frame="all">
+                <title>Electronic Pressure Governor Diagnostics</title>
+                <tgroup cols="3" colsep="1" rowsep="1" align="left">
+                    <colspec colname="col1" colwidth="49.35*"/>
+                    <colspec colwidth="51.54*"/>
+                    <colspec colname="col3" colwidth="295.11*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="1to3"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Sensor Connector Voltage Checks</emph>
+                                    (Check with sensor connector disconnected and ignition key ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0V</para>
+                            </entry>
+                            <entry>
+                                <para>Signal ground no voltage expected</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry>
+                                <para>V
+                                    <subscript>REF</subscript>
+                                    check with key ON. If voltage not in specs, see V
+                                    <subscript>REF</subscript>
+                                    circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;0.25V</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 0.25V, signal wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or battery
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Sensor Connector Checks to Chassis Ground</emph>(Check with sensor
+                                    connector disconnected, positive battery cable disconnected, and ignition key OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance to chassis ground. Check with key off. If > than 5 &#x2126; the harness
+                                    is open
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance less than 1000 &#x2126; indicates a short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance less than 1000 &#x2126; indicates a short to ground</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>(Check with breakout box installed
+                                    on chassis harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>7 to A</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from sensor connector to 60 pin connector - signal ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 to B</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from sensor connector to 60 pin connector - V
+                                    <subscript>REF</subscript>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>13 to C</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance from sensor connector to 60 pin connector - EPS signal</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Reference</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>216 = Signal voltage was less than 0.039V for more than 0.1 sec</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>226 = Signal voltage was greater than 4.9V for more than 0.1 sec</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>336 = Hydraulic pressure unable to achieve commanded setpoint</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>
+                <emph type="bold">Electronic Pressure Governor Parameters</emph>
+            </para>
+            <para>This group of parameters customizes the electronic pressure governor feature.</para>
+            <para>
+                <emph type="bold">&#8226; Electronic Pressure Governor</emph>
+            </para>
+            <para>This parameter indicates to the on-board electronics if the vehicle has the electronic pressure
+                governor feature.
+            </para>
+            <para>OFF: Feature is turned off at all times.</para>
+            <para>ON: Feature is enabled and may be turned on and activated by the operator.</para>
+            <para>
+                <emph type="bold">&#8226; Electronic Pressure Governor DDS</emph>
+            </para>
+            <para>This parameter indicates how the driveline disengagement signal should be interpreted by the on-board
+                electronics.
+            </para>
+            <para>
+                <emph type="bold">Neutral operation</emph>: Driveline must be disengaged at all times for electronic
+                pressure governor operation.
+            </para>
+            <para>
+                <emph type="bold">Split shaft</emph>: Changing driveline status will cause the Electronic Pressure
+                Governor to be deactivated.
+            </para>
+            <para>
+                <emph type="bold">&#8226; EPG Mode Indicator</emph>
+            </para>
+            <para>This parameter indicates if the Electronic Pressure Governor operation mode indicator is available.
+            </para>
+            <para>OFF: Indicator is not available.</para>
+            <para>ON: Indicator is available.</para>
+            <para>
+                <emph type="bold">&#8226; Pressure Ramp Rate</emph>
+            </para>
+            <para>This parameter indicates the rate at which the fluid pressure is to be increased when the operator
+                depresses and holds the Resume/Accel button.
+            </para>
+            <para>
+                <emph type="bold">&#8226; EPG Integral Gain Adjust</emph>
+            </para>
+            <para>This parameter allows the customer to fine tune how the Electronic Pressure Governor will govern the
+                fluid pressure.
+            </para>
+            <para>
+                <emph type="bold">&#8226; EPG Proportional Gain Adjust</emph>
+            </para>
+            <para>This parameter allows the customer to fine tune how the electronic pressure governor will govern the
+                fluid pressure.
+            </para>
+            <para>
+                <emph type="bold">ECM Diagnostics</emph>
+            </para>
+            <para id="f175fc216">
+                <emph type="bold">Diagnostic Trouble Code 216</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 73 FMI 4</emph>
+            </para>
+            <para>
+                <emph type="bold">Electronic Pressure Governor signal Out of Range Low</emph>
+            </para>
+            <para>Diagnostic Trouble Code 216 is set by the ECM if the signal voltage is less than 0.039V for more than
+                1 second. When Diagnostic Trouble Code 216 is set, the EPG function is disabled.
+            </para>
+            <para>Diagnostic Trouble Code 216 can be set due to an open or short to ground on the signal circuit, a
+                defective sensor or connector or an open V
+                <subscript>REF</subscript>
+                circuit.
+            </para>
+            <para id="f175fc226">
+                <emph type="bold">Diagnostic Trouble Code 226</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 73 FMI 3</emph>
+            </para>
+            <para>
+                <emph type="bold">Electronic Pressure Governor signal Out of Range High</emph>
+                <emph type="boldital"></emph>
+            </para>
+            <para>Diagnostic Trouble Code 226 is set by the ECM if the signal voltage is greater than 4.9V for more than
+                1 second. When Diagnostic Trouble Code 226 is set, the EPG function is disabled.
+            </para>
+            <para>Diagnostic Trouble Code 226 can be caused by a short in the signal circuit to a voltage source or a
+                defective sensor.
+            </para>
+            <para id="f175fc336">
+                <emph type="bold">Diagnostic Trouble Code 336</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 73 FMI 10</emph>
+            </para>
+            <para>
+                <emph type="bold">Hydraulic Pressure Unable to Achieve Commanded Set Point</emph>
+            </para>
+            <para>The ECM has detected that the hydraulic system has not achieved the hydraulic pressure requested by
+                the system. When Diagnostic Trouble Code 336 is active, the EPG function is disabled.
+            </para>
+            <para>
+                <emph type="bold">NOTES</emph>
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_105.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_107.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

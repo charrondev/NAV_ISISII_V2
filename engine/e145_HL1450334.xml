@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - TACHOMETER INPUT CIRCUITS
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450334" svcproctype="proctype" graphiccount="6">
+        <title>TACHOMETER INPUT CIRCUITS</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef14503g3">Figure 3.138 Tachometer Input Circuits</hotlnk>
+            </para>
+            <figure id="ef14503g3" figsize="col-wide">
+                <graphic id="eg6077" filename="../figeg6/eg6077.webp" type="webp"/>
+                <caption>Figure 3.138 Tachometer Input Circuits</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>CIRCUIT FUNCTIONS</title>
+            <para>The ECM (Electronic Control Module) provides the VPM (Vehicle Personality Module) with a 0 - 12 volt
+                digital signal that indicates engine speed. The VPM buffers this signal and supplies the instrument
+                panel with a signal to operate the tachometer. The frequency sent by the ECM is 1/5th of the actual
+                engine RPM.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION MANAGEMENT</title>
+            <para>The VPM can detect if the TACH signal is not being received from the ECM and will set a fault code to
+                indicate loss of communication. No fault detection is available for communication between the VPM and
+                the instrument panel.
+            </para>
+            <para>
+                <hotlnk xrefid="ef14503g4">Figure 3.139 Tachometer Input Circuit Diagnostics</hotlnk>
+            </para>
+            <figure id="ef14503g4" figsize="col-wide">
+                <graphic id="eg6078" filename="../figeg6/eg6078.webp" type="webp"/>
+                <caption>Figure 3.139 Tachometer Input Circuit Diagnostics</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EXTENDED DESCRIPTION TACHOMETER INPUT CIRCUIT</title>
+            <para>Refer to the circuit diagram
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef14503g5">3.140</hotlnk>
+                </emph>
+                for the following discussion.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Tachometer Input Signal</title>
+            <para>The ECM receives signals from the CMP sensor and calculates engine speed (rpm). The ECM sends the
+                calculated engine speed as a digital TACH signal from ECM connector 36 (circuit 97D) to the VPM at
+                connector (381) terminal 4.
+            </para>
+            <para>The VPM buffers the TACH signal received from ECM and sends a pulse width modulated (PMW) signal to
+                the Speedometer/ Tachometer unit at center I/P connector (27).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Engine Speed Signal To Prolink EST</title>
+            <para>Engine rpm can be monitored using the Prolink Electronic Service Tool (EST) connected to the EST
+                connector (384). It is important to note that the signal is transmitted through different circuits.
+            </para>
+            <para>The engine speed signal read by the Prolink EST comes from the ECM, but is sent from ECM terminals 9
+                and 28, through the DCL (+) and DCL (-) circuits to the VPM, then through the ATA (+) and ATA (-)
+                circuits, to the EST connector (384).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM DIAGNOSTICS</title>
+            <para>If the CMP signal is not received and processed by the ECM, the engine will not start. If the engine
+                is running, but the tachometer does not operate (or operates improperly), there are two tests to further
+                isolate the problem.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Testing Speedometer/Tachometer Cluster</title>
+            <para>With the key ON and engine OFF, the Speedometer/Tachometer unit, located in the instrument panel, will
+                perform a self-test, checking the tachometer gauge and the speedometer/tachometer control unit. Refer to
+                Service Manual, Group 08, Instruments for the appropriate section for information on performing this
+                test.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>KOER Tach Buffer Test</title>
+            <para>The KOER - Tach Buffer Test must be run when engine speed is greater than 1250 rpm. This test checks
+                the circuit (97D) between the ECM and VPM for open or short (high or low) circuit condition. It also
+                checks the internal VPM buffer circuit for open or short (high or low) conditions. If a defect is found,
+                Flash Code 233 is set.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 233</title>
+            <para>
+                <title>ATA CODE PID 190 FMI 2</title>
+            </para>
+            <para>
+                <title>VPM: TACHOMETER BUFFER INOPERATIVE</title>
+            </para>
+            <para>This code is set during the KOER Tach Buffer Test if:</para>
+            <seqlist style="alphauc">
+                <item>
+                    <para>Engine speed is less than 1250 rpm.</para>
+                </item>
+                <item>
+                    <para>Circuit 97D is open or shorted (high or low) between the ECM and VPM causing the VPM to
+                        receive either no signal or an invalid signal.
+                    </para>
+                </item>
+                <item>
+                    <para>The VPM internal buffering circuit is defective.</para>
+                </item>
+            </seqlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Corrective Action</title>
+            <para>If the tachometer doesn't work and:</para>
+            <step1>
+                <para count="1">A. The Speedometer/Tachometer Self-Test does not indicate a defect, perform Testing
+                    Circuit 97AR
+                    <emph type="bold">Figure
+                        <hotlnk xrefid="ef14503g6">3.141</hotlnk>.
+                    </emph>
+                    . If the self-test revealed a defect, follow service manual recommended corrective action.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">B. The Tach Buffer KOER test
+                    <emph type="bold">does not</emph>
+                    set a fault code, then check circuit 97AR between VPM connector (381) and I/P connector (27) for
+                    open or short (high or low) circuit by performing Testing Circuit 97AR
+                    <emph type="bold">Figure
+                        <hotlnk xrefid="ef14503g6">3.141</hotlnk>.
+                    </emph>
+                    .
+                </para>
+            </step1>
+            <step1>
+                <para count="1">C. If the Tach Buffer KOER test
+                    <emph type="bold">does set</emph>
+                    Flash code 233, perform Testing ECM/VPM Tachometer Circuit
+                    <emph type="bold">Figure
+                        <hotlnk xrefid="ef14503g7">3.142</hotlnk>.
+                    </emph>
+                    .
+                </para>
+                <figure id="ef14503g5" figsize="col-wide">
+                    <graphic id="eg6079" filename="../figeg6/eg6079.webp" type="webp"/>
+                    <caption>Figure 3.140 Circuit Diagram</caption>
+                </figure>
+                <figure id="ef14503g6" figsize="col-wide">
+                    <graphic id="eg6080" filename="../figeg6/eg6080.webp" type="webp"/>
+                    <caption>Figure 3.141 Testing Tachometer Circuit 97AR</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>Refer to Figure
+                            <hotlnk xrefid="ef14503g7">3.142</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <figure id="ef14503g7" figsize="col-wide">
+                    <graphic id="eg6081" filename="../figeg6/eg6081.webp" type="webp"/>
+                    <caption>Figure 3.142 Testing ECM/VPM Tachometer Circuit</caption>
+                </figure>
+                <para>
+                    <hotlnk xrefid="ef14503g8">Figure 3.143 Testing ECM/VPM Tachometer Circuit</hotlnk>
+                </para>
+                <figure id="ef14503g8" figsize="col-wide">
+                    <graphic id="eg6082" filename="../figeg6/eg6082.webp" type="webp"/>
+                    <caption>Figure 3.143 Testing ECM/VPM Tachometer Circuit</caption>
+                </figure>
+            </step1>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450333.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450335.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

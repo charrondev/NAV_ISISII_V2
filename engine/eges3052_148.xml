@@ -1,0 +1,911 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - HFCM
+        (Horizontal Fuel Conditioning Module) Fuel Pump
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.22" svcproctype="diagnose" graphiccount="6">
+        <title>HFCM (Horizontal Fuel Conditioning Module) Fuel Pump</title>
+        <svcprocinfo id="s305010706.22.1">
+            <figure id="f3050107101" figsize="pg-wide">
+                <graphic filename="../figj31/j31234.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Functional diagram for the fuel pump</caption>
+            </figure>
+            <para id="s305010706.20.1.1"></para>
+            <table id="t3050107208" type="simple" frame="topbot">
+                <title>The functional diagram for the fuel pump includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Fuel pump</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Fuel pump relay</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Battery</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Ignition switch</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Function</title>The fuel pump is located inside the Horizontal Fuel Conditioning Module (HFCM)
+                and is serviceable separately. The ECM controls a fuel pump relay that powers the fuel pump. When the
+                ignition switch is turned to ON, the fuel pump relay is energized for 60 seconds. If the ECM does not
+                detect engine running at the end of the 60 seconds it will de-energize the fuel pump relay and the fuel
+                pump. The ECM monitors the voltage with the output of the fuel pump relay on the Fuel Pump Monitor (FPM)
+                circuit.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.22.2">
+            <title>Fuel Pump Circuit Operation</title>
+            <figure id="f3050107102" figsize="pg-wide">
+                <graphic filename="../figj31/j31235.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Fuel pump circuit diagram</caption>
+            </figure>
+            <para>The fuel pump relay is supplied power at Pin 1(86) from VIGN. The fuel pump relay is energized by
+                ground supplies by the ECM through Pin X3-9 to Pin 2(85). Power is supplied to Pin 3(30) from the
+                battery. When the relay coil is energized power is supplied to the fuel pump from Pin 5(87). The ECM
+                monitors the output of the relay from the relay to X4-15.
+            </para>
+            <para>
+                <title>Fault Detection/Management</title>The ECM continuously monitors the output of the fuel pump
+                relay; when voltage is out of expected range a DTC will be set.
+            </para>
+            <para>An open or short to ground in the fuel pump relay control circuit can be detected by an on-demand
+                Output Circuit Check (OCC) performed during the KOEO Standard test. When a circuit fault is detected, a
+                DTC will be set. Fuel pump and fuel pump harness problems can not be detected by the ECM.
+            </para>
+            <para>
+                <title>Fuel Pump DTCs</title>DTCs are read using the EST or by counting the flashes from the amber and
+                red lamps.
+            </para>
+            <table id="t3050107209" type="simple" frame="topbot">
+                <title>DTC 237</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>Fuel Pump Control OCC self-test failed</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 237 is set by the ECM when the OCC test has failed after the KOEO Standard
+                                    test has been run.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 237 can be set for an open or short to ground on FPC circuit, an open or short
+                                    to ground on VIGNcircuit to the fuel pump relay, or an open fuel pump relay coil.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107210" type="simple" frame="topbot">
+                <title>DTC 374</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>Fuel pump relay circuit fault</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>DTC 374 is set by the ECM when the relay output voltage does not meet expected
+                                    voltage.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>DTC 374 can be set for an open in the B+ supply circuit to fuel pump relay, open
+                                    or shorted FPM circuit, or a failed fuel pump relay.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>DTC 374 can be set if there is a failed control circuit, repair DTC 237 first.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107211" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech&#174; interface cable</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Relay breakout harness</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Breakout Box</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Digital Multimeter (DMM)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="s305010706.22.3">
+            <title>Fuel Pump Pin-Point Diagnostics</title>
+            <para id="s305010706.20.3.1">The fuel pump circuit requires the use of vehicle circuit diagrams. See the
+                applicable truck Circuit Diagram Manual for circuit numbers, connector and fuse locations.
+            </para>
+            <figure id="f3050107103" figsize="pg-wide">
+                <graphic filename="../figj31/j31235.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Fuel pump circuit diagram</caption>
+            </figure>
+            <table id="t3050107212" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - Relay (KOEO)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.86in"/>
+                    <colspec colname="col2" colwidth="1.50in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging the
+                                        connector or relay for the ECM. Failure to turn ignition switch to OFF will
+                                        cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to ON. Connect relay breakout harness to relay and socket.
+                                    Measure voltage (on-time is 60 seconds).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>If on-time is not long enough, do the "
+                                        <hotlnk xrefid="t3050107213">Voltage Checks - Relay (Output State Test.)
+                                        </hotlnk>
+                                        "
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3(30) to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Continuous voltage from VIGN; if no voltage, check power fuse or battery. If fuse
+                                    is blown, check for short to ground. If fuse is good, check for open between Pin
+                                    3(30) and VIGN.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1(86) to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Continuous voltage from battery; if no voltage, check power fuse or battery. If
+                                    fuse is blown, check for open between Pin 1(86) and Pin 10 of the 12-pin connector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2(85) to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>ON = 0 to 0.25 V</para>
+                                <para>OFF = B+</para>
+                            </entry>
+                            <entry>
+                                <para>Switched ground from ECM, 60-second on-time. If greater than 0.25 volts , check
+                                    for open or shorted to power between Pin 2(85) and Pin X3-9.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5(87) to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>ON = B+</para>
+                                <para>OFF = 0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Switched power from fuel pump relay, 60-second on-time. If no voltage, replace the
+                                    fuel pump relay.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para></para>
+            <figure id="f3050107104" figsize="pg-wide">
+                <graphic filename="../figj31/j31235.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Fuel pump circuit diagram</caption>
+            </figure>
+            <table id="t3050107213" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - Relay (Output State Test)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.86in"/>
+                    <colspec colname="col2" colwidth="1.50in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging the
+                                        connector or relay for the ECM. Failure to turn ignition switch to OFF will
+                                        cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to ON. Connect relay breakout harness to relay and socket.
+                                    Run "
+                                    <hotlnk document="eges3052_54.xml" xrefid="s305010303.2.6.1">Output State Test Low
+                                    </hotlnk>
+                                    " see the "
+                                    <hotlnk document="eges3052_E3050103.xml" xrefid="e3050103">Diagnostic Software
+                                        Operation
+                                    </hotlnk>
+                                    " section in this manual for the procedure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>5(87) to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Fuel pump relay output voltage with "
+                                    <hotlnk document="eges3052_54.xml" xrefid="s305010303.2.6.1">Output State Test Low
+                                    </hotlnk>
+                                    " activated, voltage should be present until test is cancelled.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2(85) to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>Fuel pump control with "
+                                    <hotlnk document="eges3052_54.xml" xrefid="s305010303.2.6.1">Output State Test Low
+                                    </hotlnk>
+                                    " activated, ground should be present until test is cancelled.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107214" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - ECM (Output State Test)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.86in"/>
+                    <colspec colname="col2" colwidth="1.50in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>Do this check only if active DTC 374 and all other voltage checks are in
+                                        specifications.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging the
+                                        connector or relay for the ECM. Failure to turn ignition switch to OFF will
+                                        cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF, connect the Breakout Box X4 and X3 only to the ECM
+                                    and the harness. Turn ignition switch to ON. Run "
+                                    <hotlnk document="eges3052_54.xml" xrefid="s305010303.2.6.1">Output State Test Low
+                                    </hotlnk>
+                                    " see the "
+                                    <hotlnk document="eges3052_E3050103.xml" xrefid="e3050103">Diagnostic Software
+                                        Operation
+                                    </hotlnk>
+                                    " section in this manual for the procedure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X4-15 to X3-7 (gnd)</para>
+                            </entry>
+                            <entry>
+                                <para>ON = B+</para>
+                                <para>OFF = 0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Fuel pump relay output voltage with "
+                                    <hotlnk document="eges3052_54.xml" xrefid="s305010303.2.6.1">Output State Test Low
+                                    </hotlnk>
+                                    " activated, voltage should be present until test is cancelled. If all other
+                                    voltages are in specification and active DTC 374, check for open circuit or short to
+                                    power source on fuel pump monitor circuit.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107215" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - Relay to Ground</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.50in"/>
+                    <colspec colname="col2" colwidth="1.75in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging relay or
+                                        ECM. Failure to turn ignition switch to OFF could cause a voltage spike and
+                                        damage to the electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Remove fuel pump relay, connect relay breakout
+                                    harness to the relay socket only. Disconnect the negative battery cable. Use
+                                    disconnected negative battery cable for ground test point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3(30) to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for short to ground and blown fuse</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5(87) to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 1 k&#x2126;, check for short to ground and blown fuse</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2(85) to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1(86) to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 1 k&#x2126;, check for short to ground and blown fuse</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry></entry>
+                            <entry></entry>
+                            <entry>
+                                <note>
+                                    <para>If ignition switch is grounded when turned off this will be less than 5
+                                        &#x2126;.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f3050107105" figsize="pg-wide">
+                <graphic filename="../figj31/j31235.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Fuel pump circuit diagram</caption>
+            </figure>
+            <table id="t3050107216" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - Relay to Battery</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.50in"/>
+                    <colspec colname="col2" colwidth="1.75in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging relay or
+                                        ECM. Failure to turn ignition switch to OFF could cause a voltage spike and
+                                        damage to the electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Remove relay, connect relay breakout harness to
+                                    socket only. Disconnect negative battery cable. Use disconnected negative battery
+                                    cable for ground test point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3(30) to B+</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open or high resistance. Check fuse and
+                                    battery connections.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107217" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - Relay to VIGN</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.50in"/>
+                    <colspec colname="col2" colwidth="1.75in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging relay or
+                                        ECM. Failure to turn ignition switch to OFF could cause a voltage spike and
+                                        damage to the electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Remove fuel pump relay, connect relay breakout
+                                    harness to socket only. Disconnect negative battery cable. Remove VIGN fuse. Use
+                                    disconnected negative battery cable for ground test point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1(86) to VIGN</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open in ignition circuit. Check VIGN relay
+                                    and fuses.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107218" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - Relay to Pump</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.50in"/>
+                    <colspec colname="col2" colwidth="1.75in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect fuel pump connector, remove relay, connect
+                                    relay breakout harness to socket only.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5(87) (relay) to 1 (pump)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open between fuel pump relay and fuel pump
+                                    connector
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f3050107106" figsize="pg-wide">
+                <graphic filename="../figj31/j31235.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Fuel pump circuit diagram</caption>
+            </figure>
+            <table id="t3050107219" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - Relay to ECM</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.50in"/>
+                    <colspec colname="col2" colwidth="1.75in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging relay or
+                                        ECM. Failure to turn ignition switch to OFF could cause a voltage spike and
+                                        damage to the electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Remove relay, connect relay breakout harness to
+                                    socket only. Connect Breakout Box X4 only to harness only.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5(87) to X4-15</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open between Pin X4-15 and fuel pump relay
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107220" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - Fuel Pump Connector to Ground</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.50in"/>
+                    <colspec colname="col2" colwidth="1.75in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect fuel pump connection. Inspect for bent
+                                    pins or corrosion.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open in ground circuit to fuel pump
+                                    connector
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107221" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - Fuel Pump Connector to ECM</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.50in"/>
+                    <colspec colname="col2" colwidth="1.75in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging relay or
+                                        ECM. Failure to turn ignition switch to OFF could cause a voltage spike and
+                                        damage to the electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect fuel pump connection. Inspect for bent
+                                    pins or corrosion. Connect Breakout Box X4 to harness only.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 (pump) to X4-15</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open in fuel pump power and monitor
+                                    circuit
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_147.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_149.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

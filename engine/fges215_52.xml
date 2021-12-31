@@ -1,0 +1,899 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslfrench.xsl"?>
+<isis lang="fr">
+    <stitle>French - Manuel de diagnostic - - FONCTION ET DIAGNOSTIC DE CIRCUIT - Capteur de position de p&#233;dale
+        d'acc&#233;l&#233;rateur et contacteur de validation du ralenti (APS/IVS)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="4">
+        <title>Capteur de position de p&#233;dale d'acc&#233;l&#233;rateur et contacteur de validation du ralenti
+            (APS/IVS)
+        </title>
+        <svcsubproc>
+            <title>Fonctions de signal</title>
+            <figure id="f17503011" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8845.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Sch&#233;ma de fonction APS/IVS</caption>
+            </figure>
+            <para>Le capteur de position de p&#233;dale d'acc&#233;l&#233;rateur (APS) est un capteur de type potentiom&#232;tre.
+                Quand l'APS re&#231;oit un signal de r&#233;f&#233;rence de 5&#160;V et une masse de l'ECM, un signal de
+                tension analogique lin&#233;aire provenant du capteur indique que le conducteur demande de la puissance.
+                Le contacteur de validation du ralenti (IVS) fournit une tension de 0&#160;V ou de 12&#160;V &#224;
+                l'ECM comme signal redondant pour v&#233;rifier la position de ralenti de la p&#233;dale.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>D&#233;tection et gestion des anomalies</title>
+            <para>Toute d&#233;faillance d&#233;tect&#233;e du circuit du capteur APS/IVS allume le voyant &#171;&#160;ENGINE&#160;&#187;
+                ambr&#233; alors que l'odom&#232;tre affiche
+                <emph type="bold">&#171;&#160;WARN&#160;ENG&#160;&#187;</emph>. Si l'ECM d&#233;tecte un signal&#160;APS
+                hors de plage HAUT ou BAS, le moteur ignore ce signal&#160;APS et fonctionne au ralenti bas. Si l'ECM d&#233;tecte
+                une disparit&#233; dans l'&#233;tat de l'IVS et de l'APS, et si l'ECM
+                <emph type="bold">d&#233;termine</emph>que la d&#233;faillance provient de l'IVS, il ne permet de
+                commander qu'un maximum de 50&#160;% d'APS. Si l'ECM
+                <emph type="bold">ne peut d&#233;terminer</emph>
+                si la d&#233;faillance provient de l'APS ou de l'IVS, le moteur ne pourra fonctionner qu'au ralenti bas
+                seulement.
+            </para>
+            <figure id="f17503012.3" figsize="pg-wide">
+                <graphic filename="../figeg6/eg6159A.webp" type="webp" scalefit="1" scalefitwidth="514px" box="no"/>
+                <caption>Sch&#233;ma du circuit APS/IVS</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Apr&#232;s voir enlev&#233; le connecteur, toujours v&#233;rifier s'il n'y a pas de broches
+                        endommag&#233;es, de corrosion ou des bornes desserr&#233;es.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503040.5" tblwidth="pg-wide">
+                <title>Essai du capteur&#160;APS &#224; l'aide du diagnostic ma&#238;tre</title>
+                <tgroup cols="6">
+                    <colspec colname="col1" colwidth="39.94*"/>
+                    <colspec colname="col2" colwidth="17.26*"/>
+                    <colspec colname="colspec11" colwidth="16.79*"/>
+                    <colspec colname="colspec10" colwidth="17.26*"/>
+                    <colspec colname="colspec9" colwidth="17.02*"/>
+                    <colspec colname="col3" colwidth="50.53*"/>
+                    <spanspec namest="colspec10" nameend="col3" spanname="span8"/>
+                    <spanspec namest="colspec9" nameend="col3" spanname="span7"/>
+                    <spanspec namest="colspec10" nameend="colspec9" spanname="span4"/>
+                    <spanspec namest="col2" nameend="colspec11" spanname="span3"/>
+                    <spanspec namest="colspec11" nameend="col3" spanname="span2"/>
+                    <spanspec namest="col1" nameend="col3" spanname="span1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>
+                                    <emph type="bold">V&#233;rifications de la tension du capteur de position de la p&#233;dale
+                                        d'acc&#233;l&#233;rateur (APS)</emph>. Utiliser les sp&#233;cifications du
+                                    circuit du capteur pour v&#233;rifier le signal&#160;IVS (essai avec contact &#233;tabli,
+                                    moteur &#224; l'arr&#234;t).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>Installer le&#160;T de d&#233;rivation &#224; cinq&#160;fils entre le capteur
+                                    APS/IVS et le connecteur de faisceau. Visualiser la TENSION APS/IVS &#224; l'aide de
+                                    l'essai de
+                                    <emph type="bold">surveillance continue</emph>
+                                    qui se trouve dans le menu du DIAGNOSTIC MA&#206;TRE. Si le circuit a une anomalie
+                                    active selon le niveau de tension (code&#160;131 &#60; 0,146&#160;V, code&#160;132 >
+                                    4,55&#160;V), effectuer les &#233;tapes suivantes.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Condition d'essai</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Tension pr&#233;vue</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="4" spanname="span2">
+                                <para>
+                                    <emph type="bold">Commentaires</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Capteur d&#233;branch&#233;</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0&#160;V</para>
+                            </entry>
+                            <entry colspan="4" spanname="span2">
+                                <para>Si la tension est sup&#233;rieure &#224; 0,146&#160;V, v&#233;rifier si le circuit
+                                    du signal n'est pas court-circuit&#233; &#224; la tension de r&#233;f&#233;rence V
+                                    <subscript>REF</subscript>
+                                    ou vers&#160;B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Mesurer la tension de la broche&#160;C &#224; la masse &#224; l'aide d'un&#160;DMM.</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5&#160;V&#160;&#177; 0,5</para>
+                            </entry>
+                            <entry colspan="4" spanname="span2">
+                                <para>Si la tension est sup&#233;rieure &#224; 5,5&#160;V, v&#233;rifier si la tension
+                                    de r&#233;f&#233;rence V
+                                    <subscript>REF</subscript>
+                                    n'est pas court-circuit&#233;e vers&#160;B+. Si la tension est inf&#233;rieure
+                                    &#224; 4,5&#160;V, v&#233;rifier si le circuit de la tension de r&#233;f&#233;rence
+                                    V
+                                    <subscript>REF</subscript>
+                                    n'est pas ouvert ou court-circuit&#233; &#224; la masse. D&#233;brancher le c&#226;ble
+                                    positif de la batterie. Mesurer la r&#233;sistance de la broche&#160;C &#224; la
+                                    broche&#160;3 (sp&#233;cification &#60;5&#160;ohms) et de la broche&#160;C &#224; la
+                                    masse (sp&#233;cification sup&#233;rieure &#224; 1&#160;kilohm) &#224; l'aide d'une
+                                    bo&#238;te de d&#233;rivation pour d&#233;terminer si le court-circuit &#224; la
+                                    masse ou le circuit ouvert est dans le faisceau.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Cavalier de 0,5&#160;kilohm install&#233; entre les broches VERTE et BLEUE du&#160;T
+                                    de d&#233;rivation.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5&#160;V</para>
+                            </entry>
+                            <entry colspan="4" spanname="span2">
+                                <para>Si la tension est inf&#233;rieure &#224; 4,55&#160;V, v&#233;rifier si le circuit
+                                    du signal n'est pas ouvert ou court-circuit&#233; &#224; la masse. D&#233;brancher
+                                    le c&#226;ble positif de la batterie. Mesurer la r&#233;sistance de la broche&#160;C
+                                    &#224; la masse (sp&#233;cification sup&#233;rieure &#224; 1&#160;kilohm) et de la
+                                    broche&#160;A &#224; la broche&#160;8 (sp&#233;cification inf&#233;rieure &#224; 5&#160;ohms)
+                                    &#224; l'aide d'une bo&#238;te de d&#233;rivation, pour d&#233;terminer si le
+                                    court-circuit &#224; la masse ou le circuit ouvert est dans le faisceau.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Cavalier standard install&#233; entre les broches BLEUE, VERTE et NOIRE du&#160;T
+                                    de d&#233;rivation.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0&#160;V</para>
+                            </entry>
+                            <entry colspan="4" spanname="span2">
+                                <para>Si la tension est sup&#233;rieure &#224; 0,039&#160;V, v&#233;rifier si la r&#233;sistance
+                                    du circuit de masse est sup&#233;rieure &#224; 5&#160;ohms. Mesurer la r&#233;sistance
+                                    entre les broches&#160;B et&#160;11 (sp&#233;cification inf&#233;rieure &#224; 5&#160;ohms)
+                                    &#224; l'aide d'une bo&#238;te de d&#233;rivation, pour d&#233;terminer si la r&#233;sistance
+                                    est dans le faisceau.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>
+                                    <emph type="bold">Remplacer le capteur si le code est actif et si les r&#233;sultats
+                                        pr&#233;vus sont obtenus avec tous les essais de capteurs. Le capteur n'a pas
+                                        d'anomalie si un ou plusieurs essais de capteurs ne produisent pas les r&#233;sultats
+                                        escompt&#233;s. Voir le diagramme de d&#233;pannage du capteur APS/IVS
+                                        <xref refid="f17503012.5"/>.
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>
+                                    <emph type="bold">Page suivante</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>
+                                    <emph type="bold">V&#201;RIFICATIONS DE TENSION OP&#201;RATIONNELLE</emph>
+                                    (v&#233;rification avec&#160;T de d&#233;rivation install&#233; et capteur APS/IVS
+                                    raccord&#233;)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para></para>
+                            </entry>
+                            <entry colspan="2" spanname="span3">
+                                <para>
+                                    <emph type="bold">Points d'essai&#160;APS&#160;: (+)&#160;8&#160;&#224;&#160;(-)&#160;11</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="span4">
+                                <para>
+                                    <emph type="bold">Points d'essai&#160;IVS&#160;: (+)&#160;27&#160;&#224;&#160;(-)&#160;11</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Position</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Tension</emph>
+                                </para>
+                            </entry>
+                            <entry colname="colspec11">
+                                <para>
+                                    <emph type="bold">%&#160;APS</emph>
+                                </para>
+                            </entry>
+                            <entry colname="colspec10">
+                                <para>
+                                    <emph type="bold">Tension</emph>
+                                </para>
+                            </entry>
+                            <entry colname="colspec9">
+                                <para>
+                                    <emph type="bold">%&#160;APS</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Commentaires</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Ralenti bas</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,64&#160;&#224; 0,66&#160;V</para>
+                            </entry>
+                            <entry colname="colspec11">
+                                <para>0&#160;%</para>
+                            </entry>
+                            <entry colname="colspec10">
+                                <para>0&#160;V</para>
+                            </entry>
+                            <entry colname="colspec9">
+                                <para>0&#160;%</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>IVS alterne tout juste hors du ralenti.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Ralenti &#233;lev&#233;</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>3,84&#160;&#224; 3,86&#160;V</para>
+                            </entry>
+                            <entry colname="colspec11">
+                                <para>98&#160;&#224; 102&#160;%</para>
+                            </entry>
+                            <entry colname="colspec10">
+                                <para>12&#160;&#177; 1,5&#160;V</para>
+                            </entry>
+                            <entry colname="colspec9">
+                                <para>98&#160;&#224; 102&#160;%</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>
+                                    <emph type="bold">Description des codes d'anomalie</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>La tension du signal APS&#160;131 &#233;tait inf&#233;rieure &#224; 0,146&#160;volts
+                                    pendant plus de 0,5&#160;seconde*.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>La tension du signal APS&#160;132 &#233;tait sup&#233;rieure &#224; 4,55&#160;volts
+                                    pendant plus de 0,5&#160;seconde*.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>Anomalie du signal APS&#160;133 dans la plage*</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>Disparit&#233; entre APS&#160;134 et IVS</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>Anomalie du circuit du contacteur de validation du ralenti 135&#160;- APS de 50&#160;%
+                                    seulement
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="span1">
+                                <para>
+                                    <emph type="bold">*&#160;SI LE CODE D'ANOMALIE EST &#201;TABLI, LE FONCTIONNEMENT DU
+                                        MOTEUR PASSE PAR D&#201;FAUT AU R&#201;GIME DE RALENTI BAS SEULEMENT.
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te17503016.3" tblwidth="pg-wide">
+                <title>Sp&#233;cifications du circuit du capteur APS/IVS
+                    <xref refid="f17503012.3"/>
+                </title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.42*"/>
+                    <colspec colname="col2" colwidth="0.38*"/>
+                    <colspec colname="col3" colwidth="1.86*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="span1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="span1">
+                                <para>
+                                    <emph type="bold">V&#201;RIFICATIONS DE LA TENSION DU CONNECTEUR</emph>
+                                    (v&#233;rification avec capteur d&#233;branch&#233; du faisceau, contact &#233;tabli)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Points d'essai</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Sp&#233;cification</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Commentaires</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 0,25&#160;V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tension sup&#233;rieure &#224; 0,25&#160;V, le signal est court-circuit&#233;
+                                    &#224; la tension de r&#233;f&#233;rence ou vers&#160;B+
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0&#160;V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Circuit de masse, aucune tension pr&#233;vue</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5&#160;&#177; 0,5&#160;V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tension sup&#233;rieure aux sp&#233;cifications, fil court-circuit&#233; vers&#160;B+</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0&#160;&#224; 0,25&#160;V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tension sup&#233;rieure &#224; 0,25&#160;V, le fil du signal&#160;IVS est
+                                    court-circuit&#233; &#224; la tension de r&#233;f&#233;rence ou vers&#160;B+
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12&#160;&#177; 1,5&#160;V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tension inf&#233;rieure &#224; 10,5&#160;V; v&#233;rifier si le circuit n'est pas
+                                    ouvert ou s'il y a une r&#233;sistance
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="span1">
+                                <para>
+                                    <emph type="bold">V&#201;RIFICATIONS DU CONNECTEUR &#192; LA MASSE DU CH&#194;SSIS
+                                    </emph>
+                                    (v&#233;rification avec le connecteur du capteur d&#233;branch&#233;, c&#226;ble
+                                    positif de batterie d&#233;branch&#233;e et contact coup&#233;)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Points d'essai</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Sp&#233;cification</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Commentaires</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>&#160;1&#160;kilohm</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si la r&#233;sistance est inf&#233;rieure &#224; 1&#160;kilohm, v&#233;rifier s'il
+                                    n'y a pas un court-circuit &#224; la masse.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5&#160;ohms</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si la r&#233;sistance est sup&#233;rieure &#224; 5&#160;ohms, v&#233;rifier s'il
+                                    n'y a pas un circuit ouvert.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>&#160;500&#160;ohms</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si la r&#233;sistance est inf&#233;rieure &#224; 0,5&#160;kilohms, v&#233;rifier
+                                    s'il n'y a pas un court-circuit &#224; la masse.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>&#160;1&#160;kilohm</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si la r&#233;sistance est inf&#233;rieure &#224; 1&#160;kilohm, v&#233;rifier s'il
+                                    n'y a pas un court-circuit &#224; la masse.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F&#160;&#224; la masse</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>&#160;1&#160;kilohm</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si la r&#233;sistance est inf&#233;rieure &#224; 1&#160;kilohm, avec fusible enlev&#233;,
+                                    v&#233;rifier s'il n'y a pas un court-circuit &#224; la masse.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="span1">
+                                <para>
+                                    <emph type="bold">V&#201;RIFICATIONS DE LA R&#201;SISTANCE DU FAISCEAU</emph>
+                                    (v&#233;rifier avec une bo&#238;te de d&#233;rivation install&#233;e sur le faisceau
+                                    du ch&#226;ssis seulement).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Points d'essai</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Sp&#233;cification</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Commentaires</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>8&#160;&#224;&#160;A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;&#160;5&#160;ohms</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si sup&#233;rieur &#224; 5&#160;ohms, v&#233;rifier s'il n'y a pas un fil de
+                                    signal&#160;APS ouvert.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>11&#160;&#224;&#160;B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;&#160;5&#160;ohms</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si sup&#233;rieur &#224; 5&#160;ohms, le fil de masse du signal est ouvert.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3&#160;&#224;&#160;C</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;&#160;5&#160;ohms</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si sup&#233;rieur &#224; 5&#160;ohms, le fil de la tension de r&#233;f&#233;rence
+                                    est ouvert.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>27&#160;&#224;&#160;D</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;&#160;5&#160;ohms</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si sup&#233;rieur &#224; 5&#160;ohms, le fil&#160;IVS est ouvert.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Fusible 17&#160;&#224;&#160;F</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;&#160;5&#160;ohms</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si sup&#233;rieur &#224; 5&#160;ohms, le fil d'alimentation&#160;IVS est ouvert.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Description d&#233;taill&#233;e</title>
+            <para>Les moteurs &#224; commande &#233;lectronique International utilisent un ensemble &#233;lectronique de
+                p&#233;dale d'acc&#233;l&#233;rateur qui comprend un capteur de position d'acc&#233;l&#233;rateur (APS),
+                ainsi qu'un contacteur de validation du ralenti (IVS). Ces deux fonctions sont int&#233;gr&#233;es dans
+                un composant mont&#233; sur la p&#233;dale. L'ensemble de p&#233;dale d'acc&#233;l&#233;rateur peut
+                &#234;tre entretenu au point que le contacteur APS/IVS peut &#234;tre remplac&#233; sans devoir
+                remplacer l'ensemble au complet.
+            </para>
+            <para>L'ECM d&#233;termine la position de la p&#233;dale d'acc&#233;l&#233;rateur en traitant des signaux
+                d'entr&#233;e provenant du capteur de position d'acc&#233;l&#233;rateur (APS) et du contacteur de
+                validation du ralenti (IVS).
+            </para>
+            <para>La position de la p&#233;dale d'acc&#233;l&#233;rateur est une des variables de contr&#244;le dans le
+                calcul de la pression de commande d'injection voulue.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Capteur de position d'acc&#233;l&#233;rateur (APS)</title>
+            <para>L'ECM envoie un signal r&#233;gul&#233; de 5&#160;V par la borne&#160;3 du connecteur (noir) du ch&#226;ssis
+                de l'ECM &#224; la borne&#160;C du connecteur&#160;APS. L'APS retourne ensuite un signal de tension
+                variable (selon la position de la p&#233;dale) de la borne&#160;A du connecteur APS &#224; la borne&#160;8
+                de l'ECM. L'APS est mis &#224; la masse &#224; partir de la borne&#160;B du connecteur &#224; la borne&#160;11
+                de la masse du signal de l'ECM. Sch&#233;ma de syst&#232;me de l'acc&#233;l&#233;rateur, BAP et sondes
+                de temp&#233;rature d'air d'admission,
+                <xref refid="f17503012.8"/>.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Auto-&#233;talonnage de l'APS</title>
+            <para>L'ECM apprend les positions sup&#233;rieure et inf&#233;rieure de la p&#233;dale en lisant et en m&#233;morisant
+                les niveaux maximal et minimal des niveaux de tension &#224; partir de l'APS. De cette mani&#232;re,
+                l'ECM &#171;&#160;auto-&#233;talonne&#160;&#187; le syst&#232;me pour permettre une sensibilit&#233;
+                maximale de la p&#233;dale. L'ECM s'auto-&#233;talonne quand le contact est &#233;tabli, mais ces
+                valeurs sont perdues quand on coupe le contact. Quand on r&#233;tablit le contact, ce processus
+                recommence. Quand la p&#233;dale est d&#233;branch&#233;e (ou quand on en installe une nouvelle), il
+                n'est pas n&#233;cessaire de r&#233;&#233;talonner la p&#233;dale. Le nouvel ensemble p&#233;dale &#171;&#160;s'auto-&#233;talonne&#160;&#187;
+                tout simplement quand le contact est r&#233;tabli.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Contacteur de validation du ralenti (IVS)</title>
+            <para>L'ECM s'attend &#224; recevoir un ou deux signaux par la borne&#160;27 du connecteur (noire) du ch&#226;ssis
+                de l'ECM, de la borne&#160;D du connecteur APS/IVS.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>0&#160;V quand la p&#233;dale est en position de ralenti.</para>
+                </item>
+                <item>
+                    <para>12&#160;V quand la p&#233;dale est enfonc&#233;e.</para>
+                </item>
+            </randlist>
+            <para>Le contacteur de validation du ralenti re&#231;oit une tension d'allumage de 12&#160;V du fusible
+                d'allumage dans la bo&#238;te de fusibles. Quand la p&#233;dale n'est PAS en position de ralenti (enfonc&#233;e),
+                l'IVS fournit un signal de 12&#160;V &#224; l'ECM.
+            </para>
+            <para>L'ECM compare les entr&#233;es APS/IVS aux bornes&#160;8 et&#160;27 pour v&#233;rifier quand la p&#233;dale
+                est en position de ralenti. Si le signal APS &#224; la borne&#160;8 indique qu'on appuie sur la p&#233;dale,
+                l'ECM s'attend &#224; recevoir 12&#160;V &#224; la borne&#160;27 de l'IVS. Si le signal APS &#224; la
+                borne&#160;8 indique qu'on n'appuie pas sur la p&#233;dale,.l'ECM s'attend &#224; recevoir 0&#160;V
+                &#224; la borne&#160;27 de l'IVS. Le processus de distribution est critique entre les capteurs&#160;APS
+                et&#160;IVS. C'est pour cette raison qu'il est tr&#232;s difficile de d&#233;terminer si l'ensemble
+                APS/IVS fonctionne convenablement en utilisant un&#160;DMM.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagnostic de l'ECM</title>
+            <para>Quand le contact est &#233;tabli, l'ECM surveille continuellement les circuits APS/IVS pour v&#233;rifier
+                les tensions pr&#233;vues. Il compare &#233;galement les signaux&#160;APS et&#160;IVS en cas de disparit&#233;.
+                Si les signaux ne correspondent pas &#224; ce que l'ECM pr&#233;voit, des codes d'anomalie sont &#233;tablis.
+            </para>
+            <para>On peut r&#233;cup&#233;rer les codes d'anomalie &#224; l'aide de l'EST ou en lisant les clignotements
+                des codes d'anomalie des voyants &#171;&#160;ENGINE&#160;&#187; ambr&#233; et rouge; voir
+                <xref refid="p17502001"/>.
+            </para>
+            <para id="f175fc131">
+                <emph type="bold">Code d'anomalie&#160;131</emph>
+            </para>
+            <para>
+                <emph type="bold">Code&#160;ATA, PID&#160;91, FMI&#160;4</emph>
+            </para>
+            <para>
+                <emph type="bold">ECM&#160;:</emph>
+                <emph type="boldital">APS hors de plage (BAS) (ORL)</emph>
+            </para>
+            <para>Quand le code&#160;131 est actif, le voyant &#171;&#160;ENGINE&#160;&#187; ambr&#233; s'allume et
+                l'odom&#232;tre affiche le message &#171;&#160;WARN&#160;ENG&#160;&#187;.
+            </para>
+            <para>Le code ORL&#160;131 est &#233;tabli si l'ECM d&#233;tecte une tension inf&#233;rieure &#224; 0,146&#160;V
+                &#224; la borne&#160;8; l'ECM limite alors le r&#233;gime moteur au ralenti. Les causes possibles
+                comprennent un court-circuit &#224; la masse ou des circuits de tension de r&#233;f&#233;rence V
+                <subscript>REF</subscript>ou de signal ouverts. Si la condition qui cause le code&#160;131 est
+                intermittente et qu'elle n'existe plus, le code devient inactif et le fonctionnement normal du moteur
+                reprend.
+            </para>
+            <para id="f175fc132">
+                <emph type="bold">Code d'anomalie&#160;132</emph>
+            </para>
+            <para>
+                <emph type="bold">Code&#160;ATA, PID&#160;91, FMI&#160;3</emph>
+            </para>
+            <para>
+                <emph type="bold">ECM&#160;:</emph>
+                <emph type="boldital">APS hors de plage (HAUT)</emph>
+                (
+                <emph type="bold">ORH</emph>)
+            </para>
+            <para>Quand le code&#160;132 est actif, le voyant &#171;&#160;ENGINE&#160;&#187; ambr&#233; s'allume et
+                l'odom&#232;tre affiche le message &#171;&#160;WARN&#160;ENG&#160;&#187;.
+            </para>
+            <para>Le code ORH&#160;132 est &#233;tabli si l'ECM d&#233;tecte une tension sup&#233;rieure &#224; 4,55&#160;V
+                &#224; la borne&#160;8; l'ECM limite alors le r&#233;gime moteur au ralenti. Cause possible&#160;:
+                court-circuit &#224; la tension de r&#233;f&#233;rence V
+                <subscript>REF</subscript>
+                ou 12&#160;V dans le circuit du signal APS. Si la condition qui cause le code&#160;132 est intermittente
+                et qu'elle n'existe plus, le code devient inactif et le fonctionnement normal du moteur reprend. Le code&#160;132
+                est affich&#233; par l'EST, ou par le voyant &#171;&#160;ENGINE&#160;&#187; ambr&#233; pour faire
+                clignoter les codes d'anomalie.
+            </para>
+            <para>
+                <emph type="bold">Codes d'anomalie&#160;133, 134 et&#160;135</emph>
+            </para>
+            <para>
+                <emph type="bold">Anomalie d'APS dans la plage</emph>
+            </para>
+            <para>L'ECM v&#233;rifie la sortie de tension de l'APS en comparant les signaux&#160;APS et&#160;IVS. Les
+                signaux&#160;APS et&#160;IVS peuvent diverger dans deux cas&#160;:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>le signal APS indique qu'on appuie sur la p&#233;dale pour acc&#233;l&#233;rer, mais le signal&#160;IVS
+                        indique la position de ralenti;
+                    </para>
+                </item>
+                <item>
+                    <para>le signal&#160;APS indique que la p&#233;dale a &#233;t&#233; rel&#226;ch&#233;e pour
+                        permettre au moteur de revenir au ralenti, mais le signal&#160;IVS indique une position de la p&#233;dale
+                        hors ralenti.
+                    </para>
+                </item>
+            </randlist>
+            <para>Si l'ECM d&#233;tecte une des conditions ci-dessus, il essaie de cerner la source du conflit et &#233;tablit
+                le code d'anomalie appropri&#233;.
+            </para>
+            <para id="f175fc133">
+                <emph type="bold">Code d'anomalie&#160;133</emph>
+            </para>
+            <para>
+                <emph type="bold">Code&#160;ATA, PID&#160;91, FMI&#160;2</emph>
+            </para>
+            <para>
+                <emph type="bold">ECM&#160;:</emph>
+                <emph type="bold">anomalie d'APS dans la plage</emph>
+            </para>
+            <para>Quand le code&#160;133 est actif, le voyant &#171;&#160;ENGINE&#160;&#187; ambr&#233; s'allume et
+                l'odom&#232;tre affiche le message &#171;&#160;WARN&#160;ENG&#160;&#187;.
+            </para>
+            <para>Si le signal&#160;IVS est chang&#233; mais que le signal&#160;APS est constant, l'ECM suppose que
+                l'APS est la source de la disparit&#233; et &#233;tablit le code&#160;133. Le r&#233;gime moteur est
+                limit&#233; au ralenti.
+            </para>
+            <para id="f175fc134">
+                <emph type="bold">Code d'anomalie&#160;134</emph>
+            </para>
+            <para>
+                <emph type="bold">Code&#160;ATA, PID&#160;91, FMI&#160;7</emph>
+            </para>
+            <para>
+                <emph type="bold">ECM&#160;:</emph>
+                <emph type="bold">disparit&#233; APS/IVS</emph>
+            </para>
+            <para>Quand le code&#160;134 est actif, le voyant &#171;&#160;ENGINE&#160;&#187; ambr&#233; s'allume et
+                l'odom&#232;tre affiche le message &#171;&#160;WARN&#160;ENG&#160;&#187;.
+            </para>
+            <para>Si ni l'APS ou l'IVS ne changent, ou que les deux changent, ou que l'ECM ne peut d&#233;terminer
+                lequel a une anomalie dans un d&#233;lai sp&#233;cifi&#233;, le code&#160;134 est &#233;tabli. Le r&#233;gime
+                moteur est limit&#233; au ralenti.
+            </para>
+            <para id="f175fc135">
+                <emph type="bold">Code d'anomalie&#160;135</emph>
+            </para>
+            <para>
+                <emph type="bold">Code&#160;ATA, SID&#160;230, FMI&#160;11</emph>
+            </para>
+            <para>
+                <emph type="bold">ECM&#160;: anomalie du circuit&#160;IVS</emph>
+            </para>
+            <para>Quand le code&#160;135 est actif, le voyant &#171;&#160;ENGINE&#160;&#187; ambr&#233; s'allume et
+                l'odom&#232;tre affiche le message &#171;&#160;WARN&#160;ENG&#160;&#187;.
+            </para>
+            <para>Si l'APS change mais que l'IVS demeure constant, l'ECM suppose que l'IVS est la source de la disparit&#233;
+                et &#233;tablit le code d'anomalie&#160;135. Dans ce cas, l'ECM limite le signal&#160;APS &#224; une
+                valeur inf&#233;rieure, qui limite le moteur &#224; un r&#233;gime inf&#233;rieur au maximum, mais pas
+                au r&#233;gime de ralenti.
+            </para>
+            <para>Les codes&#160;133, 134 et&#160;135 causent des conditions intermittentes; ils demeurent ACTIFS jusqu'&#224;
+                ce que le moteur ait &#233;t&#233; arr&#234;t&#233; et red&#233;marr&#233;. Ils ne reviennent pas sans
+                avoir qu'on ait proc&#233;d&#233; &#224; un cycle du commutateur d'allumage.
+            </para>
+            <figure id="f17503012.8" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8805.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>Sch&#233;ma du syst&#232;me du capteur de p&#233;dale d'acc&#233;l&#233;rateur</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Consulter S08285&#160;- Sch&#233;mas du circuit &#233;lectrique&#160;- 4200/4300/4400.</para>
+                </note>
+            </specpara>
+            <figure id="f17503012.5" figsize="full-pg">
+                <graphic filename="../figEg8/Eg8825.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="592px"/>
+                <caption>Diagramme de d&#233;pannage de capteur&#160;APS/IVS</caption>
+            </figure>
+            <verbatim>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line>CETTE PAGE A &#201;T&#201; LAISS&#201;E VIERGE INTENTIONNELLEMENT</line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+            </verbatim>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215_51.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215_53.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="fges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

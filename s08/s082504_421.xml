@@ -1,0 +1,462 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 3200, 4100, 4200, 4300, 4400, 7300, 7400, 7500, 7600, 8500, 8600
+        Models Built After 05/19/2003 - CHASSIS FEATURES - REMOTE POWER MODULE - REMOTE POWER MODULE INSTALLATION
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="install" graphiccount="5">
+        <title>REMOTE POWER MODULE INSTALLATION</title>
+        <svcsubproc>
+            <title>Installing Remote Power Modules</title>
+            <para>The "ICAP" ESC programming software must be used to allow the ESC to recognize the installed RPM. The
+                ESC software will automatically configure the 6 switch pack associated with the RPM. The programming
+                software will configure the RPM to be identified as RPM #1, RPM #2, RPM #4 or RPM #7. The ESC
+                diagnostics will use these designations in the diagnostic trouble codes.
+            </para>
+            <para>Refer to
+                <hotlnk document="s082504_X082599A.xml" xrefid="x082599a">Component Locations</hotlnk>
+                for remote power module mounting locations.
+                <xref refid="x082599a"/>
+            </para>
+            <figure id="f0825987d" figsize="pg-wide">
+                <graphic filename="../figg08/g0825946.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <calloutgroup>
+                    <callout1>1. 23-WAY SIGNAL CONNECTOR</callout1>
+                    <callout1>2. 8-WAY DEVICE (OUTPUT) POWER CONNECTOR</callout1>
+                    <callout1>3. MODULE POWER FEED (DIRECT FROM BATTERY OR STARTER STUD)</callout1>
+                    <callout1>4. INPUT DATA LINK AND POWER CONNECTOR</callout1>
+                    <callout1>5. OUTPUT DATA LINK AND POWER CONNECTOR OR TERMINATING RESISTOR (3559775C1)</callout1>
+                </calloutgroup>
+            </figure>
+            <para>An overlay harness is available to connect the RPM to the body builder data link. The overlay harness
+                must be connected between the open connector of the first module and the open connector in the second.
+            </para>
+            <para>The RPM communicates with the ESC on the body builder data link. The RPM must be connected to the data
+                link correctly to operate. If the vehicle isn't already configured with a body builder data link,
+                circuits will have to be added. This includes connecting the ESC connector, adding a "Y" connector,
+                installing overlay harnesses and insuring terminating resistors are installed. Refer to
+                <hotlnk document="s082504_X082524.xml" xrefid="x082524">Body Builder Data Link</hotlnk>
+                <xref refid="x082524"/>
+                and the circuit diagram book for details.
+            </para>
+        </svcsubproc>
+        <svcsubproc id="x0825918">
+            <title>RPM ADDRESSING</title>
+            <specpara>
+                <note>
+                    <para>When the address of an existing RPM is changed or an additional RPM is added, the ESC
+                        programming must be changed accordingly.
+                    </para>
+                </note>
+            </specpara>
+            <para>Each RPM has a data link "address" established by way of the first six pins of the 23 pin signal
+                connector, location J4 shown in the
+                <hotlnk xrefid="t0825940">jumper location table</hotlnk>
+                <xref refid="t0825940"/>. Although the electrical multiplex system allows many signals to be
+                communicated through two wires, strict rules for addressing of these multiplexed modules must be
+                followed. In this system, all RPM modules are identical, but the addressing jumpers in the 23 pin
+                connector customizes each module with a unique address so communication with the Electrical System
+                Control module can be properly decoded.
+            </para>
+            <para>Any RPM installed by International should already have the proper "addressing jumper wires" installed
+                in the 23 pin signal connector. The technician must be careful to re-install the 23 pin signal connector
+                to the same RPM if the connector was temporarily removed to install remote switch input wires.
+            </para>
+            <para>The RPM system will not operate with the 23 pin connector removed and will log a diagnostic trouble
+                code (DTC).
+            </para>
+            <para>The 23 pin signal connector has a weather sealed membrane on the rear of the connector as long as
+                connector pins have not been installed. If connector pins are installed and then removed, the membrane
+                will be compromised and weather sealed pins need inserted into the cavities that previously had wires
+                installed. Test remote module operation when wiring modifications are complete.
+            </para>
+            <table id="t0825940" tblwidth="pg-wide">
+                <title>Jumper Locations</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="1.38in"/>
+                    <colspec colname="col2" colwidth="1.38in"/>
+                    <colspec colname="col3" colwidth="1.38in"/>
+                    <colspec colname="col4" colwidth="1.38in"/>
+                    <spanspec namest="col1" nameend="col4" spanname="SPAN1"/>
+                    <thead>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <graphic filename="../figg08/g08259a9.webp" type="webp" scalefit="1" scalefitwidth="352px"
+                                         scalefitheight="152px"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">RPM Location</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Jumper Location a.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Jumper Location b.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>
+                                    <emph type="bold">Jumper Location c.</emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>First RPM back of cab or under cab (RPM #1)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>X, pins 1 and 2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Second RPM back of cab or under cab (RPM #2)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>X, pins 3 and 4</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>RPM end of frame rail (RPM #4)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>X, pins 5 and 6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>RPM forward frame rail (RPM #7)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>X, pins 1 and 2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>X, pins 3 and 4</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>X, pins 5 and 6</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>RPM Output Power Connector Circuits</title>
+            <specpara>
+                <note>
+                    <para>The virtual fuse in the RPM will trip during a short. Cycling the assigned control switch will
+                        reset the fuse.
+                    </para>
+                </note>
+            </specpara>
+            <table id="t0825916a" tblwidth="pg-wide">
+                <title>RPM Output Power Connector</title>
+                <tgroup cols="3">
+                    <colspec colnum="1" colname="COLSPEC0" colwidth="1.83in"/>
+                    <colspec colnum="2" colname="col1" colwidth="1.83in"/>
+                    <colspec colnum="3" colname="col2" colwidth="1.83in"/>
+                    <spanspec namest="COLSPEC0" nameend="col2" spanname="SPAN1"/>
+                    <thead>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Power Connector</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <graphic filename="../figg08/g082594.webp" type="webp" scalefit="1" scalefitwidth="192px"
+                                         scalefitheight="192px"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0" align="center">
+                                <para>Pin</para>
+                            </entry>
+                            <entry colname="col1" align="center">
+                                <para>Signal Name</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Signal Direction</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>A</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Output #1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Output</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>B</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Output #2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Output</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>C</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Output #3</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Output</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>D</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Output #4</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Output</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>E</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Output #5</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Output</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>F</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Not Used</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>G</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Not Used</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC0">
+                                <para>H</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Output #6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Output</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>CHASSIS SWITCH INPUTS TO RPM'S</title>
+            <para>The RPM has inputs on the module itself that can be programmed to control the outputs. The output
+                channels may be controlled remotely by using a three position momentary single pole, double throw switch
+                on each remote switch input. In this case, battery volts should be connected to one pole of the switch
+                and ground should be connected to the other. Applying battery volts to the remote switch input shall
+                turn the output channel "ON". Applying ground to the remote switch input shall turn the output channel
+                off.
+            </para>
+            <table id="t0825930" tblwidth="pg-wide">
+                <title>Remote Power Module Signal Connector</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.98in"/>
+                    <colspec colname="col2" colwidth="2.28in"/>
+                    <colspec colname="col3" colwidth="2.88in"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <thead>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Signal Connector</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <graphic filename="../figg08/g08259e9.webp" type="webp" scalefit="1" scalefitwidth="352px"
+                                         scalefitheight="192px"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Pin</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Signal Name</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Signal Direction</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>18</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Input # 1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Switch input</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>19</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Input # 2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Switch input</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>20</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Input # 3</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Switch input</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>21</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Input # 4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Switch input</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>22</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Input # 5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Switch input</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>23</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Input # 6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Switch input</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f0825999" figsize="pg-wide">
+                <graphic filename="../figg08/g0825989.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="352px"/>
+                <caption>RPM-Chassis Switch Circuits</caption>
+                <calloutgroup>
+                    <callout1>1. RPM 23-WAY SIGNAL CONNECTOR</callout1>
+                    <callout1>2. USER PROVIDED SWITCH</callout1>
+                    <callout1>3. USER PROVIDED LOAD DEVICE</callout1>
+                    <callout1>4. RPM 8-WAY DEVICE (OUTPUT) POWER CONNECTOR</callout1>
+                </calloutgroup>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504_X0825915.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504_X082599A.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

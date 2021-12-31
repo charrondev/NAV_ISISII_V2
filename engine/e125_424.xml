@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (1997) - SECTION 3.5: CIRCUIT FUNCTION AND DIAGNOSTICS - VEHICLE
+        PERSONALITY MODULE - PROGRAMMING AND SOFTWARE FAULTS
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="proctype" graphiccount="0">
+        <title>PROGRAMMING AND SOFTWARE FAULTS</title>
+        <svcsubproc>
+            <title>FLASH CODE 613 - ATA CODE SID 252 FMI 1 - VPM: VPM/ECM SW MISMATCH - FLASH CODE 614 - ATA CODE SID
+                252 FMI 13 - ECM: ECM/VPM SW MISMATCH
+            </title>
+            <para>Codes 613 and 614 will only occur when the VPM or ECM has been
+                <emph type="bold">changed in the field</emph>. At start-up, the ECM compares software versions in the
+                VPM and ECM. If the versions are not compatible, codes 613 or 614 and 622 will be set. Code 622
+                indicates Field Defaults are being used and turns ON the Engine Warning Light.
+            </para>
+            <para>If codes 613 and 614 are active:</para>
+            <step1>
+                <para count="1">The ECM and VPM must be software compatible. Whichever component (ECM or VPM) was
+                    recently replaced is not the correct part number (has software version that is not compatible with
+                    the component (ECM or VPM) that was not changed). Determine correct part number and install.
+                </para>
+                <para>The component having the most recent software configuration date sets the code (613 or 614).
+                </para>
+                <para>Example: If the VPM is replaced and the replacement VPM software version is of a later date than
+                    the ECM software in the vehicle, the fault code (613) will indicate that the ECM software is not
+                    compatible with the VPM.
+                </para>
+                <para>Example: If the replacement VPM installed had a software date older than the ECM software, the
+                    fault code (614) would indicate that the VPM software is not compatible with the ECM.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 615 - ATA CODE SID 254 FMI 13 - ECM: PROGRAMMABLE PARAMETER KAM CORRUPT MEMORY</title>
+            <para>At start-up, the ECM performs tests on the KAM memory, where programmable parameter information will
+                be stored when retrieved from the VPM. If the KAM memory test fails (bad memory or corrupt data), then
+                Flash code 615 will be set. The engine will operate on Field defaults turning ON the Engine Warning
+                Light and setting code 622. If the condition causing code 615 to set is intermittent, and the condition
+                is no longer present, the code will change to inactive status and the engine will operate normally.
+            </para>
+            <para>Flash Code 615 can also be caused by no or low power to KAM memory at ECM terminal 1 which could cause
+                code 224 to be set.
+            </para>
+            <para>If code 615 is active:</para>
+            <step1>
+                <para count="1">Refer to SECTION 3: KEEP ALIVE MEMORY CIRCUIT.</para>
+                <step2>
+                    <para count="1">If a defect is found in KAM Feed Circuit, correct defect.</para>
+                </step2>
+                <step2>
+                    <para count="1">If KAM power is present to ECM terminal 1, and code 615 is active, attempt to clear
+                        code 615. If code 615 continues to be set, replace the ECM.
+                    </para>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 621 - ATA CODE SID 253 FMI 1 - ECM: ECM USING MANUFACTURING DEFAULTS</title>
+            <para>
+                <emph type="bold">SYMPTOM:</emph>Engine operates, but limited to 25 HP rating and Engine Warn Light is
+                ON.
+            </para>
+            <para>If the VPM is not programmed at the factory OR an unprogrammed VPM is installed in the field, then the
+                ECM will select parameter values from the Manufacturing Default list. This list will provide only
+                limited engine horsepower (25 HP). If the condition that caused code 621 to set is intermittent, and the
+                condition is no longer present, the code will change to inactive status and the engine will operate
+                normally.
+            </para>
+            <para>If code 621 is active:</para>
+            <para>A. Program the VPM using established programming procedures included in the Prolink Manual.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 622 - ATA CODE SID 253 FMI 0 - ECM: ECM USING FIELD DEFAULTS</title>
+            <para>
+                <emph type="bold">SYMPTOM:</emph>Engine Warning Light ON, customer options disabled (cruise control
+                etc.) and the engine is limited to 175 HP.
+            </para>
+            <para>When the vehicle is not operating under normal operating conditions, the ECM uses either partial or
+                full field default values stored in ECM memory, instead of programmed values that are stored in VPM
+                memory. When the ECM is using Full Field Default values, code 622 is set. If the condition causing the
+                ECM to operate using field defaults is intermittent, and the condition is no longer present, code 622
+                will become inactive and normal engine operation will resume.
+            </para>
+            <para>Code 622 is an indicator that field defaults are being used. Other codes cause code 622 to be set. The
+                other codes identify the condition that caused the ECM to use field defaults.
+            </para>
+            <para>If, for any reason, the ECM is unable to down load parameter values from the VPM or the parameter
+                values received from the VPM are not valid, then the ECM selects full or partial Field Default parameter
+                values. The Field Default parameter values are stored in the ECM. If no data is available from the VPM,
+                full field defaults are used. If only certain data is corrupt, then partial field defaults may be used.
+            </para>
+            <para>If code 622 is active:</para>
+            <step1>
+                <para count="1">Review other logged codes. The specific values that the ECM is unable to download and/or
+                    reason for the communication failure must be determined and corrected. When corrected, the ECM will
+                    not use the field default mode of operation.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FLASH CODE 623 - ATA CODE SID 253 FMI 13 - ECM: INVALID EFRC</title>
+            <para>This code indicates that the ECM requested, and was unable to get valid Engine Family Rating codes
+                from the VPM. If this occurs, the code 623 is set and the engine operates on Field Defaults causing code
+                622 to be set. If the condition causing code 623 to set is intermittent, and the condition is no longer
+                present, code 623 will become inactive and normal engine operation will resume.
+            </para>
+            <para>If code 623 is active, reprogram the VPM with the proper engine family data.</para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_423.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_425.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>AFC 08902R - CityStar Metric Cluster Reprogram</stitle>
+    <afc id="afc08902">
+        <afcnum>08902R</afcnum>
+        <afcdate>February, 2008</afcdate>
+        <subjectfile>Electrical</subjectfile>
+        <subject>CityStar Metric Cluster Reprogram</subject>
+        <apply>
+            <configure>
+                <truckmodelgroup/>
+
+                <truckmodel>CityStar
+                    <daterange>
+                        <startdate>09/21/2007</startdate>
+                        <enddate>12/11/2007</enddate>
+                    </daterange>
+                </truckmodel>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <para>CityStar trucks built between 09/01/2007 thru 12/11/2007 with feature code 016HBB, English gauge
+                    cluster with Metric speedometer, were shipped with the odometer displaying "Miles" instead of
+                    "Kilometers". This AFC letter describes the procedure for reprogramming the odometer to display
+                    kilometers.
+                </para>
+                <para>
+                    <emph type="bold">NOTE:</emph>
+                    Before performing procedure, verify that the odometer is displaying miles.
+                </para>
+            </geninfo>
+        </description>
+        <svcproc svcproctype="repair" graphiccount="9">
+            <title>Service Procedure</title>
+            <specpara>
+                <warning>
+                    <para>To avoid personal injury or death, shift transmission to neutral or park, set parking brake,
+                        and block wheels before doing diagnostic or service procedures.
+                    </para>
+                </warning>
+            </specpara>
+            <para>The EZ-Tech can be used to change the units of measure for the odometer. A software tool called
+                "Helios" will need to be downloaded from International via the Internet if it is not already loaded on
+                the EZ-Tech.
+            </para>
+            <step1>
+                <para count="1">With the EZ-Tech connected to the Internet, select the "Helios" button on the EZ-Tech
+                    interface.
+                </para>
+            </step1>
+            <figure id="f08080101" figsize="pg-wide">
+                <graphic filename="../afcfigures/g08080101.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="328px"/>
+            </figure>
+            <para>The software program will begin installing on the EZ-Tech. You may be prompted to confirm adding a
+                shortcut to the desktop for Helios. Select "Yes". Helios will then launch and the screen should look
+                like this:
+            </para>
+            <figure id="f08080102" figsize="pg-wide">
+                <graphic filename="../afcfigures/g0890202.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="408px"/>
+            </figure>
+            <step1>
+                <para count="1">Using the communication cable, connect the EZ-Tech to the 9-pin diagnostic connector.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Select "Tools" from the menu, then "Select Com Link", then select the communication
+                    cable that is being used; i.e., IC4USB32, IC4COM, etc.
+                </para>
+            </step1>
+            <figure id="f08080103" figsize="pg-wide">
+                <graphic filename="../afcfigures/g0890203.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="248px"/>
+            </figure>
+            <step1>
+                <para count="1">With the key in the Ignition position, in the "Cable:" drop down box with the value of
+                    "Disconnected", select "J1939"
+                </para>
+            </step1>
+            <figure id="f08080104" figsize="pg-wide">
+                <graphic filename="../afcfigures/g0890204.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="248px"/>
+            </figure>
+            <step1>
+                <para count="1">In the "Data Log" window, datalink traffic will begin to appear. This is an indication
+                    that the EZ-Tech is connected properly to the vehicle and is receiving data.
+                </para>
+            </step1>
+            <figure id="f08080105" figsize="pg-wide">
+                <graphic filename="../afcfigures/g08080105.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="328px"/>
+            </figure>
+            <step1>
+                <para count="1">Open the text file "CF_Msg" on EZ-Tech desktop by double clicking the file icon. After
+                    the file is open, highlight the text and then copy it by pressing the right button on the EZ-Tech
+                    mouse pad and selecting "Copy".
+                </para>
+            </step1>
+            <figure id="f08080106" figsize="col-wide">
+                <graphic filename="../afcfigures/g08080106.webp" type="webp" scalefit="1" scalefitwidth="72px"
+                         scalefitheight="72px"/>
+            </figure>
+            <figure id="f08080107" figsize="pg-wide">
+                <graphic filename="../afcfigures/g08080107.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="168px"/>
+            </figure>
+            <step1>
+                <para count="1">Back in the Helios window, select the transmit box at the bottom of the window by
+                    pressing the left button on the mouse pad while the mouse pointer is in the box. Then press and hold
+                    the "CTRL" key and press the "V" key to paste the text into the transmit box. The box is only wide
+                    enough to display the last 16 characters. Then press the "send" button.
+                </para>
+            </step1>
+            <figure id="f08080108" figsize="pg-wide">
+                <graphic filename="../afcfigures/g08080108.webp" type="webp" scalefit="1" scalefitwidth="502px"
+                         scalefitheight="168px"/>
+            </figure>
+            <step1>
+                <para count="1">The characters following the odometer reading should change from "Mi" to "Km".</para>
+            </step1>
+            <figure id="f08080109" figsize="col-wide">
+                <graphic filename="../afcfigures/g08080109.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="168px"/>
+            </figure>
+            <para>Each time the "Send" button is pressed, the odometer will change. So if the "Send" button is pressed
+                again, the odometer will change back to "Mi"
+            </para>
+            <step1>
+                <para count="1">Turn the Key to the "OFF" position, close the Helios window, and disconnect the
+                    communication cable.
+                </para>
+            </step1>
+        </svcproc>
+        <laborinfo>
+            <para>Operation number must appear on all claims.</para>
+            <table id="t0791501" tblwidth="pg-wide">
+                <title>Labor Information</title>
+                <tgroup cols="3" align="center">
+                    <colspec colname="col1" colwidth="1.70in"/>
+                    <colspec colname="col2" colwidth="3.01in"/>
+                    <colspec colname="col3" colwidth="1.57in"/>
+                    <thead>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Operation No.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Description</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>
+                                    <emph type="bold">Time</emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>A40-08902-1</para>
+                            </entry>
+                            <entry>
+                                <para>Reprogram Odometer</para>
+                            </entry>
+                            <entry>
+                                <para>0.7 Hr.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </laborinfo>
+        <claims>
+            <para>
+                <title>ADMINISTRATIVE PROCEDURE</title>
+            </para>
+            <para>Expense is to be charged to Warranty.
+                <hotlnk xrefid="afclaim">Claims</hotlnk>
+                are to be submitted in the normal manner, making reference to Authorized Field Change Number G-08902.
+            </para>
+            <para>It is important that the coding be completed properly to assist in processing the warranty claim.
+                Complete instructions will be found in the Warranty Manual, Section 7-1. Special attention should be
+                given to Items 39 through 44.
+            </para>
+            <para>To assure this important improvement is made in a timely manner, all claims for G-08902 activity must
+                be submitted by February 28, 2009 or within the normal warranty period for the vehicle, if after
+                February 28, 2009.
+            </para>
+            <figure id="afclaim" figsize="pg-wide">
+                <graphic filename="../afcfigures/afclaim.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="352px"/>
+            </figure>
+        </claims>
+    </afc>
+</isis>

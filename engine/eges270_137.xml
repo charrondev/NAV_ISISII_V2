@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - ECL Sensor (Engine Coolant Level)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>ECL Sensor (Engine Coolant Level)</title>
+        <svcprocinfo>
+            <figure id="f27007049" figsize="pg-wide">
+                <graphic filename="../figh31/h31033.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for the ECL system</caption>
+            </figure>
+            <para id="s27005023">The ECM monitors engine coolant level and alerts the operator when coolant is low. The
+                ECM can be programmed to shut the engine off when coolant is low.
+            </para>
+            <para id="ECL">The ECL system includes the Electronic Control Module (ECM) and the engine coolant tank with
+                a coolant level sensor. The ECL switch is used in the plastic deaeration tank.
+            </para>
+            <para>Coolant level monitoring is a customer programmable feature that can be programmed by the EST. The
+                coolant level feature is operational if programmed for 3-way warning or 3-way protection. The feature
+                can not be enabled if the ECM was not factory programmed for 3-way protection.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>ECL Circuit Operation</title>
+            <figure id="f27007050" figsize="pg-wide">
+                <graphic filename="../figh31/h31064.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="532px"/>
+                <caption>ECL circuit diagram</caption>
+            </figure>
+            <para>The coolant level sensor uses a floating ball with a magnetic switch. When the coolant level is full,
+                the float will rise and the magnet will pull the level switch open. This allows a 5 V signal at ECM Pin
+                X3-4. When the level is low, the switch will close and ECM Pin X3-4 will be 0 V.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM continuously monitors the ECL circuit for in-range faults. The ECM does not detect open or
+                short circuits in the ECL system. When the ECM detects an in-range fault, DTC 236 will be set.
+            </para>
+            <para>
+                <title>ECL Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red ENGINE lamp.</para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 236</emph>
+                </line>
+                <line>
+                    <emph type="bold">ECL switch circuit fault</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 236 is set when the ECM detects an in-range fault voltage and the voltage is between 3.4 V
+                        and 4.3 V at ECM Pin X3-4 for more than 2.0 seconds.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 236 is set when a high resistance connection or intermittent short to ground in the
+                        circuit exists.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 236 will not illuminate the red ENGINE lamp. If the condition is intermittent, the DTC
+                        will be logged as inactive.
+                    </para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECL Pin-Point Diagnostics</title>
+            <figure id="f27007051" figsize="pg-wide">
+                <graphic filename="../figh31/h31064.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="532px"/>
+                <caption>ECL system circuit diagram</caption>
+            </figure>
+            <para>The ECL circuit may require the use of vehicle circuit diagrams. See truck Chassis Electrical Circuit
+                Diagram Manualfor circuit numbers, connector and fuse locations.
+            </para>
+            <table id="te27007040" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.06in"/>
+                    <colspec colname="col2" colwidth="1.09in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Coolant Level Sensor Connector</emph>
+                                    (Disconnect sensor from harness and turn the ignition switch to ON. Test with
+                                    coolant level full.)
+                                    <emph type="bold">Note:</emph>
+                                    After removing connector, inspect for damaged pins, corrosion, or loose pins. Repair
+                                    as required.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage &#60; 5 V, check for open signal circuit or failed ECM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage > 0 V, check for signal circuit shorted to another circuit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Sensor Resistance Checks</emph>
+                                    (Disconnect sensor connector and measure across sensor)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for low coolant, failed sensor, or shorted sensor
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Turn the ignition switch to OFF. Connect breakout box to chassis harness only.
+                                    Disconnect sensor.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open ground wire</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-4 to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open signal wire (breakout box connected)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Operational Voltage Checks for ECL</emph>
+                                    (Check with breakout box connected and sensor connected. Turn the ignition switch to
+                                    ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-4 to X3-7</para>
+                            </entry>
+                            <entry>
+                                <para>5 V</para>
+                            </entry>
+                            <entry>
+                                <para>Voltage > 4.3 V with tank full. Voltage &#60; 3.4 V with tank empty (use breakout
+                                    box)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>ECL Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 236 = Signal voltage between 3.4 V and 4.3 V more than 2.0 seconds.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_136.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_138.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

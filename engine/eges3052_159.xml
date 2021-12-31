@@ -1,0 +1,683 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - MAT
+        (Manifold Air Temperature) Sensor
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.33" svcproctype="diagnose" graphiccount="6">
+        <title>MAT (Manifold Air Temperature) Sensor</title>
+        <svcprocinfo id="s305010706.33.1">
+            <figure id="f3050107159" figsize="pg-wide">
+                <graphic filename="../figj31/j31221.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Functional diagram for the MAT sensor</caption>
+            </figure>
+            <para id="s305010706.30.1.1"></para>
+            <table id="t3050107321" type="simple" frame="topbot">
+                <title>The functional diagram for the MAT sensor includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Manifold Air Temperature (MAT) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Exhaust Gas Recirculation (EGR) valve assembly</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Amber Lamp (Warn Engine Lamp (WEL) for CF)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Function</title>The MAT sensor is installed in the left side of the intake manifold. The ECM
+                supplies a 5 volt reference signal that the MAT sensor uses to produce an analog voltage that indicates
+                temperature. The MAT changes resistance when exposed to different temperatures. As air temperature
+                decreases, the resistance of the thermistor increases. This causes the signal voltage to increase. As
+                air temperature increases, the resistance of the thermistor decreases. This causes the signal voltage to
+                decrease.
+            </para>
+            <para>The MAT sensor provides a feedback signal to the ECM indicating manifold air temperature. During
+                engine operation, if the ECM recognizes that the MAT signal is lower or higher than the expected value
+                it will set a Diagnostic Trouble Code (DTC).
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.33.2">
+            <title>MAT Circuit Operation</title>
+            <figure id="f3050107160" figsize="pg-wide">
+                <graphic filename="../figj31/j31222.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>MAT circuit diagram</caption>
+            </figure>
+            <para>The MAT sensor is supplied with a 5 volt reference voltage at Pin 2 from ECM Pin X2-14. The sensor is
+                grounded at Pin 1 through the signal ground at ECM Pin X1-6. As the air temperature increases or
+                decreases, the sensor changes resistance and provides the air temperature signal voltage at the ECM. The
+                signal voltage is monitored by the ECM to determine the temperature of the air.
+            </para>
+            <para>
+                <title>Fault Detection/Management</title>The ECM continuously monitors the signal of the MAT sensor to
+                determine if the signal is within an expected range. If the ECM detects the signal voltage is higher or
+                lower than expected, the ECM will set a DTC.
+            </para>
+            <para>
+                <title>MAT DTCs</title>DTCs are read using the EST or by counting the flashes from the amber and red
+                lamps.
+            </para>
+            <table id="t3050107322" type="simple" frame="topbot">
+                <title>DTC 161</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>MAT signal out of range low</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 161 is set by the ECM when the signal voltage is less than 0.098 volts for
+                                    more than 0.35 seconds.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 161 can be set due to a short to ground in the signal circuit or a failed MAT
+                                    sensor.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>When DTC 161 is active the amber lamp (WEL for CF) is illuminated.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107323" type="simple" frame="topbot">
+                <title>DTC 162</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>MAT signal out of range high</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 162 is set by ECM when the signal voltage is greater than 4.58 volts for more
+                                    than 0.35 seconds.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 162 can be set due to an open signal or ground circuit , short to a voltage
+                                    source, or a failed MAT sensor.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>When DTC 162 is active the amber lamp (WEL for CF) is illuminated.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107324" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech&#174; interface cable</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Digital Multimeter (DMM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>3-Banana plug harness</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>500 Ohm resistor harness</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Breakout Box</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Breakout harness</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Terminal Test Adapter Kit</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="s305010706.33.3">
+            <title>MAT Operational Diagnostics</title>
+            <figure id="f3050107161" figsize="col-wide">
+                <graphic filename="../figj31/j31240.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Continuous Monitor session</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>To avoid personal injury, use care to prevent contact with the door edge when the cab is up
+                        and the door is open.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Select D_ContinuousMonitor.ssn from the Open Session File window, select Open to open
+                    the session.
+                </para>
+            </step1>
+            <figure id="f3050107162" figsize="col-wide">
+                <graphic filename="../figj31/j31046.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Continuous Monitor test</caption>
+            </figure>
+            <step1>
+                <para count="1">Select Diagnostics from the menu bar.</para>
+            </step1>
+            <step1>
+                <para count="1">Select Key-On Engine-Off Tests from the drop down menu.</para>
+            </step1>
+            <step1>
+                <para count="1">From the KOEO Diagnostics menu, select Continuous Monitor and select Run to start the
+                    test.
+                </para>
+            </step1>
+            <specpara>
+                <warning>
+                    <para>To avoid personal injury, death, including damage to the engine or vehicle, be careful around
+                        rotating parts (belts and fan) and hot engine surfaces.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Monitor MAT signal voltage. Verify an active DTC for the MAT circuit.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is active, do step 8 and 9 to check circuit for the MAT sensor using the
+                    following table.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If code is inactive, wiggle connectors and wires at all suspected problem locations. If
+                    circuit continuity is interrupted, the EST will display DTCs related to the condition.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Disconnect engine harness from temperature sensor.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Inspect connectors for damaged pins, corrosion, or loose pins. Repair if necessary.</para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Connect Temperature Sensor Breakout Harness to engine harness only.</para>
+            </step1>
+            <figure id="f3050107163" figsize="col-wide">
+                <graphic filename="../figj31/j31087.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Close session</caption>
+            </figure>
+            <step1>
+                <para count="1">When finished with this test, select Session from menu bar, then Close.</para>
+            </step1>
+            <table id="t3050107325" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Circuit Checks - MAT Sensor</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.05in"/>
+                    <colspec colname="col2" colwidth="0.71in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Use EST, breakout harness, and wire harnesses - 3-Banana plug and 500 ohm.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Condition</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 4.58 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage less than 4.58 volts, check signal circuit for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3-Banana plug harness installed between Pin 2 (GREEN) and Pin 1 (BLACK) pin of
+                                    breakout harness.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is greater than 0.098 volts, check ground and signal circuit for open
+                                    or high resistance. Use a Breakout Box and measure resistance from PIN 1 to PIN X1-6
+                                    and from PIN 2 to X2-14 (specification &#60; 5 &#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>500 Ohm resistor harness installed between Pin 2 (GREEN) and Pin 1 (BLACK) pin of
+                                    breakout harness.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 1.0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage greater than 1.0 volts, check signal circuit for short to V
+                                    <subscript>REF</subscript>, B+, or another sensor's signal voltage.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>Connect engine harness to sensor. Use the EST to clear DTCs. If an active code
+                                        remains after checking test conditions, replace the MAT sensor.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="s305010706.33.4">
+            <title>MAT Pin-Point Diagnostics</title>
+            <figure id="f3050107164" figsize="pg-wide">
+                <graphic filename="../figj31/j31222.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>MAT circuit diagram</caption>
+            </figure>
+            <table id="t3050107326" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - Connector</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.94in"/>
+                    <colspec colname="col2" colwidth="1.02in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect harness from sensor. Inspect for bent pins
+                                    or corrosion. Connect breakout harness to engine harness only. Turn ignition switch
+                                    to ON.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 0.25 volts, signal wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or battery
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4.6 to 5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Pull up voltage, if no voltage, circuit has open or high resistance or short to
+                                    ground
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107327" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Resistance Checks - Connector to Chassis Ground</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.94in"/>
+                    <colspec colname="col2" colwidth="1.02in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect negative battery cable. Disconnect harness
+                                    from sensor. Connect breakout harness to engine harness only. Use disconnected
+                                    negative battery cable for ground test point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open circuit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for shorted signal to ground</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107328" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.94in"/>
+                    <colspec colname="col2" colwidth="1.02in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid engine damage, turn ignition switch to OFF before unplugging the
+                                        connector or relay for the ECM. Failure to turn ignition switch to OFF will
+                                        cause a voltage spike and damage to electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Connect breakout box X1 and X2 only to engine
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-6 to 1</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open ground wire.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-14 to 2</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If greater than 5 &#x2126;, check for open signal wire.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107329" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Operational Voltage Checks - MAT Sensor</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="1.51in"/>
+                    <colspec colname="col2" colwidth="1.50in"/>
+                    <colspec colname="COLSPEC0" colwidth="2.56*"/>
+                    <colspec colname="col3" colwidth="3.44*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Use EST and DMM. Connect Breakout Box ECM and engine
+                                    harness with MAT sensor connected. Turn ignition switch to ON, do not crank the
+                                    engine.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Temp</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Resistance</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Voltage</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X2-14 to X1-6 (gnd)</para>
+                            </entry>
+                            <entry>
+                                <para>-17 &#176;C (0 &#176;F)</para>
+                            </entry>
+                            <entry>
+                                <para>230.3 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>4.63 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-14 to X1-6 (gnd)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 &#176;C (32 &#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>98.2 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>4.39 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-14 to X1-6 (gnd)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>20 &#176;C (68 &#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>35.77 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>3.8 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-14 to X1-6 (gnd)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>37 &#176;C (100 &#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>17.74 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>3.13 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-14 to X1-6 (gnd)</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>100 &#176;C (212 &#176;F)</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>2.2 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>0.9 V</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">MAT Diagnostic Trouble Code</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>DTC 161 = Signal voltage was less than 0.098 volts for more than 1.0 seconds
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>DTC 162 = Signal voltage was greater than 4.58 volts for more than 1.0 seconds
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_158.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_160.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

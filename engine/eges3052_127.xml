@@ -1,0 +1,1769 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - APS/IVS
+        (Accelerator Pedal Position Sensor and Idle Validation Switch)
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.2" svcproctype="diagnose" graphiccount="10">
+        <title>APS/IVS (Accelerator Pedal Position Sensor and Idle Validation Switch)</title>
+        <svcprocinfo id="s305010706.2.1">
+            <figure id="f305010712" figsize="pg-wide">
+                <graphic filename="../figj31/j31189.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for APS/IVS</caption>
+            </figure>
+            <para id="s305010706.2.1.1"></para>
+            <table id="t305010713" type="simple" frame="topbot">
+                <title>The Function Diagram for the APS/IVS includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Accelerator Pedal Position Sensor and Idle Validation Switch (APS/IVS)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Injection Control Pressure Regulator (IPR)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Boost Control Solenoid (BCS)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Injection Driver Module (IDM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Fuel injector</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Amber lamp (Warn Engine Lamp (WEL) for CF)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Function</title>The APS/IVS sensor is a cab mounted potentiometer sensor. When the APS receives a
+                5 volt reference signal and a ground from the ECM, a linear analog voltage signal from the sensor will
+                indicate the operator's demand for power. The IVS provides 0 or 12 volts to the ECM as redundant signal
+                to verify the pedal idle position.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.2.2">
+            <title>APS/IVS Circuit Operation</title>
+            <figure id="f305010713" figsize="pg-wide">
+                <graphic filename="../figj31/j31060.webp" type="webp" scalefit="1" scalefitwidth="448px"
+                         scalefitheight="352px"/>
+                <caption>APS/IVS circuit diagram (CF)</caption>
+            </figure>
+            <para>The APS/IVS are integrated into one component and mounted on the accelerator pedal assembly. The
+                APS/IVS sensor can be replaced without replacing the complete assembly.
+            </para>
+            <para>The ECM determines the accelerator pedal position by processing input signals from the APS and the
+                IVS.
+            </para>
+            <para>The accelerator pedal position is one of the controlling variables in the calculation of desired
+                injection control pressure.
+            </para>
+            <para>
+                <title>APS</title>The ECM supplies a regulated 5 volt signal from ECM chassis connector Pin X4-4 to APS
+                connector Pin C. The APS returns a variable voltage signal (depending on pedal position) from the APS
+                connector Pin A to ECM Pin X4-18. The APS is grounded at Pin B from the ECM Pin X4-24.
+            </para>
+            <para>
+                <title>APS Auto-Calibration</title>The ECM learns the lowest and highest pedal positions by reading and
+                storing the minimum and maximum voltage levels from the APS. In this manner the ECM auto-calibrates the
+                system to allow maximum pedal sensitivity. The ECM auto-calibrates as ignition switch is on, but when
+                ignition switch is turned OFF, these values are lost. When ignition switch is turned on again, this
+                process starts over. When the pedal is disconnected (or a new one is installed), the pedal does not need
+                to be calibrated. It simply auto-calibrates the new pedal assembly whenever ignition switch is turned on
+                again.
+            </para>
+            <para>
+                <title>IVS</title>The ECM expects to receive one of two signals through the ECM chassis connector Pin
+                X4-12 from APS/IVS connector Pin D:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>0 volts when the pedal is at the idle position.</para>
+                </item>
+                <item>
+                    <para>B+ when the pedal is depressed</para>
+                </item>
+            </randlist>
+            <para>The IVS receives a 12 volt ignition voltage at Pin F from the ignition fuse in the power distribution
+                box. When the pedal is not in the idle position (throttle applied), the IVS supplies a 12 volt signal to
+                the ECM.
+            </para>
+            <para>The ECM compares APS/IVS inputs to verify when the pedal is in the idle position. If the APS signal at
+                Pin X4-18 indicates throttle is being applied, the ECM expects to see 12 volts at the IVS. If the APS
+                signal indicates throttle is not applied, the ECM expects to see 0 volts at the IVS. The timing process
+                is critical between the APS and IVS sensors. For this reason, it is very difficult to determine if the
+                APS/IVS assembly is working correctly when using a DMM.
+            </para>
+            <para>
+                <title>Fault Detection/Management</title>When ignition switch is on, the ECM continuously monitors the
+                APS/IVS circuits for expected voltages. It also compares the APS and IVS signals for conflict. If the
+                signals are not what the ECM expects to see, DTCs will be set.
+            </para>
+            <para>Any detected malfunction of the APS/IVS sensor circuit will illuminate the amber WEL. If the ECM
+                detects an APS signal Out of Range HIGH or LOW, the engine will ignore the APS signal and operate at low
+                idle. If a disagreement in the state of IVS and APS is detected by the ECM and the ECM determines that
+                it is an IVS fault, the ECM will only allow a maximum of 50% APS to be commanded. If the ECM cannot
+                discern if it is an APS or IVS fault, the engine will be allowed to operate at low idle only.
+            </para>
+            <para>
+                <title>APS/IVS DTCs</title>DTCs are read using the Electronic Service Tool (EST) or by counting the
+                flashes from the amber and red lamps.
+            </para>
+            <specpara>
+                <note>
+                    <para>If multiple APS/IVS DTCs are present, verify the APS/IVS part number is correct for the
+                        specific vehicle model.
+                    </para>
+                </note>
+                <note>
+                    <para>If elevated low idle rpm is experienced after replacing the pedal assembly or APS/IVS sensor,
+                        and there are no DTCs present, check pedal assembly or APS/IVS sensor part numbers for
+                        correctness.
+                    </para>
+                </note>
+            </specpara>
+            <table id="t305010714" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 131</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="1">
+                            <entry>
+                                <para>APS Out of Range Low (ORL)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 131 is set if the ECM detects less than 0.147 volts. Possible causes include a
+                                    short to ground or an open in the APS signal circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 131 can be set due to a short to ground or an open V
+                                    <subscript>REF</subscript>
+                                    or signal circuits. If the condition causing DTC 131 is intermittent and the
+                                    condition is no longer present, the code will become inactive and normal engine
+                                    operation will resume.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>When DTC 131 is active the amber lamp (WEL for CF) is illuminated.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010715" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 132</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="1">
+                            <entry>
+                                <para>APS Out of Range High (ORH)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 132 is set if the ECM detects greater than 4.55 volts then the ECM restricts
+                                    engine speed to idle.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 132 can be set due to a short to V
+                                    <subscript>REF</subscript>
+                                    or B+ in the APS signal circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>When DTC 132 is active the amber lamp will be illuminated.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010716" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 133, 134 and 135</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="1">
+                            <entry>
+                                <para>APS in-range faults</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>The ECM checks the voltage output of the APS by comparing the APS signal with the
+                                    IVS signal. APS and IVS signals can disagree in two cases:
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>The APS signal indicates the pedal is pressed down to accelerate, but the
+                                            IVS signal indicates idle position.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>The APS signal indicates the pedal has been released to allow the engine
+                                            to return to idle, but the IVS signal indicates off-idle position of the
+                                            pedal.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>If the ECM detects either of the above conditions, the ECM attempts to isolate the
+                                    source of conflict and set the appropriate DTC.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010717" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 133</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="1">
+                            <entry>
+                                <para>APS signal in-range DTC</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>If the IVS signal is changing and the APS signal is constant, the ECM assumes the
+                                    APS is the conflict source and sets DTC 133. The engine rpm is restricted to idle.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>When DTC 133 is active the amber lamp (WEL for CF) is illuminated.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010718" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 134</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>APS signal and IVS disagree</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>If neither the APS or IVS is changing, or both are changing, or the ECM cannot
+                                    determine the DTC in specified time, DTC 134 is set and engine rpm is restricted to
+                                    idle.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>When DTC 134 is active the amber lamp (WEL for CF) is illuminated.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010719" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 135</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>IVS circuit fault</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>If the APS is changing but IVS is constant, the ECM assumes the IVS is the
+                                    conflict source and sets DTC 135. In this case the ECM limits the APS signal to a
+                                    lower value that provides less than full rpm, but does not limit engine rpm to idle.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="1">
+                            <entry>
+                                <para>When DTC 135 is active the amber lamp (WEL for CF) is illuminated.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <note>
+                                    <para>DTC 133, 134, and 135 are caused by intermittent conditions. These DTCs remain
+                                        active until the vehicle has been shutdown and restarted. They do not recover
+                                        without cycling ignition switch. Later calibration versions may allow DTC
+                                        recovery without cycling ignition switch.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010720" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech Interface Cable</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Digital Multimeter (DMM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>3-Banana plug harness</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>500-Ohm resistor harness</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Breakout Box</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>APS/IVS breakout harness</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Terminal Test Adapter Kit</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>The APS/IVS circuit requires the use of vehicle circuit diagrams. See applicable truck Circuit Diagram
+                Manual for circuit numbers, connector and fuse locations.
+            </para>
+        </svcsubproc>
+        <svcsubproc id="s305010706.2.3">
+            <title>APS/IVS Operational Diagnostics</title>
+            <figure id="f305010714" figsize="pg-wide">
+                <graphic filename="../figj31/j31060.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="352px"/>
+                <caption>APS/IVS circuit diagram (CF)</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para id="s305010706.2.3.1">To avoid personal injury, death, including damage to the engine or
+                        vehicle, be careful to avoid rotating parts (belts and fan) and hot engine surfaces.
+                    </para>
+                </warning>
+            </specpara>
+            <figure id="f305010715" figsize="col-wide">
+                <graphic filename="../figj31/j31240.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Continuous Monitor session</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>To avoid personal injury, use care to prevent contact with the door edge when the cab is up
+                        and the door is open.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Select D_ContinuousMonitor.ssn from the Open Session File window, select Open to open
+                    the session.
+                </para>
+            </step1>
+            <figure id="f305010716" figsize="col-wide">
+                <graphic filename="../figj31/j31046.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Continuous Monitor test</caption>
+            </figure>
+            <step1>
+                <para count="1">Select Diagnostics from the menu bar.</para>
+            </step1>
+            <step1>
+                <para count="1">Select Key-On Engine-Off Tests from the drop down menu.</para>
+            </step1>
+            <step1>
+                <para count="1">From the KOEO Diagnostics menu, select Continuous Monitor and select Run to start the
+                    test.
+                </para>
+            </step1>
+            <specpara>
+                <warning>
+                    <para>To avoid personal injury, death, including damage to the engine or vehicle, be careful around
+                        rotating parts (belts and fan) and hot engine surfaces.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Monitor APS signal voltage. Verify an active DTC for the APS/IVS circuit.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is active, do step 8 and 9. Refer to Circuit Checks - APS sensor table.</para>
+            </step1>
+            <step1>
+                <para count="1">If code is inactive, wiggle connectors and wires at all suspected problem locations. If
+                    circuit continuity is interrupted, the EST will display DTCs related to the condition.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Disconnect chassis harness from APS sensor.</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Inspect connectors for damaged pins, corrosion, or loose pins. Repair if necessary.</para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">Connect APS sensor breakout harness to chassis harness only.</para>
+            </step1>
+            <figure id="f305010717" figsize="col-wide">
+                <graphic filename="../figj31/j31087.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Close session</caption>
+            </figure>
+            <step1>
+                <para count="1">When finished with this test, select Session from menu bar, then Close.</para>
+            </step1>
+            <step1>
+                <para count="1">Connect chassis harness to sensor. Use the EST to clear DTCs. If an active code remains
+                    after checking test conditions, inspect pedal assembly for excessive wear. If pedal assembly is
+                    intact, replace the APS/IVS sensor.
+                </para>
+            </step1>
+            <figure id="f305010718" figsize="pg-wide">
+                <graphic filename="../figj31/j31060.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="352px"/>
+                <caption>APS/IVS circuit diagram (CF)</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc id="s305010706.2.4">
+            <title>APS/IVS Pin-Point Diagnostics (CF)</title>
+            <table id="t305010721" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Circuit Checks - APS Sensor (CF)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Use EST, DMM, breakout harness, and 500-ohm resistor harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Condition</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage greater than 0.147 volts, check signal circuit for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Measure voltage from Pin C (BLUE) to ground with DMM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage greater than 5.5 volts, check V
+                                    <subscript>REF</subscript>
+                                    for short to B+. If voltage is less than 4.5 volts, check V
+                                    <subscript>REF</subscript>
+                                    for open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>500 Ohm resistor harness installed between Pin A (GREEN) and Pin C (BLUE) of
+                                    breakout harness.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage greater than 4.55 volts, check signal circuit for open or short to
+                                    ground. Remove negative battery cable. Measure resistance from Pin C to ground (spec
+                                    > 1 k&#x2126;) to check for short to ground. Use a Breakout Box to measure from Pin
+                                    A to Pin X4-18 (spec &#60; 5 &#x2126;) to check for open in the harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Resistance from Pin B (BLACK) of breakout harness to chassis ground using DMM.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If resistance is greater than 5 &#x2126;, check for open or high resistance
+                                    between ECM and sensor connector. Use a Breakout Box and measure resistance from
+                                    between Pin B and Pin X4-24 (spec &#60; 5 &#x2126;)
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010722" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - Connector (CF)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.26in"/>
+                    <colspec colname="col2" colwidth="0.99in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect harness from sensor. Inspect for bent pins
+                                    or corrosion. Connect breakout harness to chassis harness only. Turn ignition switch
+                                    to ON.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltage greater than 0.25 volts, signal is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ground circuit, no voltage expected</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltage greater than specification, circuit shorted to B+; Voltage less than
+                                    specification, circuit open or shorted to ground
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltage greater than 0.25 volts, IVS signal circuit shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltage less than 10.5 volts check circuit for open or high resistance, blown
+                                    fuse
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>See applicable truck Circuit Diagram Manual for fuse location.</para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010723" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Resistance Checks - Connector to Chassis Ground (CF)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.17in"/>
+                    <colspec colname="col2" colwidth="1.03in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect negative battery cable. Disconnect harness
+                                    from sensor. Use disconnected negative battery cable for ground test point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open signal ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 500 &#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>F to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126; with fuse removed, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>See applicable truck Circuit Diagram Manual for fuse location.</para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f305010719" figsize="pg-wide">
+                <graphic filename="../figj31/j31060.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="352px"/>
+                <caption>APS/IVS circuit diagram (CF)</caption>
+            </figure>
+            <table id="t305010724" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks (CF)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Connect breakout box X4 only to chassis harness only.
+                                    Connect breakout harness to chassis harness only.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-18 to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for APS signal circuit open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-24 to B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open signal ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-4 to C</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open V
+                                    <subscript>REF</subscript>
+                                    circuit
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-12 to D</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open IVS signal circuit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Fuse to F</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open IVS power circuit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>See applicable truck Circuit Diagram Manual for fuse location.</para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010725" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Operational Voltage Checks - APS/IVS Sensor with Breakout Harness (CF)</title>
+                <tgroup cols="5">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <colspec colname="col2" colwidth="1.0*"/>
+                    <colspec colname="col3" colwidth="1.0*"/>
+                    <colspec colname="col4" colwidth="1.0*"/>
+                    <colspec colname="col6" colwidth="1.0*"/>
+                    <spanspec namest="col1" nameend="col6" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Check with breakout harness connected to sensor and
+                                    engine harness. Turn ignition switch to ON.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <seqlist style="alphalc">
+                                    <item>
+                                        <para>APS test points: (+) X4-18 to (-) X4-24 or (+) green and (-) black</para>
+                                    </item>
+                                    <item>
+                                        <para>IVS test points: (+) X4-12 to (-) X4-24 or (+) green and (-) black</para>
+                                    </item>
+                                </seqlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>
+                                    <emph type="bold">Position</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>
+                                    <emph type="bold">Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>
+                                    <emph type="bold">% APS</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col4" align="center">
+                                <para>
+                                    <emph type="bold">IVS Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Low idle</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.15 to 0.66 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>0%</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col6">
+                                <para>IVS toggles just off idle</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>High idle</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>3.84 to 4.4 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>98 to 102%</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col6"></entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010726" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Operational Voltage Checks - APS/IVS Sensor with Breakout Box (CF)</title>
+                <tgroup cols="5">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <colspec colname="col2" colwidth="1.0*"/>
+                    <colspec colname="col3" colwidth="1.0*"/>
+                    <colspec colname="col4" colwidth="1.0*"/>
+                    <colspec colname="col6" colwidth="1.0*"/>
+                    <spanspec namest="col1" nameend="col6" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Check with breakout box connected X-4 only to ECM and
+                                    engine harness. Turn ignition switch to ON.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <seqlist style="alphalc">
+                                    <item>
+                                        <para>APS test points: (+) X4-18 to (-) X4-24 or (+) green and (-) black</para>
+                                    </item>
+                                    <item>
+                                        <para>IVS test points: (+) X4-12 to (-) X4-24 or (+) green and (-) black</para>
+                                    </item>
+                                </seqlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>
+                                    <emph type="bold">Position</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>
+                                    <emph type="bold">Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>
+                                    <emph type="bold">% APS</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col4" align="center">
+                                <para>
+                                    <emph type="bold">IVS Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Low idle</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.15 to 0.66 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>0%</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col6">
+                                <para>IVS toggles just off idle</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>High idle</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>3.84 to 4.4 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>98 to 102%</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col6"></entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">APS/IVS Diagnostic Trouble Code</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 131 = APS signal voltage was less than 0.147 volts for more than 0.35
+                                    seconds.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 132 = APS signal voltage was greater than 4.55 volts for more than 0.35
+                                    seconds.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 133 = APS signal in-range fault</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 134 = APS and IVS disagree</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 135 = Idle validation switch circuit fault - 50% APS only</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>APS/IVS Pin-Point Diagnostics (Stripped Chassis)</title>
+            <figure id="j305010720_SC" figsize="pg-wide">
+                <graphic filename="../figj31/j31357.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="352px"/>
+                <caption>APS/IVS circuit diagram (Stripped Chassis)</caption>
+            </figure>
+            <table id="t305010721_SC" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Circuit Checks - APS Sensor (Stripped Chassis)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Use EST, DMM, breakout harness, and 500-ohm resistor harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Condition</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Checks</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage greater than 0.147 volts, check signal circuit for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Measure voltage from Pin D (BLUE) to ground with DMM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage greater than 5.5 volts, check V
+                                    <subscript>REF</subscript>
+                                    for short to B+. If voltage is less than 4.5 volts, check V
+                                    <subscript>REF</subscript>
+                                    for open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>500 Ohm resistor harness installed between Pin E (GREEN) and Pin D (BLUE) of
+                                    breakout harness.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage greater than 4.55 volts, check signal circuit for open or short to
+                                    ground. Remove negative battery cable. Measure resistance from Pin C to ground (spec
+                                    > 1 k&#x2126;) to check for short to ground. Use a Breakout Box to measure from Pin
+                                    E to Pin X4-18 (spec &#60; 5 &#x2126;) to check for open in the harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Resistance from Pin K (BLACK) of breakout harness to chassis ground using DMM.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If resistance is greater than 5 &#x2126;, check for open or high resistance
+                                    between ECM and sensor connector. Use a Breakout Box and measure resistance from
+                                    between Pin B and Pin X4-24 (spec &#60; 5 &#x2126;)
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010722_SC" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - Connector (Stripped Chassis)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.26in"/>
+                    <colspec colname="col2" colwidth="0.99in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect harness from sensor. Inspect for bent pins
+                                    or corrosion. Connect breakout harness to chassis harness only. Turn ignition switch
+                                    to ON.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>E to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltage greater than 0.25 volts, signal is shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>K to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ground circuit, no voltage expected</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 &#177; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltage greater than specification, circuit shorted to B+; Voltage less than
+                                    specification, circuit open or shorted to ground
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>G to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 to 0.25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltage greater than 0.25 volts, IVS signal circuit shorted to V
+                                    <subscript>REF</subscript>
+                                    or B+
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>J to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltage less than 10.5 volts check circuit for open or high resistance, blown
+                                    fuse
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>See applicable truck Circuit Diagram Manual for fuse location.</para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010723_SC" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Resistance Checks - Connector to Chassis Ground (Stripped Chassis)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.17in"/>
+                    <colspec colname="col2" colwidth="1.03in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect negative battery cable. Disconnect harness
+                                    from sensor. Use disconnected negative battery cable for ground test point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>E to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>K to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open signal ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>D to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 500 &#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>G to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>J to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126; with fuse removed, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>See applicable truck Circuit Diagram Manual for fuse location.</para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="j305010719" figsize="pg-wide">
+                <graphic filename="../figj31/j31357.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="352px"/>
+                <caption>APS/IVS circuit diagram (Stripped Chassis)</caption>
+            </figure>
+            <table id="t305010724_SC" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks (Stripped Chassis)</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Connect breakout box X4 only to chassis harness only.
+                                    Connect breakout harness to chassis harness only.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-18 to E</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for APS signal circuit open</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-24 to K</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open signal ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-4 to D</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open V
+                                    <subscript>REF</subscript>
+                                    circuit
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-12 to G</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open IVS signal circuit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Fuse to J</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open IVS power circuit</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>See applicable truck Circuit Diagram Manual for fuse location.</para>
+                                </note>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010725_SC" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Operational Voltage Checks - APS/IVS Sensor with Breakout Harness (Stripped Chassis)</title>
+                <tgroup cols="5">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <colspec colname="col2" colwidth="1.0*"/>
+                    <colspec colname="col3" colwidth="1.0*"/>
+                    <colspec colname="col4" colwidth="1.0*"/>
+                    <colspec colname="col6" colwidth="1.0*"/>
+                    <spanspec namest="col1" nameend="col6" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Check with breakout harness connected to sensor and
+                                    engine harness. Turn ignition switch to ON.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <seqlist style="alphalc">
+                                    <item>
+                                        <para>APS test points: (+) X4-18 to (-) X4-24 or (+) green and (-) black</para>
+                                    </item>
+                                    <item>
+                                        <para>IVS test points: (+) X4-12 to (-) X4-24 or (+) green and (-) black</para>
+                                    </item>
+                                </seqlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>
+                                    <emph type="bold">Position</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>
+                                    <emph type="bold">Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>
+                                    <emph type="bold">% APS</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col4" align="center">
+                                <para>
+                                    <emph type="bold">IVS Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Low idle</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.15 to 0.4 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>0%</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col6">
+                                <para>IVS toggles just off idle</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>High idle</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>3.55 to 4.4 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>98 to 102%</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col6"></entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010726_SC" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Operational Voltage Checks - APS/IVS Sensor with Breakout Box (Stripped Chassis)</title>
+                <tgroup cols="5">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <colspec colname="col2" colwidth="1.0*"/>
+                    <colspec colname="col3" colwidth="1.0*"/>
+                    <colspec colname="col4" colwidth="1.0*"/>
+                    <colspec colname="col6" colwidth="1.0*"/>
+                    <spanspec namest="col1" nameend="col6" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Check with breakout box connected X-4 only to ECM and
+                                    engine harness. Turn ignition switch to ON.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <seqlist style="alphalc">
+                                    <item>
+                                        <para>APS test points: (+) X4-18 to (-) X4-24 or (+) green and (-) black</para>
+                                    </item>
+                                    <item>
+                                        <para>IVS test points: (+) X4-12 to (-) X4-24 or (+) green and (-) black</para>
+                                    </item>
+                                </seqlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>
+                                    <emph type="bold">Position</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>
+                                    <emph type="bold">Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>
+                                    <emph type="bold">% APS</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col4" align="center">
+                                <para>
+                                    <emph type="bold">IVS Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Low idle</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.15 to 0.4 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>0%</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col6">
+                                <para>IVS toggles just off idle</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>High idle</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>3.55 to 4.4 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>98 to 102%</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col6"></entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">APS/IVS Diagnostic Trouble Code</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 131 = APS signal voltage was less than 0.147 volts for more than 0.35
+                                    seconds.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 132 = APS signal voltage was greater than 4.55 volts for more than 0.35
+                                    seconds.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 133 = APS signal in-range fault</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 134 = APS and IVS disagree</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 135 = Idle validation switch circuit fault - 50% APS only</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_126.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_128.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

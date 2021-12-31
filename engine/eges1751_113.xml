@@ -1,0 +1,804 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics Model Years 1999-2000 - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS -
+        Circuit Function And Diagnostics - Engine Oil Pressure Sensor (EOP)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="4">
+        <title>Engine Oil Pressure Sensor (EOP)</title>
+        <svcsubproc>
+            <title>Signal Functions</title>
+            <figure id="f17503055" figsize="pg-wide">
+                <graphic filename="../figEG1/EG1233A.webp" type="webp" scalefit="1" scalefitwidth="352px" box="no"/>
+                <caption>Engine Oil Pressure Sensor Function Diagram</caption>
+            </figure>
+            <para>The Engine Oil Pressure (EOP) sensor is a variable capacitance sensor. As the ECM applies a 5V
+                reference signal to this sensor, the sensor produces a linear analog voltage signal that indicates
+                engine oil pressure.
+            </para>
+            <para>
+                <emph type="bold">Engine Warning and Protection -</emph>An optional feature which, when enabled, will
+                warn the driver of low engine oil pressure and can be programmed to shut the engine down.
+            </para>
+            <para>
+                <emph type="bold">Instrument Cluster Display -</emph>The ECM transmits sensed engine oil pressure
+                information on the ATA data link which is displayed on the instrument cluster.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>An EOP signal detected Out of Range High or Out of Range Low by the ECM will cause the engine to
+                ignore the EOP signal and disable Engine Warning and Protection.
+            </para>
+            <para>To troubleshoot the EOP sensor and circuit see:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>
+                        <hotlnk xrefid="f17503056">Engine Oil Pressure Sensor Circuit Diagram
+                            <xref refid="f17503056"/>
+                        </hotlnk>
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <hotlnk xrefid="te17503016">Engine Oil Pressure Sensor and Circuit Diagnostics
+                            <xref refid="te17503016"/>
+                        </hotlnk>
+                    </para>
+                </item>
+            </randlist>
+            <figure id="f17503056" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1234A.webp" type="webp" scalefit="1" scalefitwidth="392px" box="no"/>
+                <caption>Circuit Diagram for Engine Oil Pressure Sensor</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>After removing connectors, always check for damaged pins, corrosion, and loose terminals.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503016" tblwidth="pg-wide" frame="all">
+                <title>Engine Oil Pressure Sensor and Circuit Diagnostics</title>
+                <tgroup cols="4" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="50.03*"/>
+                    <colspec colname="col2" colwidth="50.03*"/>
+                    <colspec colname="col3" colwidth="50.03*"/>
+                    <colspec colname="col4" colwidth="245.92*"/>
+                    <spanspec namest="col1" nameend="col4" spanname="1to4"/>
+                    <spanspec namest="col3" nameend="col4" spanname="3to4"/>
+                    <spanspec namest="col1" nameend="col2" spanname="1to2"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry colspan="4" spanname="1to4">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>(Check with sensor connector
+                                    disconnected and ignition key ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0V</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Signal ground no voltage expected</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Check V
+                                    <subscript>REF</subscript>
+                                    with key ON. If voltage not within spec., see V
+                                    <subscript>REF</subscript>
+                                    circuit
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;0.75V</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>If greater then 0.75V, signal ground wire is shorted to V
+                                    <subscript>REF</subscript>
+                                    or battery
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="4" spanname="1to4">
+                                <para>
+                                    <emph type="bold">Connector Checks to Chassis Ground</emph>(Check with sensor
+                                    connector disconnected, positive battery cable disconnected, and ignition key OFF.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance to chassis ground, check with key off, if > than 5 &#x2126; the harness
+                                    is open
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>500 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance less than 500 &#x2126; indicates a short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance less than 1000 &#x2126; indicates a short to ground</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="4" spanname="1to4">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>(Check with breakout box installed
+                                    on engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>19 to A</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance from sensor connector to 60 pin connector - Signal ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>40 to B</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance from sensor connector to 60 pin connector - V
+                                    <subscript>REF</subscript>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>14 to C</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>Resistance from sensor connector to 60 pin connector - EOP signal</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="2" spanname="1to2">
+                                <para>Test Points: (+) 14 to (-) 19</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>
+                                    <emph type="bold">Operational Signal Checks</emph>(Check with breakout box installed
+                                    in line with the ECM.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Voltage</para>
+                            </entry>
+                            <entry>
+                                <para>psig</para>
+                            </entry>
+                            <entry>
+                                <para>kPa</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>0.89V</para>
+                            </entry>
+                            <entry>
+                                <para>5</para>
+                            </entry>
+                            <entry>
+                                <para>34</para>
+                            </entry>
+                            <entry morerows="3">
+                                <para>Pressure will vary with engine speed and temperature</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1.15V</para>
+                            </entry>
+                            <entry>
+                                <para>10</para>
+                            </entry>
+                            <entry>
+                                <para>69</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2.40V</para>
+                            </entry>
+                            <entry>
+                                <para>35</para>
+                            </entry>
+                            <entry>
+                                <para>241</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3.61V</para>
+                            </entry>
+                            <entry>
+                                <para>60</para>
+                            </entry>
+                            <entry>
+                                <para>414</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="4" spanname="1to4">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Reference</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="4" spanname="1to4">
+                                <para>211 = Signal was less than 0.039V for more than 0.1 second</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="4" spanname="1to4">
+                                <para>212 = Signal voltage was greater than 4.9V for more than 0.1 second</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="4" spanname="1to4">
+                                <para>225 = Engine oil pressure was sensed greater than 40 psi with the ignition key ON
+                                    engine OFF
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="4" spanname="1to4">
+                                <para>313 = Engine oil pressure &#60; 5 psi (34 kPa) @ 700 rpm or 10 psi (69 kPa) @ 1400
+                                    rpm or 20 psi (138 kPa) @ 2000 rpm
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4">
+                                <para>314 = Engine oil pressure &#60; 2 psi (14 kPa) @ 700 rpm or 5 psi (34 kPa) @ 1400
+                                    rpm or 12 psi (152 kPa) @ 2000 rpm
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f17503056.1" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8811A.webp" type="webp" scalefit="1" scalefitwidth="392px" box="no"/>
+                <caption>Circuit Diagram for Engine Oil Pressure (EOP)sensor using a breakout tee</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>The following EOP sensor tests are for 2001 MY vehicles with serial No. 1287935-up.</para>
+                </note>
+            </specpara>
+            <table id="te17503016.1" tblwidth="pg-wide">
+                <title>Engine Oil Pressure Sensor Tests Using Master Diagnostics</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="22.54*"/>
+                    <colspec colname="col2" colwidth="14.58*"/>
+                    <colspec colname="COLSPEC1" colwidth="8.53*"/>
+                    <colspec colname="col3" colwidth="73.92*"/>
+                    <spanspec namest="col1" nameend="col2" spanname="SPAN3"/>
+                    <spanspec namest="COLSPEC1" nameend="col3" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Engine Oil Pressure (EOP) Sensor Voltage Checks</emph>(check with
+                                    key-ON engine-OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Install the 3 wire breakout tee between the EOP sensor and harness connector. View
+                                    EOP VOLTAGE using the
+                                    <emph type="bold">Continuous Monitor</emph>
+                                    test found under the diagnostics menu in MASTER DIAGNOSTICS. If the circuit has an
+                                    active fault according to the voltage level (Code 211 &#60; 0.039V, Code 212 >4.9V,
+                                    Code 225 >1.49V), complete the following steps.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Condition</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Expected Voltage</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Comments</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor Disconnected</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Voltage > 0.039V, inspect the signal circuit for short to V
+                                    <subscript>REF</subscript>
+                                    or B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Measure voltage from PIN B to gnd using a DMM.</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>If voltage is > 5.5V, check V
+                                    <subscript>REF</subscript>
+                                    for short to B+. If voltage is &#60; 4.5V, check V
+                                    <subscript>REF</subscript>
+                                    circuit for open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0.5 k&#x2126; jumper installed between the GREEN and BLUE pins of the breakout
+                                    tee.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>If voltage is &#60; 4.9V, check signal circuit for open or short to ground. Remove
+                                    positive battery cable. Measure resistance from PIN C to Ground (spec >1 k&#x2126;)
+                                    and from PIN C to PIN 14 (spec &#60; 5&#x2126;) using a breakout box to determine if
+                                    short to ground or open is in the harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Standard jumper installed between the BLUE, GREEN, and BLACK pins of the breakout
+                                    tee.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>If voltage is > 0.039V, check ground circuit for resistance. Measure resistance
+                                    between PIN A and PIN 19 (spec &#60; 5&#x2126;) using a breakout box to determine if
+                                    resistance is in the harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Replace the sensor if the code is active and the expected results are obtained
+                                    with all the sensor tests. The sensor is not at fault if one or more of the sensor
+                                    tests does not produce the expected results. See EOP Sensor Troubleshooting
+                                    Flowchart .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Continued on Next Page</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN3">
+                                <para>
+                                    <emph type="bold">MD Voltage: (+)14 to (-)19</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Operational Signal Checks</emph>(compare voltage reading at
+                                    breakout tee with voltage and psi displayed on Master Diagnostics)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Voltage</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>psig</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>kPa</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0.89V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>34</para>
+                            </entry>
+                            <entry colname="col3" morerows="3">
+                                <para>Pressure will vary with engine speed and temperature</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1.15V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>69</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2.40V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>35</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>241</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>3.61V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>60</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>414</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Description</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>211 = Signal voltage was &#60;0.039 volts for more than 0.1sec.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>212 = Signal voltage was >4.9 volts for more than 0.1sec.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>225 = Eng. oil press. was sensed >15 psi with the ignition key ON, engine OFF.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>313 = Eng. oil press. &#60;5 psi (34 kPa)@700 rpm or 10 psi (69 kPa)@1400 rpm or
+                                    20 psi (138 kPa)@2000 rpm.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>314 = Eng. oil press. &#60;2 psi (14 kPa)@700 rpm or 5 psi (34 kPa)@1400 rpm or 12
+                                    psi (83 kPa)@2000 rpm.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f175329" figsize="pg-wide">
+                <graphic filename="../figEG8/EG8821.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>Troubleshooting flowchart for Engine Oil Pressure Sensor</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>
+                <emph type="bold">Function</emph>
+            </para>
+            <para>The Engine Oil Pressure sensor (EOP) is standard in the International&#174; engine control system.
+                Engine shutdown and protection is optional and can be ordered with the vehicle or activated at the
+                dealer.
+            </para>
+            <para>The ECM measures the EOP signal to monitor the oil pressure. If the oil pressure drops below 5.0 psi
+                (34 kPa) @ 700 rpm or 10.0 psi (69 kPa) @ 1400 rpm or 20.0 psi (138 kPa) @ 2000 rpm, the ECM will
+                illuminate the OIL/WATER (OWL) light and sound the warning alarm. If the vehicle is equipped with the
+                engine shut down system and the oil pressure drops to 2.0 psi (14 kPa) @ 700 rpm or 5.0 psi (34 kPa) @
+                1400 rpm or 12.0 psi (83 kPa) @ 2000 rpm, the ECM will shut the engine off.
+            </para>
+            <para>
+                <emph type="bold">Operation</emph>
+            </para>
+            <para>The Engine Oil Pressure sensor is a variable capacitance sensor. When pressure is applied to the
+                sensor, the capacitance changes in relation to the pressure.
+            </para>
+            <para>The ECM supplies a regulated 5V signal to terminal B of the EOP sensor from terminal 40 of the ECM.
+                The EOP sensor is supplied a signal return (ground) at terminal A to terminal 19 of the ECM.
+            </para>
+            <para>During engine operation, oil pressure changes sensor capacitance; the incoming 5V reference signal
+                changes in relation to pressure. The oil pressure signal from the sensor at terminal C is sent to
+                terminal 14 of the ECM. This signal increases equally in proportion to an increase in pressure up to a
+                maximum of 85.3 psi (588 kPa).
+            </para>
+            <para>
+                <emph type="bold">ECM Diagnostics</emph>
+            </para>
+            <para>The ECM continuously monitors the signal from the EOP sensor to ensure the signal is in the correct
+                operating range. If the signal is lower or higher than required, the ECM will set a Diagnostic Trouble
+                Code. The Diagnostic Trouble Code is retrieved using the Electronic Service Tool (EST) or by reading the
+                Diagnostic Trouble Code, using the Engine Diagnostic Switch. If the ignition key is turned OFF, the
+                Diagnostic Trouble Code will be stored as inactive.
+            </para>
+            <para>During engine operation, the ECM monitors the engine speed signal. The ECM compares the expected oil
+                pressure to engine speed. If the ECM detects low oil pressure for a given engine speed, the ECM will set
+                a Diagnostic Trouble Code. If the oil pressure is lower than the
+                <emph type="bold">critical</emph>level, the ECM will record a Diagnostic Trouble Code. The ECM
+                automatically records this as a low oil pressure event that cannot be erased using the EST. This becomes
+                a record of engine operation.
+            </para>
+            <para id="f175fc211">
+                <emph type="bold">Diagnostic Trouble Code 211</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 100 FMI 4</emph>
+            </para>
+            <para>
+                <emph type="bold">Engine Oil Press signal Out of Range Low</emph>
+            </para>
+            <para>An Out of Range Low Diagnostic Trouble Code 211 code will be set if the ECM detects voltage less than
+                0.039V for more than 0.1 second. If Diagnostic Trouble Code 211 is set the ECM will ignore the EOP
+                signal and continue to operate normally. If Diagnostic Trouble Code 211 is active, the ECM will turn on
+                the Engine Warning light.
+            </para>
+            <para>Diagnostic Trouble Code 211 may be caused by an open V
+                <subscript>REF</subscript>
+                feed, open signal circuit, or a defective sensor.
+            </para>
+            <para id="f175fc212">
+                <emph type="bold">Diagnostic Trouble Code 212</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 100 FMI 3</emph>
+            </para>
+            <para>
+                <emph type="bold">Engine Oil Pressure signal Out of Range High</emph>
+                <emph type="boldital"></emph>
+            </para>
+            <para>An Out of Range High Diagnostic Trouble Code 212 will be set if the ECM detects a voltage more than
+                4.9V for more than 0.1 seconds. If Diagnostic Trouble Code 212 is set, the ECM will ignore the EOP
+                signal and continue to operate normally. If Diagnostic Trouble Code 212 is active, the ECM will
+                illuminate the Engine Warning light.
+            </para>
+            <para>Diagnostic Trouble Code 212 can be caused by an open signal ground circuit, a short to a voltage
+                source, or a defective sensor.
+            </para>
+            <para id="f175fc225">
+                <emph type="bold">Diagnostic Trouble Code 225</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 100 FMI 0</emph>
+            </para>
+            <para>
+                <emph type="bold">Engine Oil Pressure sensor signal In Range Diagnostic Trouble Code</emph>
+            </para>
+            <para>Diagnostic Trouble Code 225 will be set by the ECM, if the signal from the EOP sensor is higher than
+                expected with the key on and the engine off (a signal that indicates 40 psi). If the ECM detects
+                Diagnostic Trouble Code 225, the ECM will ignore the EOP signal and illuminate the Engine Warning Lamp.
+                Diagnostic Trouble Code 225 is usually caused by a defective EOP sensor, a biased circuit, or the
+                incorrect EOP sensor.
+            </para>
+            <para id="f175fc313">
+                <emph type="bold">Diagnostic Trouble Code 313</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code PID 100 FMI 1</emph>
+            </para>
+            <para>
+                <emph type="bold">Engine Oil Pressure Below Warning Level</emph>
+            </para>
+            <para>Diagnostic Trouble Code 313 indicates that the oil pressure has dropped below the warning level. The
+                warning level is 5.0 psi (34 kPa) @ 700 rpm or 10.0 psi (69 kPa) @ 1400 rpm or 20.0 psi (138 kPa) @ 2000
+                rpm.
+            </para>
+            <para>Diagnostic Trouble Code 313 can be caused by a defective or incorrect sensor sending an incorrect
+                signal. To confirm this, compare actual oil pressure (with a mechanical gauge) to the reading on the
+                data list of the EST. Low oil pressure due to defective mechanical components will also set this code.
+            </para>
+            <specpara>
+                <note>
+                    <para>It may be possible to set this code at start-up, especially if the oil was just changed, or
+                        after a rebuild until the oil system is primed.
+                    </para>
+                </note>
+            </specpara>
+            <para id="f175fc314">
+                <emph type="bold">Diagnostic Trouble Code 314</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code 100 FMI 7</emph>
+            </para>
+            <para>
+                <emph type="bold">Engine Oil Pressure Below Critical Level</emph>
+            </para>
+            <para>If Diagnostic Trouble Code 314 is set, this indicates that the oil pressure has dropped below the
+                critical level. The critical level is 2.0 psi (14 kPa) @ 700 rpm or 5.0 psi (34 kPa) @ 1400 rpm or 12.0
+                psi (83 kPa) @ 2000 rpm.
+            </para>
+            <para>Diagnostic Trouble Code 314 may be caused by a defective or incorrect sensor sending an incorrect
+                signal. To confirm this, compare actual oil pressure (with a mechanical gauge installed) to the reading
+                on the data list of the EST. Low oil pressure due to defective mechanical components will also set this
+                code.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_112.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_114.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

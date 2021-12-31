@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 3200, 4200, 4300, 4400, 7300, 7400, 7500, 7600, 8500, 8600 Models
+        Built Before 05/20/2003 - ELECTRONIC GAUGE CLUSTER AND AUXILIARY GAUGE SWITCH PACK - TROUBLESHOOTING - PTO/
+        THROTTLE WARNING LAMP
+    </stitle>
+    <svcman/>
+    <svcproc id="x082540111" svcproctype="troubleshoot" graphiccount="1">
+        <title>PTO/ THROTTLE WARNING LAMP</title>
+        <svcsubproc>
+            <title>Circuit Function</title>
+            <figure id="f08254a28" figsize="pg-wide">
+                <graphic filename="../figg08/g0825411.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="312px"/>
+                <caption>PTO/Throttle Warning Lamp Function Diagram</caption>
+                <calloutgroup>
+                    <callout1>1. ELECTRONIC ENGINE CONTROLLER</callout1>
+                    <callout1>2. DRIVE TRAIN 1939 DATA LINK</callout1>
+                    <callout1>3. ELECTRICAL SYSTEM CONTROLLER</callout1>
+                    <callout1>4. DRIVE TRAIN 1939 DATA LINK</callout1>
+                    <callout1>5. ELECTRONIC GAUGE CLUSTER (EGC)</callout1>
+                </calloutgroup>
+            </figure>
+            <para>The EGC activates the
+                <hotlnk xrefid="f08254a28">PTO/throttle warning lamp</hotlnk>
+                when it receives a message on the drivetrain 1939 data link from the ESC. The ESC will generate this
+                message when it receives a message from the engine controller that the PTO is engaged.
+            </para>
+            <para>The lamp should go out when PTO is disengaged.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagnostics</title>
+            <para>The service tool (EZ-Tech) running the "INTUNE" diagnostic software can command the ESC to turn on all
+                of the warning lamps. This will verify that the EGC is working and communicating on the data link.
+            </para>
+            <para>If the lamp stays on continuously or doesn't come on when commanded by the ESC, the problem may be in
+                ESC/EGC programming, ESC/EGC hardware or problems with the sensors or sensor wiring to the transmission
+                controller.
+            </para>
+            <para>See the appropriate engine manual for details on PTO operation.</para>
+            <table id="t08254a28" tblwidth="pg-wide" frame="all" numbered="no" view="reveal">
+                <title>PTO/throttle Warning Lamp Preliminary Check</title>
+                <tgroup cols="6">
+                    <colspec colname="col1" colwidth="0.53in"/>
+                    <colspec colname="col2" colwidth="0.56in"/>
+                    <colspec colname="col3" colwidth="1.64in"/>
+                    <colspec colname="col5" colwidth="1.13in"/>
+                    <colspec colname="col6" colwidth="1.17in"/>
+                    <colspec colname="col7" colwidth="1.51in"/>
+                    <thead>
+                        <row>
+                            <entry colname="col1" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">STEP</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">KEY</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col3" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">ACTION</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col5" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col6" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">YES-IN SPEC.</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col7" rotate="0" align="center">
+                                <para>
+                                    <emph type="bold">NO-OUT OF SPEC.</emph>
+                                </para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="col1" rotate="0" align="center">
+                                <para>1.</para>
+                            </entry>
+                            <entry colname="col2" rotate="0" align="center">
+                                <para>Off/On</para>
+                            </entry>
+                            <entry colname="col3" rotate="0">
+                                <para>Connect diagnostic tool (EZ-Tech) to the diagnostic connector. Turn key to
+                                    accessory position. Start the "ICAP" programming software. Verify warning lamp and
+                                    warning lamp inputs are programmed to operate.
+                                </para>
+                            </entry>
+                            <entry colname="col5" rotate="0">
+                                <para>Warning lamp and warning lamp inputs are programmed to operate.</para>
+                            </entry>
+                            <entry colname="col6" rotate="0">
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry colname="col7" rotate="0">
+                                <para>Program the warning lamp with the "ICAP" software.</para>
+                                <para>Refer to
+                                    <hotlnk document="s082503_X0825388.xml" xrefid="x0825388">Programing</hotlnk>in the
+                                    Electrical System Controller section of this manual.
+                                    <xref refid="x0825388"/>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" rotate="0" align="center">
+                                <para>2.</para>
+                            </entry>
+                            <entry colname="col2" rotate="0" align="center">
+                                <para>On</para>
+                            </entry>
+                            <entry colname="col3" rotate="0">
+                                <para>Attempt to exercise the warning lamp with the "INTUNE" diagnostic software.</para>
+                            </entry>
+                            <entry colname="col5" rotate="0">
+                                <para>Warning lamp responds to EGC diagnostic input.</para>
+                            </entry>
+                            <entry colname="col6" rotate="0">
+                                <para>Go to next step.</para>
+                            </entry>
+                            <entry colname="col7" rotate="0">
+                                <para>Insure bulb is not burned out. Replace EGC circuit board.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" rotate="0" align="center">
+                                <para>3.</para>
+                            </entry>
+                            <entry colname="col2" rotate="0" align="center">
+                                <para>On</para>
+                            </entry>
+                            <entry colname="col3" rotate="0">
+                                <para>Attempt to exercise the warning lamp with the "INTUNE" diagnostic software.</para>
+                            </entry>
+                            <entry colname="col5" rotate="0">
+                                <para>Warning lamp responds to EGC diagnostic input.</para>
+                            </entry>
+                            <entry colname="col6" rotate="0">
+                                <para>Lamp circuits from data link to EGC are working correctly.</para>
+                            </entry>
+                            <entry colname="col7" rotate="0">
+                                <para>Insure bulb is not burned out. Replace EGC circuit board.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082503_X082540110.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082503_X082540111A.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082503.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

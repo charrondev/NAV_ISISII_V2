@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 3200, 4200, 4300, 4400, 7300, 7400, 7500, 7600, 8500, 8600 Models
+        Built Before 05/20/2003 - MULTIPLEXING (DATA LINKS) - BODY BUILDER DATA LINK - FAULT DETECTION MANAGEMENT
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="1">
+        <title>FAULT DETECTION MANAGEMENT</title>
+        <para>The ESC will log a diagnostic trouble code when messages from installed remote controllers are missing on
+            the body builder data link. Refer to
+            <hotlnk document="s082503_X0826304.xml" xrefid="x0826304">Off-Line Diagnostics</hotlnk>
+            for DTC retrieval instructions.
+            <xref refid="x0826304"/>
+        </para>
+        <para>The "INTUNE" diagnostic software, running on the EZ-Tech (a light version can be run on a personal
+            computer for body builder and fleet customers), may be used to check for diagnostic trouble codes for
+            components communicating to the ESC on the body builder 1939 data link. An interface cable is required to
+            connect the computer to the diagnostic connector of the vehicle. See the "INTUNE" diagnostic software manual
+            for instructions.
+        </para>
+        <para>Refer to
+            <hotlnk document="s082503_X0826304.xml" xrefid="x0826304">Off-Line Diagnostics</hotlnk>
+            for DTC retrieval instructions.
+            <xref refid="x0826304"/>
+        </para>
+        <figure id="f0825205" figsize="pg-wide">
+            <graphic filename="../figg08/g0825207.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+            <caption>Typical Body Builder Data Link Connector Diagram (Devices Used Determined by Features Installed on
+                Vehicle)
+            </caption>
+            <calloutgroup>
+                <callout1>(4004) ELECTRICAL SYSTEM CONTROLLER</callout1>
+                <callout1>(4410) REMOTE SOLENOID POWER MODULE</callout1>
+                <callout1>(4410B &#38; C) SOLENOID MODULE</callout1>
+                <callout1>(4410D &#38; E) REMOTE POWER MODULE</callout1>
+                <callout1>(4410H) REMOTE POWER MODULE CENTER/REAR</callout1>
+                <callout1>(4410M) REMOTE POWER MODULE</callout1>
+                <callout1>(4415) FORWARD REMOTE POWER MODULE UNIT</callout1>
+            </calloutgroup>
+        </figure>
+        <para>Problems with the
+            <hotlnk xrefid="f0825205">body builder data link</hotlnk>
+            could be the result of open circuits in the backbone or stubs, shorts to ground in any of the circuits,
+            missing or incorrect terminating resistors, interference on the data link, internal shorts or incorrect
+            output from any electronic device (module) connected to the data link.
+        </para>
+        <para>When the diagnostic trouble codes identify only one module is not communicating with the ESC, check power
+            and data link circuits unique to that device. If the device has power it may have an internal failure
+            preventing it from communicating on the data link.
+        </para>
+        <para>When several devices are not communicating with the ESC there is probably an open in the data link or a
+            crossed circuit.
+        </para>
+        <para>It may be necessary to disconnect components from the data link to isolate a device that is affecting the
+            data link.
+        </para>
+        <table id="t0825202" tblwidth="pg-wide">
+            <title>Body Builder Data Link Connector Check Chart</title>
+            <tgroup cols="3">
+                <colspec colname="1" colwidth="1.47in"/>
+                <colspec colname="2" colwidth="1.53in"/>
+                <colspec colname="4" colwidth="3.65in"/>
+                <spanspec namest="1" nameend="4" spanname="S1T6"/>
+                <tbody>
+                    <row>
+                        <entry colspan="3" spanname="S1T6" align="center">
+                            <para>
+                                <emph type="BOLD">Body Builder Data Link Voltage Checks</emph>
+                            </para>
+                            <para>Take measurements by installing breakout box ZTSE4477 between ESC connector (4004) and
+                                harness connector (4004).
+                            </para>
+                            <para>Check with key
+                                <emph type="bold">on</emph>.
+                            </para>
+                            <para>Presence of voltages will eliminate shorts to ground and may help identify open
+                                circuits.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>Test Points</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>Spec.</para>
+                        </entry>
+                        <entry colname="4" align="center">
+                            <para>Comments</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1" align="center">
+                            <para>(4004) Breakout box test point 34 to ground</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>Approximately 2.5 volts.</para>
+                        </entry>
+                        <entry colname="4" align="center">
+                            <para>If voltage is missing, check for open or short in yellow data link circuits or shorts
+                                in components.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1" align="center">
+                            <para>(4004) Breakout box test point 35 to ground</para>
+                        </entry>
+                        <entry colname="2" align="center">
+                            <para>Approximately 2.5 volts</para>
+                        </entry>
+                        <entry colname="4" align="center">
+                            <para>If voltage is missing, check for open or short in green data link circuits or shorts
+                                in components.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="3" spanname="S1T6">
+                            <para>
+                                <emph type="BOLD">Body Builder 1939 Circuit Resistance Checks</emph>
+                            </para>
+                            <para>Check with battery disconnected.</para>
+                            <para>This procedure checks for open circuits or missing terminating resistors in the data
+                                link backbone.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>Test Points</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>Spec.</para>
+                        </entry>
+                        <entry colname="4" align="center">
+                            <para>Comments</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1" align="center">
+                            <para>(4004) Breakout box test point 34 to 35</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>60 &#177; 10 ohms</para>
+                        </entry>
+                        <entry colname="4" align="center">
+                            <para>If resistance is closer to 120 ohms, check for missing terminating resistor or open
+                                circuit. If resistance is higher both terminating resistors may be missing.
+                            </para>
+                            <para>If resistance is low check for shorts between data link circuits.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1" align="center">
+                            <para>(4004) Breakout box test point 34 to ground</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>>100K ohms</para>
+                        </entry>
+                        <entry colname="4" align="center">
+                            <para>If resistance is low check for short to ground in yellow data link circuits</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1" align="center">
+                            <para>(4004) Breakout box test point 35 to ground</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>>100K ohms</para>
+                        </entry>
+                        <entry colname="4" align="center">
+                            <para>If resistance is low check for short to ground in green data link circuits</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="3" spanname="S1T6" align="center">
+                            <para>If voltages and resistances check good, the data link backbone is good. Check for
+                                crossed circuits throughout data link or open circuits between the electronic device and
+                                the backbone.
+                            </para>
+                            <para>If problems persist, something is interfering with data link communication. This could
+                                be the result of erratic signals from one of the electronic controllers or some kind of
+                                interference.
+                            </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082503_X082524.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082503_X082529.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082503.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

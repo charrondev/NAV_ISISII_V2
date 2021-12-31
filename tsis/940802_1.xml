@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>TSI 94-08-02 - Data Link Driven Speedometer and Tachometer</stitle>
+    <tsi id="tsi940802" tsitype="truck">
+        <tsinumber>94-08-02</tsinumber>
+        <tsidate>May, 1994</tsidate>
+        <subjectfile>ELECTRICAL</subjectfile>
+        <subjectgroup>
+            <subject>Data Link Driven Speedometer and Tachometer</subject>
+        </subjectgroup>
+        <description>
+            <geninfo>
+                <lev1>
+                    <title>GENERAL</title>
+                    <para>Navistar has changed the way the speedometer and tachometer are wired for all 1994 vehicles
+                        equipped with electronic engines. Prior to 1994, the tachometer was fed from the flywheel sensor
+                        and the speedometer was fed from one of the outputs of a dual sensor on the rear of the
+                        transmission. With 1994 electronic engines, the speedometer and tachometer are fed from the
+                        engine Electronic Control Module (ECM) by way of the SAE J1708 data link. A single speed sensor
+                        at the rear of the transmission now feeds the ECM and a flywheel sensor is no longer required.
+                        The ECM reads its own speedometer and tachometer data, calibrates the input frequency and
+                        transmits the information, via the data link, to the speedometer and tachometer gauges.
+                    </para>
+                    <para>Field calibration of the speedometer and tachometer is now done in the ECM and not at the
+                        cluster. The cluster is merely programmed to accept speedometer and tachometer information from
+                        the data link and the only calibration required is setting the dip switches for miles or
+                        kilometers.
+                    </para>
+                </lev1>
+                <lev1>
+                    <title>HEAVY DUTY VEHICLES</title>
+                    <seqlist>
+                        <item>
+                            <para>Speedometers and tachometers are used in the data link mode for all electronic
+                                Caterpillar, Cummins and Detroit engines after January 1, 1994.
+                            </para>
+                        </item>
+                        <item>
+                            <para>Changing tire size or axle ratio in the field will require reprogramming the engine
+                                ECM and not the cluster.
+                            </para>
+                        </item>
+                        <item>
+                            <para>Heavy duty vehicles WITHOUT electronically controlled engines are programmed, as
+                                before, to operate from standard sensor inputs.
+                            </para>
+                        </item>
+                        <item>
+                            <para>EXAMPLE of dip switch setting for heavy duty vehicle speedometer and tachometer to
+                                operate in the data link mode:
+                            </para>
+                        </item>
+                    </seqlist>
+                    <verbatim>
+                        <line>Speedometer Dip Switches: 1111111111</line>
+                        <line>Tachometer Dip Switch: 11111111#*</line>
+                        <line># - Bit 9 of Tach: not used, set to a 0</line>
+                        <line>* - Bit 10 of Tach: Odometer Miles/kilo Switch</line>
+                        <line>1= Kilometer</line>
+                        <line>0 = Miles</line>
+                    </verbatim>
+                    <seqlist></seqlist>
+                </lev1>
+                <lev1>
+                    <title>MEDIUM DUTY VEHICLES</title>
+                    <para>ECM driven speedometer and tachometer also apply to medium duty vehicles equipped with the
+                        NAVISTAR T 444E V-8 electronic engine.
+                    </para>
+                    <seqlist>
+                        <item>
+                            <para>T 444E electronic engines use buffered speedometer and tachometer signals from the
+                                Vehicle Personality Module (VPM). These signals are calibrated to 12 pulses/rev for the
+                                tachometer and 30000 pulses per mile for the speedometer.
+                            </para>
+                        </item>
+                        <item>
+                            <para>The dip switch settings for the T 444E electronic engine are also predefined settings.
+                                Changes in tire size or axle ratio will require reprogramming the engine ECM.
+                            </para>
+                        </item>
+                        <item>
+                            <para>Medium duty vehicles WITHOUT electronic engines are programmed, as before, to operate
+                                from standard sensor outputs.
+                            </para>
+                        </item>
+                        <item>
+                            <para>EXAMPLE of dip switch setting for medium duty vehicle speedometer and tachometer, with
+                                T 444E electronic engine, to operate in the data link mode.
+                            </para>
+                        </item>
+                    </seqlist>
+                    <verbatim>
+                        <line>Dip Switch 1: 01011111</line>
+                        <line>Dip Switch 2: 00*000#@</line>
+                        <line>* - Bit 3 of DIP Switch 2: 2 spd. axle ratio 1 = 1.39, 0 = 1.36</line>
+                        <line># - Bit 7 of DIP Switch 2: Tachometer Scale; always 0 for 3500 RPM</line>
+                        <line>@ - Bit 8 of DIP Switch 2: Odometer switch; 1 = Kilometers, 0 = Miles</line>
+                    </verbatim>
+                </lev1>
+                <lev1></lev1>
+            </geninfo>
+        </description>
+    </tsi>
+</isis>

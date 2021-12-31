@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 1000 MODELS - ELECTRONIC COMPONENTS - OPERATION</stitle>
+    <svcsection/>
+    <svcproc svcproctype="operate" graphiccount="0">
+        <title>OPERATION</title>
+        <svcsubproc>
+            <title>ATA Data Link and Diagnostic/ Programming Connector</title>
+            <para>The 9-pin ATA data link connector (384) supplies power for an Electronic Service Tool (EST) through
+                fuse F6 and circuit 97C. Ground for the EST is through 97-GK to cab ground (2G).
+            </para>
+            <para>The EST is able to communicate with the engine control system through a twisted pair of wire circuits.
+                The connector serial data transmission lines are through circuit 98B(+)/98E(+) and circuit 98D(-)/98F(-)
+                to the instrument cluster (27). Communication with the ECM2 or IDM2 is through circuit 98B(+)/98A(+) and
+                circuit 98D(-)/98C(-) to the 48-pin dash connector (3). From the dash connector (3), the communication
+                circuits are 98AB(+)/98A(+) to ECM2 connector (6021) pin 20 and 98CB(-)/98C(-) to pin 21, and circuits
+                are 98AB(+)/98AA(+) to IDM2 connector (6011) pin 2 and 98CB(-)/98CA(-) to pin 3.
+            </para>
+            <para>The communication system also includes an ATA interface connector (374) for use with aftermarket
+                requirements. The communication link for the interface is through circuits 98B(+)/98H(+) and
+                98D(-)/98G(-).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Electronic Device Powering</title>
+            <para>Uninterrupted battery power is supplied to power stud (1DVA) through circuit 14D, 20A maxifuse (413),
+                circuit 14C, engine harness connector (411) and circuit 14J to the 22-pin dash connector (2). From (2),
+                power is applied to circuit 14J and the power stud.
+            </para>
+            <para>The ground stud (2DVA) ground path is through circuit 11-GC to the 22-pin dash connector (2). From
+                (2), the path is through circuit 11-GC, engine harness connector (409) and circuit 11-GB to the battery
+                ground post.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM Power and Ground</title>
+            <para>Power is supplied by the batteries to circuit 14A, a 50A maxifuse (408), circuit 14B, engine harness
+                to positive battery cable connector (411), circuit 14B/97JA to the ECM power relay (590B) coil and
+                circuit 14B/97HB, fuse (F39), circuit 97HA to contacts. Also, power is supplied through circuit 14B/97LB
+                to the IDM power relay (590A) coil and circuit 97TC to contacts.
+            </para>
+            <para>From the ECM power relay (590B) coil, power is applied to circuit 97J and pin 5 of the ECM2 (6020).
+                Also, from the IDM2 power relay (590A) coil, power is applied to circuit 97LA and pin 8 of the IDM2
+                (6011).
+            </para>
+            <para>When key switch (63) is moved to the ignition position, power is supplied through fuse F12, circuit
+                97CR, the 48-pin dash connector (3), and circuit 97CR and a splice. From the splice power is applied to
+                pin 3 of the ECM2 (6020) on circuit 97UA . This signals the ECM2 that the ignition switch is on and
+                causes the ECM2 to internally switch pin 5 to ground. This completes the circuit for the ECM power relay
+                (590B) which energizes the relay. With the relay (590B) energized, power is applied through the closed
+                contacts to circuit 97TA and a splice. From the splice power is applied to the ECM2 (6021) pins 1 and 2
+                on circuits 97CL and 97CK respectively, and to the IDM2 (6011) pin 10 on circuit 97AL.
+            </para>
+            <para>Also, when key switch (63) is moved to the ignition position, power is supplied through fuse F12,
+                circuit 97CR, the 48-pin dash connector (3), and circuit 97CR and a splice. From the splice power is
+                applied to pin 9 of the IDM2 (6011) on circuit 97UB . This signals the IDM2 that the ignition switch is
+                on and causes the IDM2 to internally switch pin 9 to ground. This completes the circuit for the IDM
+                power relay (590A) which energizes the relay. With the relay (590A) energized, power is applied through
+                the closed contacts to circuit 97TA and a splice. From the splice power is applied to the IDM2 (6011)
+                pin 12 on circuit 97Y, and the IDM2 (6011) pin 6 on circuit 97LD, fuse (F40) and circuit 97LC.
+            </para>
+            <para>Grounds for the ECM2 (6020) pins 6 and 7 are through circuits 97-GW and 97-GV respectively, to a
+                splice. From the splice, ground is through circuit 11-G, the engine harness to negative battery cable
+                harness connector (409) and circuit 11-GA to the negative battery terminal. Also, grounds for the IDM2
+                (6011) pin 1 is through circuit 97-GA to a splice. From the splice, ground is through circuit 11-G, the
+                engine harness to negative battery cable harness connector (409) and circuit 11-GA to the negative
+                battery terminal.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Accelerator Position Sensor (APS) and Idle Validation Switch (IVS)</title>
+            <para>The engine Electronic Control Module (ECM2) determines the position of the accelerator pedal by
+                processing the input signals from the Accelerator Position Sensor (APS) and Idle Validation Switch
+                (IVS).
+            </para>
+            <para>The ECM2 sends a regulated 5 volt signal through the ECM2 connector (6021), circuit 99C, dash
+                connector (3), circuit 99C to a splice, and circuit 99J to the APS/IVS (382). The APS then returns a
+                variable voltage signal (depending on pedal position) through connector (382), circuit 99B, connector
+                (3), and circuit 99B to the ECM2. The APS is grounded through circuit 99A/97W, connector (3), and
+                circuit 97W/97WB to the ECM2 signal ground.
+            </para>
+            <para>The ECM2 learns the lowest and highest pedal positions by reading and storing the minimum and the
+                maximum voltage levels from the APS. In this manner the ECM2 "auto-calibrates" the system to allow
+                maximum pedal sensitivity.
+            </para>
+            <para>The ECM2 auto-calibrates as the key is on, but when the key is turned off, these values are lost. When
+                the key is turned on again, this process starts over. When the pedal is disconnected (or a new one is
+                installed), the pedal does not need to be calibrated, as the calibration happens when the key is turned
+                on.
+            </para>
+            <para>When the key switch (63) is in the on or start position, the Idle Validation Switch (IVS) (382)
+                receives 12 volt ignition voltage through circuit breaker F10, and circuit 99E. When the pedal is not in
+                the idle position (throttle applied), the IVS sends this 12 volt signal to the ECM over circuit 99D,
+                connector (3), and circuit 99D to the ECM2 (6021).
+            </para>
+            <para>The ECM2 compares the inputs it receives on circuit 99B and circuit 99D from the APS/IVS to verify
+                when the pedal is in the idle position. If the APS signal from circuit 99B indicates throttle is being
+                applied, then the ECM2 expects to see 12 volts at IVS circuit 99D. If the APS signal, circuit 99B,
+                indicates throttle is not applied, then the ECM2 expects to see 0 volts at the IVS circuit 99D. The
+                timing process is critical between the APS and the IVS sensors. For this reason, it is very difficult to
+                determine if the APS/IVS assembly is working properly using a volt-ohmmeter.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Barometric Air Pressure (BAP) Sensor</title>
+            <para>The ECM2 (6021) sends a regulated 5 volt signal from ECM2 (6021) through circuit 99C, dash connector
+                (3), circuit 99C to a splice, and circuit 97BL to BAP sensor (437). The BAP sensor returns a variable
+                voltage signal (represents atmospheric pressure) on circuit 97CD, connector (3) and circuit 97CD to the
+                ECM2 (6020). The BAP sensor is grounded by circuit 97Z/97W, connector (3), circuit 97W/97WB to the ECM2
+                (6021) signal ground.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Air Temperature Sensor (ATS)</title>
+            <para>The IDM2 (6011) sends a regulated 5 volt reference signal through circuit 97AX to the Air Temperature
+                Sensor (463). As the temperature changes, the sensor changes resistance and provides the IDM2 (6011)
+                with an air temperature signal voltage. The sensor is grounded through circuit 97BU/97WB to the ECM2
+                (6021) signal ground.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Cruise Control/Remote Engine Controls</title>
+            <para>When key switch (63) is in the ignition or start position, power is supplied through circuit 13C to
+                the ignition relay (4G). The relay is grounded through circuits 13-G/11-GB to cab ground. This energizes
+                the relay (4G) and switches battery power from circuit breaker F31, circuits 15/15C, dash connector (2),
+                circuits 15C/15D, through the closed relay contacts and circuit 13A to circuit breaker F13. From the
+                circuit breaker, power is supplied through circuit 97B to the brake/cruise interface relay (1133). The
+                brake/cruise interface relay (1133) is grounded through circuits 97-GJ/11-GA to cab ground.
+            </para>
+            <para>Battery power is applied to fusible link circuit through circuits 90-FL/90/90B, dash connector (2),
+                circuit 90B, circuit breaker F21 and circuit 97DK to the brake/cruise interface relay (1133) contacts.
+                Power is supplied to the cruise control On/Off switch (391) through the closed relay contacts and
+                circuit 97DJ. When the switch is in the On position, power flows through the closed switch contacts and
+                circuit 97CF to the MSM (3041). The MSM (3041) received the On position of the cruise control On/Off
+                switch and is communicated&#160;to the ECM2.
+            </para>
+            <para>The cruise control Set/Resume switch (392) to be operational, with the cruise control On/Off switch
+                (391) in the On position and power is applied from the switch to the cruise Set/Resume switch (392)
+                through circuit 97DH. Momentarily depressing the Set portion of this switch supplies a 12 volt signal to
+                the MSM (3041) through circuits 97DH/97CA and is communicated&#160;to the ECM2. This engages the cruise
+                control and causes the ECM2 to maintain the current engine RPM. If the cruise control speed is already
+                set, depressing the switch in the Set position causes the engine RPM to decrease until the switch is
+                released.
+            </para>
+            <para>With the cruise control On/Off switch (391) in the On position, depressing the Resume portion of the
+                Set/Resume switch (392) supplies a 0 volt ground signal to the MSM (3041) through circuits 97-GE/97-GL
+                to cab ground and is communicated&#160;to the ECM2. If the cruise control speed has not been engaged,
+                momentarily depressing the switch causes the ECM2 to resume the last engine RPM setting.
+            </para>
+            <para>If the cruise control is already engaged, momentarily depressing the resume portion of the switch will
+                cause the engine RPM and speed to increase in small incremental amounts until the desired speed is
+                reached.
+            </para>
+            <para>Engine control circuits are also provided for remote, preset and variable speed switches and a remote
+                accelerator pedal for completion by the body builder when remote engine controls are required. When the
+                key switch is on, power is supplied through circuit breaker F11, circuit 97K, dash connector (3) and
+                circuit 97DF to the body builder switch connections (N/L), located at the cowl power distribution
+                center. The ECM2 (6020) signal circuits 46A, 46B, 47B, 97AR, 97CC and 97CB can also be found at this
+                location.
+            </para>
+            <para>For information on remote engine controls for body builder applications, refer to Miscellaneous
+                Information in CT-471 Body Builder Book.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08295_27.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08295_29.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08295.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

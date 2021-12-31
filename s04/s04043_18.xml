@@ -1,0 +1,2941 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>EC-30 ABS / ATC CONTROLLER - BLINK CODE DIAGNOSTICS</stitle>
+    <svcsection/>
+    <svcproc svcproctype="diagnose" graphiccount="0">
+        <title>BLINK CODE DIAGNOSTICS</title>
+        <svcprocinfo>
+            <para>The EC-30 provides diagnostic and configuration functions using blink code diagnostics. When the blink
+                code mode is activated, the EC-30 flashes the ABS warning lamp to communicate active fault codes, fault
+                code history or ABS and ATC configurations. The blink code diagnostics mode can also be used to reset
+                active fault codes. See
+                <hotlnk xrefid="t0404305">Table 5</hotlnk>.
+            </para>
+            <para>The ABS warning lamp illuminates while the blink code switch is pressed. The lamp turns off when the
+                blink code switch is released. The blink code switch is optional and may not be installed on some
+                vehicles (pin F3 of the 30-pin connector).
+            </para>
+            <para>Following a single display of all available messages, the ABS warning lamp remains on for five seconds
+                and then returns to the normal operating mode. Fault occurrence count information is not displayed with
+                blink code diagnostics.
+            </para>
+            <para>If wheel speeds are detected during the blink code diagnostics mode, the EC-30 exits the blink code
+                diagnostics and returns to the normal operating mode. The blink code diagnostics mode can only be
+                activated following a power-up, where wheel speeds have not been detected.
+            </para>
+            <table id="t0404305">
+                <title>Blink Code Activation</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="2.01in"/>
+                    <colspec colname="col2" colwidth="3.01in"/>
+                    <thead>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Press the Blink Code Switch</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Blink Code Action</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1 time</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Display Active Fault Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2 times</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Display Fault Code History</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3 times</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Reset Active Fault Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4 times</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Display EC-30 Configuration</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Display Active Fault Codes</title>
+            <para>To display active fault codes, press the blink code switch one time. Following activation, there will
+                be a three second delay, followed by a blink code display of all active fault codes. See
+                <hotlnk xrefid="t0404306">Table 6</hotlnk>
+                for blink code information.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Display Fault Code History</title>
+            <para>To display history fault codes, press the blink code switch two times. Following activation, there
+                will be a three second delay, followed by a blink code display of all history fault codes. See
+                <hotlnk xrefid="t0404306">Table 6</hotlnk>.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Reset Active Fault Codes</title>
+            <para>To reset active fault codes, press the blink code switch three times. Following activation, there will
+                be a three second delay, followed by a blink code message of:
+            </para>
+            <para>1 -1, (System Fully Operational - No Faults Detected) or A blink code display of all active fault
+                codes.
+            </para>
+            <para>The ABS warning lamp will stay on if active faults are still present. See
+                <hotlnk xrefid="t0404306">Table 6</hotlnk>.
+            </para>
+            <para>Resetting active fault codes with blink code diagnostics does not clear information from the fault
+                history. Fault history can be retrieved by using blink code diagnostics or a diagnostic tool.
+            </para>
+            <table id="t0404306">
+                <title>EC-30 Blink Code Definitions</title>
+                <tgroup cols="6">
+                    <colspec colname="col1" colwidth="0.53in"/>
+                    <colspec colname="col2" colwidth="0.50in"/>
+                    <colspec colname="col3" colwidth="1.68in"/>
+                    <colspec colname="col4" colwidth="2.45in"/>
+                    <colspec colname="col5" colwidth="0.77in"/>
+                    <colspec colname="col6" colwidth="0.72in"/>
+                    <spanspec namest="col1" nameend="col6" spanname="SPAN1"/>
+                    <thead>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1st Digit</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2nd Digit</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Fault Description</para>
+                            </entry>
+                            <entry colname="col4" align="center">
+                                <para>Repair Information</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>J1587 (SID)</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>J1587 (FMI)</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>No Faults</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>System Fully Operational - No Faults Detected</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1" align="center">
+                                <para>Power/ ABS Controller</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Battery Voltage Too High</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corrosion or damaged power wiring and connectors. Verify that ABS unit
+                                    is powered by a 12-volt supply.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>251</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Battery Voltage Too Low</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corrosion or damaged power wiring and connectors. Measure voltage under
+                                    load to insure proper levels.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>251</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>4</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (2)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corrosion or damaged power wiring and connectors.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (6)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Clear/reset faults. If fault returns, replace ECU.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (7)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (9)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>9</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (10)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>10</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (11)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>11</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (12)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>12</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>11</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (13)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>13</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>12</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (14)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>14</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>13</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (1)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>14</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (3)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>15</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS Controller Fault (8)</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>254</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1" align="center">
+                                <para>Wheel Speed Sensors</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Sensor Start</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Sensor output low during low- speed vehicle operation. Adjust</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Sensor Start</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>speed sensor to contact tone ring. Rotate wheel and verify</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Sensor Start</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>minimum 0.8 volt AC sensor output @ 1 RPS. Verify condition and</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Sensor Start</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>retention force of sensor clip. Verify proper</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LM Sensor Start</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>sensor lead routing and clamping.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RM Sensor Start</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>1</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Sensor Intermittent</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Intermittent sensor output. Adjust speed sensor to contact</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Sensor Intermittent</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>tone ring. Verify condition of tone ring mounting and teeth. Rotate</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Sensor Intermittent</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>wheel and verify minimum 0.8 volt AC sensor output @ 1 RPS.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Sensor Intermittent</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify condition and retention force of sensor clip. Verify proper</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RM Sensor Intermittent</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>sensor lead routing and clamping.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LM Sensor Intermittent</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>2</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Sensor Shorted to VBAT</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Sensor Shorted to VBAT</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>sensor and ECU wiring and connectors.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Sensor Shorted to VBAT</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify +12V is not measured at either</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Sensor Shorted to VBAT</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>sensor lead.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LM Sensor Shorted to VBAT</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RM Sensor Shorted to VBAT</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Sensor Shorted to Ground</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged sensor and ECU wiring</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>4</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Sensor Shorted to Ground</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>and connectors. Verify no continuity from sensor leads to ground.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>4</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Sensor Shorted to Ground</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>4</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Sensor Shorted to Ground</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>4</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LM Sensor Shorted to Ground</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>4</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RM Sensor Shorted to Ground</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>4</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Sensor Open</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Sensor Open</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>sensor and ECU wiring and connectors.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Sensor Open</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify 1500-2500 ohms across sensor leads.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Sensor Open</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LM Sensor Open</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RM Sensor Open</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Sensor Shorted Across Sensor</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged sensor and ECU wiring</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Sensor Shorted Across Sensor</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>and connectors. Verify 1500-2500 ohms across sensor leads.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Sensor Shorted Across Sensor</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Sensor Shorted Across Sensor</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LM Sensor Shorted Across Sensor</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RM Sensor Shorted Across Sensor</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Sensor Lock Time Out</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Sensor output low or missing during vehicle operation above 10 mph.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Sensor Lock Time Out</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify condition of tone ring mounting. Adjust speed sensors</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Sensor Lock Time Out</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>to contact tone ring. Rotate wheel and verify minimum 0.8 volt</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Sensor Lock Time Out</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>AC sensor output @ 1 RPS. Verify condition and retention force of</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LM Sensor Lock Time Out</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>sensor clips. Verify proper sensor lead routing and clamping.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RM Sensor Lock Time Out</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Sensor Frequency Doubling</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify condition and retention force of sensor clips. Check for</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Sensor Frequency Doubling</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>corroded or damaged sensor and ECU wiring and connectors.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Sensor Frequency Doubling</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify no continuity from sensor leads to ground. Verify sensor leads</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Sensor Frequency Doubling</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>are a twisted pair.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LM Sensor Frequency Doubling</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RM Sensor Frequency Doubling</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Sensor High Frequency Noise</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify condition and retention force of sensor clips. Check for</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>9</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Sensor High Frequency Noise</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>corroded or damaged sensor and ECU wiring and connectors.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>9</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Sensor High Frequency Noise</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify no continuity from sensor leads to ground. Verify sensor leads are a
+                                    twisted pair.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>9</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Sensor High Frequency Noise</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>9</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LM Sensor High Frequency Noise</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>9</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RM Sensor High Frequency Noise</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>9</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Sensor Wobble Run</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Sensor output intermittent or excessive wobble in exciter ring.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>10</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Sensor Wobble Run</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify condition of tone ring mounting and teeth. Verify proper</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>10</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Sensor Wobble Run</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>adjustment of wheel bearings. Adjust speed sensor to contact</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>10</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Sensor Wobble Run</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>tone ring. Rotate wheel and verify minimum 0.8 volt AC sensor output @ 1 RPS.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>10</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LM Sensor Wobble Run</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify condition and retention force of sensor clip. Verify proper sensor lead
+                                    routing and clamping.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>10</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1" align="center">
+                                <para>ABS Modulators</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Modulator Lock Time Out</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>No wheel response to ABS command. Verify proper modulator activation with</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Modulator Lock Time Out</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>brake pressure applied, at power-up (Chuff Test) and/or using diagnostic tool.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Modulator Lock Time Out</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Possible slow brake release. Check for dragging brakes, dry bearings, faulty
+                                    return
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Modulator Lock Time Out</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>springs, parking brake system faults, restricted brake air lines, over adjusted
+                                    slacks, out- of- round drums or damaged/ loose tone rings.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>7</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Modulator Open/ Shorted to GND</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged modulator wiring and connections. Verify 3.5 to
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Modulator Open/ Shorted to GND</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>5.0 ohms across HOLD/ COMMON. Verify 3.5 to 5.0 ohms across</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Modulator Open/ Shorted to GND</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>EXHAUST/ COMMON. Verify 7.0 to 10.0 ohms across</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Modulator Open/ Shorted to GND</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>EXHAUST/ HOLD. Verify no continuity from modulator leads to ground.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Modulator Shorted to Ground</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged modulator wiring and connections. Verify no</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Modulator Shorted to Ground</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>continuity from modulator leads to ground. Verify 3.5 to 5.0 ohms across HOLD/
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Modulator Shorted to Ground</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>COMMON. Verify 3.5 to 5.0 ohms across EXHAUST/ COMMON.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Modulator Shorted to Ground</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify 7.0 to 10.0 ohms across EXHAUST/ HOLD.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Modulator Shorted Solenoid</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged modulator wiring and</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>14</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Modulator Shorted Solenoid</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>connections. Verify 3.5 to 5.0 ohms across HOLD/ COMMON. Verify</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>14</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Modulator Shorted Solenoid</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>3.5 to 5.0 ohms across EXHAUST/ COMMON. Verify 7.0 to</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>14</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Modulator Shorted Solenoid</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>10.0 ohms across EXHAUST/ HOLD.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>14</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Modulator Shorted to VBAT</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged modulator wiring and</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>11</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Modulator Shorted to VBAT</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>connections. Verify +12V is not measured at any modulator lead.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Modulator Shorted to VBAT</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Verify 3.5 to 5.0 ohms across HOLD/ COMMON. Verify 3.5 to</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>11</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Modulator Shorted to VBAT</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>5.0 ohms across EXHAUST/ COMMON. Verify 7.0 to 10.0 ohms across EXHAUST/ HOLD.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LF Modulator Shorted Between</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged modulator wiring and</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>12</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RF Modulator Shorted Between</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>connections. Verify 3.5 to 5.0 ohms across HOLD/ COMMON. Verify</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>LR Modulator Shorted Between</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>3.5 to 5.0 ohms across EXHAUST/ COMMON. Verify 7.0 to</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>12</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>RR Modulator Shorted Between</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>10.0 ohms across EXHAUST/ HOLD.</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>8</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                            <entry colname="col4">
+                                <para></para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1" align="center">
+                                <para>Retarder Relay Control</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Retarder Relay Open</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check ABS retarder control relay wiring</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>13</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Retarder Relay Shorted</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>and connections. Verify proper activation of ABS retarder control relay at
+                                    power-up.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>13</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1" align="center">
+                                <para>ATC - Traction Control</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Traction Modulator Open</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged modulator wiring and connections. Verify 10.0 to
+                                    12.0 ohms across the traction modulator leads.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>18</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Traction Modulator Shorted to Ground</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged modulator wiring and connections. Verify no
+                                    continuity from traction modulator leads to ground. Verify 10.0 to 12.0 ohms across
+                                    the traction modulator leads.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>18</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>7</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Traction Modulator Shorted</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged modulator wiring and connections. Verify 10.0 to
+                                    12.0 ohms across the traction modulator leads.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>18</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>14</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>8</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Traction Modulator Shorted to VBAT</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>Check for corroded or damaged modulator wiring and connections. Verify +12V is not
+                                    measured at any traction modulator lead. Verify 10.0 to 12.0 ohms across the
+                                    traction modulator leads.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>18</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>3</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1" align="center">
+                                <para>Lamps</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>9</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Traction Lamp Open</para>
+                            </entry>
+                            <entry colname="col4" morerows="1">
+                                <para>Check traction lamp wiring and connections. Verify proper illumination of traction
+                                    lamp at power-up.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>24</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Traction Lamp Shorted</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>24</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>11</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS - Warning Lamp Open</para>
+                            </entry>
+                            <entry colname="col4" morerows="1">
+                                <para>Check ABS warning lamp (or ABS warning lamp relay) wiring and connections. Verify
+                                    proper illumination of warning lamp at power- up.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>23</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>10</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>12</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ABS - Warning Lamp Shorted</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>23</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>11</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>1</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Trailer ABS - Warning Lamp Open (Dash Mounted)</para>
+                            </entry>
+                            <entry colname="col4" morerows="1">
+                                <para>Check ABS warning lamp wiring and connections. Verify proper illumination of
+                                    warning lamp at power-up.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>81</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>11</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Trailer ABS - Warning Lamp Shorted (Dash Mounted)</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>81</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>6</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="SPAN1" align="center">
+                                <para>Engine Serial Communications</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>11</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>J1939 Data Link Retarder Communication Fault</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>ECU not communicating with vehicle retarder. Check J1939 wiring and connections to
+                                    ECU. Verify correct retarder control setting in ECU.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>231</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>12</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>11</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>J1939 Data Link Engine Communication Fault</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>ECU not communicating with engine. Check J1939 wiring and connections to ECU.
+                                    Verify correct engine communications link setting in ECU.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>231</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>11</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>J1922 Data Link Engine Communication Fault</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>ECU not communicating with engine. Check J1922 wiring and connections to ECU.
+                                    Verify correct engine communications link setting in ECU.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>249</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>5</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>11</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>J1922 Data Link Retarder Communication Fault</para>
+                            </entry>
+                            <entry colname="col4">
+                                <para>ECU not communicating with vehicle retarder. Check J1922 wiring and connections to
+                                    ECU. Verify correct retarder control setting in ECU.
+                                </para>
+                            </entry>
+                            <entry colname="col5" align="center">
+                                <para>249</para>
+                            </entry>
+                            <entry colname="col6" align="center">
+                                <para>12</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Display EC-30 Configuration</title>
+            <para>To check the ECU configuration, press the blink code switch four times. Following activation, there
+                will be a three second delay, followed by a blink code display of the EC-30 configuration. See
+                <hotlnk xrefid="t0404307">Table 7</hotlnk>.
+            </para>
+            <table id="t0404307">
+                <title>Blink Codes for EC-30 Configuration</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.53in"/>
+                    <colspec colname="col2" colwidth="2.97in"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>
+                                    <emph type="bold">1st Digit</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>
+                                    <emph type="bold">Sensors</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4 Sensors</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>6 Sensors</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>
+                                    <emph type="bold">2nd Digit</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>
+                                    <emph type="bold">Modulators</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>4 Modulators</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>
+                                    <emph type="bold">3rd Digit</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>
+                                    <emph type="bold">ATC</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>2</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Not ATC</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>3</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>ATC Engine Torque Limiting Only</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>4</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>ATC Differential Brake Only</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>5</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Full ATC (Engine Torque Limiting and Differential Braking)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043_17.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043_19.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

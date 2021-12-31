@@ -1,0 +1,414 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Vehicle Speed Sensor (VSS)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="2">
+        <title>Vehicle Speed Sensor (VSS)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3356" filename="../figd33/d3356.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function Diagram for the Vehicle Speed Sensor (VSS)</caption>
+            </figure>
+            <para>The Function Diagram for the VSS includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Vehicle Speed Sensor (VSS)</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>World Transmission Electronic Control (WTEC) ECM</para>
+                </item>
+                <item>
+                    <para>Cruise Control, Power Takeoff, Road Speed Limit</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The Vehicle Speed Sensor (VSS) is a magnetic pick-up sensor located in the transmission. The VSS reads
+                the rotation of a 16 toothed gear and produces a sine wave signal. The ECM processes the sine wave
+                signal to calculate vehicle speed. The Drivetrain Datalink (CAN 1) transmits the calculated speed to the
+                speedometer. The calculated speed also assists in control strategies that include Cruise Control, Power
+                Takeoff, and Road Speed Limiting.
+            </para>
+            <para>Allison WTEC MD and 2000 series transmissions use an internal VSS that sends a signal to the
+                transmission module. The transmission module processes the signal and sends a square wave signal to the
+                engine ECM.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>VSS Circuit Operation</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3357" filename="../figd33/d3357.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>VSS Circuit Diagram</caption>
+            </figure>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The ECM performs diagnostic checks on the VSS circuit when the engine is operating at 0 mph. The ECM
+                transmits a voltage signal on the VSS circuit and determines if the return voltage is out of range high
+                or low. When a fault condition is detected, the ECM disables the cruise control and power takeoff. If
+                the road speed limiting option is enabled, the ECM will limit engine rpm for all gears.
+            </para>
+            <para>The ECM will not set DTCs for VSS circuit failure for vehicles equipped with Allison MD (WTEC) and
+                2000 series transmissions. Vehicles equipped with MD transmissions only diagnose the communication
+                circuit (CAN 1) between the engine and transmission module.
+            </para>
+            <specpara>
+                <note>
+                    <para>See truck Chassis Electrical Circuit Diagram manual for circuit numbers, connector and fuse
+                        locations. To diagnose MD VSS sensor problems, see truck Electrical System Troubleshooting Guide
+                        and Allison WTEC maintenance and diagnostic manual.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <title>VSS Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim id="f240dtc141">
+                <line>
+                    <emph type="bold">DTC 141</emph>
+                </line>
+                <line>
+                    <emph type="bold">Out of Range Low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 141 is set by the ECM when an out of range low condition is detected in the VSS circuit.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 141 is active the amber ENGINE lamp is not illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc142">
+                <line>
+                    <emph type="bold">DTC 142</emph>
+                </line>
+                <line>
+                    <emph type="bold">Out of Range High</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 142 is set by the ECM when an out of range high condition is detected in the VSS
+                        circuit.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 142 is active the amber ENGINE lamp is not illuminated.</para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>The ECM monitors voltage on V
+                        <subscript>REF</subscript>
+                        A and will adjust signal values for the sensors that use V
+                        <subscript>REF</subscript>
+                        A for operation. If a sensor or circuit pulls V
+                        <subscript>REF</subscript>
+                        lower than 5V, the ECM may set out of range high DTCs for the sensors that operate on V
+                        <subscript>REF</subscript>
+                        B (APS, BAP, B+, and VSS).
+                    </para>
+                </note>
+            </specpara>
+            <verbatim id="f240dtc215">
+                <line>
+                    <emph type="bold">DTC 215</emph>
+                </line>
+                <line>
+                    <emph type="bold">Signal Frequency Out of Range High</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 215 is set by the ECM when the ECM detects a VSS signal greater than 4365 Hz.</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with INTUNE and Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+                <item>
+                    <para>International&#174; J1939 Interface Cable</para>
+                </item>
+                <item>
+                    <para>Electrical System Troubleshooting Guide (truck manual)</para>
+                </item>
+                <item>
+                    <para>Electrical Circuit Diagrams (truck manual)</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VSS Pin Point Diagnostics</title>
+            <para>The VSS circuit requires the use of vehicle circuit diagrams. See truck Chassis Electrical Circuit
+                Diagram manual for circuit numbers, connector and fuse locations.
+            </para>
+            <table id="te24007084" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Voltage Checks</emph>
+                                    (Disconnect sensor from harness and turn ignition key ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2-3V</para>
+                            </entry>
+                            <entry colname="col3" morerows="1">
+                                <para>ECM pull up voltage when sensor disconnected. If no voltage present, check for
+                                    open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2-3V</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Sensor Continuity Checks</emph>
+                                    (Check with sensor disconnected and ignition key OFF.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>600-800&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Manual transmission (measure resistance through sensor)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Ref Allison Manual</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>MD Automatic Transmission (electronically controlled)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Turn ignition key OFF. Disconnect negative battery cable and sensor. Install
+                                    breakout box on chassis harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-9 to B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-10 to A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-9 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-10 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X4-10 to X4-9</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>2V AC</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;2V AC, check sensor adjustment or replace defective sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">VSS Diagnostic Trouble Code</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 141 = ECM detected low voltage across VSS circuit for >0.5 seconds</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 142 = ECM detected high voltage across VSS circuit for >0.5 seconds</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 215 = ECM detected VSS frequency signal >4.365 kHz</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <specpara>
+                <note>
+                    <para>If circuit checks are within spec and condition remains, see transmission manual for sensor
+                        inspection and adjustment.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_163.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_EGES240-SEC8-DRAFT.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

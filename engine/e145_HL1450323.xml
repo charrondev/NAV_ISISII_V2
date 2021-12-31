@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - ENGINE OIL TEMPERATURE (EOT) SENSOR
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450323" svcproctype="proctype" graphiccount="4">
+        <title>ENGINE OIL TEMPERATURE (EOT) SENSOR</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef14503a5">Figure 3.80 Engine Oil Temperature (EOT) Sensor</hotlnk>
+            </para>
+            <figure id="ef14503a5" figsize="col-wide">
+                <graphic id="eg1128" filename="../figeg1/eg1128.webp" type="webp"/>
+                <caption>Figure 3.80 Engine Oil Temperature (EOT) Sensor</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>SIGNAL FUNCTIONS</title>
+            <para>The Engine Oil Temperature (EOT) sensor is a thermistor type sensor that has a variable resistance
+                which changes when exposed to different temperatures. When interfaced with the ECM, it produces a 0 to 5
+                volt analog signal that indicates temperature.
+            </para>
+            <para>
+                <emph type="bold">Cranking Fuel Quantity/Timing Control -</emph>The EOT signal is used to determine the
+                timing and quantity of fuel required to optimize starting over all temperature conditions.
+            </para>
+            <para>
+                <emph type="bold">Temperature Compensation -</emph>Fuel quantity and timing is controlled throughout the
+                total operating range to compensate for oil viscosity changes due to temperature variations and insure
+                that adequate torque and power is available.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION/MANAGEMENT</title>
+            <para>An EOT signal that is detected out of range high or low by the ECM will cause the ECM to ignore the
+                EOT signal and default to the engine coolant temperature (ECT) sensor. The WARN engine lamp will also be
+                illuminated as long as the fault condition exists. If both the EOT and ECT sensors are not functioning,
+                the ECM will assume a 212F (100C) value for engine oil temperature.
+            </para>
+            <para>
+                <hotlnk xrefid="ef14503a6">Figure 3.81 Engine Oil Temperature (EOT) Sensor Diagnostics</hotlnk>
+            </para>
+            <figure id="ef14503a6" figsize="col-wide">
+                <graphic id="eg6024" filename="../figeg6/eg6024.webp" type="webp"/>
+                <caption>Figure 3.81 Engine Oil Temperature (EOT) Sensor Diagnostics</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FUNCTION</title>
+            <para>The Navistar engine control system includes a Engine Oil Temperature (EOT) sensor. The ECM monitors
+                engine oil temperature via the EOT sensor signal to control fuel quantity and timing throughout the
+                operating range of the engine. The EOT signal allows the ECM to compensate for oil viscosity variations
+                due to temperature changes in the operating environment. This insures that adequate power and torque are
+                available under all operating conditions.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>OPERATION</title>
+            <para>The Engine Oil Temperature Sensor is a thermistor type sensor which changes resistance when exposed to
+                different oil temperatures.
+            </para>
+            <para>When the temperature of the oil is decreased the resistance of the thermistor increases which causes
+                the signal voltage to increase. As the temperature of the oil is increased, the resistance of the
+                thermistor decreases, causing the signal voltage to decrease.
+            </para>
+            <para>The EOT sensor is supplied a regulated 5 volt reference signal at terminal B from ECM terminal 14. A
+                return circuit (ground) is supplied at terminal A from ECM terminal 46. As the oil temperature increases
+                or decreases, the sensor changes resistance and provides the ECM with the oil temperature signal voltage
+                at terminal 14. This signal voltage is then read by the ECM to determine the temperature of the oil.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM DIAGNOSTICS</title>
+            <para>With the ignition key "ON", the ECM continuously monitors the EOT signal to determine if it is within
+                expected values. If the signal voltage is above or below the expected levels, the ECM will set a fault
+                code.
+            </para>
+            <para>If the ECM detects a fault, it will use the value of the Engine Coolant Temperature signal, in place
+                of the EOT signal. If the ECT sensor is not sending a correct signal, the ECM will default to 29F
+                (-1.7C) for starting or 212F (100C) for engine running operation.
+            </para>
+            <para>EOT sensor faults can be retrieved using the Electronic Service Tool or by reading the flash codes
+                from the warning light using the STI diagnostic switch located on the vehicle dash. If the ignition key
+                is shut off, the code will become an Inactive code. EOT codes will cause the Engine Warning light to be
+                illuminated.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 311</title>
+            <para>
+                <title>ATA CODE PID 175 FMI 4</title>
+            </para>
+            <para>
+                <title>ENGINE OIL TEMPERATURE SIGNAL OUT OF RANGE LOW</title>
+            </para>
+            <para>Code 311 out of range low, will be set if the signal voltage was less than 0.2 volts for more than 0.1
+                seconds. If this code is set, the ECM will default to ECT temperature or a default value of -4F (-20C)
+                for starting or 212F (100C) for engine running operation. This code will cause the ECM to illuminate the
+                Engine Warning light.
+            </para>
+            <para>Code 311 may be set due to a short to ground in the signal circuit or a defective sensor.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 312</title>
+            <para>
+                <title>ATA CODE PID 175 FMI 3</title>
+            </para>
+            <para>
+                <title>ENGINE OIL TEMPERATURE SIGNAL OUT OF RANGE HIGH</title>
+            </para>
+            <para>Code 312 out of range high,will be set if the signal voltage is more than 4.8 volts for more than 0.1
+                seconds. If this code is set, the ECM will default to ECT temperature or a default value of -4F (-20C)
+                for starting or 212F (100C) for engine running operation. This code will cause the ECM to illuminate the
+                Engine Warning light.
+            </para>
+            <para>Code 312 may be set due to an open signal circuit between the ECM and the sensor or a short to a
+                voltage source. A defective sensor may also cause code 312 to be set.
+            </para>
+            <figure id="ef14503a7" figsize="col-wide">
+                <graphic id="eg6025" filename="../figeg6/eg6025.webp" type="webp"/>
+                <caption>Figure 3.82 Sensor Circuit Diagram</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef14503a8">Figure 3.83 Engine OIl Temperature (EOT) Sensor Diagnostics</hotlnk>
+            </para>
+            <figure id="ef14503a8" figsize="col-wide">
+                <graphic id="eg6026" filename="../figeg6/eg6026.webp" type="webp"/>
+                <caption>Figure 3.83 Engine OIl Temperature (EOT) Sensor Diagnostics</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refer to circuit diagram Figure
+                        <hotlnk xrefid="ef14503a7">3.82</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450322.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450324.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

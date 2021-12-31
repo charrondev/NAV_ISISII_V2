@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics Model Years 1999-2000 - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS -
+        Circuit Function And Diagnostics - Engine Diagnostics Switch and Engine Warning Light
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="2">
+        <title>Engine Diagnostics Switch and Engine Warning Light</title>
+        <svcsubproc>
+            <title>Signal Function</title>
+            <figure id="f17503088" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1251.webp" type="webp" scalefit="1" scalefitwidth="352px" box="no"/>
+                <caption>Function Diagram for Self Test Input Switch</caption>
+            </figure>
+            <para>
+                <emph type="bold">Self Test Input (STI) Switch</emph>
+            </para>
+            <para>The STI switch (Engine Diagnostic Switch) can be used to run the Key-On Engine-Off (KOEO) Standard
+                Tests. Diagnostic Trouble Codes detected during this test result in active Diagnostic Trouble Codes,
+                which are transmitted as a series of flashes through the WARN ENGINE lamp. If no Diagnostic Trouble
+                Codes are detected, the ECM will FLASH Diagnostic Trouble Code 111 (this indicates that no Diagnostic
+                Trouble Codes have been detected).
+            </para>
+            <para>ECM pin 34 has 5V with the key ON and engine OFF. Depressing the STI switch grounds pin 34, causing it
+                to change from 5V to 0V, signaling the ECM to start the KOEO Standard Tests.
+            </para>
+            <para>
+                <emph type="bold">WARN ENGINE Lamp</emph>
+            </para>
+            <para>When the key switch is turned ON, the amber Engine Warning Lamp turns ON and stays ON, while the ECM
+                runs normal start-up tests, and then turns OFF. If the ECM detects a problem, the WARN ENGINE lamp
+                remains ON.
+            </para>
+            <para>Ignition power is applied to the WARN ENGINE Lamp. The ground side of the WARN ENGINE lamp is
+                connected to ECM pin 55, which is a ground switch. The ECM applies 5V to pin 55 (light OFF) or 0V (light
+                ON), in response to engine conditions.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>The ECM can detect an open WARN ENGINE Lamp circuit during a Standard Engine Off test when an output
+                circuit test is automatically performed. There are no ECM diagnostics for the STI circuits.
+            </para>
+            <figure id="f17503089" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1252A.webp" type="webp" scalefit="1" scalefitwidth="432px" box="no"/>
+                <caption>Circuit Diagram for Self Test Input Switch and Engine Warning Light</caption>
+            </figure>
+            <table id="te17503033" tblwidth="pg-wide" frame="all">
+                <title>Diagnostics for Self Test Input Switch and Engine Warning Light</title>
+                <tgroup cols="4" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="49.50*"/>
+                    <colspec colname="col2" colwidth="56.65*"/>
+                    <colspec colname="col3" colwidth="57.20*"/>
+                    <colspec colname="col4" colwidth="232.65*"/>
+                    <spanspec namest="col1" nameend="col4" spanname="1to4"/>
+                    <spanspec namest="col3" nameend="col4" spanname="3to4"/>
+                    <spanspec namest="col1" nameend="col2" spanname="1to2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Test STI Switch with Ignition Key OFF</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Across Switch Terminals</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;, open position</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>&#60; than 1000 &#x2126; replace switch.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Across Switch Terminals</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;, closed position</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>> than 5 &#x2126; replace switch.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Test at STI Switch Connection with Ignition Key OFF</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>98 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>>1000 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>&#60; than 1000 &#x2126; locate short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Test at STI Switch Connection with Ignition Key ON</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>98 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>&#60; than 4.5V check connections, if 0V, check for open/short to ground in
+                                    circuit 98.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>98 to 98-G</para>
+                            </entry>
+                            <entry align="center">
+                                <para>5V &#177; 0.5</para>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>&#60; than 4.5V check connections, if 0V, check for open in ground circuit.</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="2" spanname="1to2">
+                                <para>
+                                    <emph type="bold">If warning light does not turn on when key is turned ON</emph>
+                                </para>
+                                <para>1. Check fuse and bulb condition</para>
+                                <para>2. Disconnect (379) from ECM and install breakout box to harness. Jumper terminal
+                                    55 to ground and note if light is ON
+                                </para>
+                                <seqlist>
+                                    <item>
+                                        <para>If light is ON, the ECM is defective</para>
+                                    </item>
+                                    <item>
+                                        <para>If light does not turn ON, check circuit for open condition</para>
+                                    </item>
+                                    <item>
+                                        <para>If light goes off, ECM is defective</para>
+                                    </item>
+                                </seqlist>
+                            </entry>
+                            <entry colspan="2" spanname="3to4">
+                                <para>
+                                    <emph type="bold">IF warning light STAYS ON after self test</emph>
+                                </para>
+                                <para>1. Check for active diagnostic trouble code conditions. (use EST or STI diagnostic
+                                    trouble codes.)
+                                </para>
+                                <seqlist>
+                                    <item>
+                                        <para>If active diagnostic trouble codes are present, correct diagnostic trouble
+                                            codes
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If no diagnostic trouble codes are present, go to step 2</para>
+                                    </item>
+                                </seqlist>
+                                <para>2. Disconnect (379) from ECM chassis connection and note if LIGHT remains ON
+                                </para>
+                                <seqlist>
+                                    <item>
+                                        <para>If light remains ON, check for short to ground in circuit</para>
+                                    </item>
+                                </seqlist>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="4" spanname="1to4" align="center">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Reference</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="1to4">
+                                <para id="f175fc266">
+                                    <hotlnk xrefid="f175fc266">Diagnostic Trouble Code 266</hotlnk>
+                                    = Output Circuit Check detected during Standard Test, indicates high or low
+                                    resistance in Warn Lamp circuit.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>
+                <emph type="bold">STI Switch</emph>
+            </para>
+            <para>The STI switch (Engine Diagnostic Switch) can be used to run the Key-On Engine-Off (KOEO) Standard
+                Tests. Diagnostic Trouble Codes detected during this test result in active Diagnostic Trouble Codes,
+                which are transmitted as a series of flashes through the engine WARN ENGINE lamp. If no Diagnostic
+                Trouble Codes are detected, the ECM will FLASH Diagnostic Trouble Code 111 (this indicates that no
+                Diagnostic Trouble Codes have been detected).
+            </para>
+            <para>Depressing the STI switch while turning the key ON starts the test cycle. The KOEO Standard tests
+                include: (1) ECM Internal Tests and (2) Output Circuit Check (OCC) tests.
+            </para>
+            <para>The normally open (N.O.) switch has one pole connected through circuit 98 to the ECM STI pin 34. The
+                other switch pole is connected (circuit 98-G/11-GA) to the G2 ground stud.
+            </para>
+            <para>ECM pin 34 has 5V with the key ON and engine OFF. Depressing the STI switch grounds pin 34, causing it
+                to change from 5V to 0V, signaling the ECM to start the KOEO Standard Tests.
+            </para>
+            <para>
+                <emph type="bold">WARN ENGINE lamp</emph>
+            </para>
+            <para>When the key switch is turned ON, the amber Engine Warning Light turns ON and stays ON while the ECM
+                runs normal start-up tests, and then turns OFF. If the ECM detects a problem, the WARN ENGINE lamp
+                remains on.
+            </para>
+            <para>See
+                <hotlnk xrefid="f17503089">Self Test Input Switch and Engine Warning Light Circuit Diagram
+                    <xref refid="f17503089"/>
+                </hotlnk>
+                for the following discussion.
+            </para>
+            <para>Ignition power WARN ENGINE is applied to the EWL. The ground side of the WARN ENGINE lamp is connected
+                to ECM pin 55, which is a ground switch. The ECM applies 12V to terminal Pin 55 (light OFF) or 0V (light
+                ON), in response to engine conditions.
+            </para>
+            <para>
+                <emph type="bold">ECM Diagnostics</emph>
+            </para>
+            <para>There are no ECM diagnostics for the STI or Warning Light circuits.</para>
+            <para>
+                <emph type="bold">Before Troubleshooting</emph>
+            </para>
+            <step1>
+                <para count="1">Before troubleshooting, make sure that the batteries are fully charged. Check battery
+                    connections and grounds for clean, tight damage free connections. Voltage tests will give misleading
+                    results if the batteries are not fully charged.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting, inspect circuit connectors for pushed back, loose, or damaged
+                    (spread or bent) terminals, or wires with cut strands. Wires and connections must be free of damage
+                    or corrosion. When some connectors corrode, a light white residue will be present that must be
+                    removed.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting, inspect suspect circuit grounds for clean, tight connections
+                    free of damage.
+                </para>
+            </step1>
+            <para>
+                <emph type="bold">Troubleshooting</emph>
+            </para>
+            <para>See
+                <hotlnk document="eges1751_103.xml" xrefid="f17503035">Engine Warning Lights/Alarm and Test Switch
+                    Circuit Diagram
+                    <xref refid="f17503035"/>
+                </hotlnk>
+                .
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_110.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_112.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

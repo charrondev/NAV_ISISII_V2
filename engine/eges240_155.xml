@@ -1,0 +1,886 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Injection Driver Module Power (IDM PWR)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="5">
+        <title>Injection Driver Module Power (IDM PWR)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3326" filename="../figd33/d3326.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function Diagram for the Injection Driver Module Power Supply (IDM PWR)</caption>
+            </figure>
+            <para>The function Diagram for the IDM PWR includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Injection Driver Module (IDM)</para>
+                </item>
+                <item>
+                    <para>Injection Driver Module relay</para>
+                </item>
+                <item>
+                    <para>Battery</para>
+                </item>
+                <item>
+                    <para>Ignition switch</para>
+                </item>
+                <item>
+                    <para>Fuses</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The Injector Drive Module (IDM) requires a 12V power source. The IDM receives power from the vehicle
+                batteries though the IDM relay contacts each time the ignition key switch is turned ON. As the ignition
+                is turned ON, the IDM provides an internal ground to the coil side of the IDM relay. This closes the
+                relay contacts and provides the IDM with necessary power.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>IDM PWR Circuit Operation</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3327" filename="../figd33/d3327.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>IDM PWR Circuit Diagram</caption>
+            </figure>
+            <para>The IDM is grounded directly to the battery negative terminal through IDM terminals X3-1, X3-2, X3-3,
+                X3-22 and X3-26.
+            </para>
+            <para>The IDM receives V
+                <subscript>IGN</subscript>
+                power at terminal X3-7. The power signals the IDM to provide a ground path to switch the IDM power relay
+                from terminal X3-27 to 85. Switching the IDM relay provides power directly from the battery positive
+                terminal through a fuse and relay contacts 30 and 87 to terminals X3-4, X3-23, X3-24 and X3-25. Power is
+                also supplied to terminal X3-8 for IDM logic and is protected with a fuse. See truck Chassis Electrical
+                Circuit Diagram manual for circuit numbers, connector and fuse locations.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>The IDM internally monitors battery voltage. When the IDM continuously receives less than 7V or more
+                than 16V a Diagnostic Trouble Code (DTC) will be set.
+            </para>
+            <para>
+                <title>IDM PWR Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim id="f240dtc525">
+                <line>
+                    <emph type="bold">DTC 525</emph>
+                </line>
+                <line>
+                    <emph type="bold">IDM fault</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 525 is set by the ECM when there is an internal IDM failure. When DTC 525 is set, replace
+                        the IDM.
+                    </para>
+                </item>
+                <item>
+                    <para>When DTC 525 is active the amber ENGINE lamp is illuminated.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc523">
+                <line>
+                    <emph type="bold">DTC 523</emph>
+                </line>
+                <line>
+                    <emph type="bold">IDM V
+                        <subscript>IGN</subscript>
+                        voltage low
+                    </emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 523 is set by the ECM when the voltage from V
+                        <subscript>IGN</subscript>
+                        is below 7V.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 523 can be set due to poor connections between the IDM terminal X3-7 and the V
+                        <subscript>IGN</subscript>.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc533">
+                <line>
+                    <emph type="bold">DTC 533</emph>
+                </line>
+                <line>
+                    <emph type="bold">IDM relay voltage high</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 533 is set by the ECM when the voltage from the IDM power relay exceeds 16V.</para>
+                </item>
+                <item>
+                    <para>DTC 533 can be set due to an alternator voltage output of 16V or more. DTC 533 can also be set
+                        when jump starting the engine or incorrect external battery connections exist.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc534">
+                <line>
+                    <emph type="bold">DTC 534</emph>
+                </line>
+                <line>
+                    <emph type="bold">IDM relay voltage low</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 534 is set by the ECM when the voltage from the IDM power relay is less than 7V.</para>
+                </item>
+                <item>
+                    <para>DTC 534 can be set due to a defective alternator, IDM power relay, discharged batteries or
+                        increased resistance in the battery feed circuits.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>12 pin breakout harness</para>
+                </item>
+                <item>
+                    <para>Breakout box</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+                <item>
+                    <para>Relay breakout harness</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>IDM PWR Pin Point Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3327" filename="../figd33/d3327.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>IDM PWR Circuit Diagram</caption>
+            </figure>
+            <para>The IDM PWR circuit requires the use of vehicle circuit diagrams. See truck Chassis Electrical Circuit
+                Diagram manual for circuit numbers, connector and fuse locations.
+            </para>
+            <table id="te24007065" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.47in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid damage to engine, before unplugging IDM connectors and relay, turn
+                                        ignition key OFF. Failure to turn ignition key OFF will create a voltage spike
+                                        and damage electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Key ON Engine OFF - Voltage Checks at IDM Power Relay Socket
+                                    </emph>
+                                    (Follow tests in order. Check with IDM relay and breakout harness installed,
+                                    ignition Key ON Engine OFF. If all tests are in spec, proceed to 12 pin voltage
+                                    checks.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>86 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177;1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Continuous voltage. If no voltage, check power circuits from battery or fuse. If
+                                    fuse is blown, check for short to ground. If fuse is good, check for open between
+                                    PIN 86 and B+. See truck Chassis Electrical Circuit Diagram manual for circuit
+                                    numbers, connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177; 1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Continuous voltage. If no voltage, check power circuits from battery or fuse. If
+                                    fuse is blown, check for short to ground. If fuse is good, check for open between
+                                    PIN 30 and B+. See truck Chassis Electrical Circuit Diagram manual for circuit
+                                    numbers, connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>85 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.06-2V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >2V, check for open circuit between IDM PIN X3-27 to PIN 85 on relay or V
+                                    <subscript>IGN</subscript>
+                                    circuit - continue with 12 pin voltage checks.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>87 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177;1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Continuous voltage. If no voltage, replace relay.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>12-pin Breakout Harness</title>
+            </para>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3327" filename="../figd33/d3327.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>IDM PWR Circuit Diagram</caption>
+            </figure>
+            <table id="te24007066" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.53in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid damage to engine, before unplugging IDM connectors and relay, turn
+                                        ignition key OFF. Failure to turn ignition key OFF will create a voltage spike
+                                        and damage electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Key ON Engine OFF - Voltage Checks at 12 pin Connector</emph>
+                                    (Check with breakout harness installed at 12 pin connector, IDM relay installed, and
+                                    Key ON Engine OFF. Follow tests in order. Inspect for bent pins or corrosion.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>9 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Power from ignition switch to IDM. If no voltage, see truck Chassis Electrical
+                                    Circuit Diagram manual for circuit numbers, connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>8 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.06-2V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>IDM MPR - 12 pin connector. If >2V, check for open circuit between IDM PIN X3-27
+                                    to PIN 8.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>12 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>IDM power from relay PIN 87. If no voltage, check from PIN 12 to PIN 87 on relay
+                                    for open or short to ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>6 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>IDM logic power from relay PIN 87 with fuse. If fuse is blown, check for short to
+                                    ground. If fuse is good, check for open circuit between fuse to PIN 6. See truck
+                                    Chassis Electrical Circuit Diagram manual for circuit numbers, connector and fuse
+                                    locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ground - voltage reading indicates poor ground to battery. If voltage is present
+                                    check for open or high resistance between battery (-) and IDM pins.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007067" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.53in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid damage to engine, before unplugging IDM connectors and relay, turn
+                                        ignition key OFF. Failure to turn ignition key OFF will create a voltage spike
+                                        and damage electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Key ON Engine OFF - Voltage Checks at IDM</emph>
+                                    (Check with IDM power relay installed. Disconnect IDM X3 connector. Ground terminal
+                                    X3-27 using test pin and harness to activate relay and check at harness connector.
+                                    Inspect for bent pins or corrosion.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-7 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177;1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Power from ignition switch to IDM. If no voltage, see truck Chassis Electrical
+                                    Circuit Diagram manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ground - voltage reading indicates poor ground to battery. See truck Chassis
+                                    Electrical Circuit Diagram manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ground - voltage reading indicates poor ground to battery. See truck Chassis
+                                    Electrical Circuit Diagram manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-3 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0V</para>
+                            </entry>
+                            <entry>
+                                <para>Ground - voltage reading indicates poor ground to battery. See truck Chassis
+                                    Electrical Circuit Diagram manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-22 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ground - voltage reading indicates poor ground to battery. See truck Chassis
+                                    Electrical Circuit Diagram manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-26 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ground - voltage reading indicates poor ground to battery. See truck Chassis
+                                    Electrical Circuit Diagram manual.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-27 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>IDM grounds relay through internal transistor. Expect 0V with X3-27 grounded. If
+                                    voltage is present, check test pin and jumper.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-8 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177;1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Power from relay to IDM. If no voltage, check fuses. If a fuse is blown, check for
+                                    short to ground. If fuses are good, check for open circuit between 87 and X3-8. See
+                                    truck Chassis Electrical Circuit Diagram manual for circuit numbers, connector and
+                                    fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-4 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177;1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Power from relay to IDM. If no voltage, check for open between PIN X3-4 and 87 on
+                                    IDM relay. See truck Chassis Electrical Circuit Diagram manual for circuit numbers,
+                                    connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-23 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177;1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Power from relay to IDM. If no voltage, check for open between PIN X3-23 and 87 on
+                                    IDM relay. See truck Chassis Electrical Circuit Diagram manual for circuit numbers,
+                                    connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3- 24 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177;1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Power from relay to IDM. If no voltage, check for open between PIN X3-24 and 87 on
+                                    IDM relay. See truck Chassis Electrical Circuit Diagram manual for circuit numbers,
+                                    connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-25 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177;1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Power from relay to IDM. If no voltage, check for open between PIN X3-25 and 87 on
+                                    IDM relay. See truck Chassis Electrical Circuit Diagram manual for circuit numbers,
+                                    connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3327" filename="../figd33/d3327.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>IDM PWR Circuit Diagram</caption>
+            </figure>
+            <table id="te24007068" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.11in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>To avoid damage to engine, before unplugging IDM connectors and relay, turn
+                                        ignition key OFF. Failure to turn ignition key OFF will create a voltage spike
+                                        and damage electrical components.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>
+                                    (Check with key OFF. Disconnect negative battery cable and IDM X3 harness. IDM
+                                    harness connector end is numbered at mating end.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Point</emph>
+                                    (IDM to Neg bat cable)
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-1 to neg bat cable</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3" morerows="4">
+                                <para>If >5&#x2126;, check connection to battery ground. See truck Chassis Electrical
+                                    Circuit Diagram manual for circuit numbers, connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-2 to neg bat cable</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-3 to neg bat cable</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-22 to neg bat cable</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-26 to neg bat cable</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Test Point</emph>
+                                    (IDM to IDM relay)
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-4 to 87</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3" morerows="3">
+                                <para>If >5&#x2126;, check connection from IDM to relay. See truck Chassis Electrical
+                                    Circuit Diagram manual for circuit numbers, connector and fuse locations.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-23 to 87</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-24 to 87</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-25 to 87</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-8 to 87</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check connection from IDM through fuse to relay.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-27 to 85</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check connection from IDM to relay.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-7 to V
+                                    <subscript>IGN</subscript>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, see truck Chassis Electrical Circuit Diagram manual for circuit
+                                    numbers, connector and fuse locations. Check connections in circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">IDM PWR Diagnostic Trouble Code</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 525 = IDM fault</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 523 = IDM V
+                                    <subscript>IGN</subscript>
+                                    voltage low
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 533 = IDM relay voltage high</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 534 = IDM relay voltage low</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_154.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_156.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

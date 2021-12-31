@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>TSI 03-12-09 - Inability to Run an Air Management Test</stitle>
+    <tsi id="tSI031209" tsitype="engine">
+        <tsinumber>03-12-09</tsinumber>
+        <tsidate>July, 2003</tsidate>
+        <subjectfile>Engine</subjectfile>
+        <subjectgroup>
+            <subject>Inability to Run an Air Management Test</subject>
+        </subjectgroup>
+        <apply>
+            <configure>
+                <engfamgroup/>
+
+                <engfam>HT530
+                    <snrange>1319430</snrange>
+                </engfam>
+            </configure>
+        </apply>
+        <description>
+            <geninfo>
+                <para>This TSI applies to HT530 I-6 engines equipped with the EVRT&#174; Electronically Controlled
+                    Turbocharger beginning with engine serial number 1319430.
+                </para>
+                <specpara>
+                    <warning>
+                        <para>To avoid serious personal injury, possible death, or damage to the engine or vehicle, make
+                            sure the transmission is in neutral, parking brake is set, and wheels are blocked before
+                            doing diagnostic or service procedures on the engine or vehicle. Read all safety
+                            instructions in the "Safety Information" section of the service manual for this engine.
+                        </para>
+                    </warning>
+                </specpara>
+                <para>Service Technicians diagnosing problems related to the EVRT&#174; Electronically Controlled
+                    Turbocharger are often called on to run an air management test. This test has been available since
+                    February 2003. The air management test will not run if the EVRT&#174; Electronically Controlled
+                    Turbocharger equipped engine being evaluated has a calibration prior to PVD6AU01.
+                </para>
+                <para>Check which calibration is in the Engine Control Module (ECM) by opening MasterDiagnostics&#174;
+                    software and click VIN+ on the tool bar.
+                </para>
+                <para>The calibration will be listed as the reference number in one of the windows that comes up.</para>
+                <para>If the engine calibration is required to run this test, the service technician, during
+                    programming, must check the box that asks if the ECM is being replaced. Then, prior calibrations
+                    will automatically update to the latest available when the programming is completed.
+                </para>
+            </geninfo>
+        </description>
+        <svcproc svcproctype="test" graphiccount="1">
+            <title>Initiate Air Management Test</title>
+            <figure id="d31201" figsize="col-wide">
+                <graphic filename="../tsifigures/d31201a.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px" box="yes"/>
+                <caption>Figure 1. Air Management Test</caption>
+            </figure>
+            <para>This test can only be done with the Electronic Service Tool (EST) and MasterDiagnostic&#174; software
+                is required. The Standard Test must be done before doing the Air Management Test.
+            </para>
+            <para>The Air Management Test allows the technician to check the operation of the air management system and
+                the turbocharger control valve.
+            </para>
+            <para>During the Air Management Test, the ECM commands the turbocharger through a step test sequence so
+                technicians can determine if actuators and the Air Management System are performing as expected.
+            </para>
+            <para>When the test is done, the ECM restores normal engine operation.</para>
+            <step1>
+                <para count="1">Select Diagnostics from the menu bar.</para>
+            </step1>
+            <step1>
+                <para count="1">Select Key-On Engine-Running Tests from the drop down menu.</para>
+            </step1>
+            <step1>
+                <para count="1">Select I6 with EVRT from the drop down menu.</para>
+            </step1>
+            <step1>
+                <para count="1">From Key On Engine Running Diagnostics menu, select Air Management Test, and click run
+                    to start the test.
+                </para>
+            </step1>
+            <para>The air management test will perform the following steps:</para>
+            <seqlist style="arabic">
+                <item>
+                    <para>Turbocharger duty offset will go to 0.</para>
+                </item>
+                <item>
+                    <para>Engine RPM will increase above idle and the turbocharger vanes will open completely. The
+                        expected Manifold Absolute Pressure (MAP) sensor reading at this point is 0 or very low psi.
+                    </para>
+                </item>
+                <item>
+                    <para>The ECM will command medium duty cycle, partially closing the vanes in the turbocharger. The
+                        expected MAP sensor reading at this point is greater than 1 psi.
+                    </para>
+                </item>
+                <item>
+                    <para>The ECM will command high duty cycle, fully closing the vanes in the turbocharger. The
+                        expected MAP sensor reading at this point is greater than 4 psi.
+                    </para>
+                    <para>
+                        <emph type="bold">NOTE: The ECM will not log Diagnostic Trouble Codes (DTC) during the air
+                            management test. Changes in the MAP reading during the test indicates that the vanes in the
+                            turbocharger are operational.
+                        </emph>
+                    </para>
+                </item>
+                <item>
+                    <para>The engine RPM will return to idle.</para>
+                </item>
+            </seqlist>
+            <specpara>
+                <note>
+                    <para>Using the VGT section of the Key-On Engine-Running Diagnostics; allows turbocharger control to
+                        be stepped manually through each cycle.
+                    </para>
+                </note>
+            </specpara>
+        </svcproc>
+    </tsi>
+</isis>

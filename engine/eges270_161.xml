@@ -1,0 +1,1102 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - VGT Actuator (Variable Geometry Turbocharger)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="7">
+        <title>VGT Actuator (Variable Geometry Turbocharger)</title>
+        <svcprocinfo>
+            <figure id="f27007116" figsize="pg-wide">
+                <graphic filename="../figh31/h31052.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="532px"/>
+                <caption>Function diagram for the VGT actuator</caption>
+            </figure>
+            <para id="s27005028">The function diagram for the VGT actuator includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>VGT actuator</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Accelerator Pedal Position sensor and Idle Validation Switch (APS/IVS)</para>
+                </item>
+                <item>
+                    <para>Barometric Absolute Pressure (BAP) sensor</para>
+                </item>
+                <item>
+                    <para>Camshaft Position (CMP) sensor</para>
+                </item>
+                <item>
+                    <para>Crankshaft Position (CKP) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Coolant Temperature (ECT) sensor</para>
+                </item>
+                <item>
+                    <para>Exhaust Gas Recirculation (EGR)</para>
+                </item>
+                <item>
+                    <para>Engine Oil Temperature (EOT) sensor</para>
+                </item>
+                <item>
+                    <para>Exhaust Back Pressure (EBP) sensor</para>
+                </item>
+                <item>
+                    <para>Injection Control Pressure (ICP) sensor</para>
+                </item>
+                <item>
+                    <para>Injection Pressure Regulator (IPR)</para>
+                </item>
+                <item>
+                    <para>Manifold Absolute Pressure (MAP) sensor</para>
+                </item>
+                <item>
+                    <para>Manifold Air Temperature (MAT) sensor</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The VGT actuator is a control module that contains a microchip and a DC motor. The VGT actuator is
+                located below the turbocharger. The microchip operates a DC motor which rotates a crank lever
+                controlling the vane position in the turbine housing. The position of the vanes is based off the pulse
+                width modulated signal sent from the ECM.
+            </para>
+            <para>Actuator control for the vane position is achieved by setting a pulse width modulated signal from the
+                ECM in response to the following:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Engine speed</para>
+                </item>
+                <item>
+                    <para>Desired fuel quantity</para>
+                </item>
+                <item>
+                    <para>Boost (manifold air pressure)</para>
+                </item>
+                <item>
+                    <para>Exhaust back pressure and altitude</para>
+                </item>
+            </randlist>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>VGT Circuit Operation</title>
+            <figure id="f27007117" figsize="pg-wide">
+                <graphic filename="../figh31/h31079.webp" type="webp" scalefit="1" scalefitwidth="502px"/>
+                <caption>VGT circuit diagram</caption>
+            </figure>
+            <para id="VGT">The VGT actuator receives power at Pin 1, through the 12-pin connector Pin 10, from the ECM
+                main power relay Pin 87. Ground for the VGT actuator is supplied at Pin 2, through the 12-pin connector
+                Pin 4 from battery ground. The ECM controls the VGT actuator by sending a pulse width modulated signal
+                from the ECM, Pin X1-18 to the actuator harness connector Pin 3.
+            </para>
+            <para>The VGT actuator is controlled by varying the percentage of ON/OFF time of the VGT actuator control
+                signal to control module. A high duty cycle indicates a high amount of exhaust back pressure is being
+                commanded. A low duty cycle indicates less pressure being commanded.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>When the engine is running, the ECM can detect if exhaust back pressure equals the desired pressure.
+                When measured exhaust back pressure does not equal the desired pressure, the ECM will ignore the EBP
+                sensor signal and use a preset value based on engine operating conditions.
+            </para>
+            <para>If the VGT actuator is suspect, use the EST to run the Output State Test Low. See
+                <hotlnk document="eges270_51.xml" xrefid="s27007029">"Diagnostic Software Operation"</hotlnk>
+                in Section 3 . Check crank lever operation during this test.
+            </para>
+            <para>
+                <title>VGT Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>There are no specific DTCs relating to the wiring or Output Circuit Check (OCC) for the VGT actuator.
+                When diagnosing the air management system, VGT wiring and operation can be tested with the following
+                checks.
+            </para>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Turbo Breakout Harness</para>
+                </item>
+                <item>
+                    <para>12-pin Breakout Harness</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+                <item>
+                    <para>500 Ohm Resistor Harness</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VGT Pin-Point Diagnostics</title>
+            <figure id="f27007118" figsize="pg-wide">
+                <graphic filename="../figh31/h31079.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="392px"/>
+                <caption>VGT circuit diagram</caption>
+            </figure>
+            <table id="te27007100" tblwidth="pg-wide" type="simple" frame="topbot" numbered="no">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.69*"/>
+                    <colspec colname="col2" colwidth="0.72*"/>
+                    <colspec colname="col3" colwidth="1.57*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1" align="center">
+                                <note>
+                                    <para>Turn the ignition switch to OFF before disconnecting engine wiring harness
+                                        connectors from components.
+                                    </para>
+                                    <para>See truck Chassis Electrical Circuit Diagram Manual for circuit numbers,
+                                        connector and fuse locations.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Actuator Control Voltage Check</emph>
+                                    (Disconnect actuator harness from engine harness. Connect Turbo Breakout Harness to
+                                    engine and actuator harness. Turn the ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to 2</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, continue with next test point, 1 to chassis gnd.</para>
+                                <para>If equal to B+, check test point 3 to gnd (KOEO).</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to chassis gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If equal to B+, but 1 to 2 did not equal B+, check for high resistance or open in
+                                    ground circuit. Do
+                                    <hotlnk xrefid="vgt1">Harness Resistance Checks - ECM to ECM Chassis Ground</hotlnk>
+                                    .
+                                </para>
+                                <para>If &#60; B+, disconnect the actuator harness from Turbo Breakout Harness and
+                                    retest.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If &#60; B+, do
+                                            <hotlnk xrefid="vgt2">12-pin Actuator Power Voltage Check</hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If equal to B+, the concern is either high resistance in wiring or the VGT
+                                            actuator. Do
+                                            <hotlnk xrefid="vgt1">Harness Resistance Checks</hotlnk>
+                                            to confirm integrity of wiring. See truck Chassis Electrical Circuit Diagram
+                                            Manual.
+                                        </para>
+                                        <para>If integrity of wiring is confirmed to be in good condition, replace VGT
+                                            actuator.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to chassis gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V disconnect the actuator harness and retest.</para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If > 0.25 V, do
+                                            <hotlnk xrefid="vgt2">12-pin Actuator Power Voltage Check</hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If &#60; 0.25 V, the concern is either high resistance in wiring or the
+                                            VGT actuator. Do
+                                            <hotlnk xrefid="vgt1">Harness Resistance Checks</hotlnk>
+                                            to confirm integrity of wiring. See truck Chassis Electrical Circuit Diagram
+                                            Manual.
+                                        </para>
+                                        <para>If integrity of wiring is confirmed to be in good condition, replace VGT
+                                            actuator.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to gnd (KOEO)</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC
+                                    <ftnote id="V-DC">Values are calibration dependent. See
+                                        <hotlnk document="eges270_211.xml" xrefid="s27005003">"DT 466 Performance
+                                            Specifications" - Appendix A
+                                        </hotlnk>
+                                        or
+                                        <hotlnk document="eges270_223.xml" xrefid="s27005004">"DT 570 and HT 570
+                                            Performance Specifications - Appendix B
+                                        </hotlnk>
+                                        .
+                                    </ftnote>
+                                </para>
+                                <para>DMM set to Duty Cycle
+                                    <ftnote id="duty">Use the EST with MasterDiagnostics&#174; software to view VGT duty
+                                        cycle with key-on engine-off. When using the Fluke 88 DMM, measurement is
+                                        typically within 2% of what MasterDiagnostics&#174; reads.
+                                    </ftnote>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>If test point 1 to 2 is to specification and no voltage or duty cycle is measured,
+                                    disconnect actuator harness. Connect 500 Ohm Resistor Harness between Pin 3 and Pin
+                                    2. Retest by measuring across Pin 3 and Pin 2.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If after retesting and values are not to specifications, do
+                                            <hotlnk xrefid="vgt3">Actuator Control Voltage Check at ECM</hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If values are to specifications, the concern is either high resistance in
+                                            the wiring or the VGT actuator. Do
+                                            <hotlnk xrefid="vgt1">Harness Resistance Checks</hotlnk>
+                                            to confirm integrity of wiring.
+                                        </para>
+                                        <para>If integrity of wiring is confirmed to be in good condition, replace VGT
+                                            actuator.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007119" figsize="pg-wide">
+                <graphic filename="../figh31/h31079.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>VGT circuit diagram</caption>
+            </figure>
+            <table id="te27007101" tblwidth="pg-wide" type="simple" frame="topbot" numbered="no">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.66*"/>
+                    <colspec colname="col2" colwidth="0.53*"/>
+                    <colspec colname="col3" colwidth="1.82*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>Turn the ignition switch to OFF before disconnecting engine wiring harness
+                                        connectors from components.
+                                    </para>
+                                    <para>See truck Chassis Electrical Circuit Diagram Manual for circuit numbers,
+                                        connector and fuse locations.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Output State Test - Signal Check</emph>
+                                    (Actuator Control Voltage check has been completed. Pin 2 to ECM Chassis Ground is
+                                    to specification. Connect Turbo Breakout Harness to engine harness and actuator
+                                    harness. Run the Low and High Output State Tests. See
+                                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Diagnostic Software
+                                        Operation"
+                                    </hotlnk>
+                                    in Section 3 for procedure to do the Low and High Output State Tests.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test State/Point</para>
+                            </entry>
+                            <entry>
+                                <para>Setting/Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Output State Test - Low</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>Listen and observe to verify if crank lever of VGT actuator moves. Toggling
+                                    between the Low and High Output State Tests can be done during this test.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to 2</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, disconnect actuator harness and connect 500 Ohm Resistor Harness
+                                    between 3 and 2. Retest Output State Test - Low.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If > 0.25 V the concern is with engine harness or ECM, check for a short
+                                            to B+ or VREF. Do the
+                                            <hotlnk xrefid="vgt3">Actuator Control Voltage Check at ECM</hotlnk>
+                                            and
+                                            <hotlnk xrefid="vgt1">Harness Resistance Checks</hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If &#60; 0.25 V, the concern is either high resistance in wiring or the
+                                            VGT actuator. Do
+                                            <hotlnk xrefid="vgt1">Harness Resistance Checks</hotlnk>
+                                            to confirm integrity of wiring. See Chassis Electrical Circuit Diagram
+                                            Manual.
+                                        </para>
+                                        <para>If integrity of wiring is confirmed to be in good condition, replace VGT
+                                            actuator.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Output State Test - High</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>Listen and observe to verify if crank lever of VGT actuator moves. Toggling
+                                    between the Low and High Output State Tests can be done during this procedure.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to 2</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, disconnect actuator harness and connect 500 Ohm Resistor Harness
+                                    between 3 and 2. Retest Output State Test - High.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If &#60; B+, the concern is with engine harness or ECM, check for a short
+                                            to ground or open VGT actuator control. Do the
+                                            <hotlnk xrefid="vgt3">Actuator Control Voltage Check at ECM</hotlnk>
+                                            and
+                                            <hotlnk xrefid="vgt1">Harness Resistance Checks</hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If equal to B+, the concern is either high resistance in wiring or the VGT
+                                            actuator. Do
+                                            <hotlnk xrefid="vgt1">Harness Resistance Checks</hotlnk>
+                                            to confirm integrity of wiring. See Chassis Electrical Circuit Diagram
+                                            Manual needs to be referenced to check wiring from BAT
+                                            <subscript>GND</subscript>
+                                            to 12 - Pin Connector.
+                                        </para>
+                                        <para>If integrity of wiring is confirmed to be in good condition, replace VGT
+                                            actuator.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007120" figsize="pg-wide">
+                <graphic filename="../figh31/h31079.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>VGT circuit diagram</caption>
+            </figure>
+            <table id="te27007102" tblwidth="pg-wide" type="simple" frame="topbot" numbered="no">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.63*"/>
+                    <colspec colname="col2" colwidth="0.43*"/>
+                    <colspec colname="col3" colwidth="1.96*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>If an Actuator Control Voltage Check was not to specification, continue with
+                                        this check.
+                                    </para>
+                                    <para>Turn the ignition switch to OFF when disconnecting engine wiring harness
+                                        connectors from components.
+                                    </para>
+                                    <para>See truck Chassis Electrical Circuit Diagram Manual for circuit numbers,
+                                        connector and fuse locations.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="vgt2">
+                                    <emph type="bold">12-pin Actuator Power Voltage Check</emph>
+                                    (Actuator Control Voltage Check has been completed and Turbocharger is not
+                                    connected. Connect 12-pin Breakout Harness to engine and chassis wiring harness.
+                                    Turn the ignition switch to ON.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test State/Point</para>
+                            </entry>
+                            <entry>
+                                <para>Setting/Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>10 to 4</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If equal to B+, concern is within engine wiring harness. Do
+                                    <hotlnk xrefid="VGT5">Harness Resistance Check - VGT Actuator to 12-Pin Connector
+                                    </hotlnk>
+                                    .
+                                </para>
+                                <para>If &#60; B+, continue with next test point, 10 to chassis ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>10 to chassis gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If equal to B+, but 10 to 4 did not, the concern is between 12-pin connector and
+                                    chassis ground. Check for high resistance or open in ground circuit. See truck
+                                    Chassis Electrical Circuit Diagram Manual.
+                                </para>
+                                <para>If &#60; B+, disconnect engine wiring harness from 12-pin Breakout Harness and
+                                    retest.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If equal to B+, diagnose engine wiring harness to turbo. Do
+                                            <hotlnk xrefid="VGT5">Harness Resistance Check - VGT Actuator to 12-Pin
+                                                Connector
+                                            </hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If &#60; B+, the concern is between 12-Pin Connector and ECM Main Power
+                                            Relay. See truck Chassis Electrical Circuit Diagram Manual.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 to chassis gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V disconnect engine wiring harness from 12 - Pin Breakout Harness and
+                                    retest.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If &#60; 0.25 V, diagnose engine wiring harness, do
+                                            <hotlnk xrefid="VGT5">Harness Resistance Check - VGT Actuator to 12-Pin
+                                                Connector
+                                            </hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If > 0.25 V, the concern is between 12-Pin Connector and battery ground
+                                            terminal. See truck Chassis Electrical Circuit Diagram Manual.
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007121" figsize="pg-wide">
+                <graphic filename="../figh31/h31079.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="352px"/>
+                <caption>VGT circuit diagram</caption>
+            </figure>
+            <table id="te27007103" tblwidth="pg-wide" type="simple" frame="topbot" numbered="no">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.74*"/>
+                    <colspec colname="col2" colwidth="0.66*"/>
+                    <colspec colname="col3" colwidth="1.61*"/>
+                    <spanspec namest="col2" nameend="col3" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>If an Actuator Control Voltage Check was not to specification, continue with
+                                        this check.
+                                    </para>
+                                    <para>Turn the ignition switch to OFF when disconnecting engine wiring harness
+                                        connectors from components.
+                                    </para>
+                                    <para>See truck Chassis Electrical Circuit Diagram Manual for circuit numbers,
+                                        connector and fuse locations.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="vgt3">
+                                    <emph type="bold">Actuator Control Voltage Check at ECM</emph>
+                                    (Connect breakout box X-1 only to ECM and engine harness. Engine harness is not
+                                    connected to actuator harness. Connect 500 Ohm Resistor Harness between X1-18 and
+                                    X1-6. Turn the ignition switch to ON. See
+                                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Diagnostic Software
+                                        Operation"
+                                    </hotlnk>
+                                    in Section 3 for procedure to do the Low and High Output State Tests.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test State/Point</para>
+                            </entry>
+                            <entry>
+                                <para>Setting/Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>KOEO</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-18 to X1- 6</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC
+                                    <ftnote id="V-DC">Values are calibration dependent. See
+                                        <hotlnk document="eges270_211.xml" xrefid="s27005003">"DT 466 Performance
+                                            Specifications" - Appendix A
+                                        </hotlnk>
+                                        or
+                                        <hotlnk document="eges270_223.xml" xrefid="s27005004">"DT 570 and HT 570
+                                            Performance Specifications - Appendix B
+                                        </hotlnk>
+                                        .
+                                    </ftnote>
+                                </para>
+                                <para>DMM set to duty cycle
+                                    <ftnote id="duty">Use the EST with MasterDiagnostics&#174; software to view VGT duty
+                                        cycle with key-on engine-off. When using the Fluke 88 DMM, measurement is
+                                        typically within 2% of what MasterDiagnostics&#174; reads.
+                                    </ftnote>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>If in specification, run the Low and High Output State Tests.</para>
+                                <para>If not in specification, disconnect engine harness from breakout box harness and
+                                    retest.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If not in specification, run the Low and High Output State Tests.</para>
+                                    </item>
+                                    <item>
+                                        <para>If in specification, diagnose engine wiring harness. Do
+                                            <hotlnk xrefid="vgt4">Harness Resistance Check - VGT Actuator to ECM
+                                            </hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Output State Test - Low</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>Listen and observe to verify if crank lever of VGT actuator moves. Toggling
+                                    between the Low and High Output State Tests can be done during this test.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-18 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>0 V to 0.25 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, disconnect engine harness from breakout box harness and retest.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If &#60; 0.25 V, diagnose engine wiring harness. Do
+                                            <hotlnk xrefid="vgt4">Harness Resistance Check - VGT Actuator to ECM
+                                            </hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If > 0.25 V, with breakout box only connected to ECM, replace ECM.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Output State Test - High</para>
+                            </entry>
+                            <entry>
+                                <para>DMM set to V - DC</para>
+                            </entry>
+                            <entry>
+                                <para>Listen and observe to verify if crank lever of VGT actuator moves. Toggling
+                                    between the Low and High Output State Tests can be done during this test.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-18 to X1-6</para>
+                            </entry>
+                            <entry>
+                                <para>B+ &#177; 0.5 V</para>
+                            </entry>
+                            <entry>
+                                <para>If value is not in specification, disconnect engine harness from breakout box
+                                    harness and retest.
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>If equal to B+, diagnose engine wiring harness. Do
+                                            <hotlnk xrefid="vgt4">Harness Resistance Check - VGT Actuator to ECM
+                                            </hotlnk>
+                                            .
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>If &#60; B+ with breakout box only connected to ECM, replace ECM.</para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007122" figsize="pg-wide">
+                <graphic filename="../figh31/h31079.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>VGT circuit diagram</caption>
+            </figure>
+            <table id="te27007104" tblwidth="pg-wide" type="simple" frame="topbot" numbered="no">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="0.56*"/>
+                    <colspec colname="col2" colwidth="0.34*"/>
+                    <colspec colname="col3" colwidth="2.09*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>Turn the ignition switch to OFF when disconnecting engine wiring harness
+                                        connectors from components.
+                                    </para>
+                                    <para>See truck Chassis Electrical Circuit Diagram Manual for circuit numbers,
+                                        connector and fuse locations.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="vgt1">
+                                    <emph type="bold">Harness Resistance Checks - ECM to ECM Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the chassis ground connection for the ECM and IDM. Refer to truck
+                                        Chassis Electrical Circuit Diagram Manual for complete chassis side ECM and IDM
+                                        ground circuit information.</ftnote>. Connect Turbo Breakout Harness to engine
+                                    wiring harness only.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground on actuator power within wiring
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for an open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground on VGT actuator control within
+                                    wiring harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks - ECM to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect engine harness
+                                    from actuator. Use disconnected negative battery cable for ground test point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground on actuator power.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground on VGT actuator control.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="vgt5">
+                                    <emph type="bold">Harness Resistance Checks - VGT Actuator to 12-pin Connector
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Connect Turbo Breakout Harness to engine wiring
+                                    harness only. Connect 12-pin Breakout Harness to engine wiring harness only. Checks
+                                    are from VGT actuator to 12-pin connector.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to 10</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in actuator power.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 4</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in actuator ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks - 12-pin Connector to ECM Chassis
+                                        Ground
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Connect 12-pin Breakout Harness to chassis wiring
+                                    harness only. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>10 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground on chassis wiring harness ground
+                                    circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open circuit in chassis wiring harness ground
+                                    circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks - 12-Pin Connector to Chassis Ground
+                                    </emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect 12-pin
+                                    connector and use chassis side for test point. Use disconnected negative battery
+                                    cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>10 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>4 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="vgt4">
+                                    <emph type="bold">Harness Resistance Checks - VGT Actuator to ECM</emph>
+                                    (Connect Turbo Breakout Harness to engine wiring harness only. Connect breakout box
+                                    X1 to engine wiring harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>3 to X1-18</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in VGT actuator control.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_160.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_162.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

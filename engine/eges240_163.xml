@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Variable Geometry Turbocharger (VGT) Actuator
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>Variable Geometry Turbocharger (VGT) Actuator</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3383" filename="../figd33/d3383.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function Diagram for the Variable Geometry Turbocharger (VGT) Actuator</caption>
+            </figure>
+            <para>The Function Diagram for the Variable Geometry Turbocharger actuator includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Variable Geometry Turbocharger (VGT) actuator</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Accelerator Pedal Position sensor and Idle Validation Switch (APS/IVS)</para>
+                </item>
+                <item>
+                    <para>Barometric Absolute Pressure (BAP) sensor</para>
+                </item>
+                <item>
+                    <para>Camshaft Position (CMP) sensor</para>
+                </item>
+                <item>
+                    <para>Crankshaft Position (CKP) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Coolant Temperature (ECT) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Gas Recirculation (EGR) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Oil Temperature (EOT) sensor</para>
+                </item>
+                <item>
+                    <para>Exhaust Back Pressure (EBP) sensor</para>
+                </item>
+                <item>
+                    <para>Injection Control Pressure (ICP) sensor</para>
+                </item>
+                <item>
+                    <para>Injection Control Pressure Regulator (IPR)</para>
+                </item>
+                <item>
+                    <para>Manifold Absolute Pressure (MAP) sensor</para>
+                </item>
+                <item>
+                    <para>Manifold Air Temperature (MAT) sensor</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The Variable Geometry Turbocharger (VGT) actuator is a variable position valve that controls vane
+                position in the turbine housing. The VGT actuator is located on top of the turbocharger. The valve
+                position is controlled by switching a voltage source inside the ECM. The ground circuit is supplied
+                directly from the battery ground at all times.
+            </para>
+            <para>The actuator control is achieved by setting a pulse width modulated signal in response to engine
+                speed, desired fuel quantity, boost or exhaust back pressure and altitude.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>VGT Circuit Operation</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3313" filename="../figd33/d3313.webp" type="webp" scalefit="1" scalefitwidth="502px"/>
+                <caption>VGT Circuit Diagram</caption>
+            </figure>
+            <para>The VGT actuator receives ground at terminal 2 directly from the battery ground terminal. The ECM
+                controls the VGT by sending a pulse width modulated signal from terminal X1-18 to terminal 1 on the VGT
+                actuator. Precise control is gained by varying the percentage of ON/OFF time of the VGT solenoid. A high
+                duty cycle indicates a high amount of exhaust back pressure is being commanded. A low duty cycle
+                indicates less pressure being commanded.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>An open or short to ground in the VGT control circuit can be detected by an on demand output circuit
+                check during KOEO Standard tests. If there is a circuit fault detected a DTC will be set. When the
+                engine is running, the ECM can detect if the exhaust back pressure is equal to the desired pressure.
+                When the measured exhaust back pressure does not compare to the desired pressure, the ECM will ignore
+                the measured EBP signal and controls the engine with the desired value.
+            </para>
+            <para>
+                <title>VGT Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the Electronic Service Tool (EST) or by counting the flashes from the amber and
+                red ENGINE lamp.
+            </para>
+            <verbatim id="f240dtc261">
+                <line>
+                    <emph type="bold">DTC 261</emph>
+                </line>
+                <line>
+                    <emph type="bold">Output Circuit Check</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 261 is set by the ECM when the OCC test has failed after the KOEO Standard test has been
+                        run.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 261 can be set when a poor connection to the VGT solenoid or defective VGT coil exists.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout harness</para>
+                </item>
+                <item>
+                    <para>Breakout box</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+                <item>
+                    <para>12-pin breakout harness</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VGT Pin Point Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3313" filename="../figd33/d3313.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>VGT Circuit Diagram</caption>
+            </figure>
+            <table id="te24007083" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1" align="center">
+                                <note>
+                                    <para>See truck Chassis Electrical Circuit Diagram manual for circuit numbers,
+                                        connector and fuse locations.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Actuator Circuit Resistance Checks</emph>
+                                    (Turn ignition key OFF. Disconnect negative battery cable. Check with breakout box
+                                    installed in X1 ECM engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-18 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>3-7&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance through entire VGT circuit including actuator coil. Check with actuator
+                                    connector connected.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Checks</emph>
+                                    (Turn ignition key OFF. Disconnect negative battery cable. Check with breakout box
+                                    installed in X1 ECM engine harness only. Install 12-pin breakout harness to chassis
+                                    and engine harness. Install actuator harness to engine harness only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-18 to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If >5&#x2126;, check for open VGT control wire.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If >5&#x2126;, check for open VGT ground circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>2 to 10 (12 pin)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If >5&#x2126;, check for open between actuator connector PIN 2 to PIN 10 on 12 pin
+                                    breakout harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>10 (12 pin) to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If >5&#x2126;, check for open between 10 on 12 pin and chassis ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60;1k&#x2126;, check for short to ground in circuit between actuator
+                                    connector and ECM PIN X1-18.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">VGT Diagnostic Trouble Code</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 261 = VGT actuator OCC test fail</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_162.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_164.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

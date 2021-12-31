@@ -1,0 +1,766 @@
+<html lang="html">
+<head>
+    <title>Service Section TOC</title>
+    <link href="../style.css" rel="STYLESHEET" type="text/css">
+    <script type="text/javascript">
+
+        const indentPixels = 15
+        const collapsedWidget = "../images/plus.gif"
+        const expandedWidget = "../images/minus.gif"
+        const endpointWidget = "../images/end.gif"
+        const widgetWidth = 17
+        const widgetHeight = 18
+        const displayTarget = "mainframe"
+        // AHJO - In the folowing db the fourth field (after the xml file name) is new and set to "0"
+        const db = []
+        db[1] = new DBRec(true, "International&#174; MaxxForce&#8482; DT, 9 and 10 Engine Service Manual", "eges3351_1.xml", "0", 0, "", "YES")
+        db[2] = new DBRec(true, "Engine Systems", "eges3351_E370001.xml", "0", 0, "", "YES")
+        db[3] = new DBRec(true, "Engine Identification", "eges3351_3.xml", "0", 1, "", "")
+        db[4] = new DBRec(false, "Engine Serial Number", "eges3351_3.xml", "0", 2, "", "YES")
+        db[5] = new DBRec(false, "Engine Emission Label", "eges3351_4.xml", "0", 2, "", "YES")
+        db[6] = new DBRec(false, "Engine Accessory Labels", "eges3351_5.xml", "0", 2, "", "YES")
+        db[7] = new DBRec(false, "Engine Description", "eges3351_6.xml", "0", 2, "", "YES")
+        db[8] = new DBRec(false, "Engine Component Locations", "eges3351_7.xml", "0", 2, "", "YES")
+        db[9] = new DBRec(true, "Air Management System", "eges3351_8.xml", "0", 1, "", "YES")
+        db[10] = new DBRec(false, "Air Flow", "eges3351_9.xml", "0", 2, "", "YES")
+        db[11] = new DBRec(false, "Air Management Components", "eges3351_10.xml", "0", 2, "", "YES")
+        db[12] = new DBRec(true, "Fuel Management System", "eges3351_11.xml", "0", 1, "", "YES")
+        db[13] = new DBRec(false, "ICP System", "eges3351_12.xml", "0", 2, "", "YES")
+        db[14] = new DBRec(true, "Fuel Supply System", "eges3351_13.xml", "0", 1, "", "YES")
+        db[15] = new DBRec(false, "Fuel Supply System Flow", "eges3351_14.xml", "0", 2, "", "YES")
+        db[16] = new DBRec(true, "Engine Lubrication System", "eges3351_15.xml", "0", 1, "", "YES")
+        db[17] = new DBRec(false, "Oil Flow", "eges3351_16.xml", "0", 2, "", "YES")
+        db[18] = new DBRec(true, "Engine Cooling System", "eges3351_17.xml", "0", 1, "", "YES")
+        db[19] = new DBRec(false, "Cooling System Flow", "eges3351_18.xml", "0", 2, "", "YES")
+        db[20] = new DBRec(false, "Cooling System Components", "eges3351_19.xml", "0", 2, "", "YES")
+        db[21] = new DBRec(true, "Electronic Control System", "eges3351_20.xml", "0", 1, "", "")
+        db[22] = new DBRec(false, "Electronic Control System Components", "eges3351_21.xml", "0", 2, "", "YES")
+        db[23] = new DBRec(false, "Actuators", "eges3351_22.xml", "0", 2, "", "YES")
+        db[24] = new DBRec(false, "Engine and Vehicle Sensors", "eges3351_23.xml", "0", 2, "", "YES")
+        db[25] = new DBRec(false, "Intake Throttle Valve", "eges3351_24.xml", "0", 2, "", "YES")
+        db[26] = new DBRec(true, "Diamond Logic&#174; Brake System", "eges3351_25.xml", "0", 1, "", "YES")
+        db[27] = new DBRec(false, "Brake Operation Modes", "eges3351_26.xml", "0", 2, "", "YES")
+        db[28] = new DBRec(false, "Exhaust Brake System", "eges3351_27.xml", "0", 2, "", "YES")
+        db[29] = new DBRec(false, "Engine Brake System", "eges3351_28.xml", "0", 2, "", "YES")
+        db[30] = new DBRec(true, "Mounting Engine on Engine Stand", "eges3351_E3350002.xml", "0", 0, "", "YES")
+        db[31] = new DBRec(true, "Engine Preparation", "eges3351_30.xml", "0", 1, "", "YES")
+        db[32] = new DBRec(false, "Clean Engine", "eges3351_30.xml", "0", 2, "", "YES")
+        db[33] = new DBRec(false, "Drain Coolant", "eges3351_31.xml", "0", 2, "", "YES")
+        db[34] = new DBRec(false, "Drain Oil", "eges3351_32.xml", "0", 2, "", "YES")
+        db[35] = new DBRec(true, "Removal", "eges3351_33.xml", "0", 1, "", "")
+        db[36] = new DBRec(false, "letiable Geometry Turbocharger (VGT)", "eges3351_33.xml", "0", 2, "", "YES")
+        db[37] = new DBRec(false, "EGR Coolant Supply Tube", "eges3351_34.xml", "0", 2, "", "YES")
+        db[38] = new DBRec(false, "Oil Filter", "eges3351_35.xml", "0", 2, "", "YES")
+        db[39] = new DBRec(false, "Oil System Module Assembly", "eges3351_36.xml", "0", 2, "", "YES")
+        db[40] = new DBRec(true, "Mounting Engine Stand Bracket and Engine", "eges3351_37.xml", "0", 1, "", "YES")
+        db[41] = new DBRec(false, "Service Procedure", "eges3351_38.xml", "0", 2, "", "YES")
+        db[42] = new DBRec(true, "Special Torque", "eges3351_39.xml", "0", 1, "", "")
+        db[43] = new DBRec(false, "Service Procedure", "eges3351_39.xml", "0", 2, "", "YES")
+        db[44] = new DBRec(true, "Special Service Tools", "eges3351_40.xml", "0", 1, "", "")
+        db[45] = new DBRec(false, "Service Procedure", "eges3351_40.xml", "0", 2, "", "YES")
+        db[46] = new DBRec(true, "Engine Electrical", "eges3351_E3350003.xml", "0", 0, "", "YES")
+        db[47] = new DBRec(true, "Illustrations", "eges3351_42.xml", "0", 1, "", "")
+        db[48] = new DBRec(false, "Electronic Components - Top", "eges3351_42.xml", "0", 2, "", "YES")
+        db[49] = new DBRec(false, "Electronic Components - Front", "eges3351_43.xml", "0", 2, "", "YES")
+        db[50] = new DBRec(false, "Electronic Components - Intake Side", "eges3351_44.xml", "0", 2, "", "YES")
+        db[51] = new DBRec(false, "Electronic Components - Exhaust Side", "eges3351_45.xml", "0", 2, "", "YES")
+        db[52] = new DBRec(false, "Electronic Components - Rear", "eges3351_46.xml", "0", 2, "", "YES")
+        db[53] = new DBRec(true, "Description of Engine Sensors, Valves, and Actuators", "eges3351_47.xml", "0", 1, "", "")
+        db[54] = new DBRec(false, "Service Procedure", "eges3351_47.xml", "0", 2, "", "YES")
+        db[55] = new DBRec(false, "Crankshaft Position (CKP) Sensor", "eges3351_48.xml", "0", 2, "", "YES")
+        db[56] = new DBRec(false, "Camshaft Position (CMP) Sensor", "eges3351_49.xml", "0", 2, "", "YES")
+        db[57] = new DBRec(false, "Exhaust Back Pressure (EBP) Sensor", "eges3351_50.xml", "0", 2, "", "YES")
+        db[58] = new DBRec(false, "Engine Coolant Temperature (ECT) Sensor", "eges3351_51.xml", "0", 2, "", "YES")
+        db[59] = new DBRec(false, "Engine Oil Temperature (EOT) Sensor", "eges3351_52.xml", "0", 2, "", "YES")
+        db[60] = new DBRec(false, "Engine Oil Pressure (EOP) Sensor", "eges3351_53.xml", "0", 2, "", "YES")
+        db[61] = new DBRec(false, "Engine Fuel Pressure (EFP) Sensor", "eges3351_54.xml", "0", 2, "", "YES")
+        db[62] = new DBRec(false, "Water In Fuel (WIF) Sensor", "eges3351_55.xml", "0", 2, "", "YES")
+        db[63] = new DBRec(false, "250 Watt Fuel Heater", "eges3351_56.xml", "0", 2, "", "YES")
+        db[64] = new DBRec(false, "Manifold Absolute Temperature (MAT) Sensor", "eges3351_57.xml", "0", 2, "", "YES")
+        db[65] = new DBRec(false, "Manifold Absolute Pressure (MAP) Sensor", "eges3351_58.xml", "0", 2, "", "YES")
+        db[66] = new DBRec(false, "Intake Throttle Assembly", "eges3351_59.xml", "0", 2, "", "YES")
+        db[67] = new DBRec(false, "Injection Pressure Regulator (IPR) Valve", "eges3351_60.xml", "0", 2, "", "YES")
+        db[68] = new DBRec(false, "Injection Control Pressure (ICP) Sensor", "eges3351_61.xml", "0", 2, "", "YES")
+        db[69] = new DBRec(false, "Brake Control Pressure (BCP) Sensor", "eges3351_62.xml", "0", 2, "", "YES")
+        db[70] = new DBRec(false, "Exhaust Gas Recirculation (EGR) Valve ", "eges3351_63.xml", "0", 2, "", "YES")
+        db[71] = new DBRec(false, "letiable Geometry Turbocharger (VGT) Actuator", "eges3351_64.xml", "0", 2, "", "YES")
+        db[72] = new DBRec(true, "Removal", "eges3351_65.xml", "0", 1, "", "YES")
+        db[73] = new DBRec(false, "Camshaft Position (CMP) Sensor", "eges3351_65.xml", "0", 2, "", "YES")
+        db[74] = new DBRec(false, "Engine Coolant Temperature (ECT) Sensor", "eges3351_66.xml", "0", 2, "", "YES")
+        db[75] = new DBRec(false, "VGT Actuator Connector", "eges3351_67.xml", "0", 2, "", "YES")
+        db[76] = new DBRec(false, "Exhaust Back Pressure (EBP) Sensor", "eges3351_68.xml", "0", 2, "", "YES")
+        db[77] = new DBRec(false, "Water In Fuel (WIF) Sensor, Engine Fuel Pressure (EFP) Sensor, and Fuel Heater Connectors", "eges3351_69.xml", "0", 2, "", "YES")
+        db[78] = new DBRec(false, "Exhaust Gas Recirculation (EGR) Valve Connector", "eges3351_70.xml", "0", 2, "", "YES")
+        db[79] = new DBRec(false, "Engine Oil Pressure (EOP) Sensor", "eges3351_71.xml", "0", 2, "", "YES")
+        db[80] = new DBRec(false, "Engine Oil Temperature (EOT) Sensor", "eges3351_72.xml", "0", 2, "", "YES")
+        db[81] = new DBRec(false, "Manifold Absolute Pressure (MAP) and Manifold Air Temperature (MAT) Sensors", "eges3351_73.xml", "0", 2, "", "YES")
+        db[82] = new DBRec(false, "Intake Throttle Assembly Connector", "eges3351_74.xml", "0", 2, "", "YES")
+        db[83] = new DBRec(false, "Injection Pressure Regulator (IPR) Valve Connector", "eges3351_75.xml", "0", 2, "", "YES")
+        db[84] = new DBRec(false, "Crankshaft Position (CKP) Sensor", "eges3351_76.xml", "0", 2, "", "YES")
+        db[85] = new DBRec(false, "Engine Sensor Wiring Harness", "eges3351_77.xml", "0", 2, "", "YES")
+        db[86] = new DBRec(false, "Injector Wiring Harness ", "eges3351_78.xml", "0", 2, "", "YES")
+        db[87] = new DBRec(false, "Intake Air Heater (IAH) Relay Assembly", "eges3351_79.xml", "0", 2, "", "YES")
+        db[88] = new DBRec(false, "ECM and Mounting Bracket", "eges3351_80.xml", "0", 2, "", "YES")
+        db[89] = new DBRec(false, "Injection Control Pressure (ICP) Sensor", "eges3351_81.xml", "0", 2, "", "YES")
+        db[90] = new DBRec(false, "Brake Control Pressure (BCP) Sensor", "eges3351_82.xml", "0", 2, "", "YES")
+        db[91] = new DBRec(false, "Brake Shut-off Valve (BSV) Connector", "eges3351_83.xml", "0", 2, "", "YES")
+        db[92] = new DBRec(false, "Under Valve Cover (UVC) Harness Valve Cover Gasket Assembly", "eges3351_84.xml", "0", 2, "", "YES")
+        db[93] = new DBRec(true, "Inspect", "eges3351_85.xml", "0", 1, "", "")
+        db[94] = new DBRec(false, "Inspect Wiring Harness, Connectors, and Electrical Components", "eges3351_85.xml", "0", 2, "", "YES")
+        db[95] = new DBRec(true, "Installation", "eges3351_86.xml", "0", 1, "", "YES")
+        db[96] = new DBRec(false, "Injection Control Pressure (ICP) Sensor", "eges3351_86.xml", "0", 2, "", "YES")
+        db[97] = new DBRec(false, "Brake Control Pressure (BCP) Sensor", "eges3351_87.xml", "0", 2, "", "YES")
+        db[98] = new DBRec(false, "Brake Shut-off Valve (BSV) Connector", "eges3351_88.xml", "0", 2, "", "YES")
+        db[99] = new DBRec(false, "Under Valve Cover (UVC) Harness Valve Cover Gasket Assembly", "eges3351_89.xml", "0", 2, "", "YES")
+        db[100] = new DBRec(false, "ECM and Mounting Bracket", "eges3351_90.xml", "0", 2, "", "YES")
+        db[101] = new DBRec(false, "Crankshaft Position (CKP) Sensor", "eges3351_91.xml", "0", 2, "", "YES")
+        db[102] = new DBRec(false, "Injection Pressure Regulator (IPR) Valve Connector", "eges3351_92.xml", "0", 2, "", "YES")
+        db[103] = new DBRec(false, "Intake Throttle Assembly Connector", "eges3351_93.xml", "0", 2, "", "YES")
+        db[104] = new DBRec(false, "Manifold Absolute Pressure (MAP) and Manifold Air Temperature (MAT) Sensors", "eges3351_94.xml", "0", 2, "", "YES")
+        db[105] = new DBRec(false, "Engine Oil Pressure (EOP) Sensor", "eges3351_95.xml", "0", 2, "", "YES")
+        db[106] = new DBRec(false, "Engine Oil Temperature (EOT) Sensor", "eges3351_96.xml", "0", 2, "", "YES")
+        db[107] = new DBRec(false, "Exhaust Gas Recirculation (EGR) Valve Connector", "eges3351_97.xml", "0", 2, "", "YES")
+        db[108] = new DBRec(false, "Water In Fuel (WIF) Sensor, Engine Fuel Pressure (EFP) Sensor, and Fuel Heater Connectors", "eges3351_98.xml", "0", 2, "", "YES")
+        db[109] = new DBRec(false, "Exhaust Back Pressure (EBP) Sensor", "eges3351_99.xml", "0", 2, "", "YES")
+        db[110] = new DBRec(false, "VGT Actuator Connector", "eges3351_100.xml", "0", 2, "", "YES")
+        db[111] = new DBRec(false, "Engine Coolant Temperature (ECT) Sensor", "eges3351_101.xml", "0", 2, "", "YES")
+        db[112] = new DBRec(false, "Camshaft Position (CMP) Sensor", "eges3351_102.xml", "0", 2, "", "YES")
+        db[113] = new DBRec(false, "Engine Sensor Wiring Harness", "eges3351_103.xml", "0", 2, "", "YES")
+        db[114] = new DBRec(false, "Injector Wiring Harness ", "eges3351_104.xml", "0", 2, "", "YES")
+        db[115] = new DBRec(false, "Intake Air Heater (IAH) Relay Assembly", "eges3351_105.xml", "0", 2, "", "YES")
+        db[116] = new DBRec(true, "Special Torque", "eges3351_106.xml", "0", 1, "", "")
+        db[117] = new DBRec(false, "Service Procedure", "eges3351_106.xml", "0", 2, "", "YES")
+        db[118] = new DBRec(true, "letiable Geometry Turbocharger (VGT)", "eges3351_E3350004.xml", "0", 0, "", "YES")
+        db[119] = new DBRec(true, "Illustration and Description", "eges3351_108.xml", "0", 1, "", "")
+        db[120] = new DBRec(false, "Service Procedure", "eges3351_108.xml", "0", 2, "", "YES")
+        db[121] = new DBRec(true, "Removal", "eges3351_109.xml", "0", 1, "", "YES")
+        db[122] = new DBRec(false, "VGT Actuator Connector", "eges3351_109.xml", "0", 2, "", "YES")
+        db[123] = new DBRec(false, "Turbocharger Oil Supply Tube Assembly", "eges3351_110.xml", "0", 2, "", "YES")
+        db[124] = new DBRec(false, "letiable Geometry Turbocharger (VGT) Assembly and Turbocharger Oil Drain Tube", "eges3351_111.xml", "0", 2, "", "YES")
+        db[125] = new DBRec(true, "Clean, Inspect, and Test", "eges3351_112.xml", "0", 1, "", "YES")
+        db[126] = new DBRec(false, "Clean VGT and Related Parts", "eges3351_112.xml", "0", 2, "", "YES")
+        db[127] = new DBRec(false, "Inspect Turbine and Compressor", "eges3351_113.xml", "0", 2, "", "YES")
+        db[128] = new DBRec(true, "Installation", "eges3351_114.xml", "0", 1, "", "")
+        db[129] = new DBRec(false, "VGT Assembly and Oil Drain Tube", "eges3351_114.xml", "0", 2, "", "YES")
+        db[130] = new DBRec(false, "Turbocharger Oil Supply Tube Assembly", "eges3351_115.xml", "0", 2, "", "YES")
+        db[131] = new DBRec(false, "letiable Geometry Turbocharger (VGT) Actuator Connector", "eges3351_116.xml", "0", 2, "", "YES")
+        db[132] = new DBRec(true, "Specifications", "eges3351_117.xml", "0", 1, "", "")
+        db[133] = new DBRec(false, "Service Procedure", "eges3351_117.xml", "0", 2, "", "YES")
+        db[134] = new DBRec(true, "Special Torque", "eges3351_118.xml", "0", 1, "", "")
+        db[135] = new DBRec(false, "Service Procedure", "eges3351_118.xml", "0", 2, "", "YES")
+        db[136] = new DBRec(true, "Special Service Tools", "eges3351_119.xml", "0", 1, "", "")
+        db[137] = new DBRec(false, "Service Procedure", "eges3351_119.xml", "0", 2, "", "YES")
+        db[138] = new DBRec(true, "Exhaust Gas Recirculation (EGR) System", "eges3351_E3350005.xml", "0", 0, "", "YES")
+        db[139] = new DBRec(false, "Exploded View", "eges3351_E3350005.xml", "0", 1, "", "YES")
+        db[140] = new DBRec(true, "Removal", "eges3351_121.xml", "0", 1, "", "")
+        db[141] = new DBRec(false, "Service Procedure", "eges3351_121.xml", "0", 2, "", "YES")
+        db[142] = new DBRec(false, "EGR Coolant Supply Tube", "eges3351_122.xml", "0", 2, "", "YES")
+        db[143] = new DBRec(false, "EGR Tube Assembly", "eges3351_123.xml", "0", 2, "", "YES")
+        db[144] = new DBRec(false, "Coolant Crossover Tube and Support Bracket", "eges3351_124.xml", "0", 2, "", "YES")
+        db[145] = new DBRec(false, "EGR Cooler and Bracket - Exhaust Side", "eges3351_125.xml", "0", 2, "", "YES")
+        db[146] = new DBRec(false, "EGR Coolant Return Tube", "eges3351_126.xml", "0", 2, "", "YES")
+        db[147] = new DBRec(false, "EGR Valve Manifold Assembly", "eges3351_127.xml", "0", 2, "", "YES")
+        db[148] = new DBRec(false, "EGR Distribution Tube Assembly", "eges3351_128.xml", "0", 2, "", "YES")
+        db[149] = new DBRec(false, "EGR Cooler and Bracket - Intake Side", "eges3351_129.xml", "0", 2, "", "YES")
+        db[150] = new DBRec(true, "Clean, Inspect, and Test", "eges3351_130.xml", "0", 1, "", "YES")
+        db[151] = new DBRec(false, "Clean and Inspect EGR System Components", "eges3351_130.xml", "0", 2, "", "YES")
+        db[152] = new DBRec(false, "Pressure Test EGR Coolers", "eges3351_131.xml", "0", 2, "", "YES")
+        db[153] = new DBRec(true, "Installation", "eges3351_132.xml", "0", 1, "", "YES")
+        db[154] = new DBRec(false, "EGR Cooler and Bracket - Intake Side", "eges3351_132.xml", "0", 2, "", "YES")
+        db[155] = new DBRec(false, "EGR Distribution Tube Assembly", "eges3351_133.xml", "0", 2, "", "YES")
+        db[156] = new DBRec(false, "EGR Valve Manifold Assembly", "eges3351_134.xml", "0", 2, "", "YES")
+        db[157] = new DBRec(false, "EGR Coolant Return Tube", "eges3351_135.xml", "0", 2, "", "YES")
+        db[158] = new DBRec(false, "EGR Cooler and Bracket - Exhaust Side", "eges3351_136.xml", "0", 2, "", "YES")
+        db[159] = new DBRec(false, "Coolant Crossover Tube and Support Bracket", "eges3351_137.xml", "0", 2, "", "YES")
+        db[160] = new DBRec(false, "EGR Tube Assembly", "eges3351_138.xml", "0", 2, "", "YES")
+        db[161] = new DBRec(false, "EGR Coolant Supply Tube", "eges3351_139.xml", "0", 2, "", "YES")
+        db[162] = new DBRec(true, "Special Torque", "eges3351_140.xml", "0", 1, "", "")
+        db[163] = new DBRec(false, "Service Procedure", "eges3351_140.xml", "0", 2, "", "YES")
+        db[164] = new DBRec(true, "Special Service Tools", "eges3351_141.xml", "0", 1, "", "")
+        db[165] = new DBRec(false, "Service Procedure", "eges3351_141.xml", "0", 2, "", "YES")
+        db[166] = new DBRec(true, "Intake, Inlet, and Exhaust Manifolds", "eges3351_E3350006.xml", "0", 0, "", "YES")
+        db[167] = new DBRec(true, "Exploded View", "eges3351_143.xml", "0", 1, "", "YES")
+        db[168] = new DBRec(false, "Service Procedure", "eges3351_144.xml", "0", 2, "", "YES")
+        db[169] = new DBRec(true, "Removal", "eges3351_145.xml", "0", 1, "", "YES")
+        db[170] = new DBRec(false, "Exhaust Manifold", "eges3351_145.xml", "0", 2, "", "YES")
+        db[171] = new DBRec(false, "Intake Throttle Assembly", "eges3351_146.xml", "0", 2, "", "YES")
+        db[172] = new DBRec(false, "EGR and Inlet Air Mixer Duct Assembly", "eges3351_147.xml", "0", 2, "", "YES")
+        db[173] = new DBRec(false, "Intake Manifold, Fuel Valve, and Fuel Rail Plugs", "eges3351_148.xml", "0", 2, "", "YES")
+        db[174] = new DBRec(true, "Clean, Inspect, and Measure", "eges3351_149.xml", "0", 1, "", "YES")
+        db[175] = new DBRec(false, "Exhaust Manifold", "eges3351_149.xml", "0", 2, "", "YES")
+        db[176] = new DBRec(false, "Intake Manifold", "eges3351_150.xml", "0", 2, "", "YES")
+        db[177] = new DBRec(false, "EGR and Inlet Air Mixer Duct and Intake Throttle Assembly", "eges3351_151.xml", "0", 2, "", "YES")
+        db[178] = new DBRec(true, "Installation", "eges3351_152.xml", "0", 1, "", "")
+        db[179] = new DBRec(false, "Service Procedure", "eges3351_152.xml", "0", 2, "", "YES")
+        db[180] = new DBRec(false, "Exhaust Manifold", "eges3351_153.xml", "0", 2, "", "YES")
+        db[181] = new DBRec(false, "Intake Manifold, Fuel Valve, and Fuel Rail Plugs", "eges3351_154.xml", "0", 2, "", "YES")
+        db[182] = new DBRec(false, "EGR and Inlet Air Mixer Duct Assembly", "eges3351_155.xml", "0", 2, "", "YES")
+        db[183] = new DBRec(false, "Intake Throttle Assembly", "eges3351_156.xml", "0", 2, "", "YES")
+        db[184] = new DBRec(true, "Special Torque", "eges3351_157.xml", "0", 1, "", "")
+        db[185] = new DBRec(false, "Service Procedure", "eges3351_157.xml", "0", 2, "", "YES")
+        db[186] = new DBRec(true, "Special Service Tools", "eges3351_158.xml", "0", 1, "", "")
+        db[187] = new DBRec(false, "Service Procedure", "eges3351_158.xml", "0", 2, "", "YES")
+        db[188] = new DBRec(true, "Fuel and High-pressure Oil Systems", "eges3351_E3350007.xml", "0", 0, "", "YES")
+        db[189] = new DBRec(true, "Illustrations and Description", "eges3351_160.xml", "0", 1, "", "")
+        db[190] = new DBRec(false, "Low-pressure Fuel System", "eges3351_160.xml", "0", 2, "", "YES")
+        db[191] = new DBRec(false, "Fuel Filter Header Assembly", "eges3351_161.xml", "0", 2, "", "YES")
+        db[192] = new DBRec(false, "High-pressure Oil System", "eges3351_162.xml", "0", 2, "", "YES")
+        db[193] = new DBRec(false, "High-pressure Oil and Low-pressure Fuel Pumps", "eges3351_163.xml", "0", 2, "", "YES")
+        db[194] = new DBRec(true, "Periodic Service", "eges3351_164.xml", "0", 1, "", "YES")
+        db[195] = new DBRec(false, "Fuel Strainer", "eges3351_164.xml", "0", 2, "", "YES")
+        db[196] = new DBRec(false, "Fuel Filter", "eges3351_165.xml", "0", 2, "", "YES")
+        db[197] = new DBRec(false, "Drain Water In Fuel", "eges3351_166.xml", "0", 2, "", "YES")
+        db[198] = new DBRec(false, "Priming Fuel System", "eges3351_167.xml", "0", 2, "", "YES")
+        db[199] = new DBRec(true, "Removal", "eges3351_168.xml", "0", 1, "", "")
+        db[200] = new DBRec(false, "Water In Fuel (WIF) Sensor, Engine Fuel Pressure (EFP) Sensor, and Fuel Heater", "eges3351_168.xml", "0", 2, "", "YES")
+        db[201] = new DBRec(false, "Water Drain Valve Assembly", "eges3351_169.xml", "0", 2, "", "YES")
+        db[202] = new DBRec(false, "Fuel Filter Header Assembly", "eges3351_170.xml", "0", 2, "", "YES")
+        db[203] = new DBRec(false, "High-pressure Oil Hose and Elbows", "eges3351_171.xml", "0", 2, "", "YES")
+        db[204] = new DBRec(false, "Service Procedure", "eges3351_172.xml", "0", 2, "", "YES")
+        db[205] = new DBRec(false, "Low-pressure Fuel Pump", "eges3351_173.xml", "0", 2, "", "YES")
+        db[206] = new DBRec(false, "High-pressure Oil Pump and Injection Pressure Regulator (IPR) Valve", "eges3351_174.xml", "0", 2, "", "YES")
+        db[207] = new DBRec(false, "High-pressure Oil Manifold", "eges3351_175.xml", "0", 2, "", "YES")
+        db[208] = new DBRec(false, "Injector Oil Inlet Adaptor (Puck) Assembly", "eges3351_176.xml", "0", 2, "", "YES")
+        db[209] = new DBRec(false, "Fuel Injector Assemblies", "eges3351_177.xml", "0", 2, "", "YES")
+        db[210] = new DBRec(true, "Clean and Inspect", "eges3351_178.xml", "0", 1, "", "YES")
+        db[211] = new DBRec(false, "Low-pressure Fuel and High-pressure Oil System Components", "eges3351_178.xml", "0", 2, "", "YES")
+        db[212] = new DBRec(false, "Fuel Filter Header Assembly Service Recommendations", "eges3351_179.xml", "0", 2, "", "YES")
+        db[213] = new DBRec(true, "Installation", "eges3351_180.xml", "0", 1, "", "")
+        db[214] = new DBRec(false, "Fuel Injector Assemblies", "eges3351_180.xml", "0", 2, "", "YES")
+        db[215] = new DBRec(false, "Injector Oil Inlet Adaptor (Puck) Assembly", "eges3351_181.xml", "0", 2, "", "YES")
+        db[216] = new DBRec(false, "High-pressure Oil Manifold", "eges3351_182.xml", "0", 2, "", "YES")
+        db[217] = new DBRec(false, "High-pressure Oil Pump and Injection Pressure Regulator (IPR) Valve", "eges3351_183.xml", "0", 2, "", "YES")
+        db[218] = new DBRec(false, "Low-pressure Fuel Pump", "eges3351_184.xml", "0", 2, "", "YES")
+        db[219] = new DBRec(false, "High-pressure Oil Hose and Elbows", "eges3351_185.xml", "0", 2, "", "YES")
+        db[220] = new DBRec(false, "Fuel Filter Header Assembly", "eges3351_186.xml", "0", 2, "", "YES")
+        db[221] = new DBRec(false, "Water Drain Valve Assembly", "eges3351_187.xml", "0", 2, "", "YES")
+        db[222] = new DBRec(false, "Water In Fuel (WIF) Sensor, Engine Fuel Pressure (EFP) Sensor, and Fuel Heater", "eges3351_188.xml", "0", 2, "", "YES")
+        db[223] = new DBRec(true, "Specifications", "eges3351_189.xml", "0", 1, "", "")
+        db[224] = new DBRec(false, "Service Procedure", "eges3351_189.xml", "0", 2, "", "YES")
+        db[225] = new DBRec(true, "Special Torque", "eges3351_190.xml", "0", 1, "", "")
+        db[226] = new DBRec(false, "Service Procedure", "eges3351_190.xml", "0", 2, "", "YES")
+        db[227] = new DBRec(true, "Special Service Tools", "eges3351_191.xml", "0", 1, "", "")
+        db[228] = new DBRec(false, "Service Procedure", "eges3351_191.xml", "0", 2, "", "YES")
+        db[229] = new DBRec(true, "Diamond Logic&#174; Engine Brake", "eges3351_E3350008.xml", "0", 0, "", "YES")
+        db[230] = new DBRec(true, "Exploded View and Description", "eges3351_193.xml", "0", 1, "", "")
+        db[231] = new DBRec(false, "Service Procedure", "eges3351_193.xml", "0", 2, "", "YES")
+        db[232] = new DBRec(true, "Periodic Service", "eges3351_194.xml", "0", 1, "", "YES")
+        db[233] = new DBRec(false, "Engine Brake Lash Adjustment", "eges3351_194.xml", "0", 2, "", "YES")
+        db[234] = new DBRec(true, "Removal", "eges3351_195.xml", "0", 1, "", "YES")
+        db[235] = new DBRec(false, "Brake Shut-off Valve (BSV) Assembly", "eges3351_195.xml", "0", 2, "", "YES")
+        db[236] = new DBRec(false, "Brake Control Pressure (BCP) Sensor", "eges3351_196.xml", "0", 2, "", "YES")
+        db[237] = new DBRec(false, "Under Valve Cover (UVC) Harness Valve Cover Gasket Assembly (Brake)", "eges3351_197.xml", "0", 2, "", "YES")
+        db[238] = new DBRec(false, "High-pressure Oil Manifold (Brake)", "eges3351_198.xml", "0", 2, "", "YES")
+        db[239] = new DBRec(false, "Oil Pressure Relief Valve", "eges3351_199.xml", "0", 2, "", "YES")
+        db[240] = new DBRec(false, "Brake Actuator Piston Assembly", "eges3351_200.xml", "0", 2, "", "YES")
+        db[241] = new DBRec(true, "Clean and Inspect", "eges3351_201.xml", "0", 1, "", "YES")
+        db[242] = new DBRec(false, "Service Procedure", "eges3351_201.xml", "0", 2, "", "YES")
+        db[243] = new DBRec(true, "Installation", "eges3351_202.xml", "0", 1, "", "")
+        db[244] = new DBRec(false, "Brake Actuator Piston Assembly", "eges3351_202.xml", "0", 2, "", "YES")
+        db[245] = new DBRec(false, "Oil Pressure Relief Valve", "eges3351_203.xml", "0", 2, "", "YES")
+        db[246] = new DBRec(false, "High-pressure Oil Manifold (Brake)", "eges3351_204.xml", "0", 2, "", "YES")
+        db[247] = new DBRec(false, "Under Valve Cover (UVC) Harness Valve Cover Gasket Assembly (Brake)", "eges3351_205.xml", "0", 2, "", "YES")
+        db[248] = new DBRec(false, "Brake Control Pressure (BCP) Sensor", "eges3351_206.xml", "0", 2, "", "YES")
+        db[249] = new DBRec(false, "Brake Shut-off Valve (BSV) Assembly", "eges3351_207.xml", "0", 2, "", "YES")
+        db[250] = new DBRec(true, "Specifications", "eges3351_208.xml", "0", 1, "", "")
+        db[251] = new DBRec(false, "Service Procedure", "eges3351_208.xml", "0", 2, "", "YES")
+        db[252] = new DBRec(true, "Special Torque", "eges3351_209.xml", "0", 1, "", "")
+        db[253] = new DBRec(false, "Service Procedure", "eges3351_209.xml", "0", 2, "", "YES")
+        db[254] = new DBRec(true, "Special Service Tools", "eges3351_210.xml", "0", 1, "", "")
+        db[255] = new DBRec(false, "Service Procedure", "eges3351_210.xml", "0", 2, "", "YES")
+        db[256] = new DBRec(true, "Air Compressor and Power Steering Pump", "eges3351_E3350009.xml", "0", 0, "", "YES")
+        db[257] = new DBRec(true, "Illustrations", "eges3351_212.xml", "0", 1, "", "")
+        db[258] = new DBRec(false, "Air Compressor", "eges3351_212.xml", "0", 2, "", "YES")
+        db[259] = new DBRec(false, "Power Steering Pump", "eges3351_213.xml", "0", 2, "", "YES")
+        db[260] = new DBRec(true, "Description", "eges3351_214.xml", "0", 1, "", "")
+        db[261] = new DBRec(false, "Service Procedure", "eges3351_214.xml", "0", 2, "", "YES")
+        db[262] = new DBRec(true, "Removal", "eges3351_215.xml", "0", 1, "", "")
+        db[263] = new DBRec(false, "Service Procedure", "eges3351_215.xml", "0", 2, "", "YES")
+        db[264] = new DBRec(false, "Power Steering Pump", "eges3351_216.xml", "0", 2, "", "YES")
+        db[265] = new DBRec(false, "Air Compressor", "eges3351_217.xml", "0", 2, "", "YES")
+        db[266] = new DBRec(true, "Clean and Inspect", "eges3351_218.xml", "0", 1, "", "")
+        db[267] = new DBRec(false, "Service Procedure", "eges3351_218.xml", "0", 2, "", "YES")
+        db[268] = new DBRec(true, "Installation", "eges3351_219.xml", "0", 1, "", "")
+        db[269] = new DBRec(false, "Air Compressor", "eges3351_219.xml", "0", 2, "", "YES")
+        db[270] = new DBRec(false, "Power Steering Pump Without Air Compressor", "eges3351_220.xml", "0", 2, "", "YES")
+        db[271] = new DBRec(false, "Power Steering Pump With Air Compressor", "eges3351_221.xml", "0", 2, "", "YES")
+        db[272] = new DBRec(true, "Specifications", "eges3351_222.xml", "0", 1, "", "")
+        db[273] = new DBRec(false, "Service Procedure", "eges3351_222.xml", "0", 2, "", "YES")
+        db[274] = new DBRec(true, "Special Torque", "eges3351_223.xml", "0", 1, "", "")
+        db[275] = new DBRec(false, "Service Procedure", "eges3351_223.xml", "0", 2, "", "YES")
+        db[276] = new DBRec(true, "Oil System Module Assembly", "eges3351_E3350010.xml", "0", 0, "", "YES")
+        db[277] = new DBRec(true, "Exploded View and Description", "eges3351_225.xml", "0", 1, "", "")
+        db[278] = new DBRec(false, "Service Procedure", "eges3351_225.xml", "0", 2, "", "YES")
+        db[279] = new DBRec(true, "Removal", "eges3351_226.xml", "0", 1, "", "YES")
+        db[280] = new DBRec(false, "Drain Coolant", "eges3351_226.xml", "0", 2, "", "YES")
+        db[281] = new DBRec(false, "Coolant Tube", "eges3351_227.xml", "0", 2, "", "YES")
+        db[282] = new DBRec(false, "Oil System Module Assembly", "eges3351_228.xml", "0", 2, "", "YES")
+        db[283] = new DBRec(true, "Disassemble", "eges3351_229.xml", "0", 1, "", "YES")
+        db[284] = new DBRec(false, "Regulator Valve (Oil Pressure)", "eges3351_229.xml", "0", 2, "", "YES")
+        db[285] = new DBRec(false, "Thermal Valve (Oil)", "eges3351_230.xml", "0", 2, "", "YES")
+        db[286] = new DBRec(false, "Cooler Heat Exchanger", "eges3351_231.xml", "0", 2, "", "YES")
+        db[287] = new DBRec(false, "Lube Filter Adapter Assembly", "eges3351_232.xml", "0", 2, "", "YES")
+        db[288] = new DBRec(false, "Oil Filter Bypass Valve", "eges3351_233.xml", "0", 2, "", "YES")
+        db[289] = new DBRec(true, "Clean, Inspect, and Test", "eges3351_234.xml", "0", 1, "", "YES")
+        db[290] = new DBRec(false, "Clean Oil System Module", "eges3351_234.xml", "0", 2, "", "YES")
+        db[291] = new DBRec(false, "Test Cooler Heat Exchanger for Leaks", "eges3351_235.xml", "0", 2, "", "YES")
+        db[292] = new DBRec(true, "Assemble", "eges3351_236.xml", "0", 1, "", "")
+        db[293] = new DBRec(false, "Oil Filter Bypass Valve", "eges3351_236.xml", "0", 2, "", "YES")
+        db[294] = new DBRec(false, "Lube Filter Adaptor Assembly ", "eges3351_237.xml", "0", 2, "", "YES")
+        db[295] = new DBRec(false, "Thermal Valve (Oil)", "eges3351_238.xml", "0", 2, "", "YES")
+        db[296] = new DBRec(false, "Regulator Valve (Oil Pressure)", "eges3351_239.xml", "0", 2, "", "YES")
+        db[297] = new DBRec(false, "Cooler Heat Exchanger", "eges3351_240.xml", "0", 2, "", "YES")
+        db[298] = new DBRec(true, "Installation", "eges3351_241.xml", "0", 1, "", "")
+        db[299] = new DBRec(false, "Oil System Module", "eges3351_241.xml", "0", 2, "", "YES")
+        db[300] = new DBRec(false, "Coolant Tube", "eges3351_242.xml", "0", 2, "", "YES")
+        db[301] = new DBRec(false, "Oil Filter", "eges3351_243.xml", "0", 2, "", "YES")
+        db[302] = new DBRec(false, "Prime Lubrication System", "eges3351_244.xml", "0", 2, "", "YES")
+        db[303] = new DBRec(true, "Specifications", "eges3351_245.xml", "0", 1, "", "")
+        db[304] = new DBRec(false, "Service Procedure", "eges3351_245.xml", "0", 2, "", "YES")
+        db[305] = new DBRec(true, "Special Torque", "eges3351_246.xml", "0", 1, "", "")
+        db[306] = new DBRec(false, "Service Procedure", "eges3351_246.xml", "0", 2, "", "YES")
+        db[307] = new DBRec(true, "Special Service Tools", "eges3351_247.xml", "0", 1, "", "")
+        db[308] = new DBRec(false, "Service Procedure", "eges3351_247.xml", "0", 2, "", "YES")
+        db[309] = new DBRec(true, "Oil Pan and Oil Suction Tube", "eges3351_E3350011.xml", "0", 0, "", "YES")
+        db[310] = new DBRec(true, "Exploded Views", "eges3351_249.xml", "0", 1, "", "")
+        db[311] = new DBRec(false, "Front Sump", "eges3351_249.xml", "0", 2, "", "YES")
+        db[312] = new DBRec(false, "Rear Sump", "eges3351_250.xml", "0", 2, "", "YES")
+        db[313] = new DBRec(true, "Removal", "eges3351_251.xml", "0", 1, "", "YES")
+        db[314] = new DBRec(false, "Drain Engine Oil", "eges3351_251.xml", "0", 2, "", "YES")
+        db[315] = new DBRec(false, "Oil Pan and Gasket", "eges3351_252.xml", "0", 2, "", "YES")
+        db[316] = new DBRec(false, "Oil Suction Tube Assembly", "eges3351_253.xml", "0", 2, "", "YES")
+        db[317] = new DBRec(true, "Clean and Inspect", "eges3351_254.xml", "0", 1, "", "")
+        db[318] = new DBRec(false, "Service Procedure", "eges3351_254.xml", "0", 2, "", "YES")
+        db[319] = new DBRec(true, "Installation", "eges3351_255.xml", "0", 1, "", "")
+        db[320] = new DBRec(false, "Oil Suction Tube Assembly", "eges3351_255.xml", "0", 2, "", "YES")
+        db[321] = new DBRec(false, "Oil Pan and Gasket", "eges3351_256.xml", "0", 2, "", "YES")
+        db[322] = new DBRec(false, "Fill Engine with Oil", "eges3351_257.xml", "0", 2, "", "YES")
+        db[323] = new DBRec(true, "Specifications", "eges3351_258.xml", "0", 1, "", "")
+        db[324] = new DBRec(false, "Service Procedure", "eges3351_258.xml", "0", 2, "", "YES")
+        db[325] = new DBRec(true, "Special Torque", "eges3351_259.xml", "0", 1, "", "")
+        db[326] = new DBRec(false, "Service Procedure", "eges3351_259.xml", "0", 2, "", "YES")
+        db[327] = new DBRec(true, "Special Service Tools", "eges3351_260.xml", "0", 1, "", "")
+        db[328] = new DBRec(false, "Service Procedure", "eges3351_260.xml", "0", 2, "", "YES")
+        db[329] = new DBRec(true, "Front Cover, Cooling System, and Related Components", "eges3351_E3350012.xml", "0", 0, "", "YES")
+        db[330] = new DBRec(false, "Service Procedure", "eges3351_E3350012.xml", "0", 1, "", "YES")
+        db[331] = new DBRec(true, "Exploded View and Description", "eges3351_263.xml", "0", 1, "", "")
+        db[332] = new DBRec(false, "Service Procedure", "eges3351_263.xml", "0", 2, "", "YES")
+        db[333] = new DBRec(true, "Removal", "eges3351_264.xml", "0", 1, "", "YES")
+        db[334] = new DBRec(false, "Drive Belt", "eges3351_264.xml", "0", 2, "", "YES")
+        db[335] = new DBRec(false, "Alternator Bracket, Automatic Belt Tensioner, and Single Idler Pulley", "eges3351_265.xml", "0", 2, "", "YES")
+        db[336] = new DBRec(false, "Secondary Compressor Support, Dual Idler Pulleys, and Idler Mounting Plate", "eges3351_266.xml", "0", 2, "", "YES")
+        db[337] = new DBRec(false, "Water Supply Housing (Freon&#174; Compressor Mount)", "eges3351_267.xml", "0", 2, "", "YES")
+        db[338] = new DBRec(false, "Water Outlet Tube, and Thermostat", "eges3351_268.xml", "0", 2, "", "YES")
+        db[339] = new DBRec(false, "Water Pump Assembly", "eges3351_269.xml", "0", 2, "", "YES")
+        db[340] = new DBRec(false, "Water Inlet Elbow", "eges3351_270.xml", "0", 2, "", "YES")
+        db[341] = new DBRec(false, "Fan Drive", "eges3351_271.xml", "0", 2, "", "YES")
+        db[342] = new DBRec(false, "Vibration Damper, Hub, and Wear Sleeve", "eges3351_272.xml", "0", 2, "", "YES")
+        db[343] = new DBRec(false, "Oil Pump Assembly", "eges3351_273.xml", "0", 2, "", "YES")
+        db[344] = new DBRec(false, "Front Engine Mounting Bracket", "eges3351_274.xml", "0", 2, "", "YES")
+        db[345] = new DBRec(false, "Front Cover (Front Half)", "eges3351_275.xml", "0", 2, "", "YES")
+        db[346] = new DBRec(false, "Idler Gears", "eges3351_276.xml", "0", 2, "", "YES")
+        db[347] = new DBRec(false, "Front Cover (Rear Half)", "eges3351_277.xml", "0", 2, "", "YES")
+        db[348] = new DBRec(true, "Clean, Inspect, and Measure", "eges3351_278.xml", "0", 1, "", "YES")
+        db[349] = new DBRec(false, "Clean and Inspect", "eges3351_278.xml", "0", 2, "", "YES")
+        db[350] = new DBRec(false, "Measure Gear Backlash", "eges3351_279.xml", "0", 2, "", "YES")
+        db[351] = new DBRec(false, "Measure Oil Pump Side Clearance", "eges3351_280.xml", "0", 2, "", "YES")
+        db[352] = new DBRec(false, "Measure Oil Pump End Clearance", "eges3351_281.xml", "0", 2, "", "YES")
+        db[353] = new DBRec(true, "Installation", "eges3351_282.xml", "0", 1, "", "")
+        db[354] = new DBRec(false, "Service Procedure", "eges3351_282.xml", "0", 2, "", "YES")
+        db[355] = new DBRec(false, "Front Cover (Rear Half)", "eges3351_283.xml", "0", 2, "", "YES")
+        db[356] = new DBRec(false, "Idler Gears", "eges3351_284.xml", "0", 2, "", "YES")
+        db[357] = new DBRec(false, "Front Cover (Front Half)", "eges3351_285.xml", "0", 2, "", "YES")
+        db[358] = new DBRec(false, "Front Engine Mounting Bracket", "eges3351_286.xml", "0", 2, "", "YES")
+        db[359] = new DBRec(false, "Oil Pump Assembly", "eges3351_287.xml", "0", 2, "", "YES")
+        db[360] = new DBRec(false, "Vibration Damper, Hub, and Wear Sleeve", "eges3351_288.xml", "0", 2, "", "YES")
+        db[361] = new DBRec(false, "Fan Drive", "eges3351_289.xml", "0", 2, "", "YES")
+        db[362] = new DBRec(false, "Water Outlet Tube, and Thermostat", "eges3351_290.xml", "0", 2, "", "YES")
+        db[363] = new DBRec(false, "Water Pump Assembly", "eges3351_291.xml", "0", 2, "", "YES")
+        db[364] = new DBRec(false, "Water Inlet Elbow", "eges3351_292.xml", "0", 2, "", "YES")
+        db[365] = new DBRec(false, "Water Supply Housing (Freon&#174; Compressor Mount)", "eges3351_293.xml", "0", 2, "", "YES")
+        db[366] = new DBRec(false, "Alternator Bracket and Automatic Belt Tensioner", "eges3351_294.xml", "0", 2, "", "YES")
+        db[367] = new DBRec(false, "Secondary Compressor Support, Dual Idler Pulleys, and Idler Mounting Plate", "eges3351_295.xml", "0", 2, "", "YES")
+        db[368] = new DBRec(false, "Drive Belt", "eges3351_296.xml", "0", 2, "", "YES")
+        db[369] = new DBRec(true, "Specifications", "eges3351_297.xml", "0", 1, "", "")
+        db[370] = new DBRec(false, "Service Procedure", "eges3351_297.xml", "0", 2, "", "YES")
+        db[371] = new DBRec(true, "Special Torque", "eges3351_298.xml", "0", 1, "", "")
+        db[372] = new DBRec(false, "Service Procedure", "eges3351_298.xml", "0", 2, "", "YES")
+        db[373] = new DBRec(true, "Special Service Tools", "eges3351_299.xml", "0", 1, "", "")
+        db[374] = new DBRec(false, "Service Procedure", "eges3351_299.xml", "0", 2, "", "YES")
+        db[375] = new DBRec(true, "Cylinder Head and Valve Train", "eges3351_E3350013.xml", "0", 0, "", "YES")
+        db[376] = new DBRec(true, "Illustrations and Description", "eges3351_301.xml", "0", 1, "", "")
+        db[377] = new DBRec(false, "Service Procedure", "eges3351_301.xml", "0", 2, "", "YES")
+        db[378] = new DBRec(false, "Service Procedure", "eges3351_302.xml", "0", 2, "", "YES")
+        db[379] = new DBRec(true, "Periodic Service", "eges3351_303.xml", "0", 1, "", "YES")
+        db[380] = new DBRec(false, "Valve Lash Adjustment", "eges3351_303.xml", "0", 2, "", "YES")
+        db[381] = new DBRec(true, "Removal", "eges3351_304.xml", "0", 1, "", "")
+        db[382] = new DBRec(false, "Valve Cover", "eges3351_304.xml", "0", 2, "", "YES")
+        db[383] = new DBRec(false, "Rocker Arm Assembly", "eges3351_305.xml", "0", 2, "", "YES")
+        db[384] = new DBRec(false, "Service Procedure", "eges3351_306.xml", "0", 2, "", "YES")
+        db[385] = new DBRec(false, "Rocker Arms", "eges3351_307.xml", "0", 2, "", "YES")
+        db[386] = new DBRec(false, "Cylinder Head", "eges3351_308.xml", "0", 2, "", "YES")
+        db[387] = new DBRec(false, "Roller Tappets", "eges3351_309.xml", "0", 2, "", "YES")
+        db[388] = new DBRec(true, "Clean, Inspect, Measure, and Test", "eges3351_310.xml", "0", 1, "", "YES")
+        db[389] = new DBRec(false, "Measure Camshaft Lobe Lift", "eges3351_310.xml", "0", 2, "", "YES")
+        db[390] = new DBRec(false, "Clean Cylinder Head", "eges3351_311.xml", "0", 2, "", "YES")
+        db[391] = new DBRec(false, "Cylinder Head Bolt Reusability Test", "eges3351_312.xml", "0", 2, "", "YES")
+        db[392] = new DBRec(false, "Clean and Inspect Push Rods", "eges3351_313.xml", "0", 2, "", "YES")
+        db[393] = new DBRec(false, "Measure Rocker Shaft", "eges3351_314.xml", "0", 2, "", "YES")
+        db[394] = new DBRec(false, "Inspect and Measure Rocker Arms", "eges3351_315.xml", "0", 2, "", "YES")
+        db[395] = new DBRec(false, "Measure Cylinder Head Warpage", "eges3351_316.xml", "0", 2, "", "YES")
+        db[396] = new DBRec(false, "Measure Cylinder Head Thickness", "eges3351_317.xml", "0", 2, "", "YES")
+        db[397] = new DBRec(false, "Measure Valve Seat Leakage", "eges3351_318.xml", "0", 2, "", "YES")
+        db[398] = new DBRec(false, "Inspect Cylinder Head for Cracks", "eges3351_319.xml", "0", 2, "", "YES")
+        db[399] = new DBRec(false, "Cylinder Head Pressure Test", "eges3351_320.xml", "0", 2, "", "YES")
+        db[400] = new DBRec(true, "Recondition", "eges3351_321.xml", "0", 1, "", "")
+        db[401] = new DBRec(false, "Remove Valves from Cylinder Head", "eges3351_321.xml", "0", 2, "", "YES")
+        db[402] = new DBRec(false, "Inspect and Measure Valve Guides", "eges3351_322.xml", "0", 2, "", "YES")
+        db[403] = new DBRec(false, "Replace Valve Guides", "eges3351_323.xml", "0", 2, "", "YES")
+        db[404] = new DBRec(false, "Inspect and Measure Valves", "eges3351_324.xml", "0", 2, "", "YES")
+        db[405] = new DBRec(false, "Reface Valves", "eges3351_325.xml", "0", 2, "", "YES")
+        db[406] = new DBRec(false, "Resurface Valve Seats", "eges3351_326.xml", "0", 2, "", "YES")
+        db[407] = new DBRec(false, "Replace Valve Seats", "eges3351_327.xml", "0", 2, "", "YES")
+        db[408] = new DBRec(false, "Inspect Valve Springs", "eges3351_328.xml", "0", 2, "", "YES")
+        db[409] = new DBRec(false, "Inspect Valve Rotators and Retainers", "eges3351_329.xml", "0", 2, "", "YES")
+        db[410] = new DBRec(false, "Inspect Valve Spring Retainer Keys", "eges3351_330.xml", "0", 2, "", "YES")
+        db[411] = new DBRec(false, "Replace Fuel Injector Sleeves", "eges3351_331.xml", "0", 2, "", "YES")
+        db[412] = new DBRec(false, "Install Valves", "eges3351_332.xml", "0", 2, "", "YES")
+        db[413] = new DBRec(true, "Installation", "eges3351_333.xml", "0", 1, "", "")
+        db[414] = new DBRec(false, "Roller Tappets", "eges3351_333.xml", "0", 2, "", "YES")
+        db[415] = new DBRec(false, "Cylinder Head", "eges3351_334.xml", "0", 2, "", "YES")
+        db[416] = new DBRec(false, "Torque Procedure for Torque-to-yield Head Bolts", "eges3351_335.xml", "0", 2, "", "YES")
+        db[417] = new DBRec(false, "Rocker Arms", "eges3351_336.xml", "0", 2, "", "YES")
+        db[418] = new DBRec(false, "Rocker Arm Assembly", "eges3351_337.xml", "0", 2, "", "YES")
+        db[419] = new DBRec(false, "Valve Cover", "eges3351_338.xml", "0", 2, "", "YES")
+        db[420] = new DBRec(true, "Specifications", "eges3351_339.xml", "0", 1, "", "")
+        db[421] = new DBRec(false, "Service Procedure", "eges3351_339.xml", "0", 2, "", "YES")
+        db[422] = new DBRec(true, "Special Torque", "eges3351_340.xml", "0", 1, "", "")
+        db[423] = new DBRec(false, "Service Procedure", "eges3351_340.xml", "0", 2, "", "YES")
+        db[424] = new DBRec(true, "Special Service Tools", "eges3351_341.xml", "0", 1, "", "")
+        db[425] = new DBRec(false, "Service Procedure", "eges3351_341.xml", "0", 2, "", "YES")
+        db[426] = new DBRec(true, "Flywheel and Flywheel Housing", "eges3351_E3350014.xml", "0", 0, "", "YES")
+        db[427] = new DBRec(true, "Exploded View and Description", "eges3351_343.xml", "0", 1, "", "YES")
+        db[428] = new DBRec(false, "Service Procedure", "eges3351_344.xml", "0", 2, "", "YES")
+        db[429] = new DBRec(true, "Flywheel and Flexplate Applications", "eges3351_345.xml", "0", 1, "", "")
+        db[430] = new DBRec(false, "Manual Transmissions", "eges3351_345.xml", "0", 2, "", "YES")
+        db[431] = new DBRec(false, "Automatic Transmissions", "eges3351_346.xml", "0", 2, "", "YES")
+        db[432] = new DBRec(true, "Removal", "eges3351_347.xml", "0", 1, "", "YES")
+        db[433] = new DBRec(false, "Flywheel Assembly", "eges3351_347.xml", "0", 2, "", "YES")
+        db[434] = new DBRec(false, "Flexplate (Automatic Transmissions)", "eges3351_348.xml", "0", 2, "", "YES")
+        db[435] = new DBRec(false, "Crankshaft Timing Disk", "eges3351_349.xml", "0", 2, "", "YES")
+        db[436] = new DBRec(false, "Rear Oil Seal Assembly", "eges3351_350.xml", "0", 2, "", "YES")
+        db[437] = new DBRec(false, "Flywheel Housing", "eges3351_351.xml", "0", 2, "", "YES")
+        db[438] = new DBRec(true, "Clean, Inspect, and Measure", "eges3351_352.xml", "0", 1, "", "YES")
+        db[439] = new DBRec(false, "Clean and Inspect", "eges3351_352.xml", "0", 2, "", "YES")
+        db[440] = new DBRec(false, "Measure Flywheel Housing Face Runout", "eges3351_353.xml", "0", 2, "", "YES")
+        db[441] = new DBRec(false, "Measure Flywheel Housing Bore Concentricity", "eges3351_354.xml", "0", 2, "", "YES")
+        db[442] = new DBRec(false, "Measure Crankshaft Pilot Concentricity", "eges3351_355.xml", "0", 2, "", "YES")
+        db[443] = new DBRec(false, "Measure Flywheel Surface Runout", "eges3351_356.xml", "0", 2, "", "YES")
+        db[444] = new DBRec(true, "Recondition", "eges3351_357.xml", "0", 1, "", "")
+        db[445] = new DBRec(false, "Resurface Flywheel", "eges3351_357.xml", "0", 2, "", "YES")
+        db[446] = new DBRec(false, "Replace Flywheel Ring Gear", "eges3351_358.xml", "0", 2, "", "YES")
+        db[447] = new DBRec(true, "Installation", "eges3351_359.xml", "0", 1, "", "")
+        db[448] = new DBRec(false, "Flywheel Housing and Rear Engine Mounting Brackets", "eges3351_359.xml", "0", 2, "", "YES")
+        db[449] = new DBRec(false, "Rear Oil Seal", "eges3351_360.xml", "0", 2, "", "YES")
+        db[450] = new DBRec(false, "Crankshaft Timing Disk", "eges3351_361.xml", "0", 2, "", "YES")
+        db[451] = new DBRec(false, "Flywheel Assembly", "eges3351_362.xml", "0", 2, "", "YES")
+        db[452] = new DBRec(false, "Flexplate (Automatic Transmissions)", "eges3351_363.xml", "0", 2, "", "YES")
+        db[453] = new DBRec(true, "Specifications", "eges3351_364.xml", "0", 1, "", "")
+        db[454] = new DBRec(false, "Service Procedure", "eges3351_364.xml", "0", 2, "", "YES")
+        db[455] = new DBRec(true, "Special Torque", "eges3351_365.xml", "0", 1, "", "")
+        db[456] = new DBRec(false, "Service Procedure", "eges3351_365.xml", "0", 2, "", "YES")
+        db[457] = new DBRec(true, "Special Service Tools", "eges3351_366.xml", "0", 1, "", "")
+        db[458] = new DBRec(false, "Service Procedure", "eges3351_366.xml", "0", 2, "", "YES")
+        db[459] = new DBRec(true, "Power Cylinders", "eges3351_E3350015.xml", "0", 0, "", "YES")
+        db[460] = new DBRec(false, "Service Procedure", "eges3351_E3350015.xml", "0", 1, "", "YES")
+        db[461] = new DBRec(true, "Exploded View and Description", "eges3351_369.xml", "0", 1, "", "")
+        db[462] = new DBRec(false, "Service Procedure", "eges3351_369.xml", "0", 2, "", "YES")
+        db[463] = new DBRec(true, "Removal", "eges3351_370.xml", "0", 1, "", "YES")
+        db[464] = new DBRec(false, "Piston Cooling Tubes", "eges3351_370.xml", "0", 2, "", "YES")
+        db[465] = new DBRec(false, "Piston and Connecting Rod Assembly", "eges3351_371.xml", "0", 2, "", "YES")
+        db[466] = new DBRec(false, "Piston Pin and Rings", "eges3351_372.xml", "0", 2, "", "YES")
+        db[467] = new DBRec(false, "Cylinder Sleeve", "eges3351_373.xml", "0", 2, "", "YES")
+        db[468] = new DBRec(true, "Clean, Inspect, and Measure", "eges3351_374.xml", "0", 1, "", "")
+        db[469] = new DBRec(false, "Clean and Inspect", "eges3351_374.xml", "0", 2, "", "YES")
+        db[470] = new DBRec(false, "Measure Pistons", "eges3351_375.xml", "0", 2, "", "YES")
+        db[471] = new DBRec(false, "Measure Piston Rings", "eges3351_376.xml", "0", 2, "", "YES")
+        db[472] = new DBRec(false, "Measure Piston Pins", "eges3351_377.xml", "0", 2, "", "YES")
+        db[473] = new DBRec(false, "Measure and Inspect Connecting Rods", "eges3351_378.xml", "0", 2, "", "YES")
+        db[474] = new DBRec(false, "Bearing Fitting Procedures", "eges3351_379.xml", "0", 2, "", "YES")
+        db[475] = new DBRec(false, "Measure Cylinder Sleeves", "eges3351_380.xml", "0", 2, "", "YES")
+        db[476] = new DBRec(false, "Measure Counterbore Depth", "eges3351_381.xml", "0", 2, "", "YES")
+        db[477] = new DBRec(false, "Measure Cylinder Sleeve Protrusion", "eges3351_382.xml", "0", 2, "", "YES")
+        db[478] = new DBRec(true, "Recondition", "eges3351_383.xml", "0", 1, "", "")
+        db[479] = new DBRec(false, "Resurface Counterbore", "eges3351_383.xml", "0", 2, "", "YES")
+        db[480] = new DBRec(true, "Installation", "eges3351_384.xml", "0", 1, "", "")
+        db[481] = new DBRec(false, "Cylinder Sleeve", "eges3351_384.xml", "0", 2, "", "YES")
+        db[482] = new DBRec(false, "Piston Rings", "eges3351_385.xml", "0", 2, "", "YES")
+        db[483] = new DBRec(false, "Piston Pin", "eges3351_386.xml", "0", 2, "", "YES")
+        db[484] = new DBRec(false, "Piston and Connecting Rod Assembly", "eges3351_387.xml", "0", 2, "", "YES")
+        db[485] = new DBRec(false, "Torque Procedure for Connecting Rods with M12 Bolts", "eges3351_S1525.xml", "0", 2, "", "YES")
+        db[486] = new DBRec(false, "Torque-to-yield Procedure for Connecting Rods with M11 Bolts", "eges3351_S1526.xml", "0", 2, "", "YES")
+        db[487] = new DBRec(false, "Piston Cooling Tubes", "eges3351_390.xml", "0", 2, "", "YES")
+        db[488] = new DBRec(true, "Engine Run-in (Break-in) Procedure", "eges3351_391.xml", "0", 1, "", "YES")
+        db[489] = new DBRec(false, "Service Procedure", "eges3351_391.xml", "0", 2, "", "YES")
+        db[490] = new DBRec(true, "Specifications", "eges3351_T335001501.xml", "0", 1, "", "")
+        db[491] = new DBRec(false, "Service Procedure", "eges3351_T335001501.xml", "0", 2, "", "YES")
+        db[492] = new DBRec(true, "Special Torque", "eges3351_393.xml", "0", 1, "", "")
+        db[493] = new DBRec(false, "Service Procedure", "eges3351_393.xml", "0", 2, "", "YES")
+        db[494] = new DBRec(true, "Special Service Tools", "eges3351_394.xml", "0", 1, "", "")
+        db[495] = new DBRec(false, "Service Procedure", "eges3351_394.xml", "0", 2, "", "YES")
+        db[496] = new DBRec(true, "Crankcase, Crankshaft, and Camshaft", "eges3351_E3350016.xml", "0", 0, "", "YES")
+        db[497] = new DBRec(true, "Exploded Views and Description", "eges3351_396.xml", "0", 1, "", "")
+        db[498] = new DBRec(false, "Service Procedure", "eges3351_396.xml", "0", 2, "", "YES")
+        db[499] = new DBRec(false, "Service Procedure", "eges3351_397.xml", "0", 2, "", "YES")
+        db[500] = new DBRec(true, "Removal", "eges3351_398.xml", "0", 1, "", "YES")
+        db[501] = new DBRec(false, "Crankcase Ventilation System", "eges3351_398.xml", "0", 2, "", "YES")
+        db[502] = new DBRec(false, "Oil Level Gauge Assembly", "eges3351_399.xml", "0", 2, "", "YES")
+        db[503] = new DBRec(false, "Coolant Heater Assembly (Optional)", "eges3351_400.xml", "0", 2, "", "YES")
+        db[504] = new DBRec(false, "Crankcase Ladder Assembly", "eges3351_401.xml", "0", 2, "", "YES")
+        db[505] = new DBRec(false, "Main Bearing Caps, Crankshaft, and Main Bearings", "eges3351_402.xml", "0", 2, "", "YES")
+        db[506] = new DBRec(false, "Oil Pump Spline Drive", "eges3351_403.xml", "0", 2, "", "YES")
+        db[507] = new DBRec(false, "Camshaft Gear", "eges3351_404.xml", "0", 2, "", "YES")
+        db[508] = new DBRec(false, "Camshaft Assembly", "eges3351_405.xml", "0", 2, "", "YES")
+        db[509] = new DBRec(false, "Camshaft Bushings", "eges3351_406.xml", "0", 2, "", "YES")
+        db[510] = new DBRec(true, "Clean, Inspect, and Measure", "eges3351_407.xml", "0", 1, "", "YES")
+        db[511] = new DBRec(false, "Camshaft Assembly", "eges3351_407.xml", "0", 2, "", "YES")
+        db[512] = new DBRec(false, "Crankcase Breather Assembly", "eges3351_408.xml", "0", 2, "", "YES")
+        db[513] = new DBRec(false, "Crankcase, Cup Plugs, and Piston Cooling Tubes", "eges3351_409.xml", "0", 2, "", "YES")
+        db[514] = new DBRec(false, "Crankshaft and Main Bearings", "eges3351_410.xml", "0", 2, "", "YES")
+        db[515] = new DBRec(false, "Measure Camshaft End Play", "eges3351_411.xml", "0", 2, "", "YES")
+        db[516] = new DBRec(false, "Measure Camshaft Lobes and Journals", "eges3351_412.xml", "0", 2, "", "YES")
+        db[517] = new DBRec(false, "Measure Crankshaft End Play", "eges3351_413.xml", "0", 2, "", "YES")
+        db[518] = new DBRec(true, "Installation", "eges3351_414.xml", "0", 1, "", "")
+        db[519] = new DBRec(false, "Camshaft Bushings", "eges3351_414.xml", "0", 2, "", "YES")
+        db[520] = new DBRec(false, "Camshaft Assembly", "eges3351_415.xml", "0", 2, "", "YES")
+        db[521] = new DBRec(false, "Camshaft Gear", "eges3351_416.xml", "0", 2, "", "YES")
+        db[522] = new DBRec(false, "Crankshaft Gear and Oil Pump Spline Drive", "eges3351_417.xml", "0", 2, "", "YES")
+        db[523] = new DBRec(false, "Upper Main Bearings and Crankshaft Assembly", "eges3351_418.xml", "0", 2, "", "YES")
+        db[524] = new DBRec(false, "Main Bearing Fit Procedure", "eges3351_419.xml", "0", 2, "", "YES")
+        db[525] = new DBRec(false, "Main Bearings and Caps", "eges3351_420.xml", "0", 2, "", "YES")
+        db[526] = new DBRec(false, "Torque Procedure for Torque-to-yield Main Bearing Cap Bolts", "eges3351_421.xml", "0", 2, "", "YES")
+        db[527] = new DBRec(false, "Crankcase Ladder Assembly", "eges3351_422.xml", "0", 2, "", "YES")
+        db[528] = new DBRec(false, "Coolant Heater Assembly (Optional)", "eges3351_423.xml", "0", 2, "", "YES")
+        db[529] = new DBRec(false, "Oil Level Gauge Assembly", "eges3351_424.xml", "0", 2, "", "YES")
+        db[530] = new DBRec(false, "Crankcase Ventilation System", "eges3351_425.xml", "0", 2, "", "YES")
+        db[531] = new DBRec(true, "Specifications", "eges3351_426.xml", "0", 1, "", "")
+        db[532] = new DBRec(false, "Service Procedure", "eges3351_426.xml", "0", 2, "", "YES")
+        db[533] = new DBRec(true, "Special Torque", "eges3351_427.xml", "0", 1, "", "")
+        db[534] = new DBRec(false, "Service Procedure", "eges3351_427.xml", "0", 2, "", "YES")
+        db[535] = new DBRec(true, "Special Service Tools", "eges3351_428.xml", "0", 1, "", "")
+        db[536] = new DBRec(false, "Service Procedure", "eges3351_428.xml", "0", 2, "", "YES")
+        db[537] = new DBRec(true, "Abbreviations and Acronyms", "eges3351_E2650217.xml", "0", 0, "", "YES")
+        db[538] = new DBRec(true, "Abbreviations and Acronyms", "eges3351_430.xml", "0", 1, "", "")
+        db[539] = new DBRec(false, "Service Procedure", "eges3351_430.xml", "0", 2, "", "YES")
+        db[540] = new DBRec(true, "Terminology", "eges3351_E2650216.xml", "0", 0, "", "YES")
+        db[541] = new DBRec(true, "Terminology", "eges3351_432.xml", "0", 1, "", "")
+        db[542] = new DBRec(false, "Service Procedure", "eges3351_432.xml", "0", 2, "", "YES")
+        db[543] = new DBRec(true, "Appendix A - Specifications", "eges3351_E26502APPA.xml", "0", 0, "", "YES")
+        db[544] = new DBRec(true, "Specifications", "eges3351_434.xml", "0", 1, "", "")
+        db[545] = new DBRec(false, "Engine Electrical", "eges3351_434.xml", "0", 2, "", "YES")
+        db[546] = new DBRec(false, "letiable Geometry Turbocharger (VGT)", "eges3351_435.xml", "0", 2, "", "YES")
+        db[547] = new DBRec(false, "Exhaust Gas Recirculation (EGR) System", "eges3351_436.xml", "0", 2, "", "YES")
+        db[548] = new DBRec(false, "Intake, Inlet, and Exhaust Manifolds", "eges3351_437.xml", "0", 2, "", "YES")
+        db[549] = new DBRec(false, "Fuel and High-pressure Oil Systems", "eges3351_438.xml", "0", 2, "", "YES")
+        db[550] = new DBRec(false, "Diamond Logic&#174; Engine Brake", "eges3351_439.xml", "0", 2, "", "YES")
+        db[551] = new DBRec(false, "Air Compressor and Power Steering Pump", "eges3351_440.xml", "0", 2, "", "YES")
+        db[552] = new DBRec(false, "Oil System Module Assembly", "eges3351_441.xml", "0", 2, "", "YES")
+        db[553] = new DBRec(false, "Oil Pan and Oil Suction Tube", "eges3351_442.xml", "0", 2, "", "YES")
+        db[554] = new DBRec(false, "Front Cover, Cooling System, and Related Components", "eges3351_443.xml", "0", 2, "", "YES")
+        db[555] = new DBRec(false, "Cylinder Head and Valve Train", "eges3351_444.xml", "0", 2, "", "YES")
+        db[556] = new DBRec(false, "Flywheel and Flywheel Housing", "eges3351_445.xml", "0", 2, "", "YES")
+        db[557] = new DBRec(false, "Power Cylinders", "eges3351_446.xml", "0", 2, "", "YES")
+        db[558] = new DBRec(false, "Crankcase, Crankshaft, and Camshaft", "eges3351_447.xml", "0", 2, "", "YES")
+        db[559] = new DBRec(true, "Appendix B - Torques", "eges3351_E33500APPB.xml", "0", 0, "", "YES")
+        db[560] = new DBRec(true, "General Torque", "eges3351_S33500APPB01.xml", "0", 1, "", "")
+        db[561] = new DBRec(false, "Bolt Identification", "eges3351_S33500APPB01.xml", "0", 2, "", "YES")
+        db[562] = new DBRec(false, "General Torque Guidelines", "eges3351_S33500APPB01.xml", "0", 2, "", "YES")
+        db[563] = new DBRec(false, "Standard Torque Charts", "eges3351_SAPPB01.xml", "0", 2, "", "YES")
+        db[564] = new DBRec(false, "Using a Torque Wrench Extension", "eges3351_452.xml", "0", 2, "", "YES")
+        db[565] = new DBRec(true, "Special Torque", "eges3351_S33500APPB02.xml", "0", 1, "", "")
+        db[566] = new DBRec(false, "Mounting Engine on Engine Stand", "eges3351_S33500APPB0201.xml", "0", 2, "", "YES")
+        db[567] = new DBRec(false, "Engine Electrical", "eges3351_455.xml", "0", 2, "", "YES")
+        db[568] = new DBRec(false, "letiable Geometry Turbocharger (VGT)", "eges3351_S33500APPB0202.xml", "0", 2, "", "YES")
+        db[569] = new DBRec(false, "Exhaust Gas Recirculation (EGR) System", "eges3351_S33500APPB0204.xml", "0", 2, "", "YES")
+        db[570] = new DBRec(false, "Intake, Inlet, and Exhaust Manifolds", "eges3351_S33500APPB0203.xml", "0", 2, "", "YES")
+        db[571] = new DBRec(false, "Fuel and High-pressure Oil Systems", "eges3351_459.xml", "0", 2, "", "YES")
+        db[572] = new DBRec(false, "Diamond Logic&#174; Engine Brake", "eges3351_460.xml", "0", 2, "", "YES")
+        db[573] = new DBRec(false, "Air Compressor and Power Steering Pump", "eges3351_461.xml", "0", 2, "", "YES")
+        db[574] = new DBRec(false, "Oil System Module Assembly", "eges3351_462.xml", "0", 2, "", "YES")
+        db[575] = new DBRec(false, "Oil Pan and Oil Suction Tube", "eges3351_S35500APPB0207.xml", "0", 2, "", "YES")
+        db[576] = new DBRec(false, "Front Cover, Cooling System, and Related Components", "eges3351_S33500APPB0206.xml", "0", 2, "", "YES")
+        db[577] = new DBRec(false, "Cylinder Head and Valve Train", "eges3351_S33500APPB0205.xml", "0", 2, "", "YES")
+        db[578] = new DBRec(false, "Flywheel and Flywheel Housing", "eges3351_466.xml", "0", 2, "", "YES")
+        db[579] = new DBRec(false, "Power Cylinders", "eges3351_S33500APPB0208.xml", "0", 2, "", "YES")
+        db[580] = new DBRec(false, "Crankcase, Crankshaft, and Camshaft", "eges3351_S33500APPB0209.xml", "0", 2, "", "YES")
+        db[581] = new DBRec(true, "Appendix C - Special Service Tools", "eges3351_E26502APPC.xml", "0", 0, "", "YES")
+        db[582] = new DBRec(true, "Tool Ordering Information", "eges3351_470.xml", "0", 1, "", "YES")
+        db[583] = new DBRec(false, "Service Procedure", "eges3351_470.xml", "0", 2, "", "YES")
+        db[584] = new DBRec(true, "Special Tools", "eges3351_471.xml", "0", 1, "", "")
+        db[585] = new DBRec(false, "Mounting Engine on Engine Stand", "eges3351_471.xml", "0", 2, "", "YES")
+        db[586] = new DBRec(false, "Engine Electrical", "eges3351_472.xml", "0", 2, "", "YES")
+        db[587] = new DBRec(false, "letiable Geometry Turbocharger (VGT)", "eges3351_473.xml", "0", 2, "", "YES")
+        db[588] = new DBRec(false, "Exhaust Gas Recirculation (EGR) System", "eges3351_474.xml", "0", 2, "", "YES")
+        db[589] = new DBRec(false, "Intake, Inlet, and Exhaust Manifolds", "eges3351_475.xml", "0", 2, "", "YES")
+        db[590] = new DBRec(false, "Fuel and High-pressure Oil Systems", "eges3351_476.xml", "0", 2, "", "YES")
+        db[591] = new DBRec(false, "Diamond Logic&#174; Engine Brake", "eges3351_477.xml", "0", 2, "", "YES")
+        db[592] = new DBRec(false, "Air Compressor and Power Steering Pump", "eges3351_478.xml", "0", 2, "", "YES")
+        db[593] = new DBRec(false, "Oil System Module Assembly", "eges3351_479.xml", "0", 2, "", "YES")
+        db[594] = new DBRec(false, "Oil Pan and Oil Suction Tube", "eges3351_480.xml", "0", 2, "", "YES")
+        db[595] = new DBRec(false, "Front Cover, Cooling System, and Related Components", "eges3351_481.xml", "0", 2, "", "YES")
+        db[596] = new DBRec(false, "Cylinder Head and Valve Train", "eges3351_482.xml", "0", 2, "", "YES")
+        db[597] = new DBRec(false, "Flywheel and Flywheel Housing", "eges3351_483.xml", "0", 2, "", "YES")
+        db[598] = new DBRec(false, "Power Cylinders", "eges3351_484.xml", "0", 2, "", "YES")
+        db[599] = new DBRec(false, "Crankcase, Crankshaft, and Camshaft", "eges3351_485.xml", "0", 2, "", "YES")
+        db[600] = new DBRec(false, "Photos of Essential Tools", "eges3351_486.xml", "0", 1, "", "YES")
+
+        // AHJO - In the following function the parameter 'occurs' was added Oct/Nov 2001
+        function DBRec(mother, display, URL, occurs, indent, statusMsg, link) {
+            this.mother = mother   // is this item a parent?
+            this.display = display // text to display
+            this.URL = URL         // used to link to TOC
+            this.occurances = occurs  // how many times does search occur - THIS LINE WAS ADDED by AHJO
+            this.indent = indent   // how many levels nested?
+            this.statusMsg = statusMsg  // descriptive text for status bar
+            this.link = link  //  link tied to text; if empty string, item appears as straight text
+            return this
+        }
+
+        // pre-load all images into cache
+        let collapsedImg = new Image(widgetWidth, widgetHeight)
+        collapsedImg.src = collapsedWidget
+        let expandedImg = new Image(widgetWidth, widgetHeight)
+        expandedImg.src = expandedWidget
+        let endpointImg = new Image(widgetWidth, widgetHeight)
+        endpointImg.src = endpointWidget
+        // mainframeURL = parent.mainframe.document.URL // get URL of mainframe
+        // ** functions that get and set persistent cookie data **
+        // set cookie data
+        let mycookie = document.cookie
+
+        function setCurrState(setting) {
+            mycookie = document.cookie = "currState=" + escape(setting)
+        }
+
+        // retrieve cookie data
+        function getCurrState() {
+            let label = "currState="
+            let labelLen = label.length
+            let cLen = mycookie.length
+            let i = 0
+            while (i < cLen) {
+                let j = i + labelLen
+                if (mycookie.substring(i, j) === label) {
+                    let cEnd = mycookie.indexOf(";", j)
+                    if (cEnd === -1) {
+                        cEnd = mycookie.length
+                    }
+                    return unescape(mycookie.substring(j, cEnd))
+                }
+                i++
+            }
+            return ""
+        }
+
+        // **function that updates persistent storage of state**
+        // toggles an outline mother entry, storing new value in the cookie
+        function toggle(n) {
+            if (n !== 0) {
+                let newString = ""
+                let currState = getCurrState() // of whole outline
+                let expanded = currState.charAt(n - 1) // of clicked item
+                newString += currState.substring(0, n - 1)
+                newString += expanded ^ 1 // Bitwise XOR clicked item
+                newString += currState.substring(n, currState.length)
+                setCurrState(newString) // write new state back to cookie
+            }
+        }
+
+        // **functions used in assembling updated outline**
+        // returns the proper GIF file name for each entry's control
+        function getGIF(n) {
+            let mom = db[n].mother  // is entry a parent?
+            let expanded = getCurrState().charAt(n - 1) // of clicked item
+            if (!mom) {
+                return endpointWidget
+            } else {
+                if (expanded === '1') {
+                    return expandedWidget
+                }
+            }
+            return collapsedWidget
+        }
+
+        // returns the proper status line text based on the icon style
+        function getGIFStatus(n) {
+            let mom = db[n].mother  // is entry a parent
+            let expanded = getCurrState().charAt(n - 1) // of rolled item
+            if (!mom) {
+                return "No further items"
+            } else {
+                if (expanded === '1') {
+                    return "Click to collapse nested items"
+                }
+            }
+            return "Click to expand nested items"
+        }
+
+        // initialize 'current state' storage field
+        if (getCurrState() === "" || getCurrState().length !== (db.length - 1)) {
+            let initState = ""
+            for (let i = 1; i < db.length; i++) {
+                initState += "0"
+            }
+            setCurrState(initState)
+        }
+        // end -->
+    </script>
+</head>
+<body>
+<h3>International&#174; MaxxForce&#8482; DT, 9 and 10 Engine Service Manual</h3>
+<SCRIPT type="text/javascript">
+
+    // build new outline based on the values of the cookie
+    // and data points in the outline data array.
+    // This fires each time the user clicks on a control,
+    // because the HREF for each one reloads the current document.
+    let newOutline = ""
+    let prevIndentDisplayed = 0
+    let showMyDaughter = 0
+    // cycle through each entry in the outline array
+    for (let i = 1; i < db.length; i++) {
+        let theGIF = getGIF(i)				// get the image
+        let theGIFStatus = getGIFStatus(i)  // get the status message
+        let currIndent = db[i].indent		// get the indent level
+        let expanded = getCurrState().charAt(i - 1) // current state
+        db[i].currentrow = ""
+
+        if (currIndent === 0 || currIndent === 1 || db[i].currentrow === "currentrow" || currIndent <= prevIndentDisplayed || (showMyDaughter === 1 && (currIndent - prevIndentDisplayed === 1))) {
+            // Phil added the if to remove the image from before the root element
+            if (currIndent !== 0) {
+                newOutline += "<SPAN class=\"" + db[i].currentrow + "\" style=\" position:relative;left:" + (indentPixels * currIndent) + "px;width:200px\"><A HREF=\"javascript:history.go(0)\" onMouseOver=\"window.status=\'" + theGIFStatus + "\';return true;\" onClick=\"toggle(" + i + ");return " + "\">"
+                newOutline += "<IMG ALIGN=TOP SRC=\"" + theGIF + "\" HEIGHT=" + widgetHeight + " WIDTH=" + widgetWidth + " BORDER=0></A>"
+                newOutline += "<SPAN title=\"" + db[i].display + "\" style=\"width:" + (200 - widgetWidth) + "px\">"
+            }
+            if (db[i].link === "" || db[i].link == null) {
+                newOutline += " <font size='1'>" + db[i].display + "</font></SPAN></SPAN>" + "<BR>"	// no link, just a listed item
+            } else {
+                if (db[i].occurances > 0) {
+                    newOutline += " <A HREF=\"" + db[i].URL + "\" TARGET=\"" + displayTarget + "\" onMouseOver=\"window.status=\'" + db[i].statusMsg + "\';return true;\"><font size='1'>" + db[i].display + "&nbsp;&nbsp;(" + db[i].occurances + ")</font></A></SPAN></SPAN><BR>"
+                } else {
+                    newOutline += " <A HREF=\"" + db[i].URL + "\" TARGET=\"" + displayTarget + "\" onMouseOver=\"window.status=\'" + db[i].statusMsg + "\';return true;\"><font size='1'>" + db[i].display + "</font></A></SPAN></SPAN><BR>"
+                }
+            }
+            prevIndentDisplayed = currIndent
+            showMyDaughter = expanded
+            if (db.length > 25) {
+                document.write(newOutline)
+                newOutline = ""
+            }
+        }
+    }
+    document.write(newOutline)
+
+</SCRIPT>
+</body>
+</html>

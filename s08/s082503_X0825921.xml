@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 3200, 4200, 4300, 4400, 7300, 7400, 7500, 7600, 8500, 8600 Models
+        Built Before 05/20/2003 - CHASSIS FEATURES - 5TH WHEEL SLIDE, AIR CONTROLLED
+    </stitle>
+    <svcman/>
+    <svcsubsec id="x0825921">
+        <title>5TH WHEEL SLIDE, AIR CONTROLLED</title>
+        <svcproc svcproctype="describe" graphiccount="1">
+            <title>CIRCUIT FUNCTIONS</title>
+            <figure id="f08259u2" figsize="pg-wide">
+                <graphic filename="../figg08/g08259c1.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="392px"/>
+                <caption>5th Wheel Slide Function Diagram</caption>
+                <calloutgroup>
+                    <callout1>1. 7 PACK AIR SOLENOID</callout1>
+                    <callout1>2. SOLENOID POWER CIRCUIT</callout1>
+                    <callout1>3. BODY BUILDER 1939 DATA LINK</callout1>
+                    <callout1>4. ELECTRICAL SYSTEM CONTROLLER</callout1>
+                    <callout1>5. SWITCH DATA LINK</callout1>
+                    <callout1>6. SWITCH PACK ON INSTRUMENT PANEL</callout1>
+                </calloutgroup>
+            </figure>
+            <para>This system uses an electronically controlled air solenoid to supply pilot air to a larger air
+                solenoid which will control the feature.
+            </para>
+            <para>The position of the switch on the dash panel is communicated to the ESC. The ESC will send signals to
+                a remote air solenoid module containing the relay configured to operate the feature. Two different
+                solenoid packs may be used to control the air pressure. The 7 solenoid version is controlled by J1939
+                messages and the 4 solenoid version by discrete wire.
+            </para>
+            <para>The 5th Wheel Slide feature provides the operator with the ability to release and lock a sliding 5th
+                wheel via switches in the cab.
+            </para>
+            <para>This feature allows the operator to release the 5th wheel in order to adjust its position forward or
+                backward in order to adjust the distribution of the trailer weight over the rear axle(s). In addition,
+                this feature allows the operator to move the 5th wheel towards the tractor. This increases the maximum
+                allowable length for the trailer.
+            </para>
+            <para>Whenever the 5th wheel is released, the 5th wheel slide switch indicator shall be illuminated.
+                Adjustment of the 5th wheel slide will be prohibited and the 5th wheel slide will be locked if the
+                vehicle speed exceeds the vehicle speed as specified by a programmed parameter.
+            </para>
+            <para>Whenever movement of the 5th wheel slide is prohibited due to excessive speed, the switch indicator
+                will flash slowly. Once this feature is in the inhibited state, the 5th wheel slide shall remain locked
+                until the 5th wheel slide switch is cycled, the vehicle speed is reduced to below the maximum allowable
+                vehicle speed, and there are no relevant switch or data link errors present.
+            </para>
+            <para>Upon the occurrence of a switch error or J1939 data link error, the 5th wheel will be locked
+                regardless of the physical state of the switches.
+            </para>
+            <para>The 5th wheel slide shall be locked when the 5th Wheel Slide switch is set to OFF.</para>
+            <para>The 5th wheel slide shall be released when the following requirements have been met:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>The key is in the run position.</para>
+                </item>
+                <item>
+                    <para>There is no 5th wheel slide switch error present.</para>
+                </item>
+                <item>
+                    <para>The vehicle speed is below the maximum allowable speed default of 2 MPH</para>
+                </item>
+                <item>
+                    <para>There is no 1939 data link vehicle speed error present.</para>
+                </item>
+                <item>
+                    <para>The 5th wheel slide is not currently inhibited.</para>
+                </item>
+            </randlist>
+            <para>While the 5th wheel is released, detection of any of the following conditions shall cause the 5th
+                wheel slide to be locked and inhibited and shall remain locked and inhibited until the 5th wheel slide
+                switch has been cycled. Loss of communication with the 1708 switch pack that is providing the 5th wheel
+                slide switch information. Loss of communication with the Drive Train J1939 data link that carries the
+                vehicle speed information. Vehicle speed exceeds the maximum allowable speed default of 2 MPH. The 5th
+                wheel slide switch indicator shall be set to ON steady, while the 5th wheel slide is released. The 5th
+                wheel slide switch indicator shall be set to flash slowly when the release of the 5th wheel slide has
+                been requested and power to the air solenoids has been interrupted due to a solenoid error. The 5th
+                wheel slide switch indicator shall be set to flash slow whenever the operator has requested the 5th
+                wheel slide to be released but the use of the 5th wheel slide is prohibited. The 5th wheel slide switch
+                indicator shall be set to OFF when the 5th wheel slide switch is set to OFF. The 5th wheel slide will be
+                locked and the 5th wheel slide switch indicator will be off when the key is not in the run position.
+            </para>
+            <para>Detection of any of the following conditions shall cause the 5th wheel slide to be locked. Loss of
+                communication with the 1708 switch pack that is providing the 5th wheel slide switch information. Loss
+                of communication with the Drive Train J1939 data link that carries the vehicle speed information.
+                Vehicle speed exceeds the maximum allowable speed as specified per a parameter. A 5th wheel slide switch
+                error is detected. The key is not in the run position.
+            </para>
+            <para>Detection of any of the following conditions shall cause this feature to generate a request to
+                interrupt the power to the air solenoid module and thus disabling all solenoids. The 5th Wheel slide
+                solenoid status as reported by private J1939 data link indicates a short. This is requirement is
+                applicable for the ASM 7 pack module. The 5th wheel slide solenoid status as reported by the SSC
+                feedback indicates a short. This requirement is applicable when this feature is implemented using a 4
+                -pack ASM module.
+            </para>
+        </svcproc>
+    </svcsubsec>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082503_437.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082503_439.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082503.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

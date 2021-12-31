@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Body Builder Electrical Data Book for Models Built Starting March 1, 2007 - PTO (Power Take Off) - 16WLM -
+        PTO Hourmeter
+    </stitle>
+    <svcsection/>
+    <svcproc id="BB16WLM" svcproctype="describe" graphiccount="1">
+        <title>16WLM - PTO Hourmeter</title>
+        <para>
+            <emph type="boldundersc">FEATURE CODE DESCRIPTION:</emph>
+        </para>
+        <para>16WLM - HOURMETER, PTO for Customer Provided PTO; Indicator Light and Hourmeter in Gauge Cluster Includes
+            Return Wire for PTO Feedback Switch
+        </para>
+        <para>
+            <emph type="boldundersc">FEATURE/BODY FUNCTION:</emph>
+            This feature provides the customer with a wire (Circuit K88B 14 gauge, light green - cut blunt - located in
+            the transmission harness) to be wired into a PTO body builder-installed feedback switch. Also included in
+            this feature is a PTO indicator light in the gauge cluster and a PTO hourmeter, which allows the operator to
+            measure stationary PTO hours for maintenance records and fuel tax purposes. To view the hourmeter, press the
+            gauge cluster selection button momentarily until the text portion of the display indicates "PTO Hour".
+        </para>
+        <specpara>
+            <note>
+                <para>This feature cannot be used if 16HGJ (Optional Transmission Oil Temperature Gauge for a MANUAL
+                    Transmission) is utilized.
+                </para>
+            </note>
+        </specpara>
+        <para>
+            <emph type="boldundersc">SOFTWARE FEATURE CODES / PROGRAMMABLE PARAMETERS:</emph>
+        </para>
+        <para>Software feature codes that must be added: 595AJU and 595AYN</para>
+        <para>Software feature codes that must NOT be enabled: 595AEW</para>
+        <para>The
+            <emph type="bold">BC_PTO_Engaged_Param</emph>
+            parameter defines the voltage that will be read as the active state for the PTO engagement feedback switch.
+        </para>
+        <para>0 = Input active when open circuit</para>
+        <para>1 = Input active when grounded</para>
+        <para>3 = Input active when at 12V</para>
+        <table id="t73000f8" tblwidth="pg-wide">
+            <tgroup cols="8">
+                <colspec colname="col1" colwidth="1.39*"/>
+                <colspec colname="col2" colwidth="0.69*"/>
+                <colspec colname="col4" colwidth="1.84*"/>
+                <colspec colname="COLSPEC1" colwidth="0.80*"/>
+                <colspec colname="COLSPEC0" colwidth="0.80*"/>
+                <colspec colname="col5" align="center" colwidth="0.82*"/>
+                <colspec colname="col6" align="center" colwidth="0.80*"/>
+                <colspec colname="col7" align="center" colwidth="0.69*"/>
+                <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                <thead>
+                    <row>
+                        <entry align="center">
+                            <para>Parameter</para>
+                        </entry>
+                        <entry align="center">
+                            <para>ID</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Description</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Default</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Units</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Min</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Max</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Step</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>BC_PTO_ Engaged_ Param</para>
+                        </entry>
+                        <entry>
+                            <para>2199</para>
+                        </entry>
+                        <entry>
+                            <para>Active State for the PTO engagement feedback switch.</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                        <entry align="center">
+                            <para>No_ Units</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">WIRING INFORMATION</emph>
+        </para>
+        <para>&#8226; The customer must wire the International-provided PTO engagement feedback return wire (14 gauge,
+            Light Green) into the PTO feedback switch which should be a GND active switch.
+        </para>
+        <figure id="f73000b7" figsize="pg-wide">
+            <graphic filename="../figg08/g0832313.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                     scalefitheight="328px"/>
+            <caption></caption>
+        </figure>
+        <para>
+            <emph type="boldundersc">TESTING</emph>
+        </para>
+        <step1>
+            <para count="1">Customer should apply the correct active state voltage (as programmed in the Diamond Logic&#174;
+                Builder software) to the International-provided PTO engagement feedback wire.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Verify that the PTO indicator light in the gauge cluster comes on and stays on as long as
+                the active state voltage is applied.
+            </para>
+        </step1>
+        <para>
+            <emph type="boldundersc">HOW TO ADD THIS FEATURE:</emph>
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>The customer must enable software feature code 595AJU and 595AYN using the Diamond Logic&#174;
+                    Builder software.
+                </para>
+            </item>
+            <item>
+                <para>The customer must make sure that software feature code 595AEW is NOT enabled using the Diamond
+                    Logic&#174; Builder software.
+                </para>
+            </item>
+            <item>
+                <para>The customer must set BC_PTO_Engaged_Param to desired active state for the PTO feedback switch.
+                </para>
+            </item>
+            <item>
+                <para>When adding this feature to a vehicle, alternate wiring methods must be performed. It is not
+                    possible to add a wire to connector 1702 pin 13 as described by the electrical circuit diagram
+                    manual. The dash panel grommet is sealed, and additional wires may not be added.
+                </para>
+            </item>
+            <item>
+                <para>In order to add this feature, connect an 18 gauge wire to the PTO feedback switch, and terminate
+                    it in an open wire terminal cavity in connector 1700 or 1701.
+                </para>
+            </item>
+            <item>
+                <para>Add another 18 gauge wire in the corresponding cavity on the cab harness connector, and terminate
+                    it in the BC Connector 1600 terminal pin B7.
+                </para>
+            </item>
+        </randlist>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08323_BB13XAA.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08323_94.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08323.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

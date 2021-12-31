@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE / 9200 9300 9400 MODELS BUILT AFTER JANUARY 1, 1995 - ELECTRONIC
+        ENGINE CONTROLS - CATERPILLAR - 1992 - 1993 - ELECTRICAL OPERATION - ELECTRONIC CONTROL MODULE (ECM)
+    </stitle>
+    <svcsection/>
+    <svcproc svcproctype="IDcomponent" graphiccount="0">
+        <title>ELECTRONIC CONTROL MODULE (ECM)</title>
+        <svcprocinfo>
+            <para>The "Brain" of the PEEC III and 3176 engine control system is two components working together: the
+                Electronic Control Module (ECM) and the Vehicle Personality Module (VPM). The ECM is mounted on the left
+                side of the engine and the VPM is mounted on the ECM. The ECM is the computer which controls the PEEC
+                III and 3176 engine. The VPM contains operating instructions (software) including owner selected
+                parameters and other engine information for the ECM to use, controlling how the ECM behaves.
+            </para>
+            <para>The International engine harness connects to the Caterpillar engine harness using International 40-pin
+                OEM connector (191). OEM connector (191) connects to
+                <emph type="bold">Caterpillar engine harness 40-pin connector J7</emph>. All electronic communication
+                between the International electrical system and the Caterpillar engine control system go through
+                (191)/J7, the International/Caterpillar connection.
+            </para>
+            <para>The ECM receives operating power (12 volt DC) from the vehicle batteries through International engine
+                harness OEM connector (191) when the ignition key switch is in the IGN position. The ECM is intended to
+                operate on 12V, but will tolerate voltage as low as 6 volts during cranking, or 9 volts during normal
+                engine operation. The ECM is protected against power surges on the 12 volt power supply due to
+                alternator load dumps, air conditioner clutches, etc. and for jump starting.
+            </para>
+            <para>The ECM acts as 5V power supply for many Caterpillar and International components used to monitor and
+                control engine/vehicle systems.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Inputs And Outputs</title>
+            <para>The ECM is connected to the International installed switches that communicate with the</para>
+            <para>ECM. The switches are 2-way or 3-way switches and are either ON or OFF.</para>
+            <para>
+                <emph type="underscr">EXAMPLE OF A 2-WAY SWITCH:</emph>
+                Cruise Control ON-OFF Switch (195)
+            </para>
+            <para>The ECM needs to know if the Cruise ON/OFF switch is in the ON or OFF position. To accomplish this the
+                Cruise ON/OFF switch is connected to the ECM with an input circuit 97AE and a "common" or ground circuit
+                97-GH.
+            </para>
+            <seqlist>
+                <item>
+                    <para>Each International installed switch has an "input" circuit that is connected through OEM
+                        connector (191) to an assigned ECM terminal. This circuit has 5 volts applied at the ECM
+                        terminal.
+                    </para>
+                </item>
+                <item>
+                    <para>Each switch is connected to a "common" or ground circuit that is connected through OEM
+                        connector (191) terminal #2 to ECM ground (part of Caterpillar harness).
+                    </para>
+                </item>
+                <item>
+                    <para>When the Cruise switch is OFF (switch open), the ECM sees 5 volts at ECM terminal 10. Placing
+                        the cruise switch to the ON position (switch closed) causes the ECM to see 0 volts (ground
+                        voltage will be 0 to 0.5 volts) at terminal 10. The ECM programming has established that the
+                        Cruise Control Switch is OFF when it sees 5 volts at OEM connector (191) terminal 10 or cruise
+                        is ON when the ECM sees 0 volts at terminal 10.
+                    </para>
+                </item>
+            </seqlist>
+            <para>EXAMPLE: The service brake switch (141) is connected by input circuit 97AL to OEM connector (191)
+                terminal 30. Terminal 30 has a 5-volt signal present. With the brake switch closed (pedal released) the
+                circuit is complete between terminals 30 (input) and 2 (common or ground). This causes the 5 volt signal
+                at terminal 30 to go to zero. This tells the ECM that the service brake switch is closed (pedal
+                released).
+            </para>
+            <para>This type of circuit is used to communicate switch and some sensor information to the ECM. Some
+                sensors receive a 5 volt signal and return a variable voltage indicating some variable attribute. The
+                ECM also uses 12 volt circuits to enable (activate) relays in the system.
+            </para>
+            <para>The ECM receives "inputs" through OEM connector (191) from the following International components:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Vehicle Speed Sensor (VSS) through the Speed Buffer</para>
+                </item>
+                <item>
+                    <para>Throttle Position Sensor (TPS)</para>
+                </item>
+                <item>
+                    <para>Service Brake Switch</para>
+                </item>
+                <item>
+                    <para>Clutch Pedal Switch</para>
+                </item>
+                <item>
+                    <para>Coolant Level Sensor (CLS)</para>
+                </item>
+                <item>
+                    <para>Park Brake Switch</para>
+                </item>
+                <item>
+                    <para>Cruise Control ON/OFF Switch</para>
+                </item>
+            </randlist>
+            <para>The ECM also receives and processes information from Caterpillar sensors and switches used to control
+                engine operation including: rack and timing, the fuel shutoff valve, and other engine components. For
+                information on engine operation, refer to the appropriate Caterpillar manual.
+            </para>
+        </svcsubproc>
+        <svcsubproc id="x0813813">
+            <title>KEY ON - Battery Power To ECM</title>
+            <para>The ECM receives battery power from OEM connector (191) terminal #1 whenever the Ignition Key Switch
+                is in the IGN position.
+            </para>
+            <para>The battery power to the ECM is switched ON or OFF by the Run Relay (182), which is energized when the
+                key switch is in the IGN position.
+            </para>
+            <seqlist>
+                <item>
+                    <para>Turning the key switch to the IGN position applies power from fuse F3 on circuit 19A/97A to
+                        the Run Relay control coil. This energizes the Run Relay (182), closing the normally open (N.O.)
+                        relay contacts (30 - 87). The Run Relay control coil ground path is circuit 11-DB to J7 cab
+                        ground.
+                    </para>
+                </item>
+                <item>
+                    <para>Run Relay common terminal 30 has battery power present from the ACC Magnetic switch on circuit
+                        97C. With the relay energized, battery power goes through the N.O. terminals (30 to 87) on
+                        circuit 97B to 15A fuse H4. From H4, circuit 13D delivers the battery power to OEM connector
+                        (191), terminal 1.
+                    </para>
+                </item>
+            </seqlist>
+            <para>It is important to note that 12V battery power from Run Relay is also distributed to: the Throttle
+                Position Sensor (158), the Data Link connector (137), and the Vehicle Speed Buffer (193).
+            </para>
+        </svcsubproc>
+        <svcsubproc id="x0813824">
+            <title>Power To ECM While Cranking Engine (PEEC III ONLY)</title>
+            <para>Depressing the start button energizes the Start Magnetic Switch sending battery power on circuit 17E
+                to 15A fuse H2. Power from H2 goes on circuit 17F through OEM connector (191) terminal 4 to the ECM.
+            </para>
+            <para>The ECM uses this power to energize the Fuel Shutoff Solenoid (dual coil solenoid) during the cranking
+                process. When the starter is released, the ECM supplies hold-in voltage keeping the shutoff solenoid
+                energized and no voltage is present from the vehicle on circuit 17F. When the starter button is
+                released, the voltage at OEM connector (191) terminal 4 is turned off.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Manual Fuel Shutoff Lever</title>
+            <para>There is a manual shutoff lever located on the fuel pump. The shaft has a spring to keep it in the
+                neutral position. The shaft can be manually rotated counter-clockwise to shut fuel OFF or clockwise to
+                manually turn fuel ON.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08138_6.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08138_8.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08138.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

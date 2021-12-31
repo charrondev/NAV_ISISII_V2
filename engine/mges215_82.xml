@@ -1,0 +1,527 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos - - FUNCIONES Y DIAGN&#211;STICOS DE CIRCUITOS - Sensor de posici&#243;n
+        del &#225;rbol de levas (CMP)
+    </stitle>
+    <svcman/>
+    <svcproc id="S1750208" svcproctype="troubleshoot" graphiccount="2">
+        <title>Sensor de posici&#243;n del &#225;rbol de levas (CMP)</title>
+        <svcsubproc>
+            <title>Funciones de las se&#241;ales</title>
+            <figure id="f17503031" figsize="pg-wide">
+                <graphic filename="../figEg8/Eg8882.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="300"
+                         box="yes"/>
+                <caption>Funciones del sensor de posici&#243;n del &#225;rbol de levas</caption>
+            </figure>
+            <para>El sensor de posici&#243;n del &#225;rbol de levas (CMP) es un sensor de efecto Hall que genera una
+                frecuencia digital a medida que las ventanillas del disco de sincronizaci&#243;n pasan a trav&#233;s de
+                su campo magn&#233;tico. La velocidad y posici&#243;n del motor se detecta contando 24 ventanillas en
+                cada revoluci&#243;n del &#225;rbol de levas. La posici&#243;n del cilindro 1 se determina distinguiendo
+                una separaci&#243;n s&#243;lida entre ventanillas m&#225;s angosta en el disco de sincronizaci&#243;n.
+            </para>
+            <para>
+                <emph type="bold">Selecci&#243;n de la modalidad del motor</emph>: Permite al ECM discernir en qu&#233;
+                modalidad se encuentra el motor: apagado, dando arranque o en marcha.
+            </para>
+            <para>
+                <emph type="bold">Presi&#243;n de control de inyecci&#243;n</emph>: La velocidad del motor es una de las
+                variables en el c&#225;lculo del control de la presi&#243;n de inyecci&#243;n deseado.
+            </para>
+            <para>
+                <emph type="bold">Control del flujo de combustible y limitador de torque</emph>: El torque y el
+                combustible se controlan y est&#225;n supeditados a la velocidad del motor. El flujo de combustible est&#225;
+                determinado por la velocidad del motor.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Detecci&#243;n y manejo de fallas</title>
+            <para>Una se&#241;al inactiva del CMP durante el arranque ser&#237;a detectada por el ECM. Una se&#241;al de
+                inactividad en el CMP har&#225; que el motor no arranque. El ECM tambi&#233;n puede detectar
+                interferencia el&#233;ctrica; si el nivel es suficiente para afectar la operaci&#243;n del motor,
+                aparecer&#225; el c&#243;digo de diagn&#243;stico correspondiente.
+            </para>
+            <specpara>
+                <note>
+                    <para>El motor no trabajar&#225; si el CMP no funciona.</para>
+                </note>
+            </specpara>
+            <figure id="f17503032" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1221.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="200"
+                         box="yes"/>
+                <caption>Diagrama de circuito del sensor de posici&#243;n del &#225;rbol de levas</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Luego de retirar los conectores, siempre revise en busca de pines da&#241;ados, corrosi&#243;n
+                        y terminales sueltos.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503006" frame="all">
+                <title>Diagn&#243;sticos del sensor de posici&#243;n del &#225;rbol de levas y su circuito</title>
+                <tgroup cols="3" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="43.40*"/>
+                    <colspec colname="col2" colwidth="43.41*"/>
+                    <colspec colname="col3" colwidth="309.20*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="1to3"/>
+                    <spanspec namest="col1" nameend="col2" spanname="1to2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Pruebas del voltaje en el conector</emph>
+                                    (con el conector del sensor desconectado, la llave en ON y todos los accesorios
+                                    apagados)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Puntos de prueba</para>
+                            </entry>
+                            <entry>
+                                <para>Especif.</para>
+                            </entry>
+                            <entry>
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Circuito de tierra, no deber&#237;a haber voltaje</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry>
+                                <para>No hay V
+                                    <subscript>REF</subscript>, revise si el pin 40 a B est&#225; abierto o en corto a
+                                    tierra, vea el circuito del V
+                                    <subscript>REF</subscript>
+                                    (si el EOP, ICP o el MAP est&#225;n defectuosos, pueden poner el V
+                                    <subscript>REF</subscript>
+                                    en corto a tierra).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry>
+                                <para>Si es &#60;4,5 V busque una mala conexi&#243;n; si es 0 V, busque circuito abierto
+                                    o corto a tierra
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Pruebas del conector a la tierra del chasis</emph>
+                                    (con el conector del sensor (406) desconectado, el cable positivo de la bater&#237;a
+                                    desconectado y la llave en OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Puntos de prueba</para>
+                            </entry>
+                            <entry>
+                                <para>Especif.</para>
+                            </entry>
+                            <entry>
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistencia a la tierra del chasis, pruebe con la llave en OFF. Si >5 &#x2126; el
+                                    haz de cables est&#225; abierto
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistencia &#60;1 k&#x2126; indica un corto a tierra</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>C a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistencia &#60;1 k&#x2126; indica un corto a tierra</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Pruebas de la resistencia en el haz de cables</emph>
+                                    (con la caja de derivaciones instalada s&#243;lo en el haz de cables del motor y la
+                                    llave en OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Puntos de prueba</para>
+                            </entry>
+                            <entry>
+                                <para>Especif.</para>
+                            </entry>
+                            <entry>
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>53 a A</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistencia desde el conector del haz de cables al conector de 60 pines - La
+                                    tierra de la se&#241;al (CMP) tiene un circuito de tierra dedicado, >5 &#x2126;
+                                    indica un circuito abierto.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>40 a B</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistencia desde el conector del haz de cables al conector de 60 pines - V
+                                    <subscript>REF.</subscript>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>51 a C</para>
+                            </entry>
+                            <entry>
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistencia desde el conector del haz de cables al conector de 60 pines - Se&#241;al
+                                    del CMP.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="1to2">
+                                <para>Puntos de prueba (+)51 a (-)53</para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Pruebas operacionales de voltaje</emph>
+                                    (con la "T" de derivaciones instalada en l&#237;nea con el ECM y la llave en ON)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Voltaje</para>
+                            </entry>
+                            <entry>
+                                <para>Posici&#243;n</para>
+                            </entry>
+                            <entry>
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry>
+                                <para>Parte s&#243;lida</para>
+                            </entry>
+                            <entry>
+                                <para>Con la "T" de derivaciones o la caja de derivaciones instalada, el CMP y ECM
+                                    conectados, mueva el motor a mano con una barra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>0,2 a 2 V</para>
+                            </entry>
+                            <entry>
+                                <para>Ventanilla</para>
+                            </entry>
+                            <entry>
+                                <para>El voltaje de se&#241;al del CMP deber&#237;a cambiar a medida que el disco de
+                                    sincronizaci&#243;n en el &#225;rbol de levas gira.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Descripci&#243;n de los c&#243;digos de diagn&#243;stico de
+                                        problemas
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>612 = disparidad detectada entre ECM / disco objetivo (programaci&#243;n del ECM
+                                    incorrecta).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>315 = RPM del motor excede de 3000 RPM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>143 = Cantidad errada de transiciones de la se&#241;al, posible se&#241;al
+                                    intermitente del CMP o del circuito.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>144 = Se detect&#243; interferencia el&#233;ctrica, revise el encaminamiento de
+                                    los cables y las conexiones a tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>145 = Se detect&#243; que la se&#241;al del CMP estaba inactiva durante la rotaci&#243;n
+                                    del motor a pesar de que la presi&#243;n de control de inyecci&#243;n era suficiente
+                                    para el arranque.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Descripci&#243;n detallada</title>
+            <para>
+                <emph type="bold">Funci&#243;n</emph>
+            </para>
+            <para>El sistema de control de los motores de International incluye un sensor de posici&#243;n del &#225;rbol
+                de levas (CMP). Este sensor suministra al ECM una se&#241;al que indica la posici&#243;n del &#225;rbol
+                de levas y la velocidad del motor.
+            </para>
+            <para>El ECM usa la se&#241;al del CMP para sincronizar la posici&#243;n del pist&#243;n con la secuencia de
+                disparos de los inyectores. La secuencia de disparos de los inyectores comienza cuando el ECM detecta la
+                parte s&#243;lida m&#225;s angosta en el disco de sincronizaci&#243;n, que indica la posici&#243;n del
+                cilindro 1. La posici&#243;n del motor para cada cilindro es entonces calculada continuamente a medida
+                que cada separaci&#243;n s&#243;lida del disco de sincronizaci&#243;n pasa frente al CMP. Esta informaci&#243;n
+                es procesada por el ECM y utilizada para sincronizar la inyecci&#243;n y controlar la entrega de
+                combustible. El ECM puede entonces iniciar los disparos de los inyectores.
+            </para>
+            <para>
+                <emph type="bold">Operaci&#243;n</emph>
+            </para>
+            <para>El sensor de posici&#243;n del &#225;rbol de levas es un sensor de efecto Hall que genera una
+                frecuencia digital a medida que ventanillas en el disco de sincronizaci&#243;n pasan a trav&#233;s del
+                campo magn&#233;tico. La frecuencia con la que las ventanillas que pasan por el sensor, as&#237; como el
+                ancho de ventanillas espec&#237;ficas, permiten al ECM detectar la velocidad del motor y la posici&#243;n
+                de los pistones. Cuando la parte s&#243;lida m&#225;s angosta pasa por el CMP, el tiempo que la se&#241;al
+                est&#225; encendida es menor que cuando pasan las dem&#225;s separaciones. Esto produce una se&#241;al
+                que el ECM usa para indicar la posici&#243;n del motor.
+            </para>
+            <para>El ECM detecta la velocidad del motor contando la frecuencia de los 24 impulsos de la se&#241;al por
+                cada revoluci&#243;n del &#225;rbol de levas.
+            </para>
+            <para>
+                <emph type="bold">Diagn&#243;sticos hechos por el ECM</emph>
+            </para>
+            <para>Una vez que ECM ha reconocido la parte s&#243;lida m&#225;s angosta (ventanilla m&#225;s ancha)
+                sincronizar&#225; el orden de disparo del motor con la se&#241;al del CMP. Cada 2 revoluciones del
+                &#225;rbol de levas el ECM verificar&#225; esa sincronizaci&#243;n. Si el ECM recibe muchos o muy pocos
+                impulsos para la cantidad de revoluciones del motor, establecer&#225; un c&#243;digo de diagn&#243;stico.
+            </para>
+            <para>El motor no operar&#225; sin tener una se&#241;al operativa del CMP. Sin embargo, el ECM intentar&#225;
+                determinar la causa de una se&#241;al inv&#225;lida y de identificarla con un c&#243;digo de diagn&#243;stico.
+                Las fallas del CMP que se registran se convierten en inactivas si la llave de arranque es puesta en OFF.
+            </para>
+            <para>Los c&#243;digos de diagn&#243;stico de problemas pueden leerse con la herramienta electr&#243;nica de
+                servicio (EST) o interpretando los destellos de las luces
+                <emph type="bold">ENGINE</emph> &#225;mbar y roja, vea
+                <xref refid="P17502001"/>.
+            </para>
+            <para id="f175fc143">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 143</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, SID 21, FMI 2</emph>
+            </para>
+            <para>
+                <emph type="bold">Cantidad errada transiciones se&#241;al CMP x revoluciones del &#225;rbol de levas
+                </emph>
+            </para>
+            <para>El c&#243;digo 143 indica que el ECM ha recibido se&#241;ales del CMP con una cantidad errada de
+                transiciones. Esto indica que el ECM ha contado las transiciones del voltaje y encontrado menos que la
+                cantidad especificada de impulsos del sensor. Cuando este problema es continuo, el motor deja de
+                funcionar y el ECM registrar&#225; un c&#243;digo activo. Si la llave es puesta en OFF, la falla se
+                volver&#225; inactiva. Este c&#243;digo no enciende la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar.
+            </para>
+            <para>Las causas posibles del c&#243;digo 143 son una se&#241;al intermitente del CMP causada por un
+                circuito intermitente, sensor defectuoso o separaci&#243;n incorrecta entre el CMP y el disco de
+                sincronizaci&#243;n.
+            </para>
+            <para id="f175fc144">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 144</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, SID 21, FMI 2</emph>
+            </para>
+            <para>
+                <emph type="bold">Detectada interferencia en la se&#241;al del CMP</emph>
+            </para>
+            <para>El c&#243;digo 144 indica que el ECM ha detectado picos de voltaje o transiciones distintas a la se&#241;al
+                del CMP. Si este problema es continuo, el motor podr&#237;a dejar de funcionar y el ECM registrar&#237;a
+                un c&#243;digo activo. Si la llave es puesta en OFF, el c&#243;digo se convertir&#225; en inactivo. Este
+                c&#243;digo no enciende la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar.
+            </para>
+            <para>El c&#243;digo 144 puede deberse a malas conexiones a tierra al CMP u otros componentes electr&#243;nicos,
+                blindaje del haz de cables faltante o mal instalado en el haz de cables de motor, componentes externos
+                que podr&#237;an inducir se&#241;ales de voltaje.
+            </para>
+            <para id="f175fc145">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 145</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, SID 21, FMI 12</emph>
+            </para>
+            <para>
+                <emph type="bold">Se&#241;al del CMP inactiva mientras la presi&#243;n de control de inyecci&#243;n
+                    aument&#243;
+                </emph>
+            </para>
+            <para>El c&#243;digo 145 indica que el ECM no detecta la se&#241;al del CMP. Este c&#243;digo se registrar&#225;
+                si el motor est&#225; girando y el ECM detecta un aumento en la presi&#243;n de control de inyecci&#243;n,
+                pero no detecta la se&#241;al del CMP. Para que se registre este c&#243;digo, el motor debe haber girado
+                lo suficiente para aumentar la presi&#243;n de control de inyecci&#243;n. Cuando el c&#243;digo queda
+                registrado, el motor no funcionar&#225;.
+            </para>
+            <para>Las causas posibles del c&#243;digo de diagn&#243;stico 145 son V
+                <subscript>REF</subscript>
+                en corto a B+, CMP defectuoso, circuito del sensor defectuoso o separaci&#243;n inadecuada entre el
+                sensor y el disco de sincronizaci&#243;n del &#225;rbol de levas.
+            </para>
+            <para id="f175fc612">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 612</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, SID 21, FMI 7</emph>
+            </para>
+            <para>
+                <emph type="bold">ECM instalado es incorrecto para el disco de sincronizaci&#243;n del CMP</emph>
+            </para>
+            <para>Cuando el c&#243;digo 612 est&#225; activo, la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar se enciende y el od&#243;metro mostrar&#225; el mensaje WARN
+                ENG.
+            </para>
+            <para>El c&#243;digo 612 indica que el ECM ha monitorizado la se&#241;al del CMP y la se&#241;al es
+                incorrecta para la programaci&#243;n en el ECM. Esto significa que el ECM no reconoce la se&#241;al
+                generada por el disco de sincronizaci&#243;n y el CMP.
+            </para>
+            <para>Las causas posibles son que el ECM ha sido accidentalmente sustituido con uno incorrecto para el uso
+                del motor. Por ejemplo, los discos de sincronizaci&#243;n de un motor de 6 cilindros en l&#237;nea y de
+                un motor de 8 cilindros en V (T 444E) son diferentes y generan se&#241;ales diferentes. El ECM del motor
+                de 8 cilindros (T 444E) no funcionar&#225; en un motor de 6 cilindros y viceversa. La se&#241;al puede
+                ser incorrecta debido a que el CMP est&#225; defectuoso o a que la separaci&#243;n entre el CMP y el
+                disco de sincronizaci&#243;n no es la correcta.
+            </para>
+            <para id="f175fc315">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 315</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 190, FMI 0</emph>
+            </para>
+            <para>
+                <emph type="bold">Velocidad del motor superior al nivel de advertencia</emph>
+            </para>
+            <para>Cuando el c&#243;digo 315 est&#225; activo, la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar se enciende y el od&#243;metro mostrar&#225; el mensaje WARN
+                ENG.
+            </para>
+            <para>El c&#243;digo 315 indica que el ECM ha detectado una velocidad del motor superior a 3000 RPM. La
+                causa m&#225;s probable de la velocidad excesiva del motor es un cambio no intencional a una marcha m&#225;s
+                baja, una aceleraci&#243;n excesiva bajando una pendiente sin aplicar correctamente los frenos o una
+                fuente externa de combustible que est&#233; siendo absorbida por el sistema de admisi&#243;n de aire.
+                Las horas de funcionamiento del motor y las millas correspondientes a los &#250;ltimos dos incidentes
+                ser&#225;n grabadas en el registro de Eventos del Motor.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_81.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_83.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

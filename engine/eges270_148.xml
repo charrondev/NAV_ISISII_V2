@@ -1,0 +1,783 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - IAH System (Inlet Air Heater)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>IAH System (Inlet Air Heater)</title>
+        <svcprocinfo>
+            <figure id="f27007131" figsize="pg-wide">
+                <graphic filename="../figh31/h31333.webp" type="webp" scalefit="1" scalefitwidth="392px"
+                         scalefitheight="532px"/>
+                <caption>Function diagram for the IAH system</caption>
+            </figure>
+            <para id="IAH">The function diagram for the IAH system includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>IAH relays</para>
+                </item>
+                <item>
+                    <para>IAH relay connectors</para>
+                </item>
+                <item>
+                    <para>IAH elements</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Barometric Absolute Pressure (BAP) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Coolant Temperature (ECT) sensor</para>
+                </item>
+                <item>
+                    <para>Engine Oil Temperature (EOT) sensor</para>
+                </item>
+                <item>
+                    <para>Battery</para>
+                </item>
+                <item>
+                    <para>WAIT TO START lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The Inlet Air Heater (IAH) system warms the incoming air supply prior to cranking to aid cold engine
+                starting and reduce white smoke during warm-up.
+            </para>
+            <para>The ECM is programmed to energize the IAH elements through the IAH relays while monitoring certain
+                programmed conditions for engine coolant temperature, engine oil temperature, and atmospheric pressure.
+            </para>
+            <para>The ECM monitors battery voltage and uses readings from the ECT, EOT, and BAP sensor to determine the
+                amount of time that the WAIT TO START lamp is on, as well as the activation of the IAH system. The WAIT
+                TO START lamp indicates when the IAH relays are activated and the elements are heating. The IAH system
+                on-time can vary between zero seconds to forty-five seconds, depending on the ECT, EOT, and BAP sensor
+                readings.
+            </para>
+            <para>IAH elements are activated for a longer time period if the engine is cold or the barometric pressure
+                is low (high altitude).
+            </para>
+            <para>The engine is ready to start when the WAIT TO START lamp is turned off by the ECM.</para>
+            <specpara>
+                <note>
+                    <para>The WAIT TO START lamp on-time is independent from the IAH system on-time.</para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>IAH Circuit Operation</title>
+            <figure id="f27007132" figsize="pg-wide">
+                <graphic filename="../figh31/h31334.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="592px"/>
+                <caption>IAH circuit diagram</caption>
+            </figure>
+            <para>The IAH control system operation is dependent upon the ECT, EOT, BAP, and battery voltage. The IAH
+                relays are activated by power supplied by the ECM through Pin X1-17 to circuit 97CH. The IAH relays are
+                grounded through circuit 97APG3, Pin 4 on the 12-pin connector, and to negative battery terminal. Power
+                is supplied to the switch side of the IAH relays from the starter motor. When the IAH relay is
+                energized, power is supplied to the IAH elements that are grounded through the intake manifold.
+            </para>
+            <para>The WAIT TO START lamp time is transmitted over the CAN 1 datalink. See truck Chassis Electrical
+                Circuit Diagram Manual .
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>An open or short to ground in the IAH control circuit can be detected by doing an on-demand Output
+                Circuit Check (OCC) during the KOEO Standard Test. When a fault is detected, a DTC will be set.
+            </para>
+            <para>
+                <title>IAH Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 251</emph>
+                </line>
+                <line>
+                    <emph type="bold">IAH OCC self-test failed</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 251 is set by the ECM when the OCC test has failed after the KOEO Standard Test has been
+                        run.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 251 can be set when a poor connection, an open or short to ground in the relay control
+                        circuit, or failed relay exists.
+                    </para>
+                </item>
+            </randlist>
+            <specpara>
+                <note>
+                    <para>For initial calibrations:</para>
+                    <randlist type="bullet">
+                        <item>
+                            <para>If the system voltage is less than 13 volts, DTC 251 may become active.</para>
+                        </item>
+                        <item>
+                            <para>If the system is functioning properly, disregard DTC 251.</para>
+                        </item>
+                    </randlist>
+                    <para>Later calibrations and current hardware levels do not support DTC 251.</para>
+                </note>
+            </specpara>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>12-pin Breakout Harness</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+                <item>
+                    <para>Amp Clamp</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>IAH Pin-Point Diagnostics</title>
+            <figure id="f27007133" figsize="pg-wide">
+                <graphic filename="../figh31/h31334.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="592px"/>
+                <caption>IAH circuit diagram</caption>
+            </figure>
+            <table id="te27007064" tblwidth="pg-wide" type="simple" frame="top">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="1.00in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col2" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Voltage Check at Element - Output State Test</emph>
+                                    (Turn the ignition switch to ON. Run Glowplug / Inlet Air Heater Output State Test.
+                                    For help, see
+                                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Inlet Air Heater Output State
+                                        Test"
+                                    </hotlnk>
+                                    in Section 3 .)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Point</para>
+                            </entry>
+                            <entry>
+                                <para>Spec</para>
+                            </entry>
+                            <entry>
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Element terminal 1 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, check relay and circuit for element 1. Do
+                                    <hotlnk xrefid="vc">Voltage Checks</hotlnk>
+                                    and
+                                    <hotlnk xrefid="hrc">Harness Resistance Check</hotlnk>
+                                    .
+                                </para>
+                                <para>If equal to B+, do Amperage Draw Check.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Element terminal 2 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, check relay and circuit for element 2. Do
+                                    <hotlnk xrefid="vc">Voltage Checks</hotlnk>
+                                    and
+                                    <hotlnk xrefid="hrc">Harness Resistance Check</hotlnk>
+                                    .
+                                </para>
+                                <para>If equal to B+, do Amperage Draw Check.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>When a single IAH circuit fails, suspect that circuit only. If both elements
+                                        or circuits do not have voltage, verify the ECM programming. If the ECM
+                                        programming is correct, do
+                                        <hotlnk xrefid="avc">Actuator Voltage Checks at ECM</hotlnk>
+                                        ,
+                                        <hotlnk xrefid="hrcecm">Harness Resistance Checks - Relay to ECM</hotlnk>
+                                        , and
+                                        <hotlnk xrefid="hrc12pin">Harness Resistance Check - Relay to 12-pin Connector
+                                        </hotlnk>
+                                        .
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Amperage Draw Check</emph>
+                                    (Secure AMP Clamp around element feed wire. Turn the ignition switch to ON. Run
+                                    Glowplug / Inlet Air Heater Output State Test. For help, see
+                                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Inlet Air Heater Output State
+                                        Test"
+                                    </hotlnk>
+                                    in Section 3 .)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Element 1</para>
+                            </entry>
+                            <entry>
+                                <para>125 A &#177;30 A</para>
+                            </entry>
+                            <entry>
+                                <para>If not within specification, do Element Continuity Check and
+                                    <hotlnk xrefid="hrc">Harness Resistance Checks</hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Element 2</para>
+                            </entry>
+                            <entry>
+                                <para>125 A &#177;30 A</para>
+                            </entry>
+                            <entry>
+                                <para>If not within specification, do Element Continuity Check and
+                                    <hotlnk xrefid="hrc">Harness Resistance Checks</hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Element Continuity Check</emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness from element post. Inspect for
+                                    corrosion.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Element terminal 1 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>If continuity is not present, check element for carbon build-up, corrosion, or
+                                    open circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Element terminal 2 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>If continuity is not present, check element for carbon build-up, corrosion, or
+                                    open circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="hrc">
+                                    <emph type="bold">Harness Resistance Check - Element to Relay</emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness from element terminal. Check
+                                    for corrosion. Trace wiring harness from element to IAH relay. Ensure the correct
+                                    relay terminal is being tested.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Element terminal 1 to relay output terminal 1</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for a corroded terminal or an open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Element terminal 2 to relay output terminal 2</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for a corroded terminal or an open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="vc">
+                                    <emph type="bold">Voltage Check at Relays - Battery Feed Wires (Starter)</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 1: Battery feed terminal to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, check for dead battery, open in IAH harness, or open in truck battery
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 2: Battery feed terminal to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, check for dead battery, open in IAH harness, or open in truck battery
+                                    harness.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Voltage Check at Relays - Output (Output State Test)</emph>
+                                    (Turn the ignition switch to ON. Run Glowplug / Inlet Air Heater Output State Test.
+                                    For help, see
+                                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Inlet Air Heater Output State
+                                        Test"
+                                    </hotlnk>
+                                    in Section 3 .)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 1: Relay output post to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, check for dead battery, open IAH harness, open in truck battery
+                                    harness, faulty IAH relay, ECM for IAH programming, or open relay control circuit
+                                    from ECM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 2: Relay output post to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, check for dead battery, open IAH harness, open in truck battery
+                                    harness, faulty IAH relay, ECM for IAH programming, or open relay control circuit
+                                    from ECM.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="avc">
+                                    <emph type="bold">Actuator Control Voltage Check at Relay Connection</emph>
+                                    (Disconnect control wiring from relay. Turn the ignition switch ON. Run the Glow
+                                    Plug / Air Heater Output State Test. For help, see
+                                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Inlet Air Heater Output State
+                                        Test"
+                                    </hotlnk>
+                                    in Section 3 .)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Element 1: A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, do
+                                    <hotlnk xrefid="acv">Actuator Control Voltage Check at ECM</hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Element 1: A to B</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, do
+                                    <hotlnk xrefid="hrc12pin">Harness Resistance Check - Relay to 12-pin Connector.
+                                    </hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Element 2: A to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, do
+                                    <hotlnk xrefid="acv">Actuator Control Voltage Check at ECM</hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Element 2: A to B</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, do
+                                    <hotlnk xrefid="hrc12pin">Harness Resistance Check - Relay to 12-pin Connector.
+                                    </hotlnk>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>If both relays are &#60; B+, check wiring back to the ECM and 12-pin
+                                        connector. Verify ECM programming. The Glowplug / IAH parameter should be option
+                                        2 (IAH).
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="acv">
+                                    <emph type="bold">Actuator Control Voltage Check at ECM</emph>
+                                    (Connect breakout box [X1 only] to ECM. Turn the ignition switch to on. Run the Glow
+                                    Plug / Inlet Air Heater Output State Test. For help, see
+                                    <hotlnk document="eges270_51.xml" xrefid="s27007029">"Inlet Air Heater Output State
+                                        Test"
+                                    </hotlnk>
+                                    in Section 3 .)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Output State Test High</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-17 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>B+</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; B+, and ECM is programmed correctly, replace the ECM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Output State Test Low</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-17 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>If > 0.25 V, and ECM is programmed correctly, replace the ECM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Check - Relay to ECM Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the chassis ground connection for the ECM and IDM. Refer to truck
+                                        Chassis Electrical Circuit Diagram Manual for complete chassis side ECM and IDM
+                                        ground circuit information.</ftnote>. Disconnect control wiring from relay.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 1: A to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 1: B to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open circuit. Specification is based on 4300 chassis.
+                                    For other applications, see Chassis Electrical Circuit Diagram Manual for complete
+                                    chassis ground circuit information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 2: A to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 2: B to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open circuit. Specification is based on 4300 chassis.
+                                    For other applications, see Chassis Electrical Circuit Diagram Manual for complete
+                                    chassis ground circuit information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Check - Relay to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect control wiring
+                                    from relay. Use disconnected negative battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 1: A to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 1: B to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground. Specification is based on 4300
+                                    chassis. For other applications, see Chassis Electrical Circuit Diagram Manual for
+                                    complete chassis ground circuit information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 2: A to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 2: B to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground. Specification is based on 4300
+                                    chassis. For other applications, see Chassis Electrical Circuit Diagram Manual for
+                                    complete chassis ground circuit information.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="hrcecm">
+                                    <emph type="bold">Harness Resistance Check - Relay to ECM</emph>
+                                    (Turn the ignition switch to OFF. Connect breakout box [X1 only] to engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 1: Pin A to X1-17</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 2: Pin A to X1-17</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para id="hrc12pin">
+                                    <emph type="bold">Harness Resistance Check - Relay to 12-pin Connector</emph>
+                                    (Turn the ignition switch to OFF. Connect 12-pin breakout harness to engine harness
+                                    only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 1: Pin B to Pin 4 (12-pin)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in control wire.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Relay 2: Pin B to Pin 4 (12-pin)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open in control wire.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>IAH Diagnostic Trouble Codes (DTCs)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 251 = OCC self-test failed</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_147.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_149.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

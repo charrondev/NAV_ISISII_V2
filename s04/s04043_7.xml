@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>EC-30 ABS / ATC CONTROLLER - EC-30 INPUTS</stitle>
+    <svcsection/>
+    <svcproc svcproctype="describe" graphiccount="1">
+        <title>EC-30 INPUTS</title>
+        <svcsubproc>
+            <title>Power and Ground</title>
+            <para>Power is supplied to the EC-30 from the ignition circuit through a 30 Amp fuse. The EC-30 is grounded
+                to the vehicle chassis. See the EC-30 system schematic for EC-30 power and ground connector pin
+                locations. See
+                <hotlnk document="s04043_25.xml" xrefid="f0404313">Figure 13</hotlnk>
+                for system schematic.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Wheel Speed Sensors</title>
+            <para>Wheel speed data is provided to the EC-30 from the Bendix WS-20 wheel speed sensor. See
+                <hotlnk xrefid="f0404305">Figure 5</hotlnk>
+                for WS-20 illustration. Working with an exciter ring, wheel speed sensors provide the EC-30 with an AC
+                signal, which varies in voltage and frequency in relation to the speed of the wheel. The EC-30 can be
+                configured to receive wheel speed information from 100 or 86 tooth exciter rings. Vehicle axle
+                configurations and ATC features determine the number of speed sensors that must be used. A vehicle with
+                a single rear drive axle (4x2, 4x4 or 6x2) requires four speed sensors for both ABS and ATC operation. A
+                vehicle with two rear drive axles (6x4) can utilize six speed sensors for optimal ABS and ATC
+                performance. See
+                <hotlnk document="s04043_25.xml" xrefid="f0404313">Figure 13</hotlnk>
+                for the EC-30 system schematic for wheel speed sensor connector pin locations.
+            </para>
+            <figure id="f0404305" figsize="col-wide">
+                <graphic filename="../figg04/g0404305.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         resolution="72"/>
+                <caption>Figure 5. WS-20 Wheel Speed Sensors</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ATC Enable/Disable Switch</title>
+            <para>Premium EC-30 models, configured for ATC, monitor an ATC enable/disable switch to +12 VDC, which
+                allows ATC to be manually deactivated. The ATC active/warning lamp will be on while the ATC is disabled.
+                Pin F2 of the 30-pin connector is the ATC enable/disable switch input.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>J1939 - ATC Enable/Disable Switch</title>
+            <para>The EC-30 can be configured to receive the status of the ATC enable/disable switch over the SAE J1939
+                serial communications link. A vehicle controller will monitor the position of the ATC enable/disable
+                switch directly, and broadcast a J1939 message indicating its status. When configured in this manner,
+                there will be no wire installed in pin F2 of the 30-pin ECU connector. In the event that J1939
+                communications is lost between the EC-30 and the vehicle controller, the EC-30 will disable the ATC
+                function.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Blink Code Switch</title>
+            <para>The EC-30 can be configured to support an optional diagnostic blink code switch to ground, which can
+                be used to activate several functions available through blink code diagnostics. Pin F3, of the 30-pin
+                connector, is the blink code switch input.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Three Position Switch for ATC and Blink Codes</title>
+            <para>The EC-30 can be configured to receive both the ATC enable/ disable signal and the blink code
+                activation signal from a single three-position switch. In this case, the common position of the switch
+                is connected to pin F2 of the 30-pin connector. The normally-open switch position is connected to +12
+                VDC to disable ATC. The normally-open (momentary) switch position is connected to ground to activate
+                blink codes. When configured in this manner, there is no wire installed in pin F3 of the 30-pin
+                connector, which is normally used for the blink code switch input.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Brake Switch Input</title>
+            <para>The EC-30 can be configured to support an optional brake switch input. The brake switch input can be
+                used in accordance with ABS and ATC performance. Pin A2, of the 18-pin connector, is the brake switch
+                input.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043_6.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043_8.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s04043.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

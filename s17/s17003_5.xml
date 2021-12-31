@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Tire Pressure Monitoring System (Feature Code 16VCM) - Description and Operation - Tire Pressure Sensors
+    </stitle>
+    <svcsection/>
+    <svcproc svcproctype="describe" graphiccount="0">
+        <title>Tire Pressure Sensors</title>
+        <svcprocinfo>
+            <para>Tire pressure and temperature are measured periodically by an intelligent tire pressure sensor located
+                inside each wheel. The sensor uses sensitive silicon microelectronics to detect changes in tire pressure
+                (similar to a diaphragm being pushed). Each sensor is powered by a lithium battery and contains a radio
+                frequency (RF) transmitter.
+            </para>
+            <para>The tire pressure sensor sends tire pressure/temperature information along with the unique
+                identification number (ID) of the current tire via 433 MHz RF signal to the tire pressure antenna. The
+                tire pressure antenna processes the RF signals received from the tire pressure sensors and transfers the
+                data via TPMS LIN-bus to the TPMS controller. The tire transmitter ID allows the TPMS controller to
+                determine the wheel location.
+            </para>
+            <para>The tire pressure sensor also provides status information such as remaining life of sensor battery,
+                sensor battery under voltage, fast pressure loss, and over temperature information. Sensor battery life
+                is typically 5 years, however, life will be reduced under critical system conditions in which fast data
+                transmission is required.
+            </para>
+            <para>Under normal operating conditions, the tire pressure sensors transmit data to the tire pressure
+                monitoring controller once every minute.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Sensor Diagnostics</title>
+            <para>If any tire sensor is moved out of the range of the antenna, fails to transmit, has a low sensor
+                battery, or is unable to measure tire information correctly, the TPMS controller will detect the
+                condition and set a corresponding DTC. Refer to the Diagnostic Trouble Codes section for more
+                information about the DTC associated with the tire pressure sensor.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fast Transmit Mode</title>
+            <para>The sensor will be placed in 'fast transmit mode' (transmits data once every second) if:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>The sensor is replaced
+                        <emph type="bold">AND</emph>
+                        the tire has been newly pressurized
+                        <emph type="bold">(See Note 1)</emph>.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">OR</emph>
+                        if a 'fast leak' condition occurs
+                        <emph type="bold">(See Note 1)</emph>.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">Note 1:</emph>
+                2 - 3 PSI air pressure must be added or removed from the tire within 1 second for 'fast transmit' mode
+                to occur. The sensor will remain in fast transmit mode for approximately 3 minutes after the above
+                conditions are true.
+            </para>
+            <para>
+                <emph type="bold">Note 2:</emph>
+                Placing the tire sensor in 'fast transmit' mode by releasing air from the appropriate tire can be useful
+                in locating tires on the VID screen.
+            </para>
+            <para>The following will occur if the sensor is placed into 'fast transmit mode':</para>
+            <randlist type="bullet">
+                <item>
+                    <para>The VID will display
+                        <emph type="bold">"WARNING: Fast Tire Pressure Loss"</emph>
+                        as a popup message
+                        <emph type="bold">(See Note 3)</emph>
+                        if air has been removed.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">AND</emph>
+                        a corresponding 'fast leak' DTC will be set by the TPMS controller
+                        <emph type="bold">(See Note 3)</emph>
+                        if air has been removed.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">AND</emph>
+                        any sensor in 'fast transmit' mode will appear first in the list of detected sensors on the
+                        vehicle information display (VID).
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">AND</emph>
+                        any sensor in 'fast transmit' mode will have an asterisk next to that tire transmitter ID on the
+                        VID.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">AND</emph>
+                        sensor battery life will be reduced while in 'fast transmit' mode.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">Note 3:</emph>
+                Warnings and diagnostic trouble codes will only be generated for sensors that have been programmed into
+                the system. Sensors can be programmed only after they have been initialized. Refer to the
+                <emph type="italic">Sensor Initialization</emph>
+                section for more information.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Sensor Initialization</title>
+            <para>To preserve sensor battery life, tire sensors are in 'sleep mode' while in storage and will not
+                transmit data. When a tire sensor is installed (must be pressurized) for the first time, the sensor will
+                be placed into 'fast transmit mode' for 3 minutes, but no warnings will be generated by the TPMS
+                controller.
+            </para>
+            <para>During this first pressurization, if the pressure is reduced to less than 22 PSI within 3 minutes, the
+                tire sensor goes back into 'sleep mode'. After the first pressurization, 'sleep mode' is no longer
+                available. After the tire sensor has been programmed into the system, YELLOW or RED tire pressure
+                warnings may be displayed in the VID depending on the programmed value in the VID "Pressure Setup"
+                screen.
+            </para>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s17003_4.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s17003_6.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s17003.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

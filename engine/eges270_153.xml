@@ -1,0 +1,678 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - INJ Circuits (Injector Drive)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="4">
+        <title>INJ Circuits (Injector Drive)</title>
+        <svcprocinfo>
+            <figure id="f27007099" figsize="pg-wide">
+                <graphic filename="../figh31/h31045.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for the INJ circuit</caption>
+            </figure>
+            <para id="INJ">The function diagram for INJ circuit includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Injectors</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Injector Driver Module (IDM)</para>
+                </item>
+                <item>
+                    <para>Controller Area Network (CAN 1) link</para>
+                </item>
+                <item>
+                    <para>Camshaft Position Output (CMPO) signal</para>
+                </item>
+                <item>
+                    <para>Crankshaft Position Output (CKPO) signal</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The IDM is used to control the injectors. The IDM receives CMPO and CKPO signals and fueling
+                information via CAN from the ECM. The IDM calculates injection timing and injector actuation time based
+                on the fuel quantity requested for any engine operation condition.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>INJ Circuit Operation</title>
+            <para>When a coil needs to be energized the IDM turns on both the high and low side driver.</para>
+            <para>
+                <title>High Side Drive Output</title>
+            </para>
+            <para>The IDM regulates the current at an average of 20 A. When the current reaches 24 A the IDM shuts off
+                the high side driver. When the current drops to 16 A the IDM turns on the high side driver.
+            </para>
+            <para>
+                <title>Low Side Drive Return</title>
+            </para>
+            <para>The injector solenoids are grounded through the low side return circuits. The ECM monitors the low
+                side return circuits. The ECM monitors the low side return signal for diagnostic purposes and utilizes
+                the fly-back current from the injector solenoids to help charge the drive capacitors internal to the
+                ECM.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>When the engine is running, the IDM can detect individual injector coil open and shorts to ground or
+                battery. A KOEO Injector Test allows the operator to enable all injector coils when the engine is off to
+                verify circuit operation. When the IDM detects a fault, Diagnostic Trouble Codes (DTCs) are transmitted
+                over the CAN 2 line between the ECM and IDM.
+            </para>
+            <para>The IDM transmits a high and low side drive output to the injectors. The high side output supplies the
+                injectors with a power supply of 48 V DC at 20 A. The low side output supplies a return circuit to each
+                injector coil.
+            </para>
+            <para>The injectors are under the valve covers. Each injector has a close and open coil. The IDM
+                continuously monitors the amount of time (rising time) taken by each coil to draw 20 A. The time is
+                compared to calibrated values and the IDM determines if a circuit or injector fault exists. Each
+                injector has 6 failure modes and 3 DTCs. A failure can occur on the open or close coil circuit.
+            </para>
+            <para>When a short to ground condition is detected on an injector (low or high side), the IDM discontinues
+                power to the shorted injector and operates the engine on the remaining cylinders.
+            </para>
+            <para>
+                <title>INJ Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red ENGINE lamp. The last
+                digit in the injector DTC corresponds to the cylinder where a fault has been detected.
+            </para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 421-426</emph>
+                </line>
+                <line>
+                    <emph type="bold">High side to low side open</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 421-426 is set by the ECM when the rising time is too long for the open or close coil. DTC
+                        421-426 usually indicates a harness or coil is open.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 421-426 does not set the amber ENGINE lamp.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 431-436</emph>
+                </line>
+                <line>
+                    <emph type="bold">High side shorted to low side</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 431-436 is set by the ECM when the rising time to 20 A is short, but not zero for the open
+                        or close coil. DTC 431-436 usually indicates an internally shorted coil.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 431-436 does not set the amber ENGINE lamp.</para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 451-456</emph>
+                </line>
+                <line>
+                    <emph type="bold">High side short to ground or V
+                        <subscript>BAT</subscript>
+                    </emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 451-456 is set by the ECM when the rising time to 20 A is zero for the open or close coil.
+                        DTC 451-458 usually indicates the harness or coil is shorted to ground.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 451-456 does not set the amber ENGINE lamp.</para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Terminal Test Adapter Kit</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>INJ Pin-Point Diagnostics</title>
+            <specpara>
+                <warning>
+                    <para>To avoid serious personal injury or possible death, do not perform voltage checks with the
+                        engine running. Injector solenoid operating voltage of 48 V DC @ 20 A is present on injector
+                        circuits.
+                    </para>
+                </warning>
+                <caution>
+                    <para>To avoid engine damage, turn the ignition switch to OFF before disconnecting the connector or
+                        relay for the IDM. Failure to turn the ignition switch to OFF will cause a voltage spike and
+                        damage to electrical components.
+                    </para>
+                </caution>
+            </specpara>
+            <para>Before doing injector diagnostic testing:</para>
+            <step1>
+                <para count="1">Turn the ignition switch to OFF.</para>
+            </step1>
+            <step1>
+                <para count="1">Disconnect IDM connectors (X1 and X2).</para>
+            </step1>
+            <para>All tests are checked at harness end. Pin numbers are marked on all connector mating ends. After
+                checking resistance through injector coils and resistance to chassis ground, if tests are within
+                specification and DTC is active, replace the injector.
+            </para>
+            <specpara>
+                <note>
+                    <para>Only diagnose injectors with active DTCs.</para>
+                </note>
+            </specpara>
+            <figure id="f27007100" figsize="pg-wide">
+                <graphic filename="../figh31/h31418.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Cylinder 1 and 2 circuit diagram</caption>
+            </figure>
+            <table id="te27007085" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Injector Cylinder 1</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.26in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-2 to X1-19</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-2 to gnd, X1-19 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-5 to X1-20</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-5 to gnd, X1-20 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007089" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Injector Cylinder 2</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.24in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-1 to X1-23</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-1 to gnd, X1-23 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 to X1-24</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 to gnd, X1-29 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007102" figsize="pg-wide">
+                <graphic filename="../figh31/h31419.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>Cylinder 3 and 4 circuit diagram</caption>
+            </figure>
+            <table id="te27007086" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Injector Cylinder 3</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.21in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-17 to X1-3</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-17 to gnd, X1-3 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-18 to X1-8</para>
+                            </entry>
+                            <entry>
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-18 to gnd, X1-8 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007090" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Injector Cylinder 4</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.26in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-1 to X2-21</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-1 to gnd, X2-21 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-5 to X2-22</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-5 to gnd, X2-22 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f27007101" figsize="pg-wide">
+                <graphic filename="../figh31/h31420.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Cylinder 5 and 6 circuit diagram</caption>
+            </figure>
+            <table id="te27007087" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Injector Cylinder 5</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.24in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-2 to X2-17</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-2 to gnd, X2-17 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-6 to X2-18</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-6 to gnd, X2-18 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007088" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Injector Cylinder 6</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.77in"/>
+                    <colspec colname="col2" colwidth="1.20in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-4 to X2-19</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-4 to gnd, X2-19 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-8 to X2-20</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0.7 &#x2126; to 1.5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 1.5 &#x2126;, check for open or high resistance between IDM and injector, or
+                                    open injector coil
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-8 to gnd, X2-20 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If &#60; 1 k&#x2126;, check for short to ground in harness or injector coil.
+                                    Disconnect injector and retest. If > 1 k&#x2126;, the short is in the injector.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_152.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_154.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

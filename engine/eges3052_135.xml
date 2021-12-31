@@ -1,0 +1,491 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - CMP
+        (Camshaft Position) Sensor
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.9" svcproctype="diagnose" graphiccount="3">
+        <title>CMP (Camshaft Position) Sensor</title>
+        <svcprocinfo id="s305010706.9.1">
+            <figure id="f305010739" figsize="pg-wide">
+                <graphic filename="../figj31/j31078.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="592px"/>
+                <caption>Function diagram for CMP sensor</caption>
+            </figure>
+            <table id="t305010770" type="simple" frame="topbot">
+                <title>The function diagram for the CMP sensor includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Camshaft Position (CMP) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Injector Drive Module (IDM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Fuel Injector</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Amber Lamp (Warn Engine Lamp (WEL) for CF)</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para id="s305010706.9.1.1">The CMP sensor provides the ECM with a signal that indicates camshaft position.
+                As the cam rotates, the sensor identifies the position of the cam by locating a peg on the cam. The CMP
+                is installed in the front left side of the lower crankcase.
+            </para>
+            <para>Camshaft speed is calculated from the frequency of the CMP sensor signal. Diagnostic information on
+                the CMP input signal is obtained by performing accuracy checks on signal levels, frequency, and duty
+                cycle with software strategies.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.9.2">
+            <title>CMP Circuit Operation</title>
+            <figure id="f305010740" figsize="pg-wide">
+                <graphic filename="../figj31/j31079.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="592px"/>
+                <caption>CMP circuit diagram</caption>
+            </figure>
+            <para id="s305010706.9.2.1">The ECM needs the CKP and CMP signal to calculate engine speed and position. The
+                CMP contains a permanent magnet which creates a magnetic field. The signal is created when the camshaft
+                peg rotates past the sensor breaking the magnetic field. The ECM terminals for the CMP sensor are CMP
+                positive X1-9 and CMP negative X1-10.
+            </para>
+            <specpara>
+                <note>
+                    <para>Engine will not operate without CMP signal.</para>
+                </note>
+            </specpara>
+            <para>
+                <title>Fault Detection/Management</title>An inactive CMP signal during cranking is detectable by the
+                ECM. During engine cranking the ECM monitors the CKP signal and Injection Control Pressure (ICP) to
+                verify the engine is rotating. If the CMP signal is inactive during this time a DTC will be set.
+                Electrical noise can also be detected by the ECM. When the level is sufficient to effect engine
+                operation a corresponding DTC will be set. An inactive CMP signal will cause a no start condition.
+            </para>
+            <para>
+                <title>CMP DTCs</title>DTCs are read using the EST or by counting the flashes from the amber and red
+                lamps.
+            </para>
+            <table id="t305010771" tblwidth="col-wide" type="simple" frame="topbot">
+                <title>DTC 143</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.00*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>Incorrect CMP signal signature</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 143 is set by the ECM when the CMP transition occurs at the wrong CKP
+                                    location.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 143 can be set due to a mistimed camshaft to crankshaft, electrical noise in
+                                    the CMP circuit, or a failed CMP sensor.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010772" type="simple" frame="topbot">
+                <title>DTC 145</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>CMP signal inactive</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 145 is set by the ECM when the CMP signal is inactive, the CKP signal is
+                                    active, and the ICP has increased.
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>DTC 145 can be set due to an open short to ground or open voltage source in the
+                                    CMP circuit. A failed sensor can cause DTC 145 to be set.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010773" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1" colwidth="1.0*"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech&#174; interface cable</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Digital Multimeter (DMM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Breakout Box</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="s305010706.9.3">
+            <title>CMP Pin-Point Diagnostics</title>
+            <figure id="f305010741" figsize="pg-wide">
+                <graphic filename="../figj31/j31079.webp" type="webp" scalefit="1" scalefitwidth="472px"
+                         scalefitheight="592px"/>
+                <caption>CMP circuit diagram</caption>
+            </figure>
+            <table id="t305010774" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Resistance Checks - Sensor and Circuit</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.23in"/>
+                    <colspec colname="col2" colwidth="1.03in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Check with breakout box connected [X1 only] to engine harness only and CKP sensor
+                                    connected. Inspect for bent pins or corrosion.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>Set DMM to 4 k&#x2126; range.</para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-9 to X1-10</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>800 to 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance through sensor and complete circuit. If not within specification, do "
+                                    <hotlnk xrefid="t305010775">Resistance Checks - Sensor</hotlnk>
+                                    ." If in specification, check for short to ground or open within wiring.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010775" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Resistance Checks - Sensor</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.23in"/>
+                    <colspec colname="col2" colwidth="1.03in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Disconnect harness from sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <note>
+                                    <para>Test point to sensor only.</para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>1 to 2</para>
+                            </entry>
+                            <entry>
+                                <para>800 &#x2126; to 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If within specification, check for short to ground or open within wiring.</para>
+                                <para>If not within specification, replace sensor.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010776" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Resistance Checks - Connector to Chassis Ground</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.23in"/>
+                    <colspec colname="col2" colwidth="1.03in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect negative battery cable. Disconnect harness
+                                    from sensor. Use disconnected negative battery cable for ground test point.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-9 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-10 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If less than 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010777" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.23in"/>
+                    <colspec colname="col2" colwidth="1.03in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Check with breakout box connected to engine harness only. Check from ECM to sensor
+                                    harness connector.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-9 to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-10 to 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t305010778" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Operational Checks - CMP Sensor</title>
+                <tgroup cols="5">
+                    <colspec colname="col1" colwidth="1.56in"/>
+                    <colspec colname="col2" colwidth="1.36in"/>
+                    <colspec colname="COLSPEC0" colwidth="2.99*"/>
+                    <colspec colname="COLSPEC1" colwidth="3.24*"/>
+                    <colspec colname="COLSPEC2" colwidth="3.28*"/>
+                    <spanspec namest="col1" nameend="COLSPEC2" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>Check with Breakout Box installed to ECM and engine harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" align="center">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2" align="center">
+                                <para>Engine Cranking</para>
+                            </entry>
+                            <entry colname="COLSPEC0" align="center">
+                                <para>Low Idle</para>
+                            </entry>
+                            <entry colname="COLSPEC1" align="center">
+                                <para>High Idle</para>
+                            </entry>
+                            <entry colname="COLSPEC2" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-9 to X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>130-225 rpm
+                                    <supscript>2</supscript>@ 130-225 rpm
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>700 rpm
+                                    <supscript>2</supscript>@ 700 rpm
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>3400 rpm
+                                    <supscript>2</supscript>
+                                    @ 3400 rpm
+                                </para>
+                            </entry>
+                            <entry colname="COLSPEC2">
+                                <para>Set DMM to DCmV-rpm
+                                    <supscript>2</supscript>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>Diagnostic Trouble Code Description</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 143 = Incorrect CMP signal signature</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 145 = CMP signal inactive</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_134.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_136.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

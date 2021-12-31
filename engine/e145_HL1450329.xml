@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - INJECTION PRESSURE REGULATOR (IPR)
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450329" svcproctype="proctype" graphiccount="5">
+        <title>INJECTION PRESSURE REGULATOR (IPR)</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef14503c8">Figure 3.103 Injection Pressure Regulator (IPR)</hotlnk>
+            </para>
+            <figure id="ef14503c8" figsize="col-wide">
+                <graphic id="eg1140" filename="../figeg1/eg1140.webp" type="webp"/>
+                <caption>Figure 3.103 Injection Pressure Regulator (IPR)</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>OUTPUT FUNCTIONS</title>
+            <para>
+                <emph type="bold">Injection Pressure Regulator -</emph>Is a variable position valve that controls
+                injection control pressure. The ECM uses many input variables to determine the desired injection control
+                pressure.
+            </para>
+            <para>Battery voltage is supplied to the IPR when the ignition key is in the on position. Valve position is
+                controlled by switching the output signal circuit to ground inside the Electronic Control Module (ECM).
+                On off time is modulated from 0-50% dependent upon the desired injection control pressure.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION/MANAGEMENT</title>
+            <para>An open or a short to ground control circuit can be detected by an on demand output circuit check
+                performed during the engine off test.
+            </para>
+            <para>The ECM is capable of detecting, while the engine is running, if desired injection control pressure is
+                equal to measured injection control pressure. If the measured injection control pressure does not
+                reasonably compare to the desired injection control pressure, the ECM ignores the measured ICP signal
+                and attempts to control the engine with the desired value. (If the problem was in the sensor circuit,
+                this strategy causes little performance deterioration, if the problem is in the control circuit, engine
+                performance will probably still be unsatisfactory).
+            </para>
+            <para>A faulty IPR or problem with the high pressure oil system can be detected by the engine running test
+                during the injection control pressure step test. During this test, the ECM commands and measures two
+                specific preprogrammed pressures. A fault code is set, if the pressures can not be maintained.
+            </para>
+            <specpara>
+                <note>
+                    <para>THE ENGINE WILL NOT OPERATE WITH AN IPR CIRCUIT THAT IS NOT FUNCTIONING.</para>
+                </note>
+            </specpara>
+            <para>
+                <hotlnk xrefid="ef14503c9">Figure 3.104 Injection Pressure Regulator (IPR) Diagnostics</hotlnk>
+            </para>
+            <figure id="ef14503c9" figsize="col-wide">
+                <graphic id="eg6045" filename="../figeg6/eg6045.webp" type="webp"/>
+                <caption>Figure 3.104 Injection Pressure Regulator (IPR) Diagnostics</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FUNCTION</title>
+            <para>The Navistar engine control system includes a Injection Pressure Regulator (IPR) valve that controls
+                oil pressure in the high pressure injection control system which is used to actuate the injectors. The
+                IPR valve consists of a solenoid, poppet and spool valve assembly and is mounted in the high pressure
+                oil pump. The ECM regulates injection control pressure by controlling the duty cycle or (on/off time) of
+                the injection control pressure solenoid. this increase or decrease of 'on/off" time positions a poppet
+                valve and spool valve internal to the IPR, which in turn either maintains pressure in the injection
+                control pressure system or vents pressure to the oil sump via the front cover. (Refer to Engine Control
+                system Overview for a more complete description of the IPR operation and function.)
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>OPERATION</title>
+            <para>The IPR valve is supplied with voltage at terminal A of the IPR conector when the ignition key is
+                turned on thru fuse F5. Control of the injection control system is accomplished by the ECM grounding the
+                IPR circuit from terminal B of the IPR valve thru pin #21 of the ECM. Precise control is accomplished by
+                varying the pulse width or percentage of "on/off" time of the IPR solenoid. The frequency of the pulse
+                width to the IPR is 400 Hz, normal "on/off" times varies from 8% to 50%. A high duty cycle indicates a
+                high amount of injection control pressure being commanded, a low duty cycle is an indication of less
+                pressure being commanded.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM DIAGNOSTICS</title>
+            <para>The ECM monitors the Injection Control Pressure while the engine is in operation. If the actual
+                pressure is greater or less than the desired pressure, the ECM will set a fault code. When this occurs,
+                the ECM will ignore the ICP sensor and control the engine using preprogrammed values for the IPR.
+            </para>
+            <para>The Electronic Service Tool is used to Perform the Engine Running Standard Test which enables the ECM
+                to vary the comand signal to the IPR and monitor the performance of the Injection Control Pressure
+                system. If the system does not respond within the specified parameters, the ECM will set a fault code.
+            </para>
+            <para>Fault codes can be retrieved using the Electronic Service Tool or the Self Test Input diagnostic
+                switch located on the vehicle dash. If the ignition key is shut off, the code will be stored as an
+                Inactive code.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 241</title>
+            <para>
+                <title>ATA CODE SID 42 FMI 11</title>
+            </para>
+            <para>
+                <title>INJECTION CONTRL PRESSURE REG. OCC SELF TEST FAILED</title>
+            </para>
+            <para>Code 241 is set only during the Engine Off Standard Output Circuit Check. This test indicates the ECM
+                has performed an output circuit test, measured voltage drop across the IPR circuit and determined it is
+                below or above specification.
+            </para>
+            <para>If this fault is present, the engine will not run. The ECM will not illuminate the Engine Warning
+                light if this code is active, however, this code will be transmitted at the completion of the Output
+                Circuit Check, using the STI switch or the Electronic Service Tool.
+            </para>
+            <para>Possible causes: Open feed circuit or fuse to the IPR, open IPR solenoid, or an open or shorted IPR
+                signal circuit.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 331</title>
+            <para>
+                <title>ATA CODE PID 164 FMI 0</title>
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>INJECTION CONTROL PRESSURE ABOVE SYSTEM WORKING RANGE</title>
+            <para>Code 331 indicates the ECM has detected injection control pressure greater than 3675 PSI (25 MPA)
+                which is greater than the maximum allowable working pressure.
+            </para>
+            <para>When this code is active, the ECM will illuminate the Engine Warning light.</para>
+            <para>Possible causes: Incorrect ICP signal due to faulty circuits or sensor, grounded IPR signal circuit, a
+                malfunction in the injection control pressure system or a sticking or blocked IPR valve.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 333</title>
+            <para>
+                <title>ATA CODE PID 164 FMI 10</title>
+            </para>
+            <para>
+                <title>INJECTION CONTROL PRESsure ABOVE/BELOW DESIRED LEVEL</title>
+            </para>
+            <para>Code 333 may be set during normal engine operation through the continuous monitor function or during
+                the Engine Running Standard Test. It indicates the measured pressure does not match the expected value.
+                The ECM will illuminate the Engine Warning light.
+            </para>
+            <para>When this code is active, the ECM will ignore the ICP sensor signal and will control the IPR from
+                programmed values to keep the engine operating. Perform ICP sensor diagnostics to determine if the
+                problem exists in the ICP sensor/circuit. If diagnostic testing indicates the ICP sensor/circuit is
+                functioning properly, perform additional diagnostic tests on the injection control pressure system.
+                Refer to Injection Control Pressure system diagnostics..
+            </para>
+            <para>Possible causes: Incorrect ICP signal due to circuit or sensor malfunctions. IPR signal circuit may be
+                grounded or contain excessive resistance. The IPR valve may be sticking or blocked. Injection control
+                pressure system may not be functioning properly.
+            </para>
+            <figure id="ef14503d0" figsize="col-wide">
+                <graphic id="eg6046" filename="../figeg6/eg6046.webp" type="webp"/>
+                <caption>Figure 3.105 Sensor Circuit Diagram</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef14503d1">Figure 3.106 Injection Control Pressure Regulator</hotlnk>
+            </para>
+            <figure id="ef14503d1" figsize="col-wide">
+                <graphic id="eg6047" filename="../figeg6/eg6047.webp" type="webp"/>
+                <caption>Figure 3.106 Injection Control Pressure Regulator</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refer to circuit diagram Figure
+                        <hotlnk xrefid="ef14503d0">3.105</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <hotlnk xrefid="ef14503d2">Figure 3.107 Injection Control Pressure Regulator</hotlnk>
+            </para>
+            <figure id="ef14503d2" figsize="col-wide">
+                <graphic id="eg6048" filename="../figeg6/eg6048.webp" type="webp"/>
+                <caption>Figure 3.107 Injection Control Pressure Regulator</caption>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450328.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450330.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

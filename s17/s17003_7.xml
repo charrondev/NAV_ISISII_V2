@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Tire Pressure Monitoring System (Feature Code 16VCM) - Feature Functions</stitle>
+    <svcsection/>
+    <svcsubsec>
+        <title>Feature Functions</title>
+        <svcsubsecinfo>
+            <para>The following functions are performed by the system.</para>
+        </svcsubsecinfo>
+        <svcproc svcproctype="describe" graphiccount="0">
+            <title>Monitoring Tire Pressure and Tire Temperature</title>
+            <para>The TPMS controller monitors pressure in conjunction with temperature to detect system faults. For
+                example, if a low tire pressure condition exists while the temperature is increased it is likely that
+                the condition is due to low tire pressure, since low tire pressure causes excess friction/heat.
+                Likewise, if a temperature related condition exists in the absence of a low pressure condition it is
+                likely that the condition is due to friction from a faulty wheel bearing or dragging brake. The tire
+                pressure displayed in the VID, however, reflects the actual tire pressure gauge reading and is not
+                temperature compensated.
+            </para>
+            <para>The TPMS system knows what the corresponding pressure should be at any given temperature, and
+                therefore will not set erroneous faults based on normal pressure changes in proportion to temperature.
+                The system generates warnings based on the difference between the target tire pressure, programmed into
+                the VID "Pressure Setup" parameter, and the expected pressure for a particular tire temperature.
+            </para>
+            <para>Refer to the Tire Pressure Diagnostics section to understand the thresholds at which tire pressure
+                diagnostics are performed and warnings are displayed.
+            </para>
+            <para>The feature will monitor tire information if all of the following conditions are true:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>The key switch is placed in the ACCESSORY position (See Note 1).</para>
+                </item>
+                <item>
+                    <para>No active 'loss of communication' errors are present.</para>
+                </item>
+                <item>
+                    <para>No active TPMS antenna related diagnostic trouble codes are present.</para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">Note 1:</emph>The voltage received by the TPMS controller via the ACCESSORY relay must
+                be greater than 3.5 volts for the controller to 'wake up'. Otherwise, the controller will remain
+                'asleep' in which the following conditions will be true:
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>All TPMS related functions are inoperative.</para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">AND</emph>
+                        the VID cannot receive data from the TPMS controller on the SAE J1939 data link.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">AND</emph>
+                        the TPMS screens will be accessible, but the VID will display all tires in RED.
+                    </para>
+                </item>
+            </randlist>
+            <para>Because the tire sensors normally transmit data only once every minute, it may be necessary to wait up
+                to 2 minutes for the feature to receive data from all of the sensors. The wheel may appear BLACK on the
+                VID TPMS screen before the data is received from the tire sensor.
+            </para>
+        </svcproc>
+    </svcsubsec>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s17003_6.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s17003_8.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s17003.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

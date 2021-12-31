@@ -1,0 +1,655 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos - - FUNCIONES Y DIAGN&#211;STICOS DE CIRCUITOS - Sensor de presi&#243;n
+        absoluta del m&#250;ltiple de admisi&#243;n (MAP)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Sensor de presi&#243;n absoluta del m&#250;ltiple de admisi&#243;n (MAP)</title>
+        <svcsubproc>
+            <title>Funciones de las se&#241;ales</title>
+            <figure id="f17503072" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8846.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="200"
+                         box="yes"/>
+                <caption>Diagrama de las funciones del sensor de presi&#243;n absoluta del m&#250;ltiple de admisi&#243;n</caption>
+            </figure>
+            <para>El sensor de presi&#243;n absoluta del m&#250;ltiple de admisi&#243;n (MAP) es un sensor de
+                capacitancia variable que opera en una se&#241;al de referencia de 5 V desde el ECM para producir una se&#241;al
+                lineal anal&#243;gica de voltaje que indica presi&#243;n.
+            </para>
+            <para>
+                <emph type="bold">Control de humo</emph>
+            </para>
+            <para>La se&#241;al del MAP se usa para controlar el humo, limitando el flujo de combustible durante la
+                aceleraci&#243;n hasta obtener una presi&#243;n reforzadora espec&#237;fica.
+            </para>
+            <para>
+                <emph type="bold">Sincronizaci&#243;n din&#225;mica de la inyecci&#243;n</emph>
+            </para>
+            <para>Optimiza la sincronizaci&#243;n de la inyecci&#243;n para la presi&#243;n reforzadora medida.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Detecci&#243;n y manejo de fallas</title>
+            <para>Si el ECM detecta una se&#241;al del MAP fuera de los l&#237;mites o un valor incorrecto para
+                condiciones espec&#237;ficas, los ignorar&#225; y har&#225; funcionar el motor con los valores estimados
+                de presi&#243;n absoluta del m&#250;ltiple de admisi&#243;n (operar&#225; basado en una se&#241;al de
+                presi&#243;n reforzadora calculada).
+            </para>
+            <figure id="f17503073" figsize="pg-wide">
+                <graphic filename="../figEG8/EG8813.webp" type="webp" scalefit="1" scalefitwidth="514px" resolution="300"
+                         box="yes"/>
+                <caption>Diagn&#243;sticos de circuito del sensor de presi&#243;n absoluta del m&#250;ltiple de admisi&#243;n
+                    con una "T" de derivaciones
+                </caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Luego de retirar el conector, siempre revise en busca de pines da&#241;ados, corrosi&#243;n y
+                        terminales sueltos.
+                    </para>
+                </note>
+            </specpara>
+            <para>
+                <emph type="bold">PRUEBAS DE LOS SENSORES</emph>
+            </para>
+            <table id="te17503027">
+                <title>Pruebas de voltaje del MAP usando Master Diagnostics</title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="0.81*"/>
+                    <colspec colname="col2" colwidth="0.36*"/>
+                    <colspec colname="COLSPEC8" colwidth="0.39*"/>
+                    <colspec colname="col3" colwidth="2.20*"/>
+                    <spanspec namest="col1" nameend="col2" spanname="SPAN3"/>
+                    <spanspec namest="COLSPEC8" nameend="col3" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas de voltaje en el sensor de presi&#243;n absoluta del m&#250;ltiple
+                                        de admisi&#243;n (MAP)
+                                    </emph>
+                                    (con la llave en ON y el motor apagado)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>Instale la "T" de derivaciones de 3 cables entre el MAP y el conector del haz de
+                                    cables. Vea MAP VOLTAGE con la prueba
+                                    <emph type="bold">Continuous Monitor</emph>
+                                    localizada bajo el men&#250; Diagnostics del Master Diagnostics. Si el circuito
+                                    tiene una falla activa, de acuerdo con el nivel de voltaje (C&#243;digo 121 &#60;4,9
+                                    V, C&#243;digo 122 &#60;0,039 V, C&#243;digo 123
+                                    <emph type="underscr">></emph>1,0 V), complete los siguientes pasos. Las pruebas
+                                    deben hacerse en orden.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Condici&#243;n de la prueba</emph>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>
+                                    <emph type="bold">Voltaje</emph>
+                                </para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Comentarios</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor desconectado</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si el voltaje es >0,039 V, revise si el circuito de la se&#241;al est&#225; en
+                                    corto al V
+                                    <subscript>REF</subscript>
+                                    o B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Mida el voltaje desde el pin B a tierra con un DMM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si el voltaje es >5,5 V, revise el V
+                                    <subscript>REF</subscript>
+                                    en busca de un corto a B+. Si el voltaje es &#60;4,5 V, revise el V
+                                    <subscript>REF</subscript>
+                                    para ver si est&#225; abierto o en corto a tierra
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0,5 k&#x2126; puente instalado entre los pines VERDE y AZUL de la "T" de
+                                    derivaciones
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si el voltaje es &#60;4,9 V, revise si el circuito de la se&#241;al est&#225;
+                                    abierto o en corto a tierra. Retire el cable positivo de la bater&#237;a. Mida la
+                                    resistencia del pin C a tierra (especificaci&#243;n >500 &#x2126;) y del pin C al
+                                    pin 30 (especificaci&#243;n &#60;5 &#x2126;) con una caja de derivaciones para
+                                    determinar si el corto a tierra o el circuito abierto est&#225;n en el haz de
+                                    cables.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Puente est&#225;ndar instalado entre los pines AZUL, VERDE y NEGRO de la "T" de
+                                    derivaciones
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si el voltaje es >0,039 V, revise si hay resistencia en el circuito de tierra.
+                                    Mida la resistencia entre el pin A y el pin 19 (especificaci&#243;n &#60;5 &#x2126;)
+                                    con la caja de derivaciones para determinar si la resistencia est&#225; en el haz de
+                                    cables.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Sustituya el sensor si el c&#243;digo est&#225; activo y todas las
+                                        pruebas han dado los resultados esperados. El sensor
+                                    </emph>
+                                    <emph type="boldundersc">no est&#225; descompuesto</emph>
+                                    <emph type="bold">si una o m&#225;s de las pruebas del sensor no produce los
+                                        resultados esperados. Vea Diagrama de flujo para ubicaci&#243;n de problemas en
+                                        el MAP
+                                        <xref refid="f17503073.1"/>
+                                    </emph>
+                                    .
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="2" spanname="SPAN3">
+                                <para>Voltaje MD: (+)30 a (-)19</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Pruebas operacionales de voltaje</emph>
+                                    (con la "T" de derivaciones instalada en l&#237;nea con el sensor)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Voltaje</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Lb/pulg2</para>
+                            </entry>
+                            <entry colname="COLSPEC8">
+                                <para>kPa</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0,039 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>N/D</para>
+                            </entry>
+                            <entry colname="COLSPEC8">
+                                <para>N/D</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Fuera de l&#237;mite - l&#237;mite bajo</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>0,92 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0</para>
+                            </entry>
+                            <entry colname="COLSPEC8">
+                                <para>0</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltaje con la llave en ON y el motor apagado. Presi&#243;n atmosf&#233;rica
+                                    depende de la altitud y de la presi&#243;n barom&#233;trica absoluta.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1,73 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>8,0</para>
+                            </entry>
+                            <entry colname="COLSPEC8">
+                                <para>55</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2,72 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>18,0</para>
+                            </entry>
+                            <entry colname="COLSPEC8">
+                                <para>124</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para></para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Descripci&#243;n de los c&#243;digos de diagn&#243;stico de
+                                        problemas
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>121 = El voltaje de la se&#241;al fue >4,9 V por m&#225;s de 1,0 s.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>122 = El voltaje de la se&#241;al fue &#60;0,039 V por m&#225;s de 1,0 s.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>123 = Se detect&#243; se&#241;al reforzadora de >2,0 lb/pulg2 (13,8 kPa) en ralent&#237;
+                                    bajo.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te17503027.1">
+                <title>Especificaciones del circuito del MAP
+                    <xref refid="f17503073"/>
+                </title>
+                <tgroup cols="4">
+                    <colspec colname="col1" colwidth="0.60*"/>
+                    <colspec colname="col2" colwidth="0.56*"/>
+                    <colspec colname="col3" colwidth="1.42*"/>
+                    <colspec colname="col4" colwidth="1.43*"/>
+                    <spanspec namest="col3" nameend="col4" spanname="SPAN2"/>
+                    <spanspec namest="col1" nameend="col4" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas del voltaje en el conector</emph>
+                                    (con el conector del sensor desconectado y la llave en ON)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Puntos de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 a 0,25 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si >0,25 V, revise si el circuito de tierra est&#225; abierto o tiene alta
+                                    resistencia, revise si la tierra de la se&#241;al est&#225; en corto al V
+                                    <subscript>REF</subscript>
+                                    o a la bater&#237;a
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Prueba del V
+                                    <subscript>REF</subscript>
+                                    con la llave en ON. Si no cumple con especificaciones, revise el circuito del V
+                                    <subscript>REF</subscript>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 a 0,25 V</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si >0,25 V, la tierra de la se&#241;al est&#225; en corto al V
+                                    <subscript>REF</subscript>
+                                    o a la bater&#237;a
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas del conector a la tierra del chasis</emph>
+                                    (con el conector del sensor desconectado, el cable positivo de la bater&#237;a
+                                    desconectado y la llave en OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Puntos de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Resistencia a la tierra del chasis. Pruebe con la llave en OFF; si >5 &#x2126;, el
+                                    haz de cables est&#225; abierto
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>500 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Resistencia &#60;500 &#x2126; indica un corto a tierra</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Resistencia &#60;1 k&#x2126; indica un corto a tierra</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Pruebas de la resistencia en el haz de cables</emph>
+                                    (con la caja de derivaciones instalada s&#243;lo en el haz de cables del motor)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Puntos de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>19 a A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si >5 &#x2126; cable de tierra de se&#241;al est&#225; abierto.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>40 a B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si >5 &#x2126; V
+                                    <subscript>REF</subscript>
+                                    est&#225; abierto
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 a C</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colspan="2" spanname="SPAN2">
+                                <para>Si >5 &#x2126; la se&#241;al del MAP est&#225; abierta</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Descripci&#243;n detallada</title>
+            <para>
+                <emph type="bold">Funci&#243;n</emph>
+            </para>
+            <para>El sistema de control del motor de International incluye un sensor de presi&#243;n absoluta del m&#250;ltiple
+                de admisi&#243;n (MAP). El ECM mide la se&#241;al desde el MAP para determinar la presi&#243;n (de
+                refuerzo) del m&#250;ltiple de admisi&#243;n. Con esta informaci&#243;n, el ECM puede optimizar el
+                control de la sincronizaci&#243;n de la inyecci&#243;n y el flujo de combustible para todas las
+                condiciones de operaci&#243;n del motor.
+            </para>
+            <para>
+                <emph type="bold">Operaci&#243;n</emph>
+            </para>
+            <para>El MAP es un sensor de capacitancia variable ubicado en el m&#250;ltiple de admisi&#243;n, que produce
+                una se&#241;al lineal anal&#243;gica de voltaje. El MAP recibe en el terminal B 5 voltios desde el pin
+                40 del ECM. El ECM suministra desde el pin 19 un circuito de retorno (tierra) al terminal A del sensor.
+                La presi&#243;n aplicada al MAP cambia su capacitancia, con lo cual var&#237;a la se&#241;al de voltaje
+                enviada al ECM. A medida que la presi&#243;n reforzadora aumenta, la se&#241;al de voltaje aumenta.
+            </para>
+            <para>
+                <title>Diagn&#243;sticos hechos por el ECM</title>
+            </para>
+            <para>El ECM monitoriza la se&#241;al de salida del MAP en busca de los valores esperados. Si el ECM detecta
+                que la se&#241;al de voltaje del MAP es mayor o menor que el valor deseado, el ECM registrar&#225; un c&#243;digo
+                de diagn&#243;stico.
+            </para>
+            <para>Si se registra un c&#243;digo de diagn&#243;stico activo del MAP, el ECM ignorar&#225; la se&#241;al
+                del MAP y operar&#225; el motor utilizando valores preconfigurados. Si la llave se pone en OFF, el c&#243;digo
+                de diagn&#243;stico ser&#225; almacenado como inactivo.
+            </para>
+            <para>Los c&#243;digos de diagn&#243;stico de problemas del MAP pueden leerse con la herramienta electr&#243;nica
+                de servicio (EST) o interpretando los destellos de las luces
+                <emph type="bold">ENGINE</emph> &#225;mbar y roja, vea
+                <xref refid="P17502001"/>.
+            </para>
+            <para id="f175fc121">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 121</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 102, FMI 8</emph>
+            </para>
+            <para>
+                <emph type="bold">Se&#241;al del MAP fuera de l&#237;mite - alta</emph>
+            </para>
+            <para>Cuando el c&#243;digo 121 est&#225; activo, la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar se enciende y el od&#243;metro mostrar&#225; el mensaje WARN
+                ENG.
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 121 se establecer&#225; si el ECM detecta una se&#241;al de voltaje
+                del MAP mayor de 4,9 V por m&#225;s de 0,1 segundos. Cuando el c&#243;digo 121 est&#225; activo, el ECM
+                ignorar&#225; la se&#241;al del MAP y operar&#225; el motor utilizando valores preconfigurados.
+            </para>
+            <para>
+                <emph type="bold">Causas posibles:</emph>
+                MAP defectuoso o cable de se&#241;al del sensor tiene un corto al V
+                <subscript>REF</subscript>
+                o a B+
+            </para>
+            <para id="f175fc122">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 122</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 102, FMI 11</emph>
+            </para>
+            <para>
+                <emph type="bold">Se&#241;al del MAP fuera de l&#237;mite - baja</emph>
+            </para>
+            <para>Cuando el c&#243;digo 122 est&#225; activo, la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar se enciende y el od&#243;metro mostrar&#225; el mensaje WARN
+                ENG.
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 122 se establecer&#225; si el ECM detecta una se&#241;al de voltaje
+                del MAP menor de 0,039 V por m&#225;s de 0,1 segundos. Cuando el c&#243;digo 122 est&#225; activo, el
+                ECM ignorar&#225; la se&#241;al del MAP y operar&#225; el motor utilizando valores preconfigurados.
+            </para>
+            <para>Causas posibles: MAP defectuoso o los circuitos de la se&#241;al del MAP pueden estar abiertos o en
+                corto a tierra.
+            </para>
+            <para id="f175fc123">
+                <emph type="bold">C&#243;digo de diagn&#243;stico 123</emph>
+            </para>
+            <para>
+                <emph type="bold">C&#243;digo ATA, PID 102, FMI 2</emph>
+            </para>
+            <para>
+                <emph type="bold">Se&#241;al del MAP superior al nivel especificado en ralent&#237; bajo</emph>
+            </para>
+            <para>Cuando el c&#243;digo 123 est&#225; activo, la luz
+                <emph type="bold">ENGINE</emph> &#225;mbar se enciende y el od&#243;metro mostrar&#225; el mensaje WARN
+                ENG.
+            </para>
+            <para>El c&#243;digo de diagn&#243;stico 123 es registrado cuando la se&#241;al del MAP es mayor de 17
+                lb/pulg2(115 kPa) absoluta en ralent&#237; bajo. Cuando el c&#243;digo 123 est&#225; activo, el ECM
+                ignorar&#225; la se&#241;al del MAP y operar&#225; el motor utilizando valores preconfigurados.
+            </para>
+            <para>
+                <emph type="bold">Causas posibles</emph>: Entrada al sensor restringida u obstruida, MAP defectuoso o V
+                <subscript>REF</subscript>
+                en corto a una fuente de voltaje mayor de 5,5 V.
+            </para>
+            <figure id="f17503073.1" figsize="full-pg">
+                <graphic filename="../figeg8/eg8819.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="592px" resolution="600"/>
+                <caption>Diagrama de flujo para ubicaci&#243;n de problemas en el MAP</caption>
+            </figure>
+            <verbatim>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line>ESTA P&#193;GINA SE DEJ&#211; EN BLANCO INTENCIONALMENTE</line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+            </verbatim>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_100.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215_102.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

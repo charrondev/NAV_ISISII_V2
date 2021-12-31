@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Body Builder Electrical Data Book for Models Built Starting March 1, 2007 - Engine Speed Control Features -
+        60AJE - Remote Throttle Control Interlocked to Park Brake Applied - Recommended Application: Various
+    </stitle>
+    <svcsection/>
+    <svcproc id="BB60AJE" svcproctype="describe" graphiccount="1">
+        <title>60AJE - Remote Throttle Control Interlocked to Park Brake Applied - Recommended Application: Various
+        </title>
+        <para>
+            <emph type="boldundersc">FEATURE CODE DESCRIPTION:</emph>
+        </para>
+        <para>60AJE - BDY INTG, THROTTLE CONTROL Accommodation for On Demand Engine Speed for Single Customer-Mounted
+            Pressure Switch, Programmable Mode for Various Switch Actions, Useable Only While Vehicle is Stopped and the
+            Park Brake is Applied (requires one RPM input)
+        </para>
+        <para>
+            <emph type="boldundersc">FEATURE/BODY FUNCTION:</emph>
+        </para>
+        <para>TEM or customer-mounted single remote momentary, latched switch or normally open pressure switch; when the
+            operator moves the switch to the up position or the switch closes, the switch supplies GND or 12 volts to
+            the RPM input which starts ramping the engine to Engine Speed Preset-1, the engine will continue to ramp to
+            the Engine Speed Preset-1 as long as the switch continues to supply either GND or 12 volts to the RPM input;
+            when the operator moves the switch to the down position or the switch opens, the switch removes the GND or
+            12 volt RPM input to deactivate Remote engine speed control preset-1 returning the engine to idle.
+        </para>
+        <para>
+            <emph type="boldundersc">SOFTWARE FEATURE CODES / PROGRAMMABLE PARAMETERS:</emph>
+        </para>
+        <para>Required software feature code: 595AKK</para>
+        <para>Conflicts with software features: 595AKJ, 595AKL, 595AKM, 595AKN</para>
+        <para>Activation Parameters:</para>
+        <seqlist style="arabic">
+            <item>
+                <para>Momentary or latched GND or 12 volt input to RPM</para>
+            </item>
+            <item>
+                <para>Park brake applied</para>
+            </item>
+            <item>
+                <para>Transmission in neutral or park or clutch pedal not depressed</para>
+            </item>
+            <item>
+                <para>Vehicle speed is less than one MPH</para>
+            </item>
+            <item>
+                <para>Engine running and at idle</para>
+            </item>
+            <item>
+                <para>Optional PTO feedback is true.</para>
+            </item>
+        </seqlist>
+        <para>Deactivation Parameters:</para>
+        <seqlist style="arabic">
+            <item>
+                <para>No GND or 12 volt input to RPM</para>
+            </item>
+            <item>
+                <para>Park brake not applied</para>
+            </item>
+            <item>
+                <para>Transmission not in neutral or park or clutch pedal depressed</para>
+            </item>
+            <item>
+                <para>Vehicle speed is greater than one MPH.</para>
+            </item>
+            <item>
+                <para>Engine not running</para>
+            </item>
+            <item>
+                <para>Service brake depressed</para>
+            </item>
+            <item>
+                <para>Optional PTO feedback not true</para>
+            </item>
+        </seqlist>
+        <para>
+            <emph type="boldundersc">FEATURE ORDERING NOTES:</emph>
+        </para>
+        <seqlist style="arabic">
+            <item>
+                <para>This feature requires one RPM input.</para>
+            </item>
+            <item>
+                <para>If 60AJE is ordered, 12VXU must also be ordered which requires entering TEM or customer-requested
+                    Remote engine speed control preset-1 RPMs.
+                </para>
+            </item>
+            <item>
+                <para>TEM or customer must supply single momentary, latched or normally open pressure switch and all
+                    associated wiring from switch to RPM.
+                </para>
+            </item>
+            <item>
+                <para>The optional PTO interlock is defaulted off; this interlock only works with International
+                    pre-engineered PTO features. If the TEM or customer has one of the International pre-engineered PTO
+                    features and needs to have this interlock turned on, this will require an additional parameter
+                    change by someone who is at least Diamond Logic&#174; Builder Level 2 or 3 certified.
+                </para>
+            </item>
+        </seqlist>
+        <para>
+            <emph type="boldundersc">HOW TO INSTALL THIS FEATURE:</emph>
+        </para>
+        <para>Software Installation:</para>
+        <seqlist style="arabic">
+            <item>
+                <para>Use Diamond Logic&#174; Builder to install Body Controller (BC) software feature code 595AKK, and
+                    set the feature code parameters to the following settings:
+                </para>
+                <seqlist>
+                    <item>
+                        <para>595AKK - Set parameter 2035 to 3. Reference feature configuration programmable
+                            parameters.
+                        </para>
+                    </item>
+                    <item>
+                        <para>595AKK - Set parameter 2158 to 3 for 12 volt input or 1 for GND input. Reference feature
+                            configuration programmable parameters.
+                        </para>
+                    </item>
+                    <item>
+                        <para>595AKK - Set parameter 2036 to on for optional PTO interlock. Reference feature
+                            configuration programmable parameters.
+                        </para>
+                    </item>
+                </seqlist>
+            </item>
+            <item>
+                <para>Use Diamond Logic&#174; Builder to remove BC software feature codes 595AKJ, 595AKL, 595AKM, and
+                    595AKN.
+                </para>
+            </item>
+            <item>
+                <para>Use Master Diagnostics to program Engine control module: PTO in-cab control: on</para>
+            </item>
+            <item>
+                <para>Use Master Diagnostics to program Engine control module: PTO in-cab mode: stationary pre-set
+                </para>
+            </item>
+            <item>
+                <para>Use Master Diagnostics to program Engine control module: PTO Power Take Off mode: remote and
+                    in-cab operation
+                </para>
+            </item>
+            <item>
+                <para>Use Master Diagnostics to program Engine control module: PTO Preset-1 RPM set (700.00 to 2800.00)
+                    (Note: this is the RPM the customer or TEM has requested)
+                </para>
+            </item>
+        </seqlist>
+        <para>
+            <emph type="boldundersc">PROGRAMMABLE PARAMETERS:</emph>
+        </para>
+        <para>1.&#9;2036 TEM_Ext_Eng_Spd_Ctrl_PTO_Ilock; This parameter sets the optional PTO interlock mode on or off.
+            If set on, the Remote engine speed control preset-1 will be interlocked to all International pre-engineered
+            PTO features that use a center panel switch. This means that the remote engine speed control will only be
+            allowed to operate if the PTO is being requested to engage. If this parameter is not set, the engine speed
+            control will operate regardless of the PTO request.
+        </para>
+        <seqlist style="alphalc">
+            <item>
+                <para>On</para>
+            </item>
+            <item>
+                <para>Off</para>
+            </item>
+        </seqlist>
+        <para>2.&#9;2035 TEM_Ext_Eng_Spd_Control_Mode; This parameter sets the mode of operation for the TEM external
+            engine speed control feature and should be set to 3.
+        </para>
+        <seqlist style="alphalc">
+            <item>
+                <para>3, Engine will ramp for only as long as the engine speed control input is held in its active
+                    state.
+                </para>
+            </item>
+        </seqlist>
+        <para>3.&#9;2158 TEM_Ext_ Eng_Spd_ Ctrl_Active_State; This is the active state for the external engine speed
+            control switch input to the RPM and should be set to 3 or 1.
+        </para>
+        <seqlist style="alphalc">
+            <item>
+                <para>3, 12 volts - The input is connected to 12 volts through a switch.</para>
+            </item>
+            <item>
+                <para>1, GND - The input is connected to GND through a switch.</para>
+            </item>
+        </seqlist>
+        <table id="t7300084">
+            <tgroup cols="8">
+                <colspec colname="col1" colwidth="1.52*"/>
+                <colspec colname="col2" colwidth="0.68*"/>
+                <colspec colname="col4" colwidth="1.68*"/>
+                <colspec colname="COLSPEC1" colwidth="0.91*"/>
+                <colspec colname="COLSPEC0" colwidth="0.81*"/>
+                <colspec colname="col5" align="center" colwidth="0.78*"/>
+                <colspec colname="col6" align="center" colwidth="0.77*"/>
+                <colspec colname="col7" align="center" colwidth="0.73*"/>
+                <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                <thead>
+                    <row>
+                        <entry colspan="8" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">Off</emph>
+                                - Indicates a 0 is set in for this parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="8" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">On</emph>
+                                - Indicates a 1 is set for the parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>Parameter</para>
+                        </entry>
+                        <entry align="center">
+                            <para>ID</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Description</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Default</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Units</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Min</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Max</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Step</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>TEM_Ext_ Eng_Spd_ Ctrl_PTO_ Ilock</para>
+                        </entry>
+                        <entry>
+                            <para>2036</para>
+                        </entry>
+                        <entry>
+                            <para>If this parameter is a one, external engine speed controls will be interlocked to PTO
+                                request.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>On/ Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Ext_ Eng_Speed_ Control_ Mode</para>
+                        </entry>
+                        <entry>
+                            <para>2035</para>
+                        </entry>
+                        <entry>
+                            <para>This parameter sets the mode of operation for the TEM external engine speed control
+                                feature.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>3</para>
+                        </entry>
+                        <entry>
+                            <para>List</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_Ext_ Eng_Spd_ Ctrl_Active_ State</para>
+                        </entry>
+                        <entry>
+                            <para>2158</para>
+                        </entry>
+                        <entry>
+                            <para>This is the active state for the external engine speed control switch.</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                        <entry>
+                            <para>List</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">HARDWARE INSTALLATION:</emph>
+        </para>
+        <seqlist style="arabic">
+            <item>
+                <para>Reference the connectors tab within Diamond Logic&#174; Builder to verify the correct RPM input
+                    pin on the black 23-pin connector. The pin is named Remote_Engine_Speed_Sw_Input.
+                </para>
+            </item>
+            <item>
+                <para>Connect an 18 gauge wire to input pin, and run this wire to one pole on the switch.</para>
+            </item>
+            <item>
+                <para>Connect the remaining switch pole to a 12 volt or GND power source.</para>
+            </item>
+            <item>
+                <para>Mount switch.</para>
+            </item>
+        </seqlist>
+        <para>Input connector part number - 2005482C1</para>
+        <para>Input terminal part number - 1698937C1</para>
+        <figure id="f73000b9" figsize="pg-wide">
+            <graphic filename="../figg08/g0832335.webp" type="webp" scalefit="1" scalefitwidth="508px"
+                     scalefitheight="352px"/>
+            <caption></caption>
+        </figure>
+        <para>
+            <emph type="boldundersc">FEATURE TESTING:</emph>
+        </para>
+        <step1>
+            <para count="1">Stationary Remote engine speed control preset-1 Activation; Start engine, set park brake,
+                transmission in neutral or park, vehicle speed is less than one MPH, and take the switch to the closed
+                position, or supply 12 volts or GND on the input pin labeled Remote_Engine_Speed_Sw_Input, or use
+                Diamond Logic&#174; Builder to force the RPM input pin to the 12 volt or GND state.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Verify the RPM input labeled Remote_Engine_Speed_Sw_Input (pin position specified Diamond
+                Logic&#174; Builder software) is receiving GND or 12 volts as long as the switch is closed.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Verify that the engine ramps to the first preset speed.</para>
+        </step1>
+        <step1>
+            <para count="1">If engine does not ramp to the first preset speed, check engine programming to verify that
+                the correct engine speed control parameters are set.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Deactivate the remote engine speed control switch (release GND).</para>
+        </step1>
+        <step1>
+            <para count="1">Verify the RPM input labeled Remote_Engine_Speed_Sw_Input (pin position specified Diamond
+                Logic&#174; Builder software) is an open circuit when switch is in the down or open position.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Verify that the engine returns to idle.</para>
+        </step1>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08323_BB60AJA.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08323_BB60AJG.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08323.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

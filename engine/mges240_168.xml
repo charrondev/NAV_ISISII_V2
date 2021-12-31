@@ -1,0 +1,606 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos para motores VT 365 (2002) - DIAGN&#211;STICOS DEL SISTEMA DE CONTROL
+        ELECTR&#211;NICO - Diagn&#243;sticos de circuitos - Sensor de la contrapresi&#243;n del escape (EBP)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="4">
+        <title>Sensor de la contrapresi&#243;n del escape (EBP)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3322" filename="../figd33/d3322.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama de la funci&#243;n del sensor de la contrapresi&#243;n del escape (EBP)</caption>
+            </figure>
+            <para>El diagrama de la funci&#243;n del EBP incluye lo siguiente:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Sensor de la contrapresi&#243;n del escape (EBP)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>Activador del turboalimentador de geometr&#237;a variable (VGT)</para>
+                </item>
+                <item>
+                    <para>Activador de recirculaci&#243;n de los gases de escape (EGR)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>
+            </para>
+            <para>El sensor de la contrapresi&#243;n del escape (EBP) es un sensor de capacitancia variable instalado en
+                la tapa de v&#225;lvulas izquierda. El ECM suministra una se&#241;al regulada de referencia de 5 V que
+                el EBP usa para producir un voltaje lineal anal&#243;gico que indica presi&#243;n. El EBP mide la
+                contrapresi&#243;n del escape para que el ECM pueda controlar el VGT y el sistema de EGR.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Operaci&#243;n del circuito del EBP</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3323" filename="../figd33/d3323.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama del circuito del EBP</caption>
+            </figure>
+            <para>El EBP recibe un voltaje de referencia de 5 V por su terminal B desde el terminal X1-14 del ECM. El
+                EBP tambi&#233;n recibe un circuito a tierra en el terminal A desde el terminal X1-6. El EBP env&#237;a
+                una se&#241;al desde el terminal C hacia el terminal X2-8 del ECM.
+            </para>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>
+            </para>
+            <para>Cuando el ECM detecta que el voltaje de la se&#241;al del EBP excede el l&#237;mite superior o
+                inferior, har&#225; que el motor ignore la se&#241;al. La v&#225;lvula de EGR se cerrar&#225; y el ECM
+                usar&#225; los valores programados en el VGT.
+            </para>
+            <para>
+                <title>C&#243;digos de falla (DTC) del EBP</title>
+            </para>
+            <para>Los DTC se leen con la herramienta electr&#243;nica de servicio (EST) o contando los destellos de las
+                luces ENGINE &#225;mbar y roja.
+            </para>
+            <verbatim id="f240dtc341">
+                <line>
+                    <emph type="bold">DTC 341</emph>
+                </line>
+                <line>
+                    <emph type="bold">Excede el l&#237;mite inferior</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 341 cuando la se&#241;al del EBP es menor de 0,039 V por m&#225;s de 0,5
+                        segundos.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 341 puede aparecer si hay una interrupci&#243;n o corto a tierra en el circuito de la
+                        se&#241;al, un sensor defectuoso o una interrupci&#243;n o corto a tierra en el circuito del V
+                        <subscript>REF</subscript>.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 341 est&#225; activo, la luz ENGINE &#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc342">
+                <line>
+                    <emph type="bold">DTC 342</emph>
+                </line>
+                <line>
+                    <emph type="bold">Excede el l&#237;mite superior</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 342 cuando la se&#241;al del EBP es mayor de 4,9 V por m&#225;s de 0,5
+                        segundos.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 342 puede aparecer si hay una interrupci&#243;n en el circuito de la se&#241;al a
+                        tierra, un corto a una fuente de voltaje en el circuito de la se&#241;al del EBP o un sensor
+                        defectuoso.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 342 est&#225; activo, la luz ENGINE &#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc344">
+                <line>
+                    <emph type="bold">DTC 344</emph>
+                </line>
+                <line>
+                    <emph type="bold">Superior a especificaciones con motor apagado</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 344 cuando la contrapresi&#243;n del escape es mayor a 130 kPa (19
+                        lb/pulg
+                        <supscript>2</supscript>) con la llave en ON y el motor apagado.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 344 puede aparecer si el EBP est&#225; tapado o si hay restricci&#243;n en el tubo que
+                        va al sensor. Para verificar estos problemas, retire el sensor y el tubo e inspecci&#243;nelos
+                        en busca de dep&#243;sitos de carb&#243;n.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 344 est&#225; activo, la luz ENGINE &#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Herramientas</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Herramienta electr&#243;nica de servicio (EST) con software Master Diagnostics</para>
+                </item>
+                <item>
+                    <para>Cable de interfaz EZ-Tech de International&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Haz de cables con 3 clavijas banana y cable de resistencia de 500 &#x2126;</para>
+                </item>
+                <item>
+                    <para>Caja de conexiones</para>
+                </item>
+                <item>
+                    <para>Haz de derivaci&#243;n</para>
+                </item>
+                <item>
+                    <para>Juego de adaptadores para probar terminales</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos operacionales del EBP</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3323" filename="../figd33/d3323.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama del circuito del EBP</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>Para evitar lesiones personales graves, posibles accidentes fatales o da&#241;os al motor o al
+                        veh&#237;culo, cumpla con las siguientes advertencias:
+                    </para>
+                    <para>Evite cualquier contacto con piezas rotativas y en movimiento (correas y ventilador) y
+                        superficies calientes del motor.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Abra la sesi&#243;n de monitorizaci&#243;n continua en la EST. Para monitorizar el
+                    voltaje de las se&#241;ales, use la prueba Continuous Monitor Test con la llave en ON y el motor
+                    apagado.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Monitorice el voltaje de la se&#241;al del EBP. Verifique la presencia de un DTC activo
+                    en el circuito del EBP.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Si el DTC est&#225; activo, haga el paso 5 y las mediciones del circuito del EBP de la
+                    tabla de la p&#225;gina siguiente.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Si el DTC est&#225; inactivo, sacuda los conectores y cables en todas las &#225;reas
+                    sospechosas. Si la continuidad de alg&#250;n circuito se interrumpe, la EST emitir&#225; un bip y
+                    mostrar&#225; los DTC relacionados con el problema.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Conecte el haz de derivaci&#243;n para sensores de presi&#243;n al cableado del motor
+                    solamente.
+                </para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Luego de sacar el conector, inspeccione en busca de pines da&#241;ados, corrosi&#243;n y
+                        terminales sueltos. Repare lo que fuera necesario.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te24007044" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.18in"/>
+                    <colspec colname="col2" colwidth="0.93in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones del circuito del EBP</emph>
+                                    (Con la EST, DMM, haz de derivaci&#243;n y cable de 500 &#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Condici&#243;n de la prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Mediciones</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor desconectado</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si el voltaje es >0,039 V, busque corto al V
+                                    <subscript>REF</subscript>
+                                    o B+ en el circuito de la se&#241;al.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Mida el voltaje con el DMM desde el pin AZUL a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5,5 V, busque corto del V
+                                    <subscript>REF</subscript>
+                                    a B+. Si el voltaje es &#60;4,5 V, revise el V
+                                    <subscript>REF</subscript>
+                                    a ver si est&#225; abierto o en corto a tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Cable de 500 &#x2126; entre pines VERDE y AZUL del haz de derivaci&#243;n.</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;4,9 V, busque interrupci&#243;n o corto a tierra en el circuito de la se&#241;al.
+                                    Saque el cable negativo de la bater&#237;a. Mida la resistencia desde el pin C a
+                                    tierra (especif. >1 k&#x2126;) a ver si hay un corto a tierra. Use la caja de
+                                    conexiones desde el pin C al pin X2-8 (especif. &#60;5 &#x2126;) a ver si el
+                                    cableado est&#225; interrumpido.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Resistencia desde el pin NEGRO del haz de derivaci&#243;n a la tierra del chasis
+                                    con el DMM.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n o alta resistencia del ECM al conector
+                                    del sensor. Mida la resistencia con la caja de conexiones desde el pin A al pin X1-6
+                                    (especif. &#60;5 &#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <step1>
+                <para count="1">Conecte el cableado del motor al sensor. Use la EST para borrar los DTC. Si despu&#233;s
+                    de revisar las condiciones de la prueba sigue apareciendo un DTC activo, sustituya el EBP.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos del EBP con los pines</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3323" filename="../figd33/d3323.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama del circuito del EBP</caption>
+            </figure>
+            <table id="te24007045" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo de la bater&#237;a
+                                        al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de voltaje en el conector</emph>
+                                    (Con la llave en ON y el sensor desconectado del cableado).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tierra de la se&#241;al (no deber&#237;a haber voltaje); si hay voltaje, busque un
+                                    corto a B+ o V
+                                    <subscript>REF</subscript>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si no, el V
+                                    <subscript>REF</subscript>
+                                    tiene una interrupci&#243;n o un corto a tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;0,25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >0,25 V, el cable de la se&#241;al est&#225; en corto al V
+                                    <subscript>REF</subscript>
+                                    o B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia del conector a la tierra del chasis
+                                    </emph>
+                                    (Con la llave en OFF. Desconecte el conector del sensor y el cable negativo de la
+                                    bater&#237;a).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el circuito.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>500 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;500 &#x2126;, busque un corto a tierra</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque un corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el cableado</emph>
+                                    (Con la caja de conexiones s&#243;lo en el cableado del motor).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 a A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cable a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-14 a B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en cable del V
+                                    <subscript>REF</subscript>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-8 a C</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cable de la se&#241;al.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007046" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="1.27in"/>
+                    <colspec colname="COLSPEC0" colwidth="1.85in"/>
+                    <spanspec namest="col1" nameend="COLSPEC0" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones operacionales del voltaje del EBP</emph>
+                                    (Con la caja de conexiones conectada al ECM y al cableado del motor).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Voltios</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>kPa (lb/pulg
+                                    <supscript>2</supscript>)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-8 a X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,8-1 V</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>0 (0)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-8 a X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>1,73 V</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>55 (8)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X2-8 a X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>2,72 V</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>124 (18)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">C&#243;digos de falla del EBP</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 341 = El voltaje de la se&#241;al fue &#60;0,039 V por m&#225;s de 0,5
+                                    segundos.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 342 = El voltaje de la se&#241;al fue >4,9 V por m&#225;s de 0,5 segundos.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 344 = La contrapresi&#243;n del escape fue >19 lb/pulg
+                                    <supscript>2</supscript>
+                                    con la llave en ON y motor apagado.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_167.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_169.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

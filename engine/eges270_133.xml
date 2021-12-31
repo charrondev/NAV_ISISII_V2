@@ -1,0 +1,440 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 570 / HT 570 Diesel Engine Diagnostic Manual - 2004 Emissions with EGR - Electronic Control
+        Systems Diagnostics - Circuit Diagnostics - CKP Sensor (Crankshaft Position)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="3">
+        <title>CKP Sensor (Crankshaft Position)</title>
+        <svcprocinfo>
+            <figure id="f27007036" figsize="pg-wide">
+                <graphic filename="../figh31/h31029.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function diagram for the CKP sensor</caption>
+            </figure>
+            <para id="s27005006">The function diagram for the CKP sensor includes the following:</para>
+            <randlist type="bullet">
+                <item>
+                    <para id="CKP">CKP sensor</para>
+                </item>
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Injector Driver Module (IDM)</para>
+                </item>
+                <item>
+                    <para>Fuel injector</para>
+                </item>
+                <item>
+                    <para>ENGINE lamp (amber)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The CKP sensor provides the ECM with a signal that indicates crankshaft speed and position. As the
+                crankshaft turns the CKP sensor detects a 60 tooth timing disk on the crankshaft. Teeth 59 and 60 are
+                missing. By comparing the CKP signal with the CMP signal, the ECM calculates engine rpm and timing
+                requirements. The CKP is installed in the top left side of the flywheel housing.
+            </para>
+            <para>The sensor produces pulses for each tooth edge that passes it. Crankshaft speed is derived from the
+                frequency of the CKP sensor signal. The crankshaft position is determined by synchronizing the SYNC
+                tooth with the SYNC gap signals from the target disk. From the CKP signal frequency, the ECM can
+                calculate engine rpm and timing requirements. Diagnostic information on the CKP input signal is obtained
+                by performing accuracy checks on frequency, and duty cycle with software strategies.
+            </para>
+            <specpara>
+                <note>
+                    <para>The long CKP sensor, used with International&#174; DT 466, DT 570, and HT 570 diesel engines,
+                        is the Camshaft Position (CMP) sensor used with other International&#174; diesel engines.
+                    </para>
+                </note>
+            </specpara>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>CKP Circuit Operation</title>
+            <figure id="f27007037" figsize="pg-wide">
+                <graphic filename="../figh31/h31061.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>CKP circuit diagram</caption>
+            </figure>
+            <para>The ECM uses the CKP and CMP signal to calculate engine speed and position. The CKP sensor provides
+                the ECM with a signal that indicates crankshaft speed and position. The CKP contains a permanent magnet
+                that creates a magnetic field. The signal is created when the timing disk rotates and breaks the
+                magnetic field created by the sensor. The ECM pins for the CKP sensor are CKP negative X1-2 and CKP
+                positive X1-1.
+            </para>
+            <specpara>
+                <note>
+                    <para>Engine will not operate without CKP signal.</para>
+                </note>
+            </specpara>
+            <para>
+                <title>Fault / Detection Management</title>
+            </para>
+            <para>An inactive CKP signal during cranking is detectable by the ECM. During engine cranking the ECM
+                monitors the CMP signal and Injection Control Pressure (ICP) to verify the engine is rotating. If the
+                CKP signal is inactive during this time a DTC will be set. Electrical noise can also be detected by the
+                ECM, if the level is sufficient to effect engine operation a corresponding DTC will be set. An inactive
+                CKP signal will cause a no start condition.
+            </para>
+            <para>
+                <title>CKP Diagnostic Trouble Codes (DTCs)</title>
+            </para>
+            <para>DTCs are read using the EST or by counting the flashes from the amber and red ENGINE lamp.</para>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 146</emph>
+                </line>
+                <line>
+                    <emph type="bold">CKP signal inactive</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 146 is set by the ECM when CKP signal is not detected while the CMP signal is active or
+                        ICP has increased.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 146 can be set due to an open short to ground or voltage source in the CKP circuit. A
+                        failed CKP sensor can also set DTC 146.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim>
+                <line>
+                    <emph type="bold">DTC 147</emph>
+                </line>
+                <line>
+                    <emph type="bold">Incorrect CKP signal signature</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>DTC 147 is set by the ECM when the CKP signal has too few or many transitions per engine
+                        rotation.
+                    </para>
+                </item>
+                <item>
+                    <para>DTC 147 can be set due to an electrical noise in the CKP circuit or a failed CKP sensor.
+                    </para>
+                </item>
+            </randlist>
+            <randlist type="bullet">
+                <title>Tools</title>
+                <item>
+                    <para>EST with MasterDiagnostics&#174; software</para>
+                </item>
+                <item>
+                    <para>EZ-Tech&#174; interface cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout Box</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>CKP Pin-Point Diagnostics</title>
+            <figure id="f27007038" figsize="pg-wide">
+                <graphic filename="../figh31/h31061.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>CKP circuit diagram</caption>
+            </figure>
+            <table id="te27007031" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.48in"/>
+                    <colspec colname="col2" colwidth="1.03in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Sensor and Circuit Resistance Check</emph>
+                                    (Check with breakout box connected [X1 only] to engine harness only and CKP sensor
+                                    connected. Disconnect chassis connector 9260
+                                    <ftnote id="f1">Connector 9260 is a 2-wire connector usually located in the battery
+                                        box. Pin A is the chassis ground connection for the ECM and IDM. Refer to truck
+                                        Chassis Electrical Circuit Diagram Manual for complete chassis side ECM and IDM
+                                        ground circuit information.</ftnote>. Inspect for bent pins or corrosion.
+                                    <emph type="bold">Note:</emph>
+                                    Set DMM to 4 k&#x2126; range.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-1 to X1-2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>800 &#x2126; to 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Resistance through sensor and complete circuit. If not within spec, do Sensor
+                                    Resistance Check. If in spec, check for short to ground or open within wiring.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-1 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>800 &#x2126; to 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Resistance through sensor and complete circuit. If not within spec, do Sensor
+                                    Resistance Check. If in spec, check for short to ground or open within wiring.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Sensor Resistance Check</emph>
+                                    (Disconnect harness from sensor.
+                                    <emph type="bold">Note:</emph>
+                                    Test point to sensor only.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>800 &#x2126; to 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If within spec, check for short to ground or open within wiring.</para>
+                                <para>If not within spec, replace sensor.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to ECM Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect harness from sensor. Disconnect chassis
+                                    connector 9260
+                                    <ftnref xrefid="f1"/>.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-1 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-2 to Pin A (9260)</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 k&#x2126;, check for open circuit within wiring harness.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid serious personal injury, possible death, or damage to the engine or
+                                        vehicle, always disconnect main negative battery cable first. Always connect the
+                                        main negative battery cable last.
+                                    </para>
+                                </warning>
+                                <para>
+                                    <emph type="bold">Connector Resistance Checks to Chassis Ground</emph>
+                                    (Turn the ignition switch to OFF. Disconnect chassis connector 9260
+                                    <ftnref xrefid="f1"/>. Disconnect negative battery cable. Disconnect harness from
+                                    sensor. Use disconnected negative battery cable for ground test point.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-1 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-2 to gnd cable</para>
+                            </entry>
+                            <entry>
+                                <para>> 500 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If &#60; 500 &#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Harness Resistance Check</emph>
+                                    (Check with breakout box connected to engine harness only. Check from ECM to sensor
+                                    harness connector.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-1 to 2</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If > 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X1-2 to 1</para>
+                            </entry>
+                            <entry>
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>If > 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te27007032" tblwidth="pg-wide" type="simple" frame="topbot">
+                <tgroup cols="5">
+                    <colspec colname="col1" colwidth="1.56in"/>
+                    <colspec colname="col2" colwidth="1.36in"/>
+                    <colspec colname="COLSPEC0" colwidth="2.99*"/>
+                    <colspec colname="COLSPEC1" colwidth="3.24*"/>
+                    <colspec colname="COLSPEC2" colwidth="3.28*"/>
+                    <spanspec namest="col1" nameend="COLSPEC2" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Operational Checks for CKP Sensor</emph>
+                                    (Check with breakout box connected to ECM and engine harness.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Engine Cranking</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>Low Idle</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>High Idle</para>
+                            </entry>
+                            <entry colname="COLSPEC2">
+                                <para>Comment</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-1 to X1-6</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>130 Hz - 225 Hz @ 130-225 rpm</para>
+                            </entry>
+                            <entry colname="COLSPEC0">
+                                <para>650-700 Hz @ 700 rpm</para>
+                            </entry>
+                            <entry colname="COLSPEC1">
+                                <para>2.80 kHZ - 3.00 kHz @ 2950 rpm</para>
+                            </entry>
+                            <entry colname="COLSPEC2">
+                                <para>Set DMM to DCmV-Hz</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <note>
+                                    <para>If the tachometer or MasterDiagnostics&#174; display no rpm signal, but both
+                                        indicate CMP and CKP sensor activity, check the engine static timing.
+                                    </para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>CKP Diagnostic Trouble Codes</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 146 = CKP signal inactive (CMP signal active and ICP increased)</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="5" spanname="SPAN1">
+                                <para>DTC 147 = Incorrect CKP signal signature</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_132.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270_134.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges270.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,345 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT 275 Engine Diagnostics Manual - Electronic Control Systems Diagnostics - Circuit Diagnostics - WIF (Water
+        In Fuel) Sensor
+    </stitle>
+    <svcman/>
+    <svcproc id="s305010706.37" svcproctype="describe" graphiccount="3">
+        <title>WIF (Water In Fuel) Sensor</title>
+        <svcprocinfo id="s305010706.37.1">
+            <figure id="f3050107175" figsize="pg-wide">
+                <graphic filename="../figj31/j31232.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Functional diagram for the WIF</caption>
+            </figure>
+            <para id="s305010706.34.1.1"></para>
+            <table id="t3050107351" type="simple" frame="topbot">
+                <title>The functional diagram for the WIF includes the following:</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Water In Fuel (WIF) sensor</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Electronic Control Module (ECM)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>Amber lamp (Water In Fuel (WIF) for CF)</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>CAN1</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Function</title>The WIF sensor is used to detect water in the fuel system and is located in the
+                Horizontal Fuel Conditioning Module (HFCM). The WIF sensor is monitored by the ECM. If the ECM detects
+                water for more than 5 seconds, the ECM will send a CAN1 message to the instrument panel turning on the
+                WIF indicator lamp. To drain the HFCM water separator See "
+                <hotlnk document="eges3052_74.xml" xrefid="s305010402.11.2.1">Drain Water from HFCM</hotlnk>
+                " in the "
+                <hotlnk document="eges3052_E3050104.xml" xrefid="e3050104">Engine Symptoms Diagnostics</hotlnk>
+                " section of this manual.
+            </para>
+        </svcprocinfo>
+        <svcsubproc id="s305010706.37.2">
+            <title>WIF Circuit Operation</title>
+            <figure id="f3050107176" figsize="pg-wide">
+                <graphic filename="../figj31/j31233.webp" type="webp" scalefit="1" scalefitwidth="392px"/>
+                <caption>WIF circuit diagram</caption>
+            </figure>
+            <para>VIGN is supplied to Pin 2. If water is present in fuel, the water completes the circuit between the
+                two probes on the sensor. This provides voltage to Pin 1 which the ECM monitors at Pin X3-1.
+            </para>
+            <para>
+                <title>Fault Detection/Management</title>There are no specific Diagnostic Trouble Codes (DTCs) related
+                to the wiring or Output Circuit Check (OCC) for the WIF.
+            </para>
+            <para>
+                <title>WIF DTCs</title>None active
+            </para>
+            <para>The WIF circuit requires the use of vehicle circuit diagrams. See the applicable truck Circuit Diagram
+                Manualfor circuit numbers, connector and fuse locations.
+            </para>
+            <table id="t3050107352" type="simple" frame="topbot">
+                <title>Tools</title>
+                <tgroup cols="1">
+                    <colspec colname="col1"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EST with MasterDiagnostics&#174; software</para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry>
+                                <para>EZ-Tech&#174; interface cable</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="s305010706.37.3">
+            <title>WIF Operational Diagnostics</title>
+            <figure id="f3050107177" figsize="col-wide">
+                <graphic filename="../figj31/j31181.webp" type="webp" scalefit="1" scalefitwidth="248px"
+                         scalefitheight="312px"/>
+                <caption>Road performance session</caption>
+            </figure>
+            <step1>
+                <para count="1">Select D_RoadPerformance_V6.ssn from the Open Session File window, select Open to
+                    monitor engine operation.
+                </para>
+            </step1>
+            <specpara>
+                <warning>
+                    <para>To avoid personal injury, keep away from the door edge when cab is up and the door is open.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Monitor WIF Parameter Identifier (PID) (YES/NO).</para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>The WIF PID will read YES if there is water in the fuel filter housing (HFCM) or if the WIF
+                        signal circuit is shorted high.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">If PID is reading YES and there is no water in the fuel filter housing (HFCM), complete
+                    with next step and do circuit check for the WIF sensor in the following tables.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If the WIF lamp comes on intermittently, wiggle connectors and wires at all suspected
+                    problem locations while looking at PID.
+                </para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>After removing connector, inspect for damaged pins, corrosion, or loose terminals. Repair as
+                        required.
+                    </para>
+                </note>
+            </specpara>
+            <table id="t3050107353" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Voltage Checks - WIF</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.18in"/>
+                    <colspec colname="col2" colwidth="0.93in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Follow test is order. Check with WIF sensor disconnected, ignition switch to ON,
+                                    and the engine off.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 0.5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is present, check WIF circuits for short to power.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>B+</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If voltage is below specification, check for an open in the VIGN circuit.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc id="s305010706.37.4">
+            <title>WIF Pin-Point Diagnostics</title>
+            <table id="t3050107354" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks - Sensor to Ground</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.50in"/>
+                    <colspec colname="col2" colwidth="1.75in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect harness from sensor. Disconnect negative
+                                    battery cable.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>2 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for short to ground</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="t3050107355" tblwidth="pg-wide" type="simple" frame="topbot">
+                <title>Harness Resistance Checks</title>
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.50in"/>
+                    <colspec colname="col2" colwidth="1.75in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>To avoid personal injury, death, including damage to the engine or vehicle,
+                                        always disconnect main negative battery cable first. Always connect the main
+                                        negative battery cable last.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>Turn ignition switch to OFF. Disconnect negative battery cable and sensor. Connect
+                                    Breakout Box X3 to chassis harness only.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-1 to 1</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60; 5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If greater than 5 &#x2126;, check for open circuit.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-1 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>> 1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If less than 1 k&#x2126;, check for short to ground.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_162.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052_E3050108.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges3052.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

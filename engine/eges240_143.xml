@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>VT-365 Diesel Engine Diagnostics (2002) - ELECTRONIC CONTROL SYSTEMS DIAGNOSTICS - Circuit Diagnostics -
+        Engine Crank Inhibit (ECI) System
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="2">
+        <title>Engine Crank Inhibit (ECI) System</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3349" filename="../figd33/d3349.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Function Diagram for Engine Crank Inhibit (ECI) System</caption>
+            </figure>
+            <para>The Function Diagram for the ECI system consists of the following.</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Control Module (ECM)</para>
+                </item>
+                <item>
+                    <para>Starter</para>
+                </item>
+                <item>
+                    <para>Starter relay</para>
+                </item>
+                <item>
+                    <para>World Transmission Electronically Controlled (WTEC)</para>
+                </item>
+                <item>
+                    <para>Neutral Start Backup Switch (NSBU)</para>
+                </item>
+                <item>
+                    <para>Driveline Disengagement Switch (DDS)</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Function</title>
+            </para>
+            <para>The Engine Crank Inhibit (ECI) is a function of the ECM to control the operation of the cranking
+                motor. The ECM prevents engagement of the cranking motor when the engine is running. This prevents
+                damage to the starter pinion and ring gear. The transmission neutral safety switch or clutch switch
+                prevents engagement of the cranking motor when the transmission is in gear or when the clutch pedal is
+                not depressed.
+            </para>
+            <para>The engine starter relay controls battery voltage to the crank motor solenoid. The starter relay can
+                also be controlled by an optional over crank thermocouple.
+            </para>
+            <para>
+                <title>Operation</title>
+            </para>
+            <para>The ECM controls the starting system. The clutch switch or transmission neutral switch provide input
+                to the ECM. Both switches prevent the cranking motor from being engaged unless the transmission is in
+                neutral or the clutch is depressed.
+            </para>
+            <para>
+                <title>Start Relay</title>
+            </para>
+            <para>The engine starter relay controls voltage to the starter motor. Turning the ignition key to start
+                position supplies current to energize the relay at terminal 86. If the engine is not running and the
+                driveline is not engaged, the ECM terminal X3-23 will enable the relay by suppling a ground circuit to
+                terminal 85 of the relay. When the relay is closed, current passes through the relay to the terminals on
+                the cranking motor solenoid.
+            </para>
+            <para>Before troubleshooting, inspect circuit connectors for loose or damaged terminals or wires. Wires and
+                connections must be free of damage or corrosion. When connectors corrode, a white residue will be
+                present and must be removed. Make sure the batteries are fully charged. To ensure accurate readings,
+                check battery cables and grounds for clean and tight connections.
+            </para>
+            <para>
+                <title>Clutch Switch</title>
+            </para>
+            <para>Manual transmissions use the clutch switch to supply a signal to the ECM indicating that the driveline
+                is disengaged. A 12V signal on the Driveline Disengagement Switch (DDS) circuit indicates that the
+                clutch is disengaged. A 0V signal indicates that the clutch is engaged.
+            </para>
+            <para>
+                <title>Neutral Switch</title>
+            </para>
+            <para>Allison LCT transmissions use the neutral position switch to supply power to the starter relay and a
+                signal to the ECM that the driveline is disengaged. Vehicles programmed for Allison AT/MT transmissions
+                receive a 12V signal on the DDS circuit indicating that the transmission is out of gear. A 0V signal
+                indicates that the transmission is in gear. When the transmission is in gear no power is available to
+                the ECI relay.
+            </para>
+            <para>
+                <title>WTEC MD with Auto Neutral</title>
+            </para>
+            <para>Allison MD World Transmission Electronically Controlled (WTEC) transmissions (with optional Auto
+                Neutral) have a crank inhibit system with an additional relay. The relay inhibits cranking when the
+                transmission is in auto neutral. Pin 6 of the transmission ECU controls 12V to pin 86 of the starter
+                relay. Pin X3-8 of the ECM receives 12V from the WTEC Auto Neutral relay when the transmission is
+                shifted to neutral or auto neutral. Without the additional relay, the DDS input (pin X3-8) allows
+                cranking in auto neutral.
+            </para>
+            <para>
+                <title>Electronic Control Module (ECM)</title>
+            </para>
+            <para>When the ECM recognizes that the engine is not running and the driveline is not engaged, the ECM will
+                ground terminal X3-23. This provides a current path for the ECI relay to close when the Start switch is
+                engaged or the starter button is depressed.
+            </para>
+            <para>When the ECM recognizes that the engine is running or the driveline is engaged, the ECM will open
+                terminal X3-23. This prevents the ECI relay from closing and the starter motor from engaging.
+            </para>
+            <para>
+                <title>Fault Detection / Management</title>
+            </para>
+            <para>When the on demand Engine ON standard test is run, an open or short to ground can be detected on the
+                coil side of the ECI relay.
+            </para>
+            <para>
+                <title>Tools</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Electronic Service Tool (EST) with Master Diagnostics software</para>
+                </item>
+                <item>
+                    <para>International&#174; EZ-Tech Interface Cable</para>
+                </item>
+                <item>
+                    <para>Digital Multimeter (DMM)</para>
+                </item>
+                <item>
+                    <para>Breakout box</para>
+                </item>
+                <item>
+                    <para>Harness - 3-Banana plug and 500 ohm</para>
+                </item>
+                <item>
+                    <para>Relay breakout harness</para>
+                </item>
+            </randlist>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>ECI Circuit Diagnostics</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3350" filename="../figd33/d3350.webp" type="webp" scalefit="1" scalefitwidth="502px"/>
+                <caption>ECI Circuit Diagram</caption>
+            </figure>
+            <para>The ECI circuit requires the use of vehicle circuit diagrams. See truck Chassis Electrical Circuit
+                Diagram manual for circuit numbers, connector and fuse locations.
+            </para>
+            <table id="te24007035" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">ECI Relay Voltage Checks</emph>
+                                    (Turn ignition key ON. Check with ECI relay removed.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>86 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177;1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Check with relay unplugged and starter switch (key or button) engaged. If no
+                                    voltage present, troubleshoot ignition crank circuit.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177; 1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If no voltage is present, troubleshoot battery wiring.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>85 to gnd</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4 to 5V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>ECM will pull circuit up to 4V to 5V with key ON and go to 0V when the clutch is
+                                    depressed or transmission is in neutral.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <specpara>
+                <warning>
+                    <para>To prevent serious personal injury, possible death, or damage to the engine or vehicle -
+                        comply with the following;
+                    </para>
+                    <para>When running the engine in the service bay, make sure the parking brake is set, the
+                        transmission is in neutral, and the wheels are blocked.
+                    </para>
+                </warning>
+            </specpara>
+            <para>ECI Circuit Test - With the transmission out of gear and the clutch depressed with wheels safely
+                blocked, insert a harness between socket pins 86 and 87 of the starter relay. If the engine cranks when
+                the start switch is engaged, check for failed ECI relay or problems with the ECM or ECM wiring harness.
+            </para>
+            <table id="te24007036" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">ECI Chassis Circuit Checks</emph>
+                                    (Check with ECI relay installed and breakout box connected.)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Test Point</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Spec</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-8 to X3-7</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0V or 12V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Manual Trans - 12V with clutch pedal down, 0V clutch pedal up.</para>
+                                <para>Auto Trans - 12V with trans in neutral, 0V trans in gear.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1" morerows="2">
+                                <para>X3-23 to X3-7</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12V &#177; 1.5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>If no voltage is present, troubleshoot battery wiring.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0-0.6V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>At crank with clutch down or auto trans in neutral, if ECM PIN X3-8 is at 12V and
+                                    PIN X3-23 is not at 0-0.6V, check ECM programming. Cranking allowed. See truck
+                                    Electrical System Troubleshooting Guide
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>4-5V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Pull up voltage from ECM with Key ON Engine OFF or Running: trans in gear or
+                                    clutch up.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">ECI Diagnostic Trouble Code</emph>
+                                </para>
+                                <para id="f240dtc267">DTC 267 ECI Output Circuit Check self test failed</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_142.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240_144.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

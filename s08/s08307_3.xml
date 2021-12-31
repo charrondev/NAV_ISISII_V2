@@ -1,0 +1,575 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>CF 500, CF 600 - Electrical - Speed Control - Diagnosis and Testing</stitle>
+    <svcsection/>
+    <svcproc svcproctype="test" graphiccount="12">
+        <title>Diagnosis and Testing</title>
+        <svcprocinfo>
+            <para>Refer to Wiring Diagrams, Speed Control for schematic and connector information.</para>
+            <table id="t1003002">
+                <title>Special Tools</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.16*"/>
+                    <colspec colname="col2" colwidth="0.84*"/>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <graphic filename="../figST1/ST1137A.webp" type="webp" scalefit="1" scalefitwidth="152px"
+                                         scalefitheight="112px"/>
+                            </entry>
+                            <entry>
+                                <para>Automotive Meter</para>
+                                <para>ZTSE4357</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <graphic filename="../figEZT/EZTech.webp" type="webp" scalefit="1" scalefitwidth="152px"
+                                         scalefitheight="112px"/>
+                            </entry>
+                            <entry>
+                                <para>EZ-Tech III</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Principles of Operation</title>
+            <para>
+                <emph type="bold">Speed Control</emph>
+            </para>
+            <para>Pressing the CRUISE/RPM switch turns the speed control system on. Pressing and releasing the SET -
+                switch while the vehicle is traveling at the desired speed activates the speed control system.
+            </para>
+            <para>Tapping the RESUME +/SET - switch while in the set mode respectively, increases or decreases the
+                maintained vehicle speed by 1.6 km/h (1 mph) per tap. If the respective button is pressed and held, the
+                vehicle speed continues to accelerate or decelerate until the button is released.
+            </para>
+            <para>Pressing the CRUISE/RPM switch, or turning the ignition switch to the OFF position, turns the speed
+                control system off. Applying the brake puts the speed control system into the STANDBY mode. Pressing the
+                RESUME + button, when the speed control system is in the STANDBY mode causes the vehicle to accelerate
+                to the last set speed. Resume does not function if the OFF button is pressed, the ignition switch is in
+                the OFF position or if the current vehicle speed is below the minimum operational speed, 48 km/h (30
+                mph).
+            </para>
+            <specpara>
+                <note>
+                    <para>When the brake pedal is applied, an electrical signal on circuit 2233 (OR-YL) from the brake
+                        switch to the ECM deactivates the system.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Inspection and Verification</title>
+            <step1>
+                <para count="1">Verify the customer concern.</para>
+            </step1>
+            <step1>
+                <para count="1">Visually inspect for obvious signs of mechanical and electrical damage.</para>
+            </step1>
+            <step1>
+                <para count="1">If an obvious cause for an observed or reported concern is found, correct the cause (if
+                    possible) before proceeding to the next step.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Verify the speedometer operates correctly without speed control by test driving the
+                    vehicle. If the speedometer does not operate correctly, refer to
+                    <hotlnk document="s08307_X4130029.xml" xrefid="x4130029">Instrument Cluster</hotlnk>.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Verify the brake lamps are operating correctly. If the brake lamps are not operating
+                    correctly, refer to
+                    <hotlnk document="s08307_X4170126.xml" xrefid="x4170126">Exterior Lighting</hotlnk>.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">If the cause is not visually evident, connect the diagnostic tool to the data link
+                    connector (DLC) and carry out the diagnostic tool data link test. The ECM monitors the speed control
+                    system for proper voltages and sets DTC 221 if incorrect.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Pinpoint Tests</title>
+            <table id="t1105052" tblwidth="pg-wide">
+                <title>PINPOINT TEST A: DTC 221 THE SPEED CONTROL IS INOPERATIVE</title>
+                <tgroup cols="2">
+                    <colspec colname="col1" colwidth="1.14*"/>
+                    <colspec colname="col2" colwidth="0.86*"/>
+                    <thead>
+                        <row>
+                            <entry align="center">
+                                <para>Test Step</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Result / Action to Take</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A1 CHECK FOR DTCS</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Review the recorded DTCs from the engine control module (ECM) self-test.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Are any ECM DTCs recorded with DTC 221?</emph>
+                                        </para>
+                                    </item>
+                                </randlist>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>Refer to EGES-305, Engine Diagnostics Manual and the ECM Diagnostic Trouble Code
+                                    (DTC) Index.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>GO to A2.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A2 CHECK CIRCUIT 298 (VT/OG) AT THE CRUISE/RPM SWITCH FOR AN
+                                        OPEN
+                                    </emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Remove the CRUISE/RPM switch and the RESUME +/SET - switch from the
+                                            instrument panel. For additional information, refer to Speed Control Switch
+                                            in this section.
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            CRUISE/RPM Switch C2178
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage between CRUISE/RPM switch C2178 pin 4, circuit 298
+                                            (VT/OG), harness side and ground.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0024642.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="128px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage greater than 10 volts?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to A3.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>Verify the power distribution center (PDC) fuse F46 is OK, REPAIR circuit 298
+                                    (VT/OG). CLEAR the DTCs. REPEAT the self-test.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A3 CHECK CIRCUIT 248 (TN-OR) AT THE RESUME +/SET - SWITCH FOR AN
+                                        OPEN
+                                    </emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            Resume +/Set - Switch C2177
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage between RESUME +/SET - switch C2177 pin D, circuit
+                                            248C (TN-OR), harness side and ground.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0024643.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="128px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage greater than 10 volts?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>Go to A4.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>Verify the power distribution center (PDC) fuse F46 is OK, REPAIR circuit 248
+                                    (TN-OR). CLEAR the DTCs. REPEAT the self-test.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A4 CHECK CIRCUIT 248 (TN/OG) FOR A SHORT TO VOLTAGE</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            ECM C175a
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage between CRUISE/RPM switch C2178 pin 3, circuit 248B
+                                            (TN/OG), harness side and ground.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0024644.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage less than 0.2 volt?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to A5.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 248 (TN/OG). CLEAR the DTCs. REPEAT the self-test.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A5 CHECK CIRCUIT 248 (TN/OG) FOR AN OPEN</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between ECM C175a pin 6, circuit 248 (TN/OG),
+                                            harness side and CRUISE/RPM switch C2178 pin 3, circuit 248 (TN/OG), harness
+                                            side.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0024645.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 0.5 ohm?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to A6.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 248 (TN/OG). CLEAR the DTCs. REPEAT the self-test.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A6 CHECK CIRCUIT 5133 (WH) FOR A SHORT TO VOLTAGE</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Disconnect:</emph>
+                                            ECM C175b
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage between RESUME +/SET - switch C2177 pin B, circuit
+                                            5133 (WH), harness side and ground.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0024646.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage less than 0.2 volt?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to A7.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 5133 (WH). CLEAR the DTCs. REPEAT the self-test.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A7 CHECK CIRCUIT 133 (BK) FOR A SHORT TO VOLTAGE</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the voltage between RESUME +/SET - switch C2177 pin H, circuit 133
+                                            (BK), harness side and ground.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0024647.webp" type="webp" scalefit="1" scalefitwidth="232px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage less than 0.2 volt?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to A8.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 133 (BK). CLEAR the DTCs. REPEAT the self-test.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A8 CHECK CIRCUIT 5133 (WH) FOR AN OPEN</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the resistance between RESUME +/SET - switch C2177 pin B, circuit
+                                            5133 (WH), harness side and ECM C175b pin 21, circuit 5133 (WH), harness
+                                            side.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0024648.webp" type="webp" scalefit="1" scalefitwidth="256px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 0.5 ohm?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to A9.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 5133 (WH). CLEAR the DTCs. REPEAT the self-test.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A9 CHECK CIRCUIT 133 (BK) FOR AN OPEN</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Measure the resistance between RESUME +/SET - switch C2177 pin H, circuit
+                                            133 (BK), harness side and ECM C175b pin 14, circuit 133 (BK), harness side.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0024649.webp" type="webp" scalefit="1" scalefitwidth="256px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the resistance less than 0.5 ohm?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to A10.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPAIR circuit 133 (BK). CLEAR the DTCs. REPEAT the self-test.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A10 CHECK THE CRUISE/RPM SWITCH</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Connect:</emph>
+                                            CRUISE/RPM Switch C2178
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>Measure the voltage between CRUISE/RPM switch C2178 pin 3, circuit 248B
+                                            (TN/OG), back probe and ground.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0024650.webp" type="webp" scalefit="1" scalefitwidth="256px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Is the voltage greater than 10 volts?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>GO to A11.</para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>REPLACE the CRUISE/RPM switch. CLEAR the DTCs. REPEAT the self-test.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>
+                                    <emph type="bold">A11 CHECK THE RESUME +/SET - SWITCH</emph>
+                                </para>
+                                <randlist type="bullet">
+                                    <item>
+                                        <para>Key in OFF position.</para>
+                                    </item>
+                                    <item>
+                                        <para>
+                                            <emph type="bold">Connect:</emph>
+                                            RESUME +/SET - Switch C2177
+                                        </para>
+                                    </item>
+                                    <item>
+                                        <para>Key in ON position.</para>
+                                    </item>
+                                    <item>
+                                        <para>While depressing the RESUME + switch, measure the voltage between RESUME
+                                            +/SET - switch C2177 pin B, circuit 5133 (WH), back probe, and ground; and
+                                            while depressing the SET - switch, measure the voltage between RESUME +/SET
+                                            - switch C2177 pin H, circuit 133 (BK), back probe, and ground.
+                                        </para>
+                                    </item>
+                                </randlist>
+                                <graphic filename="../fign00/n0024651.webp" type="webp" scalefit="1" scalefitwidth="256px"
+                                         scalefitheight="152px"/>
+                                <para>
+                                    <emph type="bold">Are the voltages greater than 10 volts?</emph>
+                                </para>
+                            </entry>
+                            <entry>
+                                <para>
+                                    <emph type="bold">Yes</emph>
+                                </para>
+                                <para>INSTALL a new ECM. REFER to the Engine Operation and Maintenance Manual. CLEAR the
+                                    DTCs. REPEAT the self-test.
+                                </para>
+                                <para></para>
+                                <para>
+                                    <emph type="bold">No</emph>
+                                </para>
+                                <para>INSTALL a new CRUISE/RPM switch or RESUME +/SET - switch. CLEAR the DTCs. REPEAT
+                                    the self-test.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08307_2.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08307_4.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08307.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

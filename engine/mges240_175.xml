@@ -1,0 +1,934 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos para motores VT 365 (2002) - DIAGN&#211;STICOS DEL SISTEMA DE CONTROL
+        ELECTR&#211;NICO - Diagn&#243;sticos de circuitos - Suministro de energ&#237;a del m&#243;dulo impulsor de los
+        inyectores (IDM PWR)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="5">
+        <title>Suministro de energ&#237;a del m&#243;dulo impulsor de los inyectores (IDM PWR)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3326" filename="../figd33/d3326.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama de la funci&#243;n del suministro de energ&#237;a del m&#243;dulo impulsor de los
+                    inyectores (IDM PWR)
+                </caption>
+            </figure>
+            <para>El diagrama de la funci&#243;n del IDM PWR incluye lo siguiente:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>M&#243;dulo impulsor de los inyectores (IDM)</para>
+                </item>
+                <item>
+                    <para>Rel&#233; del m&#243;dulo impulsor de los inyectores</para>
+                </item>
+                <item>
+                    <para>Bater&#237;a</para>
+                </item>
+                <item>
+                    <para>Interruptor de encendido</para>
+                </item>
+                <item>
+                    <para>Fusibles</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>
+            </para>
+            <para>El m&#243;dulo impulsor de los inyectores (IDM) requiere una fuente de energ&#237;a de 12 V. El IDM
+                recibe energ&#237;a desde las bater&#237;as del veh&#237;culo, a trav&#233;s de los contactos del rel&#233;
+                del IDM, cada vez que el interruptor de encendido se pone en ON. Al poner la llave de encendido en ON,
+                el IDM provee una tierra interna al lado de la bobina del rel&#233;. Esto cierra los contactos del rel&#233;
+                y proporciona al IDM con la energ&#237;a necesaria.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Operaci&#243;n del circuito IDM PWR</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3327" filename="../figd33/d3327.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama del circuito IDM PWR</caption>
+            </figure>
+            <para>El IDM est&#225; conectado a tierra directamente al terminal negativo de la bater&#237;a a trav&#233;s
+                de sus terminales X3-1, X3-2, X3-3, X3-22 y X3-26.
+            </para>
+            <para>El IDM recibe V
+                <subscript>IGN</subscript>
+                por el terminal X3-7. La energ&#237;a instruye al IDM que provea un trayecto a tierra para conmutar el
+                rel&#233; de energ&#237;a del IDM desde el terminal X3-27 a 85. La conmutaci&#243;n del rel&#233;
+                proporciona energ&#237;a directamente desde el terminal positivo de la bater&#237;a a trav&#233;s de un
+                fusible y los contactos del rel&#233; 30 y 87 hacia los terminales X3-4, X3-23, X3-24 y X3-25. Tambi&#233;n
+                se suministra energ&#237;a al terminal X3-8 para la l&#243;gica del IDM, que est&#225; protegida por un
+                fusible. Refi&#233;rase al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n
+                sobre los n&#250;meros de los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+            </para>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>
+            </para>
+            <para>El IDM monitoriza internamente el voltaje desde la bater&#237;a. Cuando el IDM recibe continuamente
+                menos de 7 V o m&#225;s de 16 V, aparecer&#225; un DTC.
+            </para>
+            <para>
+                <title>C&#243;digos de falla (DTC) del IDM PWR</title>
+            </para>
+            <para>Los DTC se leen con la herramienta electr&#243;nica de servicio (EST) o contando los destellos de las
+                luces ENGINE &#225;mbar y roja.
+            </para>
+            <verbatim id="f240dtc525">
+                <line>
+                    <emph type="bold">DTC 525</emph>
+                </line>
+                <line>
+                    <emph type="bold">Falla del IDM</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 525 cuando hay una falla interna en el IDM. Cuando aparece el DTC 525,
+                        sustituya el IDM.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 525 est&#225; activo, la luz ENGINE &#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc523">
+                <line>
+                    <emph type="bold">DTC 523</emph>
+                </line>
+                <line>
+                    <emph type="bold">El V
+                        <subscript>IGN</subscript>
+                        del IDM es bajo
+                    </emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 523 cuando el voltaje desde V
+                        <subscript>IGN</subscript>
+                        es menor a 7 V.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 523 puede aparecer debido a una mala conexi&#243;n entre el terminal X3-7 del IDM y el
+                        V
+                        <subscript>IGN</subscript>.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc533">
+                <line>
+                    <emph type="bold">DTC 533</emph>
+                </line>
+                <line>
+                    <emph type="bold">Voltaje del rel&#233; del IDM es alto</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 533 cuando el voltaje desde el rel&#233; de energ&#237;a del IDM excede
+                        de 16 V.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 533 puede aparecer debido a que el alternador est&#225; generando 16 V o m&#225;s. El
+                        DTC 533 tambi&#233;n puede aparecer cuando se auxilia con cables para arrancar un motor o hay
+                        conexiones externas mal hechas a la bater&#237;a.
+                    </para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc534">
+                <line>
+                    <emph type="bold">DTC 534</emph>
+                </line>
+                <line>
+                    <emph type="bold">Voltaje del rel&#233; del IDM es bajo</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 534 cuando el voltaje desde el rel&#233; de energ&#237;a del IDM es menor
+                        a 7 V.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 534 puede aparecer si el alternador o el rel&#233; de energ&#237;a del IDM est&#225;n
+                        defectuosos, las bater&#237;as est&#225;n descargadas o aument&#243; la resistencia en los
+                        circuitos de suministro de las bater&#237;as.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <title>Herramientas</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Herramienta electr&#243;nica de servicio (EST) con software Master Diagnostics</para>
+                </item>
+                <item>
+                    <para>Cable de interfaz EZ-Tech de International&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Haz de derivaci&#243;n de 12 pines</para>
+                </item>
+                <item>
+                    <para>Caja de conexiones</para>
+                </item>
+                <item>
+                    <para>Juego de adaptadores para probar terminales</para>
+                </item>
+                <item>
+                    <para>Haz de derivaci&#243;n para rel&#233;s</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos del IDM PWR con los pines</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3327" filename="../figd33/d3327.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama del circuito IDM PWR</caption>
+            </figure>
+            <para>El circuito IDM PWR requiere que se usen los diagramas de circuitos del veh&#237;culo. Refi&#233;rase
+                al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n sobre los n&#250;meros
+                de los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+            </para>
+            <table id="te24007065" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.47in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>Para no causar da&#241;os al motor, ponga la llave en OFF antes de desconectar
+                                        el conector o el rel&#233; del IDM. No poner la llave en OFF provocar&#225; un
+                                        sobrevoltaje y da&#241;ar&#225; componentes el&#233;ctricos.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de voltaje en el enchufe receptor del rel&#233; de
+                                        energ&#237;a del IDM - Con la llave en ON y el motor apagado
+                                    </emph>
+                                    (Haga las pruebas en orden. Rel&#233; del IDM y haz de derivaciones conectados,
+                                    llave en ON y motor apagado. SI las mediciones concuerdan con las especificaciones,
+                                    siga con las mediciones de voltaje con el haz de derivaci&#243;n de 12 pines).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>86 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltaje constante. Si no hay voltaje, revise los circuitos de energ&#237;a desde
+                                    las bater&#237;as o el fusible. Si el fusible est&#225; quemado, busque un corto a
+                                    tierra. Si el fusible est&#225; en buen estado, busque una interrupci&#243;n entre
+                                    el pin 86 y B+. Refi&#233;rase al manual Diagrama de circuitos el&#233;ctricos del
+                                    chasis para informaci&#243;n sobre los n&#250;meros de los circuitos y la ubicaci&#243;n
+                                    de los conectores y fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>30 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltaje constante. Si no hay voltaje, revise los circuitos de energ&#237;a desde
+                                    las bater&#237;as o el fusible. Si el fusible est&#225; quemado, busque un corto a
+                                    tierra. Si el fusible est&#225; en buen estado, busque una interrupci&#243;n entre
+                                    el pin 30 y B+. Refi&#233;rase al manual Diagrama de circuitos el&#233;ctricos del
+                                    chasis para informaci&#243;n sobre los n&#250;meros de los circuitos y la ubicaci&#243;n
+                                    de los conectores y fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>85 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,06-2 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >2 V, busque interrupci&#243;n en el circuito entre el pin X3-27 del IDM y el
+                                    pin 85 del rel&#233; o el circuito del V
+                                    <subscript>IGN</subscript>
+                                    - siga con mediciones de voltaje con el haz de derivaci&#243;n de 12 pines.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>87 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Voltaje constante. Si no hay voltaje, cambie el rel&#233;.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>
+                <title>Haz de derivaci&#243;n de 12 pines</title>
+            </para>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3327" filename="../figd33/d3327.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama del circuito IDM PWR</caption>
+            </figure>
+            <table id="te24007066" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.53in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>Para no causar da&#241;os al motor, ponga la llave en OFF antes de desconectar
+                                        el conector o el rel&#233; del IDM. No poner la llave en OFF provocar&#225; un
+                                        sobrevoltaje y da&#241;ar&#225; componentes el&#233;ctricos.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Llave en ON y motor apagado - Mediciones de voltaje en el conector
+                                        de 12 pines
+                                    </emph>
+                                    (Con el haz de derivaci&#243;n enchufado al conector de 12 pines, el rel&#233; del
+                                    IDM instalado, la llave en ON y el motor apagado. Haga las pruebas en orden.
+                                    Inspeccione en busca de pines doblados y corrosi&#243;n).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>9 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a del interruptor de encendido al IDM. Si no hay voltaje, refi&#233;rase
+                                    al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n
+                                    sobre n&#250;meros de circuitos y la ubicaci&#243;n de conectores y fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>8 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0,06-2 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>IDM MPR - Conector de 12 pines. Si >2 V, busque interrupci&#243;n en el circuito
+                                    entre el pin X3-27 del IDM al pin 8.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>12 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a del IDM desde el pin 87 del rel&#233;. Si no hay voltaje, busque
+                                    interrupci&#243;n o corto a tierra desde el pin 12 al pin 87 del rel&#233;.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>6 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a para l&#243;gica del IDM desde el pin 87 del rel&#233; con fusible.
+                                    Si el fusible est&#225; quemado, busque un corto a tierra. Si el fusible est&#225;
+                                    en buen estado, busque interrupci&#243;n en el circuito entre el fusible y el pin 6.
+                                    Refi&#233;rase al manual Diagrama de circuitos el&#233;ctricos del chasis para
+                                    informaci&#243;n sobre los n&#250;meros de los circuitos y la ubicaci&#243;n de los
+                                    conectores y fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>1 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tierra - medici&#243;n del voltaje indica mala conexi&#243;n a la tierra de la
+                                    bater&#237;a. Si hay voltaje, busque interrupci&#243;n o alta resistencia entre la
+                                    bater&#237;a (-) y los pines del IDM.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007067" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="1.53in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>Para no causar da&#241;os al motor, ponga la llave en OFF antes de desconectar
+                                        el conector o el rel&#233; del IDM. No poner la llave en OFF provocar&#225; un
+                                        sobrevoltaje y da&#241;ar&#225; componentes el&#233;ctricos.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Llave en ON y motor apagado - Mediciones de voltaje en el IDM
+                                    </emph>
+                                    (Con el rel&#233; del IDM instalado. Desenchufe el conector X3 del IDM. Ponga a
+                                    tierra el terminal X3-27 con un pin de prueba y haz de cables para activar el rel&#233;
+                                    y mida en el conector del cableado. Inspeccione en busca de pines doblados y corrosi&#243;n).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-7 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a del interruptor de encendido al IDM. Si no hay voltaje, refi&#233;rase
+                                    al manual Diagrama de circuitos el&#233;ctricos del chasis.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-1 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tierra - medici&#243;n del voltaje indica mala conexi&#243;n a la tierra de la
+                                    bater&#237;a. Consulte el manual Diagrama de los circuitos el&#233;ctricos del
+                                    chasis.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-2 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tierra - medici&#243;n del voltaje indica mala conexi&#243;n a la tierra de la
+                                    bater&#237;a. Consulte el manual Diagrama de los circuitos el&#233;ctricos del
+                                    chasis.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>X3-3 a tierra</para>
+                            </entry>
+                            <entry>
+                                <para>0 V</para>
+                            </entry>
+                            <entry>
+                                <para>Tierra - medici&#243;n del voltaje indica mala conexi&#243;n a la tierra de la
+                                    bater&#237;a. Consulte el manual Diagrama de los circuitos el&#233;ctricos del
+                                    chasis.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-22 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tierra - medici&#243;n del voltaje indica mala conexi&#243;n a la tierra de la
+                                    bater&#237;a. Consulte el manual Diagrama de los circuitos el&#233;ctricos del
+                                    chasis.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-26 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tierra - medici&#243;n del voltaje indica mala conexi&#243;n a la tierra de la
+                                    bater&#237;a. Consulte el manual Diagrama de los circuitos el&#233;ctricos del
+                                    chasis.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-27 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>El IDM conecta a tierra el rel&#233; a trav&#233;s de un transistor interno.
+                                    Espere 0 V con X3-27 puesto a tierra. Si hay voltaje, revise el pin de prueba y el
+                                    puente.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-8 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a desde el rel&#233; al IDM. Si no hay voltaje, revise los fusibles. Si
+                                    un fusible est&#225; quemado, busque un corto a tierra. Si los fusibles est&#225;n
+                                    en buen estado, busque interrupci&#243;n en el circuito entre el pin 87 y X3-8. Refi&#233;rase
+                                    al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n
+                                    sobre los n&#250;meros de los circuitos y la ubicaci&#243;n de los conectores y
+                                    fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-4 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a desde el rel&#233; al IDM. Si no hay voltaje, busque interrupci&#243;n
+                                    entre X3-4 y 87 en el rel&#233; del IDM. Refi&#233;rase al manual Diagrama de
+                                    circuitos el&#233;ctricos del chasis para informaci&#243;n sobre los n&#250;meros de
+                                    los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-23 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a desde el rel&#233; al IDM. Si no hay voltaje, busque interrupci&#243;n
+                                    entre X3-23 y 87 en el rel&#233; del IDM. Refi&#233;rase al manual Diagrama de
+                                    circuitos el&#233;ctricos del chasis para informaci&#243;n sobre los n&#250;meros de
+                                    los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-24 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a desde el rel&#233; al IDM. Si no hay voltaje, busque interrupci&#243;n
+                                    entre X3-24 y 87 en el rel&#233; del IDM. Refi&#233;rase al manual Diagrama de
+                                    circuitos el&#233;ctricos del chasis para informaci&#243;n sobre los n&#250;meros de
+                                    los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-25 a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>12 V &#177;1,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Energ&#237;a desde el rel&#233; al IDM. Si no hay voltaje, busque interrupci&#243;n
+                                    entre X3-25 y 87 en el rel&#233; del IDM. Refi&#233;rase al manual Diagrama de
+                                    circuitos el&#233;ctricos del chasis para informaci&#243;n sobre los n&#250;meros de
+                                    los circuitos y la ubicaci&#243;n de los conectores y fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3327" filename="../figd33/d3327.webp" type="webp" scalefit="1" scalefitwidth="472px"/>
+                <caption>Diagrama del circuito IDM PWR</caption>
+            </figure>
+            <table id="te24007068" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.11in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo de la bater&#237;a
+                                        al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <caution>
+                                    <para>Para no causar da&#241;os al motor, ponga la llave en OFF antes de desconectar
+                                        el conector o el rel&#233; del IDM. No poner la llave en OFF provocar&#225; un
+                                        sobrevoltaje y da&#241;ar&#225; componentes el&#233;ctricos.
+                                    </para>
+                                </caution>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el cableado</emph>
+                                    (Con la llave en OFF. Desconecte el cable negativo de la bater&#237;a y el cableado
+                                    X3 del IDM. El conector del cableado del IDM est&#225; numerado en el extremo de
+                                    conexi&#243;n).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Punto de prueba</emph>
+                                    (IDM a cable neg bat)
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-1 al cable negativo</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3" morerows="4">
+                                <para>Si >5 &#x2126;, revise la conexi&#243;n a la tierra de la bater&#237;a. Refi&#233;rase
+                                    al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n
+                                    sobre los n&#250;meros de los circuitos y la ubicaci&#243;n de los conectores y
+                                    fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-2 al cable negativo</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-3 al cable negativo</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-22 al cable negativo</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-26 al cable negativo</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>
+                                    <emph type="bold">Punto de prueba</emph>
+                                    (IDM al rel&#233;)
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-4 a 87</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3" morerows="3">
+                                <para>Si >5 &#x2126;, revise la conexi&#243;n entre el IDM y el rel&#233;. Refi&#233;rase
+                                    al manual Diagrama de circuitos el&#233;ctricos del chasis para informaci&#243;n
+                                    sobre los n&#250;meros de los circuitos y la ubicaci&#243;n de los conectores y
+                                    fusibles.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-23 a 87</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-24 a 87</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-25 a 87</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>-</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-8 a 87</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, revise la conexi&#243;n entre el IDM, el fusible y el rel&#233;.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-27 a 85</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, revise la conexi&#243;n entre el IDM y el rel&#233;.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X3-7 a V
+                                    <subscript>IGN</subscript>
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, refi&#233;rase al manual Diagrama de circuitos el&#233;ctricos del
+                                    chasis para informaci&#243;n sobre n&#250;meros de circuitos y la ubicaci&#243;n de
+                                    conectores y fusibles. Revise las conexiones del circuito.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">C&#243;digos de falla (DTC) del IDM PWR</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 525 = Falla del IDM.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 523 = El V
+                                    <subscript>IGN</subscript>
+                                    del IDM es bajo.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 533 = Voltaje del rel&#233; del IDM es alto.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>DTC 534 = Voltaje del rel&#233; del IDM es bajo.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_174.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_176.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

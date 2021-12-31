@@ -1,0 +1,421 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - (EDL) ENGINE DATA LINE WITH ALLISON AT/MT TRANSMISSION
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450321" svcproctype="proctype" graphiccount="8">
+        <title>(EDL) ENGINE DATA LINE WITH ALLISON AT/MT TRANSMISSION</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef1450392">Figure 3.68 (EDL) Engine Data LIne With Allison AT/MT Transmission</hotlnk>
+            </para>
+            <figure id="ef1450392" figsize="col-wide">
+                <graphic id="eg6012" filename="../figeg6/eg6012.webp" type="webp"/>
+                <caption>Figure 3.68 (EDL) Engine Data LIne With Allison AT/MT Transmission</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>CIRCUIT FUNCTIONS</title>
+            <para>The Electronic Control Module is programmed with two shift schedules: The Closed Throttle Mode and the
+                Wide Open Throttle Mode.
+            </para>
+            <step1>
+                <para count="1">The Closed Throttle Mode is for situations with moderate engine load. ECM terminal 32
+                    will be Low (0 volts). This energizes the relay, turning off power to the solenoid, causing the
+                    transmission to shift at approximately 65% of engine load.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">The Wide Open Throttle Mode is for heavy load situations. ECM terminal 32 will be High
+                    (12 volts). This de-energizes the relay causing 12 volts to be applied to the solenoid. In this
+                    mode, the ECM has shift schedules that occur at 80% of engine load.
+                </para>
+            </step1>
+            <para>When the engine is operating at less than the load shift point, ignition voltage is not applied to the
+                shift solenoid. When the ECM commands a shift, the relay coil ground is opened by the ECM, which
+                de-energizes the relay, turning ON the power to the shift solenoid, causing it to shift.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION</title>
+            <para>The Prolink EST is used to initiate the KOEO Output Circuit Tests. This will test the enabling circuit
+                between the key switch, through the relay coil and circuit to ECM terminal 32. If an open or short (high
+                or low) is found in this circuit,
+                <emph type="bold">Flash Code 244</emph>
+                will be set.
+            </para>
+            <para>Note that the test does not check relay function or the circuit to the shift solenoid.</para>
+            <para>
+                <hotlnk xrefid="ef1450393">Figure 3.69 (EDL) Engine Data LIne With Allison AT/MT Transmission
+                    Diagnostics
+                </hotlnk>
+            </para>
+            <figure id="ef1450393" figsize="col-wide">
+                <graphic id="eg6013" filename="../figeg6/eg6013.webp" type="webp"/>
+                <caption>Figure 3.69 (EDL) Engine Data LIne With Allison AT/MT Transmission Diagnostics</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Check fuse F2 and either test relay (refer to Testing Relay on page
+                        <hotlnk document="e145_HL1450322.xml" xrefid="ef14503a3"></hotlnk>) or substitute known good
+                        relay and check vehicle shift operation before testing circuits.
+                    </para>
+                </note>
+            </specpara>
+            <para>Connector Checks To Chassis Ground</para>
+            <para>Connector (403) - Check connector with relay removed and key ON</para>
+            <table id="et1450316">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>#1 to Grd.</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, 0 v check for open/short to ground or blown
+                                    fuse
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>#2 to Grd.</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, 0 v check for open/short to ground or blown
+                                    fuse
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>#2 to #3</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>>10.0 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.0 v check circuit connections, 0 v check for open in circuit 92C or
+                                    92-G or defective solenoid.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>#1 to #5</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, 0 v check for open in circuit 97F.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <para>Connector (403) - Check with breakout box installed and relay removed from (403) and key ON.</para>
+            <para>Use Prolink EST to intiate Output State Test and set outputs HIGH (refer to SECTION 5 for</para>
+            <para>performing Output State Test).</para>
+            <table id="et1450317">
+                <tgroup cols="3">
+                    <colspec colname="1" colwidth="72p"/>
+                    <colspec colname="2" colwidth="90p"/>
+                    <colspec colname="3" colwidth="306p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>Breakout box #32 to Grd.</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; 12 1.5 volts the ECM is defective</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>At (403) terminal 5 to Grd.</para>
+                            </entry>
+                            <entry colname="2">
+                                <para>12 1.5 volts</para>
+                            </entry>
+                            <entry colname="3">
+                                <para>&#60; than 10.5 v check connections, 0 v check for open/short to ground in circuit
+                                    97F.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="et1450318">
+                <tgroup cols="1">
+                    <colspec colname="1" colwidth="432p"/>
+                    <thead>
+                        <row>
+                            <entry colname="1">
+                                <para>Fault Code Descriptions</para>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry colname="1">
+                                <para>244 = Output circuit check performed during Engine Off test detected high or low
+                                    resistance in EDL relay coil circuit.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>EXTENDED DESCRIPTION</title>
+            <para>Engine Data Line (EDL) output from the ECM controls the Transmission Modulator Shift Solenoid Control
+                Relay (403), which in turn controls the Transmission Modulator Shift Solenoid (404).
+            </para>
+            <para>The ECM is programmed with two shift schedules: Closed Throttle Mode and Wide Open Throttle Mode. The
+                Closed Throttle Mode schedule for a transmission is for situations with a moderate engine load. The
+                transmission will shift at approximately 65 percent of engine load. The Wide Open Throttle Mode shift
+                schedule has shift points that occur at 80 percent of engine load. This provides increased power in
+                heavy load situations for passing or faster acceleration.
+            </para>
+            <para>The ECM analyzes engine operating data and determines which mode is most appropriate for current
+                operation. The physical Allison transmission uses EDL output from ECM connector (379) terminal 32 to
+                select the most appropriate shift schedule depending upon engine loads.
+            </para>
+            <para>Refer to the circuit diagram
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450394">3.70</hotlnk>
+                </emph>
+                for the following discussion.
+            </para>
+            <para>When ECM terminal 32 is LOW (0 volts), the transmission operates in the Closed Throttle Mode (normal
+                shift schedule). When ECM terminal 32 is HIGH (12 volts), the transmission operates in the Wide Open
+                Throttle Mode.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Wide Open Throttle Mode Operation</title>
+            <para>In the Wide Open Throttle Mode, ECM terminal 32 is HIGH (12 volts) and the XMSN Shift Modulator (404)
+                is energized. The Transmission Modulator Shift Solenoid Control Relay (403) receives ignition power at
+                common terminal 30 and control coil terminal 86. When ECM terminal 32 is HIGH (12 volts), circuits 97F
+                and 92E have 12V so the relay (403) does not energize. The ignition power on circuit 92B goes through
+                the normally closed (N.C.) contacts (30 to 87A) to the Transmission Modulator Shift Solenoid (404),
+                causing the shift solenoid to energize.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Closed Throttle Mode Operation</title>
+            <para>In the Closed Throttle Mode, ECM terminal 32 is LOW (0 volts) and Transmission Shift Modulator (404)
+                is not energized. When ECM terminal 32 is LOW (0 volts), circuit 97F grounds the Modulator Shift Control
+                Relay control coil causing the relay to energize, opening the normally closed (N.C.) contacts (30 to
+                87A) in relay (403), TURNING OFF the power to the Transmission Modulator Shift Solenoid (404), which is
+                de-energized.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM DIAGNOSTICS</title>
+            <para>The ECM does not continuously monitor the EDL circuits. To check these circuits use the Prolink EST to
+                perform the KOEO - Output Circuit Checks (OCC).
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 244</title>
+            <para>
+                <title>ATA CODE SID 248 FMI 11</title>
+            </para>
+            <para>
+                <title>ECM: EDL OCC Fault</title>
+            </para>
+            <para>The OCC Test checks the Relay Control Coil circuits 97F, 92D, 92E and the relay control coil for opens
+                or shorts (high or low). If a defect is noted, Flash Code 244 will be set. The Engine Warning light does
+                not turn ON.
+            </para>
+            <para>Note that the ECM diagnostics DO NOT check the actual operation of the Modulator Shift Solenoid
+                Control relay (403) or the Modulator Shift Solenoid (404). The ECM diagnostics also do not check
+                circuits 92B, 92C or 92-G. For these reasons, it is possible for the Allison AT/MT transmission
+                Modulator Shift Solenoid not to function, without a fault code. Testing Modulator Shift Control Circuits
+                located in TROUBLESHOOTING
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450395">3.71</hotlnk>
+                </emph>
+                include tests for these circuits.
+            </para>
+            <para>If Flash code 244 is active or the transmission shift modulator does not operate properly, go to
+                Troubleshooting
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450395">3.71</hotlnk>.
+                </emph>
+            </para>
+            <figure id="ef1450394" figsize="col-wide">
+                <graphic id="eg6014" filename="../figeg6/eg6014.webp" type="webp"/>
+                <caption>Figure 3.70 Circuit Diagram</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>TROUBLESHOOTING</title>
+            <para></para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Before Troubleshooting</title>
+            <step1>
+                <para count="1">Before troubleshooting, make sure that the batteries are fully charged! Check battery
+                    cables and grounds for clean, tight connections free from damage. The voltage tests will give
+                    misleading readings if the batteries are not fully charged.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting, inspect connectors for pushed back, loose or damaged (spread or
+                    bent) terminals, or wires with cut strands etc. Wires and connections must be free of damage or
+                    corrosion. When some connectors corrode, a light white residue will be present that must be removed.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Before troubleshooting, inspect the suspect circuit grounds for clean, tight connections
+                    free of any damage.
+                </para>
+                <figure id="ef1450395" figsize="col-wide">
+                    <graphic id="eg6015" filename="../figeg6/eg6015.webp" type="webp"/>
+                    <caption>Figure 3.71 Diagnosing EDL Circuits</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>* - Refer to Figure
+                            <hotlnk xrefid="ef1450396">3.72</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <specpara>
+                    <note>
+                        <para>** - Refer to Figure
+                            <hotlnk xrefid="ef1450399">3.74</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <specpara>
+                    <note>
+                        <para>*** - Refer to Figure
+                            <hotlnk xrefid="ef1450397">3.73</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <figure id="ef1450396" figsize="col-wide">
+                    <graphic id="eg6016" filename="../figeg6/eg6016.webp" type="webp"/>
+                    <caption>Figure 3.72 Testing Voltage At Modulator Shift Solenoid</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>* - Refer to Figure
+                            <hotlnk xrefid="ef1450394">3.70</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <specpara>
+                    <note>
+                        <para>** - Refer to Figure
+                            <hotlnk xrefid="ef1450397">3.73</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <specpara>
+                    <note>
+                        <para>*** - Installed by Allison.</para>
+                    </note>
+                </specpara>
+                <figure id="ef1450397" figsize="col-wide">
+                    <graphic id="eg6017" filename="../figeg6/eg6017.webp" type="webp"/>
+                    <caption>Figure 3.73 Testing Modulator Solenoid Relay Circuits</caption>
+                </figure>
+                <specpara>
+                    <note>
+                        <para>* - Refer to circuit diagram Figure
+                            <hotlnk xrefid="ef1450394">3.70</hotlnk>.
+                        </para>
+                    </note>
+                </specpara>
+                <para>
+                    <hotlnk xrefid="ef1450398">Figure 3.73a Testing Modulator Solenoid Relay Circuits (Continued)
+                    </hotlnk>
+                </para>
+                <figure id="ef1450398" figsize="col-wide">
+                    <graphic id="eg6018" filename="../figeg6/eg6018.webp" type="webp"/>
+                    <caption>Figure 3.73a Testing Modulator Solenoid Relay Circuits (Continued)</caption>
+                </figure>
+                <figure id="ef1450399" figsize="col-wide">
+                    <graphic id="eg6019" filename="../figeg6/eg6019.webp" type="webp"/>
+                    <caption>Figure 3.74 Testing Relay</caption>
+                </figure>
+            </step1>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450320.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450322.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

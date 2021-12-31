@@ -1,0 +1,531 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - VEHICLE PERSONALITY MODULE
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450337" svcproctype="proctype" graphiccount="2">
+        <title>VEHICLE PERSONALITY MODULE</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef14503h8">Figure 3.153 Vehicle Personality Module</hotlnk>
+            </para>
+            <figure id="ef14503h8" figsize="col-wide">
+                <graphic id="eg6090" filename="../figeg6/eg6090.webp" type="webp"/>
+                <caption>Figure 3.153 Vehicle Personality Module</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>CIRCUIT FUNCTIONS</title>
+            <para>The VPM (Vehicle Personality Module serves four major functions.</para>
+            <para>Programming</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Provides the factory the ability to set Engine Ratings and Horsepower.</para>
+                </item>
+                <item>
+                    <para>Accommodates field re-programming for changes to - tire size, rear axle, transmission changes
+                        etc.
+                    </para>
+                </item>
+                <item>
+                    <para>Enables and allows adjustment to "Customer Features" such as cruise control set points, road
+                        speed limiting, PTO speeds.
+                    </para>
+                </item>
+            </randlist>
+            <para>Diagnostics fault retrieval and command of special operator on-demand tests.</para>
+            <para>With the use of an EST (Electronic Service Tool) the VPM will allow for:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Retrieval of continuous fault codes set in either the IDM, ECM and VPM.</para>
+                </item>
+                <item>
+                    <para>Command of special diagnostic tests such as injector tests, engine running tests, output state
+                        and wiggle tests.
+                    </para>
+                </item>
+                <item>
+                    <para>Display of engine and vehicle PID's (parameters) on a real time basis. (eg. coolant
+                        temperature, engine speed, cruise control switch position,etc.)
+                    </para>
+                </item>
+            </randlist>
+            <para>Stores accumulated values/logs engine events</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Vehicle Miles/Hours/Fuel used</para>
+                </item>
+                <item>
+                    <para>Logs engine events such as over heat, low oil pressure and over speed conditions.</para>
+                </item>
+            </randlist>
+            <para>Drives dash tachometer and speedometer</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Receives inputs from the ECM and TACH sensor.</para>
+                </item>
+                <item>
+                    <para>Buffers signals and drives instrument panel TACH and Speedometer gauges</para>
+                </item>
+                <item>
+                    <para>Communicates vehicle speed to the ECM.</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION MANAGEMENT</title>
+            <para>The VPM has the ability to detect internal fault conditions such as incorrect programming, not ever
+                being programmed, wrong configuration of ECM and VPM, corrupted memory and lost memory situations.
+            </para>
+            <para>External fault conditions, such as loss of DCL/ATA communication, VSS and KAM (Keep Alive Power)
+                circuit faults are covered in previous sections of this manual.
+            </para>
+            <para>Management of a VPM detected fault will vary with the severity of the fault. The more severe faults
+                will only allow the vehicle to operate in field defaults which will curtail horsepower (normally the
+                lowest horsepower rating available in that engine family) and disable customer features, less severe
+                faults will only log a code.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>PROGRAMMING AND SOFTWARE FAULTS</title>
+            <para>
+                <title>Flash Code 613</title>
+            </para>
+            <para>
+                <title>ATA CODE SID 252 FMI 1</title>
+            </para>
+            <para>
+                <title>VPM: VPM/ECM SW MISMATCH</title>
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 614</title>
+            <para>
+                <title>ATA CODE SID 252 FMI 13</title>
+            </para>
+            <para>
+                <title>ECM: ECM/VPM SW MISMATCH</title>
+            </para>
+            <para>Codes 613 and 614 will only occur when the VPM or ECM has been
+                <emph type="bold">changed in the field</emph>. At start-up, the ECM compares software versions in the
+                VPM and ECM. If the versions are not compatible, codes 613 or 614 and 622 will be set. Code 622
+                indicates Field Defaults are being used and turns ON the Engine Warning Light.
+            </para>
+            <para>If codes 613 and 614 are active:</para>
+            <step1>
+                <para count="1">The ECM and VPM must be software compatible. Whichever component (ECM or VPM) was
+                    recently replaced is not the correct part number (has software version that is not compatible with
+                    the component (ECM or VPM) that was not changed). Determine correct part number and install.
+                </para>
+                <para>The component having the most recent software configuration date sets the code (613 or 614).
+                </para>
+                <para>Example: If the VPM is replaced and the replacement VPM software version is of a later date than
+                    the ECM software in the vehicle, the fault code (613) will indicate that the ECM software is not
+                    compatible with the VPM.
+                </para>
+                <para>Example: If the replacement VPM installed had a software date older than the ECM software, the
+                    fault code (614) would indicate that the VPM software is not compatible with the ECM.
+                </para>
+            </step1>
+            <para>
+                <title>Flash Code 615</title>
+            </para>
+            <para>
+                <title>ATA CODE SID 254 FMI 13</title>
+            </para>
+            <para>
+                <title>ECM: PROGRAMMABLE PARAMETER KAM CORRUPT MEMORY</title>
+            </para>
+            <para>At start-up, the ECM performs tests on the KAM memory, where programmable parameter information will
+                be stored when retrieved from the VPM. If the KAM memory test fails (bad memory or corrupt data), then
+                Flash code 615 will be set. The engine will operate on Field defaults turning ON the Engine Warning
+                Light and setting code 622. If the condition causing code 615 to set is intermittent, and the condition
+                is no longer present, the code will change to inactive status and the engine will operate normally.
+            </para>
+            <para>Flash Code 615 can also be caused by no or low power to KAM memory at ECM terminal 1 which could cause
+                code 224 to be set.
+            </para>
+            <para>If code 615 is active:</para>
+            <para>1. Refer to SECTION 3: KEEP ALIVE MEMORY CIRCUIT.</para>
+            <step1>
+                <para count="1"></para>
+                <step2>
+                    <para count="1">If a defect is found in KAM Feed Circuit, correct defect.</para>
+                </step2>
+                <step2>
+                    <para count="1">If power is present to ECM terminal 1, and code 615 is active, attempt to clear code
+                        615. If code 615 continues to be set, replace the ECM.
+                    </para>
+                </step2>
+            </step1>
+            <para>
+                <title>Flash Code 621</title>
+            </para>
+            <para>
+                <title>ATA CODE SID 253 FMI 1</title>
+            </para>
+            <para>
+                <title>ECM: ECM USING MANUFACTURING DEFAULTS</title>
+            </para>
+            <para>
+                <emph type="bold">SYMPTOM:</emph>Engine operates, but limited to 25 HP rating and Engine Warn Light is
+                ON.
+            </para>
+            <para>If the VPM is not programmed at the factory OR an unprogrammed VPM is installed in the field, then the
+                ECM will select parameter values from the Manufacturing Default list. This list will provide only
+                limited engine horsepower (25 HP). If the condition that caused code 621 to set is intermittent, and the
+                condition is no longer present, the code will change to inactive status and the engine will operate
+                normally.
+            </para>
+            <para>If code 621 is active:</para>
+            <step1>
+                <para count="1"></para>
+                <step2>
+                    <para count="1">Program the VPM using established programming procedures included in the Prolink
+                        Manual.
+                    </para>
+                </step2>
+            </step1>
+            <para>
+                <title>Flash Code 622</title>
+            </para>
+            <para>
+                <title>ATA CODE SID253 FMI 0</title>
+            </para>
+            <para>
+                <title>ECM: ECM USING FIELD DEFAULTS</title>
+            </para>
+            <para>
+                <emph type="bold">SYMPTOM:</emph>Engine Warning Light ON, customer options disabled (cruise control
+                etc.) and the engine is limited to 160 HP.
+            </para>
+            <para>When the vehicle is not operating under normal operating conditions, the ECM uses either partial or
+                full field default values stored in ECM memory, instead of programmed values that are stored in VPM
+                memory. When the ECM is using Full Field Default values, code 622 is set. If the condition causing the
+                ECM to operate using field defaults is intermittent, and the condition is no longer present, code 622
+                will become inactive and normal engine operation will resume.
+            </para>
+            <para>Code 622 is an indicator that field defaults are being used. Other codes cause code 622 to be set. The
+                other codes identify the condition that caused the ECM to use field defaults.
+            </para>
+            <para>If, for any reason, the ECM is unable to download parameter values from the VPM or the parameter
+                values received from the VPM are not valid, then the ECM selects full or partial Field Default parameter
+                values. The Field Default parameter values are stored in the ECM. If no data is available from the VPM,
+                full field defaults are used. If only certain data is corrupt, then partial field defaults may be used.
+            </para>
+            <para>If code 622 is active:</para>
+            <step1>
+                <para count="1">Review other logged codes. The specific values that the ECM is unable to download and/or
+                    reason for the communication failure must be determined and corrected. When corrected, the ECM will
+                    not use the field default mode of operation.
+                </para>
+            </step1>
+            <para>
+                <title>Flash Code 623</title>
+            </para>
+            <para>
+                <title>ATA CODE SID 253 FMI 13</title>
+            </para>
+            <para>
+                <title>ECM: INVALID EFRC</title>
+            </para>
+            <para>This code indicates that the ECM requested, and was unable to get valid Engine Family Rating codes
+                from the VPM. If this occurs, the code 623 is set and the engine operates on Field Defaults causing code
+                622 to be set. If the condition causing code 623 to set is intermittent, and the condition is no longer
+                present, code 623 will become inactive and normal engine operation will resume.
+            </para>
+            <para>If code 623 is active, reprogram the VPM with the proper engine family data.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VPM FUEL/HOUR METER AND ODOMETER FAULTS</title>
+            <para>
+                <hotlnk xrefid="ef14503h9">Figure 3.154 Vehicle Personality Module</hotlnk>
+            </para>
+            <figure id="ef14503h9" figsize="col-wide">
+                <graphic id="eg6091" filename="../figeg6/eg6091.webp" type="webp"/>
+                <caption>Figure 3.154 Vehicle Personality Module</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>DESCRIPTION</title>
+            <para>The VPM (Vehicle Personality Module) records total engine hours (to 999,999 hours), total vehicle
+                miles (to 9,999,999 miles) and total fuel used (to 9,999,999 gallons). While the vehicle is operating,
+                the information is temporarily stored and every 30 minutes the information (new total hours, miles and
+                gallons) is written to EEPROM memory locations in the VPM as new totals.
+            </para>
+            <para>The accumulator totals (engine hours, vehicle miles and total fuel used) can be read using the Prolink
+                EST. Accumulator information may be useful for maintenance purposes.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VPM DIAGNOSTICS</title>
+            <para>If the VPM attempts to write the latest total (for any of the three totals) to one of eight EEPROM
+                locations in the VPM and the memory location is defective, then the VPM sets Flash Code (634, 635 or
+                641) and selects another memory location to store the information. Flash Code 645 may also be set.
+            </para>
+            <para>If the VPM can't find a serviceable memory location to write the data, then Flash Code 642, 643 or 644
+                will be set.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 634</title>
+            <para>
+                <title>ATA CODE PID 250 FMI 2</title>
+            </para>
+            <para>
+                <title>VPM: FUELMETER MEMORY LOCATION ERROR</title>
+            </para>
+            <para>Flash code 634 indicates the first attempt to write the fuel totals encountered a defective memory
+                location. The fuel totals logged may be inaccurate although the error will not be more than 1/2 hour use
+                of fuel.
+            </para>
+            <para>If the fuelmeter totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+                <emph type="bold">The next read/write error will result in all of the fuel meter data being lost</emph>.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 635</title>
+            <para>
+                <title>ATA CODE PID 247 FMI 2</title>
+            </para>
+            <para>
+                <title>VPM: Hourmeter Memory Location Error</title>
+            </para>
+            <para>Flash code 635 indicates the first attempt to write the engine hour totals encountered a defective
+                memory location. The engine totals logged may be inaccurate although the error will not be more than an
+                hour.
+            </para>
+            <para>If the hourmeter totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+                <emph type="bold">The next read/write error will result in the hourmeter data being lost</emph>.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 641</title>
+            <para>
+                <title>ATA CODE PID 245 FMI 2</title>
+            </para>
+            <para>
+                <title>VPM: Odometer Memory Location Error</title>
+            </para>
+            <para>Flash code 641 indicates the first attempt to write the vehicle total miles encountered a defective
+                memory location. The total vehicle miles logged may be inaccurate, although the error will not be more
+                than 30 miles.
+            </para>
+            <para>If the odometer totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+                <emph type="bold">The next read/write error will result in the odometer data being lost</emph>.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 642</title>
+            <para>
+                <title>ATA CODE PID 250 FMI 12</title>
+            </para>
+            <para>
+                <title>VPM: Faulty Fuelmeter</title>
+            </para>
+            <para>Flash code 642 indicates the write cycle of the EEPROM memory locations in the VPM have been exceeded.
+                The fuelmeter totals have been lost.
+            </para>
+            <para>If the fuelmeter totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 643</title>
+            <para>
+                <title>ATA CODE PID 247 FMI 12</title>
+            </para>
+            <para>
+                <title>VPM: Faulty Hourmeter</title>
+            </para>
+            <para>Flash code 643 indicates the write cycle of the EEPROM memory locations in the VPM have been exceeded.
+                The hourmeter totals have been lost.
+            </para>
+            <para>If the hourmeter totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 644</title>
+            <para>
+                <title>ATA CODE PID 245 FMI 12</title>
+            </para>
+            <para>
+                <title>VPM: Faulty Odometer</title>
+            </para>
+            <para>Flash code 644 indicates the write cycle of the EEPROM memory locations in the VPM have been exceeded.
+                The Odometer totals have been lost.
+            </para>
+            <para>If the odometer totals are used for vehicle maintenance or otherwise essential to vehicle operation,
+                the VPM should be replaced.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VPM MEMORY FAULTS</title>
+            <para></para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 645</title>
+            <para>
+                <title>ATA CODE SID 253 FMI 7</title>
+            </para>
+            <para>
+                <title>VPM: Raw EEPROM Memory Location Error</title>
+            </para>
+            <para>Code 645 requires no action. Flash code 645 indicates an error was detected during a read or write
+                attempt at one of the EEPROM memory locations in the VPM. The code is informational and will be logged
+                as an inactive code. Code 645 will be logged along with another code which specifies what system or
+                feature is affected.
+            </para>
+            <para>If the error was in the VPM accumulators (total miles, fuel used or engine hour totals) a 634, 635,
+                641, 642, 643 or 645 will be logged.
+                <emph type="bold">Refer to VPM Fuel Meter, Hour Meter and Odometer in this section for a discussion of
+                    these codes.
+                </emph>
+            </para>
+            <para>If the EEPROM memory location failure was storing information from one of the data lists stored in the
+                VPM (Short List, High Priority List or Low Priority List), one of several fault codes (223, 235, 623,
+                624, 633, 651, 652, or 653) discussed in this section would be set because corrupt data would be read by
+                the ECM. If for example, the ECM attempted to read the Short List and the data was bad, Flash Code 653
+                would be set.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 651</title>
+            <para>
+                <title>ATA CODE SID 253 FMI 10</title>
+            </para>
+            <para>
+                <title>VPM: FEATURE MEMORY LIST CORRUPTED</title>
+            </para>
+            <para>If the VPM detects an error with the Feature List, code 651 will be set.</para>
+            <para>
+                <emph type="bold">SYMPTOMS:</emph>Engine runs on partial defaults, but Engine Warning Light is not
+                turned on. Vehicle features such as cruise control, remote PTO and optional engine protection system are
+                disabled.
+            </para>
+            <para>If code 651 is active:</para>
+            <step1>
+                <para count="1">Recycle the VPM. With the key ON, pull fuse F4 (H1 with FBC) and then reinstall the
+                    fuse.
+                </para>
+                <step2>
+                    <para count="1">If code 651 is inactive, end the test.</para>
+                </step2>
+                <step2>
+                    <para count="1">If code 651 still is active after resetting the VPM, reprogram the VPM.</para>
+                </step2>
+                <step2>
+                    <para count="1">If code 651 still is active after reprogramming the VPM, replace the VPM.</para>
+                </step2>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 652</title>
+            <para>
+                <title>ATA CODE SID 253 FMI 2</title>
+            </para>
+            <para>
+                <title>VPM: ENGINE/FUEL MEMORY LIST CORRUPTED</title>
+            </para>
+            <para>
+                <emph type="bold">SYMPTOMS:</emph>Engine runs on field defaults, setting code 622 and Engine Warning
+                Light is turned ON.
+            </para>
+            <para>This code can be set if the VPM detects an error in the engine-fuel list.</para>
+            <para>If code 652 is active:</para>
+            <step1>
+                <para count="1">Recycle the VPM. With the key ON, pull fuse F4 (H1 with FBC) and then reinstall the
+                    fuse.
+                </para>
+                <step2>
+                    <para count="1">If code 652 is inactive, end test.</para>
+                </step2>
+                <step2>
+                    <para count="1">If code 652 is still active, replace the VPM.</para>
+                </step2>
+            </step1>
+            <para>
+                <title>Flash Code 653</title>
+            </para>
+            <para>
+                <title>ATA CODE SID 253 FMI 12</title>
+            </para>
+            <para>
+                <title>VPM: ENGINE RATING MEMORY LIST CORRUPTED</title>
+            </para>
+            <para>
+                <emph type="bold">SYMPTOMS:</emph>Engine runs on field defaults, with Engine Warning Light turned ON.
+            </para>
+            <para>This code can be set if the VPM detects an error in the engine rating list.</para>
+            <para>If code 653 is active:</para>
+            <step1>
+                <para count="1">Recycle the VPM. With the key ON pull fuse F4 (H1 with FBC) and then reinstall the
+                    fuse.
+                </para>
+                <step2>
+                    <para count="1">If code 653 is inactive, end test.</para>
+                </step2>
+                <step2>
+                    <para count="1">If code 653 is still active, replace the VPM.</para>
+                </step2>
+            </step1>
+            <para>
+                <title>Flash Code 654</title>
+            </para>
+            <para>
+                <title>ATA CODE SID 252 FMI 12</title>
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>VPM: WATCHDOG TIME-OUT FAULT</title>
+            <para>If a VPM software fault is detected, code 654 will be set, then the VPM will reset. The driver will
+                likely not notice the reset, but the code will be logged as an inactive code following the reset for
+                informational purposes.
+            </para>
+            <para>If code 621 is active:</para>
+            <step1>
+                <para count="1"></para>
+                <step2>
+                    <para count="1">Program the VPM using established programming procedures included in the Prolink
+                        Manual.
+                    </para>
+                </step2>
+            </step1>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450336.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450338.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

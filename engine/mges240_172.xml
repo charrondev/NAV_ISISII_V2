@@ -1,0 +1,668 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxslspanish.xsl"?>
+<isis lang="es">
+    <stitle>Spanish - Manual de diagn&#243;sticos para motores VT 365 (2002) - DIAGN&#211;STICOS DEL SISTEMA DE CONTROL
+        ELECTR&#211;NICO - Diagn&#243;sticos de circuitos - Sensor de la presi&#243;n de control de inyecci&#243;n (ICP)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="describe" graphiccount="4">
+        <title>Sensor de la presi&#243;n de control de inyecci&#243;n (ICP)</title>
+        <svcprocinfo>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3309" filename="../figd33/d3309.webp" type="webp" scalefit="1" scalefitwidth="432px"
+                         scalefitheight="592px"/>
+                <caption>Diagrama de la funci&#243;n del sensor de la presi&#243;n de control de inyecci&#243;n (ICP)
+                </caption>
+            </figure>
+            <para>El diagrama de la funci&#243;n del ICP incluye lo siguiente:</para>
+            <randlist type="bullet">
+                <item>
+                    <para>Sensor de la presi&#243;n de control de inyecci&#243;n (ICP)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo de control electr&#243;nico (ECM)</para>
+                </item>
+                <item>
+                    <para>M&#243;dulo impulsor de los inyectores (IDM)</para>
+                </item>
+                <item>
+                    <para>Inyector de combustible</para>
+                </item>
+                <item>
+                    <para>Regulador de la presi&#243;n de inyecci&#243;n (IPR)</para>
+                </item>
+                <item>
+                    <para>Luz ENGINE &#225;mbar</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Funci&#243;n</title>
+            </para>
+            <para>El ICP es un sensor de capacitancia variable localizado en la parte superior trasera del motor, en la
+                tapa de la bomba de alta presi&#243;n. El ECM suministra una se&#241;al de referencia de 5 V que el ICP
+                usa para producir un voltaje lineal anal&#243;gico que indica presi&#243;n.
+            </para>
+            <para>La funci&#243;n primaria del ICP es proporcionar una se&#241;al informativa al ECM que indica presi&#243;n
+                de control de inyecci&#243;n. El ECM monitoriza la presi&#243;n de control de inyecci&#243;n mientras el
+                motor est&#225; funcionando, para modular el IPR. &#201;sta es una funci&#243;n en circuito cerrado, lo
+                que significa que el ECM monitoriza continuamente y ajusta la presi&#243;n de control de inyecci&#243;n
+                ideal, determinada por condiciones de operaci&#243;n tales como carga, velocidad y temperatura.
+            </para>
+            <para>El ECM monitoriza la se&#241;al del ICP para determinar si el rendimiento del sistema hidr&#225;ulico
+                es satisfactorio. Si durante la operaci&#243;n del motor el ECM detecta que la se&#241;al del ICP es
+                menor o mayor que el valor que el IPR est&#225; tratando de alcanzar, generar&#225; un DTC y encender&#225;
+                la luz ENGINE &#225;mbar.
+            </para>
+            <para>La se&#241;al del ICP desde el ECM es una de las se&#241;ales que usa el IDM para ordenar la
+                sincronizaci&#243;n correcta de los inyectores.
+            </para>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Operaci&#243;n del circuito del ICP</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3310" filename="../figd33/d3310.webp" type="webp" scalefit="1" scalefitwidth="432px"/>
+                <caption>Diagrama del circuito del ICP</caption>
+            </figure>
+            <para>El ICP recibe un voltaje de referencia de 5 V por su terminal B desde el terminal X1-14 del ECM. El
+                ICP tambi&#233;n recibe se&#241;al a tierra en el terminal A desde el terminal X1-6. El ICP env&#237;a
+                una se&#241;al desde el terminal C hacia el terminal X1-20 del ECM.
+            </para>
+            <para>
+                <title>Detecci&#243;n y manejo de fallas</title>
+            </para>
+            <para>El ECM monitoriza continuamente la se&#241;al del ICP para determinar si est&#225; dentro de los l&#237;mites
+                esperados. Si el ECM detecta un voltaje mayor o menor al esperado, generar&#225; un DTC, encender&#225;
+                la luz ENGINE &#225;mbar, ignorar&#225; la se&#241;al del ICP y usar&#225; un valor programado basado en
+                las condiciones de operaci&#243;n del motor.
+            </para>
+            <para>
+                <title>C&#243;digos de falla (DTC) del ICP</title>
+            </para>
+            <para>Los DTC se leen con la herramienta electr&#243;nica de servicio (EST) o contando los destellos de las
+                luces ENGINE &#225;mbar y roja.
+            </para>
+            <verbatim id="f240dtc124">
+                <line>
+                    <emph type="bold">DTC 124</emph>
+                </line>
+                <line>
+                    <emph type="bold">Se&#241;al del ICP excede el l&#237;mite inferior</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 124 si el voltaje de la se&#241;al del ICP es menor de 0,039 V por m&#225;s
+                        de 0,1 segundos.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 124 puede aparecer si hay una interrupci&#243;n o corto a tierra en el circuito de la
+                        se&#241;al, un sensor defectuoso o una interrupci&#243;n o corto a tierra en el circuito del V
+                        <subscript>REF</subscript>.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 124 est&#225; activo, la luz ENGINE &#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc125">
+                <line>
+                    <emph type="bold">DTC 125</emph>
+                </line>
+                <line>
+                    <emph type="bold">Se&#241;al del ICP excede el l&#237;mite superior</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 125 si el voltaje de la se&#241;al del ICP es mayor de 4,9 V por m&#225;s
+                        de 0,1 segundos.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 125 puede aparecer si hay una interrupci&#243;n en el circuito de tierra de la se&#241;al,
+                        un corto a una fuente de voltaje en el circuito de la se&#241;al del ICP o un sensor defectuoso.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 125 est&#225; activo, la luz ENGINE &#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <verbatim id="f240dtc332">
+                <line>
+                    <emph type="bold">DTC 332</emph>
+                </line>
+                <line>
+                    <emph type="bold">ICP superior a especificaci&#243;n con motor apagado</emph>
+                </line>
+            </verbatim>
+            <randlist type="bullet">
+                <item>
+                    <para>El ECM genera el DTC 332 si el voltaje de la se&#241;al desde el ICP es mayor al esperado con
+                        la llave en ON y el motor apagado. Si el ECM genera el DTC 332, ignorar&#225; la se&#241;al del
+                        ICP y operar&#225; el IPR con valores fijos, determinados seg&#250;n las condiciones de operaci&#243;n
+                        del motor.
+                    </para>
+                </item>
+                <item>
+                    <para>El DTC 332 puede aparecer debido a un sensor defectuoso, un circuito polarizado o a una p&#233;rdida
+                        moment&#225;nea de las se&#241;ales CMP/CKP.
+                    </para>
+                </item>
+                <item>
+                    <para>Cuando el DTC 332 est&#225; activo, la luz ENGINE &#225;mbar se enciende.</para>
+                </item>
+            </randlist>
+            <para>
+                <title>Herramientas</title>
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>Herramienta electr&#243;nica de servicio (EST) con software Master Diagnostics</para>
+                </item>
+                <item>
+                    <para>Cable de interfaz EZ-Tech de International&#174;</para>
+                </item>
+                <item>
+                    <para>Mult&#237;metro digital (DMM)</para>
+                </item>
+                <item>
+                    <para>Haz de cables con 3 clavijas banana y cable de resistencia de 500 &#x2126;</para>
+                </item>
+                <item>
+                    <para>Haz de derivaci&#243;n</para>
+                </item>
+                <item>
+                    <para>Caja de conexiones</para>
+                </item>
+                <item>
+                    <para>Juego de adaptadores para probar terminales</para>
+                </item>
+            </randlist>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos operacionales del ICP</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3311" filename="../figd33/d3311.webp" type="webp" scalefit="1" scalefitwidth="502px"/>
+                <caption>Diagrama del circuito del ICP con haz de derivaci&#243;n</caption>
+            </figure>
+            <specpara>
+                <warning>
+                    <para>Para evitar lesiones personales graves, posibles accidentes fatales o da&#241;os al motor o al
+                        veh&#237;culo, cumpla con las siguientes advertencias:
+                    </para>
+                    <para>Evite cualquier contacto con piezas rotativas y en movimiento (correas y ventilador) y
+                        superficies calientes del motor.
+                    </para>
+                </warning>
+            </specpara>
+            <step1>
+                <para count="1">Abra la sesi&#243;n de monitorizaci&#243;n continua en la EST. Para monitorizar el
+                    voltaje de las se&#241;ales, use la prueba Continuous Monitor Test con la llave en ON y el motor
+                    apagado.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Monitorice el voltaje de la se&#241;al del ICP. Verifique la presencia de un DTC activo
+                    en el circuito del ICP.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Si el DTC est&#225; activo, haga el paso 5 y las mediciones del circuito del ICP de la
+                    tabla de la p&#225;gina siguiente.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Si el DTC est&#225; inactivo, sacuda los conectores y cables en todas las &#225;reas
+                    sospechosas. Si la continuidad de alg&#250;n circuito se interrumpe, la EST emitir&#225; un bip y
+                    mostrar&#225; los DTC relacionados con el problema.
+                </para>
+            </step1>
+            <step1>
+                <para count="1">Conecte el haz de derivaci&#243;n para sensores de presi&#243;n al cableado del motor
+                    solamente.
+                </para>
+            </step1>
+            <specpara>
+                <note>
+                    <para>Luego de sacar el conector, inspeccione en busca de pines da&#241;ados, corrosi&#243;n y
+                        terminales sueltos. Repare lo que fuera necesario.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te24007050" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.18in"/>
+                    <colspec colname="col2" colwidth="0.93in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones del circuito del ICP</emph>
+                                    (Con la EST, DMM, haz de derivaci&#243;n y cable de 500 &#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Condici&#243;n de la prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Mediciones</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Sensor desconectado</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si el voltaje es >0,039 V, busque corto al V
+                                    <subscript>REF</subscript>
+                                    o B+ en el circuito de la se&#241;al.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Voltaje desde el pin AZUL a tierra con el DMM</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5,5 V, busque corto del V
+                                    <subscript>REF</subscript>
+                                    a B+. Si &#60;4,5 V, busque interrupci&#243;n del V
+                                    <subscript>REF</subscript>
+                                    o corto a tierra.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Cable de 500 &#x2126; entre pines VERDE y AZUL del haz de derivaci&#243;n.</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;4,9 V, busque interrupci&#243;n o corto a tierra en el circuito de la se&#241;al.
+                                    Saque el cable negativo de la bater&#237;a. Mida la resistencia desde el pin C a
+                                    tierra (especif. >1 k&#x2126;) a ver si hay un corto a tierra. Use la caja de
+                                    conexiones desde el pin C al pin X1-20 (especif. &#60;5 &#x2126;) a ver si el
+                                    cableado est&#225; interrumpido.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Resistencia desde el pin NEGRO del haz de derivaci&#243;n a la tierra del chasis
+                                    con el DMM.
+                                </para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n o alta resistencia del ECM al conector
+                                    del sensor. Mida la resistencia con la caja de conexiones desde el pin A al pin X1-6
+                                    (especif. &#60;5 &#x2126;).
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <step1>
+                <para count="1">Conecte el cableado del motor al sensor. Use la EST para borrar los DTC. Si despu&#233;s
+                    de revisar las condiciones de la prueba sigue apareciendo un DTC activo, sustituya el ICP.
+                </para>
+            </step1>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Diagn&#243;sticos del ICP con los pines</title>
+            <figure id="f24007" figsize="pg-wide">
+                <graphic id="d3311" filename="../figd33/d3311.webp" type="webp" scalefit="1" scalefitwidth="502px"/>
+                <caption>Diagrama del circuito del ICP con haz de derivaci&#243;n</caption>
+            </figure>
+            <table id="te24007051" tblwidth="pg-wide" frame="bottom">
+                <tgroup cols="3">
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="0.86in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="SPAN1"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <warning>
+                                    <para>Para evitar lesiones personales graves, accidentes fatales o da&#241;os al
+                                        motor o al veh&#237;culo, aseg&#250;rese siempre de desconectar primero el cable
+                                        negativo de la bater&#237;a. Siempre reconecte el cable negativo de la bater&#237;a
+                                        al final.
+                                    </para>
+                                </warning>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de voltaje en el conector</emph>
+                                    (Con la llave en ON y el sensor desconectado del cableado).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Comentarios</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Tierra de la se&#241;al (no deber&#237;a haber voltaje). Si hay voltaje, busque un
+                                    corto a B+ o al V
+                                    <subscript>REF</subscript>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>5 V &#177;0,5</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si no cumple con la especificaci&#243;n, el circuito del V
+                                    <subscript>REF</subscript>
+                                    tiene un corto a tierra o B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;0,25 V</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >0,25 V, el cable est&#225; en corto al V
+                                    <subscript>REF</subscript>
+                                    o B+.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia del conector a la tierra del chasis
+                                    </emph>
+                                    (Con la llave en OFF. Desconecte el cable negativo de la bater&#237;a y el sensor).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>A a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el circuito.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>B a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>500 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;500 &#x2126;, busque corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>C a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>>1 k&#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si &#60;1 k&#x2126;, busque corto a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="SPAN1">
+                                <para>
+                                    <emph type="bold">Mediciones de resistencia en el cableado</emph>
+                                    (Con la caja de conexiones s&#243;lo en el cableado del motor).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-6 a A</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cable a tierra.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-14 a B</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en cable del V
+                                    <subscript>REF</subscript>.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="col1">
+                                <para>X1-20 a C</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Si >5 &#x2126;, busque interrupci&#243;n en el cable de la se&#241;al</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table id="te24007052" tblwidth="pg-wide" frame="topbot">
+                <tgroup cols="4">
+                    <colspec colname="COLSPEC1" colwidth="2.00in"/>
+                    <colspec colname="col1" colwidth="2.00in"/>
+                    <colspec colname="col2" colwidth="1.35in"/>
+                    <colspec colname="col3" colwidth="3.00*"/>
+                    <spanspec namest="COLSPEC1" nameend="col3" spanname="SPAN2"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">Mediciones operacionales de voltaje del ICP</emph>
+                                    (Con la caja de conexiones conectada al ECM y al cableado del motor).
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC1">
+                                <para>Punto de prueba</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Voltaje con la EST Se&#241;al a tierra</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Especif.</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Mediciones</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC1">
+                                <para>X1-20 a X1-6</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>0,15-0,3 V</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>0 lb/pulg
+                                    <supscript>2</supscript>
+                                    (0 kPa)
+                                </para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Presi&#243;n atmosf&#233;rica con la llave en ON y el motor apagado</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC1">
+                                <para>X1-20 a X1-6</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Ver especificaciones de rendimiento</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Ver especificaciones de rendimiento</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>M&#237;nimo a velocidad de rotaci&#243;n del motor</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC1">
+                                <para>X1-20 a X1-6</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Ver especificaciones de rendimiento</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Ver especificaciones de rendimiento</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ralent&#237; bajo, sin carga</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC1">
+                                <para>X1-20 a X1-6</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Ver especificaciones de rendimiento</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Ver especificaciones de rendimiento</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Ralent&#237; alto, sin carga</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="COLSPEC1">
+                                <para>X1-20 a X1-6</para>
+                            </entry>
+                            <entry colname="col1">
+                                <para>Ver especificaciones de rendimiento</para>
+                            </entry>
+                            <entry colname="col2">
+                                <para>Ver especificaciones de rendimiento</para>
+                            </entry>
+                            <entry colname="col3">
+                                <para>Velocidad nominal, plena carga</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>
+                                    <emph type="bold">C&#243;digos de falla del ICP</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 124 = El voltaje de la se&#241;al fue &#60;0,39 V por m&#225;s de 0,1
+                                    segundos.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 125 = El voltaje de la se&#241;al fue >4,9 V por m&#225;s de 0,1 segundos.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="4" spanname="SPAN2">
+                                <para>DTC 332 = El voltaje de la se&#241;al fue >1,625 V con la llave en ON y el motor
+                                    apagado a 7,99 kPa (1160 lb/pulg
+                                    <supscript>2</supscript>).
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_171.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240_173.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="mges240.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

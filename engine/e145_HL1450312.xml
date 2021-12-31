@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - CAMSHAFT POSITION (CMP) SENSOR
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450312" svcproctype="proctype" graphiccount="4">
+        <title>CAMSHAFT POSITION (CMP) SENSOR</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef1450337">Figure 3.26 Camshaft Position (CMP) Sensor</hotlnk>
+            </para>
+            <figure id="ef1450337" figsize="col-wide">
+                <graphic id="eg1197" filename="../figeg1/eg1197.webp" type="webp"/>
+                <caption>Figure 3.26 Camshaft Position (CMP) Sensor</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>SIGNAL FUNCTIONS</title>
+            <para>The CMP (Camshaft Position) sensor is a Hall Effect type sensor that generates a digital frequency as
+                windows on the timing disk pass through its magnetic field. The frequency of the windows passing by the
+                sensor as well as the width of selected windows allows the ECM to detect engine speed and position.
+            </para>
+            <para>
+                <emph type="bold">Engine Speed -</emph>
+                Is determined by counting 24 windows on the timing sensor disk each camshaft revolution.
+            </para>
+            <para>
+                <emph type="bold">Fuel Timing Control -</emph>
+                The position of cylinder #1 is determined by distinguishing a narrow vane on the camshaft timing sensor
+                disk.
+            </para>
+            <para>
+                <emph type="bold">Engine Mode Selection -</emph>
+                Allows the ECM to discern when the engine is in the off, crank or run mode.
+            </para>
+            <para>
+                <emph type="bold">Injection Control Pressure -</emph>
+                Engine speed is one of the controlling variables in the calculation of desired injection control
+                pressure.
+            </para>
+            <para>
+                <emph type="bold">Fuel Quantity Control/Torque Limiting -</emph>
+                Engine torque and fuel is controlled and is dependent on engine speed. Fuel quantity is determined by
+                engine speed.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault detection/management</title>
+            <para>An inactive CMP signal during cranking is detectable by the ECM. An inactive CMP signal will cause a
+                no start condition. Electrical noise can also be detected by the ECM, if the level is sufficient to
+                effect engine operation a corresponding fault code will be set. T
+                <emph type="underscr">he engine will not operate without a functioning CMP signal.</emph>
+            </para>
+            <para>
+                <hotlnk xrefid="ef1450338">Figure 3.27 Camshaft Position Sensor Circuit Diagnostics</hotlnk>
+            </para>
+            <figure id="ef1450338" figsize="col-wide">
+                <graphic id="eg5960" filename="../figeg5/eg5960.webp" type="webp"/>
+                <caption>Figure 3.27 Camshaft Position Sensor Circuit Diagnostics</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Function</title>
+            <para>The Navistar engine control system includes a Camshaft Position Sensor (CMP). This sensor provides the
+                Electronic Control Module (ECM) with a signal that indicates camshaft position and engine speed.
+            </para>
+            <para>The CMP sensor signal is used by the ECM to syncronize piston position to injector firing sequence.
+                The injector firing order sequence begins when the ECM detects the narrow vane on the timing disk
+                indicating #1 cylinder. Engine position for each cylinder is then continuously calculated as each vane
+                on the timing disk passes by the CMP sensor. This information is processed by the ECM and used for
+                injection timing and fuel delivery control. The ECM can then initiate the beginning of firing.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>OPERATION</title>
+            <para>The Camshaft Position Sensor is a Hall Effect type sensor that generates a digital frequency as
+                windows on the timing disk pass through the magnetic field. The frequency of the windows passing by the
+                sensor as well as the width of selected windows allows the ECM to detect engine speed and position. When
+                the narrow vane passes the CMP sensor the signal on time is less than when the other vanes pass the
+                sensor. This produces a signal that the ECM uses to indicate engine position.
+            </para>
+            <para>Engine speed is detected by the ECM by counting the frequency of the 24 signal pulses for each
+                camshaft revolution.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM DIAGNOSTICS</title>
+            <para>Once the ECM has recognized the narrow vane (wide window) it will synchronize the engine firing order
+                to the timing of the CMP signal. Every 2 crankshaft revolutions it will verify that synchronization. If
+                the ECM receives too many or too few pulses for the number of engine revolutions, it will set a fault
+                code.
+            </para>
+            <para>The engine will not operate without a functioning CMP signal. However, the ECM will attempt to
+                determine the cause of an invalid signal and identify it with a fault code.
+            </para>
+            <para>CMP codes that are set will become inactive codes if the key is turned off. These codes can be
+                retrieved using the Self Test Input (STI) switch/(Engine Diagnostics switch) located on the vehicle
+                dashboard or the Electronic Service Tool.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 143</title>
+            <para>
+                <title>ATA CODE SID 21 FMI 2</title>
+            </para>
+            <para>
+                <title>WRONG # OF CMP SIGNAL TRANSITIONS PER CAM REVOLUTION</title>
+            </para>
+            <para>Code 143 indicates the ECM has received CMP signals with the wrong number of transitions. This
+                indicates that the ECM has counted the voltage transitions and found less than the specified number of
+                pulses from the sensor. When this problem is continuous, the engine will stop running and the ECM will
+                log an active code. If the key is shut off, the code will become an inactive code. This code will not
+                turn the warning light on.
+            </para>
+            <para>Possible causes for code 143: Intermittent CMP signal caused by a intermittent circuit, defective
+                Camshaft Position Sensor, or incorrect CMP sensor to timing disk clearance.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 144</title>
+            <para>
+                <title>ATA CODE SID 21 FMI 2</title>
+            </para>
+            <para>
+                <title>CMP SIGNAL NOISE DETECTED</title>
+            </para>
+            <para>Code 144 indicates that the ECM has detected voltage spikes or transitions other than the CMP signal.
+                If this problem is continuous the engine could stop running and the ECM will log an active code. If the
+                key is shut off, the code will become an inactive. This code will not cause the warning light to
+                illuminate.
+            </para>
+            <para>Code 144 may be due to: Poor ground connections for CMP or other electronic components. Wire harness
+                shielding missing or incorrectly installed on the engine harness. Outside components that could induce
+                voltage signals.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 145</title>
+            <para>
+                <title>ATA CODE SID 21 FMI 12</title>
+            </para>
+            <para>
+                <title>CMP SIGNAL INACTIVE WHILE ICP HAS INCREASED</title>
+            </para>
+            <para>Flash code 145 indicates that the ECM does not detect a CMP signal. This code would be set if the
+                engine was rotating and the ECM detected a rise in ICP pressure, but did not detect a CMP signal. To set
+                this code the engine must be rotated long enough for the ICP to increase. When this code is set the
+                engine will not operate. This code will not cause the warning light to illuminate.
+            </para>
+            <para>Possible causes for flash code 145: Defective CMP sensor, faulty sensor circuitry, or improper air gap
+                between sensor and camshaft timing disk.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 612</title>
+            <para>
+                <title>ATA CODE SID 21 FMI 7</title>
+            </para>
+            <para>
+                <title>INCORRECT ECM INSTALLED FOR CMP TIMING DISK</title>
+            </para>
+            <para>Flash code 612 indicates that the ECM has monitored the CMP signal and the signal is incorrect for the
+                programming in the ECM. This means that the ECM does not recognize the signal generated from the timing
+                disk and CMP sensor.
+            </para>
+            <para>When this condition exists, the ECM does not send a Fuel Demand Command Signal (FCDS) to the Injector
+                Drive Module (IDM). The engine cannot operate without a FDCS signal from the ECM.
+            </para>
+            <para>Possible causes: ECM has been accidently replaced with an incorrect ECM for the particular engine
+                application. (For example, the timing disk for the I-6 and V-8 (T444E) are different and generate a
+                different signal. An ECM from the V-8 (T444E) engine will not run an I-6 engine.) Incorrect signal due
+                to a defective CMP sensor or incorrect air gap between the CMP sensor and the timing disk.
+            </para>
+            <figure id="ef1450339" figsize="col-wide">
+                <graphic id="eg5961" filename="../figeg5/eg5961.webp" type="webp"/>
+                <caption>Figure 3.28 Sensor Circuit Diagram</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef1450340">Figure 3.29 Camshaft Position Sensor (CMP) Circuit Diagnostics</hotlnk>
+            </para>
+            <figure id="ef1450340" figsize="col-wide">
+                <graphic id="eg5962" filename="../figeg5/eg5962.webp" type="webp"/>
+                <caption>Figure 3.29 Camshaft Position Sensor (CMP) Circuit Diagnostics</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refer to circuit diagram Figure
+                        <hotlnk xrefid="ef1450339">3.28</hotlnk>.
+                    </para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450311.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450313.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

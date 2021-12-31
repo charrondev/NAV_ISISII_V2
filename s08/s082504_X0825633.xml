@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>ELECTRICAL SYSTEM TROUBLESHOOTING GUIDE - 3200, 4100, 4200, 4300, 4400, 7300, 7400, 7500, 7600, 8500, 8600
+        Models Built After 05/19/2003 - BATTERY, CHARGING AND CRANKING SYSTEMS - ENGINE CRANKING - STARTER ISO &#38;
+        POWER RELAY CIRCUITS
+    </stitle>
+    <svcman/>
+    <svcproc id="x0825633" svcproctype="operate" graphiccount="1">
+        <title>STARTER ISO &#38; POWER RELAY CIRCUITS</title>
+        <svcprocinfo>
+            <para>For complete information on operation and servicing cranking motors used on these vehicles, refer to
+                Group 08 Electrical in the ISIS&#174; Master Service Manual or the manufacturers service manual.
+            </para>
+            <figure id="x0825632" figsize="pg-wide">
+                <graphic filename="../figg08/g08256a2.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>Starting Power Distribution Diagram</caption>
+                <calloutgroup>
+                    <callout1>1. BATTERY</callout1>
+                    <callout1>2. STARTER SOLENOID
+                        <callout2>LOCATED ON STARTER</callout2>
+                    </callout1>
+                    <callout1>3. FUSIBLE LINK</callout1>
+                    <callout1>4. MEGAFUSE</callout1>
+                    <callout1>(1011), (1012), (1013), (1014) CAB FUSE BLOCKS
+                        <callout2>LOCATED IN CAB PDC</callout2>
+                    </callout1>
+                    <callout1>(1100) KEY SWITCH CONNECTOR</callout1>
+                    <callout1>(4000) A1-A6 MAXIFUSES
+                        <callout2>LOCATED IN ENGINE PDC</callout2>
+                    </callout1>
+                    <callout1>(4002) CRANK INHIBIT MICRO RELAY USED WITH AUTO NEUTRAL ONLY
+                        <callout2>LOCATED IN ENGINE PDC</callout2>
+                    </callout1>
+                    <callout1>(4003) START &#38; ISO POWER RELAY R12
+                        <callout2>LOCATED IN ENGINE PDC</callout2>
+                    </callout1>
+                    <callout1>(6316) THERMAL OVERCRANK
+                        <callout2>LOCATED ON STARTER</callout2>
+                    </callout1>
+                </calloutgroup>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>Fault Detection Management</title>
+            <specpara>
+                <note>
+                    <para>The testing method for troubleshooting the electrical systems portrayed in this manual is a
+                        basic voltage test. An alternative method of checking for voltage drops within a given circuit
+                        may be a quicker method of identifying an exact problem.
+                    </para>
+                </note>
+            </specpara>
+            <para>Battery power is always present at the crank motor solenoid (B) terminal through the positive battery
+                cable. Power from the (B) terminal is supplied to start relay (R12) terminal through a fusible link,
+                circuit K14H, circuit J14H, maxifuse A5 and circuit J17D.
+            </para>
+            <para>On I6 engines the ground signal for starter and ISO relay (4003) R12 terminal 2 is supplied from
+                engine controller connector (6007) terminal 46. The engine controller supplies a ground when the engine
+                is not running. The clutch switch (depressed) or transmission circuits (in neutral) apply 12 volts to
+                (6007) pin 26. On starters with thermal over crank protection, the thermal relay will open this circuit.
+            </para>
+            <para>On V8 engines, ground signal for starter and ISO relay (4003) R-12 terminal 2 is supplied from engine
+                controller connector (6020) terminal 23. The engine controller supplies a ground when the engine is not
+                running. The clutch switch (depressed) or transmission circuits (in neutral) apply 12 volts to (6020)
+                pin 8
+            </para>
+            <para>The ground signal from the engine controller will be supplied when the clutch is engaged, or the
+                automatic transmission is in neutral, or the EATON Autoshift transmission is in neutral.
+            </para>
+            <para>On vehicles
+                <emph type="bold">without the auto neutral feature</emph>, when the key switch (1100) is turned to the
+                start position power is applied through circuit A17, through pass thorough connector (4014) and circuit
+                J17 to starter relay R12 terminal 5. If the ground signal from the engine controller is present at R12
+                terminal 2, the relay will energize.
+            </para>
+            <para>On vehicles
+                <emph type="bold">with the auto neutral feature</emph>, when the key switch (1100) is turned to the
+                start position power is applied through circuit A17, through pass thorough connector (4014) and circuit
+                J17 to crank inhibit micro relay. When the crank inhibit relay is energized by signals from the
+                transmission controller, power will be applied to starter relay R12 terminal 5. If the ground signal
+                from the engine controller is present at R12 terminal 2, the relay will energize.
+            </para>
+            <para>With the start relay energized, power flows through the ISO &#38; power relay (4003) R12 contacts
+                terminal 4, circuit J17E, ECM power starter connector (4101), and circuit K17C, to the (S) terminal of
+                the crank motor solenoid which energizes the crank motor solenoid.
+            </para>
+            <para>As long as the engine is running, the engine controller will not allow the cranking motor to be
+                engaged.
+            </para>
+            <table id="t0825616" tblwidth="pg-wide" numbered="no" view="reveal">
+                <title>Starter ISO &#38; Power Relay Circuit Tests</title>
+                <tgroup cols="6">
+                    <colspec colname="1" colwidth="1.48in"/>
+                    <colspec colname="2" colwidth="0.92in"/>
+                    <colspec colname="3" colwidth="0.98in"/>
+                    <colspec colname="4" colwidth="0.89in"/>
+                    <colspec colname="5" colwidth="0.87in"/>
+                    <colspec colname="6" colwidth="1.50in"/>
+                    <spanspec namest="3" nameend="6" spanname="SPAN2"/>
+                    <spanspec namest="4" nameend="6" spanname="S4T6"/>
+                    <spanspec namest="1" nameend="6" spanname="S1T6"/>
+                    <spanspec namest="2" nameend="3" spanname="S2T3"/>
+                    <tbody>
+                        <row>
+                            <entry colspan="6" spanname="S1T6" align="center">
+                                <para>
+                                    <emph type="BOLD">Starter ISO &#38; Power Relay Connector (4003) R12 Voltage
+                                        Checks
+                                    </emph>
+                                </para>
+                                <para>Check with R12 removed and ignition on.</para>
+                                <para>
+                                    <hotlnk document="s082504_X0825015.xml" xrefid="x0825015">Bench check</hotlnk>
+                                    relay and replace if it has failed.
+                                    <xref refid="x0825015"/>
+                                </para>
+                                <note>
+                                    <para>Always check connectors for damage and pushed-out terminals.</para>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry colspan="2" spanname="S2T3">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry colspan="3" spanname="S4T6" align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1" align="center">
+                                <para></para>
+                            </entry>
+                            <entry colspan="2" spanname="S2T3" align="center">
+                                <para>Bench test starter ISO &#38; power relay.</para>
+                            </entry>
+                            <entry colspan="3" spanname="S4T6" align="center">
+                                <para>If relay fails replace relay.</para>
+                                <para>If relay passes test, go to next step.</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1" align="center">
+                                <para>(4003) R12 cavity 1 to ground</para>
+                            </entry>
+                            <entry colspan="2" spanname="S2T3">
+                                <para>12 &#177; 1.5 volts</para>
+                            </entry>
+                            <entry colspan="3" spanname="S4T6" align="center">
+                                <para>If voltage is missing, check for open or short in circuits between (4003) R12 and
+                                    maxifuse A5. Also insure maxifuse has voltage to it and is not blown.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1" align="center">
+                                <para>(4003) R12 cavity 1 to cavity 4</para>
+                            </entry>
+                            <entry colspan="2" spanname="S2T3">
+                                <para>12 &#177; 1.5 volts</para>
+                            </entry>
+                            <entry colspan="3" spanname="S4T6" align="center">
+                                <para>If voltage is missing, check for open in circuits between (4003) R12 cavity 4 and
+                                    ground through the cranking motor solenoid.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1" align="center">
+                                <para>(4003) R12 cavity 1 to cavity 2</para>
+                            </entry>
+                            <entry colspan="2" spanname="S2T3">
+                                <para>With clutch pedal depressed, or automatic transmission in park, or autoshift
+                                    transmission in neutral voltage should be 12 &#177; 1.5 volts
+                                </para>
+                            </entry>
+                            <entry colspan="3" spanname="S4T6" align="center">
+                                <para>If voltage is missing, check for open in circuits between (4003) R12 cavity 2 and
+                                    engine ECM or open/short in clutch switch or transmission circuits to the engine
+                                    controller. Also check for open thermal switch if overcrank feature is installed.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="6" spanname="S1T6" align="center">
+                                <para>Information on clutch and neutral circuits to the engine controller is provided at
+                                    the following areas:
+                                </para>
+                                <para>Manual transmissions, refer to
+                                    <hotlnk document="s082504_X0825813.xml" xrefid="x0825813">Clutch Switch Circuits.
+                                    </hotlnk>
+                                    <xref refid="x0825813"/>
+                                </para>
+                                <para>LCT transmissions, refer to
+                                    <hotlnk xrefid="x08261163">Neutral and Back-Up Light Circuits.</hotlnk>
+                                    <xref refid="x08261163"/>
+                                </para>
+                                <para>MD transmissions, refer to
+                                    <hotlnk document="s082504_X08261291.xml" xrefid="x08261291">Neutral Signal
+                                        Circuits.
+                                    </hotlnk>
+                                    <xref refid="x08261291"/>
+                                </para>
+                                <para>EATON Autoshift transmissions, refer to
+                                    <hotlnk document="s082504_X08261291.xml" xrefid="x08261291">Autoshift Relay
+                                        Circuits.
+                                    </hotlnk>
+                                    <xref refid="x08261291"/>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colname="1" align="center">
+                                <para>(4003) R12 cavity 5 to ground</para>
+                            </entry>
+                            <entry colspan="2" spanname="S2T3">
+                                <para>With key switch in ignition position, 12 &#177; 1.5 volts</para>
+                            </entry>
+                            <entry colspan="3" spanname="S4T6" align="center">
+                                <para>If voltage is missing, check for open in circuits between (4003) R12 cavity 5 and
+                                    key switch (1100) circuit A17.
+                                </para>
+                                <para>On vehicles with auto neutral, check crank inhibit relay and circuits.</para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504_191.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504_X0825603.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s082504.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

@@ -1,0 +1,1963 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>Body Builder Electrical Data Book for Models Built January 2001 to February 28, 2007 - Electrical Features -
+        PTO - 60ABB - PTO Accommodation Muncie&#174; Powerflex&#8482; Lectra-Shift
+    </stitle>
+    <svcman/>
+    <svcproc id="BB60ABB" svcproctype="describe" graphiccount="5">
+        <title>60ABB - PTO Accommodation Muncie&#174; Powerflex&#8482; Lectra-Shift</title>
+        <para>Refer to the Circuit Diagram in
+            <exhotlnk document="../S08/S082853_CD60ABB.xml" bookname="S082853">S08285, Chapter 9, page 28</exhotlnk>.
+        </para>
+        <para>
+            <emph type="boldundersc">FEATURE CODE DESCRIPTION:</emph>
+            BDY INTG, PTO ACCOMMODATION for Muncie Lectra-Shift PTO Engagement and Disengagement, With Switch Mounted on
+            Dash; Includes Indicator Light and Audible Alarm in Gauge Cluster (requires 1 Remote Power Module input and
+            1 output)
+        </para>
+        <para>
+            <emph type="boldundersc">FEATURE/BODY FUNCTION:</emph>
+            This feature provides a momentary switch in the in-cab switchpack that drives a Remote Power Module (RPM)
+            output and a relay that are used to engage and disengage the Muncie&#174; Lectra-Shift PTO. A Remote Power
+            Module input is used to drive an indicator light in the gauge cluster, allowing the operator to discern
+            whether or not the PTO is actually engaged. An audible alarm sounds when certain programmable parameters are
+            violated. The RPM input also drives a PTO hourmeter, which allows the operator to measure stationary PTO
+            hours for maintenance records and fuel tax purposes. To view the hourmeter, press the gauge cluster
+            selection button momentarily until the text portion of the display indicates "PTO Hour".
+        </para>
+        <para>This PTO feature is a rule-based option. The operation of the PTO is governed by rules of engagement,
+            disengagement, reengagement, and alarms. These rules are defined through programmable parameters. Through
+            these programmable parameters, the vehicle owner can customize the functionality of the PTO. Factory default
+            settings for these programmable parameters are listed in the tables below.
+        </para>
+        <para>Through programmable parameters the truck can be programmed to customize the number of times that an
+            operator can request PTO engagement per key cycle. The customer can also customize the maximum time allowed
+            to engage the solenoid per attempt, and the length of time between a failed engagement attempt and the next
+            time the operator can attempt to engage the PTO.
+        </para>
+        <para>&#8594;
+            <emph type="boldital">Please use ICAP or the Diamond Logic&#8482; Builder software to determine pin and
+                switch locations for RPM inputs and outputs and to set programmable parameters (refer to pin and switch
+                location section).
+            </emph>
+        </para>
+        <para>
+            <emph type="boldundersc">SOFTWARE FEATURE CODES / PROGRAMMABLE PARAMETERS:</emph>
+        </para>
+        <para>Required software feature codes: 595170, 595171, 595179, 595248</para>
+        <para>Software feature codes that must be removed: 595193, 595252, 595244, 595267</para>
+        <para>
+            <emph type="boldundersc">ENGAGEMENT</emph>
+        </para>
+        <para>*These parameters set rules that must be met in order for the PTO to be engaged.</para>
+        <para>If
+            <emph type="bold">TEM_PTO_Brake_Engmnt_Inhib</emph>
+            parameter is turned on, then the brake pedal must be depressed in order for the PTO to engage.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Cltch_Engmnt_Inhib</emph>
+            parameter turned on, then the clutch pedal must be depressed for the PTO to engage.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Eng_Run_Engmnt_Inhib</emph>
+            parameter is turned on, then the engine has to be running in order for the PTO to be engaged.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Eng_Spd_Engmnt_Inhib</emph>
+            parameter is turned on, then the PTO cannot be engaged if the engine speed is over a certain threshold,
+            which is defined as a programmable parameter in
+            <emph type="bold">TEM_PTO_Eng_Spd_Engmnt_Limit</emph>
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Neut_Engmnt_Inhib</emph>
+            parameter is turned on, then the PTO can only be engaged if the Transmission is NOT in Neutral or Park
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Non_Neut_Engmnt_Inhib</emph>
+            parameter is turned on, then the Transmission must be in Neutral or Park for the PTO to be engaged.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Pk_Brake_Engmnt_Inhib</emph>
+            parameter is turned on, then the Park Brake must be set in order for the PTO to be engaged.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Veh_Spd_Engmnt_Inhib</emph>
+            parameter is turned on, then the PTO cannot be engaged if the Vehicle Speed is over the value prescribed by
+            <emph type="bold">TEM_PTO_Veh_Spd_Engmnt_Limit</emph>.
+        </para>
+        <table id="t7300063">
+            <tgroup cols="7">
+                <colspec colname="col1" colwidth="1.52*"/>
+                <colspec colname="col2" colwidth="0.68*"/>
+                <colspec colname="col4" colwidth="1.90*"/>
+                <colspec colname="COLSPEC1" colwidth="0.76*"/>
+                <colspec colname="col5" align="center" colwidth="0.76*"/>
+                <colspec colname="col6" align="center" colwidth="0.77*"/>
+                <colspec colname="col7" align="center" colwidth="0.66*"/>
+                <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                <thead>
+                    <row>
+                        <entry colspan="7" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">Off</emph>
+                                - Indicates a 0 is set in for this parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="7" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">On</emph>
+                                - Indicates a 1 is set for the parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>Parameter</para>
+                        </entry>
+                        <entry align="center">
+                            <para>ID</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Description</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Default</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Min</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Max</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Step</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Brake_Engmnt_ Inhib</para>
+                        </entry>
+                        <entry>
+                            <para>2095</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will not be engaged if the brake pedal is not
+                                depressed
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Cltch_Engmnt_ Inhib</para>
+                        </entry>
+                        <entry>
+                            <para>2094</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will not be engaged if the clutch pedal is not
+                                depressed
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Eng_Run_ Engmnt_Inhib</para>
+                        </entry>
+                        <entry>
+                            <para>2096</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will not be engaged if the engine is not running
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Eng_Spd_ Engmnt_Inhib</para>
+                        </entry>
+                        <entry>
+                            <para>2092</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will not be engaged if the engine speed is over the
+                                value set in TEM_PTO_Eng_ Spd_Engmnt_ Limit
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>On</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Eng_Spd_ Engmnt_Limit</para>
+                        </entry>
+                        <entry>
+                            <para>2093</para>
+                        </entry>
+                        <entry>
+                            <para>See TEM_PTO_Eng_ Spd_Engmnt_ Inhib</para>
+                        </entry>
+                        <entry>
+                            <para>1000 RPM</para>
+                        </entry>
+                        <entry align="center">
+                            <para>100</para>
+                        </entry>
+                        <entry align="center">
+                            <para>5000</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Neut_Engmnt_ Inhib</para>
+                        </entry>
+                        <entry>
+                            <para>2089</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will only be engaged if the Transmission is not in
+                                Neutral or Park
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>On</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Non_Neut_ Engmnt_Inhib</para>
+                        </entry>
+                        <entry>
+                            <para>2088</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will not be engaged if the Transmission is not in
+                                Neutral or Park
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_Pk_ Brake_Engmnt_ Inhib</para>
+                        </entry>
+                        <entry>
+                            <para>2087</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will not be engaged if the Park Brake is not set.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Veh_Spd_ Engmnt_Inhib</para>
+                        </entry>
+                        <entry>
+                            <para>2090</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will not be engaged if the vehicle speed is over the
+                                value set in TEM_PTO_Veh_ Spd_Engmnt_ Limit
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Veh_Spd_ Engmnt_Limit</para>
+                        </entry>
+                        <entry>
+                            <para>2091</para>
+                        </entry>
+                        <entry>
+                            <para>See TEM_PTO_Veh_ Spd_Engmnt_ Inhib</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                        <entry align="center">
+                            <para>100</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">DISENGAGEMENT</emph>
+        </para>
+        <para>* These parameters set the conditions under which the PTO will be disengaged.</para>
+        <para>If
+            <emph type="bold">TEM_PTO_Eng_Run_Disengages</emph>
+            parameter is turned on, then the PTO will be disengaged if the engine is turned off.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Eng_Spd_Disengages</emph>
+            parameter is turned on, then the PTO will be disengaged if the engine speed rises above the value set by
+            <emph type="bold">TEM_PTO_Eng_Spd_DisEng_Limit</emph>.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_ Non_Neut _Disengages</emph>
+            parameter is turned on, then the PTO will be disengaged if the transmission is taken out of neutral.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Pk_Brake_Disengages</emph>
+            parameter is turned on, then the PTO will be disengaged if the Park Brake is released.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Veh_Spd_Disengages</emph>
+            parameter is turned on, then the PTO will be disengaged if the vehicle speed is over the valued specified by
+            <emph type="bold">TEM_PTO_Veh_Spd_DisEng_Limit</emph>.
+        </para>
+        <table id="t7300064">
+            <tgroup cols="7">
+                <colspec colname="col1" colwidth="1.52*"/>
+                <colspec colname="col2" colwidth="0.68*"/>
+                <colspec colname="col4" colwidth="1.90*"/>
+                <colspec colname="COLSPEC1" colwidth="0.76*"/>
+                <colspec colname="col5" align="center" colwidth="0.76*"/>
+                <colspec colname="col6" align="center" colwidth="0.77*"/>
+                <colspec colname="col7" align="center" colwidth="0.66*"/>
+                <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                <thead>
+                    <row>
+                        <entry colspan="7" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">Off</emph>
+                                - Indicates a 0 is set in for this parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="7" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">On</emph>
+                                - Indicates a 1 is set for the parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>Parameter</para>
+                        </entry>
+                        <entry align="center">
+                            <para>ID</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Description</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Default</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Min</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Max</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Step</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Eng_Run_ Disengages</para>
+                        </entry>
+                        <entry>
+                            <para>2114</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will be disengaged if the engine is turned off.</para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Eng_Spd_ DisEng_Limit</para>
+                        </entry>
+                        <entry>
+                            <para>2113</para>
+                        </entry>
+                        <entry>
+                            <para>See TEM_PTO_ Eng_Spd_ Disengages</para>
+                        </entry>
+                        <entry>
+                            <para>1400 RPM</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>5000</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Eng_Spd_ Disengages</para>
+                        </entry>
+                        <entry>
+                            <para>2112</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will be disengaged if the engine speed is over the
+                                value set in TEM_PTO_Eng_ Spd_DisEng_ Limit
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>On</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Non_Neut_ Disengages</para>
+                        </entry>
+                        <entry>
+                            <para>2109</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will be disengaged if the transmission is taken out of
+                                neutral.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Pk_Brake_ Disengages</para>
+                        </entry>
+                        <entry>
+                            <para>2108</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will be disengaged if the Park Brake is released.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Veh_Spd_ Disengages</para>
+                        </entry>
+                        <entry>
+                            <para>2089</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will only be engaged if the Transmission is not in
+                                Neutral or Park
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>On</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Veh_Spd_ Disengages</para>
+                        </entry>
+                        <entry>
+                            <para>2110</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will be disengaged if the vehicle speed is over the
+                                value set in TEM_PTO_Veh_ Spd_DisEng_ Limit.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>On</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Veh_Spd_ DisEng_Limit</para>
+                        </entry>
+                        <entry>
+                            <para>2111</para>
+                        </entry>
+                        <entry>
+                            <para>See TEM_PTO_Veh_ Spd_Disengages</para>
+                        </entry>
+                        <entry>
+                            <para>5 MPH</para>
+                        </entry>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                        <entry align="center">
+                            <para>100</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">REENGAGEMENT</emph>
+        </para>
+        <para>* These parameters set the conditions under which the PTO can be reengaged.</para>
+        <specpara>
+            <note>
+                <para>All reengagement parameters should be left off with Lectra shift PTO's to prevent gear grind and
+                    damage to the transmission.
+                </para>
+            </note>
+        </specpara>
+        <para>If
+            <emph type="bold">TEM_PTO_Eng_Run_Allow_ReEng</emph>
+            parameter is turned on, then the PTO will be reengaged (after a disengage due to engine stopping) when the
+            engine is restarted.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Eng_Spd_Allow_ReEng</emph>
+            parameter is turned on, then the PTO will be reengaged (after a disengage due to engine overspeed) when the
+            engine speed falls below TEM_PTO_Eng_Spd_Engmnt_Limit.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Key_State_Allow_ReEng</emph>
+            parameter is turned on, then the PTO will be allowed to reengage when the key state is returned to run.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Non_Neut_Allow_ReEng</emph>
+            parameter is turned on, then the PTO will be reengaged (after a disengage due to transmission out of
+            neutral) when the transmission is placed back into neutral.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Pk_Brake_Allow_ReEng</emph>
+            parameter is turned on, then the PTO will be reengaged (after a disengage due to park brake released) when
+            the park brake is reapplied.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Veh_Spd_Allow_ReEng</emph>
+            parameter is turned on, then the PTO will be reengaged (after a disengage due to the vehicle being over the
+            vehicle speed value) when the vehicle speed is falls TEM_PTO_Veh_Spd_Engmnt_Limit.
+        </para>
+        <table id="t7300065">
+            <tgroup cols="7">
+                <colspec colname="col1" colwidth="1.52*"/>
+                <colspec colname="col2" colwidth="0.68*"/>
+                <colspec colname="col4" colwidth="1.90*"/>
+                <colspec colname="COLSPEC1" colwidth="0.76*"/>
+                <colspec colname="col5" align="center" colwidth="0.76*"/>
+                <colspec colname="col6" align="center" colwidth="0.77*"/>
+                <colspec colname="col7" align="center" colwidth="0.66*"/>
+                <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                <thead>
+                    <row>
+                        <entry colspan="7" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">Off</emph>
+                                - Indicates a 0 is set in for this parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="7" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">On</emph>
+                                - Indicates a 1 is set for the parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>Parameter</para>
+                        </entry>
+                        <entry align="center">
+                            <para>ID</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Description</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Default</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Min</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Max</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Step</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Eng_Run_ Allow_ReEng</para>
+                        </entry>
+                        <entry>
+                            <para>2122</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will be reengaged after a disengage due to the engine
+                                stopping when the engine is restarted.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Eng_Spd_ Allow_ReEng</para>
+                        </entry>
+                        <entry>
+                            <para>2120</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will be reengaged after a disengage due to engine
+                                overspeed when the engine speed is below TEM_PTO_Eng_ Spd_Engmnt_ Limit.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Key_State_ Allow_ReEng</para>
+                        </entry>
+                        <entry>
+                            <para>2069</para>
+                        </entry>
+                        <entry>
+                            <para>If this parameter is set, the PTO will be allowed to reengage when the key state is
+                                returned to run.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Non_Neut_ Allow_ReEng</para>
+                        </entry>
+                        <entry>
+                            <para>2148</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will be reengaged after a disengage due to
+                                transmission out of neutral when the transmission is placed back into neutral.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Pk_Brake_ Allow_ReEng</para>
+                        </entry>
+                        <entry>
+                            <para>2149</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will be reengaged after a disengage due to park brake
+                                released when the park brake is reapplied.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Veh_Spd_ Allow_ReEng</para>
+                        </entry>
+                        <entry>
+                            <para>2119</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, the PTO will be reengaged after a disengage due to vehicle
+                                overspeed when the vehicle speed is below TEM_PTO_Veh_ Spd_Engmnt_ Limit.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">ALARMS</emph>
+        </para>
+        <para>*These parameters utilize the gauge cluster to sound an alarm to the driver when certain programmable
+            parameters are violated.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Eng_Run_Alarms</emph>
+            parameter is turned on, then an audible alarm will sound if the PTO is engaged and the engine is turned off.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Eng_Spd_Alarms</emph>
+            parameter is turned on, then an alarm will sound if the PTO is engaged and the engine speed is over the
+            value set by
+            <emph type="bold">TEM_PTO_Eng_Spd_Alarm_Limit</emph>.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Non_Neut_Alarms</emph>
+            parameter is turned on, then an audible alarm will sound if the PTO is engaged and the transmission is taken
+            out of neutral.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Pk_Brake_Alarms</emph>
+            parameter is turned on, then an audible alarm will sound if the PTO is engaged and the park brake is
+            released.
+        </para>
+        <para>If
+            <emph type="bold">TEM_PTO_Veh_Spd_Alarms</emph>
+            parameter is turned on, then an audible alarm will sound if the PTO is engaged and the vehicle speed is
+            about the value set by
+            <emph type="bold">TEM_PTO_Veh_Spd_Alarm_Limit</emph>.
+        </para>
+        <table id="t7300066">
+            <title>PTO Alarms</title>
+            <tgroup cols="7">
+                <colspec colname="col1" colwidth="1.52*"/>
+                <colspec colname="col2" colwidth="0.68*"/>
+                <colspec colname="col4" colwidth="1.90*"/>
+                <colspec colname="COLSPEC2" colwidth="0.76*"/>
+                <colspec colname="col5" align="center" colwidth="0.76*"/>
+                <colspec colname="col6" align="center" colwidth="0.77*"/>
+                <colspec colname="col7" align="center" colwidth="0.66*"/>
+                <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                <tbody>
+                    <row>
+                        <entry colspan="7" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">Off</emph>
+                                - Indicates a 0 is set in for this parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="7" spanname="SPAN1">
+                            <para>
+                                <emph type="bold">On</emph>
+                                - Indicates a 1 is set for the parameter
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>Parameter</para>
+                        </entry>
+                        <entry align="center">
+                            <para>ID</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Description</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Default</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Min</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Max</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Step</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Eng_Run_ Alarms</para>
+                        </entry>
+                        <entry>
+                            <para>2137</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, an alarm will sound if the PTO is engaged and the engine is
+                                turned off
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Eng_Spd_ Alarm_Limit</para>
+                        </entry>
+                        <entry>
+                            <para>2136</para>
+                        </entry>
+                        <entry>
+                            <para>See TEM_PTO_Eng_ Spd_Alarms</para>
+                        </entry>
+                        <entry>
+                            <para>1400 RPM</para>
+                        </entry>
+                        <entry align="center">
+                            <para>0</para>
+                        </entry>
+                        <entry align="center">
+                            <para>5000</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Eng_Spd_ Alarms</para>
+                        </entry>
+                        <entry>
+                            <para>2135</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, an alarm will sound if the PTO is engaged and the engine speed
+                                is over TEM_PTO_Eng_ Spd_Alarm_Limit.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>On</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Non_Neut_ Alarms</para>
+                        </entry>
+                        <entry>
+                            <para>2132</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, an alarm will sound if the PTO is engaged and transmission is
+                                taken out of neutral.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Pk_Brake_ Alarms</para>
+                        </entry>
+                        <entry>
+                            <para>2131</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, an alarm will sound if the PTO is engaged and the park brake
+                                is released
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>Off</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Veh_Spd_ Alarms</para>
+                        </entry>
+                        <entry>
+                            <para>2133</para>
+                        </entry>
+                        <entry>
+                            <para>If this Parameter is 1, an alarm will sound if the PTO is engaged and the vehicle
+                                speed is over TEM_PTO_Veh_ Spd_Alarm_Limit.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>On</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                        <entry align="center">
+                            <para>NA</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Veh_Spd_ Alarm_Limit</para>
+                        </entry>
+                        <entry>
+                            <para>2134</para>
+                        </entry>
+                        <entry>
+                            <para>See TEM_PTO_Veh_ Spd_Alarms</para>
+                        </entry>
+                        <entry>
+                            <para>5 MPH</para>
+                        </entry>
+                        <entry align="center">
+                            <para>3</para>
+                        </entry>
+                        <entry align="center">
+                            <para>100</para>
+                        </entry>
+                        <entry align="center">
+                            <para>1</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">Other Parameters</emph>
+        </para>
+        <para>The
+            <emph type="bold">TEM_PTO_Retaining_Solenoid_Fuse</emph>
+            parameter is the fusing value for the Remote Power Module output that feeds the retaining coil that holds
+            the electric solenoid in the engaged position. If current exceeds this value, the ESC will turn off the
+            output.
+        </para>
+        <para>The
+            <emph type="bold">TEM_PTO_Lectra_Shift_Max_Retries</emph>
+            parameter allows the customer to establish the maximum number of times that the operator can request a PTO
+            engagement per key cycle.
+        </para>
+        <para>The
+            <emph type="bold">TEM_PTO_Lectra_Shift_Retry_Time</emph>
+            parameter sets the time between a failed engagement attempt and the time that you can attempt to engage the
+            PTO again.
+        </para>
+        <para>The
+            <emph type="bold">TEM_PTO_Allowed_Engagement_Time</emph>
+            parameter sets the maximum time allowed for the solenoid to engage in one engagement attempt.
+        </para>
+        <para>The
+            <emph type="bold">TEM_RPM_PTO_Engaged_Param</emph>
+            parameter indicates the state that the ESC will read as active for the TEM PTO feedback switch (As it goes
+            into the RPM input). This active state will be used to tell the ESC when the PTO is engaged.
+        </para>
+        <para>0 = Input active when open circuit</para>
+        <para>1 = Input active when grounded</para>
+        <para>3 = Input active when at 12V</para>
+        <table id="t7300067">
+            <tgroup cols="7">
+                <colspec colname="col1" colwidth="1.51*"/>
+                <colspec colname="col2" colwidth="0.67*"/>
+                <colspec colname="col4" colwidth="1.89*"/>
+                <colspec colname="COLSPEC3" colwidth="0.76*"/>
+                <colspec colname="col5" colwidth="0.80*"/>
+                <colspec colname="col6" colwidth="0.77*"/>
+                <colspec colname="col7" colwidth="0.65*"/>
+                <spanspec namest="col1" nameend="col7" spanname="SPAN1"/>
+                <thead>
+                    <row>
+                        <entry colspan="7" spanname="SPAN1">
+                            <para>Off - Indicates a 0 is set in for this parameter</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="7" spanname="SPAN1">
+                            <para>On - Indicates a 1 is set for the parameter</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry align="center">
+                            <para>Parameter</para>
+                        </entry>
+                        <entry align="center">
+                            <para>ID</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Description</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Default</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Min</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Max</para>
+                        </entry>
+                        <entry align="center">
+                            <para>Step</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Retaining_ Solenoid_Fuse</para>
+                        </entry>
+                        <entry>
+                            <para>2022</para>
+                        </entry>
+                        <entry>
+                            <para>Fuse value for the TEM PTO Single Polarity engagement retaining solenoid power.</para>
+                        </entry>
+                        <entry>
+                            <para>20 Amps</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>20</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Lectra_Shift_ Max_Retries</para>
+                        </entry>
+                        <entry>
+                            <para>2058</para>
+                        </entry>
+                        <entry>
+                            <para>The maximum number of times a PTO engagement request is allowed to be issued in a key
+                                cycle.
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>0 Retries</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>65535</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Lectra_Shift_ Retry_Time</para>
+                        </entry>
+                        <entry>
+                            <para>2059</para>
+                        </entry>
+                        <entry>
+                            <para>Time frame for retry counting in lectra shift engagement algorithm.</para>
+                        </entry>
+                        <entry>
+                            <para>600 Seconds</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>600</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_PTO_ Allowed_ Engagement_ Time</para>
+                        </entry>
+                        <entry>
+                            <para>2057</para>
+                        </entry>
+                        <entry>
+                            <para>Time allowed for engagement of the lectra shift PTO.</para>
+                        </entry>
+                        <entry>
+                            <para>3 Seconds</para>
+                        </entry>
+                        <entry>
+                            <para>0</para>
+                        </entry>
+                        <entry>
+                            <para>10</para>
+                        </entry>
+                        <entry>
+                            <para>0.1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>TEM_RPM_ PTO_Engaged_ Param</para>
+                        </entry>
+                        <entry>
+                            <para>2147</para>
+                        </entry>
+                        <entry>
+                            <para>Active State for the TEM PTO engagement feedback switch.</para>
+                        </entry>
+                        <entry>
+                            <para>1</para>
+                        </entry>
+                        <entry>
+                            <para>List</para>
+                        </entry>
+                        <entry>
+                            <para>List</para>
+                        </entry>
+                        <entry>
+                            <para>List</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <emph type="boldundersc">WIRING INFORMATION</emph>
+        </para>
+        <para>&#8594;
+            <emph type="boldital">Please use ICAP or the Diamond Logic&#8482; Builder software to determine pin and
+                switch locations for RPM inputs and outputs and to set programmable parameters (refer to pin and switch
+                location section).
+            </emph>
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>When a truck is ordered from International with this feature, a 3-pin connector is provided which
+                    mates with the connector from the Muncie Lectra-Shift Solenoid. This connector is located in the
+                    transmission/engine harness located above the transmission. The customer is responsible for
+                    connecting two wires from this connector to the Remote Power Module connectors.
+                </para>
+                <randlist type="dash">
+                    <item>
+                        <para>The WHITE wire is pre-wired from a relay to the Lectra-shift connector. This wire is for
+                            the engagement coil.
+                        </para>
+                    </item>
+                    <item>
+                        <para>The RED wire is for the holding coil in the solenoid. The RED wire must be connected to
+                            the Brown 8-pin Remote Power Module output connector Pin labeled
+                            <emph type="bold">PTO_Lectra-Shift_Retaining_Solenoid_Output</emph>.
+                        </para>
+                    </item>
+                    <item>
+                        <para>The BLACK wire is for the PTO feedback switch. The customer must wire from this pin into
+                            the Black 23-pin Remote Power Module input connector Pin labeled
+                            <emph type="bold">PTO_Feedback_Switch</emph>.
+                        </para>
+                    </item>
+                </randlist>
+            </item>
+            <item>
+                <para>When the customer has completed the wiring from the connector, they can then plug the 3-pin
+                    connector into the connector provided by the Muncie Solenoid (See the Figure below).
+                </para>
+            </item>
+            <item>
+                <para>The customer is responsible for providing ground to the solenoid.</para>
+            </item>
+        </randlist>
+        <figure id="f7300098" figsize="pg-wide">
+            <graphic filename="../figg73/g73000b0.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                     scalefitheight="432px"/>
+            <caption>Lectra-Shift PTO Solenoid Connectors</caption>
+        </figure>
+        <figure id="f7300099" figsize="pg-wide">
+            <graphic filename="../figg73/g73000b1.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                     scalefitheight="432px"/>
+            <caption>International Supplied Harness for Lectra-Shift PTO</caption>
+        </figure>
+        <figure id="f73000b2" figsize="pg-wide">
+            <graphic filename="../figg73/g73000b2.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                     scalefitheight="502px"/>
+            <caption>Diagram of Lectra-Shift PTO System</caption>
+        </figure>
+        <para>
+            <emph type="boldundersc">RPM CONNECTOR INFORMATION</emph>
+        </para>
+        <para>
+            <emph type="bold">** HPV kits are REQUIRED to allow Body Builders to wire in and out of the Remote Power
+                Module connectors.
+            </emph>
+        </para>
+        <para>HPV kits are pre-made kits that include terminals and seals for BOTH RPM connectors.</para>
+        <table id="t7300055">
+            <tgroup cols="2">
+                <colspec colname="col1"/>
+                <colspec colname="col2"/>
+                <thead>
+                    <row>
+                        <entry>
+                            <para>HPV Kits</para>
+                        </entry>
+                        <entry>
+                            <para>Part Number</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>RPM Terminal Kit 12 Gauge</para>
+                        </entry>
+                        <entry>
+                            <para>2585651C91</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>RPM Terminal Kit 14 Gauge</para>
+                        </entry>
+                        <entry>
+                            <para>2585423C91</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <specpara>
+            <note>
+                <para>The following connectors are optional because they are already provided with the Remote Power
+                    Modules.
+                </para>
+            </note>
+        </specpara>
+        <para>This information is given so that the Body Builder could purchase connectors in the event that the
+            original connectors were damaged or lost, or so that the Body Builder can pre-fabricate a harness.
+        </para>
+        <table id="t7300056">
+            <title>8-Way RPM Output Connector (Brown) and 23-Way RPM Input Connector (Black)</title>
+            <tgroup cols="3">
+                <colspec colname="col1" colwidth="1.02*"/>
+                <colspec colname="col2" colwidth="1.50*"/>
+                <colspec colname="col3" colwidth="1.09*"/>
+                <thead>
+                    <row>
+                        <entry>
+                            <para>Connector Part No.</para>
+                        </entry>
+                        <entry>
+                            <para>3548934C1</para>
+                        </entry>
+                        <entry>
+                            <para>2585981c91</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>Description</para>
+                        </entry>
+                        <entry>
+                            <para>Connector, Body, Brown 8-Way RPM Output</para>
+                        </entry>
+                        <entry>
+                            <para>Connector, Body, Black 23-Way RPM Input Kit</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Terminal Part</para>
+                        </entry>
+                        <entry>
+                            <para>3534163C1 - 12 Ga.</para>
+                            <para>3535931C1 - 14 Ga.</para>
+                            <para>3535930C1 - 16 &#38; 18 Ga.</para>
+                        </entry>
+                        <entry>
+                            <para>Included</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Cable Seal Part</para>
+                        </entry>
+                        <entry>
+                            <para>3548945C1 - 12 &#38; 14 Ga.</para>
+                            <para>3535937C1 - 16 &#38; 18 Ga.</para>
+                        </entry>
+                        <entry>
+                            <para>N/A</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Connector Lock Part</para>
+                        </entry>
+                        <entry>
+                            <para>3548943c1</para>
+                        </entry>
+                        <entry>
+                            <para>N/A</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>CPA Lock</para>
+                        </entry>
+                        <entry>
+                            <para>3573833c1</para>
+                        </entry>
+                        <entry>
+                            <para>N/A</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Cavity Plug</para>
+                        </entry>
+                        <entry>
+                            <para>3535938c1</para>
+                        </entry>
+                        <entry>
+                            <para>Included</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <figure id="f7300079" figsize="pg-wide">
+            <graphic filename="../figg73/g7300079.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                     scalefitheight="502px"/>
+            <caption>RPM Mounting Location on a 4000 Model Truck</caption>
+        </figure>
+        <figure id="f7300080" figsize="pg-wide">
+            <graphic filename="../figg73/g7300080.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                     scalefitheight="352px"/>
+            <caption>RPM Mounting Location on a 7000 Model Truck</caption>
+        </figure>
+        <para>
+            <emph type="boldundersc">TESTING</emph>
+        </para>
+        <step1>
+            <para count="1">Depress the PTO switch in the cab to the ON position. Ensure that all PTO interlock
+                conditions are enabled.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Verify that the pin labeled PTO_Lectra-Shift_Retaining_Solenoid_Output of the Brown 8-way
+                Remote Power Module output connector has battery voltage levels present.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Verify that the Remote Power Module Input labeled PTO_Feedback_Switch (Pin position
+                specified by ICAP or the Diamond Logic&#8482; Builder software) is receiving the correct voltage (12V or
+                Ground) as specified by the customer in ICAP or the Diamond Logic&#8482; Builder software.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Make certain that the switch indicator lights are functioning by engaging the PTO and
+                verifying that the green light in the top section of the switch illuminates.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Make certain that the PTO indicator light in the gauge cluster is functioning by engaging
+                the PTO.
+            </para>
+        </step1>
+        <step1>
+            <para count="1">Test the Audible Alarm by violating an alarm programmable parameter and verifying that the
+                Alarm sounds. For example: If the park brake interlock is programmed ON, release the park brake and
+                engage the PTO. The audible alarms should sound with continuous beeps.
+            </para>
+        </step1>
+        <para>
+            <emph type="boldundersc">HOW TO ADD THIS FEATURE:</emph>
+        </para>
+        <seqlist>
+            <item>
+                <para>If vehicle does not have a Remote Power Module installed, follow the Remote Power Module
+                    Installment procedure listed in this document.
+                </para>
+            </item>
+            <item>
+                <para>If the vehicle already has a Remote Power Module, follow the procedure listed below to add
+                    specific wiring for lectra-shift.
+                </para>
+            </item>
+        </seqlist>
+        <para>&#8594;
+            <emph type="bold">Please use ICAP or the Diamond Logic&#8482; Builder software to add the correct software
+                codes (See above section) and to determine pin and switch locations for RPM inputs and outputs and to
+                set programmable parameters (refer to pin and switch location section)
+            </emph>
+        </para>
+        <randlist type="bullet">
+            <item>
+                <para>Software feature codes 595170, 595171, 595179, and 595248 must be enabled on the vehicle using
+                    ICAP or the Diamond Logic&#8482; Builder software (see Local Dealer)
+                </para>
+            </item>
+            <item>
+                <para>Use ICAP or the Diamond Logic&#8482; Builder software to make sure that software feature codes
+                    595193, 595252, 595244, and 595267 are NOT enabled on the vehicle (see Local Dealer)
+                </para>
+            </item>
+            <item>
+                <para>Set the desired programmable parameters for each signal using ICAP or the Diamond Logic&#8482;
+                    Builder software (see Local Dealer)
+                </para>
+            </item>
+            <item>
+                <para>Connect a wire from the pin labeled
+                    <emph type="bold">PTO_Lectra-Shift_Retaining_Solenoid_Output</emph>
+                    pin the Brown 8-pin RPM output connector, to the coil on the solenoid.
+                </para>
+            </item>
+            <item>
+                <para>Connect a wire from a Bodybuilder-installed PTO feedback switch to the pin labeled
+                    <emph type="bold">PTO_Feedback_Switch</emph>
+                    in the Black 23-Pin RPM input connector
+                </para>
+            </item>
+        </randlist>
+        <para>Perform the PTO testing procedure that is listed above.</para>
+        <specpara>
+            <warning>
+                <para>Batteries expel explosive gases. Keep sparks, flames, burning cigarettes or other ignition sources
+                    away at all times. Always wear safety glasses and a face shield when working near batteries to
+                    prevent personal injury and/or property damage.
+                </para>
+            </warning>
+        </specpara>
+        <para>Open hood and disconnect batteries on the vehicle.</para>
+        <para>In Cab Interior installation:</para>
+        <para>Remove ESC kick panel to access the 36-way ESC connector number 1600</para>
+        <seqlist style="arabic">
+            <item>
+                <para>Using Harness wire part number 3510323R1</para>
+                <seqlist>
+                    <item>
+                        <para>Disconnect the 48 way Pass Thru connector outside the cab</para>
+                    </item>
+                    <item>
+                        <para>Install gray circuit wire CY12LC to cavity 48 of the Pass Thru connector number 1700. (Not
+                            necessary to remove the connector)
+                        </para>
+                    </item>
+                    <item>
+                        <para>Install gray circuit wire CY12LC to cavity 11 of the 36-way ESC connector number 1600.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Tape circuit CY12LC to the Cab harness and secure.</para>
+                    </item>
+                </seqlist>
+            </item>
+            <item>
+                <para>Install dash switches</para>
+                <seqlist>
+                    <item>
+                        <para>Ensure the switch assigned to the Lectra Shift is a momentary switch.</para>
+                    </item>
+                    <item>
+                        <para>If the switch is not a momentary switch, use a din removal tool and remove the affected
+                            switchpack from the instrument panel. Install a momentary switch in the position assigned to
+                            PTO. Reinstall the switchpack in the instrument panel.
+                        </para>
+                    </item>
+                </seqlist>
+            </item>
+        </seqlist>
+        <para>PDC Under-hood Exterior Installation Steps</para>
+        <seqlist style="arabic">
+            <item>
+                <para>Remove the PDC panel cover to access interior circuits</para>
+            </item>
+            <item>
+                <para>Disassemble the PDC fuse panel block to gain access to the relay location and wire up the 40 Amp
+                    Relay located next to the Body Accessory Relay.
+                </para>
+            </item>
+            <item>
+                <para>Using Harness wire part 3582955C91</para>
+                <seqlist>
+                    <item>
+                        <para>Remove two screws holding the strain relief and twist the connector body, disassemble the
+                            pass thru connector (#4014). (do not remove the white terminal disk lock).
+                        </para>
+                    </item>
+                    <item>
+                        <para>Connect the pink circuit wire J12LC to cavity 48 of the Pass thru connector 4014</para>
+                    </item>
+                    <item>
+                        <para>Route harness to the PDC following the existing harness assembly.</para>
+                    </item>
+                    <item>
+                        <para>Connect the white circuit wire J11-GC to ground stud (4005 0r 4006)</para>
+                    </item>
+                    <item>
+                        <para>Connect the white/violet circuit wire J14LS to the PDC block location #4003 cavity R4-4
+                            (Terminal 87 on the Relay) Install red terminal lock.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Connect the dual red splice terminal end circuit wires J14PL &#38; J14LC to the PDC block
+                            location #4003 cavity R4-1 (Terminal 30 on the Relay) Install red terminal lock.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Connect small terminal end red circuit wire J14PL to the PDC block location #4003 cavity
+                            R4-5 (Terminal 86 on the Relay) Install red terminal lock.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Connect the pink circuit wire J12LC to PDC block location #4003 cavity R4-2 (Terminal 85
+                            on the Relay) Install red terminal lock.
+                        </para>
+                    </item>
+                    <item>
+                        <para>The large terminal end of the red circuit wire J14PL will connect to the maxi fuse
+                            block.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Install Relay assembly into Relay Location R4.</para>
+                    </item>
+                </seqlist>
+            </item>
+            <item>
+                <para>Using Harness 3581924C91 red wires with Maxi Fuse Block</para>
+                <seqlist>
+                    <item>
+                        <para>Remove the harness from the Maxi Fuse Block</para>
+                    </item>
+                    <item>
+                        <para>Reusing mounting hardware install the unfused side of the unmarked spare red power circuit
+                            to the Maxi Fuse block. (Not the teal end or fusible link side of the wire)
+                        </para>
+                    </item>
+                    <item>
+                        <para>Remove the secondary lock from the Maxi Fuse Block and install J14PL into cavity A1 of the
+                            Maxi Fuse Block. Re-install the white secondary lock assembly and secure.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Install 40 Amp Maxi-fuse.</para>
+                    </item>
+                    <item>
+                        <para>Install the fusible side of the unmarked power wire to the unfused side of the Mega fuse.
+                            (Towards the front of the truck) Remove and reinstall mounting hardware. Also tape wrap the
+                            dash harness wires to the dash harness.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Install the Maxi fuse block assembly into the PDC housing</para>
+                    </item>
+                    <item>
+                        <para>Using the Coroplast tape warp install the protective tape onto the white circuit wire
+                            J14LS back up into the harness enough to sufficiently protect the wire outside the PDC fuse
+                            panel.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Re-assembly the PDC fuse panel box and stuff the wires back into place making sure that
+                            wires are correctly routed back to their original locations.
+                        </para>
+                    </item>
+                    <item>
+                        <para>Reinstall PDC cover and secure</para>
+                    </item>
+                    <item>
+                        <para>Strap lock dash harness effects and secure diode assembly.</para>
+                    </item>
+                </seqlist>
+            </item>
+            <item>
+                <para>Using wire harness 3582957C91</para>
+                <randlist type="bullet">
+                    <item>
+                        <para>Route the harness down along the engine harness next to the ECM above the clutch linkage;
+                            follow the portion of the transmission/engine harness coming out of the engine ECM. Tape or
+                            tie-wrap the single WHITE Lectra shift pull-in coil wire to the transmission/engine harness.
+                        </para>
+                    </item>
+                </randlist>
+            </item>
+            <item>
+                <para>Connect the RED wire to the Brown 8-pin Remote Power Module output connector Pin labeled
+                    <emph type="bold">PTO_Lectra-Shift_Retaining_Solenoid_Output</emph>.
+                </para>
+            </item>
+            <item>
+                <para>Connect BLACK wire to the Black 23-pin Remote Power Module input connector Pin labeled
+                    <emph type="bold">PTO_Feedback_Switch</emph>.
+                </para>
+            </item>
+            <item>
+                <para>Reconnect vehicle batteries.</para>
+            </item>
+            <item>
+                <para>Test the PTO operation.</para>
+            </item>
+        </seqlist>
+        <table id="t7300056">
+            <title>8-Way RPM Output Connector (Brown) and 23-Way RPM Input Connector (Black)</title>
+            <tgroup cols="3">
+                <colspec colname="col1" colwidth="1.02*"/>
+                <colspec colname="col2" colwidth="1.50*"/>
+                <colspec colname="col3" colwidth="1.09*"/>
+                <thead>
+                    <row>
+                        <entry>
+                            <para>Connector Part No.</para>
+                        </entry>
+                        <entry>
+                            <para>3548934C1</para>
+                        </entry>
+                        <entry>
+                            <para>2585981c91</para>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>Description</para>
+                        </entry>
+                        <entry>
+                            <para>Connector, Body, Brown 8-Way RPM Output</para>
+                        </entry>
+                        <entry>
+                            <para>Connector, Body, Black 23-Way RPM Input Kit</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Terminal Part</para>
+                        </entry>
+                        <entry>
+                            <para>3534163C1 - 12 Ga.</para>
+                            <para>3535931C1 - 14 Ga.</para>
+                            <para>3535930C1 - 16 &#38; 18 Ga.</para>
+                        </entry>
+                        <entry>
+                            <para>Included</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Cable Seal Part</para>
+                        </entry>
+                        <entry>
+                            <para>3548945C1 - 12 &#38; 14 Ga.</para>
+                            <para>3535937C1 - 16 &#38; 18 Ga.</para>
+                        </entry>
+                        <entry>
+                            <para>N/A</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Connector Lock Part</para>
+                        </entry>
+                        <entry>
+                            <para>3548943c1</para>
+                        </entry>
+                        <entry>
+                            <para>N/A</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>CPA Lock</para>
+                        </entry>
+                        <entry>
+                            <para>3573833c1</para>
+                        </entry>
+                        <entry>
+                            <para>N/A</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>Cavity Plug</para>
+                        </entry>
+                        <entry>
+                            <para>3535938c1</para>
+                        </entry>
+                        <entry>
+                            <para>Included</para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_BB60ABA.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300_BB60ABE.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="s08300.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

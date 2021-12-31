@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics (1995) - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS - CIRCUIT FUNCTION
+        AND DIAGNOSTICS - BAROMETRIC PRESSURE (BARO) SENSOR
+    </stitle>
+    <svcman/>
+    <svcproc id="hl1450310" svcproctype="proctype" graphiccount="5">
+        <title>BAROMETRIC PRESSURE (BARO) SENSOR</title>
+        <svcprocinfo>
+            <para>
+                <hotlnk xrefid="ef1450318">Figure 3.11 (BARO)</hotlnk>
+            </para>
+            <figure id="ef1450318" figsize="col-wide">
+                <graphic id="eg1195" filename="../figeg1/eg1195.webp" type="webp"/>
+                <caption>Figure 3.11 (BARO)</caption>
+            </figure>
+        </svcprocinfo>
+        <svcsubproc>
+            <title>SIGNAL FUNCTIONS</title>
+            <para>The BARO (Barometric Pressure) sensor is a variable capacitance sensor that when supplied with a 5
+                volt reference signal from the ECM produces a linear analog voltage signal that indicates pressure.
+            </para>
+            <para>
+                <title>Timing Control</title>The BARO signal is used to determine altitude to adjust timing and fuel
+                quantity to optimize engine operation and control smoke throughout all altitude conditions.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>FAULT DETECTION/MANAGEMENT</title>
+            <para>A BARO signal that is detected out of range high or low by the ECM will cause the ECM to ignore the
+                BARO signal and use the Manifold Absolute Pressure (MAP) signal generated at low idle as an indication
+                of barometric pressure. If a MAP fault is detected, the BARO will default to 29.6 in. Hg. of barometric
+                pressure.
+            </para>
+            <para>
+                <hotlnk xrefid="ef1450319">Figure 3.12 Barometric Pressure Sensor Circuit Diagnostics</hotlnk>
+            </para>
+            <figure id="ef1450319" figsize="col-wide">
+                <graphic id="eg5942" filename="../figeg5/eg5942.webp" type="webp"/>
+                <caption>Figure 3.12 Barometric Pressure Sensor Circuit Diagnostics</caption>
+            </figure>
+        </svcsubproc>
+        <svcsubproc>
+            <title>BAROMETRIC PRESSURE SENSOR</title>
+            <para>Refer to
+                <emph type="bold">Figure</emph>
+                <emph type="bold">
+                    <hotlnk xrefid="ef1450320">3.13</hotlnk>
+                </emph>
+                for the following discussion.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>BAROMETRIC PRESSURE SENSOR (BARO) OPERATION</title>
+            <para>The ECM sends a regulated 5 volt signal from ECM connector (379) terminal 26 to BARO connector (406)
+                terminal 2. The BARO sensor returns a variable voltage signal (represents atmospheric pressure) from
+                BARO connector (406) terminal 3 to the ECM at terminal 5. The BARO sensor is grounded from connector
+                (406) terminal 1 to the ECM signal ground terminal 46.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>ECM DIAGNOSTICS</title>
+            <para>The ECM continuously monitors the signal from the BARO sensor to ECM terminal 5. If the signal is out
+                of the expected range, a fault is logged (warning light does NOT turn on) and the ECM uses the Manifold
+                Absolute Pressure (MAP) signal generated at low idle to determine barometric pressure.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 151</title>
+            <para>
+                <title>ATA Code PID 108 FMI 3</title>
+            </para>
+            <para>
+                <title>ECM: BARO SIGNAL OUT OF RANGE LOW</title>
+            </para>
+            <para>BARO signal greater than 4.95 volts for more than 1 second.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Flash Code 152</title>
+            <para>
+                <title>ATA Code PID 108 FMI 4</title>
+            </para>
+            <para>
+                <title>ECM: BARO SIGNAL OUT OF RANGE LOW</title>
+            </para>
+            <para>BARO signal less than 1.0 volt for more than 1 second.</para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>TROUBLESHOOTING</title>
+            <para>The BARO circuits operate with low current levels. When troubleshooting, pay special attention to the
+                connectors.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Before Performing Any Test</title>
+            <para>Inspect connectors for pushed back, damaged, corroded or dirty terminals, as well as making sure that
+                the terminals and wires are properly crimped. Make sure the connectors are properly joined together.
+                Also check for any damage to the wiring and make sure system grounds are clean and tight.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>TESTING APS/IVS CIRCUITS</title>
+            <specpara>
+                <note>
+                    <para>If fault codes indicate a problem is also present with the APS/IVS system, troubleshoot that
+                        system before performing the following test.
+                    </para>
+                </note>
+            </specpara>
+            <step1>
+                <para count="1">If BARO flash code 151 or 152 is active, perform Testing Barometric Pressure Sensor
+                    Circuits
+                    <emph type="bold">Figure
+                        <hotlnk xrefid="ef1450321">3.14</hotlnk>.
+                    </emph>
+                </para>
+            </step1>
+            <para>This test systematically checks the BARO circuits for:</para>
+            <seqlist style="alphauc">
+                <item>
+                    <para>Short circuits to ground.</para>
+                </item>
+                <item>
+                    <para>Short circuits to unwanted voltage sources.</para>
+                </item>
+                <item>
+                    <para>Open circuits or excessive circuit resistance.</para>
+                </item>
+                <item>
+                    <para>Proper feeds and grounds.</para>
+                </item>
+            </seqlist>
+            <figure id="ef1450320" figsize="col-wide">
+                <graphic id="eg5943" filename="../figeg5/eg5943.webp" type="webp"/>
+                <caption>Figure 3.13 Barometric Pressure Sensor Circuit Diagram</caption>
+            </figure>
+            <para>Refer to circuit diagram
+                <emph type="bold">Figure
+                    <hotlnk xrefid="ef1450320">3.13</hotlnk>
+                </emph>
+                while performing this test.
+            </para>
+            <para>
+                <hotlnk xrefid="ef1450321">Figure 3.14 Testing Barometric Pressure Sensor Circuits</hotlnk>
+            </para>
+            <figure id="ef1450321" figsize="col-wide">
+                <graphic id="eg5944" filename="../figeg5/eg5944.webp" type="webp"/>
+                <caption>Figure 3.14 Testing Barometric Pressure Sensor Circuits</caption>
+            </figure>
+            <para>
+                <hotlnk xrefid="ef1450322">Figure 3.14a Testing Barometric Pressure Sensor Circuits (Continued)</hotlnk>
+            </para>
+            <figure id="ef1450322" figsize="col-wide">
+                <graphic id="eg5945" filename="../figeg5/eg5945.webp" type="webp"/>
+                <caption>Figure 3.14a Testing Barometric Pressure Sensor Circuits (Continued)</caption>
+            </figure>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450309.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145_HL1450311.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e145.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

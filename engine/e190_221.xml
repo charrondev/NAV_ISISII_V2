@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (NAVPAK) (1997) - SECTION 3.5: ELECTRONIC CONTROL SYSTEM DIAGNOSTICS,
+        ACCELERATOR PEDAL POSITION SENSOR/IVS SWITCH (APS/IVS) - (EDL) ENGINE DATA LINE WITH ALLISON AT/MT TRANSMISSION
+        - FAULT DETECTION
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="PROCTYPE" graphiccount="1">
+        <title>FAULT DETECTION</title>
+        <para>The EST is used to initiate the KOEO Output Circuit Tests. This will test the enabling circuit between the
+            key switch, through the relay coil and circuit to ECM pin 56. If an open or short (high or low) is found in
+            this circuit, flash Code 244 will be set.
+        </para>
+        <para>Note that the test does not check relay function or the circuit to the shift solenoid.</para>
+        <para>Refer to
+            <emph type="BOLD">Figure
+                <hotlnk xrefid="f1901753">3.51</hotlnk>
+            </emph>
+            for the engine coolant temperature sensor circuit diagram and
+            <emph type="BOLD">Table
+                <hotlnk xrefid="f1901754">3.14</hotlnk>
+            </emph>
+            for the voltage checks.
+        </para>
+        <figure id="f1901753" figsize="col-wide">
+            <graphic id="eg1232" filename="../figeg1/eg1232.webp" type="webp"/>
+            <caption>Figure 3.51 Engine Data Line with Allison AT/MT Transmission Circuit Diagram</caption>
+        </figure>
+        <table id="t1901792">
+            <title>Table 3.14 Engine Data Line With Allison AT/MT Transmission Connector Checks</title>
+            <tgroup cols="3">
+                <colspec colname="1" colwidth="54p"/>
+                <colspec colname="2" colwidth="54p"/>
+                <colspec colname="3" colwidth="180p"/>
+                <spanspec namest="1" nameend="3" spanname="S1T3"/>
+                <tbody>
+                    <row>
+                        <entry colspan="3" spanname="S1T3">
+                            <para>
+                                <emph type="BOLD">Key On Engine Off-Voltage Checks at EDL Relay Socket</emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="3" spanname="S1T3">
+                            <para>
+                                <emph type="BOLD">(Check with EDL relay Removed and the ignition Key "ON" engine "OFF"
+                                </emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>+Test Points-</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>Spec.</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>Comments</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>85 to Grd.</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>12v &#177; 1.5v</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>Should be power when key on, if no power check ground and power circuits from key
+                                switch, fuse F2
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>30 to Grd.</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>12v &#177; 1.5v</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>Should be power when key on, if no power check ground and power circuits from key
+                                switch, fuse F2
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>87A to 30</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>> 10v</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>If no voltage present open circuit or high resistance through shift solenoid, see CTS
+                                5000 Allison transmission
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>86 to Grd.</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>0v</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>No voltage present when relay removed</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="3" spanname="S1T3">
+                            <para>
+                                <emph type="BOLD">Key On Engine Off- Voltage Checks at ECM</emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="3" spanname="S1T3">
+                            <para>
+                                <emph type="BOLD">(Check with breakout box installed, EDL relay installed and key "ON"
+                                </emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>+Test Points-</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>Spec.</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>Comments</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>+56 to -23</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>12v &#177; 1.5v</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>With EST tool enter "OUTPUT STATE TEST" set outputs
+                                <emph type="BOLD">high</emph>(12v=shift modulator energized)
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>+56 to -23</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>0v</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>With EST tool enter "OUTPUT STATE TEST" set outputs
+                                <emph type="BOLD">low</emph>(0v=shift modulator de-energized)
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="3" spanname="S1T3">
+                            <para>If voltage states are correct the relay circuit is functioning correctly, if not check
+                                relay, circuit from relay to ECM, or ECM programming
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="3" spanname="S1T3">
+                            <para>
+                                <emph type="BOLD">Circuit Resistance Checks</emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="3" spanname="S1T3">
+                            <para>
+                                <emph type="BOLD">(Check with breakout box installed, ECM power relay installed and key
+                                    "ON"
+                                </emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>+Test Points-</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>Spec.</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>Comments</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>56 to 86</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>&#60; 5 ohms</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>Resistance from ECM to EDL relay</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>85 to 86</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>80-120 ohms</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>Measure resistance across relay coil</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>30 to F1</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>&#60; 5 ohms</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>Power from relay to fuse F1</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="3" spanname="S1T3">
+                            <para>
+                                <emph type="BOLD">Fault Code Descriptions</emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="3" spanname="S1T3">
+                            <para>244 = High or low resistance detected in relay or relay coil during an "Engine Off"
+                                test (Output Circuit Check)
+                            </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e190_220.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e190_222.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e190.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

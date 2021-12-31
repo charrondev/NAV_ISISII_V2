@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>T 444E Diesel Engine Diagnostics (1997) - SECTION 3.5: CIRCUIT FUNCTION AND DIAGNOSTICS - CRUISE CONTROL,
+        PTO, HAND THROTTLE SYSTEM - FAULT DETECTION MANAGEMENT
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="proctype" graphiccount="1">
+        <title>FAULT DETECTION MANAGEMENT</title>
+        <para>The ECM monitors the
+            <emph type="bold">SCCS signal</emph>for the five expected signals. If an incorrect signal is detected, Flash
+            Code 221 is logged. The ECM also monitors the
+            <emph type="bold">R-APS signal</emph>
+            input at ECM terminal 30 from the remote pedal sensor for out-of-range signals, high or low.
+        </para>
+        <para>Refer to
+            <emph type="bold">Figure
+                <hotlnk xrefid="ef12518137">3.144</hotlnk>
+            </emph>
+            and
+            <emph type="bold">Table 24</emph>
+            for the circuit diagram and table for the speed control command switches.
+        </para>
+        <figure id="ef12518137" figsize="col-wide">
+            <graphic id="eg7082" filename="../figeg7/eg7082.webp" type="webp"/>
+            <caption>Figure 3.144 - Speed Control Command Switches Circuit Diagram</caption>
+        </figure>
+        <table id="et1251825">
+            <title>Table 3.30 - Speed Control Command Switches</title>
+            <tgroup cols="4">
+                <colspec colname="1" colwidth="90p"/>
+                <colspec colname="2" colwidth="65p"/>
+                <colspec colname="3" colwidth="65p"/>
+                <colspec colname="4" colwidth="248p"/>
+                <spanspec namest="1" nameend="4" spanname="S1T4"/>
+                <tbody>
+                    <row>
+                        <entry colspan="4" spanname="S1T4">
+                            <para>
+                                <emph type="bold">Operational Voltage Checks</emph>
+                            </para>
+                            <para>
+                                <emph type="bold">Connector (379) with breakout box installed and key ON</emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>SCCS Sw. Position</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>Breakout</para>
+                            <para>Test Points</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>Spec.</para>
+                        </entry>
+                        <entry colname="4">
+                            <para>Comments</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>All switches in neutral position.</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>#50 to #39</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>6.2V - 7.1V</para>
+                        </entry>
+                        <entry colname="4">
+                            <para>&#60; than 6.2V check connections, battery condition. Greater than 7.1V check for
+                                short to VBAT.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>Hold switch in OFF position</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>#50 to #39</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>0V - 100mV</para>
+                        </entry>
+                        <entry colname="4">
+                            <para>>than 100mV check connections, switch, resistor block and circuits for correct
+                                resistance or short to VBAT or grd.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>Hold switch in</para>
+                            <para>ON position</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>#50 to #39</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>4.4V - 5.0V</para>
+                        </entry>
+                        <entry colname="4">
+                            <para>&#60; > than specified voltage drop, check connections, switch, resistor block and
+                                related circuits for correct resistance or short to VBAT or grd.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>Hold Set switch</para>
+                            <para>in SET position</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>#50 to #39</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>2.2V - 3.0V</para>
+                        </entry>
+                        <entry colname="4">
+                            <para>&#60; > than specified voltage drop, check connections, switch, resistor block and
+                                related circuits for correct resistance or short to VBAT or VREF or grd.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colname="1">
+                            <para>Hold Res switch</para>
+                            <para>in RES position</para>
+                        </entry>
+                        <entry colname="2">
+                            <para>#50 to #39</para>
+                        </entry>
+                        <entry colname="3">
+                            <para>700mV - 800mV</para>
+                        </entry>
+                        <entry colname="4">
+                            <para>&#60; > than specified voltage drop, check connections, switch, resistor block and
+                                related circuits for correct resistance or short to VREF or VBAT or grd.
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="4" spanname="S1T4">
+                            <para>
+                                <emph type="bold">Fault Code Descriptions</emph>
+                            </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry colspan="4" spanname="S1T4">
+                            <para>213 = RPS signal was less than 0.146 volts for more than 0.5 seconds.</para>
+                            <para>214 = RPS signal was greater than 4.56 volts for more than 0.5 seconds.</para>
+                            <para>221 = SCCS voltage signal does not match expected levels (5 assigned levels for
+                                different conditions).
+                            </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_358.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125_360.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="e125.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

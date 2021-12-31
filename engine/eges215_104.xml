@@ -1,0 +1,475 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT 466 / DT 530 Engine Diagnostic Manual for 4000 Series Trucks (2001) - ELECTRONIC CONTROL SYSTEM
+        DIAGNOSTICS - CIRCUIT FUNCTION AND DIAGNOSTICS - Remote PTO Speed Control (RPTO)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="rpto" graphiccount="3">
+        <title>Remote PTO Speed Control (RPTO)</title>
+        <svcsubproc>
+            <title>System Functions</title>
+            <figure id="f17503082" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1297.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Remote PTO Speed Control Function Diagram</caption>
+            </figure>
+            <para>The purpose of the remote power takeoff feature is to allow the control of engine speed via remote
+                switches for the use of ancillary engine devices such as hydraulic pumps, lift gates, etc.
+            </para>
+            <para>
+                <emph type="bold">Mode Selection</emph>
+            </para>
+            <para>Variable speed or preset PTO control (up to two speeds selected) can be selected and programmed into
+                the module via EST.
+            </para>
+            <para>
+                <emph type="bold">Speed Selection</emph>
+            </para>
+            <para>Variable PTO speed is either increased or decreased by depressing the momentary speed control switch
+                to the Set or Resume position. The speed at which the engine accelerates is noted as the "ramp rate" or
+                rpm per seconds of acceleration that the engine is allowed to accelerate. "Ramp rate" and maximum PTO
+                speed are programmable by using the EST.
+            </para>
+            <para>In the preset PTO mode, the momentary speed control switch allows for two preset speeds to be
+                selected. By momentarily depressing the switch in the preset #1 mode the first speed is selected, by
+                momentarily depressing the switch in the preset #2 position a second speed can be selected. These speeds
+                are programmable in the ECM by using the EST.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>Disagreements in speed selection states will be detected by the ECM and a Diagnostic Trouble Code will
+                be set. The most common source of RPTO problems are blown fuses to the ON/OFF circuit, an incorrectly
+                programmed ECM, or improper wiring of the body builder connectors and speed control switches.
+            </para>
+            <figure id="f17503083" figsize="pg-wide">
+                <graphic filename="../figeg8/eg8858.webp" type="webp" scalefit="1" scalefitwidth="514px" box="yes"/>
+                <caption>Remote PTO Speed Control Circuit Diagram</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>See Body Builder Connections .</para>
+                </note>
+            </specpara>
+            <specpara>
+                <note>
+                    <para>After removing connector always check for damaged pins, corrosion, and loose terminals. Check
+                        for blown fuses.
+                    </para>
+                </note>
+            </specpara>
+            <table id="te17503030" frame="all">
+                <title>Remote PTO Speed Control Circuit Diagnostics</title>
+                <tgroup cols="3" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="43.40*"/>
+                    <colspec colwidth="40.93*"/>
+                    <colspec colname="col3" colwidth="311.67*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="1to3"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Voltage Circuit Checks at ECM Connector</emph>
+                                    (check with breakout box installed and ignition key ON)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">REMOTE PTO SPEED SELECTION SWITCH</emph>
+                                    (TWO POSITION INTERMITTENT ROCKER SWITCH)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Set Switch Circuit</emph>
+                                    (Speed #1 - preset PTO) (Deaccel - variable PTO)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>Test Points</para>
+                            </entry>
+                            <entry>
+                                <para>Spec.</para>
+                            </entry>
+                            <entry>
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>32 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>12V &#177; 1.5</para>
+                            </entry>
+                            <entry>
+                                <para>Switch held in Set position - If no voltage, check switch and circuit for open or
+                                    ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>32 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0V</para>
+                            </entry>
+                            <entry>
+                                <para>Switch in Middle position - If voltage is present, switch or circuit is shorted to
+                                    power.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Resume Switch Circuit</emph>(Speed #2 - preset PTO) (Accel -
+                                    variable PTO)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>31 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>12V &#177; 1.5</para>
+                            </entry>
+                            <entry>
+                                <para>Switch held in Resume position - If no voltage, circuit is open or shorted to
+                                    ground.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>31 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0V</para>
+                            </entry>
+                            <entry>
+                                <para>Switch in Middle position - If voltage is present, switch or circuit is shorted to
+                                    power.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Remote Variable PTO ON/OFF Switch - Switch must be ON for remote
+                                        PTO to function.
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>36 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>12V &#177; 1.5</para>
+                            </entry>
+                            <entry>
+                                <para>Switch in ON position - If no voltage, open circuit, switch or fuse from switch.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>36 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0V</para>
+                            </entry>
+                            <entry>
+                                <para>Switch in OFF position - If voltage is present, switch or circuit is shorted to
+                                    power.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>
+                                    <emph type="bold">Remote Preset PTO ON/OFF Switch - Switch must be ON for remote PTO
+                                        to function.
+                                    </emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>37 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>12V &#177; 1.5</para>
+                            </entry>
+                            <entry>
+                                <para>Switch in ON position - If no voltage, open circuit, switch or fuse from switch.
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <para>37 to gnd</para>
+                            </entry>
+                            <entry>
+                                <para>0V</para>
+                            </entry>
+                            <entry>
+                                <para>Switch in OFF position - If voltage is present, switch or circuit is shorted to
+                                    power.
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>
+                <emph type="bold">Power Take Off Speed Control</emph>
+            </para>
+            <para>The purpose of the remote power takeoff feature is to allow the control of engine speed via remote
+                switches for the use of ancillary engine devices such as hydraulic pumps, lift gates, etc.
+            </para>
+            <para>
+                <emph type="bold">Mode Selection</emph>
+            </para>
+            <para>Variable speed or preset PTO control (up to two speeds selected) can be selected and programmed into
+                the module via EST.
+            </para>
+            <para>The mode, variable and/or preset PTO must be selected and "turned on" by the EST tool for this feature
+                to function. On/off switches must also be installed to provide a 12V signal to the appropriate pin in
+                the ECM. The Remote PTO feature will be disabled when vehicle speed is detected, the clutch pedal is
+                depressed or if the engine is put into gear (automatic transmission only).
+            </para>
+            <para>Power Take Off (PTO) speed control provides a method for the operator to set and maintain a regulated
+                engine speed, without using the accelerator pedal, for the purpose of operating auxiliary equipment. The
+                power take off feature has a in-cab and a remote operator interface. Depending on configuration, the
+                operator may turn on and activate PTO speed control while in the comfort of the cab or at the
+                convenience of the remote interface. If both in-cab and remote operations are enabled, the on-board
+                electronics senses which interface is active depending on operator actions. No active mobile PTO
+                operation is possible when the PTO speed control is turned on using the remote interface.
+            </para>
+            <para>This feature also has the bump up and bump down functions. Where, the operator may bump up the rpm in
+                25 rpm increments when the Resume/Accel button is momentarily pressed. The operator may bump down the
+                rpm in 25 rpm increments when the Set/Cruise button is momentarily pressed.
+            </para>
+            <para>
+                <emph type="bold">Power Take Off</emph>
+            </para>
+            <para>This parameter indicates to the on-board electronics if the vehicle has the Power Take Off speed
+                control feature.
+            </para>
+            <randlist type="bullet">
+                <title>PTO Programmable Features</title>
+                <item>
+                    <para>
+                        <emph type="bold">Disable</emph>: Feature is turned off at all times.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Remote Operation Only</emph>: Feature is enabled and may only be turned on and
+                        activated using the remote PTO ON/OFF switches.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">In-Cab Operation Only</emph>: Feature is enabled and with use in-cab to PTO
+                        speed control while in the in-cab operation.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Remote and In-Cab Operation</emph>: Feature is enabled and will allow both
+                        remote and in-cab operations. However, the remote operation takes precedence over the in-cab
+                        operations.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">PTO Max VS (vehicle speed)</emph>
+            </para>
+            <para>This parameter indicates the maximum road speed that the PTO speed control may be engaged while in
+                Mobile PTO operation.
+            </para>
+            <para>
+                <emph type="bold">PTO In-Cab Mode</emph>
+            </para>
+            <para>This parameter indicates how the steering wheel mounted Cruise Control buttons are to be
+                interpreted.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>
+                        <emph type="bold">None</emph>: The steering wheel mounted Cruise Control ON/OFF switch is
+                        ignored.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Stationary Preset</emph>: The steering wheel mounted Cruise Control buttons
+                        operate only in the
+                        <emph type="bold">Preset</emph>
+                        state of operation.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Stationary Variable</emph>: The steering wheel mounted Cruise Control buttons
+                        operate in a variable state of operation.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Mobile Variable</emph>: The steering wheel mounted Cruise Control buttons
+                        operate in a variable state of operation while allowing the vehicle to be mobile.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">PTO In-Cab Interface</emph>
+            </para>
+            <para>This parameter indicates to the on-board electronics if PTO speed control is on and active the
+                operator in-cab interfaces are ignored. These interfaces include accelerator pedal, driveline engagement
+                signal, brake pedal and the steering wheel mounted Cruise Control buttons.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>
+                        <emph type="bold">Enable</emph>: Continue to monitor in-cab operator interfaces.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Disable</emph>: Ignore in-cab operator interfaces.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">PTO Remote Pedal</emph>
+            </para>
+            <para>This parameter indicates to the on-board electronics that a remote throttle control is available for
+                use to control the PTO rpm setting.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>
+                        <emph type="bold">Disable</emph>: Remote throttle is not available.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Enable</emph>: Remote throttle is available.
+                    </para>
+                </item>
+            </randlist>
+            <para>
+                <emph type="bold">PTO Preset rpm 1</emph>
+            </para>
+            <para>This parameter indicates the rpm setting when the operator depresses the Set/Cruise button with the
+                STATIONARY PRESET in-cab mode of operation.
+            </para>
+            <para>
+                <emph type="bold">PTO Preset rpm 2</emph>
+            </para>
+            <para>This parameter indicates the rpm setting when the operator depresses the Resume/Accel button with the
+                <emph type="bold">Stationary Preset</emph>
+                in-cab mode of operation.
+            </para>
+            <para>
+                <emph type="bold">PTO Preset rpm Ramp Rate</emph>
+            </para>
+            <para>This parameter indicates the rate that rpm is increased when the operator depresses and holds the
+                Resume/Accel button.
+            </para>
+            <para>
+                <emph type="bold">PTO Max rpm</emph>
+            </para>
+            <para>This parameter indicates the maximum rpm that the PTO speed control may be engaged.</para>
+            <para>
+                <emph type="bold">Troubleshooting</emph>
+            </para>
+            <para>The EST can be used to monitor the status of the PTO controls. Comparing the data list reading to
+                actual operation will indicate if the controls are operating properly. Using the menu of programmable
+                parameters, the ECM programming can also be verified to insure that the ECM is properly programmed for
+                PTO applications.
+            </para>
+            <figure id="f17503083.1" figsize="pg-wide">
+                <graphic filename="../figEg8/Eg8806.webp" type="webp" scalefit="1" scalefitwidth="514px"/>
+                <caption>ECM Body Builder Connections Circuit Diagram</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Refer to S08285 - Electrical Circuit Diagrams - 4200/4300/4400</para>
+                </note>
+            </specpara>
+            <verbatim>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line>THIS PAGE INTENTIONALLY LEFT BLANK</line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+                <line></line>
+            </verbatim>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_103.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215_105.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges215.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

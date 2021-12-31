@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../isisxsl.xsl"?>
+<isis lang="en">
+    <stitle>DT-466E and 530E Diesel Engine Diagnostics Model Years 1999-2000 - ELECTRONIC CONTROL SYSTEM DIAGNOSTICS -
+        Circuit Function And Diagnostics - Change Oil Lamp (COL)
+    </stitle>
+    <svcman/>
+    <svcproc svcproctype="troubleshoot" graphiccount="3">
+        <title>Change Oil Lamp (COL)</title>
+        <svcsubproc>
+            <title>Signal Functions</title>
+            <figure id="f17503033" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1293.webp" type="webp" scalefit="1" scalefitwidth="352px" box="no"/>
+                <caption>Function Diagram for Change Oil Lamp</caption>
+            </figure>
+            <para>The amber Change Oil Lamp will be illuminated when a customer programmable service interval has been
+                exceeded. These limits may be set for vehicle miles, hours, or calculated fuel consumption. These
+                service interval limits may be adjusted or the Change Oil Lamp feature may be turned on or off using the
+                EST tool.
+            </para>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Fault Detection / Management</title>
+            <para>The ECM can detect an open COL lamp circuit during a Standard Engine Off Test which automatically
+                performs an output circuit check.
+            </para>
+            <figure id="f17503034" figsize="pg-wide">
+                <graphic filename="../figeg1/eg1294A.webp" type="webp" scalefit="1" scalefitwidth="432px" box="no"/>
+                <caption>Circuit Diagram for Change Oil Lamp</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>Check COL lamp before doing any diagnostic tests.</para>
+                </note>
+            </specpara>
+            <table id="te17503007" tblwidth="pg-wide" frame="all">
+                <title>Change Oil Lamp Circuit Diagnostics</title>
+                <tgroup cols="3" colsep="1" rowsep="1">
+                    <colspec colname="col1" colwidth="56.65*"/>
+                    <colspec colwidth="41.25*"/>
+                    <colspec colname="col3" colwidth="298.10*"/>
+                    <spanspec namest="col1" nameend="col3" spanname="1to3"/>
+                    <tbody>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3" align="center">
+                                <para>
+                                    <emph type="bold">Key On Engine Off - Voltage Checks</emph>(Check with ECM chassis
+                                    connector (black) unplugged, breakout box installed, ignition key on, engine OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>+Test Points-</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>F1 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>12V</para>
+                            </entry>
+                            <entry>
+                                <para>Fuse for instrument cluster and COL lamp</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>45 to gnd</para>
+                            </entry>
+                            <entry align="center">
+                                <para>12V</para>
+                            </entry>
+                            <entry>
+                                <para>Battery voltage should be present from lamp circuit to ECM. If no voltage present,
+                                    check circuit for open or short
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3" align="center">
+                                <para>
+                                    <emph type="bold">Harness Resistance Checks</emph>(Check with ECM chassis connector
+                                    (black) unplugged, instrument cluster connector unplugged, ignition key OFF)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>Test Points</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Spec.</para>
+                            </entry>
+                            <entry align="center">
+                                <para>Comments</para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>45 to 11</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Continuity from ECM to cluster for COL lamp. (Pin No.11 in cluster connector)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry align="center">
+                                <para>5 to F1</para>
+                            </entry>
+                            <entry align="center">
+                                <para>&#60;5 &#x2126;</para>
+                            </entry>
+                            <entry>
+                                <para>Continuity from instrument cluster connector to fuse. (Pin No.5 in cluster
+                                    connector)
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3" align="center">
+                                <para>
+                                    <emph type="bold">Functional Checks</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3" align="center">
+                                <para>
+                                    <emph type="bold">Physical Circuit Check</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>Physical check - with breakout box installed, momentarily ground ECM chassis pin
+                                    No.45, the COL lamp should illuminate if the COL circuit is good
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3" align="center">
+                                <para>
+                                    <emph type="bold">Output State Check</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>The COL lamp can be commanded on for test purposes with the EST by requesting an
+                                    Output State Check, if the COL circuit checks out good to this point and does not
+                                    turn on when an Output State Check is commanded, either the ECM is bad or the
+                                    feature is not turned on
+                                </para>
+                            </entry>
+                        </row>
+                        <row rowsep="0">
+                            <entry colspan="3" spanname="1to3" align="center">
+                                <para>
+                                    <emph type="bold">Diagnostic Trouble Code Reference</emph>
+                                </para>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry colspan="3" spanname="1to3">
+                                <para>262 = COL output circuit check diagnostic trouble code detected during a Key-On
+                                    Engine-Off Standard Test, possible open or short in COL circuit
+                                </para>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </svcsubproc>
+        <svcsubproc>
+            <title>Extended Description</title>
+            <para>
+                <emph type="bold">Change Oil Lamp</emph>
+            </para>
+            <para>The Change Oil Lamp is cycled momentarily for every key on cycle as part of a visual bulb check. It is
+                mounted in the instrument cluster and receives 12V power from the cluster. The lamp is illuminated when
+                the ECM completes the path to ground. See
+                <hotlnk xrefid="f17503035">Engine Warning Lights/Alarm and Test Switch Circuit Diagram
+                    <xref refid="f17503035"/>
+                </hotlnk>
+                .
+            </para>
+            <para>
+                <emph type="bold">Service Interval Limits</emph>
+            </para>
+            <para>The limits listed below are the maximum and default values for the service internal function. Through
+                the use of the EST, these limits can be adjusted downward for specific customer needs, but not above the
+                recommended factory service interval.
+            </para>
+            <para>
+                <emph type="bold">Service Interval Limits</emph>
+            </para>
+            <para>This group of parameters customizes the Service Interval feature. Service Interval allows the vehicle
+                owner to customize when the vehicle requires servicing such as changing oil. When the programmed
+                distance fuel used or engine hour has been reached, the Change Oil Lamp will illuminate to indicate it
+                is time for maintenance and service.
+            </para>
+            <randlist type="bullet">
+                <item>
+                    <para>
+                        <emph type="bold">Service Interval Mode</emph>
+                    </para>
+                    <para>This parameter indicates to the on-board electronics if this vehicle has the service interval
+                        feature.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Fuel Interval</emph>
+                    </para>
+                    <para>This parameter allows the customer to program the amount of fuel used since the last service
+                        before lighting the Change Oil Lamp.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Hour Interval</emph>
+                    </para>
+                    <para>This parameter allows the customer to program the amount of Engine Hours since the last
+                        service before lighting the Change Oil Lamp.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Distance Interval</emph>
+                    </para>
+                    <para>This parameter allows the customer to program the amount of Distance miles/kilometers since
+                        the last service before lighting the Change Oil Lamp.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Fuel Used Starting Value</emph>
+                    </para>
+                    <para>This parameter indicates when the last service was performed.</para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Engine Hour Starting Value</emph>
+                    </para>
+                    <para>This parameter indicates when the last service was performed.</para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Vehicle Distance Starting Value</emph>
+                    </para>
+                    <para>This parameter indicates when the last service was performed.</para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Service Soon Percent</emph>
+                    </para>
+                    <para>This parameter indicates at what percentage of the service intervals should the Change Oil
+                        Lamp begin to flash as a warning.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Change Oil Lamp On Mode</emph>
+                    </para>
+                    <para>This parameter indicates if the Change Oil Lamp will be continuously on after an engine
+                        start.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Change Oil Lamp On Mode</emph>
+                    </para>
+                    <para>This parameter indicates how long to activate the Change Oil Lamp after an engine start if it
+                        is not always on.
+                    </para>
+                </item>
+                <item>
+                    <para>
+                        <emph type="bold">Service Interval Reset Request</emph>
+                    </para>
+                    <para>This parameter indicates to the on-board electronics that the vehicle has been serviced and
+                        the starting values are to be reset.
+                    </para>
+                </item>
+            </randlist>
+            <para id="f175fc262">
+                <emph type="bold">Diagnostic Trouble Code 262</emph>
+            </para>
+            <para>
+                <emph type="bold">ATA Code SID 54 FMI 11</emph>
+            </para>
+            <para>
+                <emph type="bold">Change Oil Lamp OCC Self Test Fail</emph>
+            </para>
+            <para>
+                <emph type="boldital"></emph>
+            </para>
+            <para>Diagnostic Trouble Code 262 is caused by an open or short to ground or power in the Change Oil Lamp
+                circuit. Diagnostic Trouble Code 262 is detected during a Standard Engine Off test when an Output
+                Circuit check is automatically performed. The Engine Standard test may be requested with the EST or if
+                the Engine Diagnostic switch (STI button) is pressed in and the ignition key is turned ON. (See the
+                mechanical diagnostic section for more information).
+            </para>
+            <figure id="f17503035" figsize="full-pg">
+                <graphic filename="../figeg7/eg7283.webp" type="webp" scalefit="1" scalefitwidth="514px"
+                         scalefitheight="592px" box="yes"/>
+                <caption>Circuit Diagram for Engine Warning Lights/Alarm and Test Switch</caption>
+            </figure>
+            <specpara>
+                <note>
+                    <para>*See CTS- 5122V Electrical Circuit Diagram Publication</para>
+                </note>
+            </specpara>
+        </svcsubproc>
+    </svcproc>
+    <table>
+        <tgroup cols="3">
+            <tbody>
+                <row>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_102.xml">
+                                <con_previous/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751_104.xml">
+                                <con_next/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                    <entry>
+                        <para>
+                            <hotlnk document="eges1751.htm" target="_top">
+                                <con_toc/>
+                            </hotlnk>
+                        </para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</isis>

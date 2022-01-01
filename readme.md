@@ -1,3 +1,9 @@
+INSTRUCTIONS TO LOAD THE MANUAL:
+
+1. Click index.html (load with Chrome or Firefox)
+
+NOTE: PDF FILES ARE IN FOLDER NAMED 'SVCMANPDF' 
+
 International Truck All Models Complete Workshop Service Repair Manual 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008
 
 Thanks for taking the time to look at this Complete Service Repair Workshop Manual.

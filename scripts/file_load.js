@@ -22,22 +22,47 @@ const loadMaster = () => {
 
 window.onload = loadMaster
 
-function loadFile(url) {
-    let localTest = /^(?:file):/,
-        xmlhttp = new XMLHttpRequest(),
-        status = 0;
+const tsbsNodes = [...document.getElementById('tsbs').childNodes]
+const loadTsbs = () => {
+    if (mainView && mainView.hasChildNodes()) mainView.innerHTML = '';
 
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState === 4)
-            status = xmlhttp.status;
-
-        if (localTest.test(location.href) && xmlhttp.responseText)
-            status = 200;
-
-        if (xmlhttp.readyState === 4 && status === 200)
-            mainView.innerHTML = xmlhttp.responseText;
-    }
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
+    tsbsNodes.forEach(child => {
+        mainView.appendChild(child)
+    })
 }
 
+const faultCodeNodes = [...document.getElementById('faultcode').childNodes]
+const loadFaultCodes = () => {
+    if (mainView && mainView.hasChildNodes()) mainView.innerHTML = '';
+
+    faultCodeNodes.forEach(child => {
+        mainView.appendChild(child)
+    })
+}
+
+const troubleixCodeNodes = [...document.getElementById('troubleix').childNodes]
+const loadTroubleix = () => {
+    if (mainView && mainView.hasChildNodes()) mainView.innerHTML = '';
+
+    troubleixCodeNodes.forEach(child => {
+        mainView.appendChild(child)
+    })
+}
+
+const circuitixCodeNodes = [...document.getElementById('circuitix').childNodes]
+const loadCircuitix = () => {
+    if (mainView && mainView.hasChildNodes()) mainView.innerHTML = '';
+
+    circuitixCodeNodes.forEach(child => {
+        mainView.appendChild(child)
+    })
+}
+
+const repairTimesCodeNodes = [...document.getElementById('repairTimes').childNodes]
+const loadRepairTimes = () => {
+    if (mainView && mainView.hasChildNodes()) mainView.innerHTML = '';
+
+    repairTimesCodeNodes.forEach(child => {
+        mainView.appendChild(child)
+    })
+}
